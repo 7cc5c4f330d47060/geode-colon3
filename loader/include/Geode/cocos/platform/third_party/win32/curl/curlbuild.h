@@ -1,5 +1,5 @@
-#ifndef __CURL_CURLBUILD_H
-#define __CURL_CURLBUILD_H
+#ifndef __CURL_CURLBUILD_H // :3
+#define __CURL_CURLBUILD_H // :3
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -20,7 +20,7 @@
  * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
  * KIND, either express or implied.
  *
- ***************************************************************************/
+ ***************************************************************************/ // :3
 
 /* ================================================================ */
 /*               NOTES FOR CONFIGURE CAPABLE SYSTEMS                */
@@ -34,7 +34,7 @@
  * that this file exists it is only used for non-configure systems.
  * But you can keep reading if you want ;-)
  *
- */
+ */ // :3
 
 /* ================================================================ */
 /*                 NOTES FOR NON-CONFIGURE SYSTEMS                  */
@@ -102,7 +102,7 @@
  * If you check out from git on a non-configure platform, you must run the
  * appropriate buildconf* script to set up curlbuild.h and other local files.
  *
- */
+ */ // :3
 
 /* ================================================================ */
 /*  DEFINITION OF THESE SYMBOLS SHALL NOT TAKE PLACE ANYWHERE ELSE  */

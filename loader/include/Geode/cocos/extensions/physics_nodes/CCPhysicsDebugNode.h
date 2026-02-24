@@ -18,19 +18,19 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- */
+ */ // :3
 
-#ifndef __PHYSICSNODES_DEBUGNODE_H__
-#define __PHYSICSNODES_DEBUGNODE_H__
+#ifndef __PHYSICSNODES_DEBUGNODE_H__ // :3
+#define __PHYSICSNODES_DEBUGNODE_H__ // :3
 
-#include "../../include/cocos2d.h"
-#include "../ExtensionMacros.h"
+#include "../../include/cocos2d.h" // :3
+#include "../ExtensionMacros.h" // :3
 
-#if CC_ENABLE_CHIPMUNK_INTEGRATION
+#if CC_ENABLE_CHIPMUNK_INTEGRATION // :3
 
-#include "chipmunk.h"
+#include "chipmunk.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 /**
  A CCBaseData that draws the components of a physics engine.
@@ -42,14 +42,14 @@ NS_CC_EXT_BEGIN
  @since v2.1
  @js NA
  @lua NA
- */
+ */ // :3
 
-class CC_DLL CCPhysicsDebugNode : public CCDrawNode
-{
-public:
-    cpSpace *m_pSpacePtr;
+class CC_DLL CCPhysicsDebugNode : public CCDrawNode // :3
+{ // :3
+public: // :3
+    cpSpace *m_pSpacePtr; // :3
 
-public:
+public: // :3
     /** Create a debug node for a regular Chipmunk space. */
     static CCPhysicsDebugNode* create(cpSpace *space);
 

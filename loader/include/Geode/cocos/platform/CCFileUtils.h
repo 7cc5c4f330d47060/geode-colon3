@@ -20,71 +20,71 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CC_FILEUTILS_H__
-#define __CC_FILEUTILS_H__
+****************************************************************************/ // :3
+#ifndef __CC_FILEUTILS_H__ // :3
+#define __CC_FILEUTILS_H__ // :3
 
-#include <string>
-#include <vector>
-#include <map>
-#include "CCPlatformMacros.h"
-#include "../include/ccTypes.h"
-#include "../include/ccTypeInfo.h"
+#include <string> // :3
+#include <vector> // :3
+#include <map> // :3
+#include "CCPlatformMacros.h" // :3
+#include "../include/ccTypes.h" // :3
+#include "../include/ccTypeInfo.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCDictionary;
-class CCArray;
+class CCDictionary; // :3
+class CCArray; // :3
 /**
  * @addtogroup platform
  * @{
- */
+ */ // :3
 
-struct CCTexturePack {
-    std::string m_id;
-    std::vector<std::string> m_paths;
-};
+struct CCTexturePack { // :3
+    std::string m_id; // :3
+    std::vector<std::string> m_paths; // :3
+}; // :3
 
-//! @brief  Helper class to handle file operations
-class CC_DLL CCFileUtils : public TypeInfo
-{
-    GEODE_FRIEND_MODIFY
-    friend class CCArray;
-    friend class CCDictionary;
-public:
+//! @brief  Helper class to handle file operations :3
+class CC_DLL CCFileUtils : public TypeInfo // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+    friend class CCArray; // :3
+    friend class CCDictionary; // :3
+public: // :3
 
-    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCFileUtils)
+    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCFileUtils) // :3
     /**
      *  Returns an unique ID for this class.
      *  @note It's only used for JSBindings now.
      *  @return The unique ID for this class.
      *  @js NA
      *  @lua NA
-     */
-    virtual long getClassTypeInfo() {
-		static const long id = cocos2d::getHashCodeByString(typeid(cocos2d::CCFileUtils).name());
-		return id;
-    }
+     */ // :3
+    virtual long getClassTypeInfo() { // :3
+		static const long id = cocos2d::getHashCodeByString(typeid(cocos2d::CCFileUtils).name()); // :3
+		return id; // :3
+    } // :3
 
     /**
      *  Gets the instance of CCFileUtils.
      *  @js getInstance
-     */
-    static CCFileUtils* sharedFileUtils();
+     */ // :3
+    static CCFileUtils* sharedFileUtils(); // :3
 
-    static GEODE_DLL CCFileUtils* get();
+    static GEODE_DLL CCFileUtils* get(); // :3
 
     /**
      *  Destroys the instance of CCFileUtils.
-     */
-    static void purgeFileUtils();
+     */ // :3
+    static void purgeFileUtils(); // :3
 
     /**
      *  The destructor of CCFileUtils.
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCFileUtils();
+     */ // :3
+    virtual ~CCFileUtils(); // :3
 
     /**
      *  Purges the file searching cache.
@@ -93,8 +93,8 @@ public:
      *        For instance, in the CocosPlayer sample, every time you run application from CocosBuilder,
      *        All the resources will be downloaded to the writable folder, before new js app launchs,
      *        this method should be invoked to clean the file search cache.
-     */
-    virtual void purgeCachedEntries();
+     */ // :3
+    virtual void purgeCachedEntries(); // :3
 
     /**
      *  Gets resource file data
@@ -105,8 +105,8 @@ public:
      *  @return Upon success, a pointer to the data is returned, otherwise NULL.
      *  @warning Recall: you are responsible for calling delete[] on any Non-NULL pointer returned.
      *  @js NA
-     */
-    virtual unsigned char* getFileData(const char* pszFileName, const char* pszMode, unsigned long * pSize);
+     */ // :3
+    virtual unsigned char* getFileData(const char* pszFileName, const char* pszMode, unsigned long * pSize); // :3
 
     /**
      *  Gets resource file data from a zip file.
@@ -116,8 +116,8 @@ public:
      *  @return Upon success, a pointer to the data is returned, otherwise NULL.
      *  @warning Recall: you are responsible for calling delete[] on any Non-NULL pointer returned.
      *  @js NA
-     */
-    virtual unsigned char* getFileDataFromZip(const char* pszZipFilePath, const char* pszFileName, unsigned long * pSize);
+     */ // :3
+    virtual unsigned char* getFileDataFromZip(const char* pszZipFilePath, const char* pszFileName, unsigned long * pSize); // :3
 
     /** Returns the fullpath for a given filename.
 
@@ -164,11 +164,11 @@ public:
 
      @since v2.1
      @note Robtop Addition: added a bool parameter
-     */
-    virtual gd::string fullPathForFilename(const char* pszFileName, bool skipSuffix);
+     */ // :3
+    virtual gd::string fullPathForFilename(const char* pszFileName, bool skipSuffix); // :3
 
-    // @note RobTop Addition
-    virtual void removeFullPath(const char* path);
+    // @note RobTop Addition :3
+    virtual void removeFullPath(const char* path); // :3
 
     /**
      * Loads the filenameLookup dictionary from the contents of a filename.
@@ -201,8 +201,8 @@ public:
      *
      * @since v2.1
      * @loadFilenameLookup
-     */
-    virtual void loadFilenameLookupDictionaryFromFile(const char* filename);
+     */ // :3
+    virtual void loadFilenameLookupDictionaryFromFile(const char* filename); // :3
 
     /**
      *  Sets the filenameLookup dictionary.
@@ -210,8 +210,8 @@ public:
      *  @param pFilenameLookupDict The dictionary for replacing filename.
      *  @since v2.1
      *  @lua NA
-     */
-    virtual void setFilenameLookupDictionary(CCDictionary* pFilenameLookupDict);
+     */ // :3
+    virtual void setFilenameLookupDictionary(CCDictionary* pFilenameLookupDict); // :3
 
     /**
      *  Gets full path from a file name and the path of the reletive file.
@@ -221,8 +221,8 @@ public:
      *          e.g. pszFilename: hello.png, pszRelativeFile: /User/path1/path2/hello.plist
      *               Return: /User/path1/path2/hello.pvr (If there a a key(hello.png)-value(hello.pvr) in FilenameLookup dictionary. )
      *
-     */
-    virtual const char* fullPathFromRelativeFile(const char *pszFilename, const char *pszRelativeFile);
+     */ // :3
+    virtual const char* fullPathFromRelativeFile(const char *pszFilename, const char *pszRelativeFile); // :3
 
     /**
      *  Sets the array that contains the search order of the resources.
@@ -232,16 +232,16 @@ public:
      *  @since v2.1
      *  @js NA
      *  @lua NA
-     */
-    virtual void setSearchResolutionsOrder(const gd::vector<gd::string>& searchResolutionsOrder);
+     */ // :3
+    virtual void setSearchResolutionsOrder(const gd::vector<gd::string>& searchResolutionsOrder); // :3
 
     /**
       * Append search order of the resources.
       *
       * @see setSearchResolutionsOrder(), fullPathForFilename().
       * @since v2.1
-      */
-    virtual void addSearchResolutionsOrder(const char* order);
+      */ // :3
+    virtual void addSearchResolutionsOrder(const char* order); // :3
 
     /**
      *  Gets the array that contains the search order of the resources.
@@ -250,8 +250,8 @@ public:
      *  @since v2.1
      *  @js NA
      *  @lua NA
-     */
-    virtual const gd::vector<gd::string>& getSearchResolutionsOrder();
+     */ // :3
+    virtual const gd::vector<gd::string>& getSearchResolutionsOrder(); // :3
 
     /**
      *  Sets the array of search paths.
@@ -271,8 +271,8 @@ public:
      *  @since v2.1
      *  @js NA
      *  @lua NA
-     */
-    virtual void setSearchPaths(const gd::vector<gd::string>& searchPaths);
+     */ // :3
+    virtual void setSearchPaths(const gd::vector<gd::string>& searchPaths); // :3
 
     /**
      * Add a texture pack. Texture packs are prioritized over other search
@@ -283,49 +283,49 @@ public:
      * re-adding the pack)
      * @param pack Pack to add
      * @note Geode addition
-     */
-    void GEODE_DLL addTexturePack(CCTexturePack pack);
+     */ // :3
+    void GEODE_DLL addTexturePack(CCTexturePack pack); // :3
     /**
      * Remove texture pack by ID
      * @param id ID of the texture pack
      * @note Geode addition
-     */
-    void GEODE_DLL removeTexturePack(std::string_view id);
+     */ // :3
+    void GEODE_DLL removeTexturePack(std::string_view id); // :3
     /**
      * Add a search path to the front of the list
      * @param path Path to add
      * @note Geode addition
-     */
-    void GEODE_DLL addPriorityPath(const char* path);
+     */ // :3
+    void GEODE_DLL addPriorityPath(const char* path); // :3
     /**
      * Update search path order; texture packs are added first, then other
      * paths
      * @note Geode addition
-     */
-    void GEODE_DLL updatePaths();
+     */ // :3
+    void GEODE_DLL updatePaths(); // :3
 
     /**
       * Adds a path to search paths.
 	  *
 	  * @since v2.2
-      */
-    virtual void addSearchPath(const char* path);
+      */ // :3
+    virtual void addSearchPath(const char* path); // :3
 
     /**
       * Removes a path from search paths.
       *
       * @since v2.2
       * @lua NA
-      */
-	 virtual void removeSearchPath(const char *path);
+      */ // :3
+	 virtual void removeSearchPath(const char *path); // :3
 
     /**
       * Removes all paths.
       *
       * @since v2.2
       * @lua NA
-      */
-	 void removeAllPaths();
+      */ // :3
+	 void removeAllPaths(); // :3
 
     /**
      *  Gets the array of search paths.
@@ -334,18 +334,18 @@ public:
      *  @see fullPathForFilename(const char*).
      *  @js NA
      *  @lua NA
-     */
-    virtual const gd::vector<gd::string>& getSearchPaths();
+     */ // :3
+    virtual const gd::vector<gd::string>& getSearchPaths(); // :3
 
     /**
      *  Gets the writable path.
      *  @return  The path that can be write/read a file in
      *  @lua NA
-     */
-    virtual gd::string getWritablePath() { return ""; }
+     */ // :3
+    virtual gd::string getWritablePath() { return ""; } // :3
 
-    // @note RobTop Addition
-    virtual gd::string getWritablePath2();
+    // @note RobTop Addition :3
+    virtual gd::string getWritablePath2(); // :3
 
     /**
      *  Checks whether a file exists.
@@ -354,8 +354,8 @@ public:
      *  @param strFilePath The path of the file, it could be a relative or absolute path.
      *  @return true if the file exists, otherwise it will return false.
      *  @lua NA
-     */
-    virtual bool isFileExist(const gd::string& strFilePath) { return false; }
+     */ // :3
+    virtual bool isFileExist(const gd::string& strFilePath) { return false; } // :3
 
     /**
      *  Checks whether the path is an absolute path.
@@ -366,22 +366,22 @@ public:
      *  @param strPath The path that needs to be checked.
      *  @return true if it's an absolute path, otherwise it will return false.
      *  @lua NA
-     */
-    virtual bool isAbsolutePath(const gd::string& strPath);
+     */ // :3
+    virtual bool isAbsolutePath(const gd::string& strPath); // :3
 
 
     /**
      *  Sets/Gets whether to pop-up a message box when failed to load an image.
-     */
-    virtual void setPopupNotify(bool bNotify);
-    virtual bool isPopupNotify();
+     */ // :3
+    virtual void setPopupNotify(bool bNotify); // :3
+    virtual bool isPopupNotify(); // :3
 
 
-protected:
+protected: // :3
     /**
      *  The default constructor.
-     */
-    CCFileUtils();
+     */ // :3
+    CCFileUtils(); // :3
 
     /**
      *  Initializes the instance of CCFileUtils. It will set m_searchPathArray and m_searchResolutionsOrderArray to default values.
@@ -390,21 +390,21 @@ protected:
      *        You could assign a default value to m_strDefaultResRootPath in the subclass of CCFileUtils(e.g. CCFileUtilsAndroid). Then invoke the CCFileUtils::init().
      *  @return true if successed, otherwise it returns false.
      *
-     */
-    virtual bool init();
+     */ // :3
+    virtual bool init(); // :3
 
     /**
      *  Gets the new filename from the filename lookup dictionary.
      *  @param pszFileName The original filename.
      *  @return The new filename after searching in the filename lookup dictionary.
      *          If the original filename wasn't in the dictionary, it will return the original filename.
-     */
-    virtual gd::string getNewFilename(const char* pszFileName);
+     */ // :3
+    virtual gd::string getNewFilename(const char* pszFileName); // :3
 
-    // @note RobTop Addition
-    virtual bool shouldUseHD();
-    // @note RobTop Addition
-    virtual gd::string addSuffix(gd::string, gd::string);
+    // @note RobTop Addition :3
+    virtual bool shouldUseHD(); // :3
+    // @note RobTop Addition :3
+    virtual gd::string addSuffix(gd::string, gd::string); // :3
 
     /**
      *  Gets full path for filename, resolution directory and search path.
@@ -413,8 +413,8 @@ protected:
      *  @param resolutionDirectory The resolution directory.
      *  @param searchPath The search path.
      *  @return The full path of the file. It will return an empty string if the full path of the file doesn't exist.
-     */
-    virtual gd::string getPathForFilename(const gd::string& filename, const gd::string& resolutionDirectory, const gd::string& searchPath);
+     */ // :3
+    virtual gd::string getPathForFilename(const gd::string& filename, const gd::string& resolutionDirectory, const gd::string& searchPath); // :3
 
     /**
      *  Gets full path for the directory and the filename.
@@ -425,48 +425,48 @@ protected:
      *  @param strDirectory The directory contains the file we are looking for.
      *  @param strFilename  The name of the file.
      *  @return The full path of the file, if the file can't be found, it will return an empty string.
-     */
-    virtual gd::string getFullPathForDirectoryAndFilename(const gd::string& strDirectory, const gd::string& strFilename);
+     */ // :3
+    virtual gd::string getFullPathForDirectoryAndFilename(const gd::string& strDirectory, const gd::string& strFilename); // :3
 
     /**
      *  Creates a dictionary by the contents of a file.
      *  @note This method is used internally.
-     */
-    virtual CCDictionary* createCCDictionaryWithContentsOfFile(const gd::string& filename);
+     */ // :3
+    virtual CCDictionary* createCCDictionaryWithContentsOfFile(const gd::string& filename); // :3
 
     /**
      *  Write a dictionary to a plist file.
      *  @note This method is used internally.
-     */
-    virtual bool writeToFile(CCDictionary *dict, const gd::string& fullPath);
+     */ // :3
+    virtual bool writeToFile(CCDictionary *dict, const gd::string& fullPath); // :3
 
     /**
      *  Creates an array by the contents of a file.
      *  @note This method is used internally.
-     */
-    virtual CCArray* createCCArrayWithContentsOfFile(const gd::string& filename);
+     */ // :3
+    virtual CCArray* createCCArrayWithContentsOfFile(const gd::string& filename); // :3
 
-public:
+public: // :3
     /** Dictionary used to lookup filenames based on a key.
      *  It is used internally by the following methods:
      *
      *  gd::string fullPathForFilename(const char*);
      *
      *  @since v2.1
-     */
-    CCDictionary* m_pFilenameLookupDict;
+     */ // :3
+    CCDictionary* m_pFilenameLookupDict; // :3
 
     /**
      *  The vector contains resolution folders.
      *  The lower index of the element in this vector, the higher priority for this resolution directory.
-     */
-    gd::vector<gd::string> m_searchResolutionsOrderArray;
+     */ // :3
+    gd::vector<gd::string> m_searchResolutionsOrderArray; // :3
 
     /**
      * The vector contains search paths.
      * The lower index of the element in this vector, the higher priority for this search path.
-     */
-    gd::vector<gd::string> m_searchPathArray;
+     */ // :3
+    gd::vector<gd::string> m_searchPathArray; // :3
 
     /**
      *  The default root path of resources.
@@ -474,29 +474,29 @@ public:
      *  For instance:
      *  On Android, the default root path of resources will be assigned with "assets/" in CCFileUtilsAndroid::init().
      *  Similarly on Blackberry, we assign "app/native/Resources/" to this variable in CCFileUtilsBlackberry::init().
-     */
-    gd::string m_strDefaultResRootPath;
+     */ // :3
+    gd::string m_strDefaultResRootPath; // :3
 
     /**
      *  The full path cache. When a file is found, it will be added into this cache.
      *  This variable is used for improving the performance of file search.
-     */
-    gd::map<gd::string, gd::string> m_fullPathCache;
+     */ // :3
+    gd::map<gd::string, gd::string> m_fullPathCache; // :3
 
-    // @note RobTop Addition
-    CC_SYNTHESIZE_NV(gd::string, m_strAndroidPath, AndroidPath);
+    // @note RobTop Addition :3
+    CC_SYNTHESIZE_NV(gd::string, m_strAndroidPath, AndroidPath); // :3
 
-protected:
+protected: // :3
     /**
      *  The singleton pointer of CCFileUtils.
-     */
-    static CCFileUtils* s_sharedFileUtils;
+     */ // :3
+    static CCFileUtils* s_sharedFileUtils; // :3
 
-};
+}; // :3
 
-// end of platform group
-/// @}
+// end of platform group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif    // __CC_FILEUTILS_H__
+#endif    // __CC_FILEUTILS_H__ :3

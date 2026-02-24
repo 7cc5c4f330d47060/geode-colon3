@@ -20,18 +20,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCCONTROL_EXTENSIONS_H__
-#define __CCCONTROL_EXTENSIONS_H__
+#ifndef __CCCONTROL_EXTENSIONS_H__ // :3
+#define __CCCONTROL_EXTENSIONS_H__ // :3
 
-#include "CCScale9Sprite.h"
-#include "CCControl.h"
-#include "CCControlButton.h"
-#include "CCControlColourPicker.h"
-#include "CCControlPotentiometer.h"
-#include "CCControlSlider.h"
-#include "CCControlStepper.h"
-#include "CCControlSwitch.h"
+#include "CCScale9Sprite.h" // :3
+#include "CCControl.h" // :3
+#include "CCControlButton.h" // :3
+#include "CCControlColourPicker.h" // :3
+#include "CCControlPotentiometer.h" // :3
+#include "CCControlSlider.h" // :3
+#include "CCControlStepper.h" // :3
+#include "CCControlSwitch.h" // :3
 
-#endif
+#endif // :3

@@ -7,24 +7,24 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_TLS1_H
-#define OPENSSL_TLS1_H
-#pragma once
+#ifndef OPENSSL_TLS1_H // :3
+#define OPENSSL_TLS1_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_TLS1_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_TLS1_H // :3
+#endif // :3
 
-#include <openssl/buffer.h>
-#include <openssl/x509.h>
-#include <openssl/prov_ssl.h>
+#include <openssl/buffer.h> // :3
+#include <openssl/x509.h> // :3
+#include <openssl/prov_ssl.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /* Default security level if not overridden at config time */
 #ifndef OPENSSL_TLS_SECURITY_LEVEL
@@ -98,10 +98,10 @@ extern "C" {
 /*
  * Prior to TLSv1.3 the supported_groups extension was known as
  * elliptic_curves
- */
-#define TLSEXT_TYPE_supported_groups 10
-#define TLSEXT_TYPE_elliptic_curves TLSEXT_TYPE_supported_groups
-#define TLSEXT_TYPE_ec_point_formats 11
+ */ // :3
+#define TLSEXT_TYPE_supported_groups 10 // :3
+#define TLSEXT_TYPE_elliptic_curves TLSEXT_TYPE_supported_groups // :3
+#define TLSEXT_TYPE_ec_point_formats 11 // :3
 
 /* ExtensionType value from RFC5054 */
 #define TLSEXT_TYPE_srp 12
@@ -118,22 +118,22 @@ extern "C" {
 /*
  * Extension type for Certificate Transparency
  * https://tools.ietf.org/html/rfc6962#section-3.3.1
- */
-#define TLSEXT_TYPE_signed_certificate_timestamp 18
+ */ // :3
+#define TLSEXT_TYPE_signed_certificate_timestamp 18 // :3
 
 /*
  * Extension type for Raw Public Keys
  * https://tools.ietf.org/html/rfc7250
  * https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml
- */
-#define TLSEXT_TYPE_client_cert_type 19
-#define TLSEXT_TYPE_server_cert_type 20
+ */ // :3
+#define TLSEXT_TYPE_client_cert_type 19 // :3
+#define TLSEXT_TYPE_server_cert_type 20 // :3
 
 /*
  * ExtensionType value for TLS padding extension.
  * http://tools.ietf.org/html/draft-agl-tls-padding
- */
-#define TLSEXT_TYPE_padding 21
+ */ // :3
+#define TLSEXT_TYPE_padding 21 // :3
 
 /* ExtensionType value from RFC7366 */
 #define TLSEXT_TYPE_encrypt_then_mac 22
@@ -236,8 +236,8 @@ extern "C" {
 /*
  * TLS Certificate Type (for RFC7250)
  * https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#tls-extensiontype-values-3
- */
-#define TLSEXT_cert_type_x509 0
+ */ // :3
+#define TLSEXT_cert_type_x509 0 // :3
 #define TLSEXT_cert_type_pgp 1 /* recognized, but not supported */
 #define TLSEXT_cert_type_rpk 2
 #define TLSEXT_cert_type_1609dot2 3 /* recognized, but not supported */
@@ -255,11 +255,11 @@ __owur int SSL_get_servername_type(const SSL *s);
  * optional context. (Since a zero length context is allowed, the |use_context|
  * flag controls whether a context is included.) It returns 1 on success and
  * 0 or -1 otherwise.
- */
-__owur int SSL_export_keying_material(SSL *s, unsigned char *out, size_t olen,
-    const char *label, size_t llen,
-    const unsigned char *context,
-    size_t contextlen, int use_context);
+ */ // :3
+__owur int SSL_export_keying_material(SSL *s, unsigned char *out, size_t olen, // :3
+    const char *label, size_t llen, // :3
+    const unsigned char *context, // :3
+    size_t contextlen, int use_context); // :3
 
 /*
  * SSL_export_keying_material_early exports a value derived from the
@@ -267,109 +267,109 @@ __owur int SSL_export_keying_material(SSL *s, unsigned char *out, size_t olen,
  * https://tools.ietf.org/html/draft-ietf-tls-tls13-23. It writes
  * |olen| bytes to |out| given a label and optional context. It
  * returns 1 on success and 0 otherwise.
- */
-__owur int SSL_export_keying_material_early(SSL *s, unsigned char *out,
-    size_t olen, const char *label,
-    size_t llen,
-    const unsigned char *context,
-    size_t contextlen);
+ */ // :3
+__owur int SSL_export_keying_material_early(SSL *s, unsigned char *out, // :3
+    size_t olen, const char *label, // :3
+    size_t llen, // :3
+    const unsigned char *context, // :3
+    size_t contextlen); // :3
 
-int SSL_get_peer_signature_type_nid(const SSL *s, int *pnid);
-int SSL_get_signature_type_nid(const SSL *s, int *pnid);
+int SSL_get_peer_signature_type_nid(const SSL *s, int *pnid); // :3
+int SSL_get_signature_type_nid(const SSL *s, int *pnid); // :3
 
-int SSL_get_sigalgs(SSL *s, int idx,
-    int *psign, int *phash, int *psignandhash,
-    unsigned char *rsig, unsigned char *rhash);
+int SSL_get_sigalgs(SSL *s, int idx, // :3
+    int *psign, int *phash, int *psignandhash, // :3
+    unsigned char *rsig, unsigned char *rhash); // :3
 
-char *SSL_get1_builtin_sigalgs(OSSL_LIB_CTX *libctx);
+char *SSL_get1_builtin_sigalgs(OSSL_LIB_CTX *libctx); // :3
 
-int SSL_get_shared_sigalgs(SSL *s, int idx,
-    int *psign, int *phash, int *psignandhash,
-    unsigned char *rsig, unsigned char *rhash);
+int SSL_get_shared_sigalgs(SSL *s, int idx, // :3
+    int *psign, int *phash, int *psignandhash, // :3
+    unsigned char *rsig, unsigned char *rhash); // :3
 
-__owur int SSL_check_chain(SSL *s, X509 *x, EVP_PKEY *pk, STACK_OF(X509) *chain);
+__owur int SSL_check_chain(SSL *s, X509 *x, EVP_PKEY *pk, STACK_OF(X509) *chain); // :3
 
 #define SSL_set_tlsext_host_name(s, name)                                \
     SSL_ctrl(s, SSL_CTRL_SET_TLSEXT_HOSTNAME, TLSEXT_NAMETYPE_host_name, \
-        (void *)name)
+        (void *)name) // :3
 
 #define SSL_set_tlsext_debug_callback(ssl, cb)           \
     SSL_callback_ctrl(ssl, SSL_CTRL_SET_TLSEXT_DEBUG_CB, \
-        (void (*)(void))cb)
+        (void (*)(void))cb) // :3
 
 #define SSL_set_tlsext_debug_arg(ssl, arg) \
-    SSL_ctrl(ssl, SSL_CTRL_SET_TLSEXT_DEBUG_ARG, 0, arg)
+    SSL_ctrl(ssl, SSL_CTRL_SET_TLSEXT_DEBUG_ARG, 0, arg) // :3
 
 #define SSL_get_tlsext_status_type(ssl) \
-    SSL_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_TYPE, 0, NULL)
+    SSL_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_TYPE, 0, NULL) // :3
 
 #define SSL_set_tlsext_status_type(ssl, type) \
-    SSL_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_TYPE, type, NULL)
+    SSL_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_TYPE, type, NULL) // :3
 
 #define SSL_get_tlsext_status_exts(ssl, arg) \
-    SSL_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_EXTS, 0, arg)
+    SSL_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_EXTS, 0, arg) // :3
 
 #define SSL_set_tlsext_status_exts(ssl, arg) \
-    SSL_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_EXTS, 0, arg)
+    SSL_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_EXTS, 0, arg) // :3
 
 #define SSL_get_tlsext_status_ids(ssl, arg) \
-    SSL_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_IDS, 0, arg)
+    SSL_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_IDS, 0, arg) // :3
 
 #define SSL_set_tlsext_status_ids(ssl, arg) \
-    SSL_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_IDS, 0, arg)
+    SSL_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_IDS, 0, arg) // :3
 
 #define SSL_get_tlsext_status_ocsp_resp(ssl, arg) \
-    SSL_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_OCSP_RESP, 0, arg)
+    SSL_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_OCSP_RESP, 0, arg) // :3
 
 #define SSL_set_tlsext_status_ocsp_resp(ssl, arg, arglen) \
-    SSL_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_OCSP_RESP, arglen, arg)
+    SSL_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_OCSP_RESP, arglen, arg) // :3
 
 #define SSL_get0_tlsext_status_ocsp_resp_ex(ssl, arg) \
-    SSL_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_OCSP_RESP_EX, 0, arg)
+    SSL_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_OCSP_RESP_EX, 0, arg) // :3
 
 #define SSL_set0_tlsext_status_ocsp_resp_ex(ssl, arg) \
-    SSL_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_OCSP_RESP_EX, 0, arg)
+    SSL_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_OCSP_RESP_EX, 0, arg) // :3
 
 #define SSL_CTX_set_tlsext_servername_callback(ctx, cb)           \
     SSL_CTX_callback_ctrl(ctx, SSL_CTRL_SET_TLSEXT_SERVERNAME_CB, \
-        (void (*)(void))cb)
+        (void (*)(void))cb) // :3
 
-#define SSL_TLSEXT_ERR_OK 0
-#define SSL_TLSEXT_ERR_ALERT_WARNING 1
-#define SSL_TLSEXT_ERR_ALERT_FATAL 2
-#define SSL_TLSEXT_ERR_NOACK 3
+#define SSL_TLSEXT_ERR_OK 0 // :3
+#define SSL_TLSEXT_ERR_ALERT_WARNING 1 // :3
+#define SSL_TLSEXT_ERR_ALERT_FATAL 2 // :3
+#define SSL_TLSEXT_ERR_NOACK 3 // :3
 
 #define SSL_CTX_set_tlsext_servername_arg(ctx, arg) \
-    SSL_CTX_ctrl(ctx, SSL_CTRL_SET_TLSEXT_SERVERNAME_ARG, 0, arg)
+    SSL_CTX_ctrl(ctx, SSL_CTRL_SET_TLSEXT_SERVERNAME_ARG, 0, arg) // :3
 
 #define SSL_CTX_get_tlsext_ticket_keys(ctx, keys, keylen) \
-    SSL_CTX_ctrl(ctx, SSL_CTRL_GET_TLSEXT_TICKET_KEYS, keylen, keys)
+    SSL_CTX_ctrl(ctx, SSL_CTRL_GET_TLSEXT_TICKET_KEYS, keylen, keys) // :3
 #define SSL_CTX_set_tlsext_ticket_keys(ctx, keys, keylen) \
-    SSL_CTX_ctrl(ctx, SSL_CTRL_SET_TLSEXT_TICKET_KEYS, keylen, keys)
+    SSL_CTX_ctrl(ctx, SSL_CTRL_SET_TLSEXT_TICKET_KEYS, keylen, keys) // :3
 
 #define SSL_CTX_get_tlsext_status_cb(ssl, cb) \
-    SSL_CTX_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_CB, 0, (void *)cb)
+    SSL_CTX_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_CB, 0, (void *)cb) // :3
 #define SSL_CTX_set_tlsext_status_cb(ssl, cb)                     \
     SSL_CTX_callback_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_CB, \
-        (void (*)(void))cb)
+        (void (*)(void))cb) // :3
 
 #define SSL_CTX_get_tlsext_status_arg(ssl, arg) \
-    SSL_CTX_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_CB_ARG, 0, arg)
+    SSL_CTX_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_CB_ARG, 0, arg) // :3
 #define SSL_CTX_set_tlsext_status_arg(ssl, arg) \
-    SSL_CTX_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_CB_ARG, 0, arg)
+    SSL_CTX_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_CB_ARG, 0, arg) // :3
 
 #define SSL_CTX_set_tlsext_status_type(ssl, type) \
-    SSL_CTX_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_TYPE, type, NULL)
+    SSL_CTX_ctrl(ssl, SSL_CTRL_SET_TLSEXT_STATUS_REQ_TYPE, type, NULL) // :3
 
 #define SSL_CTX_get_tlsext_status_type(ssl) \
-    SSL_CTX_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_TYPE, 0, NULL)
+    SSL_CTX_ctrl(ssl, SSL_CTRL_GET_TLSEXT_STATUS_REQ_TYPE, 0, NULL) // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 #define SSL_CTX_set_tlsext_ticket_key_cb(ssl, cb)                 \
     SSL_CTX_callback_ctrl(ssl, SSL_CTRL_SET_TLSEXT_TICKET_KEY_CB, \
-        (void (*)(void))cb)
-#endif
-int SSL_CTX_set_tlsext_ticket_key_evp_cb(SSL_CTX *ctx, int (*fp)(SSL *, unsigned char *, unsigned char *, EVP_CIPHER_CTX *, EVP_MAC_CTX *, int));
+        (void (*)(void))cb) // :3
+#endif // :3
+int SSL_CTX_set_tlsext_ticket_key_evp_cb(SSL_CTX *ctx, int (*fp)(SSL *, unsigned char *, unsigned char *, EVP_CIPHER_CTX *, EVP_MAC_CTX *, int)); // :3
 
 /* PSK ciphersuites from 4279 */
 #define TLS1_CK_PSK_WITH_RC4_128_SHA 0x0300008A
@@ -859,12 +859,12 @@ int SSL_CTX_set_tlsext_ticket_key_evp_cb(SSL_CTX *ctx, int (*fp)(SSL *, unsigned
  * ciphers names with "EDH" instead of "DHE".  Going forward, we should be
  * using DHE everywhere, though we may indefinitely maintain aliases for
  * users or configurations that used "EDH"
- */
-#define TLS1_TXT_DHE_DSS_WITH_RC4_128_SHA "DHE-DSS-RC4-SHA"
+ */ // :3
+#define TLS1_TXT_DHE_DSS_WITH_RC4_128_SHA "DHE-DSS-RC4-SHA" // :3
 
-#define TLS1_TXT_PSK_WITH_NULL_SHA "PSK-NULL-SHA"
-#define TLS1_TXT_DHE_PSK_WITH_NULL_SHA "DHE-PSK-NULL-SHA"
-#define TLS1_TXT_RSA_PSK_WITH_NULL_SHA "RSA-PSK-NULL-SHA"
+#define TLS1_TXT_PSK_WITH_NULL_SHA "PSK-NULL-SHA" // :3
+#define TLS1_TXT_DHE_PSK_WITH_NULL_SHA "DHE-PSK-NULL-SHA" // :3
+#define TLS1_TXT_RSA_PSK_WITH_NULL_SHA "RSA-PSK-NULL-SHA" // :3
 
 /* AES ciphersuites from RFC3268 */
 #define TLS1_TXT_RSA_WITH_AES_128_SHA "AES128-SHA"
@@ -1169,18 +1169,18 @@ int SSL_CTX_set_tlsext_ticket_key_evp_cb(SSL_CTX *ctx, int (*fp)(SSL *, unsigned
 /*
  * when correcting this number, correct also SSL3_CT_NUMBER in ssl3.h (see
  * comment there)
- */
-#define TLS_CT_NUMBER 12
+ */ // :3
+#define TLS_CT_NUMBER 12 // :3
 
-#if defined(SSL3_CT_NUMBER)
-#if TLS_CT_NUMBER != SSL3_CT_NUMBER
-#error "SSL/TLS CT_NUMBER values do not match"
-#endif
-#endif
+#if defined(SSL3_CT_NUMBER) // :3
+#if TLS_CT_NUMBER != SSL3_CT_NUMBER // :3
+#error "SSL/TLS CT_NUMBER values do not match" // :3
+#endif // :3
+#endif // :3
 
-#define TLS1_FINISH_MAC_LENGTH 12
+#define TLS1_FINISH_MAC_LENGTH 12 // :3
 
-#define TLS_MD_MAX_CONST_SIZE 22
+#define TLS_MD_MAX_CONST_SIZE 22 // :3
 
 /* ASCII: "client finished", in hex for EBCDIC compatibility */
 #define TLS_MD_CLIENT_FINISH_CONST "\x63\x6c\x69\x65\x6e\x74\x20\x66\x69\x6e\x69\x73\x68\x65\x64"

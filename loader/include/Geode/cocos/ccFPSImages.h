@@ -20,15 +20,15 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */
+ */ // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-extern unsigned char cc_fps_images_png[];
-unsigned int cc_fps_images_len(void);
+extern unsigned char cc_fps_images_png[]; // :3
+unsigned int cc_fps_images_len(void); // :3
 
-#ifdef __cplusplus
-}
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3

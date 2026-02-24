@@ -22,22 +22,22 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCCAMERA_H__
-#define __CCCAMERA_H__
+#ifndef __CCCAMERA_H__ // :3
+#define __CCCAMERA_H__ // :3
 
-#include "cocoa/CCObject.h"
-#include "include/ccMacros.h"
-#include "kazmath/include/kazmath/mat4.h"
-#include <string>
+#include "cocoa/CCObject.h" // :3
+#include "include/ccMacros.h" // :3
+#include "kazmath/include/kazmath/mat4.h" // :3
+#include <string> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup base_nodes
  * @{
- */
+ */ // :3
 
 /**
 A CCCamera is used in every CCNode.
@@ -60,42 +60,42 @@ using the camera.
 
 - It is recommended to use it ONLY if you are going to create 3D effects. For 2D effects, use the action CCFollow or position/scale/rotate.
 
-*/
-class CC_DLL CCCamera : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    float m_fEyeX;
-    float m_fEyeY;
-    float m_fEyeZ;
+*/ // :3
+class CC_DLL CCCamera : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    float m_fEyeX; // :3
+    float m_fEyeY; // :3
+    float m_fEyeZ; // :3
 
-    float m_fCenterX;
-    float m_fCenterY;
-    float m_fCenterZ;
+    float m_fCenterX; // :3
+    float m_fCenterY; // :3
+    float m_fCenterZ; // :3
 
-    float m_fUpX;
-    float m_fUpY;
-    float m_fUpZ;
+    float m_fUpX; // :3
+    float m_fUpY; // :3
+    float m_fUpZ; // :3
 
-    bool m_bDirty;
-    kmMat4    m_lookupMatrix;
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCCamera, CCObject)
+    bool m_bDirty; // :3
+    kmMat4    m_lookupMatrix; // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCCamera, CCObject) // :3
     /**
      *  @js ctor
-     */
-    CCCamera(void);
+     */ // :3
+    CCCamera(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    ~CCCamera(void);
+     */ // :3
+    ~CCCamera(void); // :3
 
-    void init(void);
+    void init(void); // :3
     /**
      *  @js NA
-     */
-    const char* description(void);
+     */ // :3
+    const char* description(void); // :3
 
     /** sets the dirty value */
     inline void setDirty(bool bValue) { m_bDirty = bValue; }
@@ -108,30 +108,30 @@ public:
     void locate(void);
     /** sets the eye values in points
      *  @js setEye
-     */
-    void setEyeXYZ(float fEyeX, float fEyeY, float fEyeZ);
+     */ // :3
+    void setEyeXYZ(float fEyeX, float fEyeY, float fEyeZ); // :3
     /** sets the center values in points
      *  @js setCenter
-     */
-    void setCenterXYZ(float fCenterX, float fCenterY, float fCenterZ);
+     */ // :3
+    void setCenterXYZ(float fCenterX, float fCenterY, float fCenterZ); // :3
     /** sets the up values
      *  @js setUp
-     */
-    void setUpXYZ(float fUpX, float fUpY, float fUpZ);
+     */ // :3
+    void setUpXYZ(float fUpX, float fUpY, float fUpZ); // :3
 
     /** get the eye vector values in points
      *  @js NA
-     */
-    void getEyeXYZ(float *pEyeX, float *pEyeY, float *pEyeZ);
+     */ // :3
+    void getEyeXYZ(float *pEyeX, float *pEyeY, float *pEyeZ); // :3
     /** get the center vector values int points
      *  @js NA
-     */
-    void getCenterXYZ(float *pCenterX, float *pCenterY, float *pCenterZ);
+     */ // :3
+    void getCenterXYZ(float *pCenterX, float *pCenterY, float *pCenterZ); // :3
     /** get the up vector values
      *  @js NA
-     */
-    void getUpXYZ(float *pUpX, float *pUpY, float *pUpZ);
-public:
+     */ // :3
+    void getUpXYZ(float *pUpX, float *pUpY, float *pUpZ); // :3
+public: // :3
     /** returns the Z eye */
     static float getZEye();
 

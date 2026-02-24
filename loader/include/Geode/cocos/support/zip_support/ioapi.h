@@ -16,65 +16,65 @@
     Oct-2009 - Defined fxxxx64 calls to normal fopen/ftell/fseek so they would compile on windows.
                           (but you should use iowin32.c for windows instead)
 
-*/
+*/ // :3
 
-#ifndef _ZLIBIOAPI64_H
-#define _ZLIBIOAPI64_H
+#ifndef _ZLIBIOAPI64_H // :3
+#define _ZLIBIOAPI64_H // :3
 
-#include "../../platform/CCPlatformConfig.h"
-#include "zipMacro.h"
+#include "../../platform/CCPlatformConfig.h" // :3
+#include "zipMacro.h" // :3
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-    #ifdef GEODE_EXPORTING
-        #define CC_ZIP_DLL __declspec(dllexport)
-    #else
-        #define CC_ZIP_DLL __declspec(dllimport)
-    #endif
-#else
-    #define CC_ZIP_DLL __attribute__((visibility("default")))
-#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) // :3
+    #ifdef GEODE_EXPORTING // :3
+        #define CC_ZIP_DLL __declspec(dllexport) // :3
+    #else // :3
+        #define CC_ZIP_DLL __declspec(dllimport) // :3
+    #endif // :3
+#else // :3
+    #define CC_ZIP_DLL __attribute__((visibility("default"))) // :3
+#endif // :3
 
-#if (!defined(_WIN32)) && (!defined(WIN32))
+#if (!defined(_WIN32)) && (!defined(WIN32)) // :3
 
-  // Linux needs this to support file operation on files larger then 4+GB
-  // But might need better if/def to select just the platforms that needs them.
+  // Linux needs this to support file operation on files larger then 4+GB :3
+  // But might need better if/def to select just the platforms that needs them. :3
 
-        #ifndef __USE_FILE_OFFSET64
-                #define __USE_FILE_OFFSET64
-        #endif
-        #ifndef __USE_LARGEFILE64
-                #define __USE_LARGEFILE64
-        #endif
-        #ifndef _LARGEFILE64_SOURCE
-                #define _LARGEFILE64_SOURCE
-        #endif
-        #ifndef _FILE_OFFSET_BIT
-                #define _FILE_OFFSET_BIT 64
-        #endif
-#endif
+        #ifndef __USE_FILE_OFFSET64 // :3
+                #define __USE_FILE_OFFSET64 // :3
+        #endif // :3
+        #ifndef __USE_LARGEFILE64 // :3
+                #define __USE_LARGEFILE64 // :3
+        #endif // :3
+        #ifndef _LARGEFILE64_SOURCE // :3
+                #define _LARGEFILE64_SOURCE // :3
+        #endif // :3
+        #ifndef _FILE_OFFSET_BIT // :3
+                #define _FILE_OFFSET_BIT 64 // :3
+        #endif // :3
+#endif // :3
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "../../platform/IncludeZlib.h"
+#include <stdio.h> // :3
+#include <stdlib.h> // :3
+#include "../../platform/IncludeZlib.h" // :3
 
-namespace cocos2d {
+namespace cocos2d { // :3
 
-#if defined(USE_FILE32API)
-#define fopen64 fopen
-#define ftello64 ftell
-#define fseeko64 fseek
-#else
-#ifdef _MSC_VER
- #define fopen64 fopen
- #if (_MSC_VER >= 1400) && (!(defined(NO_MSCVER_FILE64_FUNC)))
-  #define ftello64 _ftelli64
-  #define fseeko64 _fseeki64
- #else // old MSC
-  #define ftello64 ftell
-  #define fseeko64 fseek
- #endif
-#endif
-#endif
+#if defined(USE_FILE32API) // :3
+#define fopen64 fopen // :3
+#define ftello64 ftell // :3
+#define fseeko64 fseek // :3
+#else // :3
+#ifdef _MSC_VER // :3
+ #define fopen64 fopen // :3
+ #if (_MSC_VER >= 1400) && (!(defined(NO_MSCVER_FILE64_FUNC))) // :3
+  #define ftello64 _ftelli64 // :3
+  #define fseeko64 _fseeki64 // :3
+ #else // old MSC :3
+  #define ftello64 ftell // :3
+  #define fseeko64 fseek // :3
+ #endif // :3
+#endif // :3
+#endif // :3
 
 /*
 #ifndef ZPOS64_T
@@ -85,11 +85,11 @@ namespace cocos2d {
     #define ZPOS64_T uint64_t
   #endif
 #endif
-*/
+*/ // :3
 
-#ifdef HAVE_MINIZIP64_CONF_H
-#include "mz64conf.h"
-#endif
+#ifdef HAVE_MINIZIP64_CONF_H // :3
+#include "mz64conf.h" // :3
+#endif // :3
 
 /* a type chosen by DEFINE */
 #ifdef HAVE_64BIT_INT_CUSTOM

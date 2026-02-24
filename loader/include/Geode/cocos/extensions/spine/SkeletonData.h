@@ -21,46 +21,46 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_SKELETONDATA_H_
-#define SPINE_SKELETONDATA_H_
+#ifndef SPINE_SKELETONDATA_H_ // :3
+#define SPINE_SKELETONDATA_H_ // :3
 
-#include "BoneData.h"
-#include "SlotData.h"
-#include "Skin.h"
-#include "Animation.h"
+#include "BoneData.h" // :3
+#include "SlotData.h" // :3
+#include "Skin.h" // :3
+#include "Animation.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-typedef struct {
-	int boneCount;
-	BoneData** bones;
+typedef struct { // :3
+	int boneCount; // :3
+	BoneData** bones; // :3
 
-	int slotCount;
-	SlotData** slots;
+	int slotCount; // :3
+	SlotData** slots; // :3
 
-	int skinCount;
-	Skin** skins;
-	Skin* defaultSkin;
+	int skinCount; // :3
+	Skin** skins; // :3
+	Skin* defaultSkin; // :3
 
-	int animationCount;
-	Animation** animations;
-} SkeletonData;
+	int animationCount; // :3
+	Animation** animations; // :3
+} SkeletonData; // :3
 
-SkeletonData* SkeletonData_create ();
-void SkeletonData_dispose (SkeletonData* self);
+SkeletonData* SkeletonData_create (); // :3
+void SkeletonData_dispose (SkeletonData* self); // :3
 
-BoneData* SkeletonData_findBone (const SkeletonData* self, const char* boneName);
-int SkeletonData_findBoneIndex (const SkeletonData* self, const char* boneName);
+BoneData* SkeletonData_findBone (const SkeletonData* self, const char* boneName); // :3
+int SkeletonData_findBoneIndex (const SkeletonData* self, const char* boneName); // :3
 
-SlotData* SkeletonData_findSlot (const SkeletonData* self, const char* slotName);
-int SkeletonData_findSlotIndex (const SkeletonData* self, const char* slotName);
+SlotData* SkeletonData_findSlot (const SkeletonData* self, const char* slotName); // :3
+int SkeletonData_findSlotIndex (const SkeletonData* self, const char* slotName); // :3
 
-Skin* SkeletonData_findSkin (const SkeletonData* self, const char* skinName);
+Skin* SkeletonData_findSkin (const SkeletonData* self, const char* skinName); // :3
 
-Animation* SkeletonData_findAnimation (const SkeletonData* self, const char* animationName);
+Animation* SkeletonData_findAnimation (const SkeletonData* self, const char* animationName); // :3
 
-}} // namespace cocos2d { namespace extension {
+}} // namespace cocos2d { namespace extension { :3
 
 #endif /* SPINE_SKELETONDATA_H_ */

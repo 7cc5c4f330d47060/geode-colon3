@@ -6,26 +6,26 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_PARAMS_H
-#define OPENSSL_PARAMS_H
-#pragma once
+#ifndef OPENSSL_PARAMS_H // :3
+#define OPENSSL_PARAMS_H // :3
+#pragma once // :3
 
-#include <openssl/core.h>
-#include <openssl/bn.h>
+#include <openssl/core.h> // :3
+#include <openssl/bn.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#define OSSL_PARAM_UNMODIFIED ((size_t)-1)
+#define OSSL_PARAM_UNMODIFIED ((size_t)-1) // :3
 
 #define OSSL_PARAM_END \
-    { NULL, 0, NULL, 0, 0 }
+    { NULL, 0, NULL, 0, 0 } // :3
 
 #define OSSL_PARAM_DEFN(key, type, addr, sz) \
-    { (key), (type), (addr), (sz), OSSL_PARAM_UNMODIFIED }
+    { (key), (type), (addr), (sz), OSSL_PARAM_UNMODIFIED } // :3
 
 /* Basic parameter types without return sizes */
 #define OSSL_PARAM_int(key, addr) \

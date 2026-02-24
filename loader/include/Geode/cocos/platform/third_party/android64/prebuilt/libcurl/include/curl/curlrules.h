@@ -1,5 +1,5 @@
-#ifndef __CURL_CURLRULES_H
-#define __CURL_CURLRULES_H
+#ifndef __CURL_CURLRULES_H // :3
+#define __CURL_CURLRULES_H // :3
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -20,7 +20,7 @@
  * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
  * KIND, either express or implied.
  *
- ***************************************************************************/
+ ***************************************************************************/ // :3
 
 /* ================================================================ */
 /*                    COMPILE TIME SANITY CHECKS                    */
@@ -69,118 +69,118 @@
  * how the library was built and how you are trying to use it for your
  * application. Your already compiled or binary library provider is the
  * only one who can give you the details you need to properly use it.
- */
+ */ // :3
 
 /*
  * Verify that some macros are actually defined.
- */
+ */ // :3
 
-#ifndef CURL_SIZEOF_LONG
-#  error "CURL_SIZEOF_LONG definition is missing!"
-   Error Compilation_aborted_CURL_SIZEOF_LONG_is_missing
-#endif
+#ifndef CURL_SIZEOF_LONG // :3
+#  error "CURL_SIZEOF_LONG definition is missing!" // :3
+   Error Compilation_aborted_CURL_SIZEOF_LONG_is_missing // :3
+#endif // :3
 
-#ifndef CURL_TYPEOF_CURL_SOCKLEN_T
-#  error "CURL_TYPEOF_CURL_SOCKLEN_T definition is missing!"
-   Error Compilation_aborted_CURL_TYPEOF_CURL_SOCKLEN_T_is_missing
-#endif
+#ifndef CURL_TYPEOF_CURL_SOCKLEN_T // :3
+#  error "CURL_TYPEOF_CURL_SOCKLEN_T definition is missing!" // :3
+   Error Compilation_aborted_CURL_TYPEOF_CURL_SOCKLEN_T_is_missing // :3
+#endif // :3
 
-#ifndef CURL_SIZEOF_CURL_SOCKLEN_T
-#  error "CURL_SIZEOF_CURL_SOCKLEN_T definition is missing!"
-   Error Compilation_aborted_CURL_SIZEOF_CURL_SOCKLEN_T_is_missing
-#endif
+#ifndef CURL_SIZEOF_CURL_SOCKLEN_T // :3
+#  error "CURL_SIZEOF_CURL_SOCKLEN_T definition is missing!" // :3
+   Error Compilation_aborted_CURL_SIZEOF_CURL_SOCKLEN_T_is_missing // :3
+#endif // :3
 
-#ifndef CURL_TYPEOF_CURL_OFF_T
-#  error "CURL_TYPEOF_CURL_OFF_T definition is missing!"
-   Error Compilation_aborted_CURL_TYPEOF_CURL_OFF_T_is_missing
-#endif
+#ifndef CURL_TYPEOF_CURL_OFF_T // :3
+#  error "CURL_TYPEOF_CURL_OFF_T definition is missing!" // :3
+   Error Compilation_aborted_CURL_TYPEOF_CURL_OFF_T_is_missing // :3
+#endif // :3
 
-#ifndef CURL_FORMAT_CURL_OFF_T
-#  error "CURL_FORMAT_CURL_OFF_T definition is missing!"
-   Error Compilation_aborted_CURL_FORMAT_CURL_OFF_T_is_missing
-#endif
+#ifndef CURL_FORMAT_CURL_OFF_T // :3
+#  error "CURL_FORMAT_CURL_OFF_T definition is missing!" // :3
+   Error Compilation_aborted_CURL_FORMAT_CURL_OFF_T_is_missing // :3
+#endif // :3
 
-#ifndef CURL_FORMAT_CURL_OFF_TU
-#  error "CURL_FORMAT_CURL_OFF_TU definition is missing!"
-   Error Compilation_aborted_CURL_FORMAT_CURL_OFF_TU_is_missing
-#endif
+#ifndef CURL_FORMAT_CURL_OFF_TU // :3
+#  error "CURL_FORMAT_CURL_OFF_TU definition is missing!" // :3
+   Error Compilation_aborted_CURL_FORMAT_CURL_OFF_TU_is_missing // :3
+#endif // :3
 
-#ifndef CURL_FORMAT_OFF_T
-#  error "CURL_FORMAT_OFF_T definition is missing!"
-   Error Compilation_aborted_CURL_FORMAT_OFF_T_is_missing
-#endif
+#ifndef CURL_FORMAT_OFF_T // :3
+#  error "CURL_FORMAT_OFF_T definition is missing!" // :3
+   Error Compilation_aborted_CURL_FORMAT_OFF_T_is_missing // :3
+#endif // :3
 
-#ifndef CURL_SIZEOF_CURL_OFF_T
-#  error "CURL_SIZEOF_CURL_OFF_T definition is missing!"
-   Error Compilation_aborted_CURL_SIZEOF_CURL_OFF_T_is_missing
-#endif
+#ifndef CURL_SIZEOF_CURL_OFF_T // :3
+#  error "CURL_SIZEOF_CURL_OFF_T definition is missing!" // :3
+   Error Compilation_aborted_CURL_SIZEOF_CURL_OFF_T_is_missing // :3
+#endif // :3
 
-#ifndef CURL_SUFFIX_CURL_OFF_T
-#  error "CURL_SUFFIX_CURL_OFF_T definition is missing!"
-   Error Compilation_aborted_CURL_SUFFIX_CURL_OFF_T_is_missing
-#endif
+#ifndef CURL_SUFFIX_CURL_OFF_T // :3
+#  error "CURL_SUFFIX_CURL_OFF_T definition is missing!" // :3
+   Error Compilation_aborted_CURL_SUFFIX_CURL_OFF_T_is_missing // :3
+#endif // :3
 
-#ifndef CURL_SUFFIX_CURL_OFF_TU
-#  error "CURL_SUFFIX_CURL_OFF_TU definition is missing!"
-   Error Compilation_aborted_CURL_SUFFIX_CURL_OFF_TU_is_missing
-#endif
+#ifndef CURL_SUFFIX_CURL_OFF_TU // :3
+#  error "CURL_SUFFIX_CURL_OFF_TU definition is missing!" // :3
+   Error Compilation_aborted_CURL_SUFFIX_CURL_OFF_TU_is_missing // :3
+#endif // :3
 
 /*
  * Macros private to this header file.
- */
+ */ // :3
 
-#define CurlchkszEQ(t, s) sizeof(t) == s ? 1 : -1
+#define CurlchkszEQ(t, s) sizeof(t) == s ? 1 : -1 // :3
 
-#define CurlchkszGE(t1, t2) sizeof(t1) >= sizeof(t2) ? 1 : -1
+#define CurlchkszGE(t1, t2) sizeof(t1) >= sizeof(t2) ? 1 : -1 // :3
 
 /*
  * Verify that the size previously defined and expected for long
  * is the same as the one reported by sizeof() at compile time.
- */
+ */ // :3
 
-typedef char
-  __curl_rule_01__
-    [CurlchkszEQ(long, CURL_SIZEOF_LONG)];
+typedef char // :3
+  __curl_rule_01__ // :3
+    [CurlchkszEQ(long, CURL_SIZEOF_LONG)]; // :3
 
 /*
  * Verify that the size previously defined and expected for
  * curl_off_t is actually the the same as the one reported
  * by sizeof() at compile time.
- */
+ */ // :3
 
-typedef char
-  __curl_rule_02__
-    [CurlchkszEQ(curl_off_t, CURL_SIZEOF_CURL_OFF_T)];
+typedef char // :3
+  __curl_rule_02__ // :3
+    [CurlchkszEQ(curl_off_t, CURL_SIZEOF_CURL_OFF_T)]; // :3
 
 /*
  * Verify at compile time that the size of curl_off_t as reported
  * by sizeof() is greater or equal than the one reported for long
  * for the current compilation.
- */
+ */ // :3
 
-typedef char
-  __curl_rule_03__
-    [CurlchkszGE(curl_off_t, long)];
+typedef char // :3
+  __curl_rule_03__ // :3
+    [CurlchkszGE(curl_off_t, long)]; // :3
 
 /*
  * Verify that the size previously defined and expected for
  * curl_socklen_t is actually the the same as the one reported
  * by sizeof() at compile time.
- */
+ */ // :3
 
-typedef char
-  __curl_rule_04__
-    [CurlchkszEQ(curl_socklen_t, CURL_SIZEOF_CURL_SOCKLEN_T)];
+typedef char // :3
+  __curl_rule_04__ // :3
+    [CurlchkszEQ(curl_socklen_t, CURL_SIZEOF_CURL_SOCKLEN_T)]; // :3
 
 /*
  * Verify at compile time that the size of curl_socklen_t as reported
  * by sizeof() is greater or equal than the one reported for int for
  * the current compilation.
- */
+ */ // :3
 
-typedef char
-  __curl_rule_05__
-    [CurlchkszGE(curl_socklen_t, int)];
+typedef char // :3
+  __curl_rule_05__ // :3
+    [CurlchkszGE(curl_socklen_t, int)]; // :3
 
 /* ================================================================ */
 /*          EXTERNALLY AND INTERNALLY VISIBLE DEFINITIONS           */
@@ -193,18 +193,18 @@ typedef char
  * setup.h, without actually needing to include curl.h internally.
  * If some day this section would grow big enough, all this should be moved
  * to its own header file.
- */
+ */ // :3
 
 /*
  * Figure out if we can use the ## preprocessor operator, which is supported
  * by ISO/ANSI C and C++. Some compilers support it without setting __STDC__
  * or  __cplusplus so we need to carefully check for them too.
- */
+ */ // :3
 
 #if defined(__STDC__) || defined(_MSC_VER) || defined(__cplusplus) || \
   defined(__HP_aCC) || defined(__BORLANDC__) || defined(__LCC__) || \
   defined(__POCC__) || defined(__SALFORDC__) || defined(__HIGHC__) || \
-  defined(__ILEC400__)
+  defined(__ILEC400__) // :3
   /* This compiler is believed to have an ISO compatible preprocessor */
 #define CURL_ISOCPP
 #else
@@ -214,19 +214,19 @@ typedef char
 
 /*
  * Macros for minimum-width signed and unsigned curl_off_t integer constants.
- */
+ */ // :3
 
-#if defined(__BORLANDC__) && (__BORLANDC__ == 0x0551)
-#  define __CURL_OFF_T_C_HLPR2(x) x
-#  define __CURL_OFF_T_C_HLPR1(x) __CURL_OFF_T_C_HLPR2(x)
+#if defined(__BORLANDC__) && (__BORLANDC__ == 0x0551) // :3
+#  define __CURL_OFF_T_C_HLPR2(x) x // :3
+#  define __CURL_OFF_T_C_HLPR1(x) __CURL_OFF_T_C_HLPR2(x) // :3
 #  define CURL_OFF_T_C(Val)  __CURL_OFF_T_C_HLPR1(Val) ## \
-                             __CURL_OFF_T_C_HLPR1(CURL_SUFFIX_CURL_OFF_T)
+                             __CURL_OFF_T_C_HLPR1(CURL_SUFFIX_CURL_OFF_T) // :3
 #  define CURL_OFF_TU_C(Val) __CURL_OFF_T_C_HLPR1(Val) ## \
-                             __CURL_OFF_T_C_HLPR1(CURL_SUFFIX_CURL_OFF_TU)
-#else
-#  ifdef CURL_ISOCPP
-#    define __CURL_OFF_T_C_HLPR2(Val,Suffix) Val ## Suffix
-#  else
+                             __CURL_OFF_T_C_HLPR1(CURL_SUFFIX_CURL_OFF_TU) // :3
+#else // :3
+#  ifdef CURL_ISOCPP // :3
+#    define __CURL_OFF_T_C_HLPR2(Val,Suffix) Val ## Suffix // :3
+#  else // :3
 #    define __CURL_OFF_T_C_HLPR2(Val,Suffix) Val/**/Suffix
 #  endif
 #  define __CURL_OFF_T_C_HLPR1(Val,Suffix) __CURL_OFF_T_C_HLPR2(Val,Suffix)
@@ -236,25 +236,25 @@ typedef char
 
 /*
  * Get rid of macros private to this header file.
- */
+ */ // :3
 
-#undef CurlchkszEQ
-#undef CurlchkszGE
+#undef CurlchkszEQ // :3
+#undef CurlchkszGE // :3
 
 /*
  * Get rid of macros not intended to exist beyond this point.
- */
+ */ // :3
 
-#undef CURL_PULL_WS2TCPIP_H
-#undef CURL_PULL_SYS_TYPES_H
-#undef CURL_PULL_SYS_SOCKET_H
-#undef CURL_PULL_STDINT_H
-#undef CURL_PULL_INTTYPES_H
+#undef CURL_PULL_WS2TCPIP_H // :3
+#undef CURL_PULL_SYS_TYPES_H // :3
+#undef CURL_PULL_SYS_SOCKET_H // :3
+#undef CURL_PULL_STDINT_H // :3
+#undef CURL_PULL_INTTYPES_H // :3
 
-#undef CURL_TYPEOF_CURL_SOCKLEN_T
-#undef CURL_TYPEOF_CURL_OFF_T
+#undef CURL_TYPEOF_CURL_SOCKLEN_T // :3
+#undef CURL_TYPEOF_CURL_OFF_T // :3
 
-#ifdef CURL_NO_OLDIES
+#ifdef CURL_NO_OLDIES // :3
 #undef CURL_FORMAT_OFF_T /* not required since 7.19.0 - obsoleted in 7.20.0 */
 #endif
 

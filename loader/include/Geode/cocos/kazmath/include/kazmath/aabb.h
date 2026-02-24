@@ -21,24 +21,24 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
 ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+*/ // :3
 
-#ifndef KAZMATH_AABB_H_INCLUDED
-#define KAZMATH_AABB_H_INCLUDED
+#ifndef KAZMATH_AABB_H_INCLUDED // :3
+#define KAZMATH_AABB_H_INCLUDED // :3
 
-#include "../../../platform/CCPlatformMacros.h"
-#include "vec3.h"
-#include "utility.h"
+#include "../../../platform/CCPlatformMacros.h" // :3
+#include "vec3.h" // :3
+#include "utility.h" // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /**
  * A structure that represents an axis-aligned
  * bounding box.
- */
-typedef struct kmAABB {
+ */ // :3
+typedef struct kmAABB { // :3
     kmVec3 min; /** The max corner of the box */
     kmVec3 max; /** The min corner of the box */
 } kmAABB;

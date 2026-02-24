@@ -21,82 +21,82 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __TOUCH_DISPATCHER_CCTOUCH_DISPATCHER_H__
-#define __TOUCH_DISPATCHER_CCTOUCH_DISPATCHER_H__
+#ifndef __TOUCH_DISPATCHER_CCTOUCH_DISPATCHER_H__ // :3
+#define __TOUCH_DISPATCHER_CCTOUCH_DISPATCHER_H__ // :3
 
-#include "CCTouchDelegateProtocol.h"
-#include "../cocoa/CCObject.h"
-#include "../cocoa/CCArray.h"
+#include "CCTouchDelegateProtocol.h" // :3
+#include "../cocoa/CCObject.h" // :3
+#include "../cocoa/CCArray.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup input
  * @{
- */
+ */ // :3
 
-typedef enum
-{
-    ccTouchSelectorBeganBit = 1 << 0,
-    ccTouchSelectorMovedBit = 1 << 1,
-    ccTouchSelectorEndedBit = 1 << 2,
-    ccTouchSelectorCancelledBit = 1 << 3,
-    ccTouchSelectorAllBits = ( ccTouchSelectorBeganBit | ccTouchSelectorMovedBit | ccTouchSelectorEndedBit | ccTouchSelectorCancelledBit),
-} ccTouchSelectorFlag;
+typedef enum // :3
+{ // :3
+    ccTouchSelectorBeganBit = 1 << 0, // :3
+    ccTouchSelectorMovedBit = 1 << 1, // :3
+    ccTouchSelectorEndedBit = 1 << 2, // :3
+    ccTouchSelectorCancelledBit = 1 << 3, // :3
+    ccTouchSelectorAllBits = ( ccTouchSelectorBeganBit | ccTouchSelectorMovedBit | ccTouchSelectorEndedBit | ccTouchSelectorCancelledBit), // :3
+} ccTouchSelectorFlag; // :3
 
 
-enum ccTouchType {
-    CCTOUCHBEGAN = 0,
-    CCTOUCHMOVED = 1,
-    CCTOUCHENDED = 2,
-    CCTOUCHCANCELLED = 3,
+enum ccTouchType { // :3
+    CCTOUCHBEGAN = 0, // :3
+    CCTOUCHMOVED = 1, // :3
+    CCTOUCHENDED = 2, // :3
+    CCTOUCHCANCELLED = 3, // :3
 
-    ccTouchMax = 4,
-};
+    ccTouchMax = 4, // :3
+}; // :3
 
-class CCSet;
-class CCEvent;
+class CCSet; // :3
+class CCEvent; // :3
 
-struct ccTouchHandlerHelperData {
-    // we only use the type
-//    void (StandardTouchDelegate::*touchesSel)(CCSet*, CCEvent*);
-//    void (TargetedTouchDelegate::*touchSel)(NSTouch*, CCEvent*);
-    int  m_type;
-};
+struct ccTouchHandlerHelperData { // :3
+    // we only use the type :3
+//    void (StandardTouchDelegate::*touchesSel)(CCSet*, CCEvent*); :3
+//    void (TargetedTouchDelegate::*touchSel)(NSTouch*, CCEvent*); :3
+    int  m_type; // :3
+}; // :3
 
 /**
  * @js NA
- */
-class CC_DLL EGLTouchDelegate
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL EGLTouchDelegate // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      * @lua NA
-     */
-    virtual void touchesBegan(CCSet* touches, CCEvent* pEvent) = 0;
+     */ // :3
+    virtual void touchesBegan(CCSet* touches, CCEvent* pEvent) = 0; // :3
     /**
      * @lua NA
-     */
-    virtual void touchesMoved(CCSet* touches, CCEvent* pEvent) = 0;
+     */ // :3
+    virtual void touchesMoved(CCSet* touches, CCEvent* pEvent) = 0; // :3
     /**
      * @lua NA
-     */
-    virtual void touchesEnded(CCSet* touches, CCEvent* pEvent) = 0;
+     */ // :3
+    virtual void touchesEnded(CCSet* touches, CCEvent* pEvent) = 0; // :3
     /**
      * @lua NA
-     */
-    virtual void touchesCancelled(CCSet* touches, CCEvent* pEvent) = 0;
+     */ // :3
+    virtual void touchesCancelled(CCSet* touches, CCEvent* pEvent) = 0; // :3
     /**
      * @lua NA
-     */
-    virtual ~EGLTouchDelegate() {}
-};
+     */ // :3
+    virtual ~EGLTouchDelegate() {} // :3
+}; // :3
 
-class CCTouchHandler;
-struct _ccCArray;
+class CCTouchHandler; // :3
+struct _ccCArray; // :3
 /** @brief CCTouchDispatcher.
  Singleton that handles all the touch events.
  The dispatcher dispatches events to the registered TouchHandlers.
@@ -113,33 +113,33 @@ struct _ccCArray;
 
  @since v0.8.0
  @js NA
- */
-class CC_DLL CCTouchDispatcher : public CCObject, public EGLTouchDelegate
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTouchDispatcher, CCObject)
+ */ // :3
+class CC_DLL CCTouchDispatcher : public CCObject, public EGLTouchDelegate // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTouchDispatcher, CCObject) // :3
     /**
      * @lua NA
-     */
-    ~CCTouchDispatcher();
+     */ // :3
+    ~CCTouchDispatcher(); // :3
     /**
      * @lua NA
-     */
-    bool init(void);
+     */ // :3
+    bool init(void); // :3
     /**
      * @lua NA
-     */
-    CCTouchDispatcher()
-        : m_pTargetedHandlers(NULL)
-        , m_pStandardHandlers(NULL)
-        , m_pHandlersToAdd(NULL)
-        , m_pHandlersToRemove(NULL)
+     */ // :3
+    CCTouchDispatcher() // :3
+        : m_pTargetedHandlers(NULL) // :3
+        , m_pStandardHandlers(NULL) // :3
+        , m_pHandlersToAdd(NULL) // :3
+        , m_pHandlersToRemove(NULL) // :3
 
-    {}
+    {} // :3
 
-public:
-    static GEODE_DLL CCTouchDispatcher* get();
+public: // :3
+    static GEODE_DLL CCTouchDispatcher* get(); // :3
 
     /** Whether or not the events are going to be dispatched. Default: true */
     bool isDispatchEvents(void);
@@ -149,110 +149,110 @@ public:
      * See StandardTouchDelegate description.
      * IMPORTANT: The delegate will be retained.
      * @lua NA
-     */
-    void addStandardDelegate(CCTouchDelegate *pDelegate, int nPriority);
+     */ // :3
+    void addStandardDelegate(CCTouchDelegate *pDelegate, int nPriority); // :3
 
     /** Adds a targeted touch delegate to the dispatcher's list.
      * See TargetedTouchDelegate description.
      * IMPORTANT: The delegate will be retained.
      * @lua NA
-     */
-    void addTargetedDelegate(CCTouchDelegate *pDelegate, int nPriority, bool bSwallowsTouches);
+     */ // :3
+    void addTargetedDelegate(CCTouchDelegate *pDelegate, int nPriority, bool bSwallowsTouches); // :3
 
     /** Removes a touch delegate.
      * The delegate will be released
      * @lua NA
-     */
-    void removeDelegate(CCTouchDelegate *pDelegate);
+     */ // :3
+    void removeDelegate(CCTouchDelegate *pDelegate); // :3
 
     /** Removes all touch delegates, releasing all the delegates
      * @lua NA
-     */
-    void removeAllDelegates(void);
+     */ // :3
+    void removeAllDelegates(void); // :3
 
     /** Changes the priority of a previously added delegate. The lower the number,
      * the higher the priority
      * @lua NA
-     */
-    void setPriority(int nPriority, CCTouchDelegate *pDelegate);
+     */ // :3
+    void setPriority(int nPriority, CCTouchDelegate *pDelegate); // :3
     /**
      * @lua NA
-     */
-    void touches(CCSet *pTouches, CCEvent *pEvent, unsigned int uIndex);
+     */ // :3
+    void touches(CCSet *pTouches, CCEvent *pEvent, unsigned int uIndex); // :3
     /**
      * @lua NA
-     */
-    virtual void touchesBegan(CCSet* touches, CCEvent* pEvent);
+     */ // :3
+    virtual void touchesBegan(CCSet* touches, CCEvent* pEvent); // :3
     /**
      * @lua NA
-     */
-    virtual void touchesMoved(CCSet* touches, CCEvent* pEvent);
+     */ // :3
+    virtual void touchesMoved(CCSet* touches, CCEvent* pEvent); // :3
     /**
      * @lua NA
-     */
-    virtual void touchesEnded(CCSet* touches, CCEvent* pEvent);
+     */ // :3
+    virtual void touchesEnded(CCSet* touches, CCEvent* pEvent); // :3
     /**
      * @lua NA
-     */
-    virtual void touchesCancelled(CCSet* touches, CCEvent* pEvent);
+     */ // :3
+    virtual void touchesCancelled(CCSet* touches, CCEvent* pEvent); // :3
 
-public:
+public: // :3
     /**
      * @lua NA
-     */
-    CCTouchHandler* findHandler(CCTouchDelegate *pDelegate);
+     */ // :3
+    CCTouchHandler* findHandler(CCTouchDelegate *pDelegate); // :3
 
-    // @note RobTop Addition
-	void addPrioTargetedDelegate(cocos2d::CCTouchDelegate*, int, bool);
-	// @note RobTop Addition
-    bool isUsingForcePrio();
-	// @note RobTop Addition
-    void registerForcePrio(cocos2d::CCObject*, int);
-	// @note RobTop Addition
-    void unregisterForcePrio(cocos2d::CCObject*);
+    // @note RobTop Addition :3
+	void addPrioTargetedDelegate(cocos2d::CCTouchDelegate*, int, bool); // :3
+	// @note RobTop Addition :3
+    bool isUsingForcePrio(); // :3
+	// @note RobTop Addition :3
+    void registerForcePrio(cocos2d::CCObject*, int); // :3
+	// @note RobTop Addition :3
+    void unregisterForcePrio(cocos2d::CCObject*); // :3
 
-private:
-    // @note RobTop Addition
-    void incrementForcePrio(int priority);
-    // @note RobTop Addition
-    void decrementForcePrio(int priority);
-protected:
-    void forceRemoveDelegate(CCTouchDelegate *pDelegate);
-    void forceAddHandler(CCTouchHandler *pHandler, CCArray* pArray);
-    void forceRemoveAllDelegates(void);
-    void rearrangeHandlers(CCArray* pArray);
-    CCTouchHandler* findHandler(CCArray* pArray, CCTouchDelegate *pDelegate);
+private: // :3
+    // @note RobTop Addition :3
+    void incrementForcePrio(int priority); // :3
+    // @note RobTop Addition :3
+    void decrementForcePrio(int priority); // :3
+protected: // :3
+    void forceRemoveDelegate(CCTouchDelegate *pDelegate); // :3
+    void forceAddHandler(CCTouchHandler *pHandler, CCArray* pArray); // :3
+    void forceRemoveAllDelegates(void); // :3
+    void rearrangeHandlers(CCArray* pArray); // :3
+    CCTouchHandler* findHandler(CCArray* pArray, CCTouchDelegate *pDelegate); // :3
 
-public:
-    CCArray* m_pTargetedHandlers;
-    CCArray* m_pStandardHandlers;
+public: // :3
+    CCArray* m_pTargetedHandlers; // :3
+    CCArray* m_pStandardHandlers; // :3
 
-    bool m_bLocked;
-    bool m_bToAdd;
-    bool m_bToRemove;
-    CCArray* m_pHandlersToAdd;
-    struct _ccCArray *m_pHandlersToRemove;
-    bool m_bToQuit;
-    bool m_bDispatchEvents;
+    bool m_bLocked; // :3
+    bool m_bToAdd; // :3
+    bool m_bToRemove; // :3
+    CCArray* m_pHandlersToAdd; // :3
+    struct _ccCArray *m_pHandlersToRemove; // :3
+    bool m_bToQuit; // :3
+    bool m_bDispatchEvents; // :3
 
-    // 4, 1 for each type of event
-    struct ccTouchHandlerHelperData m_sHandlerHelperData[ccTouchMax];
+    // 4, 1 for each type of event :3
+    struct ccTouchHandlerHelperData m_sHandlerHelperData[ccTouchMax]; // :3
 
-protected:
+protected: // :3
 
-    // 2.2 changes
+    // 2.2 changes :3
 
-    // @note RobTop Addition
-    CC_SYNTHESIZE_NV(int, m_targetPrio, TargetPrio);
-    // @note RobTop Addition
-    CCDictionary* m_pForcePrioDict;
-    // @note RobTop Addition
-    int m_forcePrio;
-};
+    // @note RobTop Addition :3
+    CC_SYNTHESIZE_NV(int, m_targetPrio, TargetPrio); // :3
+    // @note RobTop Addition :3
+    CCDictionary* m_pForcePrioDict; // :3
+    // @note RobTop Addition :3
+    int m_forcePrio; // :3
+}; // :3
 
-// end of input group
-/// @}
+// end of input group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __TOUCH_DISPATCHER_CCTOUCH_DISPATCHER_H__
+#endif // __TOUCH_DISPATCHER_CCTOUCH_DISPATCHER_H__ :3

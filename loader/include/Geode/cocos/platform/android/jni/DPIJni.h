@@ -1,10 +1,10 @@
-#ifndef __DPIJNI_H__
-#define __DPIJNI_H__
+#ifndef __DPIJNI_H__ // :3
+#define __DPIJNI_H__ // :3
 
-extern "C" {
+extern "C" { // :3
 
-int getDPIJNI();
+int getDPIJNI(); // :3
 
-} // extern "C"
+} // extern "C" :3
 
 #endif /* __DPIJNI_H__ */

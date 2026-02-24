@@ -1,116 +1,116 @@
-#pragma once
+#pragma once // :3
 
-#include <Geode/binding/CCMenuItemSpriteExtra.hpp>
-#include <Geode/utils/function.hpp>
+#include <Geode/binding/CCMenuItemSpriteExtra.hpp> // :3
+#include <Geode/utils/function.hpp> // :3
 
-namespace geode {
+namespace geode { // :3
 
-    template <class T>
-    T do_nothing(T t) {
-        return t;
-    }
+    template <class T> // :3
+    T do_nothing(T t) { // :3
+        return t; // :3
+    } // :3
 
-    template <class T = std::string, auto Stringify = do_nothing<std::string>>
-    class SelectList : public cocos2d::CCMenu {
-    protected:
-        std::vector<T> m_list;
-        size_t m_index = 0;
-        geode::Function<void(T const&, size_t)> m_onChange;
-        cocos2d::CCLabelBMFont* m_label;
-        CCMenuItemSpriteExtra* m_prevBtn;
-        CCMenuItemSpriteExtra* m_nextBtn;
+    template <class T = std::string, auto Stringify = do_nothing<std::string>> // :3
+    class SelectList : public cocos2d::CCMenu { // :3
+    protected: // :3
+        std::vector<T> m_list; // :3
+        size_t m_index = 0; // :3
+        geode::Function<void(T const&, size_t)> m_onChange; // :3
+        cocos2d::CCLabelBMFont* m_label; // :3
+        CCMenuItemSpriteExtra* m_prevBtn; // :3
+        CCMenuItemSpriteExtra* m_nextBtn; // :3
 
-        bool init(
-            float width, std::span<T> list, geode::Function<void(T const&, size_t)> onChange
-        ) {
-            if (!cocos2d::CCMenu::init()) return false;
+        bool init( // :3
+            float width, std::span<T> list, geode::Function<void(T const&, size_t)> onChange // :3
+        ) { // :3
+            if (!cocos2d::CCMenu::init()) return false; // :3
 
-            m_list = list;
-            m_onChange = std::move(onChange);
+            m_list = list; // :3
+            m_onChange = std::move(onChange); // :3
 
-            this->setContentSize({ width, 30.f });
+            this->setContentSize({ width, 30.f }); // :3
 
-            auto prevSpr = cocos2d::CCSprite::createWithSpriteFrameName("navArrowBtn_001.png");
-            prevSpr->setFlipX(true);
-            prevSpr->setScale(.3f);
+            auto prevSpr = cocos2d::CCSprite::createWithSpriteFrameName("navArrowBtn_001.png"); // :3
+            prevSpr->setFlipX(true); // :3
+            prevSpr->setScale(.3f); // :3
 
-            m_prevBtn =
-                CCMenuItemSpriteExtra::create(prevSpr, this, menu_selector(SelectList<T>::onPrev));
-            m_prevBtn->setPosition(-width / 2 + 10.f, 0.f);
-            this->addChild(m_prevBtn);
+            m_prevBtn = // :3
+                CCMenuItemSpriteExtra::create(prevSpr, this, menu_selector(SelectList<T>::onPrev)); // :3
+            m_prevBtn->setPosition(-width / 2 + 10.f, 0.f); // :3
+            this->addChild(m_prevBtn); // :3
 
-            auto nextSpr = cocos2d::CCSprite::createWithSpriteFrameName("navArrowBtn_001.png");
-            nextSpr->setScale(.3f);
+            auto nextSpr = cocos2d::CCSprite::createWithSpriteFrameName("navArrowBtn_001.png"); // :3
+            nextSpr->setScale(.3f); // :3
 
-            m_nextBtn =
-                CCMenuItemSpriteExtra::create(nextSpr, this, menu_selector(SelectList<T>::onNext));
-            m_nextBtn->setPosition(width / 2 - 10.f, 0.f);
-            this->addChild(m_nextBtn);
+            m_nextBtn = // :3
+                CCMenuItemSpriteExtra::create(nextSpr, this, menu_selector(SelectList<T>::onNext)); // :3
+            m_nextBtn->setPosition(width / 2 - 10.f, 0.f); // :3
+            this->addChild(m_nextBtn); // :3
 
-            m_label = cocos2d::CCLabelBMFont::create("", "bigFont.fnt");
-            this->addChild(m_label);
+            m_label = cocos2d::CCLabelBMFont::create("", "bigFont.fnt"); // :3
+            this->addChild(m_label); // :3
 
-            this->updateLabel();
+            this->updateLabel(); // :3
 
-            this->setTouchEnabled(true);
+            this->setTouchEnabled(true); // :3
 
-            return true;
-        }
+            return true; // :3
+        } // :3
 
-        void updateLabel() {
-            if (m_list.size()) {
-                m_label->setString(Stringify(m_list.at(m_index)).c_str());
-                m_prevBtn->setEnabled(true);
-                m_nextBtn->setEnabled(true);
-            }
-            else {
-                m_label->setString("-");
-                m_prevBtn->setEnabled(false);
-                m_nextBtn->setEnabled(false);
-            }
-            m_label->limitLabelWidth(m_obContentSize.width - 40.f, .6f, .1f);
-        }
+        void updateLabel() { // :3
+            if (m_list.size()) { // :3
+                m_label->setString(Stringify(m_list.at(m_index)).c_str()); // :3
+                m_prevBtn->setEnabled(true); // :3
+                m_nextBtn->setEnabled(true); // :3
+            } // :3
+            else { // :3
+                m_label->setString("-"); // :3
+                m_prevBtn->setEnabled(false); // :3
+                m_nextBtn->setEnabled(false); // :3
+            } // :3
+            m_label->limitLabelWidth(m_obContentSize.width - 40.f, .6f, .1f); // :3
+        } // :3
 
-        void onPrev(CCObject* sender) {
-            if (m_index == 0) {
-                m_index = m_list.size() - 1;
-            }
-            else {
-                m_index--;
-            }
-            this->updateLabel();
-            m_onChange(m_list.at(m_index), m_index);
-        }
+        void onPrev(CCObject* sender) { // :3
+            if (m_index == 0) { // :3
+                m_index = m_list.size() - 1; // :3
+            } // :3
+            else { // :3
+                m_index--; // :3
+            } // :3
+            this->updateLabel(); // :3
+            m_onChange(m_list.at(m_index), m_index); // :3
+        } // :3
 
-        void onNext(CCObject* sender) {
-            if (m_index == m_list.size() - 1) {
-                m_index = 0;
-            }
-            else {
-                m_index++;
-            }
-            this->updateLabel();
-            m_onChange(m_list.at(m_index), m_index);
-        }
+        void onNext(CCObject* sender) { // :3
+            if (m_index == m_list.size() - 1) { // :3
+                m_index = 0; // :3
+            } // :3
+            else { // :3
+                m_index++; // :3
+            } // :3
+            this->updateLabel(); // :3
+            m_onChange(m_list.at(m_index), m_index); // :3
+        } // :3
 
-    public:
-        static SelectList* create(
-            float width, std::span<T> list, geode::Function<void(T const&, size_t)> onChange
-        ) {
-            auto ret = new SelectList();
-            if (ret->init(width, list, std::move(onChange))) {
-                ret->autorelease();
-                return ret;
-            }
-            delete ret;
-            return nullptr;
-        }
+    public: // :3
+        static SelectList* create( // :3
+            float width, std::span<T> list, geode::Function<void(T const&, size_t)> onChange // :3
+        ) { // :3
+            auto ret = new SelectList(); // :3
+            if (ret->init(width, list, std::move(onChange))) { // :3
+                ret->autorelease(); // :3
+                return ret; // :3
+            } // :3
+            delete ret; // :3
+            return nullptr; // :3
+        } // :3
 
-        void setItems(std::span<T> list) {
-            m_index = 0;
-            m_list = list;
-            this->updateLabel();
-        }
-    };
+        void setItems(std::span<T> list) { // :3
+            m_index = 0; // :3
+            m_list = list; // :3
+            this->updateLabel(); // :3
+        } // :3
+    }; // :3
 
-}
+} // :3

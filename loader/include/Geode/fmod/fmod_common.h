@@ -12,50 +12,50 @@
 
 /*
     Library import helpers
-*/
-#if defined(_WIN32) || defined(__CYGWIN__)
-    #define F_CALL __stdcall
-#else
-    #define F_CALL
-#endif
+*/ // :3
+#if defined(_WIN32) || defined(__CYGWIN__) // :3
+    #define F_CALL __stdcall // :3
+#else // :3
+    #define F_CALL // :3
+#endif // :3
 
-#if defined(_WIN32) || defined(__CYGWIN__) || defined(__ORBIS__) || defined(F_USE_DECLSPEC)
-    #define F_EXPORT __declspec(dllexport)
-#elif defined(__APPLE__) || defined(__ANDROID__) || defined(__linux__) || defined(F_USE_ATTRIBUTE)
-    #define F_EXPORT __attribute__((visibility("default")))
-#else
-    #define F_EXPORT
-#endif
+#if defined(_WIN32) || defined(__CYGWIN__) || defined(__ORBIS__) || defined(F_USE_DECLSPEC) // :3
+    #define F_EXPORT __declspec(dllexport) // :3
+#elif defined(__APPLE__) || defined(__ANDROID__) || defined(__linux__) || defined(F_USE_ATTRIBUTE) // :3
+    #define F_EXPORT __attribute__((visibility("default"))) // :3
+#else // :3
+    #define F_EXPORT // :3
+#endif // :3
 
-#ifdef DLL_EXPORTS
-    #define F_API F_EXPORT F_CALL
-#else
-    #define F_API F_CALL
-#endif
+#ifdef DLL_EXPORTS // :3
+    #define F_API F_EXPORT F_CALL // :3
+#else // :3
+    #define F_API F_CALL // :3
+#endif // :3
 
-#define F_CALLBACK F_CALL
+#define F_CALLBACK F_CALL // :3
 
 /*
     FMOD core types
-*/
-typedef int                        FMOD_BOOL;
-typedef struct FMOD_SYSTEM         FMOD_SYSTEM;
-typedef struct FMOD_SOUND          FMOD_SOUND;
-typedef struct FMOD_CHANNELCONTROL FMOD_CHANNELCONTROL;
-typedef struct FMOD_CHANNEL        FMOD_CHANNEL;
-typedef struct FMOD_CHANNELGROUP   FMOD_CHANNELGROUP;
-typedef struct FMOD_SOUNDGROUP     FMOD_SOUNDGROUP;
-typedef struct FMOD_REVERB3D       FMOD_REVERB3D;
-typedef struct FMOD_DSP            FMOD_DSP;
-typedef struct FMOD_DSPCONNECTION  FMOD_DSPCONNECTION;
-typedef struct FMOD_POLYGON        FMOD_POLYGON;
-typedef struct FMOD_GEOMETRY       FMOD_GEOMETRY;
-typedef struct FMOD_SYNCPOINT      FMOD_SYNCPOINT;
-typedef struct FMOD_ASYNCREADINFO  FMOD_ASYNCREADINFO;
+*/ // :3
+typedef int                        FMOD_BOOL; // :3
+typedef struct FMOD_SYSTEM         FMOD_SYSTEM; // :3
+typedef struct FMOD_SOUND          FMOD_SOUND; // :3
+typedef struct FMOD_CHANNELCONTROL FMOD_CHANNELCONTROL; // :3
+typedef struct FMOD_CHANNEL        FMOD_CHANNEL; // :3
+typedef struct FMOD_CHANNELGROUP   FMOD_CHANNELGROUP; // :3
+typedef struct FMOD_SOUNDGROUP     FMOD_SOUNDGROUP; // :3
+typedef struct FMOD_REVERB3D       FMOD_REVERB3D; // :3
+typedef struct FMOD_DSP            FMOD_DSP; // :3
+typedef struct FMOD_DSPCONNECTION  FMOD_DSPCONNECTION; // :3
+typedef struct FMOD_POLYGON        FMOD_POLYGON; // :3
+typedef struct FMOD_GEOMETRY       FMOD_GEOMETRY; // :3
+typedef struct FMOD_SYNCPOINT      FMOD_SYNCPOINT; // :3
+typedef struct FMOD_ASYNCREADINFO  FMOD_ASYNCREADINFO; // :3
 
 /*
     FMOD constants
-*/
+*/ // :3
 #define FMOD_VERSION    0x00020223                     /* 0xaaaabbcc -> aaaa = product version, bb = major version, cc = minor version.*/
 
 typedef unsigned int FMOD_DEBUG_FLAGS;
@@ -708,194 +708,194 @@ typedef enum FMOD_PORT_TYPE
 
 /*
     FMOD callbacks
-*/
-typedef FMOD_RESULT (F_CALL *FMOD_DEBUG_CALLBACK)           (FMOD_DEBUG_FLAGS flags, const char *file, int line, const char* func, const char* message);
-typedef FMOD_RESULT (F_CALL *FMOD_SYSTEM_CALLBACK)          (FMOD_SYSTEM *system, FMOD_SYSTEM_CALLBACK_TYPE type, void *commanddata1, void* commanddata2, void *userdata);
-typedef FMOD_RESULT (F_CALL *FMOD_CHANNELCONTROL_CALLBACK)  (FMOD_CHANNELCONTROL *channelcontrol, FMOD_CHANNELCONTROL_TYPE controltype, FMOD_CHANNELCONTROL_CALLBACK_TYPE callbacktype, void *commanddata1, void *commanddata2);
-typedef FMOD_RESULT (F_CALL *FMOD_DSP_CALLBACK)             (FMOD_DSP *dsp, FMOD_DSP_CALLBACK_TYPE type, void *data);
-typedef FMOD_RESULT (F_CALL *FMOD_SOUND_NONBLOCK_CALLBACK)  (FMOD_SOUND *sound, FMOD_RESULT result);
-typedef FMOD_RESULT (F_CALL *FMOD_SOUND_PCMREAD_CALLBACK)   (FMOD_SOUND *sound, void *data, unsigned int datalen);
-typedef FMOD_RESULT (F_CALL *FMOD_SOUND_PCMSETPOS_CALLBACK) (FMOD_SOUND *sound, int subsound, unsigned int position, FMOD_TIMEUNIT postype);
-typedef FMOD_RESULT (F_CALL *FMOD_FILE_OPEN_CALLBACK)       (const char *name, unsigned int *filesize, void **handle, void *userdata);
-typedef FMOD_RESULT (F_CALL *FMOD_FILE_CLOSE_CALLBACK)      (void *handle, void *userdata);
-typedef FMOD_RESULT (F_CALL *FMOD_FILE_READ_CALLBACK)       (void *handle, void *buffer, unsigned int sizebytes, unsigned int *bytesread, void *userdata);
-typedef FMOD_RESULT (F_CALL *FMOD_FILE_SEEK_CALLBACK)       (void *handle, unsigned int pos, void *userdata);
-typedef FMOD_RESULT (F_CALL *FMOD_FILE_ASYNCREAD_CALLBACK)  (FMOD_ASYNCREADINFO *info, void *userdata);
-typedef FMOD_RESULT (F_CALL *FMOD_FILE_ASYNCCANCEL_CALLBACK)(FMOD_ASYNCREADINFO *info, void *userdata);
-typedef void        (F_CALL *FMOD_FILE_ASYNCDONE_FUNC)      (FMOD_ASYNCREADINFO *info, FMOD_RESULT result);
-typedef void*       (F_CALL *FMOD_MEMORY_ALLOC_CALLBACK)    (unsigned int size, FMOD_MEMORY_TYPE type, const char *sourcestr);
-typedef void*       (F_CALL *FMOD_MEMORY_REALLOC_CALLBACK)  (void *ptr, unsigned int size, FMOD_MEMORY_TYPE type, const char *sourcestr);
-typedef void        (F_CALL *FMOD_MEMORY_FREE_CALLBACK)     (void *ptr, FMOD_MEMORY_TYPE type, const char *sourcestr);
-typedef float       (F_CALL *FMOD_3D_ROLLOFF_CALLBACK)      (FMOD_CHANNELCONTROL *channelcontrol, float distance);
+*/ // :3
+typedef FMOD_RESULT (F_CALL *FMOD_DEBUG_CALLBACK)           (FMOD_DEBUG_FLAGS flags, const char *file, int line, const char* func, const char* message); // :3
+typedef FMOD_RESULT (F_CALL *FMOD_SYSTEM_CALLBACK)          (FMOD_SYSTEM *system, FMOD_SYSTEM_CALLBACK_TYPE type, void *commanddata1, void* commanddata2, void *userdata); // :3
+typedef FMOD_RESULT (F_CALL *FMOD_CHANNELCONTROL_CALLBACK)  (FMOD_CHANNELCONTROL *channelcontrol, FMOD_CHANNELCONTROL_TYPE controltype, FMOD_CHANNELCONTROL_CALLBACK_TYPE callbacktype, void *commanddata1, void *commanddata2); // :3
+typedef FMOD_RESULT (F_CALL *FMOD_DSP_CALLBACK)             (FMOD_DSP *dsp, FMOD_DSP_CALLBACK_TYPE type, void *data); // :3
+typedef FMOD_RESULT (F_CALL *FMOD_SOUND_NONBLOCK_CALLBACK)  (FMOD_SOUND *sound, FMOD_RESULT result); // :3
+typedef FMOD_RESULT (F_CALL *FMOD_SOUND_PCMREAD_CALLBACK)   (FMOD_SOUND *sound, void *data, unsigned int datalen); // :3
+typedef FMOD_RESULT (F_CALL *FMOD_SOUND_PCMSETPOS_CALLBACK) (FMOD_SOUND *sound, int subsound, unsigned int position, FMOD_TIMEUNIT postype); // :3
+typedef FMOD_RESULT (F_CALL *FMOD_FILE_OPEN_CALLBACK)       (const char *name, unsigned int *filesize, void **handle, void *userdata); // :3
+typedef FMOD_RESULT (F_CALL *FMOD_FILE_CLOSE_CALLBACK)      (void *handle, void *userdata); // :3
+typedef FMOD_RESULT (F_CALL *FMOD_FILE_READ_CALLBACK)       (void *handle, void *buffer, unsigned int sizebytes, unsigned int *bytesread, void *userdata); // :3
+typedef FMOD_RESULT (F_CALL *FMOD_FILE_SEEK_CALLBACK)       (void *handle, unsigned int pos, void *userdata); // :3
+typedef FMOD_RESULT (F_CALL *FMOD_FILE_ASYNCREAD_CALLBACK)  (FMOD_ASYNCREADINFO *info, void *userdata); // :3
+typedef FMOD_RESULT (F_CALL *FMOD_FILE_ASYNCCANCEL_CALLBACK)(FMOD_ASYNCREADINFO *info, void *userdata); // :3
+typedef void        (F_CALL *FMOD_FILE_ASYNCDONE_FUNC)      (FMOD_ASYNCREADINFO *info, FMOD_RESULT result); // :3
+typedef void*       (F_CALL *FMOD_MEMORY_ALLOC_CALLBACK)    (unsigned int size, FMOD_MEMORY_TYPE type, const char *sourcestr); // :3
+typedef void*       (F_CALL *FMOD_MEMORY_REALLOC_CALLBACK)  (void *ptr, unsigned int size, FMOD_MEMORY_TYPE type, const char *sourcestr); // :3
+typedef void        (F_CALL *FMOD_MEMORY_FREE_CALLBACK)     (void *ptr, FMOD_MEMORY_TYPE type, const char *sourcestr); // :3
+typedef float       (F_CALL *FMOD_3D_ROLLOFF_CALLBACK)      (FMOD_CHANNELCONTROL *channelcontrol, float distance); // :3
 
 /*
     FMOD structs
-*/
-struct FMOD_ASYNCREADINFO
-{
-    void                     *handle;
-    unsigned int              offset;
-    unsigned int              sizebytes;
-    int                       priority;
-    void                     *userdata;
-    void                     *buffer;
-    unsigned int              bytesread;
-    FMOD_FILE_ASYNCDONE_FUNC  done;
-};
+*/ // :3
+struct FMOD_ASYNCREADINFO // :3
+{ // :3
+    void                     *handle; // :3
+    unsigned int              offset; // :3
+    unsigned int              sizebytes; // :3
+    int                       priority; // :3
+    void                     *userdata; // :3
+    void                     *buffer; // :3
+    unsigned int              bytesread; // :3
+    FMOD_FILE_ASYNCDONE_FUNC  done; // :3
+}; // :3
 
-typedef struct FMOD_VECTOR
-{
-    float x;
-    float y;
-    float z;
-} FMOD_VECTOR;
+typedef struct FMOD_VECTOR // :3
+{ // :3
+    float x; // :3
+    float y; // :3
+    float z; // :3
+} FMOD_VECTOR; // :3
 
-typedef struct FMOD_3D_ATTRIBUTES
-{
-    FMOD_VECTOR position;
-    FMOD_VECTOR velocity;
-    FMOD_VECTOR forward;
-    FMOD_VECTOR up;
-} FMOD_3D_ATTRIBUTES;
+typedef struct FMOD_3D_ATTRIBUTES // :3
+{ // :3
+    FMOD_VECTOR position; // :3
+    FMOD_VECTOR velocity; // :3
+    FMOD_VECTOR forward; // :3
+    FMOD_VECTOR up; // :3
+} FMOD_3D_ATTRIBUTES; // :3
 
-typedef struct FMOD_GUID
-{
-    unsigned int   Data1;
-    unsigned short Data2;
-    unsigned short Data3;
-    unsigned char  Data4[8];
-} FMOD_GUID;
+typedef struct FMOD_GUID // :3
+{ // :3
+    unsigned int   Data1; // :3
+    unsigned short Data2; // :3
+    unsigned short Data3; // :3
+    unsigned char  Data4[8]; // :3
+} FMOD_GUID; // :3
 
-typedef struct FMOD_PLUGINLIST
-{
-    FMOD_PLUGINTYPE  type;
-    void            *description;
-} FMOD_PLUGINLIST;
+typedef struct FMOD_PLUGINLIST // :3
+{ // :3
+    FMOD_PLUGINTYPE  type; // :3
+    void            *description; // :3
+} FMOD_PLUGINLIST; // :3
 
-typedef struct FMOD_ADVANCEDSETTINGS
-{
-    int                 cbSize;
-    int                 maxMPEGCodecs;
-    int                 maxADPCMCodecs;
-    int                 maxXMACodecs;
-    int                 maxVorbisCodecs;
-    int                 maxAT9Codecs;
-    int                 maxFADPCMCodecs;
-    int                 maxPCMCodecs;
-    int                 ASIONumChannels;
-    char              **ASIOChannelList;
-    FMOD_SPEAKER       *ASIOSpeakerList;
-    float               vol0virtualvol;
-    unsigned int        defaultDecodeBufferSize;
-    unsigned short      profilePort;
-    unsigned int        geometryMaxFadeTime;
-    float               distanceFilterCenterFreq;
-    int                 reverb3Dinstance;
-    int                 DSPBufferPoolSize;
-    FMOD_DSP_RESAMPLER  resamplerMethod;
-    unsigned int        randomSeed;
-    int                 maxConvolutionThreads;
-    int                 maxOpusCodecs;
-    int                 maxSpatialObjects;
-} FMOD_ADVANCEDSETTINGS;
+typedef struct FMOD_ADVANCEDSETTINGS // :3
+{ // :3
+    int                 cbSize; // :3
+    int                 maxMPEGCodecs; // :3
+    int                 maxADPCMCodecs; // :3
+    int                 maxXMACodecs; // :3
+    int                 maxVorbisCodecs; // :3
+    int                 maxAT9Codecs; // :3
+    int                 maxFADPCMCodecs; // :3
+    int                 maxPCMCodecs; // :3
+    int                 ASIONumChannels; // :3
+    char              **ASIOChannelList; // :3
+    FMOD_SPEAKER       *ASIOSpeakerList; // :3
+    float               vol0virtualvol; // :3
+    unsigned int        defaultDecodeBufferSize; // :3
+    unsigned short      profilePort; // :3
+    unsigned int        geometryMaxFadeTime; // :3
+    float               distanceFilterCenterFreq; // :3
+    int                 reverb3Dinstance; // :3
+    int                 DSPBufferPoolSize; // :3
+    FMOD_DSP_RESAMPLER  resamplerMethod; // :3
+    unsigned int        randomSeed; // :3
+    int                 maxConvolutionThreads; // :3
+    int                 maxOpusCodecs; // :3
+    int                 maxSpatialObjects; // :3
+} FMOD_ADVANCEDSETTINGS; // :3
 
-typedef struct FMOD_TAG
-{
-    FMOD_TAGTYPE      type;
-    FMOD_TAGDATATYPE  datatype;
-    char             *name;
-    void             *data;
-    unsigned int      datalen;
-    FMOD_BOOL         updated;
-} FMOD_TAG;
+typedef struct FMOD_TAG // :3
+{ // :3
+    FMOD_TAGTYPE      type; // :3
+    FMOD_TAGDATATYPE  datatype; // :3
+    char             *name; // :3
+    void             *data; // :3
+    unsigned int      datalen; // :3
+    FMOD_BOOL         updated; // :3
+} FMOD_TAG; // :3
 
-typedef struct FMOD_CREATESOUNDEXINFO
-{
-    int                            cbsize;
-    unsigned int                   length;
-    unsigned int                   fileoffset;
-    int                            numchannels;
-    int                            defaultfrequency;
-    FMOD_SOUND_FORMAT              format;
-    unsigned int                   decodebuffersize;
-    int                            initialsubsound;
-    int                            numsubsounds;
-    int                           *inclusionlist;
-    int                            inclusionlistnum;
-    FMOD_SOUND_PCMREAD_CALLBACK    pcmreadcallback;
-    FMOD_SOUND_PCMSETPOS_CALLBACK  pcmsetposcallback;
-    FMOD_SOUND_NONBLOCK_CALLBACK   nonblockcallback;
-    const char                    *dlsname;
-    const char                    *encryptionkey;
-    int                            maxpolyphony;
-    void                          *userdata;
-    FMOD_SOUND_TYPE                suggestedsoundtype;
-    FMOD_FILE_OPEN_CALLBACK        fileuseropen;
-    FMOD_FILE_CLOSE_CALLBACK       fileuserclose;
-    FMOD_FILE_READ_CALLBACK        fileuserread;
-    FMOD_FILE_SEEK_CALLBACK        fileuserseek;
-    FMOD_FILE_ASYNCREAD_CALLBACK   fileuserasyncread;
-    FMOD_FILE_ASYNCCANCEL_CALLBACK fileuserasynccancel;
-    void                          *fileuserdata;
-    int                            filebuffersize;
-    FMOD_CHANNELORDER              channelorder;
-    FMOD_SOUNDGROUP               *initialsoundgroup;
-    unsigned int                   initialseekposition;
-    FMOD_TIMEUNIT                  initialseekpostype;
-    int                            ignoresetfilesystem;
-    unsigned int                   audioqueuepolicy;
-    unsigned int                   minmidigranularity;
-    int                            nonblockthreadid;
-    FMOD_GUID                     *fsbguid;
-} FMOD_CREATESOUNDEXINFO;
+typedef struct FMOD_CREATESOUNDEXINFO // :3
+{ // :3
+    int                            cbsize; // :3
+    unsigned int                   length; // :3
+    unsigned int                   fileoffset; // :3
+    int                            numchannels; // :3
+    int                            defaultfrequency; // :3
+    FMOD_SOUND_FORMAT              format; // :3
+    unsigned int                   decodebuffersize; // :3
+    int                            initialsubsound; // :3
+    int                            numsubsounds; // :3
+    int                           *inclusionlist; // :3
+    int                            inclusionlistnum; // :3
+    FMOD_SOUND_PCMREAD_CALLBACK    pcmreadcallback; // :3
+    FMOD_SOUND_PCMSETPOS_CALLBACK  pcmsetposcallback; // :3
+    FMOD_SOUND_NONBLOCK_CALLBACK   nonblockcallback; // :3
+    const char                    *dlsname; // :3
+    const char                    *encryptionkey; // :3
+    int                            maxpolyphony; // :3
+    void                          *userdata; // :3
+    FMOD_SOUND_TYPE                suggestedsoundtype; // :3
+    FMOD_FILE_OPEN_CALLBACK        fileuseropen; // :3
+    FMOD_FILE_CLOSE_CALLBACK       fileuserclose; // :3
+    FMOD_FILE_READ_CALLBACK        fileuserread; // :3
+    FMOD_FILE_SEEK_CALLBACK        fileuserseek; // :3
+    FMOD_FILE_ASYNCREAD_CALLBACK   fileuserasyncread; // :3
+    FMOD_FILE_ASYNCCANCEL_CALLBACK fileuserasynccancel; // :3
+    void                          *fileuserdata; // :3
+    int                            filebuffersize; // :3
+    FMOD_CHANNELORDER              channelorder; // :3
+    FMOD_SOUNDGROUP               *initialsoundgroup; // :3
+    unsigned int                   initialseekposition; // :3
+    FMOD_TIMEUNIT                  initialseekpostype; // :3
+    int                            ignoresetfilesystem; // :3
+    unsigned int                   audioqueuepolicy; // :3
+    unsigned int                   minmidigranularity; // :3
+    int                            nonblockthreadid; // :3
+    FMOD_GUID                     *fsbguid; // :3
+} FMOD_CREATESOUNDEXINFO; // :3
 
-typedef struct FMOD_REVERB_PROPERTIES
-{
-    float DecayTime;
-    float EarlyDelay;
-    float LateDelay;
-    float HFReference;
-    float HFDecayRatio;
-    float Diffusion;
-    float Density;
-    float LowShelfFrequency;
-    float LowShelfGain;
-    float HighCut;
-    float EarlyLateMix;
-    float WetLevel;
-} FMOD_REVERB_PROPERTIES;
+typedef struct FMOD_REVERB_PROPERTIES // :3
+{ // :3
+    float DecayTime; // :3
+    float EarlyDelay; // :3
+    float LateDelay; // :3
+    float HFReference; // :3
+    float HFDecayRatio; // :3
+    float Diffusion; // :3
+    float Density; // :3
+    float LowShelfFrequency; // :3
+    float LowShelfGain; // :3
+    float HighCut; // :3
+    float EarlyLateMix; // :3
+    float WetLevel; // :3
+} FMOD_REVERB_PROPERTIES; // :3
 
-typedef struct FMOD_ERRORCALLBACK_INFO
-{
-    FMOD_RESULT                      result;
-    FMOD_ERRORCALLBACK_INSTANCETYPE  instancetype;
-    void                            *instance;
-    const char                      *functionname;
-    const char                      *functionparams;
-} FMOD_ERRORCALLBACK_INFO;
+typedef struct FMOD_ERRORCALLBACK_INFO // :3
+{ // :3
+    FMOD_RESULT                      result; // :3
+    FMOD_ERRORCALLBACK_INSTANCETYPE  instancetype; // :3
+    void                            *instance; // :3
+    const char                      *functionname; // :3
+    const char                      *functionparams; // :3
+} FMOD_ERRORCALLBACK_INFO; // :3
 
-typedef struct FMOD_CPU_USAGE
-{
-    float           dsp;
-    float           stream;
-    float           geometry;
-    float           update;
-    float           convolution1;
-    float           convolution2;
-} FMOD_CPU_USAGE;
+typedef struct FMOD_CPU_USAGE // :3
+{ // :3
+    float           dsp; // :3
+    float           stream; // :3
+    float           geometry; // :3
+    float           update; // :3
+    float           convolution1; // :3
+    float           convolution2; // :3
+} FMOD_CPU_USAGE; // :3
 
-typedef struct FMOD_DSP_DATA_PARAMETER_INFO
-{
-    void           *data;
-    unsigned int    length;
-    int             index;
-} FMOD_DSP_DATA_PARAMETER_INFO;
+typedef struct FMOD_DSP_DATA_PARAMETER_INFO // :3
+{ // :3
+    void           *data; // :3
+    unsigned int    length; // :3
+    int             index; // :3
+} FMOD_DSP_DATA_PARAMETER_INFO; // :3
 
 /*
     FMOD optional headers for plugin development
-*/
-#include "fmod_codec.h"
-#include "fmod_dsp.h"
-#include "fmod_output.h"
+*/ // :3
+#include "fmod_codec.h" // :3
+#include "fmod_dsp.h" // :3
+#include "fmod_output.h" // :3
 
-#endif
+#endif // :3

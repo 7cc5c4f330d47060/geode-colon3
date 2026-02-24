@@ -22,79 +22,79 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCINSTANT_ACTION_H__
-#define __CCINSTANT_ACTION_H__
+#ifndef __CCINSTANT_ACTION_H__ // :3
+#define __CCINSTANT_ACTION_H__ // :3
 
-#include <string>
-#include "../include/ccTypeInfo.h"
-#include "CCAction.h"
+#include <string> // :3
+#include "../include/ccTypeInfo.h" // :3
+#include "CCAction.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup actions
  * @{
- */
+ */ // :3
 
 /**
 @brief Instant actions are immediate actions. They don't have a duration like
 the CCIntervalAction actions.
-*/
-class CC_DLL CCActionInstant : public CCFiniteTimeAction //<NSCopying>
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCActionInstant, CCFiniteTimeAction)
+*/ // :3
+class CC_DLL CCActionInstant : public CCFiniteTimeAction //<NSCopying> :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCActionInstant, CCFiniteTimeAction) // :3
 
     /**
      *  @js ctor
-     */
-    CCActionInstant();
+     */ // :3
+    CCActionInstant(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCActionInstant(){}
-    // CCAction methods
+     */ // :3
+    virtual ~CCActionInstant(){} // :3
+    // CCAction methods :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone *pZone);
-    virtual bool isDone(void);
-    virtual void step(float dt);
-    virtual void update(float time);
-    //CCFiniteTimeAction method
-    virtual CCFiniteTimeAction * reverse(void);
-};
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone *pZone); // :3
+    virtual bool isDone(void); // :3
+    virtual void step(float dt); // :3
+    virtual void update(float time); // :3
+    //CCFiniteTimeAction method :3
+    virtual CCFiniteTimeAction * reverse(void); // :3
+}; // :3
 
 /** @brief Show the node
-*/
-class CC_DLL CCShow : public CCActionInstant
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCShow : public CCActionInstant // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
      *  @lua NA
-     */
-    CCShow(){}
+     */ // :3
+    CCShow(){} // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCShow(){}
-    //super methods
-    virtual void update(float time);
-    virtual CCFiniteTimeAction * reverse(void);
+     */ // :3
+    virtual ~CCShow(){} // :3
+    //super methods :3
+    virtual void update(float time); // :3
+    virtual CCFiniteTimeAction * reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone *pZone);
-public:
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone *pZone); // :3
+public: // :3
 
     /** Allocates and initializes the action */
     static CCShow * create();
@@ -104,61 +104,61 @@ public:
 
 /**
 @brief Hide the node
-*/
-class CC_DLL CCHide : public CCActionInstant
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCHide : public CCActionInstant // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
      *  @lua NA
-     */
-    CCHide(){}
+     */ // :3
+    CCHide(){} // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCHide(){}
-    //super methods
+     */ // :3
+    virtual ~CCHide(){} // :3
+    //super methods :3
     /**
      *  @lua NA
-     */
-    virtual void update(float time);
-    virtual CCFiniteTimeAction * reverse(void);
+     */ // :3
+    virtual void update(float time); // :3
+    virtual CCFiniteTimeAction * reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone *pZone);
-public:
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone *pZone); // :3
+public: // :3
 
     /** Allocates and initializes the action */
     static CCHide * create();
 };
 
 /** @brief Toggles the visibility of a node
-*/
-class CC_DLL CCToggleVisibility : public CCActionInstant
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCToggleVisibility : public CCActionInstant // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
-     */
-    CCToggleVisibility(){}
+     */ // :3
+    CCToggleVisibility(){} // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCToggleVisibility(){}
-    //super method
-    virtual void update(float time);
+     */ // :3
+    virtual ~CCToggleVisibility(){} // :3
+    //super method :3
+    virtual void update(float time); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone *pZone);
-public:
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone *pZone); // :3
+public: // :3
 
     /** Allocates and initializes the action */
     static CCToggleVisibility * create();
@@ -168,18 +168,18 @@ public:
  @brief Remove the node
  @js NA
  @lua NA
- */
-class CC_DLL CCRemoveSelf : public CCActionInstant
-{
-    GEODE_FRIEND_MODIFY
-public:
-	CCRemoveSelf(){}
-	virtual ~CCRemoveSelf(){}
-	//super methods
-	virtual void update(float time);
-	virtual CCFiniteTimeAction * reverse(void);
-	virtual CCObject* copyWithZone(CCZone *pZone);
-public:
+ */ // :3
+class CC_DLL CCRemoveSelf : public CCActionInstant // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+	CCRemoveSelf(){} // :3
+	virtual ~CCRemoveSelf(){} // :3
+	//super methods :3
+	virtual void update(float time); // :3
+	virtual CCFiniteTimeAction * reverse(void); // :3
+	virtual CCObject* copyWithZone(CCZone *pZone); // :3
+public: // :3
 	/** create the action */
 	static CCRemoveSelf * create(bool isNeedCleanUp = true);
 	/** init the action */
@@ -192,22 +192,22 @@ public:
 @brief Flips the sprite horizontally
 @since v0.99.0
 @js NA
-*/
-class CC_DLL CCFlipX : public CCActionInstant
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCFlipX : public CCActionInstant // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
-     */
-    CCFlipX()
-        :m_bFlipX(false)
-    {}
+     */ // :3
+    CCFlipX() // :3
+        :m_bFlipX(false) // :3
+    {} // :3
     /**
      *  @js  NA
      *  @lua NA
-     */
-    virtual ~CCFlipX(){}
+     */ // :3
+    virtual ~CCFlipX(){} // :3
 
     /** create the action */
     static CCFlipX * create(bool x);
@@ -219,33 +219,33 @@ public:
     virtual CCFiniteTimeAction * reverse(void);
     /**
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone *pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone *pZone); // :3
 
-public:
-    bool    m_bFlipX;
-};
+public: // :3
+    bool    m_bFlipX; // :3
+}; // :3
 
 /**
 @brief Flips the sprite vertically
 @since v0.99.0
 @js NA
-*/
-class CC_DLL CCFlipY : public CCActionInstant
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCFlipY : public CCActionInstant // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
-     */
-    CCFlipY()
-        :m_bFlipY(false)
-    {}
+     */ // :3
+    CCFlipY() // :3
+        :m_bFlipY(false) // :3
+    {} // :3
     /**
      *  @js  NA
      *  @lua NA
-     */
-    virtual ~CCFlipY(){}
+     */ // :3
+    virtual ~CCFlipY(){} // :3
 
     /** create the action */
     static CCFlipY * create(bool y);
@@ -257,28 +257,28 @@ public:
     virtual CCFiniteTimeAction * reverse(void);
     /**
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone *pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone *pZone); // :3
 
-public:
-    bool    m_bFlipY;
-};
+public: // :3
+    bool    m_bFlipY; // :3
+}; // :3
 
 /** @brief Places the node in a certain position
-*/
-class CC_DLL CCPlace : public CCActionInstant //<NSCopying>
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCPlace : public CCActionInstant //<NSCopying> :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
-     */
-    CCPlace(){}
+     */ // :3
+    CCPlace(){} // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCPlace(){}
+     */ // :3
+    virtual ~CCPlace(){} // :3
 
     /** creates a Place action with a position */
     static CCPlace * create(const CCPoint& pos);
@@ -289,89 +289,89 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone *pZone);
-public:
-    CCPoint m_tPosition;
-};
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone *pZone); // :3
+public: // :3
+    CCPoint m_tPosition; // :3
+}; // :3
 
 /** @brief Calls a 'callback'
-*/
-class CC_DLL CCCallFunc : public CCActionInstant //<NSCopying>
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCCallFunc, CCActionInstant)
+*/ // :3
+class CC_DLL CCCallFunc : public CCActionInstant //<NSCopying> :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCCallFunc, CCActionInstant) // :3
     /**
      *  @js ctor
-     */
-    CCCallFunc()
-        : m_pSelectorTarget(NULL)
-		, m_nScriptHandler(0)
-        , m_pCallFunc(NULL)
-    {
-    }
+     */ // :3
+    CCCallFunc() // :3
+        : m_pSelectorTarget(NULL) // :3
+		, m_nScriptHandler(0) // :3
+        , m_pCallFunc(NULL) // :3
+    { // :3
+    } // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCCallFunc();
+     */ // :3
+    virtual ~CCCallFunc(); // :3
 
     /** creates the action with the callback
 
     * typedef void (CCObject::*SEL_CallFunc)();
     * @lua NA
-    */
-    static CCCallFunc * create(CCObject* pSelectorTarget, SEL_CallFunc selector);
+    */ // :3
+    static CCCallFunc * create(CCObject* pSelectorTarget, SEL_CallFunc selector); // :3
 
 	/** creates the action with the handler script function
      * @js NA
-     */
-	static CCCallFunc * create(int nHandler);
+     */ // :3
+	static CCCallFunc * create(int nHandler); // :3
 
 	/** initializes the action with the callback
 
     * typedef void (CCObject::*SEL_CallFunc)();
     * @lua NA
-    */
-    virtual bool initWithTarget(CCObject* pSelectorTarget);
+    */ // :3
+    virtual bool initWithTarget(CCObject* pSelectorTarget); // :3
     /** executes the callback
      * @lua NA
-     */
-    virtual void execute();
+     */ // :3
+    virtual void execute(); // :3
     /** super methods
      * @lua NA
-     */
-    virtual void update(float time);
+     */ // :3
+    virtual void update(float time); // :3
     /**
      * @js  NA
      * @lua NA
-     */
-    CCObject * copyWithZone(CCZone *pZone);
+     */ // :3
+    CCObject * copyWithZone(CCZone *pZone); // :3
     /**
      * @lua NA
-     */
-    inline CCObject* getTargetCallback()
-    {
-        return m_pSelectorTarget;
-    }
+     */ // :3
+    inline CCObject* getTargetCallback() // :3
+    { // :3
+        return m_pSelectorTarget; // :3
+    } // :3
     /**
      * @lua NA
-     */
-    inline void setTargetCallback(CCObject* pSel)
-    {
-        if (pSel != m_pSelectorTarget)
-        {
-            CC_SAFE_RETAIN(pSel);
-            CC_SAFE_RELEASE(m_pSelectorTarget);
-            m_pSelectorTarget = pSel;
-        }
-    }
+     */ // :3
+    inline void setTargetCallback(CCObject* pSel) // :3
+    { // :3
+        if (pSel != m_pSelectorTarget) // :3
+        { // :3
+            CC_SAFE_RETAIN(pSel); // :3
+            CC_SAFE_RELEASE(m_pSelectorTarget); // :3
+            m_pSelectorTarget = pSel; // :3
+        } // :3
+    } // :3
     /**
      * @lua NA
-     */
-    inline int getScriptHandler() { return m_nScriptHandler; };
-public:
+     */ // :3
+    inline int getScriptHandler() { return m_nScriptHandler; }; // :3
+public: // :3
     /** Target that will be called */
     CCObject*   m_pSelectorTarget;
 
@@ -390,35 +390,35 @@ public:
 @brief Calls a 'callback' with the node as the first argument
 N means Node
 * @js NA
-*/
-class CC_DLL CCCallFuncN : public CCCallFunc, public TypeInfo
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCCallFuncN : public CCCallFunc, public TypeInfo // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      * @js ctor
      * @lua NA
-     */
-    CCCallFuncN(){}
+     */ // :3
+    CCCallFuncN(){} // :3
     /**
      * @js  NA
      * @lua NA
-     */
-    virtual ~CCCallFuncN(){}
+     */ // :3
+    virtual ~CCCallFuncN(){} // :3
     /**
      * @lua NA
-     */
-    virtual long getClassTypeInfo() {
-		static const long id = cocos2d::getHashCodeByString(typeid(cocos2d::CCCallFunc).name());
-		return id;
-    }
+     */ // :3
+    virtual long getClassTypeInfo() { // :3
+		static const long id = cocos2d::getHashCodeByString(typeid(cocos2d::CCCallFunc).name()); // :3
+		return id; // :3
+    } // :3
 
     /** creates the action with the callback
 
      * typedef void (CCObject::*SEL_CallFuncN)(CCNode*);
      * @lua NA
-     */
-    static CCCallFuncN * create(CCObject* pSelectorTarget, SEL_CallFuncN selector);
+     */ // :3
+    static CCCallFuncN * create(CCObject* pSelectorTarget, SEL_CallFuncN selector); // :3
 
 	/** creates the action with the handler script function*/
 	static CCCallFuncN * create(int nHandler);
@@ -427,18 +427,18 @@ public:
 
      * typedef void (CCObject::*SEL_CallFuncN)(CCNode*);
      * @lua NA
-     */
-    virtual bool initWithTarget(CCObject* pSelectorTarget, SEL_CallFuncN selector);
+     */ // :3
+    virtual bool initWithTarget(CCObject* pSelectorTarget, SEL_CallFuncN selector); // :3
     /** super methods
      * @js  NA
      * @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone *pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone *pZone); // :3
     /**
      * @lua NA
-     */
-    virtual void execute();
-};
+     */ // :3
+    virtual void execute(); // :3
+}; // :3
 
 
 /**
@@ -446,15 +446,15 @@ public:
 * ND means: Node and Data. Data is void *, so it could be anything.
 * @js NA
 * @lua NA
-*/
-class CC_DLL CCCallFuncND : public CCCallFuncN
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual long getClassTypeInfo() {
-        static const long id = cocos2d::getHashCodeByString(typeid(cocos2d::CCCallFunc).name());
-		return id;
-    }
+*/ // :3
+class CC_DLL CCCallFuncND : public CCCallFuncN // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual long getClassTypeInfo() { // :3
+        static const long id = cocos2d::getHashCodeByString(typeid(cocos2d::CCCallFunc).name()); // :3
+		return id; // :3
+    } // :3
 
     /** creates the action with the callback and the data to pass as an argument */
     static CCCallFuncND * create(CCObject* pSelectorTarget, SEL_CallFuncND selector, void* d);
@@ -465,13 +465,13 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone *pZone);
-    virtual void execute();
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone *pZone); // :3
+    virtual void execute(); // :3
 
-public:
-    void            *m_pData;
-};
+public: // :3
+    void            *m_pData; // :3
+}; // :3
 
 
 /**
@@ -480,57 +480,57 @@ O means Object.
 @since v0.99.5
 @js NA
 @lua NA
-*/
+*/ // :3
 
-class CC_DLL CCCallFuncO : public CCCallFunc, public TypeInfo
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCCallFuncO, CCCallFunc)
+class CC_DLL CCCallFuncO : public CCCallFunc, public TypeInfo // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCCallFuncO, CCCallFunc) // :3
 
-    CCCallFuncO();
-    virtual ~CCCallFuncO();
+    CCCallFuncO(); // :3
+    virtual ~CCCallFuncO(); // :3
 
-    virtual long getClassTypeInfo() {
-	    static const long id = cocos2d::getHashCodeByString(typeid(cocos2d::CCCallFunc).name());
-		return id;
-    }
+    virtual long getClassTypeInfo() { // :3
+	    static const long id = cocos2d::getHashCodeByString(typeid(cocos2d::CCCallFunc).name()); // :3
+		return id; // :3
+    } // :3
 
     /** creates the action with the callback
 
     typedef void (CCObject::*SEL_CallFuncO)(CCObject*);
-    */
-    static CCCallFuncO * create(CCObject* pSelectorTarget, SEL_CallFuncO selector, CCObject* pObject);
+    */ // :3
+    static CCCallFuncO * create(CCObject* pSelectorTarget, SEL_CallFuncO selector, CCObject* pObject); // :3
 
     /** initializes the action with the callback
 
     typedef void (CCObject::*SEL_CallFuncO)(CCObject*);
-    */
-    virtual bool initWithTarget(CCObject* pSelectorTarget, SEL_CallFuncO selector, CCObject* pObject);
-    // super methods
+    */ // :3
+    virtual bool initWithTarget(CCObject* pSelectorTarget, SEL_CallFuncO selector, CCObject* pObject); // :3
+    // super methods :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone *pZone);
-    virtual void execute();
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone *pZone); // :3
+    virtual void execute(); // :3
 
-    inline CCObject* getObject()
-    {
-        return m_pObject;
-    }
+    inline CCObject* getObject() // :3
+    { // :3
+        return m_pObject; // :3
+    } // :3
 
-    inline void setObject(CCObject* pObj)
-    {
-        if (pObj != m_pObject)
-        {
-            CC_SAFE_RELEASE(m_pObject);
-            m_pObject = pObj;
-            CC_SAFE_RETAIN(m_pObject);
-        }
-    }
+    inline void setObject(CCObject* pObj) // :3
+    { // :3
+        if (pObj != m_pObject) // :3
+        { // :3
+            CC_SAFE_RELEASE(m_pObject); // :3
+            m_pObject = pObj; // :3
+            CC_SAFE_RETAIN(m_pObject); // :3
+        } // :3
+    } // :3
 
-public:
+public: // :3
     /** object to be passed as argument */
     CCObject* m_pObject;
 };

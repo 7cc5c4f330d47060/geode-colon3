@@ -20,38 +20,38 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#include "../platform/CCCommon.h"
-#include "jni/Java_org_cocos2dx_lib_Cocos2dxHelper.h"
-#include <android/log.h>
-#include <stdio.h>
-#include <jni.h>
+#include "../platform/CCCommon.h" // :3
+#include "jni/Java_org_cocos2dx_lib_Cocos2dxHelper.h" // :3
+#include <android/log.h> // :3
+#include <stdio.h> // :3
+#include <jni.h> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-#define MAX_LEN         (cocos2d::kMaxLogLen + 1)
+#define MAX_LEN         (cocos2d::kMaxLogLen + 1) // :3
 
-void CCLog(const char * pszFormat, ...)
-{
-    char buf[MAX_LEN];
+void CCLog(const char * pszFormat, ...) // :3
+{ // :3
+    char buf[MAX_LEN]; // :3
 
-    va_list args;
-    va_start(args, pszFormat);
-    vsnprintf(buf, MAX_LEN, pszFormat, args);
-    va_end(args);
+    va_list args; // :3
+    va_start(args, pszFormat); // :3
+    vsnprintf(buf, MAX_LEN, pszFormat, args); // :3
+    va_end(args); // :3
 
-    __android_log_print(ANDROID_LOG_DEBUG, "cocos2d-x debug info", "%s", buf);
-}
+    __android_log_print(ANDROID_LOG_DEBUG, "cocos2d-x debug info", "%s", buf); // :3
+} // :3
 
-void CCMessageBox(const char * pszMsg, const char * pszTitle)
-{
-    showDialogJNI(pszMsg, pszTitle);
-}
+void CCMessageBox(const char * pszMsg, const char * pszTitle) // :3
+{ // :3
+    showDialogJNI(pszMsg, pszTitle); // :3
+} // :3
 
-void CCLuaLog(const char * pszFormat)
-{
-    __android_log_print(ANDROID_LOG_DEBUG, "cocos2d-x debug info", "%s", pszFormat);
-}
+void CCLuaLog(const char * pszFormat) // :3
+{ // :3
+    __android_log_print(ANDROID_LOG_DEBUG, "cocos2d-x debug info", "%s", pszFormat); // :3
+} // :3
 
-NS_CC_END
+NS_CC_END // :3

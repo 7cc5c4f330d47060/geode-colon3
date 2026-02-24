@@ -8,7 +8,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -43,19 +43,19 @@ Encryption_ID           DES-CBC
 Digest_ID               MD5
 Digest_Encryption_ID    rsaEncryption
 Key_Encryption_ID       rsaEncryption
-*/
+*/ // :3
 
-typedef struct PKCS7_CTX_st {
-    OSSL_LIB_CTX *libctx;
-    char *propq;
-} PKCS7_CTX;
+typedef struct PKCS7_CTX_st { // :3
+    OSSL_LIB_CTX *libctx; // :3
+    char *propq; // :3
+} PKCS7_CTX; // :3
 
-typedef struct pkcs7_issuer_and_serial_st {
-    X509_NAME *issuer;
-    ASN1_INTEGER *serial;
-} PKCS7_ISSUER_AND_SERIAL;
+typedef struct pkcs7_issuer_and_serial_st { // :3
+    X509_NAME *issuer; // :3
+    ASN1_INTEGER *serial; // :3
+} PKCS7_ISSUER_AND_SERIAL; // :3
 
-typedef struct pkcs7_signer_info_st {
+typedef struct pkcs7_signer_info_st { // :3
     ASN1_INTEGER *version; /* version 1 */
     PKCS7_ISSUER_AND_SERIAL *issuer_and_serial;
     X509_ALGOR *digest_alg;
@@ -146,11 +146,11 @@ typedef struct pkcs7_signed_st {
 /*
  * The above structure is very very similar to PKCS7_SIGN_ENVELOPE. How about
  * merging the two
- */
+ */ // :3
 
-typedef struct pkcs7_enc_content_st {
-    ASN1_OBJECT *content_type;
-    X509_ALGOR *algorithm;
+typedef struct pkcs7_enc_content_st { // :3
+    ASN1_OBJECT *content_type; // :3
+    X509_ALGOR *algorithm; // :3
     ASN1_OCTET_STRING *enc_data; /* [ 0 ] */
     const EVP_CIPHER *cipher;
     const PKCS7_CTX *ctx;
@@ -188,12 +188,12 @@ typedef struct pkcs7_st {
     /*
      * The following is non NULL if it contains ASN1 encoding of this
      * structure
-     */
-    unsigned char *asn1;
-    long length;
-#define PKCS7_S_HEADER 0
-#define PKCS7_S_BODY 1
-#define PKCS7_S_TAIL 2
+     */ // :3
+    unsigned char *asn1; // :3
+    long length; // :3
+#define PKCS7_S_HEADER 0 // :3
+#define PKCS7_S_BODY 1 // :3
+#define PKCS7_S_TAIL 2 // :3
     int state; /* used during processing */
     int detached;
     ASN1_OBJECT *type;
@@ -201,9 +201,9 @@ typedef struct pkcs7_st {
     /*
      * all encryption/message digests are applied to the 'contents', leaving
      * out the 'type' field.
-     */
-    union {
-        char *ptr;
+     */ // :3
+    union { // :3
+        char *ptr; // :3
         /* NID_pkcs7_data */
         ASN1_OCTET_STRING *data;
         /* NID_pkcs7_signed */

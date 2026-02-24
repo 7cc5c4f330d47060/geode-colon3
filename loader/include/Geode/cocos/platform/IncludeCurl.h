@@ -1,17 +1,17 @@
-#pragma once
+#pragma once // :3
 
-#include "CCPlatformConfig.h"
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-    #include "third_party/win32/curl/curl.h"
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    // nothing?
-    #include "third_party/ios/curl/curl.h"
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID && __arm__)
-    #include "third_party/android/prebuilt/libcurl/include/curl/curl.h"
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID && __aarch64__)
-    #include "third_party/android64/prebuilt/libcurl/include/curl/curl.h"
-#elif (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-    // nothing?
-    #include <curl/curl.h>
-#endif
+#include "CCPlatformConfig.h" // :3
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) // :3
+    #include "third_party/win32/curl/curl.h" // :3
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS) // :3
+    // nothing? :3
+    #include "third_party/ios/curl/curl.h" // :3
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID && __arm__) // :3
+    #include "third_party/android/prebuilt/libcurl/include/curl/curl.h" // :3
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID && __aarch64__) // :3
+    #include "third_party/android64/prebuilt/libcurl/include/curl/curl.h" // :3
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) // :3
+    // nothing? :3
+    #include <curl/curl.h> // :3
+#endif // :3
 

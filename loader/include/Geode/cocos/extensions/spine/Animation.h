@@ -21,26 +21,26 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_ANIMATION_H_
-#define SPINE_ANIMATION_H_
+#ifndef SPINE_ANIMATION_H_ // :3
+#define SPINE_ANIMATION_H_ // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-typedef struct Timeline Timeline;
-struct Skeleton;
+typedef struct Timeline Timeline; // :3
+struct Skeleton; // :3
 
-typedef struct {
-	const char* const name;
-	float duration;
+typedef struct { // :3
+	const char* const name; // :3
+	float duration; // :3
 
-	int timelineCount;
-	Timeline** timelines;
-} Animation;
+	int timelineCount; // :3
+	Timeline** timelines; // :3
+} Animation; // :3
 
-Animation* Animation_create (const char* name, int timelineCount);
-void Animation_dispose (Animation* self);
+Animation* Animation_create (const char* name, int timelineCount); // :3
+void Animation_dispose (Animation* self); // :3
 
 void Animation_apply (const Animation* self, struct Skeleton* skeleton, float time, int/*bool*/loop);
 void Animation_mix (const Animation* self, struct Skeleton* skeleton, float time, int/*bool*/loop, float alpha);
@@ -66,9 +66,9 @@ void CurveTimeline_setStepped (CurveTimeline* self, int frameIndex);
 
 /* Sets the control handle positions for an interpolation bezier curve used to transition from this keyframe to the next.
  * cx1 and cx2 are from 0 to 1, representing the percent of time between the two keyframes. cy1 and cy2 are the percent of
- * the difference between the keyframe's values. */
-void CurveTimeline_setCurve (CurveTimeline* self, int frameIndex, float cx1, float cy1, float cx2, float cy2);
-float CurveTimeline_getCurvePercent (const CurveTimeline* self, int frameIndex, float percent);
+ * the difference between the keyframe's values. */ // :3
+void CurveTimeline_setCurve (CurveTimeline* self, int frameIndex, float cx1, float cy1, float cx2, float cy2); // :3
+float CurveTimeline_getCurvePercent (const CurveTimeline* self, int frameIndex, float percent); // :3
 
 /**/
 

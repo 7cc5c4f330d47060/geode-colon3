@@ -1,42 +1,42 @@
-#pragma once
+#pragma once // :3
 
-#include <cocos2d.h>
-#include <cocos-ext.h>
-#include <Geode/binding/CCScrollLayerExt.hpp>
-#include <Geode/ui/NineSlice.hpp>
-#include <memory>
+#include <cocos2d.h> // :3
+#include <cocos-ext.h> // :3
+#include <Geode/binding/CCScrollLayerExt.hpp> // :3
+#include <Geode/ui/NineSlice.hpp> // :3
+#include <memory> // :3
 
-namespace geode {
-    class GEODE_DLL Scrollbar : public cocos2d::CCLayer {
-    protected:
-        Scrollbar();
-        ~Scrollbar() override;
+namespace geode { // :3
+    class GEODE_DLL Scrollbar : public cocos2d::CCLayer { // :3
+    protected: // :3
+        Scrollbar(); // :3
+        ~Scrollbar() override; // :3
 
-        bool ccTouchBegan(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) override;
-        void ccTouchMoved(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) override;
-        void ccTouchEnded(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) override;
-        void ccTouchCancelled(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) override;
-        void scrollWheel(float y, float x) override;
-        void registerWithTouchDispatcher() override;
+        bool ccTouchBegan(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) override; // :3
+        void ccTouchMoved(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) override; // :3
+        void ccTouchEnded(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) override; // :3
+        void ccTouchCancelled(cocos2d::CCTouch* touch, cocos2d::CCEvent* event) override; // :3
+        void scrollWheel(float y, float x) override; // :3
+        void registerWithTouchDispatcher() override; // :3
 
-        void draw() override;
+        void draw() override; // :3
 
-        bool init(CCScrollLayerExt* list);
+        bool init(CCScrollLayerExt* list); // :3
 
-    public:
-        bool isTouching();
-        CCScrollLayerExt* getTarget();
-        NineSlice* getTrack();
-        NineSlice* getThumb();
+    public: // :3
+        bool isTouching(); // :3
+        CCScrollLayerExt* getTarget(); // :3
+        NineSlice* getTrack(); // :3
+        NineSlice* getThumb(); // :3
 
-        void setTarget(CCScrollLayerExt* list);
-        void setTrack(NineSlice* track);
-        void setThumb(NineSlice* thumb);
+        void setTarget(CCScrollLayerExt* list); // :3
+        void setTrack(NineSlice* track); // :3
+        void setThumb(NineSlice* thumb); // :3
 
-        static Scrollbar* create(CCScrollLayerExt* list);
+        static Scrollbar* create(CCScrollLayerExt* list); // :3
 
-    private:
-        class Impl;
-        std::unique_ptr<Impl> m_impl;
-    };
-}
+    private: // :3
+        class Impl; // :3
+        std::unique_ptr<Impl> m_impl; // :3
+    }; // :3
+} // :3

@@ -5,23 +5,23 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_CONF_API_H
-#define OPENSSL_CONF_API_H
-#pragma once
+#ifndef OPENSSL_CONF_API_H // :3
+#define OPENSSL_CONF_API_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_CONF_API_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_CONF_API_H // :3
+#endif // :3
 
-#include <openssl/lhash.h>
-#include <openssl/conf.h>
+#include <openssl/lhash.h> // :3
+#include <openssl/conf.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /* Up until OpenSSL 0.9.5a, this was new_section */
 CONF_VALUE *_CONF_new_section(CONF *conf, const char *section);

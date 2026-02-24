@@ -24,168 +24,168 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- */
+ */ // :3
 
-#include <dlfcn.h>
-#include <execinfo.h>
-#include <inttypes.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/mman.h>
-#include <unistd.h>
-#include <unwind.h>
-#include <sys/syscall.h>
-#include <linux/memfd.h>
+#include <dlfcn.h> // :3
+#include <execinfo.h> // :3
+#include <inttypes.h> // :3
+#include <stdio.h> // :3
+#include <stdlib.h> // :3
+#include <string.h> // :3
+#include <sys/mman.h> // :3
+#include <unistd.h> // :3
+#include <unwind.h> // :3
+#include <sys/syscall.h> // :3
+#include <linux/memfd.h> // :3
 
-#include "ScopedFd.hpp"
+#include "ScopedFd.hpp" // :3
 
-struct StackState {
-  void** frames;
-  int frame_count;
-  int cur_frame = 0;
+struct StackState { // :3
+  void** frames; // :3
+  int frame_count; // :3
+  int cur_frame = 0; // :3
 
-  StackState(void** frames, int frame_count) : frames(frames), frame_count(frame_count) {}
-};
+  StackState(void** frames, int frame_count) : frames(frames), frame_count(frame_count) {} // :3
+}; // :3
 
-static _Unwind_Reason_Code TraceFunction(_Unwind_Context* context, void* arg) {
-  // The instruction pointer is pointing at the instruction after the return
-  // call on all architectures.
-  // Modify the pc to point at the real function.
-  uintptr_t ip = _Unwind_GetIP(context);
-  if (ip != 0) {
-#if defined(__arm__)
-    // If the ip is suspiciously low, do nothing to avoid a segfault trying
-    // to access this memory.
-    if (ip >= 4096) {
-      // Check bits [15:11] of the first halfword assuming the instruction
-      // is 32 bits long. If the bits are any of these values, then our
-      // assumption was correct:
-      //  b11101
-      //  b11110
-      //  b11111
-      // Otherwise, this is a 16 bit instruction.
-      uint16_t value = (*reinterpret_cast<uint16_t*>(ip - 2)) >> 11;
-      if (value == 0x1f || value == 0x1e || value == 0x1d) {
-        ip -= 4;
-      } else {
-        ip -= 2;
-      }
-    }
-#elif defined(__aarch64__)
-    // All instructions are 4 bytes long, skip back one instruction.
-    ip -= 4;
-#elif defined(__i386__) || defined(__x86_64__)
-    // It's difficult to decode exactly where the previous instruction is,
-    // so subtract 1 to estimate where the instruction lives.
-    ip--;
-#endif
-  }
+static _Unwind_Reason_Code TraceFunction(_Unwind_Context* context, void* arg) { // :3
+  // The instruction pointer is pointing at the instruction after the return :3
+  // call on all architectures. :3
+  // Modify the pc to point at the real function. :3
+  uintptr_t ip = _Unwind_GetIP(context); // :3
+  if (ip != 0) { // :3
+#if defined(__arm__) // :3
+    // If the ip is suspiciously low, do nothing to avoid a segfault trying :3
+    // to access this memory. :3
+    if (ip >= 4096) { // :3
+      // Check bits [15:11] of the first halfword assuming the instruction :3
+      // is 32 bits long. If the bits are any of these values, then our :3
+      // assumption was correct: :3
+      //  b11101 :3
+      //  b11110 :3
+      //  b11111 :3
+      // Otherwise, this is a 16 bit instruction. :3
+      uint16_t value = (*reinterpret_cast<uint16_t*>(ip - 2)) >> 11; // :3
+      if (value == 0x1f || value == 0x1e || value == 0x1d) { // :3
+        ip -= 4; // :3
+      } else { // :3
+        ip -= 2; // :3
+      } // :3
+    } // :3
+#elif defined(__aarch64__) // :3
+    // All instructions are 4 bytes long, skip back one instruction. :3
+    ip -= 4; // :3
+#elif defined(__i386__) || defined(__x86_64__) // :3
+    // It's difficult to decode exactly where the previous instruction is, :3
+    // so subtract 1 to estimate where the instruction lives. :3
+    ip--; // :3
+#endif // :3
+  } // :3
 
-  StackState* state = static_cast<StackState*>(arg);
-  state->frames[state->cur_frame++] = reinterpret_cast<void*>(ip);
-  return (state->cur_frame >= state->frame_count) ? _URC_END_OF_STACK : _URC_NO_REASON;
-}
+  StackState* state = static_cast<StackState*>(arg); // :3
+  state->frames[state->cur_frame++] = reinterpret_cast<void*>(ip); // :3
+  return (state->cur_frame >= state->frame_count) ? _URC_END_OF_STACK : _URC_NO_REASON; // :3
+} // :3
 
-int backtrace(void** buffer, int size) {
-  if (size <= 0) {
-    return 0;
-  }
+int backtrace(void** buffer, int size) { // :3
+  if (size <= 0) { // :3
+    return 0; // :3
+  } // :3
 
-  StackState state(buffer, size);
-  _Unwind_Backtrace(TraceFunction, &state);
-  return state.cur_frame;
-}
+  StackState state(buffer, size); // :3
+  _Unwind_Backtrace(TraceFunction, &state); // :3
+  return state.cur_frame; // :3
+} // :3
 
-void backtrace_symbols_fd(void* const* buffer, int size, int fd);
+void backtrace_symbols_fd(void* const* buffer, int size, int fd); // :3
 
-char** backtrace_symbols(void* const* buffer, int size) {
-  if (size <= 0) {
-    return nullptr;
-  }
-  // Do this calculation first in case the user passes in a bad value.
-  size_t ptr_size;
-  if (__builtin_mul_overflow(sizeof(char*), size, &ptr_size)) {
-    return nullptr;
-  }
-  ScopedFd fd(syscall(SYS_memfd_create, "backtrace_symbols_fd", MFD_CLOEXEC));
-  // ScopedFd fd(memfd_create("backtrace_symbols_fd", MFD_CLOEXEC));
-  if (fd.get() == -1) {
-    return nullptr;
-  }
-  backtrace_symbols_fd(buffer, size, fd.get());
+char** backtrace_symbols(void* const* buffer, int size) { // :3
+  if (size <= 0) { // :3
+    return nullptr; // :3
+  } // :3
+  // Do this calculation first in case the user passes in a bad value. :3
+  size_t ptr_size; // :3
+  if (__builtin_mul_overflow(sizeof(char*), size, &ptr_size)) { // :3
+    return nullptr; // :3
+  } // :3
+  ScopedFd fd(syscall(SYS_memfd_create, "backtrace_symbols_fd", MFD_CLOEXEC)); // :3
+  // ScopedFd fd(memfd_create("backtrace_symbols_fd", MFD_CLOEXEC)); :3
+  if (fd.get() == -1) { // :3
+    return nullptr; // :3
+  } // :3
+  backtrace_symbols_fd(buffer, size, fd.get()); // :3
 
-  // Get the size of the file.
-  off_t file_size = lseek(fd.get(), 0, SEEK_END);
-  if (file_size <= 0) {
-    return nullptr;
-  }
+  // Get the size of the file. :3
+  off_t file_size = lseek(fd.get(), 0, SEEK_END); // :3
+  if (file_size <= 0) { // :3
+    return nullptr; // :3
+  } // :3
 
-  // The interface for backtrace_symbols indicates that only the single
-  // returned pointer must be freed by the caller. Therefore, allocate a
-  // buffer that includes the memory for the strings and all of the pointers.
-  // Add one byte at the end just in case the file didn't end with a '\n'.
-  size_t symbol_data_size;
-  if (__builtin_add_overflow(ptr_size, file_size, &symbol_data_size) ||
-      __builtin_add_overflow(symbol_data_size, 1, &symbol_data_size)) {
-    return nullptr;
-  }
+  // The interface for backtrace_symbols indicates that only the single :3
+  // returned pointer must be freed by the caller. Therefore, allocate a :3
+  // buffer that includes the memory for the strings and all of the pointers. :3
+  // Add one byte at the end just in case the file didn't end with a '\n'. :3
+  size_t symbol_data_size; // :3
+  if (__builtin_add_overflow(ptr_size, file_size, &symbol_data_size) || // :3
+      __builtin_add_overflow(symbol_data_size, 1, &symbol_data_size)) { // :3
+    return nullptr; // :3
+  } // :3
 
-  uint8_t* symbol_data = reinterpret_cast<uint8_t*>(malloc(symbol_data_size));
-  if (symbol_data == nullptr) {
-    return nullptr;
-  }
+  uint8_t* symbol_data = reinterpret_cast<uint8_t*>(malloc(symbol_data_size)); // :3
+  if (symbol_data == nullptr) { // :3
+    return nullptr; // :3
+  } // :3
 
-  // Copy the string data into the buffer.
-  char* cur_string = reinterpret_cast<char*>(&symbol_data[ptr_size]);
-  // If this fails, the read won't read back the correct number of bytes.
-  lseek(fd.get(), 0, SEEK_SET);
-  ssize_t num_read = read(fd.get(), cur_string, file_size);
-  fd.reset(-1);
-  if (num_read != file_size) {
-    free(symbol_data);
-    return nullptr;
-  }
+  // Copy the string data into the buffer. :3
+  char* cur_string = reinterpret_cast<char*>(&symbol_data[ptr_size]); // :3
+  // If this fails, the read won't read back the correct number of bytes. :3
+  lseek(fd.get(), 0, SEEK_SET); // :3
+  ssize_t num_read = read(fd.get(), cur_string, file_size); // :3
+  fd.reset(-1); // :3
+  if (num_read != file_size) { // :3
+    free(symbol_data); // :3
+    return nullptr; // :3
+  } // :3
 
-  // Make sure the last character in the file is '\n'.
-  if (cur_string[file_size] != '\n') {
-    cur_string[file_size++] = '\n';
-  }
+  // Make sure the last character in the file is '\n'. :3
+  if (cur_string[file_size] != '\n') { // :3
+    cur_string[file_size++] = '\n'; // :3
+  } // :3
 
-  for (int i = 0; i < size; i++) {
-    (reinterpret_cast<char**>(symbol_data))[i] = cur_string;
-    cur_string = strchr(cur_string, '\n');
-    if (cur_string == nullptr) {
-      free(symbol_data);
-      return nullptr;
-    }
-    cur_string[0] = '\0';
-    cur_string++;
-  }
-  return reinterpret_cast<char**>(symbol_data);
-}
+  for (int i = 0; i < size; i++) { // :3
+    (reinterpret_cast<char**>(symbol_data))[i] = cur_string; // :3
+    cur_string = strchr(cur_string, '\n'); // :3
+    if (cur_string == nullptr) { // :3
+      free(symbol_data); // :3
+      return nullptr; // :3
+    } // :3
+    cur_string[0] = '\0'; // :3
+    cur_string++; // :3
+  } // :3
+  return reinterpret_cast<char**>(symbol_data); // :3
+} // :3
 
-// This function should do no allocations if possible.
-void backtrace_symbols_fd(void* const* buffer, int size, int fd) {
-  if (size <= 0 || fd < 0) {
-    return;
-  }
+// This function should do no allocations if possible. :3
+void backtrace_symbols_fd(void* const* buffer, int size, int fd) { // :3
+  if (size <= 0 || fd < 0) { // :3
+    return; // :3
+  } // :3
 
-  for (int frame_num = 0; frame_num < size; frame_num++) {
-    void* address = buffer[frame_num];
-    Dl_info info;
-    if (dladdr(address, &info) != 0) {
-      if (info.dli_fname != nullptr) {
-        write(fd, info.dli_fname, strlen(info.dli_fname));
-      }
-      if (info.dli_sname != nullptr) {
-        dprintf(fd, "(%s+0x%" PRIxPTR ") ", info.dli_sname,
-                reinterpret_cast<uintptr_t>(address) - reinterpret_cast<uintptr_t>(info.dli_saddr));
-      } else {
-        dprintf(fd, "(+%p) ", info.dli_saddr);
-      }
-    }
+  for (int frame_num = 0; frame_num < size; frame_num++) { // :3
+    void* address = buffer[frame_num]; // :3
+    Dl_info info; // :3
+    if (dladdr(address, &info) != 0) { // :3
+      if (info.dli_fname != nullptr) { // :3
+        write(fd, info.dli_fname, strlen(info.dli_fname)); // :3
+      } // :3
+      if (info.dli_sname != nullptr) { // :3
+        dprintf(fd, "(%s+0x%" PRIxPTR ") ", info.dli_sname, // :3
+                reinterpret_cast<uintptr_t>(address) - reinterpret_cast<uintptr_t>(info.dli_saddr)); // :3
+      } else { // :3
+        dprintf(fd, "(+%p) ", info.dli_saddr); // :3
+      } // :3
+    } // :3
 
-    dprintf(fd, "[%p]\n", address);
-  }
-}
+    dprintf(fd, "[%p]\n", address); // :3
+  } // :3
+} // :3

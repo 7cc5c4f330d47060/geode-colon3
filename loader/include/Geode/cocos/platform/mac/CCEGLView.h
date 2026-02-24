@@ -20,58 +20,58 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CC_EGLVIEW_MAC_H__
-#define __CC_EGLVIEW_MAC_H__
+#ifndef __CC_EGLVIEW_MAC_H__ // :3
+#define __CC_EGLVIEW_MAC_H__ // :3
 
-#include "../CCCommon.h"
-#include "../CCEGLViewProtocol.h"
+#include "../CCCommon.h" // :3
+#include "../CCEGLViewProtocol.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCSet;
-class CCTouch;
-class CCSize;
+class CCSet; // :3
+class CCTouch; // :3
+class CCSize; // :3
 
-class CC_DLL CCEGLView : public CCEGLViewProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
-    static CCEGLView* sharedOpenGLView(void);
+class CC_DLL CCEGLView : public CCEGLViewProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    static CCEGLView* sharedOpenGLView(void); // :3
 
-    static GEODE_DLL CCEGLView* get();
+    static GEODE_DLL CCEGLView* get(); // :3
 
-    virtual ~CCEGLView(void);
+    virtual ~CCEGLView(void); // :3
 
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEGLView, CCEGLViewProtocol)
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEGLView, CCEGLViewProtocol) // :3
 
-    virtual bool isOpenGLReady(void);
-    virtual bool setContentScaleFactor(float contentScaleFactor);
-    virtual void end();
-    virtual void swapBuffers(void);
+    virtual bool isOpenGLReady(void); // :3
+    virtual bool setContentScaleFactor(float contentScaleFactor); // :3
+    virtual void end(); // :3
+    virtual void swapBuffers(void); // :3
     /**
      * Set opengl view port rectangle with points.
-     */
-    virtual void setViewPortInPoints(float x , float y , float w , float h);
-    virtual void setScissorInPoints(float x , float y , float w , float h);
+     */ // :3
+    virtual void setViewPortInPoints(float x , float y , float w , float h); // :3
+    virtual void setScissorInPoints(float x , float y , float w , float h); // :3
 
-    virtual void setIMEKeyboardState(bool bOpen);
-	virtual void setMultiTouchMask(bool mask);
+    virtual void setIMEKeyboardState(bool bOpen); // :3
+	virtual void setMultiTouchMask(bool mask); // :3
 
-private:
-    static CCEGLView* s_sharedView;
+private: // :3
+    static CCEGLView* s_sharedView; // :3
 
-    // @note RobTop Addition
-    bool m_idk1;
-    // @note RobTop Addition
-    bool m_idk2;
-    // @note RobTop Addition
-    bool m_idk3;
+    // @note RobTop Addition :3
+    bool m_idk1; // :3
+    // @note RobTop Addition :3
+    bool m_idk2; // :3
+    // @note RobTop Addition :3
+    bool m_idk3; // :3
 
-    CCEGLView(void);
-};
+    CCEGLView(void); // :3
+}; // :3
 
-NS_CC_END   // end of namespace   cocos2d
+NS_CC_END   // end of namespace   cocos2d :3
 
-#endif	// end of __CC_EGLVIEW_MAC_H__
+#endif	// end of __CC_EGLVIEW_MAC_H__ :3

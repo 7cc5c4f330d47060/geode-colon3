@@ -21,55 +21,55 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
 ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+*/ // :3
 
-#ifndef UTILITY_H_INCLUDED
-#define UTILITY_H_INCLUDED
+#ifndef UTILITY_H_INCLUDED // :3
+#define UTILITY_H_INCLUDED // :3
 
-#include "../../../platform/CCPlatformMacros.h"
-#include <math.h>
+#include "../../../platform/CCPlatformMacros.h" // :3
+#include <math.h> // :3
 
-#ifndef kmScalar
-#define kmScalar float
-#endif
+#ifndef kmScalar // :3
+#define kmScalar float // :3
+#endif // :3
 
-#ifndef kmBool
-#define kmBool unsigned char
-#endif
+#ifndef kmBool // :3
+#define kmBool unsigned char // :3
+#endif // :3
 
-#ifndef kmEnum
-#define kmEnum unsigned int
-#endif
+#ifndef kmEnum // :3
+#define kmEnum unsigned int // :3
+#endif // :3
 
-#ifndef KM_FALSE
-#define KM_FALSE 0
-#endif
+#ifndef KM_FALSE // :3
+#define KM_FALSE 0 // :3
+#endif // :3
 
-#ifndef KM_TRUE
-#define KM_TRUE 1
-#endif
+#ifndef KM_TRUE // :3
+#define KM_TRUE 1 // :3
+#endif // :3
 
-#define kmPI 3.141592f
-#define kmPIOver180 0.017453f //  PI / 180
-#define kmPIUnder180 57.295779f // 180 / PI
-#define kmEpsilon 1.0 / 64.0
+#define kmPI 3.141592f // :3
+#define kmPIOver180 0.017453f //  PI / 180 :3
+#define kmPIUnder180 57.295779f // 180 / PI :3
+#define kmEpsilon 1.0 / 64.0 // :3
 
 
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-CC_DLL kmScalar kmSQR(kmScalar s);
-CC_DLL kmScalar kmDegreesToRadians(kmScalar degrees);
-CC_DLL kmScalar kmRadiansToDegrees(kmScalar radians);
+CC_DLL kmScalar kmSQR(kmScalar s); // :3
+CC_DLL kmScalar kmDegreesToRadians(kmScalar degrees); // :3
+CC_DLL kmScalar kmRadiansToDegrees(kmScalar radians); // :3
 
-CC_DLL kmScalar kmMin(kmScalar lhs, kmScalar rhs);
-CC_DLL kmScalar kmMax(kmScalar lhs, kmScalar rhs);
-CC_DLL kmBool kmAlmostEqual(kmScalar lhs, kmScalar rhs);
+CC_DLL kmScalar kmMin(kmScalar lhs, kmScalar rhs); // :3
+CC_DLL kmScalar kmMax(kmScalar lhs, kmScalar rhs); // :3
+CC_DLL kmBool kmAlmostEqual(kmScalar lhs, kmScalar rhs); // :3
 
-#ifdef __cplusplus
-}
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
 
 #endif /* UTILITY_H_INCLUDED */

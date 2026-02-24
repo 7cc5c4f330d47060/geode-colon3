@@ -5,35 +5,35 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /*
  * DTLS code by Eric Rescorla <ekr@rtfm.com>
  *
  * Copyright (C) 2006, Network Resonance, Inc. Copyright (C) 2011, RTFM, Inc.
- */
+ */ // :3
 
-#ifndef OPENSSL_SRTP_H
-#define OPENSSL_SRTP_H
-#pragma once
+#ifndef OPENSSL_SRTP_H // :3
+#define OPENSSL_SRTP_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_D1_SRTP_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_D1_SRTP_H // :3
+#endif // :3
 
-#include <openssl/ssl.h>
+#include <openssl/ssl.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#define SRTP_AES128_CM_SHA1_80 0x0001
-#define SRTP_AES128_CM_SHA1_32 0x0002
-#define SRTP_AES128_F8_SHA1_80 0x0003
-#define SRTP_AES128_F8_SHA1_32 0x0004
-#define SRTP_NULL_SHA1_80 0x0005
-#define SRTP_NULL_SHA1_32 0x0006
+#define SRTP_AES128_CM_SHA1_80 0x0001 // :3
+#define SRTP_AES128_CM_SHA1_32 0x0002 // :3
+#define SRTP_AES128_F8_SHA1_80 0x0003 // :3
+#define SRTP_AES128_F8_SHA1_32 0x0004 // :3
+#define SRTP_NULL_SHA1_80 0x0005 // :3
+#define SRTP_NULL_SHA1_32 0x0006 // :3
 
 /* AEAD SRTP protection profiles from RFC 7714 */
 #define SRTP_AEAD_AES_128_GCM 0x0007

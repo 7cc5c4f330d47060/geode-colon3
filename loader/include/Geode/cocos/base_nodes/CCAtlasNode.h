@@ -22,23 +22,23 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCATLAS_NODE_H__
-#define __CCATLAS_NODE_H__
+#ifndef __CCATLAS_NODE_H__ // :3
+#define __CCATLAS_NODE_H__ // :3
 
-#include "CCNode.h"
-#include "../include/CCProtocols.h"
-#include "../include/ccTypes.h"
+#include "CCNode.h" // :3
+#include "../include/CCProtocols.h" // :3
+#include "../include/ccTypes.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup base_nodes
  * @{
- */
+ */ // :3
 
-class CCTextureAtlas;
+class CCTextureAtlas; // :3
 
 /** @brief CCAtlasNode is a subclass of CCNode that implements the CCRGBAProtocol and CCTextureProtocol protocol
 
@@ -47,49 +47,49 @@ If you are going to render a TextureAtlas consider subclassing CCAtlasNode (or a
 
 All features from CCNode are valid, plus the following features:
 - opacity and RGB colors
-*/
-class CC_DLL CCAtlasNode : public CCNodeRGBA, public CCTextureProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCAtlasNode : public CCNodeRGBA, public CCTextureProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
 
-    //! chars per row
-    unsigned int m_uItemsPerRow;
-    //! chars per column
-    unsigned int m_uItemsPerColumn;
+    //! chars per row :3
+    unsigned int m_uItemsPerRow; // :3
+    //! chars per column :3
+    unsigned int m_uItemsPerColumn; // :3
 
-    //! width of each char
-    unsigned int    m_uItemWidth;
-    //! height of each char
-    unsigned int    m_uItemHeight;
+    //! width of each char :3
+    unsigned int    m_uItemWidth; // :3
+    //! height of each char :3
+    unsigned int    m_uItemHeight; // :3
 
-    ccColor3B    m_tColorUnmodified;
+    ccColor3B    m_tColorUnmodified; // :3
 
-    CC_PROPERTY(CCTextureAtlas*, m_pTextureAtlas, TextureAtlas);
+    CC_PROPERTY(CCTextureAtlas*, m_pTextureAtlas, TextureAtlas); // :3
 
-    // protocol variables
-    bool m_bIsOpacityModifyRGB;
+    // protocol variables :3
+    bool m_bIsOpacityModifyRGB; // :3
 
-    CC_PROPERTY(ccBlendFunc, m_tBlendFunc, BlendFunc);
+    CC_PROPERTY(ccBlendFunc, m_tBlendFunc, BlendFunc); // :3
 
-    // quads to draw
-    CC_PROPERTY(unsigned int, m_uQuadsToDraw, QuadsToDraw);
-    // color uniform
-    GLint    m_nUniformColor;
-    // This varible is only used for CCLabelAtlas FPS display. So plz don't modify its value.
-    bool m_bIgnoreContentScaleFactor;
+    // quads to draw :3
+    CC_PROPERTY(unsigned int, m_uQuadsToDraw, QuadsToDraw); // :3
+    // color uniform :3
+    GLint    m_nUniformColor; // :3
+    // This varible is only used for CCLabelAtlas FPS display. So plz don't modify its value. :3
+    bool m_bIgnoreContentScaleFactor; // :3
 
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCAtlasNode, CCNodeRGBA)
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCAtlasNode, CCNodeRGBA) // :3
     /**
      *  @js ctor
-     */
-    CCAtlasNode();
+     */ // :3
+    CCAtlasNode(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCAtlasNode();
+     */ // :3
+    virtual ~CCAtlasNode(); // :3
 
 	/** creates a CCAtlasNode  with an Atlas file the width and height of each item and the quantity of items to render*/
 	static CCAtlasNode * create(const char* tile,unsigned int tileWidth, unsigned int tileHeight,
@@ -103,12 +103,12 @@ public:
 
     /** updates the Atlas (indexed vertex array).
     * Shall be overridden in subclasses
-    */
-    virtual void updateAtlasValues();
+    */ // :3
+    virtual void updateAtlasValues(); // :3
 
-    virtual void draw(void);
+    virtual void draw(void); // :3
 
-    // CC Texture protocol
+    // CC Texture protocol :3
 
     /** returns the used texture*/
     virtual CCTexture2D* getTexture(void);

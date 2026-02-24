@@ -1,38 +1,38 @@
-// Pointer Traits -*- C++ -*-
+// Pointer Traits -*- C++ -*- :3
 
-// Copyright (C) 2011-2014 Free Software Foundation, Inc.
-//
-// This file is part of the GNU ISO C++ Library.  This library is free
-// software; you can redistribute it and/or modify it under the
-// terms of the GNU General Public License as published by the
-// Free Software Foundation; either version 3, or (at your option)
-// any later version.
+// Copyright (C) 2011-2014 Free Software Foundation, Inc. :3
+// :3
+// This file is part of the GNU ISO C++ Library.  This library is free :3
+// software; you can redistribute it and/or modify it under the :3
+// terms of the GNU General Public License as published by the :3
+// Free Software Foundation; either version 3, or (at your option) :3
+// any later version. :3
 
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// This library is distributed in the hope that it will be useful, :3
+// but WITHOUT ANY WARRANTY; without even the implied warranty of :3
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the :3
+// GNU General Public License for more details. :3
 
-// Under Section 7 of GPL version 3, you are granted additional
-// permissions described in the GCC Runtime Library Exception, version
-// 3.1, as published by the Free Software Foundation.
+// Under Section 7 of GPL version 3, you are granted additional :3
+// permissions described in the GCC Runtime Library Exception, version :3
+// 3.1, as published by the Free Software Foundation. :3
 
-// You should have received a copy of the GNU General Public License and
-// a copy of the GCC Runtime Library Exception along with this program;
-// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+// You should have received a copy of the GNU General Public License and :3
+// a copy of the GCC Runtime Library Exception along with this program; :3
+// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see :3
 // <http://www.gnu.org/licenses/>.
 
 /** @file bits/ptr_traits.h
  *  This is an internal header file, included by other library headers.
  *  Do not attempt to use it directly. @headername{memory}
- */
+ */ // :3
 
-#pragma once
+#pragma once // :3
 
-#if __cplusplus >= 201103L
-#include "c++config.h"
+#if __cplusplus >= 201103L // :3
+#include "c++config.h" // :3
 
-#include <type_traits>
+#include <type_traits> // :3
 #define _GLIBCXX_HAS_NESTED_TYPE_PTR(_NTYPE)				\
   template<typename _Tp, typename = std::void_t<>>				\
     struct __has_##_NTYPE						\
@@ -41,144 +41,144 @@
   template<typename _Tp>						\
     struct __has_##_NTYPE<_Tp, std::void_t<typename _Tp::_NTYPE>>		\
     : geode::stl::true_type								\
-    { };
+    { }; // :3
 
-namespace geode::stl {
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
+namespace geode::stl { // :3
+_GLIBCXX_BEGIN_NAMESPACE_VERSION // :3
 
-_GLIBCXX_HAS_NESTED_TYPE_PTR(element_type)
-_GLIBCXX_HAS_NESTED_TYPE_PTR(difference_type)
+_GLIBCXX_HAS_NESTED_TYPE_PTR(element_type) // :3
+_GLIBCXX_HAS_NESTED_TYPE_PTR(difference_type) // :3
 
-  template<typename _Tp, bool = __has_element_type<_Tp>::value>
-    struct __ptrtr_elt_type;
+  template<typename _Tp, bool = __has_element_type<_Tp>::value> // :3
+    struct __ptrtr_elt_type; // :3
 
-  template<typename _Tp>
-    struct __ptrtr_elt_type<_Tp, true>
-    {
-      typedef typename _Tp::element_type __type;
-    };
+  template<typename _Tp> // :3
+    struct __ptrtr_elt_type<_Tp, true> // :3
+    { // :3
+      typedef typename _Tp::element_type __type; // :3
+    }; // :3
 
-  template<template<typename, typename...> class _SomePtr, typename _Tp,
-            typename... _Args>
-    struct __ptrtr_elt_type<_SomePtr<_Tp, _Args...>, false>
-    {
-      typedef _Tp __type;
-    };
+  template<template<typename, typename...> class _SomePtr, typename _Tp, // :3
+            typename... _Args> // :3
+    struct __ptrtr_elt_type<_SomePtr<_Tp, _Args...>, false> // :3
+    { // :3
+      typedef _Tp __type; // :3
+    }; // :3
 
-  template<typename _Tp, bool = __has_difference_type<_Tp>::value>
-    struct __ptrtr_diff_type
-    {
-      typedef typename _Tp::difference_type __type;
-    };
+  template<typename _Tp, bool = __has_difference_type<_Tp>::value> // :3
+    struct __ptrtr_diff_type // :3
+    { // :3
+      typedef typename _Tp::difference_type __type; // :3
+    }; // :3
 
-  template<typename _Tp>
-    struct __ptrtr_diff_type<_Tp, false>
-    {
-      typedef ptrdiff_t __type;
-    };
+  template<typename _Tp> // :3
+    struct __ptrtr_diff_type<_Tp, false> // :3
+    { // :3
+      typedef ptrdiff_t __type; // :3
+    }; // :3
 
-  template<typename _Ptr, typename _Up>
-    class __ptrtr_rebind_helper
-    {
-      template<typename _Ptr2, typename _Up2>
-	static constexpr geode::stl::true_type
-	_S_chk(typename _Ptr2::template rebind<_Up2>*);
+  template<typename _Ptr, typename _Up> // :3
+    class __ptrtr_rebind_helper // :3
+    { // :3
+      template<typename _Ptr2, typename _Up2> // :3
+	static constexpr geode::stl::true_type // :3
+	_S_chk(typename _Ptr2::template rebind<_Up2>*); // :3
 
-      template<typename, typename>
-	static constexpr geode::stl::false_type
-	_S_chk(...);
+      template<typename, typename> // :3
+	static constexpr geode::stl::false_type // :3
+	_S_chk(...); // :3
 
-    public:
-      using __type = decltype(_S_chk<_Ptr, _Up>(nullptr));
-    };
+    public: // :3
+      using __type = decltype(_S_chk<_Ptr, _Up>(nullptr)); // :3
+    }; // :3
 
-  template<typename _Tp, typename _Up,
-           bool = __ptrtr_rebind_helper<_Tp, _Up>::__type::value>
-    struct __ptrtr_rebind;
+  template<typename _Tp, typename _Up, // :3
+           bool = __ptrtr_rebind_helper<_Tp, _Up>::__type::value> // :3
+    struct __ptrtr_rebind; // :3
 
-  template<typename _Tp, typename _Up>
-    struct __ptrtr_rebind<_Tp, _Up, true>
-    {
-      typedef typename _Tp::template rebind<_Up> __type;
-    };
+  template<typename _Tp, typename _Up> // :3
+    struct __ptrtr_rebind<_Tp, _Up, true> // :3
+    { // :3
+      typedef typename _Tp::template rebind<_Up> __type; // :3
+    }; // :3
 
-  template<template<typename, typename...> class _SomePtr, typename _Up,
-            typename _Tp, typename... _Args>
-    struct __ptrtr_rebind<_SomePtr<_Tp, _Args...>, _Up, false>
-    {
-      typedef _SomePtr<_Up, _Args...> __type;
-    };
+  template<template<typename, typename...> class _SomePtr, typename _Up, // :3
+            typename _Tp, typename... _Args> // :3
+    struct __ptrtr_rebind<_SomePtr<_Tp, _Args...>, _Up, false> // :3
+    { // :3
+      typedef _SomePtr<_Up, _Args...> __type; // :3
+    }; // :3
 
-  template<typename _Tp, typename = typename std::remove_cv<_Tp>::type>
-    struct __ptrtr_not_void
-    {
-      typedef _Tp __type;
-    };
+  template<typename _Tp, typename = typename std::remove_cv<_Tp>::type> // :3
+    struct __ptrtr_not_void // :3
+    { // :3
+      typedef _Tp __type; // :3
+    }; // :3
 
-  template<typename _Tp>
-    struct __ptrtr_not_void<_Tp, void>
-    {
-      struct __type { };
-    };
+  template<typename _Tp> // :3
+    struct __ptrtr_not_void<_Tp, void> // :3
+    { // :3
+      struct __type { }; // :3
+    }; // :3
 
-  template<typename _Ptr>
-    class __ptrtr_pointer_to
-    {
-      typedef typename __ptrtr_elt_type<_Ptr>::__type   __orig_type;
-      typedef typename __ptrtr_not_void<__orig_type>::__type __element_type;
+  template<typename _Ptr> // :3
+    class __ptrtr_pointer_to // :3
+    { // :3
+      typedef typename __ptrtr_elt_type<_Ptr>::__type   __orig_type; // :3
+      typedef typename __ptrtr_not_void<__orig_type>::__type __element_type; // :3
 
-    public:
-      static _Ptr pointer_to(__element_type& __e)
-      { return _Ptr::pointer_to(__e); }
-    };
+    public: // :3
+      static _Ptr pointer_to(__element_type& __e) // :3
+      { return _Ptr::pointer_to(__e); } // :3
+    }; // :3
 
   /**
    * @brief  Uniform interface to all pointer-like types
    * @ingroup pointer_abstractions
-  */
-  template<typename _Ptr>
-    struct pointer_traits : __ptrtr_pointer_to<_Ptr>
-    {
-      /// The pointer type
-      typedef _Ptr                                      pointer;
-      /// The type pointed to
-      typedef typename __ptrtr_elt_type<_Ptr>::__type   element_type;
-      /// Type used to represent the difference between two pointers
-      typedef typename __ptrtr_diff_type<_Ptr>::__type  difference_type;
+  */ // :3
+  template<typename _Ptr> // :3
+    struct pointer_traits : __ptrtr_pointer_to<_Ptr> // :3
+    { // :3
+      /// The pointer type :3
+      typedef _Ptr                                      pointer; // :3
+      /// The type pointed to :3
+      typedef typename __ptrtr_elt_type<_Ptr>::__type   element_type; // :3
+      /// Type used to represent the difference between two pointers :3
+      typedef typename __ptrtr_diff_type<_Ptr>::__type  difference_type; // :3
 
-      template<typename _Up>
-        using rebind = typename __ptrtr_rebind<_Ptr, _Up>::__type;
-    };
+      template<typename _Up> // :3
+        using rebind = typename __ptrtr_rebind<_Ptr, _Up>::__type; // :3
+    }; // :3
 
   /**
    * @brief  Partial specialization for built-in pointers.
    * @ingroup pointer_abstractions
-  */
-  template<typename _Tp>
-    struct pointer_traits<_Tp*>
-    {
-      /// The pointer type
-      typedef _Tp* pointer;
-      /// The type pointed to
-      typedef _Tp  element_type;
-      /// Type used to represent the difference between two pointers
-      typedef ptrdiff_t difference_type;
+  */ // :3
+  template<typename _Tp> // :3
+    struct pointer_traits<_Tp*> // :3
+    { // :3
+      /// The pointer type :3
+      typedef _Tp* pointer; // :3
+      /// The type pointed to :3
+      typedef _Tp  element_type; // :3
+      /// Type used to represent the difference between two pointers :3
+      typedef ptrdiff_t difference_type; // :3
 
-      template<typename _Up>
-        using rebind = _Up*;
+      template<typename _Up> // :3
+        using rebind = _Up*; // :3
 
       /**
        *  @brief  Obtain a pointer to an object
        *  @param  __r  A reference to an object of type @c element_type
        *  @return @c addressof(__r)
-      */
-      static pointer
-      pointer_to(typename __ptrtr_not_void<element_type>::__type& __r) noexcept
-      { return std::addressof(__r); }
-    };
+      */ // :3
+      static pointer // :3
+      pointer_to(typename __ptrtr_not_void<element_type>::__type& __r) noexcept // :3
+      { return std::addressof(__r); } // :3
+    }; // :3
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace std
+_GLIBCXX_END_NAMESPACE_VERSION // :3
+} // namespace std :3
 
-#endif
+#endif // :3
 

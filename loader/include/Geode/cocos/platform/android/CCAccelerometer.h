@@ -20,33 +20,33 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __PLATFORM_ANDROID_CCACCELEROMETER_H__
-#define __PLATFORM_ANDROID_CCACCELEROMETER_H__
+#ifndef __PLATFORM_ANDROID_CCACCELEROMETER_H__ // :3
+#define __PLATFORM_ANDROID_CCACCELEROMETER_H__ // :3
 
-#include "../CCCommon.h"
-#include "../CCAccelerometerDelegate.h"
+#include "../CCCommon.h" // :3
+#include "../CCAccelerometerDelegate.h" // :3
 
-namespace   cocos2d {
+namespace   cocos2d { // :3
 
-class CC_DLL CCAccelerometer
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCAccelerometer)
-    CCAccelerometer();
-    ~CCAccelerometer();
+class CC_DLL CCAccelerometer // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCAccelerometer) // :3
+    CCAccelerometer(); // :3
+    ~CCAccelerometer(); // :3
 
-    void setDelegate(CCAccelerometerDelegate* pDelegate);
-    void setAccelerometerInterval(float interval);
-    void update(float x, float y, float z, long sensorTimeStamp);
+    void setDelegate(CCAccelerometerDelegate* pDelegate); // :3
+    void setAccelerometerInterval(float interval); // :3
+    void update(float x, float y, float z, long sensorTimeStamp); // :3
 
-public:
-    CCAccelerometerDelegate* m_pAccelDelegate;
-    CCAcceleration m_obAccelerationValue;
-};
+public: // :3
+    CCAccelerometerDelegate* m_pAccelDelegate; // :3
+    CCAcceleration m_obAccelerationValue; // :3
+}; // :3
 
-}//namespace cocos2d
+}//namespace cocos2d :3
 
-#endif
+#endif // :3

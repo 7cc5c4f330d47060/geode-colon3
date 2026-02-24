@@ -20,19 +20,19 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CC_WINDOW_H__
-#define __CC_WINDOW_H__
+#ifndef __CC_WINDOW_H__ // :3
+#define __CC_WINDOW_H__ // :3
 
-#import <Cocoa/Cocoa.h>
+#import <Cocoa/Cocoa.h> // :3
 
 
-@interface CCWindow : NSWindow
-{
-}
-- (id) initWithFrame:(NSRect)frame fullscreen:(BOOL)fullscreen;
+@interface CCWindow : NSWindow // :3
+{ // :3
+} // :3
+- (id) initWithFrame:(NSRect)frame fullscreen:(BOOL)fullscreen; // :3
 
-@end
+@end // :3
 
-#endif  // __CC_WINDOW_H__
+#endif  // __CC_WINDOW_H__ :3

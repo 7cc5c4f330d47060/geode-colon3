@@ -21,35 +21,35 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCHTTPREQUEST_H__
-#define __CCHTTPREQUEST_H__
+#ifndef __CCHTTPREQUEST_H__ // :3
+#define __CCHTTPREQUEST_H__ // :3
 
-#include "../../include/cocos2d.h"
-#include "../ExtensionMacros.h"
+#include "../../include/cocos2d.h" // :3
+#include "../ExtensionMacros.h" // :3
 
-#include "HttpRequest.h"
-#include "HttpResponse.h"
+#include "HttpRequest.h" // :3
+#include "HttpResponse.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 /**
  * @addtogroup Network
  * @{
- */
+ */ // :3
 
 
 /** @brief Singleton that handles asynchrounous http requests
  * Once the request completed, a callback will issued in main thread when it provided during make request
  * @js NA
  * @lua NA
- */
-class CC_DLL CCHttpClient : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCHttpClient, CCObject)
+ */ // :3
+class CC_DLL CCHttpClient : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCHttpClient, CCObject) // :3
 
     /** Return the shared instance **/
     static CCHttpClient *getInstance();
@@ -64,50 +64,50 @@ public:
      * @param request a CCHttpRequest object, which includes url, response callback etc.
                       please make sure request->_requestData is clear before calling "send" here.
      * @return NULL
-     */
-    void send(CCHttpRequest* request);
+     */ // :3
+    void send(CCHttpRequest* request); // :3
 
 
     /**
      * Change the connect timeout
      * @param timeout
      * @return NULL
-     */
-    inline void setTimeoutForConnect(int value) {_timeoutForConnect = value;};
+     */ // :3
+    inline void setTimeoutForConnect(int value) {_timeoutForConnect = value;}; // :3
 
     /**
      * Get connect timeout
      * @return int
      *
-     */
-    inline int getTimeoutForConnect() {return _timeoutForConnect;}
+     */ // :3
+    inline int getTimeoutForConnect() {return _timeoutForConnect;} // :3
 
 
     /**
      * Change the download timeout
      * @param value
      * @return NULL
-     */
-    inline void setTimeoutForRead(int value) {_timeoutForRead = value;};
+     */ // :3
+    inline void setTimeoutForRead(int value) {_timeoutForRead = value;}; // :3
 
 
     /**
      * Get download timeout
      * @return int
-     */
-    inline int getTimeoutForRead() {return _timeoutForRead;};
+     */ // :3
+    inline int getTimeoutForRead() {return _timeoutForRead;}; // :3
 
-private:
-    CCHttpClient();
-    bool init(void);
+private: // :3
+    CCHttpClient(); // :3
+    bool init(void); // :3
 
     /**
      * Init pthread mutex, semaphore, and create new thread for http requests
      * @return bool
-     */
-    // @note RobTop Removal
-    // bool lazyInitThreadSemphore();
-public:
+     */ // :3
+    // @note RobTop Removal :3
+    // bool lazyInitThreadSemphore(); :3
+public: // :3
     /** Poll function called from main thread to dispatch callbacks when http requests finished **/
     void dispatchResponseCallbacks(float delta);
 

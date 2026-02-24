@@ -21,26 +21,26 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_SPINE_H_
-#define SPINE_SPINE_H_
+#ifndef SPINE_SPINE_H_ // :3
+#define SPINE_SPINE_H_ // :3
 
-#include "Animation.h"
-#include "AnimationState.h"
-#include "AnimationStateData.h"
-#include "Atlas.h"
-#include "AtlasAttachmentLoader.h"
-#include "Attachment.h"
-#include "AttachmentLoader.h"
-#include "Bone.h"
-#include "BoneData.h"
-#include "RegionAttachment.h"
-#include "Skeleton.h"
-#include "SkeletonData.h"
-#include "SkeletonJson.h"
-#include "Skin.h"
-#include "Slot.h"
-#include "SlotData.h"
+#include "Animation.h" // :3
+#include "AnimationState.h" // :3
+#include "AnimationStateData.h" // :3
+#include "Atlas.h" // :3
+#include "AtlasAttachmentLoader.h" // :3
+#include "Attachment.h" // :3
+#include "AttachmentLoader.h" // :3
+#include "Bone.h" // :3
+#include "BoneData.h" // :3
+#include "RegionAttachment.h" // :3
+#include "Skeleton.h" // :3
+#include "SkeletonData.h" // :3
+#include "SkeletonJson.h" // :3
+#include "Skin.h" // :3
+#include "Slot.h" // :3
+#include "SlotData.h" // :3
 
 #endif /* SPINE_SPINE_H_ */

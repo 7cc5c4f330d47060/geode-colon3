@@ -20,41 +20,41 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CC_EGLVIEW_IPHONE_H__
-#define __CC_EGLVIEW_IPHONE_H__
+#ifndef __CC_EGLVIEW_IPHONE_H__ // :3
+#define __CC_EGLVIEW_IPHONE_H__ // :3
 
-#include "../CCCommon.h"
-#include "../CCEGLViewProtocol.h"
+#include "../CCCommon.h" // :3
+#include "../CCEGLViewProtocol.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 
 
-class CC_DLL CCEGLView : public CCEGLViewProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
-    CCEGLView();
-   ~CCEGLView();
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEGLView, CCEGLViewProtocol)
+class CC_DLL CCEGLView : public CCEGLViewProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    CCEGLView(); // :3
+   ~CCEGLView(); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEGLView, CCEGLViewProtocol) // :3
 
-    virtual bool    isOpenGLReady();
-    virtual bool    setContentScaleFactor(float contentScaleFactor);
+    virtual bool    isOpenGLReady(); // :3
+    virtual bool    setContentScaleFactor(float contentScaleFactor); // :3
 
-    // keep compatible
-    virtual void    end();
-    virtual void    swapBuffers();
+    // keep compatible :3
+    virtual void    end(); // :3
+    virtual void    swapBuffers(); // :3
 
-    virtual void setIMEKeyboardState(bool bOpen);
+    virtual void setIMEKeyboardState(bool bOpen); // :3
 
-    static CCEGLView* sharedOpenGLView();
+    static CCEGLView* sharedOpenGLView(); // :3
 
-    static GEODE_DLL CCEGLView* get();
+    static GEODE_DLL CCEGLView* get(); // :3
 
-};
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif    // end of __CC_EGLVIEW_IPHONE_H__
+#endif    // end of __CC_EGLVIEW_IPHONE_H__ :3

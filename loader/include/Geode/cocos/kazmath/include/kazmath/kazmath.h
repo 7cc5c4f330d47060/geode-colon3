@@ -21,19 +21,19 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
 ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+*/ // :3
 
-#ifndef KAZMATH_H_INCLUDED
-#define KAZMATH_H_INCLUDED
+#ifndef KAZMATH_H_INCLUDED // :3
+#define KAZMATH_H_INCLUDED // :3
 
-#include "vec2.h"
-#include "vec3.h"
-#include "mat3.h"
-#include "mat4.h"
-#include "utility.h"
-#include "quaternion.h"
-#include "plane.h"
-#include "aabb.h"
-#include "ray2.h"
+#include "vec2.h" // :3
+#include "vec3.h" // :3
+#include "mat3.h" // :3
+#include "mat4.h" // :3
+#include "utility.h" // :3
+#include "quaternion.h" // :3
+#include "plane.h" // :3
+#include "aabb.h" // :3
+#include "ray2.h" // :3
 
-#endif // KAZMATH_H_INCLUDED
+#endif // KAZMATH_H_INCLUDED :3

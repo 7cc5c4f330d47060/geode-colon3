@@ -22,96 +22,96 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCTRANSITION_H__
-#define __CCTRANSITION_H__
+#ifndef __CCTRANSITION_H__ // :3
+#define __CCTRANSITION_H__ // :3
 
-#include "CCScene.h"
-#include "../include/ccTypes.h"
+#include "CCScene.h" // :3
+#include "../include/ccTypes.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup transition
  * @{
- */
+ */ // :3
 
-//static creation function macro
-//c/c++ don't support object creation of using class name
-//so, all classes need creation method.
+//static creation function macro :3
+//c/c++ don't support object creation of using class name :3
+//so, all classes need creation method. :3
 
-class CCActionInterval;
-class CCNode;
+class CCActionInterval; // :3
+class CCNode; // :3
 
 /** @brief CCTransitionEaseScene can ease the actions of the scene protocol.
 @since v0.8.2
-*/
-class CC_DLL CCTransitionEaseScene// : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCTransitionEaseScene// : public CCObject :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /** returns the Ease action that will be performed on a linear action.
     @since v0.8.2
-    */
-    virtual CCActionInterval * easeActionWithAction(CCActionInterval * action) = 0;
-};
+    */ // :3
+    virtual CCActionInterval * easeActionWithAction(CCActionInterval * action) = 0; // :3
+}; // :3
 
 /** Orientation Type used by some transitions
-*/
-typedef enum {
-    /// An horizontal orientation where the Left is nearer
-	kCCTransitionOrientationLeftOver = 0,
-	/// An horizontal orientation where the Right is nearer
-	kCCTransitionOrientationRightOver = 1,
-	/// A vertical orientation where the Up is nearer
-	kCCTransitionOrientationUpOver = 0,
-	/// A vertical orientation where the Bottom is nearer
-	kCCTransitionOrientationDownOver = 1,
+*/ // :3
+typedef enum { // :3
+    /// An horizontal orientation where the Left is nearer :3
+	kCCTransitionOrientationLeftOver = 0, // :3
+	/// An horizontal orientation where the Right is nearer :3
+	kCCTransitionOrientationRightOver = 1, // :3
+	/// A vertical orientation where the Up is nearer :3
+	kCCTransitionOrientationUpOver = 0, // :3
+	/// A vertical orientation where the Bottom is nearer :3
+	kCCTransitionOrientationDownOver = 1, // :3
 
-	// Deprecated
-    //	kOrientationLeftOver = kCCTransitionOrientationLeftOver,
-    //	kOrientationRightOver = kCCTransitionOrientationRightOver,
-    //	kOrientationUpOver = kCCTransitionOrientationUpOver,
-    //	kOrientationDownOver = kCCTransitionOrientationDownOver,
-} tOrientation;
+	// Deprecated :3
+    //	kOrientationLeftOver = kCCTransitionOrientationLeftOver, :3
+    //	kOrientationRightOver = kCCTransitionOrientationRightOver, :3
+    //	kOrientationUpOver = kCCTransitionOrientationUpOver, :3
+    //	kOrientationDownOver = kCCTransitionOrientationDownOver, :3
+} tOrientation; // :3
 
 /** @brief Base class for CCTransition scenes
-*/
-class CC_DLL CCTransitionScene : public CCScene
-{
-    GEODE_FRIEND_MODIFY
+*/ // :3
+class CC_DLL CCTransitionScene : public CCScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
 
-public:
-    CCScene    * m_pInScene;
-    CCScene    * m_pOutScene;
-    float    m_fDuration;
-    bool    m_bIsInSceneOnTop;
-    bool    m_bIsSendCleanupToScene;
+public: // :3
+    CCScene    * m_pInScene; // :3
+    CCScene    * m_pOutScene; // :3
+    float    m_fDuration; // :3
+    bool    m_bIsInSceneOnTop; // :3
+    bool    m_bIsSendCleanupToScene; // :3
 
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionScene, CCScene)
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionScene, CCScene) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionScene();
+     */ // :3
+    CCTransitionScene(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionScene();
-    virtual void draw();
+     */ // :3
+    virtual ~CCTransitionScene(); // :3
+    virtual void draw(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onExit();
-    virtual void cleanup();
+     */ // :3
+    virtual void onExit(); // :3
+    virtual void cleanup(); // :3
 
     /** creates a base transition with duration and incoming scene */
     static CCTransitionScene * create(float t, CCScene *scene);
@@ -134,26 +134,26 @@ private:
 
 /** @brief A CCTransition that supports orientation like.
 * Possible orientation: LeftOver, RightOver, UpOver, DownOver
-*/
-class CC_DLL CCTransitionSceneOriented : public CCTransitionScene
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCTransitionSceneOriented : public CCTransitionScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
 
 
-    tOrientation m_eOrientation;
+    tOrientation m_eOrientation; // :3
 
-public:
+public: // :3
     /**
      *  @js ctor
-     */
-    CCTransitionSceneOriented();
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSceneOriented, CCTransitionScene)
+     */ // :3
+    CCTransitionSceneOriented(); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSceneOriented, CCTransitionScene) // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionSceneOriented();
+     */ // :3
+    virtual ~CCTransitionSceneOriented(); // :3
 
     /** creates a base transition with duration and incoming scene */
     static CCTransitionSceneOriented * create(float t,CCScene* scene, tOrientation orientation);
@@ -164,73 +164,73 @@ public:
 
 /** @brief CCTransitionRotoZoom:
 Rotate and zoom out the outgoing scene, and then rotate and zoom in the incoming
-*/
-class CC_DLL CCTransitionRotoZoom : public CCTransitionScene
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCTransitionRotoZoom : public CCTransitionScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
-     */
-    CCTransitionRotoZoom();
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionRotoZoom, CCTransitionScene)
+     */ // :3
+    CCTransitionRotoZoom(); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionRotoZoom, CCTransitionScene) // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionRotoZoom();
+     */ // :3
+    virtual ~CCTransitionRotoZoom(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
 
-    static CCTransitionRotoZoom* create(float t, CCScene* scene);
-};
+    static CCTransitionRotoZoom* create(float t, CCScene* scene); // :3
+}; // :3
 
 /** @brief CCTransitionJumpZoom:
 Zoom out and jump the outgoing scene, and then jump and zoom in the incoming
-*/
-class CC_DLL CCTransitionJumpZoom : public CCTransitionScene
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionJumpZoom, CCTransitionScene)
+*/ // :3
+class CC_DLL CCTransitionJumpZoom : public CCTransitionScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionJumpZoom, CCTransitionScene) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionJumpZoom();
+     */ // :3
+    CCTransitionJumpZoom(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionJumpZoom();
+     */ // :3
+    virtual ~CCTransitionJumpZoom(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
 
-    static CCTransitionJumpZoom* create(float t, CCScene* scene);
-};
+    static CCTransitionJumpZoom* create(float t, CCScene* scene); // :3
+}; // :3
 
 /** @brief CCTransitionMoveInL:
 Move in from to the left the incoming scene.
-*/
-class CC_DLL CCTransitionMoveInL : public CCTransitionScene, public CCTransitionEaseScene
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionMoveInL, CCTransitionScene)
+*/ // :3
+class CC_DLL CCTransitionMoveInL : public CCTransitionScene, public CCTransitionEaseScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionMoveInL, CCTransitionScene) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionMoveInL();
+     */ // :3
+    CCTransitionMoveInL(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionMoveInL();
+     */ // :3
+    virtual ~CCTransitionMoveInL(); // :3
     /** initializes the scenes */
     virtual void initScenes(void);
     /** returns the action that will be performed */
@@ -240,95 +240,95 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
 
-    static CCTransitionMoveInL* create(float t, CCScene* scene);
-};
+    static CCTransitionMoveInL* create(float t, CCScene* scene); // :3
+}; // :3
 
 /** @brief CCTransitionMoveInR:
 Move in from to the right the incoming scene.
-*/
-class CC_DLL CCTransitionMoveInR : public CCTransitionMoveInL
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionMoveInR, CCTransitionMoveInL)
+*/ // :3
+class CC_DLL CCTransitionMoveInR : public CCTransitionMoveInL // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionMoveInR, CCTransitionMoveInL) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionMoveInR();
+     */ // :3
+    CCTransitionMoveInR(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionMoveInR();
-    virtual void initScenes();
+     */ // :3
+    virtual ~CCTransitionMoveInR(); // :3
+    virtual void initScenes(); // :3
 
-    static CCTransitionMoveInR* create(float t, CCScene* scene);
-};
+    static CCTransitionMoveInR* create(float t, CCScene* scene); // :3
+}; // :3
 
 /** @brief CCTransitionMoveInT:
 Move in from to the top the incoming scene.
-*/
-class CC_DLL CCTransitionMoveInT : public CCTransitionMoveInL
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionMoveInT, CCTransitionMoveInL)
+*/ // :3
+class CC_DLL CCTransitionMoveInT : public CCTransitionMoveInL // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionMoveInT, CCTransitionMoveInL) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionMoveInT();
+     */ // :3
+    CCTransitionMoveInT(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionMoveInT();
-    virtual void initScenes();
+     */ // :3
+    virtual ~CCTransitionMoveInT(); // :3
+    virtual void initScenes(); // :3
 
-    static CCTransitionMoveInT* create(float t, CCScene* scene);
-};
+    static CCTransitionMoveInT* create(float t, CCScene* scene); // :3
+}; // :3
 
 /** @brief CCTransitionMoveInB:
 Move in from to the bottom the incoming scene.
-*/
-class CC_DLL CCTransitionMoveInB : public CCTransitionMoveInL
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionMoveInB, CCTransitionMoveInL)
+*/ // :3
+class CC_DLL CCTransitionMoveInB : public CCTransitionMoveInL // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionMoveInB, CCTransitionMoveInL) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionMoveInB();
+     */ // :3
+    CCTransitionMoveInB(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionMoveInB();
-    virtual void initScenes();
+     */ // :3
+    virtual ~CCTransitionMoveInB(); // :3
+    virtual void initScenes(); // :3
 
-    static CCTransitionMoveInB* create(float t, CCScene* scene);
-};
+    static CCTransitionMoveInB* create(float t, CCScene* scene); // :3
+}; // :3
 
 /** @brief CCTransitionSlideInL:
 Slide in the incoming scene from the left border.
-*/
-class CC_DLL CCTransitionSlideInL : public CCTransitionScene, public CCTransitionEaseScene
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSlideInL, CCTransitionScene)
+*/ // :3
+class CC_DLL CCTransitionSlideInL : public CCTransitionScene, public CCTransitionEaseScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSlideInL, CCTransitionScene) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionSlideInL();
+     */ // :3
+    CCTransitionSlideInL(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionSlideInL();
+     */ // :3
+    virtual ~CCTransitionSlideInL(); // :3
 
     /** initializes the scenes */
     virtual void initScenes(void);
@@ -337,33 +337,33 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
 
-    virtual CCActionInterval* easeActionWithAction(CCActionInterval * action);
+    virtual CCActionInterval* easeActionWithAction(CCActionInterval * action); // :3
 
-    static CCTransitionSlideInL* create(float t, CCScene* scene);
-protected:
-    virtual void sceneOrder();
-};
+    static CCTransitionSlideInL* create(float t, CCScene* scene); // :3
+protected: // :3
+    virtual void sceneOrder(); // :3
+}; // :3
 
 /** @brief CCTransitionSlideInR:
 Slide in the incoming scene from the right border.
-*/
-class CC_DLL CCTransitionSlideInR : public CCTransitionSlideInL
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSlideInR, CCTransitionSlideInL)
+*/ // :3
+class CC_DLL CCTransitionSlideInR : public CCTransitionSlideInL // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSlideInR, CCTransitionSlideInL) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionSlideInR();
+     */ // :3
+    CCTransitionSlideInR(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionSlideInR();
+     */ // :3
+    virtual ~CCTransitionSlideInR(); // :3
 
     /** initializes the scenes */
     virtual void initScenes(void);
@@ -377,21 +377,21 @@ protected:
 
 /** @brief CCTransitionSlideInB:
 Slide in the incoming scene from the bottom border.
-*/
-class CC_DLL CCTransitionSlideInB : public CCTransitionSlideInL
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSlideInB, CCTransitionSlideInL)
+*/ // :3
+class CC_DLL CCTransitionSlideInB : public CCTransitionSlideInL // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSlideInB, CCTransitionSlideInL) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionSlideInB();
+     */ // :3
+    CCTransitionSlideInB(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionSlideInB();
+     */ // :3
+    virtual ~CCTransitionSlideInB(); // :3
 
     /** initializes the scenes */
     virtual void initScenes(void);
@@ -405,21 +405,21 @@ protected:
 
 /** @brief CCTransitionSlideInT:
 Slide in the incoming scene from the top border.
-*/
-class CC_DLL CCTransitionSlideInT : public CCTransitionSlideInL
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSlideInT, CCTransitionSlideInL)
+*/ // :3
+class CC_DLL CCTransitionSlideInT : public CCTransitionSlideInL // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSlideInT, CCTransitionSlideInL) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionSlideInT();
+     */ // :3
+    CCTransitionSlideInT(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionSlideInT();
+     */ // :3
+    virtual ~CCTransitionSlideInT(); // :3
 
     /** initializes the scenes */
     virtual void initScenes(void);
@@ -433,227 +433,227 @@ protected:
 
 /**
 @brief Shrink the outgoing scene while grow the incoming scene
-*/
-class CC_DLL CCTransitionShrinkGrow : public CCTransitionScene , public CCTransitionEaseScene
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionShrinkGrow, CCTransitionScene)
+*/ // :3
+class CC_DLL CCTransitionShrinkGrow : public CCTransitionScene , public CCTransitionEaseScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionShrinkGrow, CCTransitionScene) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionShrinkGrow();
+     */ // :3
+    CCTransitionShrinkGrow(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionShrinkGrow();
+     */ // :3
+    virtual ~CCTransitionShrinkGrow(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
-    virtual CCActionInterval* easeActionWithAction(CCActionInterval * action);
+     */ // :3
+    virtual void onEnter(); // :3
+    virtual CCActionInterval* easeActionWithAction(CCActionInterval * action); // :3
 
-    static CCTransitionShrinkGrow* create(float t, CCScene* scene);
-};
+    static CCTransitionShrinkGrow* create(float t, CCScene* scene); // :3
+}; // :3
 
 /** @brief CCTransitionFlipX:
 Flips the screen horizontally.
 The front face is the outgoing scene and the back face is the incoming scene.
-*/
-class CC_DLL CCTransitionFlipX : public CCTransitionSceneOriented
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFlipX, CCTransitionSceneOriented)
+*/ // :3
+class CC_DLL CCTransitionFlipX : public CCTransitionSceneOriented // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFlipX, CCTransitionSceneOriented) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionFlipX();
+     */ // :3
+    CCTransitionFlipX(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionFlipX();
+     */ // :3
+    virtual ~CCTransitionFlipX(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
 
-    static CCTransitionFlipX* create(float t, CCScene* s, tOrientation o);
-    static CCTransitionFlipX* create(float t, CCScene* s);
-};
+    static CCTransitionFlipX* create(float t, CCScene* s, tOrientation o); // :3
+    static CCTransitionFlipX* create(float t, CCScene* s); // :3
+}; // :3
 
 /** @brief CCTransitionFlipY:
 Flips the screen vertically.
 The front face is the outgoing scene and the back face is the incoming scene.
-*/
-class CC_DLL CCTransitionFlipY : public CCTransitionSceneOriented
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFlipY, CCTransitionSceneOriented)
+*/ // :3
+class CC_DLL CCTransitionFlipY : public CCTransitionSceneOriented // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFlipY, CCTransitionSceneOriented) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionFlipY();
+     */ // :3
+    CCTransitionFlipY(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionFlipY();
+     */ // :3
+    virtual ~CCTransitionFlipY(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
 
-    static CCTransitionFlipY* create(float t, CCScene* s, tOrientation o);
-    static CCTransitionFlipY* create(float t, CCScene* s);
-};
+    static CCTransitionFlipY* create(float t, CCScene* s, tOrientation o); // :3
+    static CCTransitionFlipY* create(float t, CCScene* s); // :3
+}; // :3
 
 /** @brief CCTransitionFlipAngular:
 Flips the screen half horizontally and half vertically.
 The front face is the outgoing scene and the back face is the incoming scene.
-*/
-class CC_DLL CCTransitionFlipAngular : public CCTransitionSceneOriented
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFlipAngular, CCTransitionSceneOriented)
+*/ // :3
+class CC_DLL CCTransitionFlipAngular : public CCTransitionSceneOriented // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFlipAngular, CCTransitionSceneOriented) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionFlipAngular();
+     */ // :3
+    CCTransitionFlipAngular(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionFlipAngular();
+     */ // :3
+    virtual ~CCTransitionFlipAngular(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
 
-    static CCTransitionFlipAngular* create(float t, CCScene* s, tOrientation o);
-    static CCTransitionFlipAngular* create(float t, CCScene* s);
-};
+    static CCTransitionFlipAngular* create(float t, CCScene* s, tOrientation o); // :3
+    static CCTransitionFlipAngular* create(float t, CCScene* s); // :3
+}; // :3
 
 /** @brief CCTransitionZoomFlipX:
 Flips the screen horizontally doing a zoom out/in
 The front face is the outgoing scene and the back face is the incoming scene.
-*/
-class CC_DLL CCTransitionZoomFlipX : public CCTransitionSceneOriented
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionZoomFlipX, CCTransitionSceneOriented)
+*/ // :3
+class CC_DLL CCTransitionZoomFlipX : public CCTransitionSceneOriented // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionZoomFlipX, CCTransitionSceneOriented) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionZoomFlipX();
+     */ // :3
+    CCTransitionZoomFlipX(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionZoomFlipX();
+     */ // :3
+    virtual ~CCTransitionZoomFlipX(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
 
-    static CCTransitionZoomFlipX* create(float t, CCScene* s, tOrientation o);
-    static CCTransitionZoomFlipX* create(float t, CCScene* s);
-};
+    static CCTransitionZoomFlipX* create(float t, CCScene* s, tOrientation o); // :3
+    static CCTransitionZoomFlipX* create(float t, CCScene* s); // :3
+}; // :3
 
 /** @brief CCTransitionZoomFlipY:
 Flips the screen vertically doing a little zooming out/in
 The front face is the outgoing scene and the back face is the incoming scene.
-*/
-class CC_DLL CCTransitionZoomFlipY : public CCTransitionSceneOriented
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionZoomFlipY, CCTransitionSceneOriented)
+*/ // :3
+class CC_DLL CCTransitionZoomFlipY : public CCTransitionSceneOriented // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionZoomFlipY, CCTransitionSceneOriented) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionZoomFlipY();
+     */ // :3
+    CCTransitionZoomFlipY(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionZoomFlipY();
+     */ // :3
+    virtual ~CCTransitionZoomFlipY(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
 
-    static CCTransitionZoomFlipY* create(float t, CCScene* s, tOrientation o);
-    static CCTransitionZoomFlipY* create(float t, CCScene* s);
-};
+    static CCTransitionZoomFlipY* create(float t, CCScene* s, tOrientation o); // :3
+    static CCTransitionZoomFlipY* create(float t, CCScene* s); // :3
+}; // :3
 
 /** @brief CCTransitionZoomFlipAngular:
 Flips the screen half horizontally and half vertically doing a little zooming out/in.
 The front face is the outgoing scene and the back face is the incoming scene.
-*/
-class CC_DLL CCTransitionZoomFlipAngular : public CCTransitionSceneOriented
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionZoomFlipAngular, CCTransitionSceneOriented)
+*/ // :3
+class CC_DLL CCTransitionZoomFlipAngular : public CCTransitionSceneOriented // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionZoomFlipAngular, CCTransitionSceneOriented) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionZoomFlipAngular();
+     */ // :3
+    CCTransitionZoomFlipAngular(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionZoomFlipAngular();
+     */ // :3
+    virtual ~CCTransitionZoomFlipAngular(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
 
-    static CCTransitionZoomFlipAngular* create(float t, CCScene* s, tOrientation o);
-    static CCTransitionZoomFlipAngular* create(float t, CCScene* s);
-};
+    static CCTransitionZoomFlipAngular* create(float t, CCScene* s, tOrientation o); // :3
+    static CCTransitionZoomFlipAngular* create(float t, CCScene* s); // :3
+}; // :3
 
 /** @brief CCTransitionFade:
 Fade out the outgoing scene and then fade in the incoming scene.'''
-*/
-class CC_DLL CCTransitionFade : public CCTransitionScene
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCTransitionFade : public CCTransitionScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
 
 
-    ccColor4B    m_tColor;
+    ccColor4B    m_tColor; // :3
 
-public:
+public: // :3
     /**
      *  @js ctor
-     */
-    CCTransitionFade();
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFade, CCTransitionScene)
+     */ // :3
+    CCTransitionFade(); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFade, CCTransitionScene) // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionFade();
+     */ // :3
+    virtual ~CCTransitionFade(); // :3
 
     /** creates the transition with a duration and with an RGB color
     * Example: FadeTransition::create(2, scene, ccc3(255,0,0); // red color
-    */
-    static CCTransitionFade* create(float duration,CCScene* scene, const ccColor3B& color);
-    static CCTransitionFade* create(float duration,CCScene* scene);
+    */ // :3
+    static CCTransitionFade* create(float duration,CCScene* scene, const ccColor3B& color); // :3
+    static CCTransitionFade* create(float duration,CCScene* scene); // :3
 
     /** initializes the transition with a duration and with an RGB color */
     virtual bool initWithDuration(float t, CCScene*scene ,const ccColor3B& color);
@@ -662,245 +662,245 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onExit();
-};
+     */ // :3
+    virtual void onExit(); // :3
+}; // :3
 
-class CCRenderTexture;
+class CCRenderTexture; // :3
 /**
 @brief CCTransitionCrossFade:
 Cross fades two scenes using the CCRenderTexture object.
-*/
-class CC_DLL CCTransitionCrossFade : public CCTransitionScene
-{
-    GEODE_FRIEND_MODIFY
-public :
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionCrossFade, CCTransitionScene)
+*/ // :3
+class CC_DLL CCTransitionCrossFade : public CCTransitionScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public : // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionCrossFade, CCTransitionScene) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionCrossFade();
+     */ // :3
+    CCTransitionCrossFade(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionCrossFade();
+     */ // :3
+    virtual ~CCTransitionCrossFade(); // :3
 
-    virtual void draw();
+    virtual void draw(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onExit();
+     */ // :3
+    virtual void onExit(); // :3
 
-public:
-    static CCTransitionCrossFade* create(float t, CCScene* scene);
-};
+public: // :3
+    static CCTransitionCrossFade* create(float t, CCScene* scene); // :3
+}; // :3
 
 /** @brief CCTransitionTurnOffTiles:
 Turn off the tiles of the outgoing scene in random order
-*/
-class CC_DLL CCTransitionTurnOffTiles : public CCTransitionScene ,public CCTransitionEaseScene
-{
-    GEODE_FRIEND_MODIFY
-public :
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionTurnOffTiles, CCTransitionScene)
+*/ // :3
+class CC_DLL CCTransitionTurnOffTiles : public CCTransitionScene ,public CCTransitionEaseScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public : // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionTurnOffTiles, CCTransitionScene) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionTurnOffTiles();
+     */ // :3
+    CCTransitionTurnOffTiles(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionTurnOffTiles();
+     */ // :3
+    virtual ~CCTransitionTurnOffTiles(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
-    virtual CCActionInterval * easeActionWithAction(CCActionInterval * action);
+     */ // :3
+    virtual void onEnter(); // :3
+    virtual CCActionInterval * easeActionWithAction(CCActionInterval * action); // :3
 
-public:
-    static CCTransitionTurnOffTiles* create(float t, CCScene* scene);
-protected:
-    virtual void sceneOrder();
-};
+public: // :3
+    static CCTransitionTurnOffTiles* create(float t, CCScene* scene); // :3
+protected: // :3
+    virtual void sceneOrder(); // :3
+}; // :3
 
 /** @brief CCTransitionSplitCols:
 The odd columns goes upwards while the even columns goes downwards.
-*/
-class CC_DLL CCTransitionSplitCols : public CCTransitionScene , public CCTransitionEaseScene
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSplitCols, CCTransitionScene)
+*/ // :3
+class CC_DLL CCTransitionSplitCols : public CCTransitionScene , public CCTransitionEaseScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSplitCols, CCTransitionScene) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionSplitCols();
+     */ // :3
+    CCTransitionSplitCols(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionSplitCols();
+     */ // :3
+    virtual ~CCTransitionSplitCols(); // :3
 
-    virtual CCActionInterval* action(void);
+    virtual CCActionInterval* action(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
-    virtual CCActionInterval * easeActionWithAction(CCActionInterval * action);
+     */ // :3
+    virtual void onEnter(); // :3
+    virtual CCActionInterval * easeActionWithAction(CCActionInterval * action); // :3
 
-public:
+public: // :3
 
-    static CCTransitionSplitCols* create(float t, CCScene* scene);
-};
+    static CCTransitionSplitCols* create(float t, CCScene* scene); // :3
+}; // :3
 
 /** @brief CCTransitionSplitRows:
 The odd rows goes to the left while the even rows goes to the right.
-*/
-class CC_DLL CCTransitionSplitRows : public CCTransitionSplitCols
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSplitRows, CCTransitionSplitCols)
+*/ // :3
+class CC_DLL CCTransitionSplitRows : public CCTransitionSplitCols // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionSplitRows, CCTransitionSplitCols) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionSplitRows();
+     */ // :3
+    CCTransitionSplitRows(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionSplitRows();
+     */ // :3
+    virtual ~CCTransitionSplitRows(); // :3
 
-    virtual CCActionInterval* action(void);
+    virtual CCActionInterval* action(void); // :3
 
-public:
+public: // :3
 
-    static CCTransitionSplitRows* create(float t, CCScene* scene);
-};
+    static CCTransitionSplitRows* create(float t, CCScene* scene); // :3
+}; // :3
 
 /** @brief CCTransitionFadeTR:
 Fade the tiles of the outgoing scene from the left-bottom corner the to top-right corner.
-*/
-class CC_DLL CCTransitionFadeTR : public CCTransitionScene , public CCTransitionEaseScene
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFadeTR, CCTransitionScene)
+*/ // :3
+class CC_DLL CCTransitionFadeTR : public CCTransitionScene , public CCTransitionEaseScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFadeTR, CCTransitionScene) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionFadeTR();
+     */ // :3
+    CCTransitionFadeTR(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionFadeTR();
-    virtual CCActionInterval* actionWithSize(const CCSize& size);
+     */ // :3
+    virtual ~CCTransitionFadeTR(); // :3
+    virtual CCActionInterval* actionWithSize(const CCSize& size); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
-    virtual CCActionInterval* easeActionWithAction(CCActionInterval * action);
+     */ // :3
+    virtual void onEnter(); // :3
+    virtual CCActionInterval* easeActionWithAction(CCActionInterval * action); // :3
 
-public:
+public: // :3
 
-    static CCTransitionFadeTR* create(float t, CCScene* scene);
-protected:
-    virtual void sceneOrder();
-};
+    static CCTransitionFadeTR* create(float t, CCScene* scene); // :3
+protected: // :3
+    virtual void sceneOrder(); // :3
+}; // :3
 
 /** @brief CCTransitionFadeBL:
 Fade the tiles of the outgoing scene from the top-right corner to the bottom-left corner.
-*/
-class CC_DLL CCTransitionFadeBL : public CCTransitionFadeTR
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFadeBL, CCTransitionFadeTR)
+*/ // :3
+class CC_DLL CCTransitionFadeBL : public CCTransitionFadeTR // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFadeBL, CCTransitionFadeTR) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionFadeBL();
+     */ // :3
+    CCTransitionFadeBL(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionFadeBL();
-    virtual CCActionInterval* actionWithSize(const CCSize& size);
+     */ // :3
+    virtual ~CCTransitionFadeBL(); // :3
+    virtual CCActionInterval* actionWithSize(const CCSize& size); // :3
 
-public:
+public: // :3
 
-    static CCTransitionFadeBL* create(float t, CCScene* scene);
-};
+    static CCTransitionFadeBL* create(float t, CCScene* scene); // :3
+}; // :3
 
 /** @brief CCTransitionFadeUp:
 * Fade the tiles of the outgoing scene from the bottom to the top.
-*/
-class CC_DLL CCTransitionFadeUp : public CCTransitionFadeTR
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFadeUp, CCTransitionFadeTR)
+*/ // :3
+class CC_DLL CCTransitionFadeUp : public CCTransitionFadeTR // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFadeUp, CCTransitionFadeTR) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionFadeUp();
+     */ // :3
+    CCTransitionFadeUp(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionFadeUp();
-    virtual CCActionInterval* actionWithSize(const CCSize& size);
+     */ // :3
+    virtual ~CCTransitionFadeUp(); // :3
+    virtual CCActionInterval* actionWithSize(const CCSize& size); // :3
 
-public:
+public: // :3
 
-    static CCTransitionFadeUp* create(float t, CCScene* scene);
-};
+    static CCTransitionFadeUp* create(float t, CCScene* scene); // :3
+}; // :3
 
 /** @brief CCTransitionFadeDown:
 * Fade the tiles of the outgoing scene from the top to the bottom.
-*/
-class CC_DLL CCTransitionFadeDown : public CCTransitionFadeTR
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFadeDown, CCTransitionFadeTR)
+*/ // :3
+class CC_DLL CCTransitionFadeDown : public CCTransitionFadeTR // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionFadeDown, CCTransitionFadeTR) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionFadeDown();
+     */ // :3
+    CCTransitionFadeDown(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionFadeDown();
-    virtual CCActionInterval* actionWithSize(const CCSize& size);
+     */ // :3
+    virtual ~CCTransitionFadeDown(); // :3
+    virtual CCActionInterval* actionWithSize(const CCSize& size); // :3
 
-public:
+public: // :3
 
-    static CCTransitionFadeDown* create(float t, CCScene* scene);
-};
+    static CCTransitionFadeDown* create(float t, CCScene* scene); // :3
+}; // :3
 
-// end of transition group
-/// @}
+// end of transition group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __CCTRANSITION_H__
+#endif // __CCTRANSITION_H__ :3
 

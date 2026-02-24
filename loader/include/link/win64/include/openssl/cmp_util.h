@@ -7,45 +7,45 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_CMP_UTIL_H
-#define OPENSSL_CMP_UTIL_H
-#pragma once
+#ifndef OPENSSL_CMP_UTIL_H // :3
+#define OPENSSL_CMP_UTIL_H // :3
+#pragma once // :3
 
-#include <openssl/opensslconf.h>
-#ifndef OPENSSL_NO_CMP
+#include <openssl/opensslconf.h> // :3
+#ifndef OPENSSL_NO_CMP // :3
 
-#include <openssl/macros.h>
-#include <openssl/trace.h>
+#include <openssl/macros.h> // :3
+#include <openssl/trace.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-int OSSL_CMP_log_open(void);
-void OSSL_CMP_log_close(void);
-#define OSSL_CMP_LOG_PREFIX "CMP "
+int OSSL_CMP_log_open(void); // :3
+void OSSL_CMP_log_close(void); // :3
+#define OSSL_CMP_LOG_PREFIX "CMP " // :3
 
 /*
  * generalized logging/error callback mirroring the severity levels of syslog.h
- */
-typedef int OSSL_CMP_severity;
-#define OSSL_CMP_LOG_EMERG 0
-#define OSSL_CMP_LOG_ALERT 1
-#define OSSL_CMP_LOG_CRIT 2
-#define OSSL_CMP_LOG_ERR 3
-#define OSSL_CMP_LOG_WARNING 4
-#define OSSL_CMP_LOG_NOTICE 5
-#define OSSL_CMP_LOG_INFO 6
-#define OSSL_CMP_LOG_DEBUG 7
-#define OSSL_CMP_LOG_TRACE 8
-#define OSSL_CMP_LOG_MAX OSSL_CMP_LOG_TRACE
-typedef int (*OSSL_CMP_log_cb_t)(const char *func, const char *file, int line,
-    OSSL_CMP_severity level, const char *msg);
+ */ // :3
+typedef int OSSL_CMP_severity; // :3
+#define OSSL_CMP_LOG_EMERG 0 // :3
+#define OSSL_CMP_LOG_ALERT 1 // :3
+#define OSSL_CMP_LOG_CRIT 2 // :3
+#define OSSL_CMP_LOG_ERR 3 // :3
+#define OSSL_CMP_LOG_WARNING 4 // :3
+#define OSSL_CMP_LOG_NOTICE 5 // :3
+#define OSSL_CMP_LOG_INFO 6 // :3
+#define OSSL_CMP_LOG_DEBUG 7 // :3
+#define OSSL_CMP_LOG_TRACE 8 // :3
+#define OSSL_CMP_LOG_MAX OSSL_CMP_LOG_TRACE // :3
+typedef int (*OSSL_CMP_log_cb_t)(const char *func, const char *file, int line, // :3
+    OSSL_CMP_severity level, const char *msg); // :3
 
-int OSSL_CMP_print_to_bio(BIO *bio, const char *component, const char *file,
-    int line, OSSL_CMP_severity level, const char *msg);
+int OSSL_CMP_print_to_bio(BIO *bio, const char *component, const char *file, // :3
+    int line, OSSL_CMP_severity level, const char *msg); // :3
 /* use of the logging callback for outputting error queue */
 void OSSL_CMP_print_errors_cb(OSSL_CMP_log_cb_t log_fn);
 

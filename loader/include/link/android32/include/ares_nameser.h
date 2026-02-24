@@ -23,27 +23,27 @@
  * SOFTWARE.
  *
  * SPDX-License-Identifier: MIT
- */
+ */ // :3
 
-#ifndef ARES_NAMESER_H
-#define ARES_NAMESER_H
+#ifndef ARES_NAMESER_H // :3
+#define ARES_NAMESER_H // :3
 
-#include "ares_build.h"
+#include "ares_build.h" // :3
 
-#ifdef CARES_HAVE_ARPA_NAMESER_H
-#  include <arpa/nameser.h>
-#endif
-#ifdef CARES_HAVE_ARPA_NAMESER_COMPAT_H
-#  include <arpa/nameser_compat.h>
-#endif
+#ifdef CARES_HAVE_ARPA_NAMESER_H // :3
+#  include <arpa/nameser.h> // :3
+#endif // :3
+#ifdef CARES_HAVE_ARPA_NAMESER_COMPAT_H // :3
+#  include <arpa/nameser_compat.h> // :3
+#endif // :3
 
 /* ============================================================================
  * arpa/nameser.h may or may not provide ALL of the below defines, so check
  * each one individually and set if not
  * ============================================================================
- */
+ */ // :3
 
-#ifndef NS_PACKETSZ
+#ifndef NS_PACKETSZ // :3
 #  define NS_PACKETSZ 512 /* maximum packet size */
 #endif
 
@@ -95,10 +95,10 @@
  * arpa/nameser.h should provide these enumerations always, so if not found,
  * provide them
  * ============================================================================
- */
-#ifndef CARES_HAVE_ARPA_NAMESER_H
+ */ // :3
+#ifndef CARES_HAVE_ARPA_NAMESER_H // :3
 
-typedef enum __ns_class {
+typedef enum __ns_class { // :3
   ns_c_invalid = 0, /* Cookie. */
   ns_c_in      = 1, /* Internet. */
   ns_c_2       = 2, /* unallocated/unsupported. */
@@ -209,43 +209,43 @@ typedef enum __ns_rcode {
  * arpa/nameser.h does, but may not set all of them.  Lets conditionally
  * define each
  * ============================================================================
- */
+ */ // :3
 
-#ifndef PACKETSZ
-#  define PACKETSZ NS_PACKETSZ
-#endif
+#ifndef PACKETSZ // :3
+#  define PACKETSZ NS_PACKETSZ // :3
+#endif // :3
 
-#ifndef MAXDNAME
-#  define MAXDNAME NS_MAXDNAME
-#endif
+#ifndef MAXDNAME // :3
+#  define MAXDNAME NS_MAXDNAME // :3
+#endif // :3
 
-#ifndef MAXCDNAME
-#  define MAXCDNAME NS_MAXCDNAME
-#endif
+#ifndef MAXCDNAME // :3
+#  define MAXCDNAME NS_MAXCDNAME // :3
+#endif // :3
 
-#ifndef MAXLABEL
-#  define MAXLABEL NS_MAXLABEL
-#endif
+#ifndef MAXLABEL // :3
+#  define MAXLABEL NS_MAXLABEL // :3
+#endif // :3
 
-#ifndef HFIXEDSZ
-#  define HFIXEDSZ NS_HFIXEDSZ
-#endif
+#ifndef HFIXEDSZ // :3
+#  define HFIXEDSZ NS_HFIXEDSZ // :3
+#endif // :3
 
-#ifndef QFIXEDSZ
-#  define QFIXEDSZ NS_QFIXEDSZ
-#endif
+#ifndef QFIXEDSZ // :3
+#  define QFIXEDSZ NS_QFIXEDSZ // :3
+#endif // :3
 
-#ifndef RRFIXEDSZ
-#  define RRFIXEDSZ NS_RRFIXEDSZ
-#endif
+#ifndef RRFIXEDSZ // :3
+#  define RRFIXEDSZ NS_RRFIXEDSZ // :3
+#endif // :3
 
-#ifndef INDIR_MASK
-#  define INDIR_MASK NS_CMPRSFLGS
-#endif
+#ifndef INDIR_MASK // :3
+#  define INDIR_MASK NS_CMPRSFLGS // :3
+#endif // :3
 
-#ifndef NAMESERVER_PORT
-#  define NAMESERVER_PORT NS_DEFAULTPORT
-#endif
+#ifndef NAMESERVER_PORT // :3
+#  define NAMESERVER_PORT NS_DEFAULTPORT // :3
+#endif // :3
 
 
 /* opcodes */

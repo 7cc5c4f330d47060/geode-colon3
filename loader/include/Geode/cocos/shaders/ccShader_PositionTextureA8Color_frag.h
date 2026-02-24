@@ -21,7 +21,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */
+ */ // :3
 
 "													\n\
 #ifdef GL_ES										\n\
@@ -38,4 +38,4 @@ void main()											\n\
 						v_fragmentColor.a * texture2D(CC_Texture0, v_texCoord).a	// A from texture & uniform		\n\
 						);							\n\
 }													\n\
-";
+"; // :3

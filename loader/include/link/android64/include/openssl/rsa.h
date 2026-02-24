@@ -5,44 +5,44 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_RSA_H
-#define OPENSSL_RSA_H
-#pragma once
+#ifndef OPENSSL_RSA_H // :3
+#define OPENSSL_RSA_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_RSA_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_RSA_H // :3
+#endif // :3
 
-#include <openssl/opensslconf.h>
+#include <openssl/opensslconf.h> // :3
 
-#include <openssl/asn1.h>
-#include <openssl/bio.h>
-#include <openssl/crypto.h>
-#include <openssl/types.h>
-#ifndef OPENSSL_NO_DEPRECATED_1_1_0
-#include <openssl/bn.h>
-#endif
-#include <openssl/rsaerr.h>
-#include <openssl/safestack.h>
-#ifndef OPENSSL_NO_STDIO
-#include <stdio.h>
-#endif
+#include <openssl/asn1.h> // :3
+#include <openssl/bio.h> // :3
+#include <openssl/crypto.h> // :3
+#include <openssl/types.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_1_1_0 // :3
+#include <openssl/bn.h> // :3
+#endif // :3
+#include <openssl/rsaerr.h> // :3
+#include <openssl/safestack.h> // :3
+#ifndef OPENSSL_NO_STDIO // :3
+#include <stdio.h> // :3
+#endif // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#ifndef OPENSSL_RSA_MAX_MODULUS_BITS
-#define OPENSSL_RSA_MAX_MODULUS_BITS 16384
-#endif
+#ifndef OPENSSL_RSA_MAX_MODULUS_BITS // :3
+#define OPENSSL_RSA_MAX_MODULUS_BITS 16384 // :3
+#endif // :3
 
-#define RSA_3 0x3L
-#define RSA_F4 0x10001L
+#define RSA_3 0x3L // :3
+#define RSA_F4 0x10001L // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 /* The types RSA and RSA_METHOD are defined in ossl_typ.h */
 
 #define OPENSSL_RSA_FIPS_MIN_MODULUS_BITS 2048
@@ -71,23 +71,23 @@ extern "C" {
  * and that they do not depend on the private key components being present:
  * for example a key stored in external hardware. Without this flag
  * bn_mod_exp gets called when private key components are absent.
- */
-#define RSA_FLAG_EXT_PKEY 0x0020
+ */ // :3
+#define RSA_FLAG_EXT_PKEY 0x0020 // :3
 
 /*
  * new with 0.9.6j and 0.9.7b; the built-in
  * RSA implementation now uses blinding by
  * default (ignoring RSA_FLAG_BLINDING),
  * but other engines might not need it
- */
-#define RSA_FLAG_NO_BLINDING 0x0080
+ */ // :3
+#define RSA_FLAG_NO_BLINDING 0x0080 // :3
 #endif /* OPENSSL_NO_DEPRECATED_3_0 */
 /*
  * Does nothing. Previously this switched off constant time behaviour.
- */
-#ifndef OPENSSL_NO_DEPRECATED_1_1_0
-#define RSA_FLAG_NO_CONSTTIME 0x0000
-#endif
+ */ // :3
+#ifndef OPENSSL_NO_DEPRECATED_1_1_0 // :3
+#define RSA_FLAG_NO_CONSTTIME 0x0000 // :3
+#endif // :3
 /* deprecated name for the flag*/
 /*
  * new with 0.9.7h; the built-in RSA
@@ -96,10 +96,10 @@ extern "C" {
  * by default. This flag causes the
  * faster variable sliding window method to
  * be used for all exponents.
- */
-#ifndef OPENSSL_NO_DEPRECATED_0_9_8
-#define RSA_FLAG_NO_EXP_CONSTTIME RSA_FLAG_NO_CONSTTIME
-#endif
+ */ // :3
+#ifndef OPENSSL_NO_DEPRECATED_0_9_8 // :3
+#define RSA_FLAG_NO_EXP_CONSTTIME RSA_FLAG_NO_CONSTTIME // :3
+#endif // :3
 
 /*-
  * New with 3.0: use part of the flags to denote exact type of RSA key,
@@ -113,26 +113,26 @@ extern "C" {
  *                is expected.  (currently unused)
  *
  * 4 bits allow for 16 types
- */
-#define RSA_FLAG_TYPE_MASK 0xF000
-#define RSA_FLAG_TYPE_RSA 0x0000
-#define RSA_FLAG_TYPE_RSASSAPSS 0x1000
-#define RSA_FLAG_TYPE_RSAESOAEP 0x2000
+ */ // :3
+#define RSA_FLAG_TYPE_MASK 0xF000 // :3
+#define RSA_FLAG_TYPE_RSA 0x0000 // :3
+#define RSA_FLAG_TYPE_RSASSAPSS 0x1000 // :3
+#define RSA_FLAG_TYPE_RSAESOAEP 0x2000 // :3
 
-int EVP_PKEY_CTX_set_rsa_padding(EVP_PKEY_CTX *ctx, int pad_mode);
-int EVP_PKEY_CTX_get_rsa_padding(EVP_PKEY_CTX *ctx, int *pad_mode);
+int EVP_PKEY_CTX_set_rsa_padding(EVP_PKEY_CTX *ctx, int pad_mode); // :3
+int EVP_PKEY_CTX_get_rsa_padding(EVP_PKEY_CTX *ctx, int *pad_mode); // :3
 
-int EVP_PKEY_CTX_set_rsa_pss_saltlen(EVP_PKEY_CTX *ctx, int saltlen);
-int EVP_PKEY_CTX_get_rsa_pss_saltlen(EVP_PKEY_CTX *ctx, int *saltlen);
+int EVP_PKEY_CTX_set_rsa_pss_saltlen(EVP_PKEY_CTX *ctx, int saltlen); // :3
+int EVP_PKEY_CTX_get_rsa_pss_saltlen(EVP_PKEY_CTX *ctx, int *saltlen); // :3
 
-int EVP_PKEY_CTX_set_rsa_keygen_bits(EVP_PKEY_CTX *ctx, int bits);
-int EVP_PKEY_CTX_set1_rsa_keygen_pubexp(EVP_PKEY_CTX *ctx, BIGNUM *pubexp);
-int EVP_PKEY_CTX_set_rsa_keygen_primes(EVP_PKEY_CTX *ctx, int primes);
-int EVP_PKEY_CTX_set_rsa_pss_keygen_saltlen(EVP_PKEY_CTX *ctx, int saltlen);
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-OSSL_DEPRECATEDIN_3_0
-int EVP_PKEY_CTX_set_rsa_keygen_pubexp(EVP_PKEY_CTX *ctx, BIGNUM *pubexp);
-#endif
+int EVP_PKEY_CTX_set_rsa_keygen_bits(EVP_PKEY_CTX *ctx, int bits); // :3
+int EVP_PKEY_CTX_set1_rsa_keygen_pubexp(EVP_PKEY_CTX *ctx, BIGNUM *pubexp); // :3
+int EVP_PKEY_CTX_set_rsa_keygen_primes(EVP_PKEY_CTX *ctx, int primes); // :3
+int EVP_PKEY_CTX_set_rsa_pss_keygen_saltlen(EVP_PKEY_CTX *ctx, int saltlen); // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int EVP_PKEY_CTX_set_rsa_keygen_pubexp(EVP_PKEY_CTX *ctx, BIGNUM *pubexp); // :3
+#endif // :3
 
 /* Salt length matches digest */
 #define RSA_PSS_SALTLEN_DIGEST -1
@@ -141,8 +141,8 @@ int EVP_PKEY_CTX_set_rsa_keygen_pubexp(EVP_PKEY_CTX *ctx, BIGNUM *pubexp);
 /* Set salt length to maximum possible */
 #define RSA_PSS_SALTLEN_MAX -3
 /* Auto-detect on verify, set salt length to min(maximum possible, digest
- * length) on sign */
-#define RSA_PSS_SALTLEN_AUTO_DIGEST_MAX -4
+ * length) on sign */ // :3
+#define RSA_PSS_SALTLEN_AUTO_DIGEST_MAX -4 // :3
 /* Old compatible max salt length for sign only */
 #define RSA_PSS_SALTLEN_MAX_SIGN -2
 
@@ -354,258 +354,258 @@ OSSL_DEPRECATEDIN_3_0 int RSA_print(BIO *bp, const RSA *r, int offset);
 /*
  * The following 2 functions sign and verify a X509_SIG ASN1 object inside
  * PKCS#1 padded RSA encryption
- */
-OSSL_DEPRECATEDIN_3_0 int RSA_sign(int type, const unsigned char *m,
-    unsigned int m_length, unsigned char *sigret,
-    unsigned int *siglen, RSA *rsa);
-OSSL_DEPRECATEDIN_3_0 int RSA_verify(int type, const unsigned char *m,
-    unsigned int m_length,
-    const unsigned char *sigbuf,
-    unsigned int siglen, RSA *rsa);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int RSA_sign(int type, const unsigned char *m, // :3
+    unsigned int m_length, unsigned char *sigret, // :3
+    unsigned int *siglen, RSA *rsa); // :3
+OSSL_DEPRECATEDIN_3_0 int RSA_verify(int type, const unsigned char *m, // :3
+    unsigned int m_length, // :3
+    const unsigned char *sigbuf, // :3
+    unsigned int siglen, RSA *rsa); // :3
 
 /*
  * The following 2 function sign and verify a ASN1_OCTET_STRING object inside
  * PKCS#1 padded RSA encryption
- */
-OSSL_DEPRECATEDIN_3_0
-int RSA_sign_ASN1_OCTET_STRING(int type,
-    const unsigned char *m, unsigned int m_length,
-    unsigned char *sigret, unsigned int *siglen,
-    RSA *rsa);
-OSSL_DEPRECATEDIN_3_0
-int RSA_verify_ASN1_OCTET_STRING(int type,
-    const unsigned char *m, unsigned int m_length,
-    unsigned char *sigbuf, unsigned int siglen,
-    RSA *rsa);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_sign_ASN1_OCTET_STRING(int type, // :3
+    const unsigned char *m, unsigned int m_length, // :3
+    unsigned char *sigret, unsigned int *siglen, // :3
+    RSA *rsa); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_verify_ASN1_OCTET_STRING(int type, // :3
+    const unsigned char *m, unsigned int m_length, // :3
+    unsigned char *sigbuf, unsigned int siglen, // :3
+    RSA *rsa); // :3
 
-OSSL_DEPRECATEDIN_3_0 int RSA_blinding_on(RSA *rsa, BN_CTX *ctx);
-OSSL_DEPRECATEDIN_3_0 void RSA_blinding_off(RSA *rsa);
-OSSL_DEPRECATEDIN_3_0 BN_BLINDING *RSA_setup_blinding(RSA *rsa, BN_CTX *ctx);
+OSSL_DEPRECATEDIN_3_0 int RSA_blinding_on(RSA *rsa, BN_CTX *ctx); // :3
+OSSL_DEPRECATEDIN_3_0 void RSA_blinding_off(RSA *rsa); // :3
+OSSL_DEPRECATEDIN_3_0 BN_BLINDING *RSA_setup_blinding(RSA *rsa, BN_CTX *ctx); // :3
 
-OSSL_DEPRECATEDIN_3_0
-int RSA_padding_add_PKCS1_type_1(unsigned char *to, int tlen,
-    const unsigned char *f, int fl);
-OSSL_DEPRECATEDIN_3_0
-int RSA_padding_check_PKCS1_type_1(unsigned char *to, int tlen,
-    const unsigned char *f, int fl,
-    int rsa_len);
-OSSL_DEPRECATEDIN_3_0
-int RSA_padding_add_PKCS1_type_2(unsigned char *to, int tlen,
-    const unsigned char *f, int fl);
-OSSL_DEPRECATEDIN_3_0
-int RSA_padding_check_PKCS1_type_2(unsigned char *to, int tlen,
-    const unsigned char *f, int fl,
-    int rsa_len);
-OSSL_DEPRECATEDIN_3_0 int PKCS1_MGF1(unsigned char *mask, long len,
-    const unsigned char *seed, long seedlen,
-    const EVP_MD *dgst);
-OSSL_DEPRECATEDIN_3_0
-int RSA_padding_add_PKCS1_OAEP(unsigned char *to, int tlen,
-    const unsigned char *f, int fl,
-    const unsigned char *p, int pl);
-OSSL_DEPRECATEDIN_3_0
-int RSA_padding_check_PKCS1_OAEP(unsigned char *to, int tlen,
-    const unsigned char *f, int fl, int rsa_len,
-    const unsigned char *p, int pl);
-OSSL_DEPRECATEDIN_3_0
-int RSA_padding_add_PKCS1_OAEP_mgf1(unsigned char *to, int tlen,
-    const unsigned char *from, int flen,
-    const unsigned char *param, int plen,
-    const EVP_MD *md, const EVP_MD *mgf1md);
-OSSL_DEPRECATEDIN_3_0
-int RSA_padding_check_PKCS1_OAEP_mgf1(unsigned char *to, int tlen,
-    const unsigned char *from, int flen,
-    int num,
-    const unsigned char *param, int plen,
-    const EVP_MD *md, const EVP_MD *mgf1md);
-OSSL_DEPRECATEDIN_3_0 int RSA_padding_add_none(unsigned char *to, int tlen,
-    const unsigned char *f, int fl);
-OSSL_DEPRECATEDIN_3_0 int RSA_padding_check_none(unsigned char *to, int tlen,
-    const unsigned char *f, int fl,
-    int rsa_len);
-OSSL_DEPRECATEDIN_3_0 int RSA_padding_add_X931(unsigned char *to, int tlen,
-    const unsigned char *f, int fl);
-OSSL_DEPRECATEDIN_3_0 int RSA_padding_check_X931(unsigned char *to, int tlen,
-    const unsigned char *f, int fl,
-    int rsa_len);
-OSSL_DEPRECATEDIN_3_0 int RSA_X931_hash_id(int nid);
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_padding_add_PKCS1_type_1(unsigned char *to, int tlen, // :3
+    const unsigned char *f, int fl); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_padding_check_PKCS1_type_1(unsigned char *to, int tlen, // :3
+    const unsigned char *f, int fl, // :3
+    int rsa_len); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_padding_add_PKCS1_type_2(unsigned char *to, int tlen, // :3
+    const unsigned char *f, int fl); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_padding_check_PKCS1_type_2(unsigned char *to, int tlen, // :3
+    const unsigned char *f, int fl, // :3
+    int rsa_len); // :3
+OSSL_DEPRECATEDIN_3_0 int PKCS1_MGF1(unsigned char *mask, long len, // :3
+    const unsigned char *seed, long seedlen, // :3
+    const EVP_MD *dgst); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_padding_add_PKCS1_OAEP(unsigned char *to, int tlen, // :3
+    const unsigned char *f, int fl, // :3
+    const unsigned char *p, int pl); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_padding_check_PKCS1_OAEP(unsigned char *to, int tlen, // :3
+    const unsigned char *f, int fl, int rsa_len, // :3
+    const unsigned char *p, int pl); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_padding_add_PKCS1_OAEP_mgf1(unsigned char *to, int tlen, // :3
+    const unsigned char *from, int flen, // :3
+    const unsigned char *param, int plen, // :3
+    const EVP_MD *md, const EVP_MD *mgf1md); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_padding_check_PKCS1_OAEP_mgf1(unsigned char *to, int tlen, // :3
+    const unsigned char *from, int flen, // :3
+    int num, // :3
+    const unsigned char *param, int plen, // :3
+    const EVP_MD *md, const EVP_MD *mgf1md); // :3
+OSSL_DEPRECATEDIN_3_0 int RSA_padding_add_none(unsigned char *to, int tlen, // :3
+    const unsigned char *f, int fl); // :3
+OSSL_DEPRECATEDIN_3_0 int RSA_padding_check_none(unsigned char *to, int tlen, // :3
+    const unsigned char *f, int fl, // :3
+    int rsa_len); // :3
+OSSL_DEPRECATEDIN_3_0 int RSA_padding_add_X931(unsigned char *to, int tlen, // :3
+    const unsigned char *f, int fl); // :3
+OSSL_DEPRECATEDIN_3_0 int RSA_padding_check_X931(unsigned char *to, int tlen, // :3
+    const unsigned char *f, int fl, // :3
+    int rsa_len); // :3
+OSSL_DEPRECATEDIN_3_0 int RSA_X931_hash_id(int nid); // :3
 
-OSSL_DEPRECATEDIN_3_0
-int RSA_verify_PKCS1_PSS(RSA *rsa, const unsigned char *mHash,
-    const EVP_MD *Hash, const unsigned char *EM,
-    int sLen);
-OSSL_DEPRECATEDIN_3_0
-int RSA_padding_add_PKCS1_PSS(RSA *rsa, unsigned char *EM,
-    const unsigned char *mHash, const EVP_MD *Hash,
-    int sLen);
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_verify_PKCS1_PSS(RSA *rsa, const unsigned char *mHash, // :3
+    const EVP_MD *Hash, const unsigned char *EM, // :3
+    int sLen); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_padding_add_PKCS1_PSS(RSA *rsa, unsigned char *EM, // :3
+    const unsigned char *mHash, const EVP_MD *Hash, // :3
+    int sLen); // :3
 
-OSSL_DEPRECATEDIN_3_0
-int RSA_verify_PKCS1_PSS_mgf1(RSA *rsa, const unsigned char *mHash,
-    const EVP_MD *Hash, const EVP_MD *mgf1Hash,
-    const unsigned char *EM, int sLen);
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_verify_PKCS1_PSS_mgf1(RSA *rsa, const unsigned char *mHash, // :3
+    const EVP_MD *Hash, const EVP_MD *mgf1Hash, // :3
+    const unsigned char *EM, int sLen); // :3
 
-OSSL_DEPRECATEDIN_3_0
-int RSA_padding_add_PKCS1_PSS_mgf1(RSA *rsa, unsigned char *EM,
-    const unsigned char *mHash,
-    const EVP_MD *Hash, const EVP_MD *mgf1Hash,
-    int sLen);
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_padding_add_PKCS1_PSS_mgf1(RSA *rsa, unsigned char *EM, // :3
+    const unsigned char *mHash, // :3
+    const EVP_MD *Hash, const EVP_MD *mgf1Hash, // :3
+    int sLen); // :3
 
 #define RSA_get_ex_new_index(l, p, newf, dupf, freef) \
-    CRYPTO_get_ex_new_index(CRYPTO_EX_INDEX_RSA, l, p, newf, dupf, freef)
-OSSL_DEPRECATEDIN_3_0 int RSA_set_ex_data(RSA *r, int idx, void *arg);
-OSSL_DEPRECATEDIN_3_0 void *RSA_get_ex_data(const RSA *r, int idx);
+    CRYPTO_get_ex_new_index(CRYPTO_EX_INDEX_RSA, l, p, newf, dupf, freef) // :3
+OSSL_DEPRECATEDIN_3_0 int RSA_set_ex_data(RSA *r, int idx, void *arg); // :3
+OSSL_DEPRECATEDIN_3_0 void *RSA_get_ex_data(const RSA *r, int idx); // :3
 
-DECLARE_ASN1_DUP_FUNCTION_name_attr(OSSL_DEPRECATEDIN_3_0, RSA, RSAPublicKey)
-DECLARE_ASN1_DUP_FUNCTION_name_attr(OSSL_DEPRECATEDIN_3_0, RSA, RSAPrivateKey)
+DECLARE_ASN1_DUP_FUNCTION_name_attr(OSSL_DEPRECATEDIN_3_0, RSA, RSAPublicKey) // :3
+DECLARE_ASN1_DUP_FUNCTION_name_attr(OSSL_DEPRECATEDIN_3_0, RSA, RSAPrivateKey) // :3
 
 /*
  * If this flag is set the RSA method is FIPS compliant and can be used in
  * FIPS mode. This is set in the validated module method. If an application
  * sets this flag in its own methods it is its responsibility to ensure the
  * result is compliant.
- */
+ */ // :3
 
-#define RSA_FLAG_FIPS_METHOD 0x0400
+#define RSA_FLAG_FIPS_METHOD 0x0400 // :3
 
 /*
  * If this flag is set the operations normally disabled in FIPS mode are
  * permitted it is then the applications responsibility to ensure that the
  * usage is compliant.
- */
+ */ // :3
 
-#define RSA_FLAG_NON_FIPS_ALLOW 0x0400
+#define RSA_FLAG_NON_FIPS_ALLOW 0x0400 // :3
 /*
  * Application has decided PRNG is good enough to generate a key: don't
  * check.
- */
-#define RSA_FLAG_CHECKED 0x0800
+ */ // :3
+#define RSA_FLAG_CHECKED 0x0800 // :3
 
-OSSL_DEPRECATEDIN_3_0 RSA_METHOD *RSA_meth_new(const char *name, int flags);
-OSSL_DEPRECATEDIN_3_0 void RSA_meth_free(RSA_METHOD *meth);
-OSSL_DEPRECATEDIN_3_0 RSA_METHOD *RSA_meth_dup(const RSA_METHOD *meth);
-OSSL_DEPRECATEDIN_3_0 const char *RSA_meth_get0_name(const RSA_METHOD *meth);
-OSSL_DEPRECATEDIN_3_0 int RSA_meth_set1_name(RSA_METHOD *meth,
-    const char *name);
-OSSL_DEPRECATEDIN_3_0 int RSA_meth_get_flags(const RSA_METHOD *meth);
-OSSL_DEPRECATEDIN_3_0 int RSA_meth_set_flags(RSA_METHOD *meth, int flags);
-OSSL_DEPRECATEDIN_3_0 void *RSA_meth_get0_app_data(const RSA_METHOD *meth);
-OSSL_DEPRECATEDIN_3_0 int RSA_meth_set0_app_data(RSA_METHOD *meth,
-    void *app_data);
-OSSL_DEPRECATEDIN_3_0
-int (*RSA_meth_get_pub_enc(const RSA_METHOD *meth))(int flen,
-    const unsigned char *from,
-    unsigned char *to,
-    RSA *rsa, int padding);
-OSSL_DEPRECATEDIN_3_0
-int RSA_meth_set_pub_enc(RSA_METHOD *rsa,
-    int (*pub_enc)(int flen, const unsigned char *from,
-        unsigned char *to, RSA *rsa,
-        int padding));
-OSSL_DEPRECATEDIN_3_0
-int (*RSA_meth_get_pub_dec(const RSA_METHOD *meth))(int flen,
-    const unsigned char *from,
-    unsigned char *to,
-    RSA *rsa, int padding);
-OSSL_DEPRECATEDIN_3_0
-int RSA_meth_set_pub_dec(RSA_METHOD *rsa,
-    int (*pub_dec)(int flen, const unsigned char *from,
-        unsigned char *to, RSA *rsa,
-        int padding));
-OSSL_DEPRECATEDIN_3_0
-int (*RSA_meth_get_priv_enc(const RSA_METHOD *meth))(int flen,
-    const unsigned char *from,
-    unsigned char *to,
-    RSA *rsa, int padding);
-OSSL_DEPRECATEDIN_3_0
-int RSA_meth_set_priv_enc(RSA_METHOD *rsa,
-    int (*priv_enc)(int flen, const unsigned char *from,
-        unsigned char *to, RSA *rsa,
-        int padding));
-OSSL_DEPRECATEDIN_3_0
-int (*RSA_meth_get_priv_dec(const RSA_METHOD *meth))(int flen,
-    const unsigned char *from,
-    unsigned char *to,
-    RSA *rsa, int padding);
-OSSL_DEPRECATEDIN_3_0
-int RSA_meth_set_priv_dec(RSA_METHOD *rsa,
-    int (*priv_dec)(int flen, const unsigned char *from,
-        unsigned char *to, RSA *rsa,
-        int padding));
-OSSL_DEPRECATEDIN_3_0
-int (*RSA_meth_get_mod_exp(const RSA_METHOD *meth))(BIGNUM *r0,
-    const BIGNUM *i,
-    RSA *rsa, BN_CTX *ctx);
-OSSL_DEPRECATEDIN_3_0
-int RSA_meth_set_mod_exp(RSA_METHOD *rsa,
-    int (*mod_exp)(BIGNUM *r0, const BIGNUM *i, RSA *rsa,
-        BN_CTX *ctx));
-OSSL_DEPRECATEDIN_3_0
-int (*RSA_meth_get_bn_mod_exp(const RSA_METHOD *meth))(BIGNUM *r,
-    const BIGNUM *a,
-    const BIGNUM *p,
-    const BIGNUM *m,
-    BN_CTX *ctx,
-    BN_MONT_CTX *m_ctx);
-OSSL_DEPRECATEDIN_3_0
-int RSA_meth_set_bn_mod_exp(RSA_METHOD *rsa,
-    int (*bn_mod_exp)(BIGNUM *r,
-        const BIGNUM *a,
-        const BIGNUM *p,
-        const BIGNUM *m,
-        BN_CTX *ctx,
-        BN_MONT_CTX *m_ctx));
-OSSL_DEPRECATEDIN_3_0
-int (*RSA_meth_get_init(const RSA_METHOD *meth))(RSA *rsa);
-OSSL_DEPRECATEDIN_3_0
-int RSA_meth_set_init(RSA_METHOD *rsa, int (*init)(RSA *rsa));
-OSSL_DEPRECATEDIN_3_0
-int (*RSA_meth_get_finish(const RSA_METHOD *meth))(RSA *rsa);
-OSSL_DEPRECATEDIN_3_0
-int RSA_meth_set_finish(RSA_METHOD *rsa, int (*finish)(RSA *rsa));
-OSSL_DEPRECATEDIN_3_0
-int (*RSA_meth_get_sign(const RSA_METHOD *meth))(int type,
-    const unsigned char *m,
-    unsigned int m_length,
-    unsigned char *sigret,
-    unsigned int *siglen,
-    const RSA *rsa);
-OSSL_DEPRECATEDIN_3_0
-int RSA_meth_set_sign(RSA_METHOD *rsa,
-    int (*sign)(int type, const unsigned char *m,
-        unsigned int m_length,
-        unsigned char *sigret, unsigned int *siglen,
-        const RSA *rsa));
-OSSL_DEPRECATEDIN_3_0
-int (*RSA_meth_get_verify(const RSA_METHOD *meth))(int dtype,
-    const unsigned char *m,
-    unsigned int m_length,
-    const unsigned char *sigbuf,
-    unsigned int siglen,
-    const RSA *rsa);
-OSSL_DEPRECATEDIN_3_0
-int RSA_meth_set_verify(RSA_METHOD *rsa,
-    int (*verify)(int dtype, const unsigned char *m,
-        unsigned int m_length,
-        const unsigned char *sigbuf,
-        unsigned int siglen, const RSA *rsa));
-OSSL_DEPRECATEDIN_3_0
-int (*RSA_meth_get_keygen(const RSA_METHOD *meth))(RSA *rsa, int bits,
-    BIGNUM *e, BN_GENCB *cb);
-OSSL_DEPRECATEDIN_3_0
-int RSA_meth_set_keygen(RSA_METHOD *rsa,
-    int (*keygen)(RSA *rsa, int bits, BIGNUM *e,
-        BN_GENCB *cb));
-OSSL_DEPRECATEDIN_3_0
-int (*RSA_meth_get_multi_prime_keygen(const RSA_METHOD *meth))(RSA *rsa,
-    int bits,
-    int primes,
-    BIGNUM *e,
-    BN_GENCB *cb);
-OSSL_DEPRECATEDIN_3_0
-int RSA_meth_set_multi_prime_keygen(RSA_METHOD *meth,
-    int (*keygen)(RSA *rsa, int bits,
-        int primes, BIGNUM *e,
-        BN_GENCB *cb));
+OSSL_DEPRECATEDIN_3_0 RSA_METHOD *RSA_meth_new(const char *name, int flags); // :3
+OSSL_DEPRECATEDIN_3_0 void RSA_meth_free(RSA_METHOD *meth); // :3
+OSSL_DEPRECATEDIN_3_0 RSA_METHOD *RSA_meth_dup(const RSA_METHOD *meth); // :3
+OSSL_DEPRECATEDIN_3_0 const char *RSA_meth_get0_name(const RSA_METHOD *meth); // :3
+OSSL_DEPRECATEDIN_3_0 int RSA_meth_set1_name(RSA_METHOD *meth, // :3
+    const char *name); // :3
+OSSL_DEPRECATEDIN_3_0 int RSA_meth_get_flags(const RSA_METHOD *meth); // :3
+OSSL_DEPRECATEDIN_3_0 int RSA_meth_set_flags(RSA_METHOD *meth, int flags); // :3
+OSSL_DEPRECATEDIN_3_0 void *RSA_meth_get0_app_data(const RSA_METHOD *meth); // :3
+OSSL_DEPRECATEDIN_3_0 int RSA_meth_set0_app_data(RSA_METHOD *meth, // :3
+    void *app_data); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int (*RSA_meth_get_pub_enc(const RSA_METHOD *meth))(int flen, // :3
+    const unsigned char *from, // :3
+    unsigned char *to, // :3
+    RSA *rsa, int padding); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_meth_set_pub_enc(RSA_METHOD *rsa, // :3
+    int (*pub_enc)(int flen, const unsigned char *from, // :3
+        unsigned char *to, RSA *rsa, // :3
+        int padding)); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int (*RSA_meth_get_pub_dec(const RSA_METHOD *meth))(int flen, // :3
+    const unsigned char *from, // :3
+    unsigned char *to, // :3
+    RSA *rsa, int padding); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_meth_set_pub_dec(RSA_METHOD *rsa, // :3
+    int (*pub_dec)(int flen, const unsigned char *from, // :3
+        unsigned char *to, RSA *rsa, // :3
+        int padding)); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int (*RSA_meth_get_priv_enc(const RSA_METHOD *meth))(int flen, // :3
+    const unsigned char *from, // :3
+    unsigned char *to, // :3
+    RSA *rsa, int padding); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_meth_set_priv_enc(RSA_METHOD *rsa, // :3
+    int (*priv_enc)(int flen, const unsigned char *from, // :3
+        unsigned char *to, RSA *rsa, // :3
+        int padding)); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int (*RSA_meth_get_priv_dec(const RSA_METHOD *meth))(int flen, // :3
+    const unsigned char *from, // :3
+    unsigned char *to, // :3
+    RSA *rsa, int padding); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_meth_set_priv_dec(RSA_METHOD *rsa, // :3
+    int (*priv_dec)(int flen, const unsigned char *from, // :3
+        unsigned char *to, RSA *rsa, // :3
+        int padding)); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int (*RSA_meth_get_mod_exp(const RSA_METHOD *meth))(BIGNUM *r0, // :3
+    const BIGNUM *i, // :3
+    RSA *rsa, BN_CTX *ctx); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_meth_set_mod_exp(RSA_METHOD *rsa, // :3
+    int (*mod_exp)(BIGNUM *r0, const BIGNUM *i, RSA *rsa, // :3
+        BN_CTX *ctx)); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int (*RSA_meth_get_bn_mod_exp(const RSA_METHOD *meth))(BIGNUM *r, // :3
+    const BIGNUM *a, // :3
+    const BIGNUM *p, // :3
+    const BIGNUM *m, // :3
+    BN_CTX *ctx, // :3
+    BN_MONT_CTX *m_ctx); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_meth_set_bn_mod_exp(RSA_METHOD *rsa, // :3
+    int (*bn_mod_exp)(BIGNUM *r, // :3
+        const BIGNUM *a, // :3
+        const BIGNUM *p, // :3
+        const BIGNUM *m, // :3
+        BN_CTX *ctx, // :3
+        BN_MONT_CTX *m_ctx)); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int (*RSA_meth_get_init(const RSA_METHOD *meth))(RSA *rsa); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_meth_set_init(RSA_METHOD *rsa, int (*init)(RSA *rsa)); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int (*RSA_meth_get_finish(const RSA_METHOD *meth))(RSA *rsa); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_meth_set_finish(RSA_METHOD *rsa, int (*finish)(RSA *rsa)); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int (*RSA_meth_get_sign(const RSA_METHOD *meth))(int type, // :3
+    const unsigned char *m, // :3
+    unsigned int m_length, // :3
+    unsigned char *sigret, // :3
+    unsigned int *siglen, // :3
+    const RSA *rsa); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_meth_set_sign(RSA_METHOD *rsa, // :3
+    int (*sign)(int type, const unsigned char *m, // :3
+        unsigned int m_length, // :3
+        unsigned char *sigret, unsigned int *siglen, // :3
+        const RSA *rsa)); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int (*RSA_meth_get_verify(const RSA_METHOD *meth))(int dtype, // :3
+    const unsigned char *m, // :3
+    unsigned int m_length, // :3
+    const unsigned char *sigbuf, // :3
+    unsigned int siglen, // :3
+    const RSA *rsa); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_meth_set_verify(RSA_METHOD *rsa, // :3
+    int (*verify)(int dtype, const unsigned char *m, // :3
+        unsigned int m_length, // :3
+        const unsigned char *sigbuf, // :3
+        unsigned int siglen, const RSA *rsa)); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int (*RSA_meth_get_keygen(const RSA_METHOD *meth))(RSA *rsa, int bits, // :3
+    BIGNUM *e, BN_GENCB *cb); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_meth_set_keygen(RSA_METHOD *rsa, // :3
+    int (*keygen)(RSA *rsa, int bits, BIGNUM *e, // :3
+        BN_GENCB *cb)); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int (*RSA_meth_get_multi_prime_keygen(const RSA_METHOD *meth))(RSA *rsa, // :3
+    int bits, // :3
+    int primes, // :3
+    BIGNUM *e, // :3
+    BN_GENCB *cb); // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int RSA_meth_set_multi_prime_keygen(RSA_METHOD *meth, // :3
+    int (*keygen)(RSA *rsa, int bits, // :3
+        int primes, BIGNUM *e, // :3
+        BN_GENCB *cb)); // :3
 #endif /* !OPENSSL_NO_DEPRECATED_3_0 */
 
 #ifdef __cplusplus

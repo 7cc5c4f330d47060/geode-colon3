@@ -1,5 +1,5 @@
-#ifndef CURLINC_EASY_H
-#define CURLINC_EASY_H
+#ifndef CURLINC_EASY_H // :3
+#define CURLINC_EASY_H // :3
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -22,10 +22,10 @@
  *
  * SPDX-License-Identifier: curl
  *
- ***************************************************************************/
-#ifdef __cplusplus
-extern "C" {
-#endif
+ ***************************************************************************/ // :3
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /* Flag bits in the curl_blob struct: */
 #define CURL_BLOB_COPY   1 /* tell libcurl to copy the data */
@@ -35,13 +35,13 @@ struct curl_blob {
   void *data;
   size_t len;
   unsigned int flags; /* bit 0 is defined, the rest are reserved and should be
-                         left zeroes */
-};
+                         left zeroes */ // :3
+}; // :3
 
-CURL_EXTERN CURL *curl_easy_init(void);
-CURL_EXTERN CURLcode curl_easy_setopt(CURL *curl, CURLoption option, ...);
-CURL_EXTERN CURLcode curl_easy_perform(CURL *curl);
-CURL_EXTERN void curl_easy_cleanup(CURL *curl);
+CURL_EXTERN CURL *curl_easy_init(void); // :3
+CURL_EXTERN CURLcode curl_easy_setopt(CURL *curl, CURLoption option, ...); // :3
+CURL_EXTERN CURLcode curl_easy_perform(CURL *curl); // :3
+CURL_EXTERN void curl_easy_cleanup(CURL *curl); // :3
 
 /*
  * NAME curl_easy_getinfo()
@@ -55,8 +55,8 @@ CURL_EXTERN void curl_easy_cleanup(CURL *curl);
  * returns CURLE_OK. This function is intended to get used *AFTER* a performed
  * transfer, all results from this function are undefined until the transfer
  * is completed.
- */
-CURL_EXTERN CURLcode curl_easy_getinfo(CURL *curl, CURLINFO info, ...);
+ */ // :3
+CURL_EXTERN CURLcode curl_easy_getinfo(CURL *curl, CURLINFO info, ...); // :3
 
 /*
  * NAME curl_easy_duphandle()
@@ -69,8 +69,8 @@ CURL_EXTERN CURLcode curl_easy_getinfo(CURL *curl, CURLINFO info, ...);
  * be transferred. It is useful in multi-threaded applications when you can run
  * curl_easy_duphandle() for each new thread to avoid a series of identical
  * curl_easy_setopt() invokes in every thread.
- */
-CURL_EXTERN CURL *curl_easy_duphandle(CURL *curl);
+ */ // :3
+CURL_EXTERN CURL *curl_easy_duphandle(CURL *curl); // :3
 
 /*
  * NAME curl_easy_reset()
@@ -82,8 +82,8 @@ CURL_EXTERN CURL *curl_easy_duphandle(CURL *curl);
  *
  * It does keep: live connections, the Session ID cache, the DNS cache and the
  * cookies.
- */
-CURL_EXTERN void curl_easy_reset(CURL *curl);
+ */ // :3
+CURL_EXTERN void curl_easy_reset(CURL *curl); // :3
 
 /*
  * NAME curl_easy_recv()
@@ -92,9 +92,9 @@ CURL_EXTERN void curl_easy_reset(CURL *curl);
  *
  * Receives data from the connected socket. Use after successful
  * curl_easy_perform() with CURLOPT_CONNECT_ONLY option.
- */
-CURL_EXTERN CURLcode curl_easy_recv(CURL *curl, void *buffer, size_t buflen,
-                                    size_t *n);
+ */ // :3
+CURL_EXTERN CURLcode curl_easy_recv(CURL *curl, void *buffer, size_t buflen, // :3
+                                    size_t *n); // :3
 
 /*
  * NAME curl_easy_send()
@@ -103,9 +103,9 @@ CURL_EXTERN CURLcode curl_easy_recv(CURL *curl, void *buffer, size_t buflen,
  *
  * Sends data over the connected socket. Use after successful
  * curl_easy_perform() with CURLOPT_CONNECT_ONLY option.
- */
-CURL_EXTERN CURLcode curl_easy_send(CURL *curl, const void *buffer,
-                                    size_t buflen, size_t *n);
+ */ // :3
+CURL_EXTERN CURLcode curl_easy_send(CURL *curl, const void *buffer, // :3
+                                    size_t buflen, size_t *n); // :3
 
 /*
  * NAME curl_easy_upkeep()
@@ -113,10 +113,10 @@ CURL_EXTERN CURLcode curl_easy_send(CURL *curl, const void *buffer,
  * DESCRIPTION
  *
  * Performs connection upkeep for the given session handle.
- */
-CURL_EXTERN CURLcode curl_easy_upkeep(CURL *curl);
+ */ // :3
+CURL_EXTERN CURLcode curl_easy_upkeep(CURL *curl); // :3
 
-#ifdef __cplusplus
+#ifdef __cplusplus // :3
 } /* end of extern "C" */
 #endif
 

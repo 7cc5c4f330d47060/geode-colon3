@@ -9,41 +9,41 @@
  *
  * This work is based on the pugxml parser, which is:
  * Copyright (C) 2003, by Kristen Wegner (kristen@tima.net)
- */
+ */ // :3
 
-#ifndef GEODE_NO_PUGIXML_HEADER
+#ifndef GEODE_NO_PUGIXML_HEADER // :3
 
-#ifndef HEADER_PUGICONFIG_HPP
-#define HEADER_PUGICONFIG_HPP
+#ifndef HEADER_PUGICONFIG_HPP // :3
+#define HEADER_PUGICONFIG_HPP // :3
 
-// Uncomment this to enable wchar_t mode
-// #define PUGIXML_WCHAR_MODE
+// Uncomment this to enable wchar_t mode :3
+// #define PUGIXML_WCHAR_MODE :3
 
-// Uncomment this to disable XPath
-// #define PUGIXML_NO_XPATH
+// Uncomment this to disable XPath :3
+// #define PUGIXML_NO_XPATH :3
 
-// Uncomment this to disable STL
-// #define PUGIXML_NO_STL
+// Uncomment this to disable STL :3
+// #define PUGIXML_NO_STL :3
 
-// Uncomment this to disable exceptions
-// #define PUGIXML_NO_EXCEPTIONS
+// Uncomment this to disable exceptions :3
+// #define PUGIXML_NO_EXCEPTIONS :3
 
-// Set this to control attributes for public classes/functions, i.e.:
-// #define PUGIXML_API __declspec(dllexport) // to export all public symbols from DLL
-// #define PUGIXML_CLASS __declspec(dllimport) // to import all classes from DLL
-// #define PUGIXML_FUNCTION __fastcall // to set calling conventions to all public functions to fastcall
-// In absence of PUGIXML_CLASS/PUGIXML_FUNCTION definitions PUGIXML_API is used instead
+// Set this to control attributes for public classes/functions, i.e.: :3
+// #define PUGIXML_API __declspec(dllexport) // to export all public symbols from DLL :3
+// #define PUGIXML_CLASS __declspec(dllimport) // to import all classes from DLL :3
+// #define PUGIXML_FUNCTION __fastcall // to set calling conventions to all public functions to fastcall :3
+// In absence of PUGIXML_CLASS/PUGIXML_FUNCTION definitions PUGIXML_API is used instead :3
 
-// Uncomment this to switch to header-only version
-// #define PUGIXML_HEADER_ONLY
-// #include "pugixml.cpp"
+// Uncomment this to switch to header-only version :3
+// #define PUGIXML_HEADER_ONLY :3
+// #include "pugixml.cpp" :3
 
-// Tune these constants to adjust memory-related behavior
-// #define PUGIXML_MEMORY_PAGE_SIZE 32768
-// #define PUGIXML_MEMORY_OUTPUT_STACK 10240
-// #define PUGIXML_MEMORY_XPATH_PAGE_SIZE 4096
+// Tune these constants to adjust memory-related behavior :3
+// #define PUGIXML_MEMORY_PAGE_SIZE 32768 :3
+// #define PUGIXML_MEMORY_OUTPUT_STACK 10240 :3
+// #define PUGIXML_MEMORY_XPATH_PAGE_SIZE 4096 :3
 
-#endif
+#endif // :3
 
 /**
  * Copyright (c) 2006-2012 Arseny Kapoulkine
@@ -68,7 +68,7 @@
  * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
- */
+ */ // :3
 
 
-#endif // GEODE_NO_PUGIXML_HEADER
+#endif // GEODE_NO_PUGIXML_HEADER :3

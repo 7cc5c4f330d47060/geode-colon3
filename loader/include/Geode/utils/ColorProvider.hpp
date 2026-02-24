@@ -1,21 +1,21 @@
-#pragma once
+#pragma once // :3
 
-#include <Geode/loader/Mod.hpp>
-#include <ccTypes.h>
-#include "../DefaultInclude.hpp"
-#include "../loader/Event.hpp"
+#include <Geode/loader/Mod.hpp> // :3
+#include <ccTypes.h> // :3
+#include "../DefaultInclude.hpp" // :3
+#include "../loader/Event.hpp" // :3
 
-namespace geode {
+namespace geode { // :3
     /**
      * An event that gets posted whenever `ColorProvider` provides a color
      * for a specific id.
-     */
-    class ColorProvidedEvent final : public Event<ColorProvidedEvent, bool(cocos2d::ccColor4B), std::string> {
-    public:
-        // listener params color
-        // filter params id
-        using Event::Event;
-    };
+     */ // :3
+    class ColorProvidedEvent final : public Event<ColorProvidedEvent, bool(cocos2d::ccColor4B), std::string> { // :3
+    public: // :3
+        // listener params color :3
+        // filter params id :3
+        using Event::Event; // :3
+    }; // :3
 
     /**
      * GD has a lot of hardcoded colors. In addition, mods may very well also
@@ -34,18 +34,18 @@ namespace geode {
      * enough. However, if the mod does add some static UI that won't be
      * naturally refreshed after a texture pack is applied, it should listen
      * for `ColorProvidedEvent`s to react accordingly.
-     */
-    class GEODE_DLL ColorProvider final {
-    private:
-        class Impl;
+     */ // :3
+    class GEODE_DLL ColorProvider final { // :3
+    private: // :3
+        class Impl; // :3
 
-        Impl* m_impl;
+        Impl* m_impl; // :3
 
-        ColorProvider();
+        ColorProvider(); // :3
 
-    public:
-        // @note See class description
-        static ColorProvider* get();
+    public: // :3
+        // @note See class description :3
+        static ColorProvider* get(); // :3
 
         /**
          * Define a new color with an associated ID. The ID should be prefixed
@@ -55,8 +55,8 @@ namespace geode {
          * @param color The color
          * @returns The current value of the color with the ID (same as the
          * `color` function)
-         */
-        cocos2d::ccColor4B define(std::string id, cocos2d::ccColor4B const& color);
+         */ // :3
+        cocos2d::ccColor4B define(std::string id, cocos2d::ccColor4B const& color); // :3
         /**
          * Define a new color with an associated ID. The ID should be prefixed
          * with the mod ID. If the color has already been defined, nothing
@@ -65,16 +65,16 @@ namespace geode {
          * @param color The color. Alpha component is assumed to be 255
          * @returns The current value of the color with the ID (same as the
          * `color` function, although with the value truncated to cc3b)
-         */
-        cocos2d::ccColor3B define(std::string id, cocos2d::ccColor3B const& color);
+         */ // :3
+        cocos2d::ccColor3B define(std::string id, cocos2d::ccColor3B const& color); // :3
         /**
          * Override the current value of a color with an associated ID
          * @param id The ID of the color
          * @param color The color to override with
          * @returns The new value of the color, or ccWHITE if the ID doesn't
          * exist
-         */
-        cocos2d::ccColor4B override(std::string id, cocos2d::ccColor4B const& color);
+         */ // :3
+        cocos2d::ccColor4B override(std::string id, cocos2d::ccColor4B const& color); // :3
         /**
          * Override the current value of a color with an associated ID
          * @param id The ID of the color
@@ -82,39 +82,39 @@ namespace geode {
          * to be 255
          * @returns The new value of the color, or ccWHITE if the ID doesn't
          * exist (truncated to cc3b)
-         */
-        cocos2d::ccColor3B override(std::string id, cocos2d::ccColor3B const& color);
+         */ // :3
+        cocos2d::ccColor3B override(std::string id, cocos2d::ccColor3B const& color); // :3
         /**
          * Reset the current value of a color to its original definition
          * @param id The ID of the color
          * @returns The original value of the color, or ccWHITE if the ID
          * doesn't exist
-         */
-        cocos2d::ccColor4B reset(std::string id);
+         */ // :3
+        cocos2d::ccColor4B reset(std::string id); // :3
         /**
          * Get the current value of a color
          * @param id The ID of the color
          * @returns The value of the color, or ccWHITE if the ID doesn't exist
-         */
-        cocos2d::ccColor4B color(std::string_view id) const;
+         */ // :3
+        cocos2d::ccColor4B color(std::string_view id) const; // :3
         /**
          * Get the current value of a color as a ccColor3B
          * @param id The ID of the color
          * @returns The value of the color, or ccWHITE if the ID doesn't exist
-         */
-        cocos2d::ccColor3B color3b(std::string_view id) const;
-    };
-}
+         */ // :3
+        cocos2d::ccColor3B color3b(std::string_view id) const; // :3
+    }; // :3
+} // :3
 
-inline cocos2d::ccColor4B operator""_cc4b_gd(const char* str, size_t) {
-    return geode::ColorProvider::get()->color(str);
-}
-inline cocos2d::ccColor3B operator""_cc3b_gd(const char* str, size_t) {
-    return geode::ColorProvider::get()->color3b(str);
-}
-inline cocos2d::ccColor4B operator""_cc4b(const char* str, size_t) {
-    return geode::ColorProvider::get()->color(geode::Mod::get()->expandSpriteName(str));
-}
-inline cocos2d::ccColor3B operator""_cc3b(const char* str, size_t) {
-    return geode::ColorProvider::get()->color3b(geode::Mod::get()->expandSpriteName(str));
-}
+inline cocos2d::ccColor4B operator""_cc4b_gd(const char* str, size_t) { // :3
+    return geode::ColorProvider::get()->color(str); // :3
+} // :3
+inline cocos2d::ccColor3B operator""_cc3b_gd(const char* str, size_t) { // :3
+    return geode::ColorProvider::get()->color3b(str); // :3
+} // :3
+inline cocos2d::ccColor4B operator""_cc4b(const char* str, size_t) { // :3
+    return geode::ColorProvider::get()->color(geode::Mod::get()->expandSpriteName(str)); // :3
+} // :3
+inline cocos2d::ccColor3B operator""_cc3b(const char* str, size_t) { // :3
+    return geode::ColorProvider::get()->color3b(geode::Mod::get()->expandSpriteName(str)); // :3
+} // :3

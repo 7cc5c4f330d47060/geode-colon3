@@ -23,104 +23,104 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- */
+ */ // :3
 
-#ifndef __MISCNODE_CCCLIPPING_NODE_H__
-#define __MISCNODE_CCCLIPPING_NODE_H__
+#ifndef __MISCNODE_CCCLIPPING_NODE_H__ // :3
+#define __MISCNODE_CCCLIPPING_NODE_H__ // :3
 
-#include "../base_nodes/CCNode.h"
-#include "../platform/CCGL.h"
+#include "../base_nodes/CCNode.h" // :3
+#include "../platform/CCGL.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /** CCClippingNode is a subclass of CCNode.
  It draws its content (childs) clipped using a stencil.
  The stencil is an other CCNode that will not be drawn.
  The clipping is done using the alpha part of the stencil (adjusted with an alphaThreshold).
- */
-class CC_DLL CCClippingNode : public CCNode
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCClippingNode : public CCNode // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
 
 
-    CCNode* m_pStencil;
-    GLfloat m_fAlphaThreshold;
-    bool    m_bInverted;
+    CCNode* m_pStencil; // :3
+    GLfloat m_fAlphaThreshold; // :3
+    bool    m_bInverted; // :3
 
-public:
+public: // :3
     /** Creates and initializes a clipping node without a stencil.
-     */
-    static CCClippingNode* create();
+     */ // :3
+    static CCClippingNode* create(); // :3
 
     /** Creates and initializes a clipping node with an other node as its stencil.
      The stencil node will be retained.
-     */
-    static CCClippingNode* create(CCNode *pStencil);
+     */ // :3
+    static CCClippingNode* create(CCNode *pStencil); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCClippingNode();
+     */ // :3
+    virtual ~CCClippingNode(); // :3
 
     /** Initializes a clipping node without a stencil.
-     */
-    virtual bool init();
+     */ // :3
+    virtual bool init(); // :3
 
     /** Initializes a clipping node with an other node as its stencil.
      The stencil node will be retained, and its parent will be set to this clipping node.
-     */
-    virtual bool init(CCNode *pStencil);
+     */ // :3
+    virtual bool init(CCNode *pStencil); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnterTransitionDidFinish();
+     */ // :3
+    virtual void onEnterTransitionDidFinish(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onExitTransitionDidStart();
+     */ // :3
+    virtual void onExitTransitionDidStart(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onExit();
-    virtual void visit();
+     */ // :3
+    virtual void onExit(); // :3
+    virtual void visit(); // :3
 
     /** The CCNode to use as a stencil to do the clipping.
      The stencil node will be retained.
      This default to nil.
-     */
-    CCNode* getStencil() const;
-    void setStencil(CCNode *pStencil);
+     */ // :3
+    CCNode* getStencil() const; // :3
+    void setStencil(CCNode *pStencil); // :3
 
     /** The alpha threshold.
      The content is drawn only where the stencil have pixel with alpha greater than the alphaThreshold.
      Should be a float between 0 and 1.
      This default to 1 (so alpha test is disabled).
-     */
-    GLfloat getAlphaThreshold() const;
-    void setAlphaThreshold(GLfloat fAlphaThreshold);
+     */ // :3
+    GLfloat getAlphaThreshold() const; // :3
+    void setAlphaThreshold(GLfloat fAlphaThreshold); // :3
 
     /** Inverted. If this is set to YES,
      the stencil is inverted, so the content is drawn where the stencil is NOT drawn.
      This default to NO.
-     */
-    bool isInverted() const;
-    void setInverted(bool bInverted);
+     */ // :3
+    bool isInverted() const; // :3
+    void setInverted(bool bInverted); // :3
 
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCClippingNode, CCNode);
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCClippingNode, CCNode); // :3
 
-protected:
-    CCClippingNode();
-};
+protected: // :3
+    CCClippingNode(); // :3
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __MISCNODE_CCCLIPPING_NODE_H__
+#endif // __MISCNODE_CCCLIPPING_NODE_H__ :3

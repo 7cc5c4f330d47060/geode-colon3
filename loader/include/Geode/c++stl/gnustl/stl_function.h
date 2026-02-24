@@ -1,25 +1,25 @@
-// Functor implementations -*- C++ -*-
+// Functor implementations -*- C++ -*- :3
 
-// Copyright (C) 2001-2014 Free Software Foundation, Inc.
-//
-// This file is part of the GNU ISO C++ Library.  This library is free
-// software; you can redistribute it and/or modify it under the
-// terms of the GNU General Public License as published by the
-// Free Software Foundation; either version 3, or (at your option)
-// any later version.
+// Copyright (C) 2001-2014 Free Software Foundation, Inc. :3
+// :3
+// This file is part of the GNU ISO C++ Library.  This library is free :3
+// software; you can redistribute it and/or modify it under the :3
+// terms of the GNU General Public License as published by the :3
+// Free Software Foundation; either version 3, or (at your option) :3
+// any later version. :3
 
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// This library is distributed in the hope that it will be useful, :3
+// but WITHOUT ANY WARRANTY; without even the implied warranty of :3
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the :3
+// GNU General Public License for more details. :3
 
-// Under Section 7 of GPL version 3, you are granted additional
-// permissions described in the GCC Runtime Library Exception, version
-// 3.1, as published by the Free Software Foundation.
+// Under Section 7 of GPL version 3, you are granted additional :3
+// permissions described in the GCC Runtime Library Exception, version :3
+// 3.1, as published by the Free Software Foundation. :3
 
-// You should have received a copy of the GNU General Public License and
-// a copy of the GCC Runtime Library Exception along with this program;
-// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+// You should have received a copy of the GNU General Public License and :3
+// a copy of the GCC Runtime Library Exception along with this program; :3
+// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see :3
 // <http://www.gnu.org/licenses/>.
 
 /*
@@ -46,21 +46,21 @@
  * in supporting documentation.  Silicon Graphics makes no
  * representations about the suitability of this software for any
  * purpose.  It is provided "as is" without express or implied warranty.
- */
+ */ // :3
 
 /** @file bits/stl_function.h
  *  This is an internal header file, included by other library headers.
  *  Do not attempt to use it directly. @headername{functional}
- */
+ */ // :3
 
-#pragma once
+#pragma once // :3
 
-#include "c++config.h"
+#include "c++config.h" // :3
 
-namespace geode::stl {
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
+namespace geode::stl { // :3
+_GLIBCXX_BEGIN_NAMESPACE_VERSION // :3
 
-  // 20.3.1 base classes
+  // 20.3.1 base classes :3
   /** @defgroup functors Function Objects
    * @ingroup utilities
    *
@@ -93,35 +93,35 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *  functors, you might consider doing the same.
    *
    *  @{
-   */
+   */ // :3
   /**
    *  This is one of the @link functors functor base classes@endlink.
-   */
-  template<typename _Arg, typename _Result>
-    struct unary_function
-    {
-      /// @c argument_type is the type of the argument
-      typedef _Arg 	argument_type;
+   */ // :3
+  template<typename _Arg, typename _Result> // :3
+    struct unary_function // :3
+    { // :3
+      /// @c argument_type is the type of the argument :3
+      typedef _Arg 	argument_type; // :3
 
-      /// @c result_type is the return type
-      typedef _Result 	result_type;
-    };
+      /// @c result_type is the return type :3
+      typedef _Result 	result_type; // :3
+    }; // :3
 
   /**
    *  This is one of the @link functors functor base classes@endlink.
-   */
-  template<typename _Arg1, typename _Arg2, typename _Result>
-    struct binary_function
-    {
-      /// @c first_argument_type is the type of the first argument
-      typedef _Arg1 	first_argument_type;
+   */ // :3
+  template<typename _Arg1, typename _Arg2, typename _Result> // :3
+    struct binary_function // :3
+    { // :3
+      /// @c first_argument_type is the type of the first argument :3
+      typedef _Arg1 	first_argument_type; // :3
 
-      /// @c second_argument_type is the type of the second argument
-      typedef _Arg2 	second_argument_type;
+      /// @c second_argument_type is the type of the second argument :3
+      typedef _Arg2 	second_argument_type; // :3
 
-      /// @c result_type is the return type
-      typedef _Result 	result_type;
-    };
+      /// @c result_type is the return type :3
+      typedef _Result 	result_type; // :3
+    }; // :3
   /** @}  */
 
   // 20.3.2 arithmetic
@@ -134,172 +134,172 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *  for examples of their use.
    *
    *  @{
-   */
+   */ // :3
 
-#if __cplusplus > 201103L
-  struct __is_transparent;  // undefined
+#if __cplusplus > 201103L // :3
+  struct __is_transparent;  // undefined :3
 
-  template<typename _Tp = void>
-    struct plus;
+  template<typename _Tp = void> // :3
+    struct plus; // :3
 
-  template<typename _Tp = void>
-    struct minus;
+  template<typename _Tp = void> // :3
+    struct minus; // :3
 
-  template<typename _Tp = void>
-    struct multiplies;
+  template<typename _Tp = void> // :3
+    struct multiplies; // :3
 
-  template<typename _Tp = void>
-    struct divides;
+  template<typename _Tp = void> // :3
+    struct divides; // :3
 
-  template<typename _Tp = void>
-    struct modulus;
+  template<typename _Tp = void> // :3
+    struct modulus; // :3
 
-  template<typename _Tp = void>
-    struct negate;
-#endif
+  template<typename _Tp = void> // :3
+    struct negate; // :3
+#endif // :3
 
-  /// One of the @link arithmetic_functors math functors@endlink.
-  template<typename _Tp>
-    struct plus : public binary_function<_Tp, _Tp, _Tp>
-    {
-      _Tp
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x + __y; }
-    };
+  /// One of the @link arithmetic_functors math functors@endlink. :3
+  template<typename _Tp> // :3
+    struct plus : public binary_function<_Tp, _Tp, _Tp> // :3
+    { // :3
+      _Tp // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x + __y; } // :3
+    }; // :3
 
-  /// One of the @link arithmetic_functors math functors@endlink.
-  template<typename _Tp>
-    struct minus : public binary_function<_Tp, _Tp, _Tp>
-    {
-      _Tp
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x - __y; }
-    };
+  /// One of the @link arithmetic_functors math functors@endlink. :3
+  template<typename _Tp> // :3
+    struct minus : public binary_function<_Tp, _Tp, _Tp> // :3
+    { // :3
+      _Tp // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x - __y; } // :3
+    }; // :3
 
-  /// One of the @link arithmetic_functors math functors@endlink.
-  template<typename _Tp>
-    struct multiplies : public binary_function<_Tp, _Tp, _Tp>
-    {
-      _Tp
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x * __y; }
-    };
+  /// One of the @link arithmetic_functors math functors@endlink. :3
+  template<typename _Tp> // :3
+    struct multiplies : public binary_function<_Tp, _Tp, _Tp> // :3
+    { // :3
+      _Tp // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x * __y; } // :3
+    }; // :3
 
-  /// One of the @link arithmetic_functors math functors@endlink.
-  template<typename _Tp>
-    struct divides : public binary_function<_Tp, _Tp, _Tp>
-    {
-      _Tp
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x / __y; }
-    };
+  /// One of the @link arithmetic_functors math functors@endlink. :3
+  template<typename _Tp> // :3
+    struct divides : public binary_function<_Tp, _Tp, _Tp> // :3
+    { // :3
+      _Tp // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x / __y; } // :3
+    }; // :3
 
-  /// One of the @link arithmetic_functors math functors@endlink.
-  template<typename _Tp>
-    struct modulus : public binary_function<_Tp, _Tp, _Tp>
-    {
-      _Tp
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x % __y; }
-    };
+  /// One of the @link arithmetic_functors math functors@endlink. :3
+  template<typename _Tp> // :3
+    struct modulus : public binary_function<_Tp, _Tp, _Tp> // :3
+    { // :3
+      _Tp // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x % __y; } // :3
+    }; // :3
 
-  /// One of the @link arithmetic_functors math functors@endlink.
-  template<typename _Tp>
-    struct negate : public unary_function<_Tp, _Tp>
-    {
-      _Tp
-      operator()(const _Tp& __x) const
-      { return -__x; }
-    };
+  /// One of the @link arithmetic_functors math functors@endlink. :3
+  template<typename _Tp> // :3
+    struct negate : public unary_function<_Tp, _Tp> // :3
+    { // :3
+      _Tp // :3
+      operator()(const _Tp& __x) const // :3
+      { return -__x; } // :3
+    }; // :3
 
-#if __cplusplus > 201103L
+#if __cplusplus > 201103L // :3
 
-// #define __cpp_lib_transparent_operators 201210 // dank: redefined macro warning
-//#define __cpp_lib_generic_associative_lookup 201304
+// #define __cpp_lib_transparent_operators 201210 // dank: redefined macro warning :3
+//#define __cpp_lib_generic_associative_lookup 201304 :3
 
-  template<>
-    struct plus<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) + std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) + std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) + std::forward<_Up>(__u); }
+  template<> // :3
+    struct plus<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) + std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) + std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) + std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
 
-  /// One of the @link arithmetic_functors math functors@endlink.
-  template<>
-    struct minus<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) - std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) - std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) - std::forward<_Up>(__u); }
+  /// One of the @link arithmetic_functors math functors@endlink. :3
+  template<> // :3
+    struct minus<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) - std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) - std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) - std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
 
-  /// One of the @link arithmetic_functors math functors@endlink.
-  template<>
-    struct multiplies<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) * std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) * std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) * std::forward<_Up>(__u); }
+  /// One of the @link arithmetic_functors math functors@endlink. :3
+  template<> // :3
+    struct multiplies<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) * std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) * std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) * std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
 
-  /// One of the @link arithmetic_functors math functors@endlink.
-  template<>
-    struct divides<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) / std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) / std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) / std::forward<_Up>(__u); }
+  /// One of the @link arithmetic_functors math functors@endlink. :3
+  template<> // :3
+    struct divides<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) / std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) / std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) / std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
 
-  /// One of the @link arithmetic_functors math functors@endlink.
-  template<>
-    struct modulus<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) % std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) % std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) % std::forward<_Up>(__u); }
+  /// One of the @link arithmetic_functors math functors@endlink. :3
+  template<> // :3
+    struct modulus<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) % std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) % std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) % std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
 
-  /// One of the @link arithmetic_functors math functors@endlink.
-  template<>
-    struct negate<void>
-    {
-      template <typename _Tp>
-	auto
-	operator()(_Tp&& __t) const
-	noexcept(noexcept(-std::forward<_Tp>(__t)))
-	-> decltype(-std::forward<_Tp>(__t))
-	{ return -std::forward<_Tp>(__t); }
+  /// One of the @link arithmetic_functors math functors@endlink. :3
+  template<> // :3
+    struct negate<void> // :3
+    { // :3
+      template <typename _Tp> // :3
+	auto // :3
+	operator()(_Tp&& __t) const // :3
+	noexcept(noexcept(-std::forward<_Tp>(__t))) // :3
+	-> decltype(-std::forward<_Tp>(__t)) // :3
+	{ return -std::forward<_Tp>(__t); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
-#endif
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
+#endif // :3
   /** @}  */
 
   // 20.3.3 comparisons
@@ -310,166 +310,166 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *  in C++, like @c <.
    *
    *  @{
-   */
-#if __cplusplus > 201103L
-  template<typename _Tp = void>
-    struct equal_to;
+   */ // :3
+#if __cplusplus > 201103L // :3
+  template<typename _Tp = void> // :3
+    struct equal_to; // :3
 
-  template<typename _Tp = void>
-    struct not_equal_to;
+  template<typename _Tp = void> // :3
+    struct not_equal_to; // :3
 
-  template<typename _Tp = void>
-    struct greater;
+  template<typename _Tp = void> // :3
+    struct greater; // :3
 
-  template<typename _Tp = void>
-    struct less;
+  template<typename _Tp = void> // :3
+    struct less; // :3
 
-  template<typename _Tp = void>
-    struct greater_equal;
+  template<typename _Tp = void> // :3
+    struct greater_equal; // :3
 
-  template<typename _Tp = void>
-    struct less_equal;
-#endif
+  template<typename _Tp = void> // :3
+    struct less_equal; // :3
+#endif // :3
 
-  /// One of the @link comparison_functors comparison functors@endlink.
-  template<typename _Tp>
-    struct equal_to : public binary_function<_Tp, _Tp, bool>
-    {
-      bool
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x == __y; }
-    };
+  /// One of the @link comparison_functors comparison functors@endlink. :3
+  template<typename _Tp> // :3
+    struct equal_to : public binary_function<_Tp, _Tp, bool> // :3
+    { // :3
+      bool // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x == __y; } // :3
+    }; // :3
 
-  /// One of the @link comparison_functors comparison functors@endlink.
-  template<typename _Tp>
-    struct not_equal_to : public binary_function<_Tp, _Tp, bool>
-    {
-      bool
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x != __y; }
-    };
+  /// One of the @link comparison_functors comparison functors@endlink. :3
+  template<typename _Tp> // :3
+    struct not_equal_to : public binary_function<_Tp, _Tp, bool> // :3
+    { // :3
+      bool // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x != __y; } // :3
+    }; // :3
 
-  /// One of the @link comparison_functors comparison functors@endlink.
-  template<typename _Tp>
-    struct greater : public binary_function<_Tp, _Tp, bool>
-    {
-      bool
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x > __y; }
-    };
+  /// One of the @link comparison_functors comparison functors@endlink. :3
+  template<typename _Tp> // :3
+    struct greater : public binary_function<_Tp, _Tp, bool> // :3
+    { // :3
+      bool // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x > __y; } // :3
+    }; // :3
 
-  /// One of the @link comparison_functors comparison functors@endlink.
-  template<typename _Tp>
-    struct less : public binary_function<_Tp, _Tp, bool>
-    {
-      bool
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x < __y; }
-    };
+  /// One of the @link comparison_functors comparison functors@endlink. :3
+  template<typename _Tp> // :3
+    struct less : public binary_function<_Tp, _Tp, bool> // :3
+    { // :3
+      bool // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x < __y; } // :3
+    }; // :3
 
-  /// One of the @link comparison_functors comparison functors@endlink.
-  template<typename _Tp>
-    struct greater_equal : public binary_function<_Tp, _Tp, bool>
-    {
-      bool
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x >= __y; }
-    };
+  /// One of the @link comparison_functors comparison functors@endlink. :3
+  template<typename _Tp> // :3
+    struct greater_equal : public binary_function<_Tp, _Tp, bool> // :3
+    { // :3
+      bool // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x >= __y; } // :3
+    }; // :3
 
-  /// One of the @link comparison_functors comparison functors@endlink.
-  template<typename _Tp>
-    struct less_equal : public binary_function<_Tp, _Tp, bool>
-    {
-      bool
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x <= __y; }
-    };
+  /// One of the @link comparison_functors comparison functors@endlink. :3
+  template<typename _Tp> // :3
+    struct less_equal : public binary_function<_Tp, _Tp, bool> // :3
+    { // :3
+      bool // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x <= __y; } // :3
+    }; // :3
 
-#if __cplusplus > 201103L
-  /// One of the @link comparison_functors comparison functors@endlink.
-  template<>
-    struct equal_to<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) == std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) == std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) == std::forward<_Up>(__u); }
+#if __cplusplus > 201103L // :3
+  /// One of the @link comparison_functors comparison functors@endlink. :3
+  template<> // :3
+    struct equal_to<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) == std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) == std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) == std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
 
-  /// One of the @link comparison_functors comparison functors@endlink.
-  template<>
-    struct not_equal_to<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) != std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) != std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) != std::forward<_Up>(__u); }
+  /// One of the @link comparison_functors comparison functors@endlink. :3
+  template<> // :3
+    struct not_equal_to<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) != std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) != std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) != std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
 
-  /// One of the @link comparison_functors comparison functors@endlink.
-  template<>
-    struct greater<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) > std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) > std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) > std::forward<_Up>(__u); }
+  /// One of the @link comparison_functors comparison functors@endlink. :3
+  template<> // :3
+    struct greater<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) > std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) > std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) > std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
 
-  /// One of the @link comparison_functors comparison functors@endlink.
-  template<>
-    struct less<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) < std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) < std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) < std::forward<_Up>(__u); }
+  /// One of the @link comparison_functors comparison functors@endlink. :3
+  template<> // :3
+    struct less<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) < std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) < std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) < std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
 
-  /// One of the @link comparison_functors comparison functors@endlink.
-  template<>
-    struct greater_equal<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) >= std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) >= std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) >= std::forward<_Up>(__u); }
+  /// One of the @link comparison_functors comparison functors@endlink. :3
+  template<> // :3
+    struct greater_equal<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) >= std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) >= std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) >= std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
 
-  /// One of the @link comparison_functors comparison functors@endlink.
-  template<>
-    struct less_equal<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) <= std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) <= std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) <= std::forward<_Up>(__u); }
+  /// One of the @link comparison_functors comparison functors@endlink. :3
+  template<> // :3
+    struct less_equal<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) <= std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) <= std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) <= std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
-#endif
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
+#endif // :3
   /** @}  */
 
   // 20.3.4 logical operations
@@ -480,88 +480,88 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *  and @c !.
    *
    *  @{
-   */
-#if __cplusplus > 201103L
-  template<typename _Tp = void>
-    struct logical_and;
+   */ // :3
+#if __cplusplus > 201103L // :3
+  template<typename _Tp = void> // :3
+    struct logical_and; // :3
 
-  template<typename _Tp = void>
-    struct logical_or;
+  template<typename _Tp = void> // :3
+    struct logical_or; // :3
 
-  template<typename _Tp = void>
-    struct logical_not;
-#endif
+  template<typename _Tp = void> // :3
+    struct logical_not; // :3
+#endif // :3
 
-  /// One of the @link logical_functors Boolean operations functors@endlink.
-  template<typename _Tp>
-    struct logical_and : public binary_function<_Tp, _Tp, bool>
-    {
-      bool
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x && __y; }
-    };
+  /// One of the @link logical_functors Boolean operations functors@endlink. :3
+  template<typename _Tp> // :3
+    struct logical_and : public binary_function<_Tp, _Tp, bool> // :3
+    { // :3
+      bool // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x && __y; } // :3
+    }; // :3
 
-  /// One of the @link logical_functors Boolean operations functors@endlink.
-  template<typename _Tp>
-    struct logical_or : public binary_function<_Tp, _Tp, bool>
-    {
-      bool
-      operator()(const _Tp& __x, const _Tp& __y) const
-      { return __x || __y; }
-    };
+  /// One of the @link logical_functors Boolean operations functors@endlink. :3
+  template<typename _Tp> // :3
+    struct logical_or : public binary_function<_Tp, _Tp, bool> // :3
+    { // :3
+      bool // :3
+      operator()(const _Tp& __x, const _Tp& __y) const // :3
+      { return __x || __y; } // :3
+    }; // :3
 
-  /// One of the @link logical_functors Boolean operations functors@endlink.
-  template<typename _Tp>
-    struct logical_not : public unary_function<_Tp, bool>
-    {
-      bool
-      operator()(const _Tp& __x) const
-      { return !__x; }
-    };
+  /// One of the @link logical_functors Boolean operations functors@endlink. :3
+  template<typename _Tp> // :3
+    struct logical_not : public unary_function<_Tp, bool> // :3
+    { // :3
+      bool // :3
+      operator()(const _Tp& __x) const // :3
+      { return !__x; } // :3
+    }; // :3
 
-#if __cplusplus > 201103L
-  /// One of the @link logical_functors Boolean operations functors@endlink.
-  template<>
-    struct logical_and<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) && std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) && std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) && std::forward<_Up>(__u); }
+#if __cplusplus > 201103L // :3
+  /// One of the @link logical_functors Boolean operations functors@endlink. :3
+  template<> // :3
+    struct logical_and<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) && std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) && std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) && std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
 
-  /// One of the @link logical_functors Boolean operations functors@endlink.
-  template<>
-    struct logical_or<void>
-    {
-      template <typename _Tp, typename _Up>
-	auto
-	operator()(_Tp&& __t, _Up&& __u) const
-	noexcept(noexcept(std::forward<_Tp>(__t) || std::forward<_Up>(__u)))
-	-> decltype(std::forward<_Tp>(__t) || std::forward<_Up>(__u))
-	{ return std::forward<_Tp>(__t) || std::forward<_Up>(__u); }
+  /// One of the @link logical_functors Boolean operations functors@endlink. :3
+  template<> // :3
+    struct logical_or<void> // :3
+    { // :3
+      template <typename _Tp, typename _Up> // :3
+	auto // :3
+	operator()(_Tp&& __t, _Up&& __u) const // :3
+	noexcept(noexcept(std::forward<_Tp>(__t) || std::forward<_Up>(__u))) // :3
+	-> decltype(std::forward<_Tp>(__t) || std::forward<_Up>(__u)) // :3
+	{ return std::forward<_Tp>(__t) || std::forward<_Up>(__u); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
 
-  /// One of the @link logical_functors Boolean operations functors@endlink.
-  template<>
-    struct logical_not<void>
-    {
-      template <typename _Tp>
-	auto
-	operator()(_Tp&& __t) const
-	noexcept(noexcept(!std::forward<_Tp>(__t)))
-	-> decltype(!std::forward<_Tp>(__t))
-	{ return !std::forward<_Tp>(__t); }
+  /// One of the @link logical_functors Boolean operations functors@endlink. :3
+  template<> // :3
+    struct logical_not<void> // :3
+    { // :3
+      template <typename _Tp> // :3
+	auto // :3
+	operator()(_Tp&& __t) const // :3
+	noexcept(noexcept(!std::forward<_Tp>(__t))) // :3
+	-> decltype(!std::forward<_Tp>(__t)) // :3
+	{ return !std::forward<_Tp>(__t); } // :3
 
-      typedef __is_transparent is_transparent;
-    };
-#endif
+      typedef __is_transparent is_transparent; // :3
+    }; // :3
+#endif // :3
   /** @}  */
 
 #if __cplusplus > 201103L
@@ -694,54 +694,54 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *  take two arguments.
    *
    *  @{
-   */
-  /// One of the @link negators negation functors@endlink.
-  template<typename _Predicate>
-    class unary_negate
-    : public unary_function<typename _Predicate::argument_type, bool>
-    {
-    protected:
-      _Predicate _M_pred;
+   */ // :3
+  /// One of the @link negators negation functors@endlink. :3
+  template<typename _Predicate> // :3
+    class unary_negate // :3
+    : public unary_function<typename _Predicate::argument_type, bool> // :3
+    { // :3
+    protected: // :3
+      _Predicate _M_pred; // :3
 
-    public:
-      explicit
-      unary_negate(const _Predicate& __x) : _M_pred(__x) { }
+    public: // :3
+      explicit // :3
+      unary_negate(const _Predicate& __x) : _M_pred(__x) { } // :3
 
-      bool
-      operator()(const typename _Predicate::argument_type& __x) const
-      { return !_M_pred(__x); }
-    };
+      bool // :3
+      operator()(const typename _Predicate::argument_type& __x) const // :3
+      { return !_M_pred(__x); } // :3
+    }; // :3
 
-  /// One of the @link negators negation functors@endlink.
-  template<typename _Predicate>
-    inline unary_negate<_Predicate>
-    not1(const _Predicate& __pred)
-    { return unary_negate<_Predicate>(__pred); }
+  /// One of the @link negators negation functors@endlink. :3
+  template<typename _Predicate> // :3
+    inline unary_negate<_Predicate> // :3
+    not1(const _Predicate& __pred) // :3
+    { return unary_negate<_Predicate>(__pred); } // :3
 
-  /// One of the @link negators negation functors@endlink.
-  template<typename _Predicate>
-    class binary_negate
-    : public binary_function<typename _Predicate::first_argument_type,
-			     typename _Predicate::second_argument_type, bool>
-    {
-    protected:
-      _Predicate _M_pred;
+  /// One of the @link negators negation functors@endlink. :3
+  template<typename _Predicate> // :3
+    class binary_negate // :3
+    : public binary_function<typename _Predicate::first_argument_type, // :3
+			     typename _Predicate::second_argument_type, bool> // :3
+    { // :3
+    protected: // :3
+      _Predicate _M_pred; // :3
 
-    public:
-      explicit
-      binary_negate(const _Predicate& __x) : _M_pred(__x) { }
+    public: // :3
+      explicit // :3
+      binary_negate(const _Predicate& __x) : _M_pred(__x) { } // :3
 
-      bool
-      operator()(const typename _Predicate::first_argument_type& __x,
-		 const typename _Predicate::second_argument_type& __y) const
-      { return !_M_pred(__x, __y); }
-    };
+      bool // :3
+      operator()(const typename _Predicate::first_argument_type& __x, // :3
+		 const typename _Predicate::second_argument_type& __y) const // :3
+      { return !_M_pred(__x, __y); } // :3
+    }; // :3
 
-  /// One of the @link negators negation functors@endlink.
-  template<typename _Predicate>
-    inline binary_negate<_Predicate>
-    not2(const _Predicate& __pred)
-    { return binary_negate<_Predicate>(__pred); }
+  /// One of the @link negators negation functors@endlink. :3
+  template<typename _Predicate> // :3
+    inline binary_negate<_Predicate> // :3
+    not2(const _Predicate& __pred) // :3
+    { return binary_negate<_Predicate>(__pred); } // :3
   /** @}  */
 
   // 20.3.7 adaptors pointers functions
@@ -765,57 +765,57 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *  an instance of the appropriate functor.
    *
    *  @{
-   */
-  /// One of the @link pointer_adaptors adaptors for function pointers@endlink.
-  template<typename _Arg, typename _Result>
-    class pointer_to_unary_function : public unary_function<_Arg, _Result>
-    {
-    protected:
-      _Result (*_M_ptr)(_Arg);
+   */ // :3
+  /// One of the @link pointer_adaptors adaptors for function pointers@endlink. :3
+  template<typename _Arg, typename _Result> // :3
+    class pointer_to_unary_function : public unary_function<_Arg, _Result> // :3
+    { // :3
+    protected: // :3
+      _Result (*_M_ptr)(_Arg); // :3
 
-    public:
-      pointer_to_unary_function() { }
+    public: // :3
+      pointer_to_unary_function() { } // :3
 
-      explicit
-      pointer_to_unary_function(_Result (*__x)(_Arg))
-      : _M_ptr(__x) { }
+      explicit // :3
+      pointer_to_unary_function(_Result (*__x)(_Arg)) // :3
+      : _M_ptr(__x) { } // :3
 
-      _Result
-      operator()(_Arg __x) const
-      { return _M_ptr(__x); }
-    };
+      _Result // :3
+      operator()(_Arg __x) const // :3
+      { return _M_ptr(__x); } // :3
+    }; // :3
 
-  /// One of the @link pointer_adaptors adaptors for function pointers@endlink.
-  template<typename _Arg, typename _Result>
-    inline pointer_to_unary_function<_Arg, _Result>
-    ptr_fun(_Result (*__x)(_Arg))
-    { return pointer_to_unary_function<_Arg, _Result>(__x); }
+  /// One of the @link pointer_adaptors adaptors for function pointers@endlink. :3
+  template<typename _Arg, typename _Result> // :3
+    inline pointer_to_unary_function<_Arg, _Result> // :3
+    ptr_fun(_Result (*__x)(_Arg)) // :3
+    { return pointer_to_unary_function<_Arg, _Result>(__x); } // :3
 
-  /// One of the @link pointer_adaptors adaptors for function pointers@endlink.
-  template<typename _Arg1, typename _Arg2, typename _Result>
-    class pointer_to_binary_function
-    : public binary_function<_Arg1, _Arg2, _Result>
-    {
-    protected:
-      _Result (*_M_ptr)(_Arg1, _Arg2);
+  /// One of the @link pointer_adaptors adaptors for function pointers@endlink. :3
+  template<typename _Arg1, typename _Arg2, typename _Result> // :3
+    class pointer_to_binary_function // :3
+    : public binary_function<_Arg1, _Arg2, _Result> // :3
+    { // :3
+    protected: // :3
+      _Result (*_M_ptr)(_Arg1, _Arg2); // :3
 
-    public:
-      pointer_to_binary_function() { }
+    public: // :3
+      pointer_to_binary_function() { } // :3
 
-      explicit
-      pointer_to_binary_function(_Result (*__x)(_Arg1, _Arg2))
-      : _M_ptr(__x) { }
+      explicit // :3
+      pointer_to_binary_function(_Result (*__x)(_Arg1, _Arg2)) // :3
+      : _M_ptr(__x) { } // :3
 
-      _Result
-      operator()(_Arg1 __x, _Arg2 __y) const
-      { return _M_ptr(__x, __y); }
-    };
+      _Result // :3
+      operator()(_Arg1 __x, _Arg2 __y) const // :3
+      { return _M_ptr(__x, __y); } // :3
+    }; // :3
 
-  /// One of the @link pointer_adaptors adaptors for function pointers@endlink.
-  template<typename _Arg1, typename _Arg2, typename _Result>
-    inline pointer_to_binary_function<_Arg1, _Arg2, _Result>
-    ptr_fun(_Result (*__x)(_Arg1, _Arg2))
-    { return pointer_to_binary_function<_Arg1, _Arg2, _Result>(__x); }
+  /// One of the @link pointer_adaptors adaptors for function pointers@endlink. :3
+  template<typename _Arg1, typename _Arg2, typename _Result> // :3
+    inline pointer_to_binary_function<_Arg1, _Arg2, _Result> // :3
+    ptr_fun(_Result (*__x)(_Arg1, _Arg2)) // :3
+    { return pointer_to_binary_function<_Arg1, _Arg2, _Result>(__x); } // :3
   /** @}  */
 
   template<typename _Tp>
@@ -884,192 +884,192 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *   which create whichever type of adaptor is appropriate.
    *
    *  @{
-   */
-  /// One of the @link memory_adaptors adaptors for member
-  /// pointers@endlink.
-  template<typename _Ret, typename _Tp>
-    class mem_fun_t : public unary_function<_Tp*, _Ret>
-    {
-    public:
-      explicit
-      mem_fun_t(_Ret (_Tp::*__pf)())
-      : _M_f(__pf) { }
+   */ // :3
+  /// One of the @link memory_adaptors adaptors for member :3
+  /// pointers@endlink. :3
+  template<typename _Ret, typename _Tp> // :3
+    class mem_fun_t : public unary_function<_Tp*, _Ret> // :3
+    { // :3
+    public: // :3
+      explicit // :3
+      mem_fun_t(_Ret (_Tp::*__pf)()) // :3
+      : _M_f(__pf) { } // :3
 
-      _Ret
-      operator()(_Tp* __p) const
-      { return (__p->*_M_f)(); }
+      _Ret // :3
+      operator()(_Tp* __p) const // :3
+      { return (__p->*_M_f)(); } // :3
 
-    private:
-      _Ret (_Tp::*_M_f)();
-    };
+    private: // :3
+      _Ret (_Tp::*_M_f)(); // :3
+    }; // :3
 
-  /// One of the @link memory_adaptors adaptors for member
-  /// pointers@endlink.
-  template<typename _Ret, typename _Tp>
-    class const_mem_fun_t : public unary_function<const _Tp*, _Ret>
-    {
-    public:
-      explicit
-      const_mem_fun_t(_Ret (_Tp::*__pf)() const)
-      : _M_f(__pf) { }
+  /// One of the @link memory_adaptors adaptors for member :3
+  /// pointers@endlink. :3
+  template<typename _Ret, typename _Tp> // :3
+    class const_mem_fun_t : public unary_function<const _Tp*, _Ret> // :3
+    { // :3
+    public: // :3
+      explicit // :3
+      const_mem_fun_t(_Ret (_Tp::*__pf)() const) // :3
+      : _M_f(__pf) { } // :3
 
-      _Ret
-      operator()(const _Tp* __p) const
-      { return (__p->*_M_f)(); }
+      _Ret // :3
+      operator()(const _Tp* __p) const // :3
+      { return (__p->*_M_f)(); } // :3
 
-    private:
-      _Ret (_Tp::*_M_f)() const;
-    };
+    private: // :3
+      _Ret (_Tp::*_M_f)() const; // :3
+    }; // :3
 
-  /// One of the @link memory_adaptors adaptors for member
-  /// pointers@endlink.
-  template<typename _Ret, typename _Tp>
-    class mem_fun_ref_t : public unary_function<_Tp, _Ret>
-    {
-    public:
-      explicit
-      mem_fun_ref_t(_Ret (_Tp::*__pf)())
-      : _M_f(__pf) { }
+  /// One of the @link memory_adaptors adaptors for member :3
+  /// pointers@endlink. :3
+  template<typename _Ret, typename _Tp> // :3
+    class mem_fun_ref_t : public unary_function<_Tp, _Ret> // :3
+    { // :3
+    public: // :3
+      explicit // :3
+      mem_fun_ref_t(_Ret (_Tp::*__pf)()) // :3
+      : _M_f(__pf) { } // :3
 
-      _Ret
-      operator()(_Tp& __r) const
-      { return (__r.*_M_f)(); }
+      _Ret // :3
+      operator()(_Tp& __r) const // :3
+      { return (__r.*_M_f)(); } // :3
 
-    private:
-      _Ret (_Tp::*_M_f)();
-  };
+    private: // :3
+      _Ret (_Tp::*_M_f)(); // :3
+  }; // :3
 
-  /// One of the @link memory_adaptors adaptors for member
-  /// pointers@endlink.
-  template<typename _Ret, typename _Tp>
-    class const_mem_fun_ref_t : public unary_function<_Tp, _Ret>
-    {
-    public:
-      explicit
-      const_mem_fun_ref_t(_Ret (_Tp::*__pf)() const)
-      : _M_f(__pf) { }
+  /// One of the @link memory_adaptors adaptors for member :3
+  /// pointers@endlink. :3
+  template<typename _Ret, typename _Tp> // :3
+    class const_mem_fun_ref_t : public unary_function<_Tp, _Ret> // :3
+    { // :3
+    public: // :3
+      explicit // :3
+      const_mem_fun_ref_t(_Ret (_Tp::*__pf)() const) // :3
+      : _M_f(__pf) { } // :3
 
-      _Ret
-      operator()(const _Tp& __r) const
-      { return (__r.*_M_f)(); }
+      _Ret // :3
+      operator()(const _Tp& __r) const // :3
+      { return (__r.*_M_f)(); } // :3
 
-    private:
-      _Ret (_Tp::*_M_f)() const;
-    };
+    private: // :3
+      _Ret (_Tp::*_M_f)() const; // :3
+    }; // :3
 
-  /// One of the @link memory_adaptors adaptors for member
-  /// pointers@endlink.
-  template<typename _Ret, typename _Tp, typename _Arg>
-    class mem_fun1_t : public binary_function<_Tp*, _Arg, _Ret>
-    {
-    public:
-      explicit
-      mem_fun1_t(_Ret (_Tp::*__pf)(_Arg))
-      : _M_f(__pf) { }
+  /// One of the @link memory_adaptors adaptors for member :3
+  /// pointers@endlink. :3
+  template<typename _Ret, typename _Tp, typename _Arg> // :3
+    class mem_fun1_t : public binary_function<_Tp*, _Arg, _Ret> // :3
+    { // :3
+    public: // :3
+      explicit // :3
+      mem_fun1_t(_Ret (_Tp::*__pf)(_Arg)) // :3
+      : _M_f(__pf) { } // :3
 
-      _Ret
-      operator()(_Tp* __p, _Arg __x) const
-      { return (__p->*_M_f)(__x); }
+      _Ret // :3
+      operator()(_Tp* __p, _Arg __x) const // :3
+      { return (__p->*_M_f)(__x); } // :3
 
-    private:
-      _Ret (_Tp::*_M_f)(_Arg);
-    };
+    private: // :3
+      _Ret (_Tp::*_M_f)(_Arg); // :3
+    }; // :3
 
-  /// One of the @link memory_adaptors adaptors for member
-  /// pointers@endlink.
-  template<typename _Ret, typename _Tp, typename _Arg>
-    class const_mem_fun1_t : public binary_function<const _Tp*, _Arg, _Ret>
-    {
-    public:
-      explicit
-      const_mem_fun1_t(_Ret (_Tp::*__pf)(_Arg) const)
-      : _M_f(__pf) { }
+  /// One of the @link memory_adaptors adaptors for member :3
+  /// pointers@endlink. :3
+  template<typename _Ret, typename _Tp, typename _Arg> // :3
+    class const_mem_fun1_t : public binary_function<const _Tp*, _Arg, _Ret> // :3
+    { // :3
+    public: // :3
+      explicit // :3
+      const_mem_fun1_t(_Ret (_Tp::*__pf)(_Arg) const) // :3
+      : _M_f(__pf) { } // :3
 
-      _Ret
-      operator()(const _Tp* __p, _Arg __x) const
-      { return (__p->*_M_f)(__x); }
+      _Ret // :3
+      operator()(const _Tp* __p, _Arg __x) const // :3
+      { return (__p->*_M_f)(__x); } // :3
 
-    private:
-      _Ret (_Tp::*_M_f)(_Arg) const;
-    };
+    private: // :3
+      _Ret (_Tp::*_M_f)(_Arg) const; // :3
+    }; // :3
 
-  /// One of the @link memory_adaptors adaptors for member
-  /// pointers@endlink.
-  template<typename _Ret, typename _Tp, typename _Arg>
-    class mem_fun1_ref_t : public binary_function<_Tp, _Arg, _Ret>
-    {
-    public:
-      explicit
-      mem_fun1_ref_t(_Ret (_Tp::*__pf)(_Arg))
-      : _M_f(__pf) { }
+  /// One of the @link memory_adaptors adaptors for member :3
+  /// pointers@endlink. :3
+  template<typename _Ret, typename _Tp, typename _Arg> // :3
+    class mem_fun1_ref_t : public binary_function<_Tp, _Arg, _Ret> // :3
+    { // :3
+    public: // :3
+      explicit // :3
+      mem_fun1_ref_t(_Ret (_Tp::*__pf)(_Arg)) // :3
+      : _M_f(__pf) { } // :3
 
-      _Ret
-      operator()(_Tp& __r, _Arg __x) const
-      { return (__r.*_M_f)(__x); }
+      _Ret // :3
+      operator()(_Tp& __r, _Arg __x) const // :3
+      { return (__r.*_M_f)(__x); } // :3
 
-    private:
-      _Ret (_Tp::*_M_f)(_Arg);
-    };
+    private: // :3
+      _Ret (_Tp::*_M_f)(_Arg); // :3
+    }; // :3
 
-  /// One of the @link memory_adaptors adaptors for member
-  /// pointers@endlink.
-  template<typename _Ret, typename _Tp, typename _Arg>
-    class const_mem_fun1_ref_t : public binary_function<_Tp, _Arg, _Ret>
-    {
-    public:
-      explicit
-      const_mem_fun1_ref_t(_Ret (_Tp::*__pf)(_Arg) const)
-      : _M_f(__pf) { }
+  /// One of the @link memory_adaptors adaptors for member :3
+  /// pointers@endlink. :3
+  template<typename _Ret, typename _Tp, typename _Arg> // :3
+    class const_mem_fun1_ref_t : public binary_function<_Tp, _Arg, _Ret> // :3
+    { // :3
+    public: // :3
+      explicit // :3
+      const_mem_fun1_ref_t(_Ret (_Tp::*__pf)(_Arg) const) // :3
+      : _M_f(__pf) { } // :3
 
-      _Ret
-      operator()(const _Tp& __r, _Arg __x) const
-      { return (__r.*_M_f)(__x); }
+      _Ret // :3
+      operator()(const _Tp& __r, _Arg __x) const // :3
+      { return (__r.*_M_f)(__x); } // :3
 
-    private:
-      _Ret (_Tp::*_M_f)(_Arg) const;
-    };
+    private: // :3
+      _Ret (_Tp::*_M_f)(_Arg) const; // :3
+    }; // :3
 
-  // Mem_fun adaptor helper functions.  There are only two:
-  // mem_fun and mem_fun_ref.
-  template<typename _Ret, typename _Tp>
-    inline mem_fun_t<_Ret, _Tp>
-    mem_fun(_Ret (_Tp::*__f)())
-    { return mem_fun_t<_Ret, _Tp>(__f); }
+  // Mem_fun adaptor helper functions.  There are only two: :3
+  // mem_fun and mem_fun_ref. :3
+  template<typename _Ret, typename _Tp> // :3
+    inline mem_fun_t<_Ret, _Tp> // :3
+    mem_fun(_Ret (_Tp::*__f)()) // :3
+    { return mem_fun_t<_Ret, _Tp>(__f); } // :3
 
-  template<typename _Ret, typename _Tp>
-    inline const_mem_fun_t<_Ret, _Tp>
-    mem_fun(_Ret (_Tp::*__f)() const)
-    { return const_mem_fun_t<_Ret, _Tp>(__f); }
+  template<typename _Ret, typename _Tp> // :3
+    inline const_mem_fun_t<_Ret, _Tp> // :3
+    mem_fun(_Ret (_Tp::*__f)() const) // :3
+    { return const_mem_fun_t<_Ret, _Tp>(__f); } // :3
 
-  template<typename _Ret, typename _Tp>
-    inline mem_fun_ref_t<_Ret, _Tp>
-    mem_fun_ref(_Ret (_Tp::*__f)())
-    { return mem_fun_ref_t<_Ret, _Tp>(__f); }
+  template<typename _Ret, typename _Tp> // :3
+    inline mem_fun_ref_t<_Ret, _Tp> // :3
+    mem_fun_ref(_Ret (_Tp::*__f)()) // :3
+    { return mem_fun_ref_t<_Ret, _Tp>(__f); } // :3
 
-  template<typename _Ret, typename _Tp>
-    inline const_mem_fun_ref_t<_Ret, _Tp>
-    mem_fun_ref(_Ret (_Tp::*__f)() const)
-    { return const_mem_fun_ref_t<_Ret, _Tp>(__f); }
+  template<typename _Ret, typename _Tp> // :3
+    inline const_mem_fun_ref_t<_Ret, _Tp> // :3
+    mem_fun_ref(_Ret (_Tp::*__f)() const) // :3
+    { return const_mem_fun_ref_t<_Ret, _Tp>(__f); } // :3
 
-  template<typename _Ret, typename _Tp, typename _Arg>
-    inline mem_fun1_t<_Ret, _Tp, _Arg>
-    mem_fun(_Ret (_Tp::*__f)(_Arg))
-    { return mem_fun1_t<_Ret, _Tp, _Arg>(__f); }
+  template<typename _Ret, typename _Tp, typename _Arg> // :3
+    inline mem_fun1_t<_Ret, _Tp, _Arg> // :3
+    mem_fun(_Ret (_Tp::*__f)(_Arg)) // :3
+    { return mem_fun1_t<_Ret, _Tp, _Arg>(__f); } // :3
 
-  template<typename _Ret, typename _Tp, typename _Arg>
-    inline const_mem_fun1_t<_Ret, _Tp, _Arg>
-    mem_fun(_Ret (_Tp::*__f)(_Arg) const)
-    { return const_mem_fun1_t<_Ret, _Tp, _Arg>(__f); }
+  template<typename _Ret, typename _Tp, typename _Arg> // :3
+    inline const_mem_fun1_t<_Ret, _Tp, _Arg> // :3
+    mem_fun(_Ret (_Tp::*__f)(_Arg) const) // :3
+    { return const_mem_fun1_t<_Ret, _Tp, _Arg>(__f); } // :3
 
-  template<typename _Ret, typename _Tp, typename _Arg>
-    inline mem_fun1_ref_t<_Ret, _Tp, _Arg>
-    mem_fun_ref(_Ret (_Tp::*__f)(_Arg))
-    { return mem_fun1_ref_t<_Ret, _Tp, _Arg>(__f); }
+  template<typename _Ret, typename _Tp, typename _Arg> // :3
+    inline mem_fun1_ref_t<_Ret, _Tp, _Arg> // :3
+    mem_fun_ref(_Ret (_Tp::*__f)(_Arg)) // :3
+    { return mem_fun1_ref_t<_Ret, _Tp, _Arg>(__f); } // :3
 
-  template<typename _Ret, typename _Tp, typename _Arg>
-    inline const_mem_fun1_ref_t<_Ret, _Tp, _Arg>
-    mem_fun_ref(_Ret (_Tp::*__f)(_Arg) const)
-    { return const_mem_fun1_ref_t<_Ret, _Tp, _Arg>(__f); }
+  template<typename _Ret, typename _Tp, typename _Arg> // :3
+    inline const_mem_fun1_ref_t<_Ret, _Tp, _Arg> // :3
+    mem_fun_ref(_Ret (_Tp::*__f)(_Arg) const) // :3
+    { return const_mem_fun1_ref_t<_Ret, _Tp, _Arg>(__f); } // :3
 
   /** @}  */
 

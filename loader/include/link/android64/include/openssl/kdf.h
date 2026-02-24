@@ -5,74 +5,74 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_KDF_H
-#define OPENSSL_KDF_H
-#pragma once
+#ifndef OPENSSL_KDF_H // :3
+#define OPENSSL_KDF_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_KDF_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_KDF_H // :3
+#endif // :3
 
-#include <stdarg.h>
-#include <stddef.h>
-#include <openssl/types.h>
-#include <openssl/core.h>
+#include <stdarg.h> // :3
+#include <stddef.h> // :3
+#include <openssl/types.h> // :3
+#include <openssl/core.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-int EVP_KDF_up_ref(EVP_KDF *kdf);
-void EVP_KDF_free(EVP_KDF *kdf);
-EVP_KDF *EVP_KDF_fetch(OSSL_LIB_CTX *libctx, const char *algorithm,
-    const char *properties);
+int EVP_KDF_up_ref(EVP_KDF *kdf); // :3
+void EVP_KDF_free(EVP_KDF *kdf); // :3
+EVP_KDF *EVP_KDF_fetch(OSSL_LIB_CTX *libctx, const char *algorithm, // :3
+    const char *properties); // :3
 
-EVP_KDF_CTX *EVP_KDF_CTX_new(EVP_KDF *kdf);
-void EVP_KDF_CTX_free(EVP_KDF_CTX *ctx);
-EVP_KDF_CTX *EVP_KDF_CTX_dup(const EVP_KDF_CTX *src);
-const char *EVP_KDF_get0_description(const EVP_KDF *kdf);
-int EVP_KDF_is_a(const EVP_KDF *kdf, const char *name);
-const char *EVP_KDF_get0_name(const EVP_KDF *kdf);
-const OSSL_PROVIDER *EVP_KDF_get0_provider(const EVP_KDF *kdf);
-const EVP_KDF *EVP_KDF_CTX_kdf(EVP_KDF_CTX *ctx);
+EVP_KDF_CTX *EVP_KDF_CTX_new(EVP_KDF *kdf); // :3
+void EVP_KDF_CTX_free(EVP_KDF_CTX *ctx); // :3
+EVP_KDF_CTX *EVP_KDF_CTX_dup(const EVP_KDF_CTX *src); // :3
+const char *EVP_KDF_get0_description(const EVP_KDF *kdf); // :3
+int EVP_KDF_is_a(const EVP_KDF *kdf, const char *name); // :3
+const char *EVP_KDF_get0_name(const EVP_KDF *kdf); // :3
+const OSSL_PROVIDER *EVP_KDF_get0_provider(const EVP_KDF *kdf); // :3
+const EVP_KDF *EVP_KDF_CTX_kdf(EVP_KDF_CTX *ctx); // :3
 
-void EVP_KDF_CTX_reset(EVP_KDF_CTX *ctx);
-size_t EVP_KDF_CTX_get_kdf_size(EVP_KDF_CTX *ctx);
-int EVP_KDF_derive(EVP_KDF_CTX *ctx, unsigned char *key, size_t keylen,
-    const OSSL_PARAM params[]);
-int EVP_KDF_CTX_set_SKEY(EVP_KDF_CTX *ctx, EVP_SKEY *key, const char *paramname);
-EVP_SKEY *EVP_KDF_derive_SKEY(EVP_KDF_CTX *ctx, EVP_SKEYMGMT *mgmt,
-    const char *key_type, const char *propquery,
-    size_t keylen, const OSSL_PARAM params[]);
-int EVP_KDF_get_params(EVP_KDF *kdf, OSSL_PARAM params[]);
-int EVP_KDF_CTX_get_params(EVP_KDF_CTX *ctx, OSSL_PARAM params[]);
-int EVP_KDF_CTX_set_params(EVP_KDF_CTX *ctx, const OSSL_PARAM params[]);
-const OSSL_PARAM *EVP_KDF_gettable_params(const EVP_KDF *kdf);
-const OSSL_PARAM *EVP_KDF_gettable_ctx_params(const EVP_KDF *kdf);
-const OSSL_PARAM *EVP_KDF_settable_ctx_params(const EVP_KDF *kdf);
-const OSSL_PARAM *EVP_KDF_CTX_gettable_params(EVP_KDF_CTX *ctx);
-const OSSL_PARAM *EVP_KDF_CTX_settable_params(EVP_KDF_CTX *ctx);
+void EVP_KDF_CTX_reset(EVP_KDF_CTX *ctx); // :3
+size_t EVP_KDF_CTX_get_kdf_size(EVP_KDF_CTX *ctx); // :3
+int EVP_KDF_derive(EVP_KDF_CTX *ctx, unsigned char *key, size_t keylen, // :3
+    const OSSL_PARAM params[]); // :3
+int EVP_KDF_CTX_set_SKEY(EVP_KDF_CTX *ctx, EVP_SKEY *key, const char *paramname); // :3
+EVP_SKEY *EVP_KDF_derive_SKEY(EVP_KDF_CTX *ctx, EVP_SKEYMGMT *mgmt, // :3
+    const char *key_type, const char *propquery, // :3
+    size_t keylen, const OSSL_PARAM params[]); // :3
+int EVP_KDF_get_params(EVP_KDF *kdf, OSSL_PARAM params[]); // :3
+int EVP_KDF_CTX_get_params(EVP_KDF_CTX *ctx, OSSL_PARAM params[]); // :3
+int EVP_KDF_CTX_set_params(EVP_KDF_CTX *ctx, const OSSL_PARAM params[]); // :3
+const OSSL_PARAM *EVP_KDF_gettable_params(const EVP_KDF *kdf); // :3
+const OSSL_PARAM *EVP_KDF_gettable_ctx_params(const EVP_KDF *kdf); // :3
+const OSSL_PARAM *EVP_KDF_settable_ctx_params(const EVP_KDF *kdf); // :3
+const OSSL_PARAM *EVP_KDF_CTX_gettable_params(EVP_KDF_CTX *ctx); // :3
+const OSSL_PARAM *EVP_KDF_CTX_settable_params(EVP_KDF_CTX *ctx); // :3
 
-void EVP_KDF_do_all_provided(OSSL_LIB_CTX *libctx,
-    void (*fn)(EVP_KDF *kdf, void *arg),
-    void *arg);
-int EVP_KDF_names_do_all(const EVP_KDF *kdf,
-    void (*fn)(const char *name, void *data),
-    void *data);
+void EVP_KDF_do_all_provided(OSSL_LIB_CTX *libctx, // :3
+    void (*fn)(EVP_KDF *kdf, void *arg), // :3
+    void *arg); // :3
+int EVP_KDF_names_do_all(const EVP_KDF *kdf, // :3
+    void (*fn)(const char *name, void *data), // :3
+    void *data); // :3
 
-#define EVP_KDF_HKDF_MODE_EXTRACT_AND_EXPAND 0
-#define EVP_KDF_HKDF_MODE_EXTRACT_ONLY 1
-#define EVP_KDF_HKDF_MODE_EXPAND_ONLY 2
+#define EVP_KDF_HKDF_MODE_EXTRACT_AND_EXPAND 0 // :3
+#define EVP_KDF_HKDF_MODE_EXTRACT_ONLY 1 // :3
+#define EVP_KDF_HKDF_MODE_EXPAND_ONLY 2 // :3
 
-#define EVP_KDF_SSHKDF_TYPE_INITIAL_IV_CLI_TO_SRV 65
-#define EVP_KDF_SSHKDF_TYPE_INITIAL_IV_SRV_TO_CLI 66
-#define EVP_KDF_SSHKDF_TYPE_ENCRYPTION_KEY_CLI_TO_SRV 67
-#define EVP_KDF_SSHKDF_TYPE_ENCRYPTION_KEY_SRV_TO_CLI 68
-#define EVP_KDF_SSHKDF_TYPE_INTEGRITY_KEY_CLI_TO_SRV 69
-#define EVP_KDF_SSHKDF_TYPE_INTEGRITY_KEY_SRV_TO_CLI 70
+#define EVP_KDF_SSHKDF_TYPE_INITIAL_IV_CLI_TO_SRV 65 // :3
+#define EVP_KDF_SSHKDF_TYPE_INITIAL_IV_SRV_TO_CLI 66 // :3
+#define EVP_KDF_SSHKDF_TYPE_ENCRYPTION_KEY_CLI_TO_SRV 67 // :3
+#define EVP_KDF_SSHKDF_TYPE_ENCRYPTION_KEY_SRV_TO_CLI 68 // :3
+#define EVP_KDF_SSHKDF_TYPE_INTEGRITY_KEY_CLI_TO_SRV 69 // :3
+#define EVP_KDF_SSHKDF_TYPE_INTEGRITY_KEY_SRV_TO_CLI 70 // :3
 
 /**** The legacy PKEY-based KDF API follows. ****/
 

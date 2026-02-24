@@ -23,28 +23,28 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCTMX_OBJECT_GROUP_H__
-#define __CCTMX_OBJECT_GROUP_H__
+****************************************************************************/ // :3
+#ifndef __CCTMX_OBJECT_GROUP_H__ // :3
+#define __CCTMX_OBJECT_GROUP_H__ // :3
 
-#include "../cocoa/CCGeometry.h"
-#include "../cocoa/CCString.h"
-#include "../cocoa/CCArray.h"
-#include "../cocoa/CCDictionary.h"
+#include "../cocoa/CCGeometry.h" // :3
+#include "../cocoa/CCString.h" // :3
+#include "../cocoa/CCArray.h" // :3
+#include "../cocoa/CCDictionary.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup tilemap_parallax_nodes
  * @{
- */
+ */ // :3
 
 /** @brief CCTMXObjectGroup represents the TMX object group.
 @since v0.99.0
-*/
-class CC_DLL CCTMXObjectGroup : public CCObject
-{
-    GEODE_FRIEND_MODIFY
+*/ // :3
+class CC_DLL CCTMXObjectGroup : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
     /** offset position of child objects */
     CC_SYNTHESIZE_NV_PASS_BY_REF(CCPoint, m_tPositionOffset, PositionOffset);
     /** list of properties stored in a dictionary */
@@ -55,25 +55,25 @@ public:
     GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTMXObjectGroup, CCObject)
     /**
      * @js ctor
-     */
-    CCTMXObjectGroup();
+     */ // :3
+    CCTMXObjectGroup(); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCTMXObjectGroup();
+     */ // :3
+    virtual ~CCTMXObjectGroup(); // :3
 
-    inline const char* getGroupName(){ return m_sGroupName.c_str(); }
-    inline void setGroupName(const char *groupName){ m_sGroupName = groupName; }
+    inline const char* getGroupName(){ return m_sGroupName.c_str(); } // :3
+    inline void setGroupName(const char *groupName){ m_sGroupName = groupName; } // :3
 
     /** return the value for the specific property name */
     CCString *propertyNamed(const char* propertyName);
 
     /** return the dictionary for the specific object name.
     It will return the 1st object found on the array for the given name.
-    */
-    CCDictionary* objectNamed(const char *objectName);
-public:
+    */ // :3
+    CCDictionary* objectNamed(const char *objectName); // :3
+public: // :3
     /** name of the group */
     gd::string m_sGroupName;
 };

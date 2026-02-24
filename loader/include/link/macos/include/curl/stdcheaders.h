@@ -1,5 +1,5 @@
-#ifndef CURLINC_STDCHEADERS_H
-#define CURLINC_STDCHEADERS_H
+#ifndef CURLINC_STDCHEADERS_H // :3
+#define CURLINC_STDCHEADERS_H // :3
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -22,14 +22,14 @@
  *
  * SPDX-License-Identifier: curl
  *
- ***************************************************************************/
+ ***************************************************************************/ // :3
 
-#include <sys/types.h>
+#include <sys/types.h> // :3
 
-size_t fread(void *, size_t, size_t, FILE *);
-size_t fwrite(const void *, size_t, size_t, FILE *);
+size_t fread(void *, size_t, size_t, FILE *); // :3
+size_t fwrite(const void *, size_t, size_t, FILE *); // :3
 
-int strcasecmp(const char *, const char *);
-int strncasecmp(const char *, const char *, size_t);
+int strcasecmp(const char *, const char *); // :3
+int strncasecmp(const char *, const char *, size_t); // :3
 
 #endif /* CURLINC_STDCHEADERS_H */

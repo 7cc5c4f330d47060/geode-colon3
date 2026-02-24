@@ -22,24 +22,24 @@
  * WHETHER OR NOT ADVISED OF THE POSSIBILITY OF DAMAGE, AND ON ANY THEORY OF
  * LIABILITY, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE
  * OF THIS SOFTWARE.
- */
+ */ // :3
 
-#ifndef _TIFFIO_
-#define	_TIFFIO_
+#ifndef _TIFFIO_ // :3
+#define	_TIFFIO_ // :3
 
 /*
  * TIFF I/O Library Definitions.
- */
-#include "tiff.h"
-#include "tiffvers.h"
+ */ // :3
+#include "tiff.h" // :3
+#include "tiffvers.h" // :3
 
 /*
  * TIFF is defined as an incomplete type to hide the
  * library's internal data structures from clients.
- */
-typedef	struct tiff TIFF;
+ */ // :3
+typedef	struct tiff TIFF; // :3
 
-typedef TIFF_SSIZE_T tmsize_t;
+typedef TIFF_SSIZE_T tmsize_t; // :3
 
 
 /*
@@ -60,7 +60,7 @@ typedef TIFF_SSIZE_T tmsize_t;
  * NB: toff_t is not off_t for many reasons; TIFFs max out at
  *     32-bit file offsets being the most important, and to ensure
  *     that it is unsigned, rather than signed.
- */
+ */ // :3
 typedef uint32 ttag_t;          /* directory tag */
 typedef uint16 tdir_t;          /* directory index */
 typedef uint16 tsample_t;       /* sample number */
@@ -81,18 +81,18 @@ typedef uint32 uint64;
  * or AVOID_WIN32_FILEIO if you are using something else (like tif_unix.c).
  *
  * By default tif_unix.c is assumed.
- */
+ */ // :3
 
-#if defined(_WINDOWS) || defined(__WIN32__) || defined(_Windows)
-#  if !defined(__CYGWIN) && !defined(AVOID_WIN32_FILEIO) && !defined(USE_WIN32_FILEIO)
-#    define AVOID_WIN32_FILEIO
-#  endif
-#endif
+#if defined(_WINDOWS) || defined(__WIN32__) || defined(_Windows) // :3
+#  if !defined(__CYGWIN) && !defined(AVOID_WIN32_FILEIO) && !defined(USE_WIN32_FILEIO) // :3
+#    define AVOID_WIN32_FILEIO // :3
+#  endif // :3
+#endif // :3
 
-#if defined(USE_WIN32_FILEIO)
-# define VC_EXTRALEAN
-# include <windows.h>
-# ifdef __WIN32__
+#if defined(USE_WIN32_FILEIO) // :3
+# define VC_EXTRALEAN // :3
+# include <windows.h> // :3
+# ifdef __WIN32__ // :3
 DECLARE_HANDLE(thandle_t);	/* Win32 file handle */
 # else
 typedef	HFILE thandle_t;	/* client data handle */
@@ -106,7 +106,7 @@ typedef	void* thandle_t;	/* client data handle */
  * printing of data structures that are potentially
  * very large.   Bit-or these flags to enable printing
  * multiple items.
- */
+ */ // :3
 #define	TIFFPRINT_NONE		0x0		/* no extra info */
 #define	TIFFPRINT_STRIPS	0x1		/* strips/tiles info */
 #define	TIFFPRINT_CURVES	0x2		/* color/gray response curves */
@@ -117,7 +117,7 @@ typedef	void* thandle_t;	/* client data handle */
 
 /*
  * Colour conversion stuff
- */
+ */ // :3
 
 /* reference white */
 #define D65_X0 (95.0470F)
@@ -170,8 +170,8 @@ typedef struct {				/* CIE Lab 1976->RGB support */
 
 /*
  * RGBA-style image support.
- */
-typedef struct _TIFFRGBAImage TIFFRGBAImage;
+ */ // :3
+typedef struct _TIFFRGBAImage TIFFRGBAImage; // :3
 /*
  * The image reading and conversion routines invoke
  * ``put routines'' to copy/image/whatever tiles of
@@ -181,17 +181,17 @@ typedef struct _TIFFRGBAImage TIFFRGBAImage;
  * alternate routines that unpack the data into a
  * different format or, for example, unpack the data
  * and draw the unpacked raster on the display.
- */
-typedef void (*tileContigRoutine)
-    (TIFFRGBAImage*, uint32*, uint32, uint32, uint32, uint32, int32, int32,
-	unsigned char*);
-typedef void (*tileSeparateRoutine)
-    (TIFFRGBAImage*, uint32*, uint32, uint32, uint32, uint32, int32, int32,
-	unsigned char*, unsigned char*, unsigned char*, unsigned char*);
+ */ // :3
+typedef void (*tileContigRoutine) // :3
+    (TIFFRGBAImage*, uint32*, uint32, uint32, uint32, uint32, int32, int32, // :3
+	unsigned char*); // :3
+typedef void (*tileSeparateRoutine) // :3
+    (TIFFRGBAImage*, uint32*, uint32, uint32, uint32, uint32, int32, int32, // :3
+	unsigned char*, unsigned char*, unsigned char*, unsigned char*); // :3
 /*
  * RGBA-reader state.
- */
-struct _TIFFRGBAImage {
+ */ // :3
+struct _TIFFRGBAImage { // :3
 	TIFF* tif;                              /* image handle */
 	int stoponerr;                          /* stop on read error */
 	int isContig;                           /* data is packed/separate */
@@ -227,11 +227,11 @@ struct _TIFFRGBAImage {
 /*
  * Macros for extracting components from the
  * packed ABGR form returned by TIFFReadRGBAImage.
- */
-#define	TIFFGetR(abgr)	((abgr) & 0xff)
-#define	TIFFGetG(abgr)	(((abgr) >> 8) & 0xff)
-#define	TIFFGetB(abgr)	(((abgr) >> 16) & 0xff)
-#define	TIFFGetA(abgr)	(((abgr) >> 24) & 0xff)
+ */ // :3
+#define	TIFFGetR(abgr)	((abgr) & 0xff) // :3
+#define	TIFFGetG(abgr)	(((abgr) >> 8) & 0xff) // :3
+#define	TIFFGetB(abgr)	(((abgr) >> 16) & 0xff) // :3
+#define	TIFFGetA(abgr)	(((abgr) >> 24) & 0xff) // :3
 
 /*
  * A CODEC is a software package that implements decoding,
@@ -239,16 +239,16 @@ struct _TIFFRGBAImage {
  * The library provides a collection of builtin codecs.
  * More codecs may be registered through calls to the library
  * and/or the builtin implementations may be overridden.
- */
-typedef	int (*TIFFInitMethod)(TIFF*, int);
-typedef struct {
-	char*		name;
-	uint16		scheme;
-	TIFFInitMethod	init;
-} TIFFCodec;
+ */ // :3
+typedef	int (*TIFFInitMethod)(TIFF*, int); // :3
+typedef struct { // :3
+	char*		name; // :3
+	uint16		scheme; // :3
+	TIFFInitMethod	init; // :3
+} TIFFCodec; // :3
 
-#include <stdio.h>
-#include <stdarg.h>
+#include <stdio.h> // :3
+#include <stdarg.h> // :3
 
 /* share internal LogLuv conversion routines? */
 #ifndef LOGLUV_PUBLIC
@@ -282,20 +282,20 @@ extern	TIFFCodec* TIFFGetConfiguredCODECs(void);
 
 /*
  * Auxiliary functions.
- */
+ */ // :3
 
-extern	tdata_t _TIFFmalloc(tsize_t);
-extern	tdata_t _TIFFrealloc(tdata_t, tsize_t);
-extern	void _TIFFmemset(tdata_t, int, tsize_t);
-extern	void _TIFFmemcpy(tdata_t, const tdata_t, tsize_t);
-extern	int _TIFFmemcmp(const tdata_t, const tdata_t, tsize_t);
-extern	void _TIFFfree(tdata_t);
+extern	tdata_t _TIFFmalloc(tsize_t); // :3
+extern	tdata_t _TIFFrealloc(tdata_t, tsize_t); // :3
+extern	void _TIFFmemset(tdata_t, int, tsize_t); // :3
+extern	void _TIFFmemcpy(tdata_t, const tdata_t, tsize_t); // :3
+extern	int _TIFFmemcmp(const tdata_t, const tdata_t, tsize_t); // :3
+extern	void _TIFFfree(tdata_t); // :3
 
 /*
 ** Stuff, related to tag handling and creating custom tags.
-*/
-extern  int  TIFFGetTagListCount( TIFF * );
-extern  ttag_t TIFFGetTagListEntry( TIFF *, int tag_index );
+*/ // :3
+extern  int  TIFFGetTagListCount( TIFF * ); // :3
+extern  ttag_t TIFFGetTagListEntry( TIFF *, int tag_index ); // :3
 
 #define	TIFF_ANY	TIFF_NOTYPE	/* for field descriptor searching */
 #define	TIFF_VARIABLE	-1		/* marker for variable length tags */

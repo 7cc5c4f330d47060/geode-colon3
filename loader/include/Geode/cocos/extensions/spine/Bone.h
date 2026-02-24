@@ -21,22 +21,22 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_BONE_H_
-#define SPINE_BONE_H_
+#ifndef SPINE_BONE_H_ // :3
+#define SPINE_BONE_H_ // :3
 
-#include "BoneData.h"
+#include "BoneData.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-typedef struct Bone Bone;
-struct Bone {
-	BoneData* const data;
-	Bone* const parent;
-	float x, y;
-	float rotation;
-	float scaleX, scaleY;
+typedef struct Bone Bone; // :3
+struct Bone { // :3
+	BoneData* const data; // :3
+	Bone* const parent; // :3
+	float x, y; // :3
+	float rotation; // :3
+	float scaleX, scaleY; // :3
 
 	float const m00, m01, worldX; /* a b x */
 	float const m10, m11, worldY; /* c d y */

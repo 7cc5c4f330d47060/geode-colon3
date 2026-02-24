@@ -27,32 +27,32 @@
  * THE SOFTWARE.
  *
  * Converted to c++ / cocos2d-x by Angus C
- */
+ */ // :3
 
-#ifndef __COLORPICKERDELEGATE_H__
-#define __COLORPICKERDELEGATE_H__
+#ifndef __COLORPICKERDELEGATE_H__ // :3
+#define __COLORPICKERDELEGATE_H__ // :3
 
 
-#include "CCControl.h"
+#include "CCControl.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup control_extension
  * @{
- */
+ */ // :3
 
-class CC_DLL ColorPickerDelegate {
-public:
-    virtual void colorValueChanged(ccColor3B) {}
-};
+class CC_DLL ColorPickerDelegate { // :3
+public: // :3
+    virtual void colorValueChanged(ccColor3B) {} // :3
+}; // :3
 
-// end of GUI group
-/// @}
-/// @}
+// end of GUI group :3
+/// @} :3
+/// @} :3
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
-#endif
+#endif // :3

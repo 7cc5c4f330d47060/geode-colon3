@@ -23,321 +23,321 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __COCOS2D_H__
-#define __COCOS2D_H__
+#ifndef __COCOS2D_H__ // :3
+#define __COCOS2D_H__ // :3
 
-// 0x00 HI ME LO
-// 00   02 01 00
-#define COCOS2D_VERSION 0x00020100
-
-
-// Geode macros
-#include "../../DefaultInclude.hpp"
-
-//
-// all cocos2d include files
-//
-#include "ccConfig.h"
-
-// actions
-#include "../actions/CCAction.h"
-#include "../actions/CCActionInterval.h"
-#include "../actions/CCActionCamera.h"
-#include "../actions/CCActionManager.h"
-#include "../actions/CCActionEase.h"
-#include "../actions/CCActionPageTurn3D.h"
-#include "../actions/CCActionGrid.h"
-#include "../actions/CCActionProgressTimer.h"
-#include "../actions/CCActionGrid3D.h"
-#include "../actions/CCActionTiledGrid.h"
-#include "../actions/CCActionInstant.h"
-#include "../actions/CCActionTween.h"
-#include "../actions/CCActionCatmullRom.h"
-
-// base_nodes
-#include "../base_nodes/CCNode.h"
-#include "../base_nodes/CCAtlasNode.h"
-
-// cocoa
-#include "../cocoa/CCAffineTransform.h"
-#include "../cocoa/CCDictionary.h"
-#include "../cocoa/CCObject.h"
-#include "../cocoa/CCArray.h"
-#include "../cocoa/CCGeometry.h"
-#include "../cocoa/CCSet.h"
-#include "../cocoa/CCAutoreleasePool.h"
-#include "../cocoa/CCInteger.h"
-#include "../cocoa/CCFloat.h"
-#include "../cocoa/CCDouble.h"
-#include "../cocoa/CCBool.h"
-#include "../cocoa/CCString.h"
-#include "../cocoa/CCNS.h"
-#include "../cocoa/CCZone.h"
-
-// draw nodes
-#include "../draw_nodes/CCDrawingPrimitives.h"
-#include "../draw_nodes/CCDrawNode.h"
-
-// effects
-#include "../effects/CCGrabber.h"
-#include "../effects/CCGrid.h"
-
-// include
-#include "CCEventType.h"
-#include "../include/CCProtocols.h"
-#include "ccConfig.h"
-#include "../include/ccMacros.h"
-#include "../include/ccTypes.h"
-
-// kazmath
-#include "../kazmath/include/kazmath/kazmath.h"
-#include "../kazmath/include/kazmath/GL/matrix.h"
-
-// keypad_dispatcher
-#include "../keypad_dispatcher/CCKeypadDelegate.h"
-#include "../keypad_dispatcher/CCKeypadDispatcher.h"
-
-// label_nodes
-#include "../label_nodes/CCLabelAtlas.h"
-#include "../label_nodes/CCLabelTTF.h"
-#include "../label_nodes/CCLabelBMFont.h"
-
-// layers_scenes_transitions_nodes
-#include "../layers_scenes_transitions_nodes/CCLayer.h"
-#include "../layers_scenes_transitions_nodes/CCScene.h"
-#include "../layers_scenes_transitions_nodes/CCTransition.h"
-#include "../layers_scenes_transitions_nodes/CCTransitionPageTurn.h"
-#include "../layers_scenes_transitions_nodes/CCTransitionProgress.h"
-
-// menu_nodes
-#include "../menu_nodes/CCMenu.h"
-#include "../menu_nodes/CCMenuItem.h"
-
-// misc_nodes
-#include "../misc_nodes/CCClippingNode.h"
-#include "../misc_nodes/CCMotionStreak.h"
-#include "../misc_nodes/CCProgressTimer.h"
-#include "../misc_nodes/CCRenderTexture.h"
-
-// particle_nodes
-#include "../particle_nodes/CCParticleBatchNode.h"
-#include "../particle_nodes/CCParticleSystem.h"
-#include "../particle_nodes/CCParticleExamples.h"
-#include "../particle_nodes/CCParticleSystemQuad.h"
-
-// platform
-#include "../platform/CCDevice.h"
-#include "../platform/CCCommon.h"
-#include "../platform/CCFileUtils.h"
-#include "../platform/CCImage.h"
-#include "../platform/CCSAXParser.h"
-#include "../platform/CCThread.h"
-#include "../platform/platform.h"
-#include "../platform/CCPlatformConfig.h"
-#include "../platform/CCPlatformMacros.h"
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    #include "../platform/ios/CCAccelerometer.h"
-    #include "../platform/ios/CCApplication.h"
-    #include "../platform/ios/CCEGLView.h"
-    #include "../platform/ios/CCGL.h"
-    #include "../platform/ios/CCStdC.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_IOS
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-    #include "../platform/android/CCAccelerometer.h"
-    #include "../platform/android/CCApplication.h"
-    #include "../platform/android/CCEGLView.h"
-    #include "../platform/android/CCGL.h"
-    #include "../platform/android/CCStdC.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_BLACKBERRY)
-	#error "Unsupported platform with Geode!"
-    // #include "../platform/blackberry/CCAccelerometer.h"
-    // #include "../platform/blackberry/CCApplication.h"
-    // #include "../platform/blackberry/CCEGLView.h"
-    // #include "../platform/blackberry/CCGL.h"
-    // #include "../platform/blackberry/CCStdC.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_BLACKBERRY
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
-	#include "../platform/win32/CCAccelerometer.h"
-	#include "../platform/win32/CCApplication.h"
-	#include "../platform/win32/CCEGLView.h"
-	#include "../platform/win32/CCGL.h"
-	#include "../platform/win32/CCStdC.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
-	#error "Unsupported platform with Geode!"
-	// #include "../platform/winrt/CCApplication.h"
-	// #include "../platform/winrt/CCEGLView.h"
-	// #include "../platform/winrt/CCGL.h"
-	// #include "../platform/winrt/CCStdC.h"
-	// #include "../platform/winrt/CCAccelerometer.h"
-	// #include "../platform/winrt/CCPrecompiledShaders.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WINRT
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
-	#error "Unsupported platform with Geode!"
-	// #include "../platform/winrt/CCApplication.h"
-	// #include "../platform/wp8/CCEGLView.h"
-	// #include "../platform/winrt/CCGL.h"
-	// #include "../platform/winrt/CCStdC.h"
-	// #include "../platform/winrt/CCAccelerometer.h"
-	// #include "../platform/winrt/CCPrecompiledShaders.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WP8
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
-	#include "../platform/mac/CCAccelerometer.h"
-	#include "../platform/mac/CCApplication.h"
-	#include "../platform/mac/CCEGLView.h"
-	#include "../platform/mac/CCGL.h"
-	#include "../platform/mac/CCStdC.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_MAC
+// 0x00 HI ME LO :3
+// 00   02 01 00 :3
+#define COCOS2D_VERSION 0x00020100 // :3
 
 
+// Geode macros :3
+#include "../../DefaultInclude.hpp" // :3
+
+// :3
+// all cocos2d include files :3
+// :3
+#include "ccConfig.h" // :3
+
+// actions :3
+#include "../actions/CCAction.h" // :3
+#include "../actions/CCActionInterval.h" // :3
+#include "../actions/CCActionCamera.h" // :3
+#include "../actions/CCActionManager.h" // :3
+#include "../actions/CCActionEase.h" // :3
+#include "../actions/CCActionPageTurn3D.h" // :3
+#include "../actions/CCActionGrid.h" // :3
+#include "../actions/CCActionProgressTimer.h" // :3
+#include "../actions/CCActionGrid3D.h" // :3
+#include "../actions/CCActionTiledGrid.h" // :3
+#include "../actions/CCActionInstant.h" // :3
+#include "../actions/CCActionTween.h" // :3
+#include "../actions/CCActionCatmullRom.h" // :3
+
+// base_nodes :3
+#include "../base_nodes/CCNode.h" // :3
+#include "../base_nodes/CCAtlasNode.h" // :3
+
+// cocoa :3
+#include "../cocoa/CCAffineTransform.h" // :3
+#include "../cocoa/CCDictionary.h" // :3
+#include "../cocoa/CCObject.h" // :3
+#include "../cocoa/CCArray.h" // :3
+#include "../cocoa/CCGeometry.h" // :3
+#include "../cocoa/CCSet.h" // :3
+#include "../cocoa/CCAutoreleasePool.h" // :3
+#include "../cocoa/CCInteger.h" // :3
+#include "../cocoa/CCFloat.h" // :3
+#include "../cocoa/CCDouble.h" // :3
+#include "../cocoa/CCBool.h" // :3
+#include "../cocoa/CCString.h" // :3
+#include "../cocoa/CCNS.h" // :3
+#include "../cocoa/CCZone.h" // :3
+
+// draw nodes :3
+#include "../draw_nodes/CCDrawingPrimitives.h" // :3
+#include "../draw_nodes/CCDrawNode.h" // :3
+
+// effects :3
+#include "../effects/CCGrabber.h" // :3
+#include "../effects/CCGrid.h" // :3
+
+// include :3
+#include "CCEventType.h" // :3
+#include "../include/CCProtocols.h" // :3
+#include "ccConfig.h" // :3
+#include "../include/ccMacros.h" // :3
+#include "../include/ccTypes.h" // :3
+
+// kazmath :3
+#include "../kazmath/include/kazmath/kazmath.h" // :3
+#include "../kazmath/include/kazmath/GL/matrix.h" // :3
+
+// keypad_dispatcher :3
+#include "../keypad_dispatcher/CCKeypadDelegate.h" // :3
+#include "../keypad_dispatcher/CCKeypadDispatcher.h" // :3
+
+// label_nodes :3
+#include "../label_nodes/CCLabelAtlas.h" // :3
+#include "../label_nodes/CCLabelTTF.h" // :3
+#include "../label_nodes/CCLabelBMFont.h" // :3
+
+// layers_scenes_transitions_nodes :3
+#include "../layers_scenes_transitions_nodes/CCLayer.h" // :3
+#include "../layers_scenes_transitions_nodes/CCScene.h" // :3
+#include "../layers_scenes_transitions_nodes/CCTransition.h" // :3
+#include "../layers_scenes_transitions_nodes/CCTransitionPageTurn.h" // :3
+#include "../layers_scenes_transitions_nodes/CCTransitionProgress.h" // :3
+
+// menu_nodes :3
+#include "../menu_nodes/CCMenu.h" // :3
+#include "../menu_nodes/CCMenuItem.h" // :3
+
+// misc_nodes :3
+#include "../misc_nodes/CCClippingNode.h" // :3
+#include "../misc_nodes/CCMotionStreak.h" // :3
+#include "../misc_nodes/CCProgressTimer.h" // :3
+#include "../misc_nodes/CCRenderTexture.h" // :3
+
+// particle_nodes :3
+#include "../particle_nodes/CCParticleBatchNode.h" // :3
+#include "../particle_nodes/CCParticleSystem.h" // :3
+#include "../particle_nodes/CCParticleExamples.h" // :3
+#include "../particle_nodes/CCParticleSystemQuad.h" // :3
+
+// platform :3
+#include "../platform/CCDevice.h" // :3
+#include "../platform/CCCommon.h" // :3
+#include "../platform/CCFileUtils.h" // :3
+#include "../platform/CCImage.h" // :3
+#include "../platform/CCSAXParser.h" // :3
+#include "../platform/CCThread.h" // :3
+#include "../platform/platform.h" // :3
+#include "../platform/CCPlatformConfig.h" // :3
+#include "../platform/CCPlatformMacros.h" // :3
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS) // :3
+    #include "../platform/ios/CCAccelerometer.h" // :3
+    #include "../platform/ios/CCApplication.h" // :3
+    #include "../platform/ios/CCEGLView.h" // :3
+    #include "../platform/ios/CCGL.h" // :3
+    #include "../platform/ios/CCStdC.h" // :3
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_IOS :3
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID) // :3
+    #include "../platform/android/CCAccelerometer.h" // :3
+    #include "../platform/android/CCApplication.h" // :3
+    #include "../platform/android/CCEGLView.h" // :3
+    #include "../platform/android/CCGL.h" // :3
+    #include "../platform/android/CCStdC.h" // :3
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID :3
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_BLACKBERRY) // :3
+	#error "Unsupported platform with Geode!" // :3
+    // #include "../platform/blackberry/CCAccelerometer.h" :3
+    // #include "../platform/blackberry/CCApplication.h" :3
+    // #include "../platform/blackberry/CCEGLView.h" :3
+    // #include "../platform/blackberry/CCGL.h" :3
+    // #include "../platform/blackberry/CCStdC.h" :3
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_BLACKBERRY :3
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) // :3
+	#include "../platform/win32/CCAccelerometer.h" // :3
+	#include "../platform/win32/CCApplication.h" // :3
+	#include "../platform/win32/CCEGLView.h" // :3
+	#include "../platform/win32/CCGL.h" // :3
+	#include "../platform/win32/CCStdC.h" // :3
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WIN32 :3
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) // :3
+	#error "Unsupported platform with Geode!" // :3
+	// #include "../platform/winrt/CCApplication.h" :3
+	// #include "../platform/winrt/CCEGLView.h" :3
+	// #include "../platform/winrt/CCGL.h" :3
+	// #include "../platform/winrt/CCStdC.h" :3
+	// #include "../platform/winrt/CCAccelerometer.h" :3
+	// #include "../platform/winrt/CCPrecompiledShaders.h" :3
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WINRT :3
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) // :3
+	#error "Unsupported platform with Geode!" // :3
+	// #include "../platform/winrt/CCApplication.h" :3
+	// #include "../platform/wp8/CCEGLView.h" :3
+	// #include "../platform/winrt/CCGL.h" :3
+	// #include "../platform/winrt/CCStdC.h" :3
+	// #include "../platform/winrt/CCAccelerometer.h" :3
+	// #include "../platform/winrt/CCPrecompiledShaders.h" :3
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_WP8 :3
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) // :3
+	#include "../platform/mac/CCAccelerometer.h" // :3
+	#include "../platform/mac/CCApplication.h" // :3
+	#include "../platform/mac/CCEGLView.h" // :3
+	#include "../platform/mac/CCGL.h" // :3
+	#include "../platform/mac/CCStdC.h" // :3
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_MAC :3
 
 
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-	#error "Unsupported platform with Geode!"
-	// #include "../platform/linux/CCAccelerometer.h"
-	// #include "../platform/linux/CCApplication.h"
-	// #include "../platform/linux/CCEGLView.h"
-	// #include "../platform/linux/CCGL.h"
-	// #include "../platform/linux/CCStdC.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_LINUX
 
-// MARMALADE CHANGE
-// Added for Marmalade support
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_MARMALADE)
-	#error "Unsupported platform with Geode!"
-	// #include "../platform/Marmalade/CCAccelerometer.h"
-	// #include "../platform/Marmalade/CCApplication.h"
-	// #include "../platform/Marmalade/CCEGLView.h"
-	// #include "../platform/Marmalade/CCGL.h"
-	// #include "../platform/Marmalade/CCStdC.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_LINUX
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_NACL)
-	#error "Unsupported platform with Geode!"
-    // #include "../platform/nacl/CCAccelerometer.h"
-    // #include "../platform/nacl/CCApplication.h"
-    // #include "../platform/nacl/CCEGLView.h"
-    // #include "../platform/nacl/CCGL.h"
-    // #include "../platform/nacl/CCStdC.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX) // :3
+	#error "Unsupported platform with Geode!" // :3
+	// #include "../platform/linux/CCAccelerometer.h" :3
+	// #include "../platform/linux/CCApplication.h" :3
+	// #include "../platform/linux/CCEGLView.h" :3
+	// #include "../platform/linux/CCGL.h" :3
+	// #include "../platform/linux/CCStdC.h" :3
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_LINUX :3
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_EMSCRIPTEN)
-	#error "Unsupported platform with Geode!"
-    // #include "../platform/emscripten/CCAccelerometer.h"
-    // #include "../platform/emscripten/CCApplication.h"
-    // #include "../platform/emscripten/CCEGLView.h"
-    // #include "../platform/emscripten/CCGL.h"
-    // #include "../platform/emscripten/CCStdC.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_EMSCRIPTEN
+// MARMALADE CHANGE :3
+// Added for Marmalade support :3
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_MARMALADE) // :3
+	#error "Unsupported platform with Geode!" // :3
+	// #include "../platform/Marmalade/CCAccelerometer.h" :3
+	// #include "../platform/Marmalade/CCApplication.h" :3
+	// #include "../platform/Marmalade/CCEGLView.h" :3
+	// #include "../platform/Marmalade/CCGL.h" :3
+	// #include "../platform/Marmalade/CCStdC.h" :3
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_LINUX :3
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_TIZEN)
-	#error "Unsupported platform with Geode!"
-    // #include "../platform/tizen/CCAccelerometer.h"
-    // #include "../platform/tizen/CCApplication.h"
-    // #include "../platform/tizen/CCEGLView.h"
-    // #include "../platform/tizen/CCGL.h"
-    // #include "../platform/tizen/CCStdC.h"
-#endif // CC_TARGET_PLATFORM == CC_PLATFORM_TIZEN
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_NACL) // :3
+	#error "Unsupported platform with Geode!" // :3
+    // #include "../platform/nacl/CCAccelerometer.h" :3
+    // #include "../platform/nacl/CCApplication.h" :3
+    // #include "../platform/nacl/CCEGLView.h" :3
+    // #include "../platform/nacl/CCGL.h" :3
+    // #include "../platform/nacl/CCStdC.h" :3
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID :3
 
-// script_support
-#include "../script_support/CCScriptSupport.h"
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_EMSCRIPTEN) // :3
+	#error "Unsupported platform with Geode!" // :3
+    // #include "../platform/emscripten/CCAccelerometer.h" :3
+    // #include "../platform/emscripten/CCApplication.h" :3
+    // #include "../platform/emscripten/CCEGLView.h" :3
+    // #include "../platform/emscripten/CCGL.h" :3
+    // #include "../platform/emscripten/CCStdC.h" :3
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_EMSCRIPTEN :3
 
-// shaders
-#include "../shaders/CCGLProgram.h"
-#include "../shaders/ccGLStateCache.h"
-#include "../shaders/CCShaderCache.h"
-#include "../shaders/ccShaders.h"
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_TIZEN) // :3
+	#error "Unsupported platform with Geode!" // :3
+    // #include "../platform/tizen/CCAccelerometer.h" :3
+    // #include "../platform/tizen/CCApplication.h" :3
+    // #include "../platform/tizen/CCEGLView.h" :3
+    // #include "../platform/tizen/CCGL.h" :3
+    // #include "../platform/tizen/CCStdC.h" :3
+#endif // CC_TARGET_PLATFORM == CC_PLATFORM_TIZEN :3
 
-// sprite_nodes
-#include "../sprite_nodes/CCAnimation.h"
-#include "../sprite_nodes/CCAnimationCache.h"
-#include "../sprite_nodes/CCSprite.h"
-#include "../sprite_nodes/CCSpriteBatchNode.h"
-#include "../sprite_nodes/CCSpriteFrame.h"
-#include "../sprite_nodes/CCSpriteFrameCache.h"
+// script_support :3
+#include "../script_support/CCScriptSupport.h" // :3
 
-// support
-#include "../support/ccUTF8.h"
-#include "../support/CCNotificationCenter.h"
-#include "../support/CCPointExtension.h"
-#include "../support/CCProfiling.h"
-#include "../support/user_default/CCUserDefault.h"
-#include "../support/CCVertex.h"
-#include "../support/tinyxml2/tinyxml2.h"
-#include "../support/zip_support/ZipUtils.h"
+// shaders :3
+#include "../shaders/CCGLProgram.h" // :3
+#include "../shaders/ccGLStateCache.h" // :3
+#include "../shaders/CCShaderCache.h" // :3
+#include "../shaders/ccShaders.h" // :3
 
-// text_input_node
-#include "../text_input_node/CCIMEDelegate.h"
-#include "../text_input_node/CCIMEDispatcher.h"
-#include "../text_input_node/CCTextFieldTTF.h"
+// sprite_nodes :3
+#include "../sprite_nodes/CCAnimation.h" // :3
+#include "../sprite_nodes/CCAnimationCache.h" // :3
+#include "../sprite_nodes/CCSprite.h" // :3
+#include "../sprite_nodes/CCSpriteBatchNode.h" // :3
+#include "../sprite_nodes/CCSpriteFrame.h" // :3
+#include "../sprite_nodes/CCSpriteFrameCache.h" // :3
 
-// textures
-#include "../textures/CCTexture2D.h"
-#include "../textures/CCTextureAtlas.h"
-#include "../textures/CCTextureCache.h"
-#include "../textures/CCTexturePVR.h"
-#include "../textures/CCTextureETC.h"
+// support :3
+#include "../support/ccUTF8.h" // :3
+#include "../support/CCNotificationCenter.h" // :3
+#include "../support/CCPointExtension.h" // :3
+#include "../support/CCProfiling.h" // :3
+#include "../support/user_default/CCUserDefault.h" // :3
+#include "../support/CCVertex.h" // :3
+#include "../support/tinyxml2/tinyxml2.h" // :3
+#include "../support/zip_support/ZipUtils.h" // :3
 
-// tilemap_parallax_nodes
-#include "../tilemap_parallax_nodes/CCParallaxNode.h"
-#include "../tilemap_parallax_nodes/CCTMXLayer.h"
-#include "../tilemap_parallax_nodes/CCTMXObjectGroup.h"
-#include "../tilemap_parallax_nodes/CCTMXTiledMap.h"
-#include "../tilemap_parallax_nodes/CCTMXXMLParser.h"
-#include "../tilemap_parallax_nodes/CCTileMapAtlas.h"
+// text_input_node :3
+#include "../text_input_node/CCIMEDelegate.h" // :3
+#include "../text_input_node/CCIMEDispatcher.h" // :3
+#include "../text_input_node/CCTextFieldTTF.h" // :3
 
-// touch_dispatcher
-#include "../touch_dispatcher/CCTouch.h"
-#include "../touch_dispatcher/CCTouchDelegateProtocol.h"
-#include "../touch_dispatcher/CCTouchDispatcher.h"
-#include "../touch_dispatcher/CCTouchHandler.h"
+// textures :3
+#include "../textures/CCTexture2D.h" // :3
+#include "../textures/CCTextureAtlas.h" // :3
+#include "../textures/CCTextureCache.h" // :3
+#include "../textures/CCTexturePVR.h" // :3
+#include "../textures/CCTextureETC.h" // :3
 
-// root
-#include "../CCCamera.h"
-#include "../CCConfiguration.h"
-#include "../CCDirector.h"
-#include "../CCScheduler.h"
+// tilemap_parallax_nodes :3
+#include "../tilemap_parallax_nodes/CCParallaxNode.h" // :3
+#include "../tilemap_parallax_nodes/CCTMXLayer.h" // :3
+#include "../tilemap_parallax_nodes/CCTMXObjectGroup.h" // :3
+#include "../tilemap_parallax_nodes/CCTMXTiledMap.h" // :3
+#include "../tilemap_parallax_nodes/CCTMXXMLParser.h" // :3
+#include "../tilemap_parallax_nodes/CCTileMapAtlas.h" // :3
 
-// component
-#include "../support/component/CCComponent.h"
-#include "../support/component/CCComponentContainer.h"
+// touch_dispatcher :3
+#include "../touch_dispatcher/CCTouch.h" // :3
+#include "../touch_dispatcher/CCTouchDelegateProtocol.h" // :3
+#include "../touch_dispatcher/CCTouchDispatcher.h" // :3
+#include "../touch_dispatcher/CCTouchHandler.h" // :3
 
-//robtop
-#include "../robtop/keyboard_dispatcher/CCKeyboardDelegate.h"
-#include "../robtop/keyboard_dispatcher/CCKeyboardDispatcher.h"
+// root :3
+#include "../CCCamera.h" // :3
+#include "../CCConfiguration.h" // :3
+#include "../CCDirector.h" // :3
+#include "../CCScheduler.h" // :3
 
-#include "../robtop/mouse_dispatcher/CCMouseDelegate.h"
-#include "../robtop/mouse_dispatcher/CCMouseDispatcher.h"
+// component :3
+#include "../support/component/CCComponent.h" // :3
+#include "../support/component/CCComponentContainer.h" // :3
 
-#include "../robtop/content/CCContentManager.h"
+//robtop :3
+#include "../robtop/keyboard_dispatcher/CCKeyboardDelegate.h" // :3
+#include "../robtop/keyboard_dispatcher/CCKeyboardDispatcher.h" // :3
 
-#include "../robtop/scene_nodes/CCSceneTransitionDelegate.h"
+#include "../robtop/mouse_dispatcher/CCMouseDelegate.h" // :3
+#include "../robtop/mouse_dispatcher/CCMouseDispatcher.h" // :3
 
-#include "../robtop/special_nodes/CCLightning.h"
+#include "../robtop/content/CCContentManager.h" // :3
 
-#include "../robtop/sprite_nodes/CCFontSprite.h"
-#include "../robtop/sprite_nodes/CCSpriteExtra.h"
+#include "../robtop/scene_nodes/CCSceneTransitionDelegate.h" // :3
 
-#include "../robtop/xml/DS_Dictionary.h"
-#include "../robtop/xml/ObjectDecoder.h"
+#include "../robtop/special_nodes/CCLightning.h" // :3
 
-// #include "../robtop/glfw/glfw3.h"
+#include "../robtop/sprite_nodes/CCFontSprite.h" // :3
+#include "../robtop/sprite_nodes/CCSpriteExtra.h" // :3
 
-NS_CC_BEGIN
+#include "../robtop/xml/DS_Dictionary.h" // :3
+#include "../robtop/xml/ObjectDecoder.h" // :3
 
-CC_DLL const char* cocos2dVersion();
+// #include "../robtop/glfw/glfw3.h" :3
 
-NS_CC_END
+NS_CC_BEGIN // :3
 
-#endif // __COCOS2D_H__
+CC_DLL const char* cocos2dVersion(); // :3
+
+NS_CC_END // :3
+
+#endif // __COCOS2D_H__ :3

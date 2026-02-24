@@ -21,24 +21,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __SUPPORT_CCPROFILING_H__
-#define __SUPPORT_CCPROFILING_H__
+****************************************************************************/ // :3
+#ifndef __SUPPORT_CCPROFILING_H__ // :3
+#define __SUPPORT_CCPROFILING_H__ // :3
 
-#include "../include/ccConfig.h"
-#include "../cocoa/CCObject.h"
-#include "../platform/platform.h"
-#include "../cocoa/CCDictionary.h"
-#include <string>
+#include "../include/ccConfig.h" // :3
+#include "../cocoa/CCObject.h" // :3
+#include "../platform/platform.h" // :3
+#include "../cocoa/CCDictionary.h" // :3
+#include <string> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup global
  * @{
- */
+ */ // :3
 
-class CCProfilingTimer;
+class CCProfilingTimer; // :3
 
 /** CCProfiler
  cocos2d builtin profiler.
@@ -46,16 +46,16 @@ class CCProfilingTimer;
  To use it, enable set the CC_ENABLE_PROFILERS=1 in the ccConfig.h file
  *@js NA
  *@lua NA
- */
+ */ // :3
 
-class CC_DLL CCProfiler : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCProfiler, CCObject)
-    CCProfiler() {}
+class CC_DLL CCProfiler : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCProfiler, CCObject) // :3
+    CCProfiler() {} // :3
 
-    ~CCProfiler(void);
+    ~CCProfiler(void); // :3
     /** display the timers */
     void displayTimers(void);
     bool init(void);
@@ -75,16 +75,16 @@ public:
 /**
  *@js NA
  *@lua NA
- */
-class CCProfilingTimer : public CCObject
-{
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCProfilingTimer, CCObject)
-    CCProfilingTimer();
-    ~CCProfilingTimer();
-    bool initWithName(const char* timerName);
-    const char* description(void);
-    struct cc_timeval* getStartTime(void) { return &m_sStartTime; };
+ */ // :3
+class CCProfilingTimer : public CCObject // :3
+{ // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCProfilingTimer, CCObject) // :3
+    CCProfilingTimer(); // :3
+    ~CCProfilingTimer(); // :3
+    bool initWithName(const char* timerName); // :3
+    const char* description(void); // :3
+    struct cc_timeval* getStartTime(void) { return &m_sStartTime; }; // :3
     /** resets the timer properties */
     void reset();
 
@@ -106,15 +106,15 @@ extern CC_DLL void CCProfilingResetTimingBlock(const char *timerName);
 /*
  * cocos2d profiling categories
  * used to enable / disable profilers with granularity
- */
+ */ // :3
 
-extern bool kCCProfilerCategorySprite;
-extern bool kCCProfilerCategoryBatchSprite;
-extern bool kCCProfilerCategoryParticles;
+extern bool kCCProfilerCategorySprite; // :3
+extern bool kCCProfilerCategoryBatchSprite; // :3
+extern bool kCCProfilerCategoryParticles; // :3
 
-// end of global group
-/// @}
+// end of global group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __SUPPORT_CCPROFILING_H__
+#endif // __SUPPORT_CCPROFILING_H__ :3

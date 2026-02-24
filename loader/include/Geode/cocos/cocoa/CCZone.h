@@ -20,40 +20,40 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CC_ZONE_H__
-#define __CC_ZONE_H__
+#ifndef __CC_ZONE_H__ // :3
+#define __CC_ZONE_H__ // :3
 
-#include "../platform/CCPlatformMacros.h"
-#include <stdio.h>
+#include "../platform/CCPlatformMacros.h" // :3
+#include <stdio.h> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup data_structures
  * @{
- */
+ */ // :3
 
-class CCObject;
+class CCObject; // :3
 /**
  * @js NA
  * @lua NA
- */
-class CC_DLL CCZone
-{
-    GEODE_FRIEND_MODIFY
-public:
-    CCZone(CCObject *pObject = NULL);
+ */ // :3
+class CC_DLL CCZone // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    CCZone(CCObject *pObject = NULL); // :3
 
-public:
-    CCObject *m_pCopyObject;
-};
+public: // :3
+    CCObject *m_pCopyObject; // :3
+}; // :3
 
-// end of data_structure group
-/// @}
+// end of data_structure group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __CC_ZONE_H__
+#endif // __CC_ZONE_H__ :3
 

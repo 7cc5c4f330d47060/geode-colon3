@@ -20,75 +20,75 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#include "CCEGLView.h"
-#include "../cocoa/CCSet.h"
-#include "CCDirector.h"
-#include "../include/ccMacros.h"
-#include "../touch_dispatcher/CCTouchDispatcher.h"
-#include "jni/IMEJni.h"
-#include "jni/Java_org_cocos2dx_lib_Cocos2dxHelper.h"
-#include "../platform/CCGL.h"
+****************************************************************************/ // :3
+#include "CCEGLView.h" // :3
+#include "../cocoa/CCSet.h" // :3
+#include "CCDirector.h" // :3
+#include "../include/ccMacros.h" // :3
+#include "../touch_dispatcher/CCTouchDispatcher.h" // :3
+#include "jni/IMEJni.h" // :3
+#include "jni/Java_org_cocos2dx_lib_Cocos2dxHelper.h" // :3
+#include "../platform/CCGL.h" // :3
 
-#include <stdlib.h>
-#include <android/log.h>
+#include <stdlib.h> // :3
+#include <android/log.h> // :3
 
 
 
-#if CC_TEXTURE_ATLAS_USE_VAO
+#if CC_TEXTURE_ATLAS_USE_VAO // :3
 
-// <EGL/egl.h> exists since android 2.3
-#include <EGL/egl.h>
-PFNGLGENVERTEXARRAYSOESPROC glGenVertexArraysOESEXT = 0;
-PFNGLBINDVERTEXARRAYOESPROC glBindVertexArrayOESEXT = 0;
-PFNGLDELETEVERTEXARRAYSOESPROC glDeleteVertexArraysOESEXT = 0;
+// <EGL/egl.h> exists since android 2.3 :3
+#include <EGL/egl.h> // :3
+PFNGLGENVERTEXARRAYSOESPROC glGenVertexArraysOESEXT = 0; // :3
+PFNGLBINDVERTEXARRAYOESPROC glBindVertexArrayOESEXT = 0; // :3
+PFNGLDELETEVERTEXARRAYSOESPROC glDeleteVertexArraysOESEXT = 0; // :3
 
-#endif
+#endif // :3
 
-void initExtensions() {
-#if CC_TEXTURE_ATLAS_USE_VAO
-     glGenVertexArraysOESEXT = (PFNGLGENVERTEXARRAYSOESPROC)eglGetProcAddress("glGenVertexArraysOES");
-     glBindVertexArrayOESEXT = (PFNGLBINDVERTEXARRAYOESPROC)eglGetProcAddress("glBindVertexArrayOES");
-     glDeleteVertexArraysOESEXT = (PFNGLDELETEVERTEXARRAYSOESPROC)eglGetProcAddress("glDeleteVertexArraysOES");
-#endif
-}
+void initExtensions() { // :3
+#if CC_TEXTURE_ATLAS_USE_VAO // :3
+     glGenVertexArraysOESEXT = (PFNGLGENVERTEXARRAYSOESPROC)eglGetProcAddress("glGenVertexArraysOES"); // :3
+     glBindVertexArrayOESEXT = (PFNGLBINDVERTEXARRAYOESPROC)eglGetProcAddress("glBindVertexArrayOES"); // :3
+     glDeleteVertexArraysOESEXT = (PFNGLDELETEVERTEXARRAYSOESPROC)eglGetProcAddress("glDeleteVertexArraysOES"); // :3
+#endif // :3
+} // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-CCEGLView::CCEGLView()
-{
-    initExtensions();
-}
+CCEGLView::CCEGLView() // :3
+{ // :3
+    initExtensions(); // :3
+} // :3
 
-CCEGLView::~CCEGLView()
-{
+CCEGLView::~CCEGLView() // :3
+{ // :3
 
-}
+} // :3
 
-bool CCEGLView::isOpenGLReady()
-{
-    return (m_obScreenSize.width != 0 && m_obScreenSize.height != 0);
-}
+bool CCEGLView::isOpenGLReady() // :3
+{ // :3
+    return (m_obScreenSize.width != 0 && m_obScreenSize.height != 0); // :3
+} // :3
 
-void CCEGLView::end()
-{
-    terminateProcessJNI();
-}
+void CCEGLView::end() // :3
+{ // :3
+    terminateProcessJNI(); // :3
+} // :3
 
-void CCEGLView::swapBuffers()
-{
-}
+void CCEGLView::swapBuffers() // :3
+{ // :3
+} // :3
 
-CCEGLView* CCEGLView::sharedOpenGLView()
-{
-    static CCEGLView instance;
-    return &instance;
-}
+CCEGLView* CCEGLView::sharedOpenGLView() // :3
+{ // :3
+    static CCEGLView instance; // :3
+    return &instance; // :3
+} // :3
 
-void CCEGLView::setIMEKeyboardState(bool bOpen)
-{
-    setKeyboardStateJNI((int)bOpen);
-}
+void CCEGLView::setIMEKeyboardState(bool bOpen) // :3
+{ // :3
+    setKeyboardStateJNI((int)bOpen); // :3
+} // :3
 
-NS_CC_END
+NS_CC_END // :3
 

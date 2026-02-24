@@ -27,27 +27,27 @@
  * THE SOFTWARE.
  *
  * Converted to c++ / cocos2d-x by Angus C
- */
+ */ // :3
 
 
-#ifndef __CCCONTROL_SATURATION_PICKER_H__
-#define __CCCONTROL_SATURATION_PICKER_H__
+#ifndef __CCCONTROL_SATURATION_PICKER_H__ // :3
+#define __CCCONTROL_SATURATION_PICKER_H__ // :3
 
-#include "CCControl.h"
-#include "CCInvocation.h"
+#include "CCControl.h" // :3
+#include "CCInvocation.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup control_extension
  * @{
- */
+ */ // :3
 
-class CC_DLL CCControlSaturationBrightnessPicker : public CCControl
-{
-    GEODE_FRIEND_MODIFY
+class CC_DLL CCControlSaturationBrightnessPicker : public CCControl // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
 
     /** Contains the receiver's current saturation value. */
     CC_SYNTHESIZE_READONLY_NV(float, m_saturation, Saturation);

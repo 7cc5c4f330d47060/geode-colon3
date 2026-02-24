@@ -20,39 +20,39 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCFLOAT_H__
-#define __CCFLOAT_H__
+#ifndef __CCFLOAT_H__ // :3
+#define __CCFLOAT_H__ // :3
 
-#include "CCObject.h"
+#include "CCObject.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup data_structures
  * @{
  * @js NA
  * @lua NA
- */
+ */ // :3
 
-class CC_DLL CCFloat : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    CCFloat(float v)
-        : m_fValue(v) {}
-    float getValue() const {return m_fValue;}
+class CC_DLL CCFloat : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    CCFloat(float v) // :3
+        : m_fValue(v) {} // :3
+    float getValue() const {return m_fValue;} // :3
 
-    static CCFloat* create(float v)
-    {
-        CCFloat* pRet = new CCFloat(v);
-        if (pRet)
-        {
-            pRet->autorelease();
-        }
-        return pRet;
-    }
+    static CCFloat* create(float v) // :3
+    { // :3
+        CCFloat* pRet = new CCFloat(v); // :3
+        if (pRet) // :3
+        { // :3
+            pRet->autorelease(); // :3
+        } // :3
+        return pRet; // :3
+    } // :3
 
     /* override functions */
     virtual void acceptVisitor(CCDataVisitor &visitor) { visitor.visit(this); }

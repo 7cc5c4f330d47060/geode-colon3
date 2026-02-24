@@ -21,20 +21,20 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_COCOS2DX_H_
-#define SPINE_COCOS2DX_H_
+#ifndef SPINE_COCOS2DX_H_ // :3
+#define SPINE_COCOS2DX_H_ // :3
 
-#include "spine.h"
-#include "../../include/cocos2d.h"
-#include "CCSkeleton.h"
-#include "CCSkeletonAnimation.h"
+#include "spine.h" // :3
+#include "../../include/cocos2d.h" // :3
+#include "CCSkeleton.h" // :3
+#include "CCSkeletonAnimation.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-void RegionAttachment_updateQuad (RegionAttachment* self, Slot* slot, cocos2d::ccV3F_C4B_T2F_Quad* quad, bool premultiplied = false);
+void RegionAttachment_updateQuad (RegionAttachment* self, Slot* slot, cocos2d::ccV3F_C4B_T2F_Quad* quad, bool premultiplied = false); // :3
 
-}} // namespace cocos2d { namespace extension {
+}} // namespace cocos2d { namespace extension { :3
 
 #endif /* SPINE_COCOS2DX_H_ */

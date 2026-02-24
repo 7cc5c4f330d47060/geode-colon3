@@ -27,7 +27,7 @@
 ** CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 ** THE POSSIBILITY OF SUCH DAMAGE.
-*/
+*/ // :3
 
 /*
  * Mesa 3-D graphics library
@@ -51,7 +51,7 @@
  * BRIAN PAUL BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
  * AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
+ */ // :3
 
 /*
 ** Copyright (c) 2007 The Khronos Group Inc.
@@ -74,34 +74,34 @@
 ** CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 ** TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 ** MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.
-*/
+*/ // :3
 
-#ifndef __glxew_h__
-#define __glxew_h__
-#define __GLXEW_H__
+#ifndef __glxew_h__ // :3
+#define __glxew_h__ // :3
+#define __GLXEW_H__ // :3
 
-#ifdef __glxext_h_
-#error glxext.h included before glxew.h
-#endif
+#ifdef __glxext_h_ // :3
+#error glxext.h included before glxew.h // :3
+#endif // :3
 
-#if defined(GLX_H) || defined(__GLX_glx_h__) || defined(__glx_h__)
-#error glx.h included before glxew.h
-#endif
+#if defined(GLX_H) || defined(__GLX_glx_h__) || defined(__glx_h__) // :3
+#error glx.h included before glxew.h // :3
+#endif // :3
 
-#define __glxext_h_
+#define __glxext_h_ // :3
 
-#define GLX_H
-#define __GLX_glx_h__
-#define __glx_h__
+#define GLX_H // :3
+#define __GLX_glx_h__ // :3
+#define __glx_h__ // :3
 
-#include <X11/Xlib.h>
-#include <X11/Xutil.h>
-#include <X11/Xmd.h>
-#include <GL/glew.h>
+#include <X11/Xlib.h> // :3
+#include <X11/Xutil.h> // :3
+#include <X11/Xmd.h> // :3
+#include <GL/glew.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /* ---------------------------- GLX_VERSION_1_0 --------------------------- */
 

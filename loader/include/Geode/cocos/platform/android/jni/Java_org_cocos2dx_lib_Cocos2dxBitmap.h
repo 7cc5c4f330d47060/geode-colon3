@@ -20,13 +20,13 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __EDITBOX_JNI_H__
-#define __EDITBOX_JNI_H__
+****************************************************************************/ // :3
+#ifndef __EDITBOX_JNI_H__ // :3
+#define __EDITBOX_JNI_H__ // :3
 
-#include <string>
+#include <string> // :3
 
-int getFontSizeAccordingHeightJni(int height);
-gd::string getStringWithEllipsisJni(const char* pszText, float width, float fontSize);
+int getFontSizeAccordingHeightJni(int height); // :3
+gd::string getStringWithEllipsisJni(const char* pszText, float width, float fontSize); // :3
 
-#endif // __EDITBOX_JNI_H__
+#endif // __EDITBOX_JNI_H__ :3

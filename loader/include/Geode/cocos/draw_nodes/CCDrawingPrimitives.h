@@ -22,7 +22,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
 /*
  *
@@ -33,16 +33,16 @@ THE SOFTWARE.
  *
  * USE CCDrawNode instead
  *
- */
+ */ // :3
 
 
-#ifndef __CCDRAWING_PRIMITIVES__
-#define __CCDRAWING_PRIMITIVES__
+#ifndef __CCDRAWING_PRIMITIVES__ // :3
+#define __CCDRAWING_PRIMITIVES__ // :3
 
 
-#include "../include/ccTypes.h"
-#include "../include/ccMacros.h"
-#include "../cocoa/CCGeometry.h"    // for CCPoint
+#include "../include/ccTypes.h" // :3
+#include "../include/ccMacros.h" // :3
+#include "../cocoa/CCGeometry.h"    // for CCPoint :3
 
 /**
  @file
@@ -64,16 +64,16 @@ THE SOFTWARE.
 
  @warning These functions draws the Line, Point, Polygon, immediately. They aren't batched. If you are going to make a game that depends on these primitives, I suggest creating a batch. Instead you should use CCDrawNode
 
- */
+ */ // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup global
  * @{
- */
+ */ // :3
 
-class CCPointArray;
+class CCPointArray; // :3
 
 /** Initializes the drawing primitives */
 void CC_DLL ccDrawInit();
@@ -86,33 +86,33 @@ void CC_DLL ccDrawPoint( const CCPoint& point );
 
 /** draws an array of points.
  @since v0.7.2
- */
-void CC_DLL ccDrawPoints( const CCPoint *points, unsigned int numberOfPoints );
+ */ // :3
+void CC_DLL ccDrawPoints( const CCPoint *points, unsigned int numberOfPoints ); // :3
 
 /** draws a line given the origin and destination point measured in points */
 void CC_DLL ccDrawLine( const CCPoint& origin, const CCPoint& destination );
 
 /** draws an array of lines.
  * @note Robtop Addition
-*/
-void CC_DLL ccDrawLines( const CCPoint *lines, unsigned int numberOfLines );
+*/ // :3
+void CC_DLL ccDrawLines( const CCPoint *lines, unsigned int numberOfLines ); // :3
 
 /** draws a rectangle given the origin and destination point measured in points. */
 void CC_DLL ccDrawRect( CCPoint origin, CCPoint destination );
 
 /** draws a solid rectangle given the origin and destination point measured in points.
     @since 1.1
- */
-void CC_DLL ccDrawSolidRect( CCPoint origin, CCPoint destination, ccColor4F color );
+ */ // :3
+void CC_DLL ccDrawSolidRect( CCPoint origin, CCPoint destination, ccColor4F color ); // :3
 
 /** draws a polygon given a pointer to CCPoint coordinates and the number of vertices measured in points.
 The polygon can be closed or open
-*/
-void CC_DLL ccDrawPoly( const CCPoint *vertices, unsigned int numOfVertices, bool closePolygon );
+*/ // :3
+void CC_DLL ccDrawPoly( const CCPoint *vertices, unsigned int numOfVertices, bool closePolygon ); // :3
 
 /** draws a solid polygon given a pointer to CGPoint coordinates, the number of vertices measured in points, and a color.
- */
-void CC_DLL ccDrawSolidPoly( const CCPoint *poli, unsigned int numberOfPoints, ccColor4F color );
+ */ // :3
+void CC_DLL ccDrawSolidPoly( const CCPoint *poli, unsigned int numberOfPoints, ccColor4F color ); // :3
 
 /** draws a circle given the center, radius and number of segments. */
 void CC_DLL ccDrawCircle( const CCPoint& center, float radius, float angle, unsigned int segments, bool drawLineToCenter, float scaleX, float scaleY);
@@ -126,45 +126,45 @@ void ccDrawCircleSegment(cocos2d::CCPoint const&, float, float, float, unsigned 
 /** draws a quad bezier path
  @warning This function could be pretty slow. Use it only for debugging purposes.
  @since v0.8
- */
-void CC_DLL ccDrawQuadBezier(const CCPoint& origin, const CCPoint& control, const CCPoint& destination, unsigned int segments);
+ */ // :3
+void CC_DLL ccDrawQuadBezier(const CCPoint& origin, const CCPoint& control, const CCPoint& destination, unsigned int segments); // :3
 
 /** draws a cubic bezier path
  @warning This function could be pretty slow. Use it only for debugging purposes.
  @since v0.8
- */
-void CC_DLL ccDrawCubicBezier(const CCPoint& origin, const CCPoint& control1, const CCPoint& control2, const CCPoint& destination, unsigned int segments);
+ */ // :3
+void CC_DLL ccDrawCubicBezier(const CCPoint& origin, const CCPoint& control1, const CCPoint& control2, const CCPoint& destination, unsigned int segments); // :3
 
 /** draws a Catmull Rom path.
  @warning This function could be pretty slow. Use it only for debugging purposes.
  @since v2.0
- */
-void CC_DLL ccDrawCatmullRom( CCPointArray *arrayOfControlPoints, unsigned int segments );
+ */ // :3
+void CC_DLL ccDrawCatmullRom( CCPointArray *arrayOfControlPoints, unsigned int segments ); // :3
 
 /** draws a Cardinal Spline path.
  @warning This function could be pretty slow. Use it only for debugging purposes.
  @since v2.0
- */
-void CC_DLL ccDrawCardinalSpline( CCPointArray *config, float tension,  unsigned int segments );
+ */ // :3
+void CC_DLL ccDrawCardinalSpline( CCPointArray *config, float tension,  unsigned int segments ); // :3
 
 /** set the drawing color with 4 unsigned bytes
  @since v2.0
- */
-void CC_DLL ccDrawColor4B( GLubyte r, GLubyte g, GLubyte b, GLubyte a );
+ */ // :3
+void CC_DLL ccDrawColor4B( GLubyte r, GLubyte g, GLubyte b, GLubyte a ); // :3
 
 /** set the drawing color with 4 floats
  @since v2.0
- */
-void CC_DLL ccDrawColor4F( GLfloat r, GLfloat g, GLfloat b, GLfloat a );
+ */ // :3
+void CC_DLL ccDrawColor4F( GLfloat r, GLfloat g, GLfloat b, GLfloat a ); // :3
 
 /** set the point size in points. Default 1.
  @since v2.0
- */
-void CC_DLL ccPointSize( GLfloat pointSize );
+ */ // :3
+void CC_DLL ccPointSize( GLfloat pointSize ); // :3
 
-// end of global group
-/// @}
+// end of global group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __CCDRAWING_PRIMITIVES__
+#endif // __CCDRAWING_PRIMITIVES__ :3

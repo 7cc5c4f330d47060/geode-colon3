@@ -24,26 +24,26 @@
  * THE SOFTWARE.
  *
  * Converted to c++ / cocos2d-x by Angus C
- */
+ */ // :3
 
 
-#ifndef __CCCONTROL_H__
-#define __CCCONTROL_H__
+#ifndef __CCCONTROL_H__ // :3
+#define __CCCONTROL_H__ // :3
 
-#include "CCInvocation.h"
-#include "CCControlUtils.h"
-#include "../../../include/cocos2d.h"
+#include "CCInvocation.h" // :3
+#include "CCControlUtils.h" // :3
+#include "../../../include/cocos2d.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
-class CC_DLL CCInvocation;
+class CC_DLL CCInvocation; // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup control_extension
  * @{
- */
+ */ // :3
 
 /** Number of kinds of control event. */
 #define kControlEventTotalNumber 9
@@ -84,18 +84,18 @@ typedef unsigned int CCControlState;
  * certain events occur.
  *
  * To use the CCControl you have to subclass it.
- */
-class CC_DLL CCControl : public CCLayerRGBA
-{
-    GEODE_FRIEND_MODIFY
-public:
-    //CCRGBAProtocol
-    bool m_bIsOpacityModifyRGB;
+ */ // :3
+class CC_DLL CCControl : public CCLayerRGBA // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    //CCRGBAProtocol :3
+    bool m_bIsOpacityModifyRGB; // :3
 
     /** The current control state constant.
      * @note Robtop Addition: Made non virtual
-    */
-    CC_SYNTHESIZE_READONLY_NV(CCControlState, m_eState, State);
+    */ // :3
+    CC_SYNTHESIZE_READONLY_NV(CCControlState, m_eState, State); // :3
 
     /** True if all of the controls parents are visible */
 public:
@@ -114,57 +114,57 @@ public:
     bool hasVisibleParents();
     /**
      * Updates the control layout using its current internal state.
-     */
-    virtual void needsLayout();
+     */ // :3
+    virtual void needsLayout(); // :3
 
-    virtual bool isOpacityModifyRGB();
-    virtual void setOpacityModifyRGB(bool bOpacityModifyRGB);
+    virtual bool isOpacityModifyRGB(); // :3
+    virtual void setOpacityModifyRGB(bool bOpacityModifyRGB); // :3
 
-protected:
-    bool m_bEnabled;
-    bool m_bSelected;
-    bool m_bHighlighted;
+protected: // :3
+    bool m_bEnabled; // :3
+    bool m_bSelected; // :3
+    bool m_bHighlighted; // :3
 
     /**
      * Table of connection between the CCControlEvents and their associated
      * target-actions pairs. For each CCButtonEvents a list of NSInvocation
      * (which contains the target-action pair) is linked.
-     */
-    CCDictionary* m_pDispatchTable;
+     */ // :3
+    CCDictionary* m_pDispatchTable; // :3
 
-public:
+public: // :3
     /**
      *  @js ctor
-     */
-    CCControl();
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCControl, CCLayerRGBA)
+     */ // :3
+    CCControl(); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCControl, CCLayerRGBA) // :3
 
-    virtual bool init(void);
+    virtual bool init(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCControl();
+     */ // :3
+    virtual ~CCControl(); // :3
 
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onExit();
-    virtual void registerWithTouchDispatcher();
+     */ // :3
+    virtual void onExit(); // :3
+    virtual void registerWithTouchDispatcher(); // :3
 
     /**
  * Sends action messages for the given control events.
  *
  * @param controlEvents A bitmask whose set flags specify the control events for
  * which action messages are sent. See "CCControlEvent" for bitmask constants.
- */
-    virtual void sendActionsForControlEvents(CCControlEvent controlEvents);
+ */ // :3
+    virtual void sendActionsForControlEvents(CCControlEvent controlEvents); // :3
 
     /**
     * Adds a target and action for a particular event (or events) to an internal
@@ -178,8 +178,8 @@ public:
     * @param action A selector identifying an action message. It cannot be NULL.
     * @param controlEvents A bitmask specifying the control events for which the
     * action message is sent. See "CCControlEvent" for bitmask constants.
-    */
-    virtual void addTargetWithActionForControlEvents(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvents);
+    */ // :3
+    virtual void addTargetWithActionForControlEvents(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvents); // :3
 
     /**
     * Removes a target and action for a particular event (or events) from an
@@ -192,15 +192,15 @@ public:
     * all action messages paired with target.
     * @param controlEvents A bitmask specifying the control events associated with
     * target and action. See "CCControlEvent" for bitmask constants.
-    */
-    virtual void removeTargetWithActionForControlEvents(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvents);
+    */ // :3
+    virtual void removeTargetWithActionForControlEvents(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvents); // :3
 
     /**
     * Returns a point corresponding to the touh location converted into the
     * control space coordinates.
     * @param touch A CCTouch object that represents a touch.
-    */
-    virtual CCPoint getTouchLocation(CCTouch* touch);
+    */ // :3
+    virtual CCPoint getTouchLocation(CCTouch* touch); // :3
 
 
     /**
@@ -210,11 +210,11 @@ public:
     * @param touch A CCTouch object that represents a touch.
     *
     * @return YES whether a touch is inside the receiver��s rect.
-    */
-    virtual bool isTouchInside(CCTouch * touch);
+    */ // :3
+    virtual bool isTouchInside(CCTouch * touch); // :3
 
 
-protected:
+protected: // :3
     /**
      * Returns an CCInvocation object able to construct messages using a given
      * target-action pair. (The invocation may optionnaly include the sender and
@@ -227,8 +227,8 @@ protected:
      *
      * @return an CCInvocation object able to construct messages using a given
      * target-action pair.
-     */
-    CCInvocation* invocationWithTargetAndActionForControlEvent(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvent);
+     */ // :3
+    CCInvocation* invocationWithTargetAndActionForControlEvent(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvent); // :3
 
 
 
@@ -240,9 +240,9 @@ protected:
     * See "CCControlEvent" for constants.
     *
     * @return the CCInvocation list for the given control event.
-    */
-    //<CCInvocation*>
-    CCArray* dispatchListforControlEvent(CCControlEvent controlEvent);
+    */ // :3
+    //<CCInvocation*> :3
+    CCArray* dispatchListforControlEvent(CCControlEvent controlEvent); // :3
     /**
      * Adds a target and action for a particular event to an internal dispatch
      * table.
@@ -255,8 +255,8 @@ protected:
      * @param action A selector identifying an action message. It cannot be NULL.
      * @param controlEvent A control event for which the action message is sent.
      * See "CCControlEvent" for constants.
-     */
-    void addTargetWithActionForControlEvent(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvent);
+     */ // :3
+    void addTargetWithActionForControlEvent(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvent); // :3
 
     /**
      * Removes a target and action for a particular event from an internal dispatch
@@ -269,29 +269,29 @@ protected:
      * all action messages paired with target.
      * @param controlEvent A control event for which the action message is sent.
      * See "CCControlEvent" for constants.
-     */
-    void removeTargetWithActionForControlEvent(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvent);
+     */ // :3
+    void removeTargetWithActionForControlEvent(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvent); // :3
 
-    static CCControl* create();
-public:
+    static CCControl* create(); // :3
+public: // :3
     /**
      *  @js NA
-     */
-    void addHandleOfControlEvent(int nFunID,CCControlEvent controlEvent);
+     */ // :3
+    void addHandleOfControlEvent(int nFunID,CCControlEvent controlEvent); // :3
     /**
      *  @js NA
-     */
-    void removeHandleOfControlEvent(CCControlEvent controlEvent);
-private:
-    int  getHandleOfControlEvent(CCControlEvent controlEvent);
-private:
-    gd::map<int,int> m_mapHandleOfControlEvent;
-};
+     */ // :3
+    void removeHandleOfControlEvent(CCControlEvent controlEvent); // :3
+private: // :3
+    int  getHandleOfControlEvent(CCControlEvent controlEvent); // :3
+private: // :3
+    gd::map<int,int> m_mapHandleOfControlEvent; // :3
+}; // :3
 
-// end of GUI group
-/// @}
-/// @}
+// end of GUI group :3
+/// @} :3
+/// @} :3
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
-#endif
+#endif // :3

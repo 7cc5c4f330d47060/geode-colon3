@@ -8,7 +8,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 /* clang-format off */
 
 /* clang-format on */
@@ -80,13 +80,13 @@ extern "C" {
 /*
  * BIO_FILENAME_READ|BIO_CLOSE to open or close on free.
  * BIO_set_fp(in,stdin,BIO_NOCLOSE);
- */
-#define BIO_NOCLOSE 0x00
-#define BIO_CLOSE 0x01
+ */ // :3
+#define BIO_NOCLOSE 0x00 // :3
+#define BIO_CLOSE 0x01 // :3
 
 /*
  * These are used in the following macros and are passed to BIO_ctrl()
- */
+ */ // :3
 #define BIO_CTRL_RESET 1 /* opt - rewind/zero etc */
 #define BIO_CTRL_EOF 2 /* opt - are we at the eof */
 #define BIO_CTRL_INFO 3 /* opt - extra tit-bits */
@@ -109,7 +109,7 @@ extern "C" {
 /* dgram BIO stuff */
 #define BIO_CTRL_DGRAM_CONNECT 31 /* BIO dgram special */
 #define BIO_CTRL_DGRAM_SET_CONNECTED 32 /* allow for an externally connected \
-                                         * socket to be passed in */
+                                         * socket to be passed in */ // :3
 #define BIO_CTRL_DGRAM_SET_RECV_TIMEOUT 33 /* setsockopt, essentially */
 #define BIO_CTRL_DGRAM_GET_RECV_TIMEOUT 34 /* getsockopt, essentially */
 #define BIO_CTRL_DGRAM_SET_SEND_TIMEOUT 35 /* setsockopt, essentially */
@@ -127,20 +127,20 @@ extern "C" {
 #define BIO_CTRL_DGRAM_GET_MTU 41 /* get cached value for MTU */
 #define BIO_CTRL_DGRAM_SET_MTU 42 /* set cached value for MTU.  \
                                    * want to use this if asking \
-                                   * the kernel fails */
+                                   * the kernel fails */ // :3
 
 #define BIO_CTRL_DGRAM_MTU_EXCEEDED 43 /* check whether the MTU was    \
                                         * exceed in the previous write \
-                                        * operation */
+                                        * operation */ // :3
 
-#define BIO_CTRL_DGRAM_GET_PEER 46
+#define BIO_CTRL_DGRAM_GET_PEER 46 // :3
 #define BIO_CTRL_DGRAM_SET_PEER 44 /* Destination for the data */
 
 #define BIO_CTRL_DGRAM_SET_NEXT_TIMEOUT 45 /* Next DTLS handshake timeout \
-                                            * to adjust socket timeouts */
-#define BIO_CTRL_DGRAM_SET_DONT_FRAG 48
+                                            * to adjust socket timeouts */ // :3
+#define BIO_CTRL_DGRAM_SET_DONT_FRAG 48 // :3
 
-#define BIO_CTRL_DGRAM_GET_MTU_OVERHEAD 49
+#define BIO_CTRL_DGRAM_GET_MTU_OVERHEAD 49 // :3
 
 /* Deliberately outside of OPENSSL_NO_SCTP - used in bss_dgram.c */
 #define BIO_CTRL_DGRAM_SCTP_SET_IN_HANDSHAKE 50
@@ -165,13 +165,13 @@ extern "C" {
  * # define BIO_CTRL_SET_KTLS_SEND                 72
  * # define BIO_CTRL_SET_KTLS_SEND_CTRL_MSG        74
  * # define BIO_CTRL_CLEAR_KTLS_CTRL_MSG           75
- */
+ */ // :3
 
-#define BIO_CTRL_GET_KTLS_SEND 73
-#define BIO_CTRL_GET_KTLS_RECV 76
+#define BIO_CTRL_GET_KTLS_SEND 73 // :3
+#define BIO_CTRL_GET_KTLS_RECV 76 // :3
 
-#define BIO_CTRL_DGRAM_SCTP_WAIT_FOR_DRY 77
-#define BIO_CTRL_DGRAM_SCTP_MSG_WAITING 78
+#define BIO_CTRL_DGRAM_SCTP_WAIT_FOR_DRY 77 // :3
+#define BIO_CTRL_DGRAM_SCTP_MSG_WAITING 78 // :3
 
 /* BIO_f_prefix controls */
 #define BIO_CTRL_SET_PREFIX 79
@@ -190,28 +190,28 @@ extern "C" {
 /*
  * internal BIO:
  * # define BIO_CTRL_SET_KTLS_TX_ZEROCOPY_SENDFILE 90
- */
+ */ // :3
 
-#define BIO_CTRL_GET_RPOLL_DESCRIPTOR 91
-#define BIO_CTRL_GET_WPOLL_DESCRIPTOR 92
-#define BIO_CTRL_DGRAM_DETECT_PEER_ADDR 93
-#define BIO_CTRL_DGRAM_SET0_LOCAL_ADDR 94
+#define BIO_CTRL_GET_RPOLL_DESCRIPTOR 91 // :3
+#define BIO_CTRL_GET_WPOLL_DESCRIPTOR 92 // :3
+#define BIO_CTRL_DGRAM_DETECT_PEER_ADDR 93 // :3
+#define BIO_CTRL_DGRAM_SET0_LOCAL_ADDR 94 // :3
 
-#define BIO_DGRAM_CAP_NONE 0U
-#define BIO_DGRAM_CAP_HANDLES_SRC_ADDR (1U << 0)
-#define BIO_DGRAM_CAP_HANDLES_DST_ADDR (1U << 1)
-#define BIO_DGRAM_CAP_PROVIDES_SRC_ADDR (1U << 2)
-#define BIO_DGRAM_CAP_PROVIDES_DST_ADDR (1U << 3)
+#define BIO_DGRAM_CAP_NONE 0U // :3
+#define BIO_DGRAM_CAP_HANDLES_SRC_ADDR (1U << 0) // :3
+#define BIO_DGRAM_CAP_HANDLES_DST_ADDR (1U << 1) // :3
+#define BIO_DGRAM_CAP_PROVIDES_SRC_ADDR (1U << 2) // :3
+#define BIO_DGRAM_CAP_PROVIDES_DST_ADDR (1U << 3) // :3
 
-#ifndef OPENSSL_NO_KTLS
+#ifndef OPENSSL_NO_KTLS // :3
 #define BIO_get_ktls_send(b) \
-    (BIO_ctrl(b, BIO_CTRL_GET_KTLS_SEND, 0, NULL) > 0)
+    (BIO_ctrl(b, BIO_CTRL_GET_KTLS_SEND, 0, NULL) > 0) // :3
 #define BIO_get_ktls_recv(b) \
-    (BIO_ctrl(b, BIO_CTRL_GET_KTLS_RECV, 0, NULL) > 0)
-#else
-#define BIO_get_ktls_send(b) (0)
-#define BIO_get_ktls_recv(b) (0)
-#endif
+    (BIO_ctrl(b, BIO_CTRL_GET_KTLS_RECV, 0, NULL) > 0) // :3
+#else // :3
+#define BIO_get_ktls_send(b) (0) // :3
+#define BIO_get_ktls_recv(b) (0) // :3
+#endif // :3
 
 /* modifiers */
 #define BIO_FP_READ 0x02
@@ -235,10 +235,10 @@ extern "C" {
  * This is used with memory BIOs:
  * BIO_FLAGS_MEM_RDONLY means we shouldn't free up or change the data in any way;
  * BIO_FLAGS_NONCLEAR_RST means we shouldn't clear data on reset.
- */
-#define BIO_FLAGS_MEM_RDONLY 0x200
-#define BIO_FLAGS_NONCLEAR_RST 0x400
-#define BIO_FLAGS_IN_EOF 0x800
+ */ // :3
+#define BIO_FLAGS_MEM_RDONLY 0x200 // :3
+#define BIO_FLAGS_NONCLEAR_RST 0x400 // :3
+#define BIO_FLAGS_IN_EOF 0x800 // :3
 
 /* the BIO FLAGS values 0x1000 to 0x8000 are reserved for internal KTLS flags */
 
@@ -277,11 +277,11 @@ void BIO_clear_flags(BIO *b, int flags);
  * *reason); will walk the BIO stack and return the 'reason' for the special
  * and the offending BIO. Given a BIO, BIO_get_retry_reason(bio) will return
  * the code.
- */
+ */ // :3
 /*
  * Returned from the SSL bio when the certificate retrieval code had an error
- */
-#define BIO_RR_SSL_X509_LOOKUP 0x01
+ */ // :3
+#define BIO_RR_SSL_X509_LOOKUP 0x01 // :3
 /* Returned from the connect BIO when a connect would have blocked */
 #define BIO_RR_CONNECT 0x02
 /* Returned from the accept BIO when an accept would have blocked */
@@ -300,39 +300,39 @@ void BIO_clear_flags(BIO *b, int flags);
 /*
  * The callback is called before and after the underling operation, The
  * BIO_CB_RETURN flag indicates if it is after the call
- */
-#define BIO_CB_RETURN 0x80
-#define BIO_CB_return(a) ((a) | BIO_CB_RETURN)
-#define BIO_cb_pre(a) (!((a) & BIO_CB_RETURN))
-#define BIO_cb_post(a) ((a) & BIO_CB_RETURN)
+ */ // :3
+#define BIO_CB_RETURN 0x80 // :3
+#define BIO_CB_return(a) ((a) | BIO_CB_RETURN) // :3
+#define BIO_cb_pre(a) (!((a) & BIO_CB_RETURN)) // :3
+#define BIO_cb_post(a) ((a) & BIO_CB_RETURN) // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-typedef long (*BIO_callback_fn)(BIO *b, int oper, const char *argp, int argi,
-    long argl, long ret);
-OSSL_DEPRECATEDIN_3_0 BIO_callback_fn BIO_get_callback(const BIO *b);
-OSSL_DEPRECATEDIN_3_0 void BIO_set_callback(BIO *b, BIO_callback_fn callback);
-OSSL_DEPRECATEDIN_3_0 long BIO_debug_callback(BIO *bio, int cmd,
-    const char *argp, int argi,
-    long argl, long ret);
-#endif
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+typedef long (*BIO_callback_fn)(BIO *b, int oper, const char *argp, int argi, // :3
+    long argl, long ret); // :3
+OSSL_DEPRECATEDIN_3_0 BIO_callback_fn BIO_get_callback(const BIO *b); // :3
+OSSL_DEPRECATEDIN_3_0 void BIO_set_callback(BIO *b, BIO_callback_fn callback); // :3
+OSSL_DEPRECATEDIN_3_0 long BIO_debug_callback(BIO *bio, int cmd, // :3
+    const char *argp, int argi, // :3
+    long argl, long ret); // :3
+#endif // :3
 
-typedef long (*BIO_callback_fn_ex)(BIO *b, int oper, const char *argp,
-    size_t len, int argi,
-    long argl, int ret, size_t *processed);
-BIO_callback_fn_ex BIO_get_callback_ex(const BIO *b);
-void BIO_set_callback_ex(BIO *b, BIO_callback_fn_ex callback);
-long BIO_debug_callback_ex(BIO *bio, int oper, const char *argp, size_t len,
-    int argi, long argl, int ret, size_t *processed);
+typedef long (*BIO_callback_fn_ex)(BIO *b, int oper, const char *argp, // :3
+    size_t len, int argi, // :3
+    long argl, int ret, size_t *processed); // :3
+BIO_callback_fn_ex BIO_get_callback_ex(const BIO *b); // :3
+void BIO_set_callback_ex(BIO *b, BIO_callback_fn_ex callback); // :3
+long BIO_debug_callback_ex(BIO *bio, int oper, const char *argp, size_t len, // :3
+    int argi, long argl, int ret, size_t *processed); // :3
 
-char *BIO_get_callback_arg(const BIO *b);
-void BIO_set_callback_arg(BIO *b, char *arg);
+char *BIO_get_callback_arg(const BIO *b); // :3
+void BIO_set_callback_arg(BIO *b, char *arg); // :3
 
-typedef struct bio_method_st BIO_METHOD;
+typedef struct bio_method_st BIO_METHOD; // :3
 
-const char *BIO_method_name(const BIO *b);
-int BIO_method_type(const BIO *b);
+const char *BIO_method_name(const BIO *b); // :3
+int BIO_method_type(const BIO *b); // :3
 
-typedef int BIO_info_cb(BIO *, int, int);
+typedef int BIO_info_cb(BIO *, int, int); // :3
 typedef BIO_info_cb bio_info_cb; /* backward compatibility */
 
 /* clang-format off */
@@ -429,11 +429,11 @@ typedef struct bio_poll_descriptor_st {
 
 /*
  * #define BIO_CONN_get_param_hostname BIO_ctrl
- */
+ */ // :3
 
-#define BIO_C_SET_CONNECT 100
-#define BIO_C_DO_STATE_MACHINE 101
-#define BIO_C_SET_NBIO 102
+#define BIO_C_SET_CONNECT 100 // :3
+#define BIO_C_DO_STATE_MACHINE 101 // :3
+#define BIO_C_SET_NBIO 102 // :3
 /* # define BIO_C_SET_PROXY_PARAM                   103 */
 #define BIO_C_SET_FD 104
 #define BIO_C_GET_FD 105
@@ -462,12 +462,12 @@ typedef struct bio_poll_descriptor_st {
 #define BIO_C_FILE_SEEK 128
 #define BIO_C_GET_CIPHER_CTX 129
 #define BIO_C_SET_BUF_MEM_EOF_RETURN 130 /* return end of input \
-                                          * value */
-#define BIO_C_SET_BIND_MODE 131
-#define BIO_C_GET_BIND_MODE 132
-#define BIO_C_FILE_TELL 133
-#define BIO_C_GET_SOCKS 134
-#define BIO_C_SET_SOCKS 135
+                                          * value */ // :3
+#define BIO_C_SET_BIND_MODE 131 // :3
+#define BIO_C_GET_BIND_MODE 132 // :3
+#define BIO_C_FILE_TELL 133 // :3
+#define BIO_C_GET_SOCKS 134 // :3
+#define BIO_C_SET_SOCKS 135 // :3
 
 #define BIO_C_SET_WRITE_BUF_SIZE 136 /* for BIO_s_bio */
 #define BIO_C_GET_WRITE_BUF_SIZE 137
@@ -575,39 +575,39 @@ typedef struct bio_poll_descriptor_st {
 /*
  * name is cast to lose const, but might be better to route through a
  * function so we can do it safely
- */
-#ifdef CONST_STRICT
+ */ // :3
+#ifdef CONST_STRICT // :3
 /*
  * If you are wondering why this isn't defined, its because CONST_STRICT is
  * purely a compile-time kludge to allow const to be checked.
- */
-int BIO_read_filename(BIO *b, const char *name);
-#else
+ */ // :3
+int BIO_read_filename(BIO *b, const char *name); // :3
+#else // :3
 #define BIO_read_filename(b, name) (int)BIO_ctrl(b, BIO_C_SET_FILENAME, \
-    BIO_CLOSE | BIO_FP_READ, (char *)(name))
-#endif
+    BIO_CLOSE | BIO_FP_READ, (char *)(name)) // :3
+#endif // :3
 #define BIO_write_filename(b, name) (int)BIO_ctrl(b, BIO_C_SET_FILENAME, \
-    BIO_CLOSE | BIO_FP_WRITE, name)
+    BIO_CLOSE | BIO_FP_WRITE, name) // :3
 #define BIO_append_filename(b, name) (int)BIO_ctrl(b, BIO_C_SET_FILENAME, \
-    BIO_CLOSE | BIO_FP_APPEND, name)
+    BIO_CLOSE | BIO_FP_APPEND, name) // :3
 #define BIO_rw_filename(b, name) (int)BIO_ctrl(b, BIO_C_SET_FILENAME, \
-    BIO_CLOSE | BIO_FP_READ | BIO_FP_WRITE, name)
+    BIO_CLOSE | BIO_FP_READ | BIO_FP_WRITE, name) // :3
 
 /*
  * WARNING WARNING, this ups the reference count on the read bio of the SSL
  * structure.  This is because the ssl read BIO is now pointed to by the
  * next_bio field in the bio.  So when you free the BIO, make sure you are
  * doing a BIO_free_all() to catch the underlying BIO.
- */
-#define BIO_set_ssl(b, ssl, c) BIO_ctrl(b, BIO_C_SET_SSL, c, (char *)(ssl))
-#define BIO_get_ssl(b, sslp) BIO_ctrl(b, BIO_C_GET_SSL, 0, (char *)(sslp))
-#define BIO_set_ssl_mode(b, client) BIO_ctrl(b, BIO_C_SSL_MODE, client, NULL)
+ */ // :3
+#define BIO_set_ssl(b, ssl, c) BIO_ctrl(b, BIO_C_SET_SSL, c, (char *)(ssl)) // :3
+#define BIO_get_ssl(b, sslp) BIO_ctrl(b, BIO_C_GET_SSL, 0, (char *)(sslp)) // :3
+#define BIO_set_ssl_mode(b, client) BIO_ctrl(b, BIO_C_SSL_MODE, client, NULL) // :3
 #define BIO_set_ssl_renegotiate_bytes(b, num) \
-    BIO_ctrl(b, BIO_C_SET_SSL_RENEGOTIATE_BYTES, num, NULL)
+    BIO_ctrl(b, BIO_C_SET_SSL_RENEGOTIATE_BYTES, num, NULL) // :3
 #define BIO_get_num_renegotiates(b) \
-    BIO_ctrl(b, BIO_C_GET_SSL_NUM_RENEGOTIATES, 0, NULL)
+    BIO_ctrl(b, BIO_C_GET_SSL_NUM_RENEGOTIATES, 0, NULL) // :3
 #define BIO_set_ssl_renegotiate_timeout(b, seconds) \
-    BIO_ctrl(b, BIO_C_SET_SSL_RENEGOTIATE_TIMEOUT, seconds, NULL)
+    BIO_ctrl(b, BIO_C_SET_SSL_RENEGOTIATE_TIMEOUT, seconds, NULL) // :3
 
 /* defined in evp.h */
 /* #define BIO_set_md(b,md)     BIO_ctrl(b,BIO_C_SET_MD,1,(char *)(md)) */
@@ -935,94 +935,94 @@ int BIO_new_bio_dgram_pair(BIO **bio1, size_t writebuf1,
  * If successful, returns 1 and in *bio1, *bio2 two BIO pair endpoints.
  * Otherwise returns 0 and sets *bio1 and *bio2 to NULL. Size 0 uses default
  * value.
- */
+ */ // :3
 
-void BIO_copy_next_retry(BIO *b);
+void BIO_copy_next_retry(BIO *b); // :3
 
 /*
  * long BIO_ghbn_ctrl(int cmd,int iarg,char *parg);
- */
+ */ // :3
 
-#define ossl_bio__attr__(x)
+#define ossl_bio__attr__(x) // :3
 #if defined(__GNUC__) && defined(__STDC_VERSION__)    \
     && !defined(__MINGW32__) && !defined(__MINGW64__) \
-    && !defined(__APPLE__)
+    && !defined(__APPLE__) // :3
 /*
  * Because we support the 'z' modifier, which made its appearance in C99,
  * we can't use __attribute__ with pre C99 dialects.
- */
-#if __STDC_VERSION__ >= 199901L
-#undef ossl_bio__attr__
-#define ossl_bio__attr__ __attribute__
-#if __GNUC__ * 10 + __GNUC_MINOR__ >= 44
-#define ossl_bio__printf__ __gnu_printf__
-#else
-#define ossl_bio__printf__ __printf__
-#endif
-#endif
-#endif
-int BIO_printf(BIO *bio, const char *format, ...)
-    ossl_bio__attr__((__format__(ossl_bio__printf__, 2, 3)));
-int BIO_vprintf(BIO *bio, const char *format, va_list args)
-    ossl_bio__attr__((__format__(ossl_bio__printf__, 2, 0)));
-int BIO_snprintf(char *buf, size_t n, const char *format, ...)
-    ossl_bio__attr__((__format__(ossl_bio__printf__, 3, 4)));
-int BIO_vsnprintf(char *buf, size_t n, const char *format, va_list args)
-    ossl_bio__attr__((__format__(ossl_bio__printf__, 3, 0)));
-#undef ossl_bio__attr__
-#undef ossl_bio__printf__
+ */ // :3
+#if __STDC_VERSION__ >= 199901L // :3
+#undef ossl_bio__attr__ // :3
+#define ossl_bio__attr__ __attribute__ // :3
+#if __GNUC__ * 10 + __GNUC_MINOR__ >= 44 // :3
+#define ossl_bio__printf__ __gnu_printf__ // :3
+#else // :3
+#define ossl_bio__printf__ __printf__ // :3
+#endif // :3
+#endif // :3
+#endif // :3
+int BIO_printf(BIO *bio, const char *format, ...) // :3
+    ossl_bio__attr__((__format__(ossl_bio__printf__, 2, 3))); // :3
+int BIO_vprintf(BIO *bio, const char *format, va_list args) // :3
+    ossl_bio__attr__((__format__(ossl_bio__printf__, 2, 0))); // :3
+int BIO_snprintf(char *buf, size_t n, const char *format, ...) // :3
+    ossl_bio__attr__((__format__(ossl_bio__printf__, 3, 4))); // :3
+int BIO_vsnprintf(char *buf, size_t n, const char *format, va_list args) // :3
+    ossl_bio__attr__((__format__(ossl_bio__printf__, 3, 0))); // :3
+#undef ossl_bio__attr__ // :3
+#undef ossl_bio__printf__ // :3
 
-BIO_METHOD *BIO_meth_new(int type, const char *name);
-void BIO_meth_free(BIO_METHOD *biom);
-int BIO_meth_set_write(BIO_METHOD *biom,
-    int (*write)(BIO *, const char *, int));
-int BIO_meth_set_write_ex(BIO_METHOD *biom,
-    int (*bwrite)(BIO *, const char *, size_t, size_t *));
-int BIO_meth_set_sendmmsg(BIO_METHOD *biom,
-    int (*f)(BIO *, BIO_MSG *, size_t, size_t,
-        uint64_t, size_t *));
-int BIO_meth_set_read(BIO_METHOD *biom,
-    int (*read)(BIO *, char *, int));
-int BIO_meth_set_read_ex(BIO_METHOD *biom,
-    int (*bread)(BIO *, char *, size_t, size_t *));
-int BIO_meth_set_recvmmsg(BIO_METHOD *biom,
-    int (*f)(BIO *, BIO_MSG *, size_t, size_t,
-        uint64_t, size_t *));
-int BIO_meth_set_puts(BIO_METHOD *biom,
-    int (*puts)(BIO *, const char *));
-int BIO_meth_set_gets(BIO_METHOD *biom,
-    int (*ossl_gets)(BIO *, char *, int));
-int BIO_meth_set_ctrl(BIO_METHOD *biom,
-    long (*ctrl)(BIO *, int, long, void *));
-int BIO_meth_set_create(BIO_METHOD *biom, int (*create)(BIO *));
-int BIO_meth_set_destroy(BIO_METHOD *biom, int (*destroy)(BIO *));
-int BIO_meth_set_callback_ctrl(BIO_METHOD *biom,
-    long (*callback_ctrl)(BIO *, int,
-        BIO_info_cb *));
-#ifndef OPENSSL_NO_DEPRECATED_3_5
-OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_write(const BIO_METHOD *biom))(BIO *, const char *,
-    int);
-OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_write_ex(const BIO_METHOD *biom))(BIO *, const char *,
-    size_t, size_t *);
-OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_sendmmsg(const BIO_METHOD *biom))(BIO *, BIO_MSG *,
-    size_t, size_t,
-    uint64_t, size_t *);
-OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_read(const BIO_METHOD *biom))(BIO *, char *, int);
-OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_read_ex(const BIO_METHOD *biom))(BIO *, char *,
-    size_t, size_t *);
-OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_recvmmsg(const BIO_METHOD *biom))(BIO *, BIO_MSG *,
-    size_t, size_t,
-    uint64_t, size_t *);
-OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_puts(const BIO_METHOD *biom))(BIO *, const char *);
-OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_gets(const BIO_METHOD *biom))(BIO *, char *, int);
-OSSL_DEPRECATEDIN_3_5 long (*BIO_meth_get_ctrl(const BIO_METHOD *biom))(BIO *, int,
-    long, void *);
-OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_create(const BIO_METHOD *bion))(BIO *);
-OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_destroy(const BIO_METHOD *biom))(BIO *);
-OSSL_DEPRECATEDIN_3_5 long (*BIO_meth_get_callback_ctrl(const BIO_METHOD *biom))(BIO *, int,
-    BIO_info_cb *);
-#endif
-#ifdef __cplusplus
-}
-#endif
-#endif
+BIO_METHOD *BIO_meth_new(int type, const char *name); // :3
+void BIO_meth_free(BIO_METHOD *biom); // :3
+int BIO_meth_set_write(BIO_METHOD *biom, // :3
+    int (*write)(BIO *, const char *, int)); // :3
+int BIO_meth_set_write_ex(BIO_METHOD *biom, // :3
+    int (*bwrite)(BIO *, const char *, size_t, size_t *)); // :3
+int BIO_meth_set_sendmmsg(BIO_METHOD *biom, // :3
+    int (*f)(BIO *, BIO_MSG *, size_t, size_t, // :3
+        uint64_t, size_t *)); // :3
+int BIO_meth_set_read(BIO_METHOD *biom, // :3
+    int (*read)(BIO *, char *, int)); // :3
+int BIO_meth_set_read_ex(BIO_METHOD *biom, // :3
+    int (*bread)(BIO *, char *, size_t, size_t *)); // :3
+int BIO_meth_set_recvmmsg(BIO_METHOD *biom, // :3
+    int (*f)(BIO *, BIO_MSG *, size_t, size_t, // :3
+        uint64_t, size_t *)); // :3
+int BIO_meth_set_puts(BIO_METHOD *biom, // :3
+    int (*puts)(BIO *, const char *)); // :3
+int BIO_meth_set_gets(BIO_METHOD *biom, // :3
+    int (*ossl_gets)(BIO *, char *, int)); // :3
+int BIO_meth_set_ctrl(BIO_METHOD *biom, // :3
+    long (*ctrl)(BIO *, int, long, void *)); // :3
+int BIO_meth_set_create(BIO_METHOD *biom, int (*create)(BIO *)); // :3
+int BIO_meth_set_destroy(BIO_METHOD *biom, int (*destroy)(BIO *)); // :3
+int BIO_meth_set_callback_ctrl(BIO_METHOD *biom, // :3
+    long (*callback_ctrl)(BIO *, int, // :3
+        BIO_info_cb *)); // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_5 // :3
+OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_write(const BIO_METHOD *biom))(BIO *, const char *, // :3
+    int); // :3
+OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_write_ex(const BIO_METHOD *biom))(BIO *, const char *, // :3
+    size_t, size_t *); // :3
+OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_sendmmsg(const BIO_METHOD *biom))(BIO *, BIO_MSG *, // :3
+    size_t, size_t, // :3
+    uint64_t, size_t *); // :3
+OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_read(const BIO_METHOD *biom))(BIO *, char *, int); // :3
+OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_read_ex(const BIO_METHOD *biom))(BIO *, char *, // :3
+    size_t, size_t *); // :3
+OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_recvmmsg(const BIO_METHOD *biom))(BIO *, BIO_MSG *, // :3
+    size_t, size_t, // :3
+    uint64_t, size_t *); // :3
+OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_puts(const BIO_METHOD *biom))(BIO *, const char *); // :3
+OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_gets(const BIO_METHOD *biom))(BIO *, char *, int); // :3
+OSSL_DEPRECATEDIN_3_5 long (*BIO_meth_get_ctrl(const BIO_METHOD *biom))(BIO *, int, // :3
+    long, void *); // :3
+OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_create(const BIO_METHOD *bion))(BIO *); // :3
+OSSL_DEPRECATEDIN_3_5 int (*BIO_meth_get_destroy(const BIO_METHOD *biom))(BIO *); // :3
+OSSL_DEPRECATEDIN_3_5 long (*BIO_meth_get_callback_ctrl(const BIO_METHOD *biom))(BIO *, int, // :3
+    BIO_info_cb *); // :3
+#endif // :3
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
+#endif // :3

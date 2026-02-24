@@ -20,43 +20,43 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CC_PLATFORM_THREAD_H__
-#define __CC_PLATFORM_THREAD_H__
+#ifndef __CC_PLATFORM_THREAD_H__ // :3
+#define __CC_PLATFORM_THREAD_H__ // :3
 
-#include "CCCommon.h"
-#include "CCPlatformMacros.h"
+#include "CCCommon.h" // :3
+#include "CCPlatformMacros.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup platform
  * @{
- */
+ */ // :3
 
 /* On iOS, should create autorelease pool when create a new thread
  * and release it when the thread end.
  * @js NA
  * @lua NA
- */
-class CC_DLL CCThread
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCThread)
-    CCThread() : m_pAutoreasePool(0) {}
-    ~CCThread();
+ */ // :3
+class CC_DLL CCThread // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCThread) // :3
+    CCThread() : m_pAutoreasePool(0) {} // :3
+    ~CCThread(); // :3
 
-    void createAutoreleasePool();
+    void createAutoreleasePool(); // :3
 
-private:
-    void *m_pAutoreasePool;
-};
+private: // :3
+    void *m_pAutoreasePool; // :3
+}; // :3
 
-// end of platform group
-/// @}
+// end of platform group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif    // __CC_PLATFORM_THREAD_H__
+#endif    // __CC_PLATFORM_THREAD_H__ :3

@@ -23,27 +23,27 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- */
+ */ // :3
 
-#ifndef __CCCONTROLSWITCH_H__
-#define __CCCONTROLSWITCH_H__
+#ifndef __CCCONTROLSWITCH_H__ // :3
+#define __CCCONTROLSWITCH_H__ // :3
 
-#include "CCControl.h"
+#include "CCControl.h" // :3
 
 
-namespace cocos2d { class CCSprite; }
-namespace cocos2d { class CCLabelTTF; }
+namespace cocos2d { class CCSprite; } // :3
+namespace cocos2d { class CCLabelTTF; } // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
-class CC_DLL CCControlSwitchSprite;
+class CC_DLL CCControlSwitchSprite; // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup control_extension
  * @{
- */
+ */ // :3
 
 /** @class CCControlSwitch Switch control for Cocos2D. */
 class CC_DLL CCControlSwitch : public CCControl
@@ -73,21 +73,21 @@ public:
      * should be turned to the Off position. If the switch is already in the
      * designated position, nothing happens.
      * @param animated YES to animate the "flipping" of the switch; otherwise NO.
-     */
-    void setOn(bool isOn, bool animated);
-    void setOn(bool isOn);
-    bool isOn(void) { return m_bOn; }
-    bool hasMoved() { return m_bMoved; }
-    virtual void setEnabled(bool enabled);
+     */ // :3
+    void setOn(bool isOn, bool animated); // :3
+    void setOn(bool isOn); // :3
+    bool isOn(void) { return m_bOn; } // :3
+    bool hasMoved() { return m_bMoved; } // :3
+    virtual void setEnabled(bool enabled); // :3
 
-    CCPoint locationFromTouch(CCTouch* touch);
-    //events
-    virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
-    virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
-    virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
-    virtual void ccTouchCancelled(CCTouch *pTouch, CCEvent *pEvent);
+    CCPoint locationFromTouch(CCTouch* touch); // :3
+    //events :3
+    virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent); // :3
+    virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent); // :3
+    virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent); // :3
+    virtual void ccTouchCancelled(CCTouch *pTouch, CCEvent *pEvent); // :3
 
-public:
+public: // :3
     /** Sprite which represents the view. */
     CCControlSwitchSprite* m_pSwitchSprite;
     float m_fInitialTouchXPosition;

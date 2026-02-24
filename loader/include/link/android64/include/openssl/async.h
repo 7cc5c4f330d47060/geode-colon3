@@ -5,21 +5,21 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#include <stdlib.h>
+#include <stdlib.h> // :3
 
-#ifndef OPENSSL_ASYNC_H
-#define OPENSSL_ASYNC_H
-#pragma once
+#ifndef OPENSSL_ASYNC_H // :3
+#define OPENSSL_ASYNC_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_ASYNC_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_ASYNC_H // :3
+#endif // :3
 
-#if defined(_WIN32)
-#if defined(BASETYPES) || defined(_WINDEF_H)
+#if defined(_WIN32) // :3
+#if defined(BASETYPES) || defined(_WINDEF_H) // :3
 /* application has to include <windows.h> to use this */
 #define OSSL_ASYNC_FD HANDLE
 #define OSSL_BAD_ASYNC_FD INVALID_HANDLE_VALUE

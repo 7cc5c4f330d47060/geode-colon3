@@ -21,21 +21,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __SUPPORT_TRANSFORM_UTILS_H__
-#define __SUPPORT_TRANSFORM_UTILS_H__
+#ifndef __SUPPORT_TRANSFORM_UTILS_H__ // :3
+#define __SUPPORT_TRANSFORM_UTILS_H__ // :3
 
-// todo:
-// when in MAC or windows, it includes <OpenGL/gl.h>
-#include "../platform/CCGL.h"
+// todo: :3
+// when in MAC or windows, it includes <OpenGL/gl.h> :3
+#include "../platform/CCGL.h" // :3
 
-namespace   cocos2d {
+namespace   cocos2d { // :3
 
-struct CCAffineTransform;
+struct CCAffineTransform; // :3
 
-void CGAffineToGL(const CCAffineTransform *t, GLfloat *m);
-void GLToCGAffine(const GLfloat *m, CCAffineTransform *t);
-}//namespace   cocos2d
+void CGAffineToGL(const CCAffineTransform *t, GLfloat *m); // :3
+void GLToCGAffine(const GLfloat *m, CCAffineTransform *t); // :3
+}//namespace   cocos2d :3
 
-#endif // __SUPPORT_TRANSFORM_UTILS_H__
+#endif // __SUPPORT_TRANSFORM_UTILS_H__ :3

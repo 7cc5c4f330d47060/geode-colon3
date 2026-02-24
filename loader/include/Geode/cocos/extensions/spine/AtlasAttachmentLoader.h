@@ -21,23 +21,23 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_ATLASATTACHMENTLOADER_H_
-#define SPINE_ATLASATTACHMENTLOADER_H_
+#ifndef SPINE_ATLASATTACHMENTLOADER_H_ // :3
+#define SPINE_ATLASATTACHMENTLOADER_H_ // :3
 
-#include "AttachmentLoader.h"
-#include "Atlas.h"
+#include "AttachmentLoader.h" // :3
+#include "Atlas.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-typedef struct {
-	AttachmentLoader super;
-	Atlas* atlas;
-} AtlasAttachmentLoader;
+typedef struct { // :3
+	AttachmentLoader super; // :3
+	Atlas* atlas; // :3
+} AtlasAttachmentLoader; // :3
 
-AtlasAttachmentLoader* AtlasAttachmentLoader_create (Atlas* atlas);
+AtlasAttachmentLoader* AtlasAttachmentLoader_create (Atlas* atlas); // :3
 
-}} // namespace cocos2d { namespace extension {
+}} // namespace cocos2d { namespace extension { :3
 
 #endif /* SPINE_ATLASATTACHMENTLOADER_H_ */

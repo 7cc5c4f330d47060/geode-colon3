@@ -6,46 +6,46 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_OCSPERR_H
-#define OPENSSL_OCSPERR_H
-#pragma once
+#ifndef OPENSSL_OCSPERR_H // :3
+#define OPENSSL_OCSPERR_H // :3
+#pragma once // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/symhacks.h>
-#include <openssl/cryptoerr_legacy.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/symhacks.h> // :3
+#include <openssl/cryptoerr_legacy.h> // :3
 
-#ifndef OPENSSL_NO_OCSP
+#ifndef OPENSSL_NO_OCSP // :3
 
 /*
  * OCSP reason codes.
- */
-#define OCSP_R_CERTIFICATE_VERIFY_ERROR 101
-#define OCSP_R_DIGEST_ERR 102
-#define OCSP_R_DIGEST_NAME_ERR 106
-#define OCSP_R_DIGEST_SIZE_ERR 107
-#define OCSP_R_ERROR_IN_NEXTUPDATE_FIELD 122
-#define OCSP_R_ERROR_IN_THISUPDATE_FIELD 123
-#define OCSP_R_MISSING_OCSPSIGNING_USAGE 103
-#define OCSP_R_NEXTUPDATE_BEFORE_THISUPDATE 124
-#define OCSP_R_NOT_BASIC_RESPONSE 104
-#define OCSP_R_NO_CERTIFICATES_IN_CHAIN 105
-#define OCSP_R_NO_RESPONSE_DATA 108
-#define OCSP_R_NO_REVOKED_TIME 109
-#define OCSP_R_NO_SIGNER_KEY 130
-#define OCSP_R_PRIVATE_KEY_DOES_NOT_MATCH_CERTIFICATE 110
-#define OCSP_R_REQUEST_NOT_SIGNED 128
-#define OCSP_R_RESPONSE_CONTAINS_NO_REVOCATION_DATA 111
-#define OCSP_R_ROOT_CA_NOT_TRUSTED 112
-#define OCSP_R_SIGNATURE_FAILURE 117
-#define OCSP_R_SIGNER_CERTIFICATE_NOT_FOUND 118
-#define OCSP_R_STATUS_EXPIRED 125
-#define OCSP_R_STATUS_NOT_YET_VALID 126
-#define OCSP_R_STATUS_TOO_OLD 127
-#define OCSP_R_UNKNOWN_MESSAGE_DIGEST 119
-#define OCSP_R_UNKNOWN_NID 120
-#define OCSP_R_UNSUPPORTED_REQUESTORNAME_TYPE 129
+ */ // :3
+#define OCSP_R_CERTIFICATE_VERIFY_ERROR 101 // :3
+#define OCSP_R_DIGEST_ERR 102 // :3
+#define OCSP_R_DIGEST_NAME_ERR 106 // :3
+#define OCSP_R_DIGEST_SIZE_ERR 107 // :3
+#define OCSP_R_ERROR_IN_NEXTUPDATE_FIELD 122 // :3
+#define OCSP_R_ERROR_IN_THISUPDATE_FIELD 123 // :3
+#define OCSP_R_MISSING_OCSPSIGNING_USAGE 103 // :3
+#define OCSP_R_NEXTUPDATE_BEFORE_THISUPDATE 124 // :3
+#define OCSP_R_NOT_BASIC_RESPONSE 104 // :3
+#define OCSP_R_NO_CERTIFICATES_IN_CHAIN 105 // :3
+#define OCSP_R_NO_RESPONSE_DATA 108 // :3
+#define OCSP_R_NO_REVOKED_TIME 109 // :3
+#define OCSP_R_NO_SIGNER_KEY 130 // :3
+#define OCSP_R_PRIVATE_KEY_DOES_NOT_MATCH_CERTIFICATE 110 // :3
+#define OCSP_R_REQUEST_NOT_SIGNED 128 // :3
+#define OCSP_R_RESPONSE_CONTAINS_NO_REVOCATION_DATA 111 // :3
+#define OCSP_R_ROOT_CA_NOT_TRUSTED 112 // :3
+#define OCSP_R_SIGNATURE_FAILURE 117 // :3
+#define OCSP_R_SIGNER_CERTIFICATE_NOT_FOUND 118 // :3
+#define OCSP_R_STATUS_EXPIRED 125 // :3
+#define OCSP_R_STATUS_NOT_YET_VALID 126 // :3
+#define OCSP_R_STATUS_TOO_OLD 127 // :3
+#define OCSP_R_UNKNOWN_MESSAGE_DIGEST 119 // :3
+#define OCSP_R_UNKNOWN_NID 120 // :3
+#define OCSP_R_UNSUPPORTED_REQUESTORNAME_TYPE 129 // :3
 
-#endif
-#endif
+#endif // :3
+#endif // :3

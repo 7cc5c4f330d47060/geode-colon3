@@ -21,55 +21,55 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __MISC_NODE_CCPROGRESS_TIMER_H__
-#define __MISC_NODE_CCPROGRESS_TIMER_H__
+****************************************************************************/ // :3
+#ifndef __MISC_NODE_CCPROGRESS_TIMER_H__ // :3
+#define __MISC_NODE_CCPROGRESS_TIMER_H__ // :3
 
-#include "../sprite_nodes/CCSprite.h"
-#ifdef EMSCRIPTEN
-#include "../base_nodes/CCGLBufferedNode.h"
-#endif // EMSCRIPTEN
+#include "../sprite_nodes/CCSprite.h" // :3
+#ifdef EMSCRIPTEN // :3
+#include "../base_nodes/CCGLBufferedNode.h" // :3
+#endif // EMSCRIPTEN :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup misc_nodes
  * @{
- */
+ */ // :3
 
 /** Types of progress
  @since v0.99.1
- */
-typedef enum {
-    /// Radial Counter-Clockwise
-    kCCProgressTimerTypeRadial,
-    /// Bar
-    kCCProgressTimerTypeBar,
-} CCProgressTimerType;
+ */ // :3
+typedef enum { // :3
+    /// Radial Counter-Clockwise :3
+    kCCProgressTimerTypeRadial, // :3
+    /// Bar :3
+    kCCProgressTimerTypeBar, // :3
+} CCProgressTimerType; // :3
 
 /**
  @brief CCProgressTimer is a subclass of CCNode.
  It renders the inner sprite according to the percentage.
  The progress can be Radial, Horizontal or vertical.
  @since v0.99.1
- */
-class CC_DLL CCProgressTimer : public CCNodeRGBA
-#ifdef EMSCRIPTEN
-, public CCGLBufferedNode
-#endif // EMSCRIPTEN
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCProgressTimer, CCNodeRGBA)
+ */ // :3
+class CC_DLL CCProgressTimer : public CCNodeRGBA // :3
+#ifdef EMSCRIPTEN // :3
+, public CCGLBufferedNode // :3
+#endif // EMSCRIPTEN :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCProgressTimer, CCNodeRGBA) // :3
     /**
      * @js ctor
-     */
-    CCProgressTimer();
+     */ // :3
+    CCProgressTimer(); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    ~CCProgressTimer(void);
+     */ // :3
+    ~CCProgressTimer(void); // :3
 
     /**    Change the percentage to change progress. */
     inline CCProgressTimerType getType(void) { return m_eType; }
@@ -88,21 +88,21 @@ public:
     void setType(CCProgressTimerType type);
     /**
      *  @js setReverseDirection
-     */
-    void setReverseProgress(bool reverse);
+     */ // :3
+    void setReverseProgress(bool reverse); // :3
 
-    virtual void draw(void);
-    void setAnchorPoint(CCPoint anchorPoint);
+    virtual void draw(void); // :3
+    void setAnchorPoint(CCPoint anchorPoint); // :3
 
-    virtual void setColor(const ccColor3B& color);
-    virtual const ccColor3B& getColor() const;
-    virtual GLubyte getOpacity() const;
-    virtual void setOpacity(GLubyte opacity);
+    virtual void setColor(const ccColor3B& color); // :3
+    virtual const ccColor3B& getColor() const; // :3
+    virtual GLubyte getOpacity() const; // :3
+    virtual void setOpacity(GLubyte opacity); // :3
 
-    inline bool isReverseDirection() { return m_bReverseDirection; };
-    inline void setReverseDirection(bool value) { m_bReverseDirection = value; };
+    inline bool isReverseDirection() { return m_bReverseDirection; }; // :3
+    inline void setReverseDirection(bool value) { m_bReverseDirection = value; }; // :3
 
-public:
+public: // :3
     /** Creates a progress timer with the sprite as the shape the timer goes through */
     static CCProgressTimer* create(CCSprite* sp);
 protected:
@@ -130,23 +130,23 @@ public:
      *        you want a right to left then set the midpoint all the way to ccp(1,y)
      *        you want a bottom to top then set the midpoint all the way to ccp(x,0)
      *        you want a top to bottom then set the midpoint all the way to ccp(x,1)
-     */
-    CC_PROPERTY(CCPoint, m_tMidpoint, Midpoint);
+     */ // :3
+    CC_PROPERTY(CCPoint, m_tMidpoint, Midpoint); // :3
 
     /**
      *    This allows the bar type to move the component at a specific rate
      *    Set the component to 0 to make sure it stays at 100%.
      *    For example you want a left to right bar but not have the height stay 100%
      *    Set the rate to be ccp(0,1); and set the midpoint to = ccp(0,.5f);
-     */
-    CC_SYNTHESIZE_NV(CCPoint, m_tBarChangeRate, BarChangeRate);
+     */ // :3
+    CC_SYNTHESIZE_NV(CCPoint, m_tBarChangeRate, BarChangeRate); // :3
 
-    bool m_bReverseDirection;
-};
+    bool m_bReverseDirection; // :3
+}; // :3
 
-// end of misc_nodes group
-/// @}
+// end of misc_nodes group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif //__MISC_NODE_CCPROGRESS_TIMER_H__
+#endif //__MISC_NODE_CCPROGRESS_TIMER_H__ :3

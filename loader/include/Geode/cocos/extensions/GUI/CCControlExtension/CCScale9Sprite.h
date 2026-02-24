@@ -23,22 +23,22 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCScale9Sprite_H__
-#define __CCScale9Sprite_H__
+#ifndef __CCScale9Sprite_H__ // :3
+#define __CCScale9Sprite_H__ // :3
 
-#include "../../../include/cocos2d.h"
-#include "../../ExtensionMacros.h"
+#include "../../../include/cocos2d.h" // :3
+#include "../../ExtensionMacros.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup control_extension
  * @{
- */
+ */ // :3
 
 /**
  * A 9-slice sprite for cocos2d.
@@ -49,16 +49,16 @@ NS_CC_EXT_BEGIN
  * scaled.
  *
  * @see http://yannickloriot.com/library/ios/cccontrolextension/Classes/CCScale9Sprite.html
- */
-class CC_DLL CCScale9Sprite : public CCNodeRGBA
-{
-    GEODE_FRIEND_MODIFY
-public:
-    CCScale9Sprite();
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCScale9Sprite, CCNodeRGBA)
-    virtual ~CCScale9Sprite();
+ */ // :3
+class CC_DLL CCScale9Sprite : public CCNodeRGBA // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    CCScale9Sprite(); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCScale9Sprite, CCNodeRGBA) // :3
+    virtual ~CCScale9Sprite(); // :3
 
-public:
+public: // :3
     /** Original sprite's size. */
     CC_SYNTHESIZE_READONLY_NV(CCSize, m_originalSize, OriginalSize);
     /** Prefered sprite's size. By default the prefered size is the original size. */
@@ -69,8 +69,8 @@ public:
      * The end-cap insets.
      * On a non-resizeable sprite, this property is set to CGRectZero; the sprite
      * does not use end caps and the entire sprite is subject to stretching.
-     */
-    CC_PROPERTY(CCRect, m_capInsets, CapInsets);
+     */ // :3
+    CC_PROPERTY(CCRect, m_capInsets, CapInsets); // :3
     /** Sets the left side inset */
     CC_PROPERTY(float, m_insetLeft, InsetLeft);
     /** Sets the top side inset */
@@ -111,13 +111,13 @@ public:
     virtual void setContentSize(const CCSize & size);
     /**
      *  @js NA
-     */
-    virtual void visit();
+     */ // :3
+    virtual void visit(); // :3
 
-    virtual bool init();
+    virtual bool init(); // :3
 
-    virtual bool initWithBatchNode(CCSpriteBatchNode* batchnode, CCRect rect, bool rotated, CCRect capInsets);
-    virtual bool initWithBatchNode(CCSpriteBatchNode* batchnode, CCRect rect, CCRect capInsets);
+    virtual bool initWithBatchNode(CCSpriteBatchNode* batchnode, CCRect rect, bool rotated, CCRect capInsets); // :3
+    virtual bool initWithBatchNode(CCSpriteBatchNode* batchnode, CCRect rect, CCRect capInsets); // :3
     /**
      * Initializes a 9-slice sprite with a texture file, a delimitation zone and
      * with the specified cap insets.
@@ -130,16 +130,16 @@ public:
      * is the whole image. If the shape is the whole texture, set this to the
      * texture's full rect.
      * @param capInsets The values to use for the cap insets.
-     */
-    virtual bool initWithFile(const char* file, CCRect rect,  CCRect capInsets);
+     */ // :3
+    virtual bool initWithFile(const char* file, CCRect rect,  CCRect capInsets); // :3
 
     /**
      * Creates a 9-slice sprite with a texture file, a delimitation zone and
      * with the specified cap insets.
      *
      * @see initWithFile:rect:centerRegion:
-     */
-    static CCScale9Sprite* create(const char* file, CCRect rect,  CCRect capInsets);
+     */ // :3
+    static CCScale9Sprite* create(const char* file, CCRect rect,  CCRect capInsets); // :3
 
     /**
      * Initializes a 9-slice sprite with a texture file and a delimitation zone. The
@@ -152,16 +152,16 @@ public:
      * @param rect The rectangle that describes the sub-part of the texture that
      * is the whole image. If the shape is the whole texture, set this to the
      * texture's full rect.
-     */
-    virtual bool initWithFile(const char* file, CCRect rect);
+     */ // :3
+    virtual bool initWithFile(const char* file, CCRect rect); // :3
 
      /**
      * Creates a 9-slice sprite with a texture file and a delimitation zone. The
      * texture will be broken down into a 3×3 grid of equal blocks.
      *
      * @see initWithFile:rect:
-     */
-    static CCScale9Sprite* create(const char* file, CCRect rect);
+     */ // :3
+    static CCScale9Sprite* create(const char* file, CCRect rect); // :3
 
     /**
      * Initializes a 9-slice sprite with a texture file and with the specified cap
@@ -172,16 +172,16 @@ public:
      *
      * @param file The name of the texture file.
      * @param capInsets The values to use for the cap insets.
-     */
-    virtual bool initWithFile(CCRect capInsets, const char* file);
+     */ // :3
+    virtual bool initWithFile(CCRect capInsets, const char* file); // :3
 
     /**
      * Creates a 9-slice sprite with a texture file. The whole texture will be
      * broken down into a 3×3 grid of equal blocks.
      *
      * @see initWithFile:capInsets:
-     */
-    static CCScale9Sprite* create(CCRect capInsets, const char* file);
+     */ // :3
+    static CCScale9Sprite* create(CCRect capInsets, const char* file); // :3
 
 
     /**
@@ -192,16 +192,16 @@ public:
      * It respects the anchorPoint too.
      *
      * @param file The name of the texture file.
-     */
-    virtual bool initWithFile(const char* file);
+     */ // :3
+    virtual bool initWithFile(const char* file); // :3
 
     /**
      * Creates a 9-slice sprite with a texture file. The whole texture will be
      * broken down into a 3×3 grid of equal blocks.
      *
      * @see initWithFile:
-     */
-    static CCScale9Sprite* create(const char* file);
+     */ // :3
+    static CCScale9Sprite* create(const char* file); // :3
 
     /**
      * Initializes a 9-slice sprite with an sprite frame and with the specified
@@ -212,8 +212,8 @@ public:
      *
      * @param spriteFrame The sprite frame object.
      * @param capInsets The values to use for the cap insets.
-     */
-    virtual bool initWithSpriteFrame(CCSpriteFrame* spriteFrame, CCRect capInsets);
+     */ // :3
+    virtual bool initWithSpriteFrame(CCSpriteFrame* spriteFrame, CCRect capInsets); // :3
 
     /**
      * Creates a 9-slice sprite with an sprite frame and the centre of its zone.
@@ -222,8 +222,8 @@ public:
      * It respects the anchorPoint too.
      *
      * @see initWithSpriteFrame:centerRegion:
-     */
-    static CCScale9Sprite* createWithSpriteFrame(CCSpriteFrame* spriteFrame, CCRect capInsets);
+     */ // :3
+    static CCScale9Sprite* createWithSpriteFrame(CCSpriteFrame* spriteFrame, CCRect capInsets); // :3
     /**
      * Initializes a 9-slice sprite with an sprite frame.
      * Once the sprite is created, you can then call its "setContentSize:" method
@@ -231,8 +231,8 @@ public:
      * It respects the anchorPoint too.
      *
      * @param spriteFrame The sprite frame object.
-     */
-    virtual bool initWithSpriteFrame(CCSpriteFrame* spriteFrame);
+     */ // :3
+    virtual bool initWithSpriteFrame(CCSpriteFrame* spriteFrame); // :3
 
     /**
      * Creates a 9-slice sprite with an sprite frame.
@@ -241,8 +241,8 @@ public:
      * It respects the anchorPoint too.
      *
      * @see initWithSpriteFrame:
-     */
-    static CCScale9Sprite* createWithSpriteFrame(CCSpriteFrame* spriteFrame);
+     */ // :3
+    static CCScale9Sprite* createWithSpriteFrame(CCSpriteFrame* spriteFrame); // :3
 
     /**
      * Initializes a 9-slice sprite with an sprite frame name and with the specified
@@ -253,8 +253,8 @@ public:
      *
      * @param spriteFrameName The sprite frame name.
      * @param capInsets The values to use for the cap insets.
-     */
-    virtual bool initWithSpriteFrameName(const char*spriteFrameName, CCRect capInsets);
+     */ // :3
+    virtual bool initWithSpriteFrameName(const char*spriteFrameName, CCRect capInsets); // :3
 
     /**
      * Creates a 9-slice sprite with an sprite frame name and the centre of its
@@ -264,8 +264,8 @@ public:
      * It respects the anchorPoint too.
      *
      * @see initWithSpriteFrameName:centerRegion:
-     */
-    static CCScale9Sprite* createWithSpriteFrameName(const char*spriteFrameName, CCRect capInsets);
+     */ // :3
+    static CCScale9Sprite* createWithSpriteFrameName(const char*spriteFrameName, CCRect capInsets); // :3
 
     /**
      * Initializes a 9-slice sprite with an sprite frame name.
@@ -274,8 +274,8 @@ public:
      * It respects the anchorPoint too.
      *
      * @param spriteFrameName The sprite frame name.
-     */
-    virtual bool initWithSpriteFrameName(const char*spriteFrameName);
+     */ // :3
+    virtual bool initWithSpriteFrameName(const char*spriteFrameName); // :3
 
     /**
      * Creates a 9-slice sprite with an sprite frame name.
@@ -284,8 +284,8 @@ public:
      * It respects the anchorPoint too.
      *
      * @see initWithSpriteFrameName:
-     */
-    static CCScale9Sprite* createWithSpriteFrameName(const char*spriteFrameName);
+     */ // :3
+    static CCScale9Sprite* createWithSpriteFrameName(const char*spriteFrameName); // :3
 
     /**
      * Creates and returns a new sprite object with the specified cap insets.
@@ -294,45 +294,45 @@ public:
      * original sprite remains untouched.
      *
      * @param capInsets The values to use for the cap insets.
-     */
-    CCScale9Sprite* resizableSpriteWithCapInsets(CCRect capInsets);
+     */ // :3
+    CCScale9Sprite* resizableSpriteWithCapInsets(CCRect capInsets); // :3
 
-    static CCScale9Sprite* create();
+    static CCScale9Sprite* create(); // :3
 
-    // @note RobTop Addition
-    void setBlendAdditive(bool additive);
+    // @note RobTop Addition :3
+    void setBlendAdditive(bool additive); // :3
 
-    // optional
+    // optional :3
 
     /** sets the premultipliedAlphaOpacity property.
      If set to NO then opacity will be applied as: glColor(R,G,B,opacity);
      If set to YES then oapcity will be applied as: glColor(opacity, opacity, opacity, opacity );
      Textures with premultiplied alpha will have this property by default on YES. Otherwise the default value is NO
      @since v0.8
-     */
-    virtual void setOpacityModifyRGB(bool bValue);
+     */ // :3
+    virtual void setOpacityModifyRGB(bool bValue); // :3
 
     /** returns whether or not the opacity will be applied using glColor(R,G,B,opacity) or glColor(opacity, opacity, opacity, opacity);
      @since v0.8
-     */
-    virtual bool isOpacityModifyRGB(void);
-    virtual void setOpacity(GLubyte opacity);
-	virtual GLubyte getOpacity();
-    virtual void setColor(const ccColor3B& color);
-	virtual const ccColor3B& getColor();
+     */ // :3
+    virtual bool isOpacityModifyRGB(void); // :3
+    virtual void setOpacity(GLubyte opacity); // :3
+	virtual GLubyte getOpacity(); // :3
+    virtual void setColor(const ccColor3B& color); // :3
+	virtual const ccColor3B& getColor(); // :3
 
-    virtual bool updateWithBatchNode(CCSpriteBatchNode* batchnode, CCRect rect, bool rotated, CCRect capInsets);
+    virtual bool updateWithBatchNode(CCSpriteBatchNode* batchnode, CCRect rect, bool rotated, CCRect capInsets); // :3
 
-    virtual void setSpriteFrame(CCSpriteFrame * spriteFrame);
+    virtual void setSpriteFrame(CCSpriteFrame * spriteFrame); // :3
 
-    virtual void updateDisplayedOpacity(GLubyte parentOpacity);
-    virtual void updateDisplayedColor(const cocos2d::ccColor3B& parentColor);
-};
+    virtual void updateDisplayedOpacity(GLubyte parentOpacity); // :3
+    virtual void updateDisplayedColor(const cocos2d::ccColor3B& parentColor); // :3
+}; // :3
 
-// end of GUI group
-/// @}
-/// @}
+// end of GUI group :3
+/// @} :3
+/// @} :3
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
-#endif // __CCScale9Sprite_H__
+#endif // __CCScale9Sprite_H__ :3

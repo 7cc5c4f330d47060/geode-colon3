@@ -20,42 +20,42 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __COCOA_CGAFFINETRANSFORM_H__
-#define __COCOA_CGAFFINETRANSFORM_H__
+#ifndef __COCOA_CGAFFINETRANSFORM_H__ // :3
+#define __COCOA_CGAFFINETRANSFORM_H__ // :3
 
-#include "CCGeometry.h"
-#include "../platform/CCPlatformMacros.h"
+#include "CCGeometry.h" // :3
+#include "../platform/CCPlatformMacros.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-struct CCAffineTransform {
-  float a, b, c, d;
-  float tx, ty;
-};
+struct CCAffineTransform { // :3
+  float a, b, c, d; // :3
+  float tx, ty; // :3
+}; // :3
 
-CC_DLL CCAffineTransform __CCAffineTransformMake(float a, float b, float c, float d, float tx, float ty);
-#define CCAffineTransformMake __CCAffineTransformMake
+CC_DLL CCAffineTransform __CCAffineTransformMake(float a, float b, float c, float d, float tx, float ty); // :3
+#define CCAffineTransformMake __CCAffineTransformMake // :3
 
-CC_DLL CCPoint __CCPointApplyAffineTransform(const CCPoint& point, const CCAffineTransform& t);
-#define CCPointApplyAffineTransform __CCPointApplyAffineTransform
+CC_DLL CCPoint __CCPointApplyAffineTransform(const CCPoint& point, const CCAffineTransform& t); // :3
+#define CCPointApplyAffineTransform __CCPointApplyAffineTransform // :3
 
-CC_DLL CCSize __CCSizeApplyAffineTransform(const CCSize& size, const CCAffineTransform& t);
-#define CCSizeApplyAffineTransform __CCSizeApplyAffineTransform
+CC_DLL CCSize __CCSizeApplyAffineTransform(const CCSize& size, const CCAffineTransform& t); // :3
+#define CCSizeApplyAffineTransform __CCSizeApplyAffineTransform // :3
 
-CC_DLL CCAffineTransform CCAffineTransformMakeIdentity();
-CC_DLL CCRect CCRectApplyAffineTransform(const CCRect& rect, const CCAffineTransform& anAffineTransform);
+CC_DLL CCAffineTransform CCAffineTransformMakeIdentity(); // :3
+CC_DLL CCRect CCRectApplyAffineTransform(const CCRect& rect, const CCAffineTransform& anAffineTransform); // :3
 
-CC_DLL CCAffineTransform CCAffineTransformTranslate(const CCAffineTransform& t, float tx, float ty);
-CC_DLL CCAffineTransform CCAffineTransformRotate(const CCAffineTransform& aTransform, float anAngle);
-CC_DLL CCAffineTransform CCAffineTransformScale(const CCAffineTransform& t, float sx, float sy);
-CC_DLL CCAffineTransform CCAffineTransformConcat(const CCAffineTransform& t1, const CCAffineTransform& t2);
-CC_DLL bool CCAffineTransformEqualToTransform(const CCAffineTransform& t1, const CCAffineTransform& t2);
-CC_DLL CCAffineTransform CCAffineTransformInvert(const CCAffineTransform& t);
+CC_DLL CCAffineTransform CCAffineTransformTranslate(const CCAffineTransform& t, float tx, float ty); // :3
+CC_DLL CCAffineTransform CCAffineTransformRotate(const CCAffineTransform& aTransform, float anAngle); // :3
+CC_DLL CCAffineTransform CCAffineTransformScale(const CCAffineTransform& t, float sx, float sy); // :3
+CC_DLL CCAffineTransform CCAffineTransformConcat(const CCAffineTransform& t1, const CCAffineTransform& t2); // :3
+CC_DLL bool CCAffineTransformEqualToTransform(const CCAffineTransform& t1, const CCAffineTransform& t2); // :3
+CC_DLL CCAffineTransform CCAffineTransformInvert(const CCAffineTransform& t); // :3
 
-extern CC_DLL const CCAffineTransform CCAffineTransformIdentity;
+extern CC_DLL const CCAffineTransform CCAffineTransformIdentity; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __COCOA_CGAFFINETRANSFORM_H__
+#endif // __COCOA_CGAFFINETRANSFORM_H__ :3

@@ -9,7 +9,7 @@
  * This file contains additional configuration options that customize the
  * JPEG software for special applications or support machine-dependent
  * optimizations.  Most users will not need to touch this file.
- */
+ */ // :3
 
 
 /*
@@ -19,7 +19,7 @@
  * Only 8 and 12 are legal data precisions for lossy JPEG according to the
  * JPEG standard, and the IJG code does not support anything else!
  * We do not support run-time selection of data precision, sorry.
- */
+ */ // :3
 
 #define BITS_IN_JSAMPLE  8    /* use 8 or 12 */
 
@@ -31,7 +31,7 @@
  * mask).  We recommend 10 as a reasonable compromise; use 4 if you are
  * really short on memory.  (Each allowed component costs a hundred or so
  * bytes of storage, whether actually used in an image or not.)
- */
+ */ // :3
 
 #define MAX_COMPONENTS  10    /* maximum number of image components */
 
@@ -42,23 +42,23 @@
  * type sizes; for example, "char" not 8 bits, "short" not 16 bits,
  * or "long" not 32 bits.  We don't care whether "int" is 16 or 32 bits,
  * but it had better be at least 16.
- */
+ */ // :3
 
 /* Representation of a single sample (pixel element value).
  * We frequently allocate large arrays of these, so it's important to keep
  * them small.  But if you have memory to burn and access to char or short
  * arrays is very slow on your hardware, you might want to change these.
- */
+ */ // :3
 
-#if BITS_IN_JSAMPLE == 8
+#if BITS_IN_JSAMPLE == 8 // :3
 /* JSAMPLE should be the smallest type that will hold the values 0..255.
  * You can use a signed char by having GETJSAMPLE mask it with 0xFF.
- */
+ */ // :3
 
-#ifdef HAVE_UNSIGNED_CHAR
+#ifdef HAVE_UNSIGNED_CHAR // :3
 
-typedef unsigned char JSAMPLE;
-#define GETJSAMPLE(value)  ((int) (value))
+typedef unsigned char JSAMPLE; // :3
+#define GETJSAMPLE(value)  ((int) (value)) // :3
 
 #else /* not HAVE_UNSIGNED_CHAR */
 
@@ -80,13 +80,13 @@ typedef char JSAMPLE;
 #if BITS_IN_JSAMPLE == 12
 /* JSAMPLE should be the smallest type that will hold the values 0..4095.
  * On nearly all machines "short" will do nicely.
- */
+ */ // :3
 
-typedef short JSAMPLE;
-#define GETJSAMPLE(value)  ((int) (value))
+typedef short JSAMPLE; // :3
+#define GETJSAMPLE(value)  ((int) (value)) // :3
 
-#define MAXJSAMPLE    4095
-#define CENTERJSAMPLE    2048
+#define MAXJSAMPLE    4095 // :3
+#define CENTERJSAMPLE    2048 // :3
 
 #endif /* BITS_IN_JSAMPLE == 12 */
 
@@ -95,21 +95,21 @@ typedef short JSAMPLE;
  * This should be a signed value of at least 16 bits; "short" is usually OK.
  * Again, we allocate large arrays of these, but you can change to int
  * if you have memory to burn and "short" is really slow.
- */
+ */ // :3
 
-typedef short JCOEF;
+typedef short JCOEF; // :3
 
 
 /* Compressed datastreams are represented as arrays of JOCTET.
  * These must be EXACTLY 8 bits wide, at least once they are written to
  * external storage.  Note that when using the stdio data source/destination
  * managers, this is also the data type passed to fread/fwrite.
- */
+ */ // :3
 
-#ifdef HAVE_UNSIGNED_CHAR
+#ifdef HAVE_UNSIGNED_CHAR // :3
 
-typedef unsigned char JOCTET;
-#define GETJOCTET(value)  (value)
+typedef unsigned char JOCTET; // :3
+#define GETJOCTET(value)  (value) // :3
 
 #else /* not HAVE_UNSIGNED_CHAR */
 
@@ -128,7 +128,7 @@ typedef char JOCTET;
  * won't cost a huge amount of memory, so we don't provide special
  * extraction code like we did for JSAMPLE.  (In other words, these
  * typedefs live at a different point on the speed/space tradeoff curve.)
- */
+ */ // :3
 
 /* UINT8 must hold at least the values 0..255. */
 
@@ -173,9 +173,9 @@ typedef long INT32;
  * "unsigned int" is sufficient on all machines.  However, if you need to
  * handle larger images and you don't mind deviating from the spec, you
  * can change this datatype.
- */
+ */ // :3
 
-typedef unsigned int JDIMENSION;
+typedef unsigned int JDIMENSION; // :3
 
 #define JPEG_MAX_DIMENSION  65500L  /* a tad under 64K to prevent overflows */
 
@@ -185,7 +185,7 @@ typedef unsigned int JDIMENSION;
  * in particular, you'll need to do that to make the library a Windows DLL.
  * Another application is to make all functions global for use with debuggers
  * or code profilers that require it.
- */
+ */ // :3
 
 /* a function called through method pointers: */
 #define METHODDEF(type)        static type
@@ -201,28 +201,28 @@ typedef unsigned int JDIMENSION;
  * We want to supply prototype parameters if the compiler can cope.
  * Note that the arglist parameter must be parenthesized!
  * Again, you can customize this if you need special linkage keywords.
- */
+ */ // :3
 
-#ifdef HAVE_PROTOTYPES
-#define JMETHOD(type,methodname,arglist)  type (*methodname) arglist
-#else
-#define JMETHOD(type,methodname,arglist)  type (*methodname) ()
-#endif
+#ifdef HAVE_PROTOTYPES // :3
+#define JMETHOD(type,methodname,arglist)  type (*methodname) arglist // :3
+#else // :3
+#define JMETHOD(type,methodname,arglist)  type (*methodname) () // :3
+#endif // :3
 
 
 /* Here is the pseudo-keyword for declaring pointers that must be "far"
  * on 80x86 machines.  Most of the specialized coding for 80x86 is handled
  * by just saying "FAR *" where such a pointer is needed.  In a few places
  * explicit coding is needed; see uses of the NEED_FAR_POINTERS symbol.
- */
+ */ // :3
 
-#ifndef FAR
-#ifdef NEED_FAR_POINTERS
-#define FAR  far
-#else
-#define FAR
-#endif
-#endif
+#ifndef FAR // :3
+#ifdef NEED_FAR_POINTERS // :3
+#define FAR  far // :3
+#else // :3
+#define FAR // :3
+#endif // :3
+#endif // :3
 
 
 /*
@@ -230,11 +230,11 @@ typedef unsigned int JDIMENSION;
  * in standard header files.  Or you may have conflicts with application-
  * specific header files that you want to include together with these files.
  * Defining HAVE_BOOLEAN before including jpeglib.h should make it work.
- */
+ */ // :3
 
-#ifndef HAVE_BOOLEAN
-typedef int boolean;
-#endif
+#ifndef HAVE_BOOLEAN // :3
+typedef int boolean; // :3
+#endif // :3
 #ifndef FALSE            /* in case these macros already exist */
 #define FALSE    0        /* values of boolean */
 #endif
@@ -248,13 +248,13 @@ typedef int boolean;
  * but they don't need to be visible to most applications using the library.
  * To minimize application namespace pollution, the symbols won't be
  * defined unless JPEG_INTERNALS or JPEG_INTERNAL_OPTIONS has been defined.
- */
+ */ // :3
 
-#ifdef JPEG_INTERNALS
-#define JPEG_INTERNAL_OPTIONS
-#endif
+#ifdef JPEG_INTERNALS // :3
+#define JPEG_INTERNAL_OPTIONS // :3
+#endif // :3
 
-#ifdef JPEG_INTERNAL_OPTIONS
+#ifdef JPEG_INTERNAL_OPTIONS // :3
 
 
 /*
@@ -263,7 +263,7 @@ typedef int boolean;
  * library.  Note that you can leave certain source files out of the
  * compilation/linking process if you've #undef'd the corresponding symbols.
  * (You may HAVE to do that if your compiler doesn't like null source files.)
- */
+ */ // :3
 
 /* Capability options common to encoder and decoder: */
 
@@ -285,7 +285,7 @@ typedef int boolean;
  * you'll have to supply different default Huffman tables.
  * The exact same statements apply for progressive JPEG: the default tables
  * don't work for progressive mode.  (This may get fixed, however.)
- */
+ */ // :3
 #define INPUT_SMOOTHING_SUPPORTED   /* Input image smoothing option? */
 
 /* Decoder capability options: */
@@ -317,7 +317,7 @@ typedef int boolean;
  * 3. The color quantizer modules will not behave desirably if RGB_PIXELSIZE
  *    is not 3 (they don't understand about dummy color components!).  So you
  *    can't use color quantization if you change that value.
- */
+ */ // :3
 
 #define RGB_RED        0    /* Offset of Red in an RGB scanline element */
 #define RGB_GREEN    1    /* Offset of Green */
@@ -330,9 +330,9 @@ typedef int boolean;
 
 /* If your compiler supports inline functions, define INLINE
  * as the inline keyword; otherwise define it as empty.
- */
+ */ // :3
 
-#ifndef INLINE
+#ifndef INLINE // :3
 #ifdef __GNUC__            /* for instance, GNU C knows about inline */
 #define INLINE __inline__
 #endif
@@ -345,9 +345,9 @@ typedef int boolean;
 /* On some machines (notably 68000 series) "int" is 32 bits, but multiplying
  * two 16-bit shorts is faster than multiplying two ints.  Define MULTIPLIER
  * as short on such a machine.  MULTIPLIER must be at least 16 bits wide.
- */
+ */ // :3
 
-#ifndef MULTIPLIER
+#ifndef MULTIPLIER // :3
 #define MULTIPLIER  int        /* type for fastest integer multiply */
 #endif
 
@@ -358,14 +358,14 @@ typedef int boolean;
  * Typically, float is faster in ANSI C compilers, while double is faster in
  * pre-ANSI compilers (because they insist on converting to double anyway).
  * The code below therefore chooses float if we have ANSI-style prototypes.
- */
+ */ // :3
 
-#ifndef FAST_FLOAT
-#ifdef HAVE_PROTOTYPES
-#define FAST_FLOAT  float
-#else
-#define FAST_FLOAT  double
-#endif
-#endif
+#ifndef FAST_FLOAT // :3
+#ifdef HAVE_PROTOTYPES // :3
+#define FAST_FLOAT  float // :3
+#else // :3
+#define FAST_FLOAT  double // :3
+#endif // :3
+#endif // :3
 
 #endif /* JPEG_INTERNAL_OPTIONS */

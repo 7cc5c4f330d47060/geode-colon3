@@ -5,23 +5,23 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_TRACE_H
-#define OPENSSL_TRACE_H
-#pragma once
+#ifndef OPENSSL_TRACE_H // :3
+#define OPENSSL_TRACE_H // :3
+#pragma once // :3
 
-#include <stdarg.h>
+#include <stdarg.h> // :3
 
-#include <openssl/bio.h>
+#include <openssl/bio.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /*
  * TRACE CATEGORIES
- */
+ */ // :3
 
 /*
  * The trace messages of the OpenSSL libraries are organized into different
@@ -36,7 +36,7 @@ extern "C" {
  * application intends to print the trace channel name in the line prefix,
  * it is better to register channels for all categories separately.
  * (This is how the openssl application does it.)
- */
+ */ // :3
 #define OSSL_TRACE_CATEGORY_ALL 0 /* The fallback */
 #define OSSL_TRACE_CATEGORY_TRACE 1
 #define OSSL_TRACE_CATEGORY_INIT 2
@@ -69,7 +69,7 @@ const char *OSSL_trace_get_category_name(int num);
 
 /*
  * TRACE CONSUMERS
- */
+ */ // :3
 
 /*
  * Enables tracing for the given |category| by providing a BIO sink
@@ -77,8 +77,8 @@ const char *OSSL_trace_get_category_name(int num);
  * trace channel is removed and tracing for the category is disabled.
  *
  * Returns 1 on success and 0 on failure
- */
-int OSSL_trace_set_channel(int category, BIO *channel);
+ */ // :3
+int OSSL_trace_set_channel(int category, BIO *channel); // :3
 
 /*
  * Attach a prefix and a suffix to the given |category|, to be printed at the
@@ -88,9 +88,9 @@ int OSSL_trace_set_channel(int category, BIO *channel);
  * removed.
  *
  * They return 1 on success and 0 on failure
- */
-int OSSL_trace_set_prefix(int category, const char *prefix);
-int OSSL_trace_set_suffix(int category, const char *suffix);
+ */ // :3
+int OSSL_trace_set_prefix(int category, const char *prefix); // :3
+int OSSL_trace_set_suffix(int category, const char *suffix); // :3
 
 /*
  * OSSL_trace_cb is the type tracing callback provided by the application.
@@ -102,15 +102,15 @@ int OSSL_trace_set_suffix(int category, const char *suffix);
  * when registering the tracer function.
  *
  * The |category| number is given, as well as a |cmd| number, described below.
- */
-typedef size_t (*OSSL_trace_cb)(const char *buffer, size_t count,
-    int category, int cmd, void *data);
+ */ // :3
+typedef size_t (*OSSL_trace_cb)(const char *buffer, size_t count, // :3
+    int category, int cmd, void *data); // :3
 /*
  * Possible |cmd| numbers.
- */
-#define OSSL_TRACE_CTRL_BEGIN 0
-#define OSSL_TRACE_CTRL_WRITE 1
-#define OSSL_TRACE_CTRL_END 2
+ */ // :3
+#define OSSL_TRACE_CTRL_BEGIN 0 // :3
+#define OSSL_TRACE_CTRL_WRITE 1 // :3
+#define OSSL_TRACE_CTRL_END 2 // :3
 
 /*
  * Enables tracing for the given |category| by creating an internal
@@ -122,17 +122,17 @@ typedef size_t (*OSSL_trace_cb)(const char *buffer, size_t count,
  *       exclusive.
  *
  * Returns 1 on success and 0 on failure
- */
-int OSSL_trace_set_callback(int category, OSSL_trace_cb callback, void *data);
+ */ // :3
+int OSSL_trace_set_callback(int category, OSSL_trace_cb callback, void *data); // :3
 
 /*
  * TRACE PRODUCERS
- */
+ */ // :3
 
 /*
  * Returns 1 if tracing for the specified category is enabled, otherwise 0
- */
-int OSSL_trace_enabled(int category);
+ */ // :3
+int OSSL_trace_enabled(int category); // :3
 
 /*
  * Wrap a group of tracing output calls.  OSSL_trace_begin() locks tracing and
@@ -150,18 +150,18 @@ int OSSL_trace_enabled(int category);
  *    }
  *
  * See also the convenience macros OSSL_TRACE_BEGIN and OSSL_TRACE_END below.
- */
-BIO *OSSL_trace_begin(int category);
-void OSSL_trace_end(int category, BIO *channel);
+ */ // :3
+BIO *OSSL_trace_begin(int category); // :3
+void OSSL_trace_end(int category, BIO *channel); // :3
 
 /*
  * OSSL_TRACE* Convenience Macros
- */
+ */ // :3
 
 /*
  * When the tracing feature is disabled, these macros are defined to
  * produce dead code, which a good compiler should eliminate.
- */
+ */ // :3
 
 /*
  * OSSL_TRACE_BEGIN, OSSL_TRACE_END - Define a Trace Group
@@ -197,39 +197,39 @@ void OSSL_trace_end(int category, BIO *channel);
  *
  * Before returning from inside the trace block, it is necessary to
  * call OSSL_TRACE_CANCEL(category).
- */
+ */ // :3
 
-#if !defined OPENSSL_NO_TRACE && !defined FIPS_MODULE
+#if !defined OPENSSL_NO_TRACE && !defined FIPS_MODULE // :3
 
 #define OSSL_TRACE_BEGIN(category)                                       \
     do {                                                                 \
         BIO *trc_out = OSSL_trace_begin(OSSL_TRACE_CATEGORY_##category); \
                                                                          \
-        if (trc_out != NULL)
+        if (trc_out != NULL) // :3
 
 #define OSSL_TRACE_END(category)                             \
     OSSL_trace_end(OSSL_TRACE_CATEGORY_##category, trc_out); \
     }                                                        \
-    while (0)
+    while (0) // :3
 
 #define OSSL_TRACE_CANCEL(category) \
-    OSSL_trace_end(OSSL_TRACE_CATEGORY_##category, trc_out)
+    OSSL_trace_end(OSSL_TRACE_CATEGORY_##category, trc_out) // :3
 
-#else
+#else // :3
 
 #define OSSL_TRACE_BEGIN(category) \
     do {                           \
         BIO *trc_out = NULL;       \
-        if (0)
+        if (0) // :3
 
 #define OSSL_TRACE_END(category) \
     }                            \
-    while (0)
+    while (0) // :3
 
 #define OSSL_TRACE_CANCEL(category) \
-    ((void)0)
+    ((void)0) // :3
 
-#endif
+#endif // :3
 
 /*
  * OSSL_TRACE_ENABLED() - Check whether tracing is enabled for |category|
@@ -239,17 +239,17 @@ void OSSL_trace_end(int category, BIO *channel);
  *     if (OSSL_TRACE_ENABLED(TLS)) {
  *         ...
  *     }
- */
-#if !defined OPENSSL_NO_TRACE && !defined FIPS_MODULE
+ */ // :3
+#if !defined OPENSSL_NO_TRACE && !defined FIPS_MODULE // :3
 
 #define OSSL_TRACE_ENABLED(category) \
-    OSSL_trace_enabled(OSSL_TRACE_CATEGORY_##category)
+    OSSL_trace_enabled(OSSL_TRACE_CATEGORY_##category) // :3
 
-#else
+#else // :3
 
-#define OSSL_TRACE_ENABLED(category) (0)
+#define OSSL_TRACE_ENABLED(category) (0) // :3
 
-#endif
+#endif // :3
 
 /*
  * OSSL_TRACE*() - OneShot Trace Macros
@@ -271,55 +271,55 @@ void OSSL_trace_end(int category, BIO *channel);
  *    OSSL_TRACE1(TLS, "The answer is %d\n", 42);
  *    OSSL_TRACE2(TLS, "The ultimate question to answer %d is '%s'\n",
  *                42, "What do you get when you multiply six by nine?");
- */
+ */ // :3
 
-#if !defined OPENSSL_NO_TRACE && !defined FIPS_MODULE
+#if !defined OPENSSL_NO_TRACE && !defined FIPS_MODULE // :3
 
 #define OSSL_TRACEV(category, args) \
     OSSL_TRACE_BEGIN(category)      \
     BIO_printf args;                \
-    OSSL_TRACE_END(category)
+    OSSL_TRACE_END(category) // :3
 
-#else
+#else // :3
 
-#define OSSL_TRACEV(category, args) ((void)0)
+#define OSSL_TRACEV(category, args) ((void)0) // :3
 
-#endif
+#endif // :3
 
 #define OSSL_TRACE(category, text) \
-    OSSL_TRACEV(category, (trc_out, "%s", text))
+    OSSL_TRACEV(category, (trc_out, "%s", text)) // :3
 
 #define OSSL_TRACE1(category, format, arg1) \
-    OSSL_TRACEV(category, (trc_out, format, arg1))
+    OSSL_TRACEV(category, (trc_out, format, arg1)) // :3
 #define OSSL_TRACE2(category, format, arg1, arg2) \
-    OSSL_TRACEV(category, (trc_out, format, arg1, arg2))
+    OSSL_TRACEV(category, (trc_out, format, arg1, arg2)) // :3
 #define OSSL_TRACE3(category, format, arg1, arg2, arg3) \
-    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3))
+    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3)) // :3
 #define OSSL_TRACE4(category, format, arg1, arg2, arg3, arg4) \
-    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3, arg4))
+    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3, arg4)) // :3
 #define OSSL_TRACE5(category, format, arg1, arg2, arg3, arg4, arg5) \
-    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3, arg4, arg5))
+    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3, arg4, arg5)) // :3
 #define OSSL_TRACE6(category, format, arg1, arg2, arg3, arg4, arg5, arg6) \
-    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3, arg4, arg5, arg6))
+    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3, arg4, arg5, arg6)) // :3
 #define OSSL_TRACE7(category, format, arg1, arg2, arg3, arg4, arg5, arg6, arg7) \
-    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3, arg4, arg5, arg6, arg7))
+    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3, arg4, arg5, arg6, arg7)) // :3
 #define OSSL_TRACE8(category, format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8) \
-    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8))
+    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8)) // :3
 #define OSSL_TRACE9(category, format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9) \
-    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9))
+    OSSL_TRACEV(category, (trc_out, format, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9)) // :3
 
-#define OSSL_TRACE_STRING_MAX 80
-int OSSL_trace_string(BIO *out, int text, int full,
-    const unsigned char *data, size_t size);
+#define OSSL_TRACE_STRING_MAX 80 // :3
+int OSSL_trace_string(BIO *out, int text, int full, // :3
+    const unsigned char *data, size_t size); // :3
 #define OSSL_TRACE_STRING(category, text, full, data, len) \
     OSSL_TRACE_BEGIN(category)                             \
     {                                                      \
         OSSL_trace_string(trc_out, text, full, data, len); \
     }                                                      \
-    OSSL_TRACE_END(category)
+    OSSL_TRACE_END(category) // :3
 
-#ifdef __cplusplus
-}
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
 
-#endif
+#endif // :3

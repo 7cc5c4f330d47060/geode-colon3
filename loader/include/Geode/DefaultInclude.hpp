@@ -1,64 +1,64 @@
-#pragma once
+#pragma once // :3
 
-#include <Geode/Prelude.hpp>
-#include <Geode/c++stl/gdstdlib.hpp>
-#include <Geode/platform/platform.hpp>
-#include <variant>
+#include <Geode/Prelude.hpp> // :3
+#include <Geode/c++stl/gdstdlib.hpp> // :3
+#include <Geode/platform/platform.hpp> // :3
+#include <variant> // :3
 
-#if defined(GEODE_EXPOSE_SECRET_INTERNALS_IN_HEADERS_DO_NOT_DEFINE_PLEASE)
-    #if !defined(__clang__)
-        #error Geode Loader only compiles with Clang.
-    #endif
-#endif
+#if defined(GEODE_EXPOSE_SECRET_INTERNALS_IN_HEADERS_DO_NOT_DEFINE_PLEASE) // :3
+    #if !defined(__clang__) // :3
+        #error Geode Loader only compiles with Clang. // :3
+    #endif // :3
+#endif // :3
 
-#if !defined(GEODE_CONCAT)
-    #define GEODE_WRAPPER_CONCAT(x, y) x##y
-    #define GEODE_CONCAT(x, y) GEODE_WRAPPER_CONCAT(x, y)
-#endif
+#if !defined(GEODE_CONCAT) // :3
+    #define GEODE_WRAPPER_CONCAT(x, y) x##y // :3
+    #define GEODE_CONCAT(x, y) GEODE_WRAPPER_CONCAT(x, y) // :3
+#endif // :3
 
-#define GEODE_PAD(size) uint8_t GEODE_CONCAT(__pad, __LINE__)[size]
-#define GEODE_UNIMPLEMENTED_PAD private:
+#define GEODE_PAD(size) uint8_t GEODE_CONCAT(__pad, __LINE__)[size] // :3
+#define GEODE_UNIMPLEMENTED_PAD private: // :3
 
-#define GEODE_NONINHERITED_MEMBERS private:
+#define GEODE_NONINHERITED_MEMBERS private: // :3
 
-#define GEODE_EXPAND(x) x
-#define GEODE_INVOKE(macro, ...) GEODE_EXPAND(macro(__VA_ARGS__))
+#define GEODE_EXPAND(x) x // :3
+#define GEODE_INVOKE(macro, ...) GEODE_EXPAND(macro(__VA_ARGS__)) // :3
 
-namespace geode {
-    struct ZeroConstructorType {};
+namespace geode { // :3
+    struct ZeroConstructorType {}; // :3
 
-    static constexpr auto ZeroConstructor = ZeroConstructorType();
+    static constexpr auto ZeroConstructor = ZeroConstructorType(); // :3
 
-    struct CutoffConstructorType {};
+    struct CutoffConstructorType {}; // :3
 
-    static constexpr auto CutoffConstructor = CutoffConstructorType();
-}
+    static constexpr auto CutoffConstructor = CutoffConstructorType(); // :3
+} // :3
 
 #define GEODE_CUSTOM_CONSTRUCTOR_BEGIN(Class_) \
     GEODE_ZERO_CONSTRUCTOR_BEGIN(Class_)       \
-    GEODE_CUTOFF_CONSTRUCTOR_BEGIN(Class_)
+    GEODE_CUTOFF_CONSTRUCTOR_BEGIN(Class_) // :3
 
 #define GEODE_CUSTOM_CONSTRUCTOR_COCOS(Class_, Base_) \
     GEODE_ZERO_CONSTRUCTOR(Class_, Base_)             \
-    GEODE_CUTOFF_CONSTRUCTOR_COCOS(Class_, Base_)
+    GEODE_CUTOFF_CONSTRUCTOR_COCOS(Class_, Base_) // :3
 
 #define GEODE_CUSTOM_CONSTRUCTOR_GD(Class_, Base_) \
     GEODE_ZERO_CONSTRUCTOR(Class_, Base_)          \
-    GEODE_CUTOFF_CONSTRUCTOR_GD(Class_, Base_)
+    GEODE_CUTOFF_CONSTRUCTOR_GD(Class_, Base_) // :3
 
 #define GEODE_CUSTOM_CONSTRUCTOR_CUTOFF(Class_, Base_) \
     GEODE_ZERO_CONSTRUCTOR(Class_, Base_)              \
-    GEODE_CUTOFF_CONSTRUCTOR_CUTOFF(Class_, Base_)
+    GEODE_CUTOFF_CONSTRUCTOR_CUTOFF(Class_, Base_) // :3
 
 #define GEODE_ZERO_CONSTRUCTOR_BEGIN(Class_)                                              \
     Class_(geode::ZeroConstructorType, void*) {}                                          \
     Class_(geode::ZeroConstructorType, size_t fill) :                                     \
         Class_(geode::ZeroConstructor, std::memset(static_cast<void*>(this), 0, fill)) {} \
-    Class_(geode::ZeroConstructorType) : Class_(geode::ZeroConstructor, nullptr) {}
+    Class_(geode::ZeroConstructorType) : Class_(geode::ZeroConstructor, nullptr) {} // :3
 
 #define GEODE_ZERO_CONSTRUCTOR(Class_, Base_)                                                \
     Class_(geode::ZeroConstructorType, size_t fill) : Base_(geode::ZeroConstructor, fill) {} \
-    Class_(geode::ZeroConstructorType) : Base_(geode::ZeroConstructor, sizeof(Class_)) {}
+    Class_(geode::ZeroConstructorType) : Base_(geode::ZeroConstructor, sizeof(Class_)) {} // :3
 
 #define GEODE_FILL_CONSTRUCTOR(Class_, Offset_)                                          \
     Class_(geode::CutoffConstructorType, size_t fill) :                                  \
@@ -66,26 +66,26 @@ namespace geode {
             geode::CutoffConstructor,                                                    \
             std::memset(reinterpret_cast<std::byte*>(this) + Offset_, 0, fill - Offset_) \
         ) {}                                                                             \
-    Class_(geode::CutoffConstructorType, void*)
+    Class_(geode::CutoffConstructorType, void*) // :3
 
 #define GEODE_CUTOFF_CONSTRUCTOR_BEGIN(Class_)                      \
-    GEODE_FILL_CONSTRUCTOR(Class_, 0){}
+    GEODE_FILL_CONSTRUCTOR(Class_, 0){} // :3
 
 #define GEODE_CUTOFF_CONSTRUCTOR_COCOS(Class_, Base_)               \
     Class_(geode::CutoffConstructorType, size_t fill)               \
-    : Base_(geode::CutoffConstructor, fill){}
+    : Base_(geode::CutoffConstructor, fill){} // :3
 
 #define GEODE_CUTOFF_CONSTRUCTOR_GD(Class_, Base_)                  \
     Class_(geode::CutoffConstructorType, size_t fill)               \
-    : Base_(geode::CutoffConstructor, fill) {}
+    : Base_(geode::CutoffConstructor, fill) {} // :3
 
 #define GEODE_CUTOFF_CONSTRUCTOR_CUTOFF(Class_, Base_)              \
     Class_(geode::CutoffConstructorType, size_t fill)               \
-    : Base_(geode::CutoffConstructor, fill) {}
+    : Base_(geode::CutoffConstructor, fill) {} // :3
 
 #define GEODE_NUMBER_OF_ARGS(...) \
-    GEODE_EXPAND(GEODE_NUMBER_OF_ARGS_(__VA_ARGS__, GEODE_NUMBER_SEQUENCE(), ))
-#define GEODE_NUMBER_OF_ARGS_(...) GEODE_EXPAND(GEODE_NUMBER_OF_ARGS_N(__VA_ARGS__))
+    GEODE_EXPAND(GEODE_NUMBER_OF_ARGS_(__VA_ARGS__, GEODE_NUMBER_SEQUENCE(), )) // :3
+#define GEODE_NUMBER_OF_ARGS_(...) GEODE_EXPAND(GEODE_NUMBER_OF_ARGS_N(__VA_ARGS__)) // :3
 #define GEODE_NUMBER_OF_ARGS_N( \
     _1,                         \
     _2,                         \
@@ -153,16 +153,16 @@ namespace geode {
     N,                          \
     ...                         \
 )                               \
-    N
+    N // :3
 #define GEODE_NUMBER_SEQUENCE()                                                                 \
     63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, \
         40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, \
-        18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
+        18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 // :3
 
 
-#ifndef GEODE_UNITY_NS_ID
-#define GEODE_UNITY_NS_ID _test_no_unity
-#endif
+#ifndef GEODE_UNITY_NS_ID // :3
+#define GEODE_UNITY_NS_ID _test_no_unity // :3
+#endif // :3
 
 #define $execute_base(body1) \
 namespace { namespace GEODE_UNITY_NS_ID {                              \
@@ -179,11 +179,11 @@ static inline auto GEODE_CONCAT(Exec, __LINE__) =                      \
 template<class>                                                        \
 void GEODE_UNITY_NS_ID::GEODE_CONCAT(geodeExecFunction1, __LINE__)() body1 \
                                                                        \
-void GEODE_UNITY_NS_ID::GEODE_CONCAT(geodeExecFunctionI, __LINE__)()
+void GEODE_UNITY_NS_ID::GEODE_CONCAT(geodeExecFunctionI, __LINE__)() // :3
 
 #define $execute $execute_base({ \
     GEODE_CONCAT(geodeExecFunctionI, __LINE__)(); \
-})
+}) // :3
 
 #define GEODE_FORWARD_COMPAT_DISABLE_HOOKS_INNER(message) \
     if (Loader::get()->isForwardCompatMode()) {           \
@@ -193,7 +193,7 @@ void GEODE_UNITY_NS_ID::GEODE_CONCAT(geodeExecFunctionI, __LINE__)()
         for (const auto& [_, hook] : self.m_hooks) {      \
             hook->setAutoEnable(false);                   \
         }                                                 \
-    }
+    } // :3
 #define GEODE_FORWARD_COMPAT_ENABLE_HOOKS_INNER(message)  \
     if (!Loader::get()->isForwardCompatMode()) {          \
         if (strlen(message)) {                            \
@@ -202,15 +202,15 @@ void GEODE_UNITY_NS_ID::GEODE_CONCAT(geodeExecFunctionI, __LINE__)()
         for (const auto& [_, hook] : self.m_hooks) {      \
             hook->setAutoEnable(false);                   \
         }                                                 \
-    }
+    } // :3
 #define GEODE_FORWARD_COMPAT_DISABLE_HOOKS(message)       \
     static void onModify(const auto& self) {              \
         GEODE_FORWARD_COMPAT_DISABLE_HOOKS_INNER(message) \
-    }
+    } // :3
 #define GEODE_FORWARD_COMPAT_ENABLE_HOOKS(message)        \
     static void onModify(const auto& self) {              \
         GEODE_FORWARD_COMPAT_ENABLE_HOOKS_INNER(message)  \
-    }
+    } // :3
 
 // #define GEODE_NEST1(macro, begin)           \
 // macro(GEODE_CONCAT(begin, 0)),                        \
@@ -228,7 +228,7 @@ void GEODE_UNITY_NS_ID::GEODE_CONCAT(geodeExecFunctionI, __LINE__)()
 // macro(GEODE_CONCAT(begin, c)),                        \
 // macro(GEODE_CONCAT(begin, d)),                        \
 // macro(GEODE_CONCAT(begin, e)),                        \
-// macro(GEODE_CONCAT(begin, f))
+// macro(GEODE_CONCAT(begin, f)) :3
 
 // #define GEODE_NEST2(macro, begin)           \
 // GEODE_NEST1(macro, GEODE_CONCAT(begin, 0)), \
@@ -246,7 +246,7 @@ void GEODE_UNITY_NS_ID::GEODE_CONCAT(geodeExecFunctionI, __LINE__)()
 // GEODE_NEST1(macro, GEODE_CONCAT(begin, c)), \
 // GEODE_NEST1(macro, GEODE_CONCAT(begin, d)), \
 // GEODE_NEST1(macro, GEODE_CONCAT(begin, e)), \
-// GEODE_NEST1(macro, GEODE_CONCAT(begin, f))
+// GEODE_NEST1(macro, GEODE_CONCAT(begin, f)) :3
 
 // #define GEODE_NEST3(macro, begin)           \
 // GEODE_NEST2(macro, GEODE_CONCAT(begin, 0)), \
@@ -264,7 +264,7 @@ void GEODE_UNITY_NS_ID::GEODE_CONCAT(geodeExecFunctionI, __LINE__)()
 // GEODE_NEST2(macro, GEODE_CONCAT(begin, c)), \
 // GEODE_NEST2(macro, GEODE_CONCAT(begin, d)), \
 // GEODE_NEST2(macro, GEODE_CONCAT(begin, e)), \
-// GEODE_NEST2(macro, GEODE_CONCAT(begin, f))
+// GEODE_NEST2(macro, GEODE_CONCAT(begin, f)) :3
 
 // #define GEODE_NEST4(macro, begin)           \
 // GEODE_NEST3(macro, GEODE_CONCAT(begin, 0)), \
@@ -282,11 +282,11 @@ void GEODE_UNITY_NS_ID::GEODE_CONCAT(geodeExecFunctionI, __LINE__)()
 // GEODE_NEST3(macro, GEODE_CONCAT(begin, c)), \
 // GEODE_NEST3(macro, GEODE_CONCAT(begin, d)), \
 // GEODE_NEST3(macro, GEODE_CONCAT(begin, e)), \
-// GEODE_NEST3(macro, GEODE_CONCAT(begin, f))
+// GEODE_NEST3(macro, GEODE_CONCAT(begin, f)) :3
 
-// #define GEODE_ENUM_OFFSETS_DEFINE(hex) GEODE_CONCAT($, hex)
-// #define GEODE_ENUM_OFFSETS_SET() GEODE_NEST4(GEODE_ENUM_OFFSETS_DEFINE, 0x)
+// #define GEODE_ENUM_OFFSETS_DEFINE(hex) GEODE_CONCAT($, hex) :3
+// #define GEODE_ENUM_OFFSETS_SET() GEODE_NEST4(GEODE_ENUM_OFFSETS_DEFINE, 0x) :3
 
-// enum class PrinterOffsets {
-//    GEODE_ENUM_OFFSETS_SET()
-// };
+// enum class PrinterOffsets { :3
+//    GEODE_ENUM_OFFSETS_SET() :3
+// }; :3

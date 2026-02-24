@@ -6,18 +6,18 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_BUFFERERR_H
-#define OPENSSL_BUFFERERR_H
-#pragma once
+#ifndef OPENSSL_BUFFERERR_H // :3
+#define OPENSSL_BUFFERERR_H // :3
+#pragma once // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/symhacks.h>
-#include <openssl/cryptoerr_legacy.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/symhacks.h> // :3
+#include <openssl/cryptoerr_legacy.h> // :3
 
 /*
  * BUF reason codes.
- */
+ */ // :3
 
-#endif
+#endif // :3

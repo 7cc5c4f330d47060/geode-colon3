@@ -20,170 +20,170 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCOBJECT_H__
-#define __CCOBJECT_H__
+#ifndef __CCOBJECT_H__ // :3
+#define __CCOBJECT_H__ // :3
 
-#include "CCDataVisitor.h"
-#include "../include/ccMacros.h"
-#include <unordered_map>
+#include "CCDataVisitor.h" // :3
+#include "../include/ccMacros.h" // :3
+#include <unordered_map> // :3
 
-// Geode macros
-#include "../../DefaultInclude.hpp"
+// Geode macros :3
+#include "../../DefaultInclude.hpp" // :3
 
-#ifdef EMSCRIPTEN
-#include <GLES2/gl2.h>
-#endif // EMSCRIPTEN
+#ifdef EMSCRIPTEN // :3
+#include <GLES2/gl2.h> // :3
+#endif // EMSCRIPTEN :3
 
-// @note RobTop Addition
-class DS_Dictionary;
+// @note RobTop Addition :3
+class DS_Dictionary; // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup base_nodes
  * @{
- */
+ */ // :3
 
-// please someone tell we why in higher being(s)'s name rob did this
-enum class CCObjectType {
-    PlayLayer = 5,
-    LevelEditorLayer = 6,
-    GameObject = 13,
-    MenuLayer = 15,
-};
+// please someone tell we why in higher being(s)'s name rob did this :3
+enum class CCObjectType { // :3
+    PlayLayer = 5, // :3
+    LevelEditorLayer = 6, // :3
+    GameObject = 13, // :3
+    MenuLayer = 15, // :3
+}; // :3
 
-class CCZone;
-class CCObject;
-class CCNode;
-class CCEvent;
+class CCZone; // :3
+class CCObject; // :3
+class CCNode; // :3
+class CCEvent; // :3
 
 
 
 /**
  * @js NA
  * @lua NA
- */
-class CC_DLL CCCopying
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual CCObject* copyWithZone(CCZone* pZone)  { return 0; }
-};
+ */ // :3
+class CC_DLL CCCopying // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual CCObject* copyWithZone(CCZone* pZone)  { return 0; } // :3
+}; // :3
 
-#pragma warning(push)
-#pragma warning(disable: 4275)
+#pragma warning(push) // :3
+#pragma warning(disable: 4275) // :3
 /**
  * @js NA
- */
-class CC_DLL CCObject : public CCCopying
-{
-    GEODE_FRIEND_MODIFY
-public:
-    // object id, CCScriptSupport need public m_uID
-    unsigned int        m_uID;
-    // Lua reference id
-    int                 m_nLuaID;
-public:
-    // the object's tag
-    int m_nTag;
-    // count of references
-    unsigned int        m_uReference;
-    // count of autorelease
-    unsigned int        m_uAutoReleaseCount;
+ */ // :3
+class CC_DLL CCObject : public CCCopying // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    // object id, CCScriptSupport need public m_uID :3
+    unsigned int        m_uID; // :3
+    // Lua reference id :3
+    int                 m_nLuaID; // :3
+public: // :3
+    // the object's tag :3
+    int m_nTag; // :3
+    // count of references :3
+    unsigned int        m_uReference; // :3
+    // count of autorelease :3
+    unsigned int        m_uAutoReleaseCount; // :3
 
-    CCObjectType m_eObjType;
+    CCObjectType m_eObjType; // :3
 
-    int m_uIndexInArray; // used in some ccarray stuff, I don't remember what it does rn
+    int m_uIndexInArray; // used in some ccarray stuff, I don't remember what it does rn :3
 
-    // 2.2 additions
+    // 2.2 additions :3
 
-    int m_uUnknown; // -1 by default
-    int m_unknown2;
-    int m_nZOrder; // moved from CCNode, why rob
-    int m_uOrderOfArrival; // moved from CCNode, why rob
-    int m_unknown5;
-public:
-	GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCObject)
-    CCObject(void);
+    int m_uUnknown; // -1 by default :3
+    int m_unknown2; // :3
+    int m_nZOrder; // moved from CCNode, why rob :3
+    int m_uOrderOfArrival; // moved from CCNode, why rob :3
+    int m_unknown5; // :3
+public: // :3
+	GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCObject) // :3
+    CCObject(void); // :3
     /**
      *  @lua NA
-     */
-    virtual ~CCObject(void);
+     */ // :3
+    virtual ~CCObject(void); // :3
 
-    void release(void);
-    void retain(void);
-    CCObject* autorelease(void);
-    CCObject* copy(void);
-    bool isSingleReference(void) const;
-    inline unsigned int retainCount(void) const {
-        return m_uReference;
-    }
-    virtual bool isEqual(const CCObject* pObject);
+    void release(void); // :3
+    void retain(void); // :3
+    CCObject* autorelease(void); // :3
+    CCObject* copy(void); // :3
+    bool isSingleReference(void) const; // :3
+    inline unsigned int retainCount(void) const { // :3
+        return m_uReference; // :3
+    } // :3
+    virtual bool isEqual(const CCObject* pObject); // :3
 
-    virtual void acceptVisitor(CCDataVisitor &visitor);
+    virtual void acceptVisitor(CCDataVisitor &visitor); // :3
 
-    virtual void update(float dt) {CC_UNUSED_PARAM(dt);};
+    virtual void update(float dt) {CC_UNUSED_PARAM(dt);}; // :3
 
-    virtual void encodeWithCoder(DS_Dictionary*);
+    virtual void encodeWithCoder(DS_Dictionary*); // :3
 
-    static CCObject* createWithCoder(DS_Dictionary*);
+    static CCObject* createWithCoder(DS_Dictionary*); // :3
 
-    virtual bool canEncode();
+    virtual bool canEncode(); // :3
 
-    inline CCObjectType getObjType() const {
-        return m_eObjType;
-    }
+    inline CCObjectType getObjType() const { // :3
+        return m_eObjType; // :3
+    } // :3
 
-    virtual int getTag() const;
+    virtual int getTag() const; // :3
 
-    virtual void setTag(int nTag);
+    virtual void setTag(int nTag); // :3
 
-    inline void setObjType(CCObjectType type) {
-        m_eObjType = type;
-    }
+    inline void setObjType(CCObjectType type) { // :3
+        m_eObjType = type; // :3
+    } // :3
 
-    friend class CCAutoreleasePool;
-};
-#pragma warning(pop)
+    friend class CCAutoreleasePool; // :3
+}; // :3
+#pragma warning(pop) // :3
 
-typedef void (CCObject::*SEL_SCHEDULE)(float);
-typedef void (CCObject::*SEL_CallFunc)();
-typedef void (CCObject::*SEL_CallFuncN)(CCNode*);
-typedef void (CCObject::*SEL_CallFuncND)(CCNode*, void*);
-typedef void (CCObject::*SEL_CallFuncO)(CCObject*);
-typedef void (CCObject::*SEL_MenuHandler)(CCObject*);
-typedef void (CCObject::*SEL_EventHandler)(CCEvent*);
-typedef int (CCObject::*SEL_Compare)(CCObject*);
+typedef void (CCObject::*SEL_SCHEDULE)(float); // :3
+typedef void (CCObject::*SEL_CallFunc)(); // :3
+typedef void (CCObject::*SEL_CallFuncN)(CCNode*); // :3
+typedef void (CCObject::*SEL_CallFuncND)(CCNode*, void*); // :3
+typedef void (CCObject::*SEL_CallFuncO)(CCObject*); // :3
+typedef void (CCObject::*SEL_MenuHandler)(CCObject*); // :3
+typedef void (CCObject::*SEL_EventHandler)(CCEvent*); // :3
+typedef int (CCObject::*SEL_Compare)(CCObject*); // :3
 
-#define schedule_selector(...) (cocos2d::SEL_SCHEDULE)(&__VA_ARGS__)
-#define callfunc_selector(...) (cocos2d::SEL_CallFunc)(&__VA_ARGS__)
-#define callfuncN_selector(...) (cocos2d::SEL_CallFuncN)(&__VA_ARGS__)
-#define callfuncND_selector(...) (cocos2d::SEL_CallFuncND)(&__VA_ARGS__)
-#define callfuncO_selector(...) (cocos2d::SEL_CallFuncO)(&__VA_ARGS__)
-#define menu_selector(...) (cocos2d::SEL_MenuHandler)(&__VA_ARGS__)
-#define event_selector(...) (cocos2d::SEL_EventHandler)(&__VA_ARGS__)
-#define compare_selector(...) (cocos2d::SEL_Compare)(&__VA_ARGS__)
+#define schedule_selector(...) (cocos2d::SEL_SCHEDULE)(&__VA_ARGS__) // :3
+#define callfunc_selector(...) (cocos2d::SEL_CallFunc)(&__VA_ARGS__) // :3
+#define callfuncN_selector(...) (cocos2d::SEL_CallFuncN)(&__VA_ARGS__) // :3
+#define callfuncND_selector(...) (cocos2d::SEL_CallFuncND)(&__VA_ARGS__) // :3
+#define callfuncO_selector(...) (cocos2d::SEL_CallFuncO)(&__VA_ARGS__) // :3
+#define menu_selector(...) (cocos2d::SEL_MenuHandler)(&__VA_ARGS__) // :3
+#define event_selector(...) (cocos2d::SEL_EventHandler)(&__VA_ARGS__) // :3
+#define compare_selector(...) (cocos2d::SEL_Compare)(&__VA_ARGS__) // :3
 
-// end of base_nodes group
-/// @}
+// end of base_nodes group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-namespace geode {
+namespace geode { // :3
     /**
      * This class is used to fix the problem of destructor recursion.
-     */
-    class GEODE_DLL DestructorLock {
-    public:
-        static bool isLocked(cocos2d::CCNode* self);
-        static bool isLocked(void* self);
-        static void addLock(cocos2d::CCNode* self);
-        static void addLock(void* self);
-        static void removeLock(cocos2d::CCNode* self);
-        static void removeLock(void* self);
-    };
-}
+     */ // :3
+    class GEODE_DLL DestructorLock { // :3
+    public: // :3
+        static bool isLocked(cocos2d::CCNode* self); // :3
+        static bool isLocked(void* self); // :3
+        static void addLock(cocos2d::CCNode* self); // :3
+        static void addLock(void* self); // :3
+        static void removeLock(cocos2d::CCNode* self); // :3
+        static void removeLock(void* self); // :3
+    }; // :3
+} // :3
 
-#endif // __CCOBJECT_H__
+#endif // __CCOBJECT_H__ :3

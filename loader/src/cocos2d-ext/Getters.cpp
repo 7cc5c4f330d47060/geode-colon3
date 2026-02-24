@@ -1,48 +1,48 @@
-#include <cocos2d.h>
+#include <cocos2d.h> // :3
 
-using namespace cocos2d;
+using namespace cocos2d; // :3
 
-#pragma warning(push)
-#pragma warning(disable : 4273)
+#pragma warning(push) // :3
+#pragma warning(disable : 4273) // :3
 
-CCKeyboardDispatcher* CCKeyboardDispatcher::get() {
-    return CCDirector::get()->getKeyboardDispatcher();
-}
+CCKeyboardDispatcher* CCKeyboardDispatcher::get() { // :3
+    return CCDirector::get()->getKeyboardDispatcher(); // :3
+} // :3
 
-CCTouchDispatcher* CCTouchDispatcher::get() {
-    return CCDirector::sharedDirector()->getTouchDispatcher();
-}
+CCTouchDispatcher* CCTouchDispatcher::get() { // :3
+    return CCDirector::sharedDirector()->getTouchDispatcher(); // :3
+} // :3
 
-CCApplication* CCApplication::get() {
-    return CCApplication::sharedApplication();
-}
+CCApplication* CCApplication::get() { // :3
+    return CCApplication::sharedApplication(); // :3
+} // :3
 
-CCDirector* CCDirector::get() {
-    return CCDirector::sharedDirector();
-}
+CCDirector* CCDirector::get() { // :3
+    return CCDirector::sharedDirector(); // :3
+} // :3
 
-CCEGLView* CCEGLView::get() {
-    return CCDirector::sharedDirector()->getOpenGLView();
-}
+CCEGLView* CCEGLView::get() { // :3
+    return CCDirector::sharedDirector()->getOpenGLView(); // :3
+} // :3
 
-CCFileUtils* CCFileUtils::get() {
-    return CCFileUtils::sharedFileUtils();
-}
+CCFileUtils* CCFileUtils::get() { // :3
+    return CCFileUtils::sharedFileUtils(); // :3
+} // :3
 
-CCSpriteFrameCache* CCSpriteFrameCache::get() {
-    return CCSpriteFrameCache::sharedSpriteFrameCache();
-}
+CCSpriteFrameCache* CCSpriteFrameCache::get() { // :3
+    return CCSpriteFrameCache::sharedSpriteFrameCache(); // :3
+} // :3
 
-CCTextureCache* CCTextureCache::get() {
-    return CCTextureCache::sharedTextureCache();
-}
+CCTextureCache* CCTextureCache::get() { // :3
+    return CCTextureCache::sharedTextureCache(); // :3
+} // :3
 
-CCScene* CCScene::get() {
-    return CCDirector::get()->getRunningScene();
-}
+CCScene* CCScene::get() { // :3
+    return CCDirector::get()->getRunningScene(); // :3
+} // :3
 
-CCScheduler* CCScheduler::get() {
-    return CCDirector::get()->getScheduler();
-}
+CCScheduler* CCScheduler::get() { // :3
+    return CCDirector::get()->getScheduler(); // :3
+} // :3
 
-#pragma warning(pop)
+#pragma warning(pop) // :3

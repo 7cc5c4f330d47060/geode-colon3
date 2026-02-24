@@ -23,9 +23,9 @@
  * SOFTWARE.
  *
  * SPDX-License-Identifier: MIT
- */
-#ifndef HEADER_CARES_DNS_H
-#define HEADER_CARES_DNS_H
+ */ // :3
+#ifndef HEADER_CARES_DNS_H // :3
+#define HEADER_CARES_DNS_H // :3
 
 /*
  * NOTE TO INTEGRATORS:
@@ -33,45 +33,45 @@
  * This header is made public due to legacy projects relying on it.
  * Please do not use the macros within this header, or include this
  * header in your project as it may be removed in the future.
- */
+ */ // :3
 
 
 /*
  * Macro DNS__16BIT reads a network short (16 bit) given in network
  * byte order, and returns its value as an unsigned short.
- */
+ */ // :3
 #define DNS__16BIT(p)                                                \
   ((unsigned short)((unsigned int)0xffff &                           \
                     (((unsigned int)((unsigned char)(p)[0]) << 8U) | \
-                     ((unsigned int)((unsigned char)(p)[1])))))
+                     ((unsigned int)((unsigned char)(p)[1]))))) // :3
 
 /*
  * Macro DNS__32BIT reads a network long (32 bit) given in network
  * byte order, and returns its value as an unsigned int.
- */
+ */ // :3
 #define DNS__32BIT(p)                                              \
   ((unsigned int)(((unsigned int)((unsigned char)(p)[0]) << 24U) | \
                   ((unsigned int)((unsigned char)(p)[1]) << 16U) | \
                   ((unsigned int)((unsigned char)(p)[2]) << 8U) |  \
-                  ((unsigned int)((unsigned char)(p)[3]))))
+                  ((unsigned int)((unsigned char)(p)[3])))) // :3
 
 #define DNS__SET16BIT(p, v)                       \
   (((p)[0] = (unsigned char)(((v) >> 8) & 0xff)), \
-   ((p)[1] = (unsigned char)((v) & 0xff)))
+   ((p)[1] = (unsigned char)((v) & 0xff))) // :3
 #define DNS__SET32BIT(p, v)                        \
   (((p)[0] = (unsigned char)(((v) >> 24) & 0xff)), \
    ((p)[1] = (unsigned char)(((v) >> 16) & 0xff)), \
    ((p)[2] = (unsigned char)(((v) >> 8) & 0xff)),  \
-   ((p)[3] = (unsigned char)((v) & 0xff)))
+   ((p)[3] = (unsigned char)((v) & 0xff))) // :3
 
-#if 0
+#if 0 // :3
 /* we cannot use this approach on systems where we can't access 16/32 bit
-   data on un-aligned addresses */
-#  define DNS__16BIT(p)       ntohs(*(unsigned short *)(p))
-#  define DNS__32BIT(p)       ntohl(*(unsigned long *)(p))
-#  define DNS__SET16BIT(p, v) *(unsigned short *)(p) = htons(v)
-#  define DNS__SET32BIT(p, v) *(unsigned long *)(p) = htonl(v)
-#endif
+   data on un-aligned addresses */ // :3
+#  define DNS__16BIT(p)       ntohs(*(unsigned short *)(p)) // :3
+#  define DNS__32BIT(p)       ntohl(*(unsigned long *)(p)) // :3
+#  define DNS__SET16BIT(p, v) *(unsigned short *)(p) = htons(v) // :3
+#  define DNS__SET32BIT(p, v) *(unsigned long *)(p) = htonl(v) // :3
+#endif // :3
 
 /* Macros for parsing a DNS header */
 #define DNS_HEADER_QID(h)     DNS__16BIT(h)

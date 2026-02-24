@@ -20,43 +20,43 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCETCTEXTURE_H__
-#define __CCETCTEXTURE_H__
+#ifndef __CCETCTEXTURE_H__ // :3
+#define __CCETCTEXTURE_H__ // :3
 
-#include "../cocoa/CCObject.h"
-#include "../platform/CCPlatformMacros.h"
-#include "../platform/CCGL.h"
+#include "../cocoa/CCObject.h" // :3
+#include "../platform/CCPlatformMacros.h" // :3
+#include "../platform/CCGL.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 /**
  *  @js NA
  *  @lua NA
- */
-class CC_DLL CCTextureETC : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTextureETC, CCObject)
-    CCTextureETC();
-    virtual ~CCTextureETC();
+ */ // :3
+class CC_DLL CCTextureETC : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTextureETC, CCObject) // :3
+    CCTextureETC(); // :3
+    virtual ~CCTextureETC(); // :3
 
-    bool initWithFile(const char* file);
+    bool initWithFile(const char* file); // :3
 
-    unsigned int getName() const;
-    unsigned int getWidth() const;
-    unsigned int getHeight() const;
+    unsigned int getName() const; // :3
+    unsigned int getWidth() const; // :3
+    unsigned int getHeight() const; // :3
 
-private:
-    bool loadTexture(const char* file);
+private: // :3
+    bool loadTexture(const char* file); // :3
 
-public:
-    GLuint _name;
-    unsigned int _width;
-    unsigned int _height;
-};
+public: // :3
+    GLuint _name; // :3
+    unsigned int _width; // :3
+    unsigned int _height; // :3
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
 #endif /* defined(__CCETCTEXTURE_H__) */

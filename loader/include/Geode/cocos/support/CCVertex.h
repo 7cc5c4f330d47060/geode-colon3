@@ -21,18 +21,18 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
-#ifndef __CCVERTEX_H__
-#define __CCVERTEX_H__
+ ****************************************************************************/ // :3
+#ifndef __CCVERTEX_H__ // :3
+#define __CCVERTEX_H__ // :3
 
-#include "../include/ccTypes.h"
+#include "../include/ccTypes.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup data_structures
  * @{
- */
+ */ // :3
 
 /** @file CCVertex.h */
 

@@ -20,20 +20,20 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __SUPPORT_BASE64_H__
-#define __SUPPORT_BASE64_H__
+#ifndef __SUPPORT_BASE64_H__ // :3
+#define __SUPPORT_BASE64_H__ // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-namespace cocos2d {
+namespace cocos2d { // :3
 
 /** @file
  base64 helper functions
- */
+ */ // :3
 
 /**
  * Decodes a 64base encoded memory. The decoded memory is
@@ -42,13 +42,13 @@ namespace cocos2d {
  * @returns the length of the out buffer
  *
  @since v0.8.1
- */
-int base64Decode(unsigned char *in, unsigned int inLength, unsigned char **out);
+ */ // :3
+int base64Decode(unsigned char *in, unsigned int inLength, unsigned char **out); // :3
 
-}//namespace   cocos2d
+}//namespace   cocos2d :3
 
-#ifdef __cplusplus
-}
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
 
-#endif // __SUPPORT_BASE64_H__
+#endif // __SUPPORT_BASE64_H__ :3

@@ -22,23 +22,23 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCPARTICLE_SYSTEM_H__
-#define __CCPARTICLE_SYSTEM_H__
+****************************************************************************/ // :3
+#ifndef __CCPARTICLE_SYSTEM_H__ // :3
+#define __CCPARTICLE_SYSTEM_H__ // :3
 
-#include "../include/CCProtocols.h"
-#include "../base_nodes/CCNode.h"
-#include "../cocoa/CCDictionary.h"
-#include "../cocoa/CCString.h"
+#include "../include/CCProtocols.h" // :3
+#include "../base_nodes/CCNode.h" // :3
+#include "../cocoa/CCDictionary.h" // :3
+#include "../cocoa/CCString.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup particle_nodes
  * @{
- */
+ */ // :3
 
-class CCParticleBatchNode;
+class CCParticleBatchNode; // :3
 
 //* @enum
 enum {
@@ -68,15 +68,15 @@ enum {
 
 /** @typedef tCCPositionType
 possible types of particle positions
-*/
-typedef enum {
+*/ // :3
+typedef enum { // :3
     /** Living particles are attached to the world and are unaffected by emitter repositioning. */
     kCCPositionTypeFree,
 
     /** Living particles are attached to the world but will follow the emitter repositioning.
     Use case: Attach an emitter to an sprite, and you want that the emitter follows the sprite.
-    */
-    kCCPositionTypeRelative,
+    */ // :3
+    kCCPositionTypeRelative, // :3
 
     /** Living particles are attached to the emitter and are translated along with it. */
     kCCPositionTypeGrouped,
@@ -90,44 +90,44 @@ enum {
 
 /**
 Structure that contains the values of each particle
-*/
-typedef struct sCCParticle {
-    CCPoint     pos;
-    CCPoint     startPos;
+*/ // :3
+typedef struct sCCParticle { // :3
+    CCPoint     pos; // :3
+    CCPoint     startPos; // :3
 
-    ccColor4F    color;
-    ccColor4F    deltaColor;
+    ccColor4F    color; // :3
+    ccColor4F    deltaColor; // :3
 
-    float        size;
-    float        deltaSize;
+    float        size; // :3
+    float        deltaSize; // :3
 
-    float        rotation;
-    float        deltaRotation;
+    float        rotation; // :3
+    float        deltaRotation; // :3
 
-    float        timeToLive;
+    float        timeToLive; // :3
 
-    unsigned int    atlasIndex;
+    unsigned int    atlasIndex; // :3
 
-    //! Mode A: gravity, direction, radial accel, tangential accel
-    struct {
-        CCPoint        dir;
-        float        radialAccel;
-        float        tangentialAccel;
-    } modeA;
+    //! Mode A: gravity, direction, radial accel, tangential accel :3
+    struct { // :3
+        CCPoint        dir; // :3
+        float        radialAccel; // :3
+        float        tangentialAccel; // :3
+    } modeA; // :3
 
-    //! Mode B: radius mode
-    struct {
-        float        angle;
-        float        degreesPerSecond;
-        float        radius;
-        float        deltaRadius;
-    } modeB;
+    //! Mode B: radius mode :3
+    struct { // :3
+        float        angle; // :3
+        float        degreesPerSecond; // :3
+        float        radius; // :3
+        float        deltaRadius; // :3
+    } modeB; // :3
 
-}tCCParticle;
+}tCCParticle; // :3
 
-//typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CCPoint);
+//typedef void (*CC_UPDATE_PARTICLE_IMP)(id, SEL, tCCParticle*, CCPoint); :3
 
-class CCTexture2D;
+class CCTexture2D; // :3
 
 /** @brief Particle System base class.
 Attributes of a Particle System:
@@ -171,18 +171,18 @@ emitter.radialAccel = 15;
 emitter.startSpin = 0;
 @endcode
 
-*/
-class CC_DLL CCParticleSystem : public CCNode, public CCTextureProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
-    gd::string m_sPlistFile;
-    //! time elapsed since the start of the system (in seconds)
-    float m_fElapsed;
+*/ // :3
+class CC_DLL CCParticleSystem : public CCNode, public CCTextureProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    gd::string m_sPlistFile; // :3
+    //! time elapsed since the start of the system (in seconds) :3
+    float m_fElapsed; // :3
 
-    // Different modes
-    //! Mode A:Gravity + Tangential Accel + Radial Accel
-    struct {
+    // Different modes :3
+    //! Mode A:Gravity + Tangential Accel + Radial Accel :3
+    struct { // :3
         /** Gravity value. Only available in 'Gravity' mode. */
         CCPoint gravity;
         /** speed of each particle. Only available in 'Gravity' mode.  */
@@ -398,50 +398,50 @@ public:
     source blend function = GL_SRC_ALPHA;
     dest blend function = GL_ONE;
     @endcode
-    */
-    bool m_bIsBlendAdditive;
+    */ // :3
+    bool m_bIsBlendAdditive; // :3
     /** particles movement type: Free or Grouped
     @since v0.8
-    */
-    CC_PROPERTY(tCCPositionType, m_ePositionType, PositionType)
+    */ // :3
+    CC_PROPERTY(tCCPositionType, m_ePositionType, PositionType) // :3
     /** whether or not the node will be auto-removed when it has no particles left.
     By default it is false.
     @since v0.8
-    */
-public:
-    bool m_bIsAutoRemoveOnFinish;
-    CC_SYNTHESIZE_NV(bool, m_bDontCleanupOnFinish, DontCleanupOnFinish)
-public:
-    virtual bool isAutoRemoveOnFinish();
-    virtual void setAutoRemoveOnFinish(bool var);
+    */ // :3
+public: // :3
+    bool m_bIsAutoRemoveOnFinish; // :3
+    CC_SYNTHESIZE_NV(bool, m_bDontCleanupOnFinish, DontCleanupOnFinish) // :3
+public: // :3
+    virtual bool isAutoRemoveOnFinish(); // :3
+    virtual void setAutoRemoveOnFinish(bool var); // :3
 
     /** Switch between different kind of emitter modes:
     - kCCParticleModeGravity: uses gravity, speed, radial and tangential acceleration
     - kCCParticleModeRadius: uses radius movement + rotation
-    */
-    CC_PROPERTY(int, m_nEmitterMode, EmitterMode)
+    */ // :3
+    CC_PROPERTY(int, m_nEmitterMode, EmitterMode) // :3
 
-public:
+public: // :3
     /**
      * @js ctor
-     */
-    CCParticleSystem();
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCParticleSystem, CCNode)
+     */ // :3
+    CCParticleSystem(); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCParticleSystem, CCNode) // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCParticleSystem();
+     */ // :3
+    virtual ~CCParticleSystem(); // :3
 
     /** creates an initializes a CCParticleSystem from a plist file.
     This plist files can be created manually or with Particle Designer:
     http://particledesigner.71squared.com/
     @since v2.0
-    */
-    static CCParticleSystem * create(const char *plistFile);
+    */ // :3
+    static CCParticleSystem * create(const char *plistFile); // :3
 
-    //! create a system with a fixed number of particles
-    static CCParticleSystem* createWithTotalParticles(unsigned int numberOfParticles);
+    //! create a system with a fixed number of particles :3
+    static CCParticleSystem* createWithTotalParticles(unsigned int numberOfParticles); // :3
 
     /** initializes a CCParticleSystem*/
     bool init();
@@ -449,109 +449,109 @@ public:
     This plist files can be created manually or with Particle Designer:
     http://particledesigner.71squared.com/
     @since v0.99.3
-    */
-    bool initWithFile(const char *plistFile, bool);
+    */ // :3
+    bool initWithFile(const char *plistFile, bool); // :3
 
     /** initializes a CCQuadParticleSystem from a CCDictionary.
     @since v0.99.3
-    */
-    bool initWithDictionary(CCDictionary *dictionary, bool);
+    */ // :3
+    bool initWithDictionary(CCDictionary *dictionary, bool); // :3
 
     /** initializes a particle system from a NSDictionary and the path from where to load the png
      @since v2.1
-     */
-    bool initWithDictionary(CCDictionary *dictionary, const char *dirname, bool);
+     */ // :3
+    bool initWithDictionary(CCDictionary *dictionary, const char *dirname, bool); // :3
 
-    //! Initializes a system with a fixed number of particles
-    virtual bool initWithTotalParticles(unsigned int numberOfParticles, bool);
-    //! Add a particle to the emitter
-    bool addParticle();
-    //! Initializes a particle
-    void initParticle(tCCParticle* particle);
-    //! stop emitting particles. Running particles will continue to run until they die
-    void stopSystem();
-    //! Kill all living particles.
-    void resetSystem();
-    // @note RobTop Addition
-    void resumeSystem();
-    //! whether or not the system is full
-    bool isFull();
+    //! Initializes a system with a fixed number of particles :3
+    virtual bool initWithTotalParticles(unsigned int numberOfParticles, bool); // :3
+    //! Add a particle to the emitter :3
+    bool addParticle(); // :3
+    //! Initializes a particle :3
+    void initParticle(tCCParticle* particle); // :3
+    //! stop emitting particles. Running particles will continue to run until they die :3
+    void stopSystem(); // :3
+    //! Kill all living particles. :3
+    void resetSystem(); // :3
+    // @note RobTop Addition :3
+    void resumeSystem(); // :3
+    //! whether or not the system is full :3
+    bool isFull(); // :3
 
-    //! should be overridden by subclasses
-    virtual void updateQuadWithParticle(tCCParticle* particle, const CCPoint& newPosition);
-    //! should be overridden by subclasses
-    virtual void postStep();
+    //! should be overridden by subclasses :3
+    virtual void updateQuadWithParticle(tCCParticle* particle, const CCPoint& newPosition); // :3
+    //! should be overridden by subclasses :3
+    virtual void postStep(); // :3
 
-    virtual void update(float dt);
-    virtual void updateWithNoTime(void);
+    virtual void update(float dt); // :3
+    virtual void updateWithNoTime(void); // :3
 
-protected:
-    virtual void updateBlendFunc();
-public:
-    // @note RobTop Addition
-    bool m_bWorldPosUninitialized;
-    // @note RobTop Addition
-    CCPoint m_tWorldPos;
-    // @note RobTop Addition
-    ccColor4F m_tUniformColor;
-    // @note RobTop Addition
-    ccColor4F m_tUniformDeltaColor;
-    // @note RobTop Addition
-    CC_SYNTHESIZE_READONLY_NV(bool, m_bUseUniformColorMode, UseUniformColorMode);
-        // saved/loaded in loadDefaults, loadScaledDefaults and saveDefaults
+protected: // :3
+    virtual void updateBlendFunc(); // :3
+public: // :3
+    // @note RobTop Addition :3
+    bool m_bWorldPosUninitialized; // :3
+    // @note RobTop Addition :3
+    CCPoint m_tWorldPos; // :3
+    // @note RobTop Addition :3
+    ccColor4F m_tUniformColor; // :3
+    // @note RobTop Addition :3
+    ccColor4F m_tUniformDeltaColor; // :3
+    // @note RobTop Addition :3
+    CC_SYNTHESIZE_READONLY_NV(bool, m_bUseUniformColorMode, UseUniformColorMode); // :3
+        // saved/loaded in loadDefaults, loadScaledDefaults and saveDefaults :3
 
-        // @note RobTop Addition
-        float m_fDefaultStartSize;
-        // @note RobTop Addition
-        float m_fDefaultStartSizeVar;
-        // saved as m_fEndSize but not loaded,
-        // probably was supposed to be m_fDefaultEndSizeVar and saved and loaded as m_fEndSizeVar but was scrapped?
-        // @note RobTop Addition
-        float m_fDefaultEndSize2;
-        // @note RobTop Addition
-        float m_fDefaultEndSize;
-        // @note RobTop Addition
-        float m_fDefaultAngle;
-        // @note RobTop Addition
-        float m_fDefaultModeASpeed;
-        // @note RobTop Addition
-        float m_fDefaultModeASpeedVar;
-        // @note RobTop Addition
-        CCPoint m_tDefaultPosVar;
-        // @note RobTop Addition
-        int m_nCustomParticleIndex;
-public:
-    // @note RobTop Addition
-    void saveDefaults(void);
-    // @note RobTop Addition
-    void loadDefaults(void);
-    // @note RobTop Addition
-    void loadScaledDefaults(float);
+        // @note RobTop Addition :3
+        float m_fDefaultStartSize; // :3
+        // @note RobTop Addition :3
+        float m_fDefaultStartSizeVar; // :3
+        // saved as m_fEndSize but not loaded, :3
+        // probably was supposed to be m_fDefaultEndSizeVar and saved and loaded as m_fEndSizeVar but was scrapped? :3
+        // @note RobTop Addition :3
+        float m_fDefaultEndSize2; // :3
+        // @note RobTop Addition :3
+        float m_fDefaultEndSize; // :3
+        // @note RobTop Addition :3
+        float m_fDefaultAngle; // :3
+        // @note RobTop Addition :3
+        float m_fDefaultModeASpeed; // :3
+        // @note RobTop Addition :3
+        float m_fDefaultModeASpeedVar; // :3
+        // @note RobTop Addition :3
+        CCPoint m_tDefaultPosVar; // :3
+        // @note RobTop Addition :3
+        int m_nCustomParticleIndex; // :3
+public: // :3
+    // @note RobTop Addition :3
+    void saveDefaults(void); // :3
+    // @note RobTop Addition :3
+    void loadDefaults(void); // :3
+    // @note RobTop Addition :3
+    void loadScaledDefaults(float); // :3
 
-    // @note RobTop Addition
-    void calculateWorldSpace();
+    // @note RobTop Addition :3
+    void calculateWorldSpace(); // :3
 
-	// @note RobTop Addition
-    float getTimeElapsed();
+	// @note RobTop Addition :3
+    float getTimeElapsed(); // :3
 
-	// @note RobTop Addition
-    void setEndAlpha(float alpha) { m_tEndColor.a = alpha; }
+	// @note RobTop Addition :3
+    void setEndAlpha(float alpha) { m_tEndColor.a = alpha; } // :3
 
-	// @note RobTop Addition
-    void setStartAlpha(float alpha) { m_tStartColor.a = alpha; }
+	// @note RobTop Addition :3
+    void setStartAlpha(float alpha) { m_tStartColor.a = alpha; } // :3
 
-	// @note RobTop Addition
-    void toggleUniformColorMode(bool useUniformColorMode) { m_bUseUniformColorMode = useUniformColorMode; }
-	// @note RobTop Addition
-    void updateVisible();
+	// @note RobTop Addition :3
+    void toggleUniformColorMode(bool useUniformColorMode) { m_bUseUniformColorMode = useUniformColorMode; } // :3
+	// @note RobTop Addition :3
+    void updateVisible(); // :3
 
-    // @note RobTop Addition
-    int getParticleDrawCost();
-};
+    // @note RobTop Addition :3
+    int getParticleDrawCost(); // :3
+}; // :3
 
-// end of particle_nodes group
-/// @}
+// end of particle_nodes group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif //__CCPARTICLE_SYSTEM_H__
+#endif //__CCPARTICLE_SYSTEM_H__ :3

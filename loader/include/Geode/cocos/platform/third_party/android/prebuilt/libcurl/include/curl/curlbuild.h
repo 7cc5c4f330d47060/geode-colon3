@@ -21,7 +21,7 @@
  * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
  * KIND, either express or implied.
  *
- ***************************************************************************/
+ ***************************************************************************/ // :3
 
 /* ================================================================ */
 /*               NOTES FOR CONFIGURE CAPABLE SYSTEMS                */
@@ -52,7 +52,7 @@
  * is suitable and specific to the library being configured and built, which
  * is generated from the include/curl/curlbuild.h.in template file.
  *
- */
+ */ // :3
 
 /* ================================================================ */
 /*  DEFINITION OF THESE SYMBOLS SHALL NOT TAKE PLACE ANYWHERE ELSE  */

@@ -5,98 +5,98 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_DSA_H
-#define OPENSSL_DSA_H
-#pragma once
+#ifndef OPENSSL_DSA_H // :3
+#define OPENSSL_DSA_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_DSA_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_DSA_H // :3
+#endif // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/types.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/types.h> // :3
 
-#include <stdlib.h>
+#include <stdlib.h> // :3
 
-#ifndef OPENSSL_NO_DSA
-#include <openssl/e_os2.h>
-#include <openssl/asn1.h>
-#include <openssl/bio.h>
-#include <openssl/crypto.h>
-#include <openssl/bn.h>
-#ifndef OPENSSL_NO_DEPRECATED_1_1_0
-#include <openssl/dh.h>
-#endif
-#include <openssl/dsaerr.h>
-#ifndef OPENSSL_NO_STDIO
-#include <stdio.h>
-#endif
-#endif
+#ifndef OPENSSL_NO_DSA // :3
+#include <openssl/e_os2.h> // :3
+#include <openssl/asn1.h> // :3
+#include <openssl/bio.h> // :3
+#include <openssl/crypto.h> // :3
+#include <openssl/bn.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_1_1_0 // :3
+#include <openssl/dh.h> // :3
+#endif // :3
+#include <openssl/dsaerr.h> // :3
+#ifndef OPENSSL_NO_STDIO // :3
+#include <stdio.h> // :3
+#endif // :3
+#endif // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-int EVP_PKEY_CTX_set_dsa_paramgen_bits(EVP_PKEY_CTX *ctx, int nbits);
-int EVP_PKEY_CTX_set_dsa_paramgen_q_bits(EVP_PKEY_CTX *ctx, int qbits);
-int EVP_PKEY_CTX_set_dsa_paramgen_md_props(EVP_PKEY_CTX *ctx,
-    const char *md_name,
-    const char *md_properties);
-int EVP_PKEY_CTX_set_dsa_paramgen_gindex(EVP_PKEY_CTX *ctx, int gindex);
-int EVP_PKEY_CTX_set_dsa_paramgen_type(EVP_PKEY_CTX *ctx, const char *name);
-int EVP_PKEY_CTX_set_dsa_paramgen_seed(EVP_PKEY_CTX *ctx,
-    const unsigned char *seed,
-    size_t seedlen);
-int EVP_PKEY_CTX_set_dsa_paramgen_md(EVP_PKEY_CTX *ctx, const EVP_MD *md);
+int EVP_PKEY_CTX_set_dsa_paramgen_bits(EVP_PKEY_CTX *ctx, int nbits); // :3
+int EVP_PKEY_CTX_set_dsa_paramgen_q_bits(EVP_PKEY_CTX *ctx, int qbits); // :3
+int EVP_PKEY_CTX_set_dsa_paramgen_md_props(EVP_PKEY_CTX *ctx, // :3
+    const char *md_name, // :3
+    const char *md_properties); // :3
+int EVP_PKEY_CTX_set_dsa_paramgen_gindex(EVP_PKEY_CTX *ctx, int gindex); // :3
+int EVP_PKEY_CTX_set_dsa_paramgen_type(EVP_PKEY_CTX *ctx, const char *name); // :3
+int EVP_PKEY_CTX_set_dsa_paramgen_seed(EVP_PKEY_CTX *ctx, // :3
+    const unsigned char *seed, // :3
+    size_t seedlen); // :3
+int EVP_PKEY_CTX_set_dsa_paramgen_md(EVP_PKEY_CTX *ctx, const EVP_MD *md); // :3
 
-#define EVP_PKEY_CTRL_DSA_PARAMGEN_BITS (EVP_PKEY_ALG_CTRL + 1)
-#define EVP_PKEY_CTRL_DSA_PARAMGEN_Q_BITS (EVP_PKEY_ALG_CTRL + 2)
-#define EVP_PKEY_CTRL_DSA_PARAMGEN_MD (EVP_PKEY_ALG_CTRL + 3)
+#define EVP_PKEY_CTRL_DSA_PARAMGEN_BITS (EVP_PKEY_ALG_CTRL + 1) // :3
+#define EVP_PKEY_CTRL_DSA_PARAMGEN_Q_BITS (EVP_PKEY_ALG_CTRL + 2) // :3
+#define EVP_PKEY_CTRL_DSA_PARAMGEN_MD (EVP_PKEY_ALG_CTRL + 3) // :3
 
-#ifndef OPENSSL_NO_DSA
-#ifndef OPENSSL_DSA_MAX_MODULUS_BITS
-#define OPENSSL_DSA_MAX_MODULUS_BITS 10000
-#endif
+#ifndef OPENSSL_NO_DSA // :3
+#ifndef OPENSSL_DSA_MAX_MODULUS_BITS // :3
+#define OPENSSL_DSA_MAX_MODULUS_BITS 10000 // :3
+#endif // :3
 
-#define OPENSSL_DSA_FIPS_MIN_MODULUS_BITS 1024
+#define OPENSSL_DSA_FIPS_MIN_MODULUS_BITS 1024 // :3
 
-typedef struct DSA_SIG_st DSA_SIG;
-DSA_SIG *DSA_SIG_new(void);
-void DSA_SIG_free(DSA_SIG *a);
-DECLARE_ASN1_ENCODE_FUNCTIONS_only(DSA_SIG, DSA_SIG)
-void DSA_SIG_get0(const DSA_SIG *sig, const BIGNUM **pr, const BIGNUM **ps);
-int DSA_SIG_set0(DSA_SIG *sig, BIGNUM *r, BIGNUM *s);
+typedef struct DSA_SIG_st DSA_SIG; // :3
+DSA_SIG *DSA_SIG_new(void); // :3
+void DSA_SIG_free(DSA_SIG *a); // :3
+DECLARE_ASN1_ENCODE_FUNCTIONS_only(DSA_SIG, DSA_SIG) // :3
+void DSA_SIG_get0(const DSA_SIG *sig, const BIGNUM **pr, const BIGNUM **ps); // :3
+int DSA_SIG_set0(DSA_SIG *sig, BIGNUM *r, BIGNUM *s); // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_1_1_0
+#ifndef OPENSSL_NO_DEPRECATED_1_1_0 // :3
 /*
  * Does nothing. Previously this switched off constant time behaviour.
- */
-#define DSA_FLAG_NO_EXP_CONSTTIME 0x00
-#endif
+ */ // :3
+#define DSA_FLAG_NO_EXP_CONSTTIME 0x00 // :3
+#endif // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define DSA_FLAG_CACHE_MONT_P 0x01
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define DSA_FLAG_CACHE_MONT_P 0x01 // :3
 
 /*
  * If this flag is set the DSA method is FIPS compliant and can be used in
  * FIPS mode. This is set in the validated module method. If an application
  * sets this flag in its own methods it is its responsibility to ensure the
  * result is compliant.
- */
+ */ // :3
 
-#define DSA_FLAG_FIPS_METHOD 0x0400
+#define DSA_FLAG_FIPS_METHOD 0x0400 // :3
 
 /*
  * If this flag is set the operations normally disabled in FIPS mode are
  * permitted it is then the applications responsibility to ensure that the
  * usage is compliant.
- */
+ */ // :3
 
-#define DSA_FLAG_NON_FIPS_ALLOW 0x0400
-#define DSA_FLAG_FIPS_CHECKED 0x0800
+#define DSA_FLAG_NON_FIPS_ALLOW 0x0400 // :3
+#define DSA_FLAG_FIPS_CHECKED 0x0800 // :3
 
 /* Already defined in ossl_typ.h */
 /* typedef struct dsa_st DSA; */
@@ -190,84 +190,84 @@ OSSL_DEPRECATEDIN_3_0 int DSA_print_fp(FILE *bp, const DSA *x, int off);
  * have one value here we set the number of checks to 64 which is the 128 bit
  * security level that is the highest level and valid for creating a 3072 bit
  * DSA key.
- */
+ */ // :3
 #define DSA_is_prime(n, callback, cb_arg) \
-    BN_is_prime(n, DSS_prime_checks, callback, NULL, cb_arg)
+    BN_is_prime(n, DSS_prime_checks, callback, NULL, cb_arg) // :3
 
-#ifndef OPENSSL_NO_DH
+#ifndef OPENSSL_NO_DH // :3
 /*
  * Convert DSA structure (key or just parameters) into DH structure (be
  * careful to avoid small subgroup attacks when using this!)
- */
-OSSL_DEPRECATEDIN_3_0 DH *DSA_dup_DH(const DSA *r);
-#endif
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 DH *DSA_dup_DH(const DSA *r); // :3
+#endif // :3
 
-OSSL_DEPRECATEDIN_3_0 void DSA_get0_pqg(const DSA *d, const BIGNUM **p,
-    const BIGNUM **q, const BIGNUM **g);
-OSSL_DEPRECATEDIN_3_0 int DSA_set0_pqg(DSA *d, BIGNUM *p, BIGNUM *q, BIGNUM *g);
-OSSL_DEPRECATEDIN_3_0 void DSA_get0_key(const DSA *d, const BIGNUM **pub_key,
-    const BIGNUM **priv_key);
-OSSL_DEPRECATEDIN_3_0 int DSA_set0_key(DSA *d, BIGNUM *pub_key,
-    BIGNUM *priv_key);
-OSSL_DEPRECATEDIN_3_0 const BIGNUM *DSA_get0_p(const DSA *d);
-OSSL_DEPRECATEDIN_3_0 const BIGNUM *DSA_get0_q(const DSA *d);
-OSSL_DEPRECATEDIN_3_0 const BIGNUM *DSA_get0_g(const DSA *d);
-OSSL_DEPRECATEDIN_3_0 const BIGNUM *DSA_get0_pub_key(const DSA *d);
-OSSL_DEPRECATEDIN_3_0 const BIGNUM *DSA_get0_priv_key(const DSA *d);
-OSSL_DEPRECATEDIN_3_0 void DSA_clear_flags(DSA *d, int flags);
-OSSL_DEPRECATEDIN_3_0 int DSA_test_flags(const DSA *d, int flags);
-OSSL_DEPRECATEDIN_3_0 void DSA_set_flags(DSA *d, int flags);
-OSSL_DEPRECATEDIN_3_0 ENGINE *DSA_get0_engine(DSA *d);
+OSSL_DEPRECATEDIN_3_0 void DSA_get0_pqg(const DSA *d, const BIGNUM **p, // :3
+    const BIGNUM **q, const BIGNUM **g); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_set0_pqg(DSA *d, BIGNUM *p, BIGNUM *q, BIGNUM *g); // :3
+OSSL_DEPRECATEDIN_3_0 void DSA_get0_key(const DSA *d, const BIGNUM **pub_key, // :3
+    const BIGNUM **priv_key); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_set0_key(DSA *d, BIGNUM *pub_key, // :3
+    BIGNUM *priv_key); // :3
+OSSL_DEPRECATEDIN_3_0 const BIGNUM *DSA_get0_p(const DSA *d); // :3
+OSSL_DEPRECATEDIN_3_0 const BIGNUM *DSA_get0_q(const DSA *d); // :3
+OSSL_DEPRECATEDIN_3_0 const BIGNUM *DSA_get0_g(const DSA *d); // :3
+OSSL_DEPRECATEDIN_3_0 const BIGNUM *DSA_get0_pub_key(const DSA *d); // :3
+OSSL_DEPRECATEDIN_3_0 const BIGNUM *DSA_get0_priv_key(const DSA *d); // :3
+OSSL_DEPRECATEDIN_3_0 void DSA_clear_flags(DSA *d, int flags); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_test_flags(const DSA *d, int flags); // :3
+OSSL_DEPRECATEDIN_3_0 void DSA_set_flags(DSA *d, int flags); // :3
+OSSL_DEPRECATEDIN_3_0 ENGINE *DSA_get0_engine(DSA *d); // :3
 
-OSSL_DEPRECATEDIN_3_0 DSA_METHOD *DSA_meth_new(const char *name, int flags);
-OSSL_DEPRECATEDIN_3_0 void DSA_meth_free(DSA_METHOD *dsam);
-OSSL_DEPRECATEDIN_3_0 DSA_METHOD *DSA_meth_dup(const DSA_METHOD *dsam);
-OSSL_DEPRECATEDIN_3_0 const char *DSA_meth_get0_name(const DSA_METHOD *dsam);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_set1_name(DSA_METHOD *dsam,
-    const char *name);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_get_flags(const DSA_METHOD *dsam);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_flags(DSA_METHOD *dsam, int flags);
-OSSL_DEPRECATEDIN_3_0 void *DSA_meth_get0_app_data(const DSA_METHOD *dsam);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_set0_app_data(DSA_METHOD *dsam,
-    void *app_data);
-OSSL_DEPRECATEDIN_3_0 DSA_SIG *(*DSA_meth_get_sign(const DSA_METHOD *dsam))(const unsigned char *, int, DSA *);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_sign(DSA_METHOD *dsam,
-    DSA_SIG *(*sign)(const unsigned char *, int, DSA *));
-OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_sign_setup(const DSA_METHOD *dsam))(DSA *, BN_CTX *, BIGNUM **, BIGNUM **);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_sign_setup(DSA_METHOD *dsam,
-    int (*sign_setup)(DSA *, BN_CTX *, BIGNUM **, BIGNUM **));
-OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_verify(const DSA_METHOD *dsam))(const unsigned char *, int, DSA_SIG *, DSA *);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_verify(DSA_METHOD *dsam,
-    int (*verify)(const unsigned char *, int, DSA_SIG *, DSA *));
-OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_mod_exp(const DSA_METHOD *dsam))(DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *, const BIGNUM *,
-    const BIGNUM *, const BIGNUM *, BN_CTX *, BN_MONT_CTX *);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_mod_exp(DSA_METHOD *dsam,
-    int (*mod_exp)(DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *,
-        const BIGNUM *, const BIGNUM *, const BIGNUM *, BN_CTX *,
-        BN_MONT_CTX *));
-OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_bn_mod_exp(const DSA_METHOD *dsam))(DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *, const BIGNUM *,
-    BN_CTX *, BN_MONT_CTX *);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_bn_mod_exp(DSA_METHOD *dsam,
-    int (*bn_mod_exp)(DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *,
-        const BIGNUM *, BN_CTX *, BN_MONT_CTX *));
-OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_init(const DSA_METHOD *dsam))(DSA *);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_init(DSA_METHOD *dsam,
-    int (*init)(DSA *));
-OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_finish(const DSA_METHOD *dsam))(DSA *);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_finish(DSA_METHOD *dsam,
-    int (*finish)(DSA *));
-OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_paramgen(const DSA_METHOD *dsam))(DSA *, int, const unsigned char *, int, int *, unsigned long *,
-    BN_GENCB *);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_paramgen(DSA_METHOD *dsam,
-    int (*paramgen)(DSA *, int, const unsigned char *, int, int *,
-        unsigned long *, BN_GENCB *));
-OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_keygen(const DSA_METHOD *dsam))(DSA *);
-OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_keygen(DSA_METHOD *dsam,
-    int (*keygen)(DSA *));
+OSSL_DEPRECATEDIN_3_0 DSA_METHOD *DSA_meth_new(const char *name, int flags); // :3
+OSSL_DEPRECATEDIN_3_0 void DSA_meth_free(DSA_METHOD *dsam); // :3
+OSSL_DEPRECATEDIN_3_0 DSA_METHOD *DSA_meth_dup(const DSA_METHOD *dsam); // :3
+OSSL_DEPRECATEDIN_3_0 const char *DSA_meth_get0_name(const DSA_METHOD *dsam); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_set1_name(DSA_METHOD *dsam, // :3
+    const char *name); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_get_flags(const DSA_METHOD *dsam); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_flags(DSA_METHOD *dsam, int flags); // :3
+OSSL_DEPRECATEDIN_3_0 void *DSA_meth_get0_app_data(const DSA_METHOD *dsam); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_set0_app_data(DSA_METHOD *dsam, // :3
+    void *app_data); // :3
+OSSL_DEPRECATEDIN_3_0 DSA_SIG *(*DSA_meth_get_sign(const DSA_METHOD *dsam))(const unsigned char *, int, DSA *); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_sign(DSA_METHOD *dsam, // :3
+    DSA_SIG *(*sign)(const unsigned char *, int, DSA *)); // :3
+OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_sign_setup(const DSA_METHOD *dsam))(DSA *, BN_CTX *, BIGNUM **, BIGNUM **); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_sign_setup(DSA_METHOD *dsam, // :3
+    int (*sign_setup)(DSA *, BN_CTX *, BIGNUM **, BIGNUM **)); // :3
+OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_verify(const DSA_METHOD *dsam))(const unsigned char *, int, DSA_SIG *, DSA *); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_verify(DSA_METHOD *dsam, // :3
+    int (*verify)(const unsigned char *, int, DSA_SIG *, DSA *)); // :3
+OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_mod_exp(const DSA_METHOD *dsam))(DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *, const BIGNUM *, // :3
+    const BIGNUM *, const BIGNUM *, BN_CTX *, BN_MONT_CTX *); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_mod_exp(DSA_METHOD *dsam, // :3
+    int (*mod_exp)(DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *, // :3
+        const BIGNUM *, const BIGNUM *, const BIGNUM *, BN_CTX *, // :3
+        BN_MONT_CTX *)); // :3
+OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_bn_mod_exp(const DSA_METHOD *dsam))(DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *, const BIGNUM *, // :3
+    BN_CTX *, BN_MONT_CTX *); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_bn_mod_exp(DSA_METHOD *dsam, // :3
+    int (*bn_mod_exp)(DSA *, BIGNUM *, const BIGNUM *, const BIGNUM *, // :3
+        const BIGNUM *, BN_CTX *, BN_MONT_CTX *)); // :3
+OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_init(const DSA_METHOD *dsam))(DSA *); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_init(DSA_METHOD *dsam, // :3
+    int (*init)(DSA *)); // :3
+OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_finish(const DSA_METHOD *dsam))(DSA *); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_finish(DSA_METHOD *dsam, // :3
+    int (*finish)(DSA *)); // :3
+OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_paramgen(const DSA_METHOD *dsam))(DSA *, int, const unsigned char *, int, int *, unsigned long *, // :3
+    BN_GENCB *); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_paramgen(DSA_METHOD *dsam, // :3
+    int (*paramgen)(DSA *, int, const unsigned char *, int, int *, // :3
+        unsigned long *, BN_GENCB *)); // :3
+OSSL_DEPRECATEDIN_3_0 int (*DSA_meth_get_keygen(const DSA_METHOD *dsam))(DSA *); // :3
+OSSL_DEPRECATEDIN_3_0 int DSA_meth_set_keygen(DSA_METHOD *dsam, // :3
+    int (*keygen)(DSA *)); // :3
 
-#endif
-#endif
-#ifdef __cplusplus
-}
-#endif
-#endif
+#endif // :3
+#endif // :3
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
+#endif // :3

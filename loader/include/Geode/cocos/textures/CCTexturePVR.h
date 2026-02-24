@@ -21,48 +21,48 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCPVRTEXTURE_H__
-#define __CCPVRTEXTURE_H__
+#ifndef __CCPVRTEXTURE_H__ // :3
+#define __CCPVRTEXTURE_H__ // :3
 
-#include "../platform/CCStdC.h"
-#include "../platform/CCGL.h"
-#include "../cocoa/CCObject.h"
-#include "../cocoa/CCArray.h"
+#include "../platform/CCStdC.h" // :3
+#include "../platform/CCGL.h" // :3
+#include "../cocoa/CCObject.h" // :3
+#include "../cocoa/CCArray.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup textures
  * @{
- */
+ */ // :3
 
 /**
  @brief Structure which can tell where mipmap begins and how long is it
-*/
-struct CCPVRMipmap {
-    unsigned char *address;
-    unsigned int len;
-};
+*/ // :3
+struct CCPVRMipmap { // :3
+    unsigned char *address; // :3
+    unsigned int len; // :3
+}; // :3
 
-typedef struct _ccPVRTexturePixelFormatInfo {
-	GLenum internalFormat;
-	GLenum format;
-	GLenum type;
-	uint32_t bpp;
-	bool compressed;
-	bool alpha;
-	CCTexture2DPixelFormat ccPixelFormat;
-} ccPVRTexturePixelFormatInfo;
+typedef struct _ccPVRTexturePixelFormatInfo { // :3
+	GLenum internalFormat; // :3
+	GLenum format; // :3
+	GLenum type; // :3
+	uint32_t bpp; // :3
+	bool compressed; // :3
+	bool alpha; // :3
+	CCTexture2DPixelFormat ccPixelFormat; // :3
+} ccPVRTexturePixelFormatInfo; // :3
 
 /**
  @brief Determine how many mipmaps can we have.
  Its same as define but it respects namespaces
-*/
-enum {
-    CC_PVRMIPMAP_MAX = 16,
-};
+*/ // :3
+enum { // :3
+    CC_PVRMIPMAP_MAX = 16, // :3
+}; // :3
 
 
 /** CCTexturePVR
@@ -88,14 +88,14 @@ enum {
     (and to save space, save the PVR sprite sheet without mip maps included).
  @js NA
  @lua NA
-*/
-class CCTexturePVR : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTexturePVR, CCObject)
-    CCTexturePVR();
-    virtual ~CCTexturePVR();
+*/ // :3
+class CCTexturePVR : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTexturePVR, CCObject) // :3
+    CCTexturePVR(); // :3
+    virtual ~CCTexturePVR(); // :3
 
     /** initializes a CCTexturePVR with a path */
     bool initWithContentsOfFile(const char* path);

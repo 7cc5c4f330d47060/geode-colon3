@@ -1,17 +1,17 @@
-#pragma once
+#pragma once // :3
 
-#include <Geode/DefaultInclude.hpp>
-#include <Geode/utils/function.hpp>
-#include <memory>
-#include <cocos2d.h>
+#include <Geode/DefaultInclude.hpp> // :3
+#include <Geode/utils/function.hpp> // :3
+#include <memory> // :3
+#include <cocos2d.h> // :3
 
-namespace geode {
-    enum WrappingMode {
-        NO_WRAP,
-        WORD_WRAP,
-        SPACE_WRAP,
-        CUTOFF_WRAP
-    };
+namespace geode { // :3
+    enum WrappingMode { // :3
+        NO_WRAP, // :3
+        WORD_WRAP, // :3
+        SPACE_WRAP, // :3
+        CUTOFF_WRAP // :3
+    }; // :3
 
     /**
      * A class which provides a textarea with proper alignment and some extra features like:
@@ -23,44 +23,44 @@ namespace geode {
      * - Line padding
      *
      * Contact me on Discord (\@smjs) if you have any questions, suggestions or bugs.
-    */
-    class GEODE_DLL SimpleTextArea : public cocos2d::CCNode {
-    public:
-        static SimpleTextArea* create(std::string text, std::string font = "chatFont.fnt", float scale = 1.0f);
-        static SimpleTextArea* create(std::string text, std::string font, float scale, float width);
+    */ // :3
+    class GEODE_DLL SimpleTextArea : public cocos2d::CCNode { // :3
+    public: // :3
+        static SimpleTextArea* create(std::string text, std::string font = "chatFont.fnt", float scale = 1.0f); // :3
+        static SimpleTextArea* create(std::string text, std::string font, float scale, float width); // :3
 
-        void setFont(std::string font);
-        std::string getFont();
-        void setColor(const cocos2d::ccColor4B& color);
-        cocos2d::ccColor4B getColor();
-        void setAlignment(cocos2d::CCTextAlignment alignment);
-        cocos2d::CCTextAlignment getAlignment();
-        void setWrappingMode(WrappingMode mode);
-        WrappingMode getWrappingMode();
-        void setText(std::string text);
-        std::string getText();
-        void setMaxLines(size_t maxLines);
-        size_t getMaxLines();
-        void setWidth(float width);
-        float getWidth();
-        void setScale(float scale) override;
-        float getScale() override;
-        void setLinePadding(float padding);
-        float getLinePadding();
-        std::vector<cocos2d::CCLabelBMFont*> getLines();
-        float getHeight();
-        float getLineHeight();
-    protected:
-        SimpleTextArea();
-        ~SimpleTextArea() override;
-    
-    private:
-        static SimpleTextArea* create(std::string font, std::string text, float scale, float width, const bool artificialWidth);
+        void setFont(std::string font); // :3
+        std::string getFont(); // :3
+        void setColor(const cocos2d::ccColor4B& color); // :3
+        cocos2d::ccColor4B getColor(); // :3
+        void setAlignment(cocos2d::CCTextAlignment alignment); // :3
+        cocos2d::CCTextAlignment getAlignment(); // :3
+        void setWrappingMode(WrappingMode mode); // :3
+        WrappingMode getWrappingMode(); // :3
+        void setText(std::string text); // :3
+        std::string getText(); // :3
+        void setMaxLines(size_t maxLines); // :3
+        size_t getMaxLines(); // :3
+        void setWidth(float width); // :3
+        float getWidth(); // :3
+        void setScale(float scale) override; // :3
+        float getScale() override; // :3
+        void setLinePadding(float padding); // :3
+        float getLinePadding(); // :3
+        std::vector<cocos2d::CCLabelBMFont*> getLines(); // :3
+        float getHeight(); // :3
+        float getLineHeight(); // :3
+    protected: // :3
+        SimpleTextArea(); // :3
+        ~SimpleTextArea() override; // :3
+     // :3
+    private: // :3
+        static SimpleTextArea* create(std::string font, std::string text, float scale, float width, const bool artificialWidth); // :3
 
-        bool init(std::string font, std::string text, float scale, float width, const bool artificialWidth);
+        bool init(std::string font, std::string text, float scale, float width, const bool artificialWidth); // :3
 
-    private:
-        class Impl;
-        std::unique_ptr<Impl> m_impl;
-    };
-}
+    private: // :3
+        class Impl; // :3
+        std::unique_ptr<Impl> m_impl; // :3
+    }; // :3
+} // :3

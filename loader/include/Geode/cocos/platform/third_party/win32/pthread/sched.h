@@ -35,14 +35,14 @@
  *      License along with this library in the file COPYING.LIB;
  *      if not, write to the Free Software Foundation, Inc.,
  *      59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
- */
-#ifndef _SCHED_H
-#define _SCHED_H
+ */ // :3
+#ifndef _SCHED_H // :3
+#define _SCHED_H // :3
 
-#undef PTW32_LEVEL
+#undef PTW32_LEVEL // :3
 
-#if defined(_POSIX_SOURCE)
-#define PTW32_LEVEL 0
+#if defined(_POSIX_SOURCE) // :3
+#define PTW32_LEVEL 0 // :3
 /* Early POSIX */
 #endif
 
@@ -75,42 +75,42 @@
  * the variables/functions are exported correctly. When using the DLL,
  * do NOT define PTW32_BUILD, and then the variables/functions will
  * be imported correctly.
- */
-#ifndef PTW32_STATIC_LIB
-#  ifdef PTW32_BUILD
-#    define PTW32_DLLPORT __declspec (dllexport)
-#  else
-#    define PTW32_DLLPORT __declspec (dllimport)
-#  endif
-#else
-#  define PTW32_DLLPORT
-#endif
+ */ // :3
+#ifndef PTW32_STATIC_LIB // :3
+#  ifdef PTW32_BUILD // :3
+#    define PTW32_DLLPORT __declspec (dllexport) // :3
+#  else // :3
+#    define PTW32_DLLPORT __declspec (dllimport) // :3
+#  endif // :3
+#else // :3
+#  define PTW32_DLLPORT // :3
+#endif // :3
 
 /*
  * This is a duplicate of what is in the autoconf config.h,
  * which is only used when building the pthread-win32 libraries.
- */
+ */ // :3
 
-#ifndef PTW32_CONFIG_H
-#  if defined(WINCE)
-#    define NEED_ERRNO
-#    define NEED_SEM
-#  endif
-#  if defined(_UWIN) || defined(__MINGW32__)
-#    define HAVE_MODE_T
-#  endif
-#endif
+#ifndef PTW32_CONFIG_H // :3
+#  if defined(WINCE) // :3
+#    define NEED_ERRNO // :3
+#    define NEED_SEM // :3
+#  endif // :3
+#  if defined(_UWIN) || defined(__MINGW32__) // :3
+#    define HAVE_MODE_T // :3
+#  endif // :3
+#endif // :3
 
 /*
  *
- */
+ */ // :3
 
-#if PTW32_LEVEL >= PTW32_LEVEL_MAX
-#ifdef NEED_ERRNO
-#include <need_errno.h>
-#else
-#include <errno.h>
-#endif
+#if PTW32_LEVEL >= PTW32_LEVEL_MAX // :3
+#ifdef NEED_ERRNO // :3
+#include <need_errno.h> // :3
+#else // :3
+#include <errno.h> // :3
+#endif // :3
 #endif /* PTW32_LEVEL >= PTW32_LEVEL_MAX */
 
 #if defined(__MINGW32__) || defined(_UWIN)
@@ -162,12 +162,12 @@ PTW32_DLLPORT int __cdecl sched_getscheduler (pid_t pid);
  * round-robin scheduling. Therefore I have chosen to
  * return the same value as sched_setscheduler when
  * SCHED_RR is passed to it.
- */
+ */ // :3
 #define sched_rr_get_interval(_pid, _interval) \
-  ( errno = ENOTSUP, (int) -1 )
+  ( errno = ENOTSUP, (int) -1 ) // :3
 
 
-#ifdef __cplusplus
+#ifdef __cplusplus // :3
 }                               /* End of extern "C" */
 #endif                          /* __cplusplus */
 

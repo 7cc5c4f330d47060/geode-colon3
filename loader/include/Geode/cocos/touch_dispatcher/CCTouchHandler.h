@@ -21,36 +21,36 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __TOUCH_DISPATCHER_CCTOUCH_HANDLER_H__
-#define __TOUCH_DISPATCHER_CCTOUCH_HANDLER_H__
+#ifndef __TOUCH_DISPATCHER_CCTOUCH_HANDLER_H__ // :3
+#define __TOUCH_DISPATCHER_CCTOUCH_HANDLER_H__ // :3
 
-#include "CCTouchDelegateProtocol.h"
-#include "CCTouchDispatcher.h"
-#include "../cocoa/CCObject.h"
-#include "../cocoa/CCSet.h"
+#include "CCTouchDelegateProtocol.h" // :3
+#include "CCTouchDispatcher.h" // :3
+#include "../cocoa/CCObject.h" // :3
+#include "../cocoa/CCSet.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup input
  * @{
- */
+ */ // :3
 
 /**
  CCTouchHandler
  Object than contains the delegate and priority of the event handler.
  @js NA
  @lua NA
-*/
-class CC_DLL  CCTouchHandler : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-	GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTouchHandler, CCObject)
-	inline CCTouchHandler() = default;
-    virtual ~CCTouchHandler(void);
+*/ // :3
+class CC_DLL  CCTouchHandler : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+	GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTouchHandler, CCObject) // :3
+	inline CCTouchHandler() = default; // :3
+    virtual ~CCTouchHandler(void); // :3
 
     /** delegate */
     CCTouchDelegate* getDelegate();
@@ -81,15 +81,15 @@ public:
  It forwards each event to the delegate.
  @js NA
  @lua NA
- */
-class CC_DLL  CCStandardTouchHandler : public CCTouchHandler
-{
-    GEODE_FRIEND_MODIFY
-public:
-	GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCStandardTouchHandler, CCTouchHandler)
-	inline CCStandardTouchHandler() = default;
+ */ // :3
+class CC_DLL  CCStandardTouchHandler : public CCTouchHandler // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+	GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCStandardTouchHandler, CCTouchHandler) // :3
+	inline CCStandardTouchHandler() = default; // :3
 
-    ~CCStandardTouchHandler(void);
+    ~CCStandardTouchHandler(void); // :3
 
     /** initializes a TouchHandler with a delegate and a priority */
     virtual bool initWithDelegate(CCTouchDelegate *pDelegate, int nPriority);
@@ -105,15 +105,15 @@ public:
  Used internally by TouchDispatcher
  @js NA
  @lua NA
- */
-class CC_DLL  CCTargetedTouchHandler : public CCTouchHandler
-{
-    GEODE_FRIEND_MODIFY
-public:
-	GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTargetedTouchHandler, CCTouchHandler)
-	inline CCTargetedTouchHandler() = default;
+ */ // :3
+class CC_DLL  CCTargetedTouchHandler : public CCTouchHandler // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+	GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTargetedTouchHandler, CCTouchHandler) // :3
+	inline CCTargetedTouchHandler() = default; // :3
 
-    ~CCTargetedTouchHandler(void);
+    ~CCTargetedTouchHandler(void); // :3
 
     /** whether or not the touches are swallowed */
     bool isSwallowsTouches(void);

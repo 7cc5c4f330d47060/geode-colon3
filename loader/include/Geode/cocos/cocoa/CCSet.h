@@ -20,108 +20,108 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CC_SET_H__
-#define __CC_SET_H__
+#ifndef __CC_SET_H__ // :3
+#define __CC_SET_H__ // :3
 
-#include <set>
-#include "CCObject.h"
+#include <set> // :3
+#include "CCObject.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup data_structures
  * @{
- */
+ */ // :3
 
-typedef gd::set<CCObject *>::iterator CCSetIterator;
+typedef gd::set<CCObject *>::iterator CCSetIterator; // :3
 
-class CC_DLL CCSet : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
+class CC_DLL CCSet : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      * @js  ctor
      * @lua NA
-     */
-    CCSet(void);
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCSet, CCObject)
+     */ // :3
+    CCSet(void); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCSet, CCObject) // :3
     /**
      * @lua NA
-     */
-    // CCSet(const CCSet &rSetObject);
+     */ // :3
+    // CCSet(const CCSet &rSetObject); :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCSet(void);
+     */ // :3
+    virtual ~CCSet(void); // :3
 
     /**
     * @brief Create and return a new empty set.
     * @lua NA
-    */
-    static CCSet * create();
+    */ // :3
+    static CCSet * create(); // :3
 
     /**
     *@brief Return a copy of the CCSet, it will copy all the elements.
-    */
-    CCSet* copy();
+    */ // :3
+    CCSet* copy(); // :3
     /**
     *@brief It is the same as copy().
     *@lua NA
-    */
-    CCSet* mutableCopy();
+    */ // :3
+    CCSet* mutableCopy(); // :3
     /**
     *@brief Return the number of elements the CCSet contains.
-    */
-    int count();
+    */ // :3
+    int count(); // :3
     /**
     *@brief Add a element into CCSet, it will retain the element.
-    */
-    void addObject(CCObject *pObject);
+    */ // :3
+    void addObject(CCObject *pObject); // :3
     /**
     *@brief Remove the given element, nothing todo if no element equals pObject.
-    */
-    void removeObject(CCObject *pObject);
+    */ // :3
+    void removeObject(CCObject *pObject); // :3
     /**
      *@brief Remove all elements of the set
-     */
-    void removeAllObjects();
+     */ // :3
+    void removeAllObjects(); // :3
     /**
     *@brief Check if CCSet contains a element equals pObject.
-    */
-    bool containsObject(CCObject *pObject);
+    */ // :3
+    bool containsObject(CCObject *pObject); // :3
     /**
     *@brief Return the iterator that points to the first element.
     *@js NA
     *@lua NA
-    */
-    CCSetIterator begin();
+    */ // :3
+    CCSetIterator begin(); // :3
     /**
     *@brief Return the iterator that points to the position after the last element.
     *@js NA
     *@lua NA
-    */
-    CCSetIterator end();
+    */ // :3
+    CCSetIterator end(); // :3
     /**
     *@brief Return the first element if it contains elements, or null if it doesn't contain any element.
-    */
-    CCObject* anyObject();
+    */ // :3
+    CCObject* anyObject(); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual void acceptVisitor(CCDataVisitor &visitor);
+     */ // :3
+    virtual void acceptVisitor(CCDataVisitor &visitor); // :3
 
-public:
-    gd::set<CCObject *> *m_pSet;
-};
+public: // :3
+    gd::set<CCObject *> *m_pSet; // :3
+}; // :3
 
-// end of data_structure group
-/// @}
+// end of data_structure group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __CC_SET_H__
+#endif // __CC_SET_H__ :3
 

@@ -6,25 +6,25 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_EC_H
-#define OPENSSL_EC_H
-#pragma once
+#ifndef OPENSSL_EC_H // :3
+#define OPENSSL_EC_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_EC_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_EC_H // :3
+#endif // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/types.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/types.h> // :3
 
-#include <string.h>
+#include <string.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /* Values for EVP_PKEY_CTX_set_ec_param_enc() */
 #define OPENSSL_EC_EXPLICIT_CURVE 0x000
@@ -70,47 +70,47 @@ int EVP_PKEY_CTX_get0_ecdh_kdf_ukm(EVP_PKEY_CTX *ctx, unsigned char **ukm);
  *  The ECDH KDF specification has been mistakenly attributed to ANSI X9.62,
  *  it is actually specified in ANSI X9.63.
  *  This identifier is retained for backwards compatibility
- */
-#define EVP_PKEY_ECDH_KDF_X9_62 EVP_PKEY_ECDH_KDF_X9_63
+ */ // :3
+#define EVP_PKEY_ECDH_KDF_X9_62 EVP_PKEY_ECDH_KDF_X9_63 // :3
 
 /** Enum for the point conversion form as defined in X9.62 (ECDSA)
- *  for the encoding of a elliptic curve point (x,y) */
-typedef enum {
+ *  for the encoding of a elliptic curve point (x,y) */ // :3
+typedef enum { // :3
     /** the point is encoded as z||x, where the octet z specifies
-     *  which solution of the quadratic equation y is  */
-    POINT_CONVERSION_COMPRESSED = 2,
+     *  which solution of the quadratic equation y is  */ // :3
+    POINT_CONVERSION_COMPRESSED = 2, // :3
     /** the point is encoded as z||x||y, where z is the octet 0x04  */
     POINT_CONVERSION_UNCOMPRESSED = 4,
     /** the point is encoded as z||x||y, where the octet z specifies
-     *  which solution of the quadratic equation y is  */
-    POINT_CONVERSION_HYBRID = 6
-} point_conversion_form_t;
+     *  which solution of the quadratic equation y is  */ // :3
+    POINT_CONVERSION_HYBRID = 6 // :3
+} point_conversion_form_t; // :3
 
-const char *OSSL_EC_curve_nid2name(int nid);
+const char *OSSL_EC_curve_nid2name(int nid); // :3
 
-#ifndef OPENSSL_NO_STDIO
-#include <stdio.h>
-#endif
-#ifndef OPENSSL_NO_EC
-#include <openssl/asn1.h>
-#include <openssl/symhacks.h>
-#ifndef OPENSSL_NO_DEPRECATED_1_1_0
-#include <openssl/bn.h>
-#endif
-#include <openssl/ecerr.h>
+#ifndef OPENSSL_NO_STDIO // :3
+#include <stdio.h> // :3
+#endif // :3
+#ifndef OPENSSL_NO_EC // :3
+#include <openssl/asn1.h> // :3
+#include <openssl/symhacks.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_1_1_0 // :3
+#include <openssl/bn.h> // :3
+#endif // :3
+#include <openssl/ecerr.h> // :3
 
-#ifndef OPENSSL_ECC_MAX_FIELD_BITS
-#define OPENSSL_ECC_MAX_FIELD_BITS 661
-#endif
+#ifndef OPENSSL_ECC_MAX_FIELD_BITS // :3
+#define OPENSSL_ECC_MAX_FIELD_BITS 661 // :3
+#endif // :3
 
-#include <openssl/params.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-typedef struct ec_method_st EC_METHOD;
-#endif
-typedef struct ec_group_st EC_GROUP;
-typedef struct ec_point_st EC_POINT;
-typedef struct ecpk_parameters_st ECPKPARAMETERS;
-typedef struct ec_parameters_st ECPARAMETERS;
+#include <openssl/params.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+typedef struct ec_method_st EC_METHOD; // :3
+#endif // :3
+typedef struct ec_group_st EC_GROUP; // :3
+typedef struct ec_point_st EC_POINT; // :3
+typedef struct ecpk_parameters_st ECPKPARAMETERS; // :3
+typedef struct ec_parameters_st ECPARAMETERS; // :3
 
 /********************************************************************/
 /*               EC_METHODs for curves over GF(p)                   */
@@ -120,34 +120,34 @@ typedef struct ec_parameters_st ECPARAMETERS;
 /** Returns the basic GFp ec methods which provides the basis for the
  *  optimized methods.
  *  \return  EC_METHOD object
- */
-OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_simple_method(void);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_simple_method(void); // :3
 
 /** Returns GFp methods using montgomery multiplication.
  *  \return  EC_METHOD object
- */
-OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_mont_method(void);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_mont_method(void); // :3
 
 /** Returns GFp methods using optimized methods for NIST recommended curves
  *  \return  EC_METHOD object
- */
-OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_nist_method(void);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_nist_method(void); // :3
 
-#ifndef OPENSSL_NO_EC_NISTP_64_GCC_128
+#ifndef OPENSSL_NO_EC_NISTP_64_GCC_128 // :3
 /** Returns 64-bit optimized methods for nistp224
  *  \return  EC_METHOD object
- */
-OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_nistp224_method(void);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_nistp224_method(void); // :3
 
 /** Returns 64-bit optimized methods for nistp256
  *  \return  EC_METHOD object
- */
-OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_nistp256_method(void);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_nistp256_method(void); // :3
 
 /** Returns 64-bit optimized methods for nistp521
  *  \return  EC_METHOD object
- */
-OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_nistp521_method(void);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_nistp521_method(void); // :3
 #endif /* OPENSSL_NO_EC_NISTP_64_GCC_128 */
 
 #ifndef OPENSSL_NO_EC2M
@@ -157,10 +157,10 @@ OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GFp_nistp521_method(void);
 
 /** Returns the basic GF2m ec method
  *  \return  EC_METHOD object
- */
-OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GF2m_simple_method(void);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GF2m_simple_method(void); // :3
 
-#endif
+#endif // :3
 
 /********************************************************************/
 /*                   EC_GROUP functions                             */
@@ -170,45 +170,45 @@ OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GF2m_simple_method(void);
  *  Creates a new EC_GROUP object
  *  \param   meth   EC_METHOD to use
  *  \return  newly created EC_GROUP object or NULL in case of an error.
- */
-OSSL_DEPRECATEDIN_3_0 EC_GROUP *EC_GROUP_new(const EC_METHOD *meth);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 EC_GROUP *EC_GROUP_new(const EC_METHOD *meth); // :3
 
 /** Clears and frees a EC_GROUP object
  *  \param  group  EC_GROUP object to be cleared and freed.
- */
-OSSL_DEPRECATEDIN_3_0 void EC_GROUP_clear_free(EC_GROUP *group);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 void EC_GROUP_clear_free(EC_GROUP *group); // :3
 
 /** Returns the EC_METHOD of the EC_GROUP object.
  *  \param  group  EC_GROUP object
  *  \return EC_METHOD used in this EC_GROUP object.
- */
-OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GROUP_method_of(const EC_GROUP *group);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_GROUP_method_of(const EC_GROUP *group); // :3
 
 /** Returns the field type of the EC_METHOD.
  *  \param  meth  EC_METHOD object
  *  \return NID of the underlying field type OID.
- */
-OSSL_DEPRECATEDIN_3_0 int EC_METHOD_get_field_type(const EC_METHOD *meth);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_METHOD_get_field_type(const EC_METHOD *meth); // :3
 #endif /* OPENSSL_NO_DEPRECATED_3_0 */
 
 /** Frees a EC_GROUP object
  *  \param  group  EC_GROUP object to be freed.
- */
-void EC_GROUP_free(EC_GROUP *group);
+ */ // :3
+void EC_GROUP_free(EC_GROUP *group); // :3
 
 /** Copies EC_GROUP objects. Note: both EC_GROUPs must use the same EC_METHOD.
  *  \param  dst  destination EC_GROUP object
  *  \param  src  source EC_GROUP object
  *  \return 1 on success and 0 if an error occurred.
- */
-int EC_GROUP_copy(EC_GROUP *dst, const EC_GROUP *src);
+ */ // :3
+int EC_GROUP_copy(EC_GROUP *dst, const EC_GROUP *src); // :3
 
 /** Creates a new EC_GROUP object and copies the content
  *  form src to the newly created EC_KEY object
  *  \param  src  source EC_GROUP object
  *  \return newly created EC_GROUP object or NULL in case of an error.
- */
-EC_GROUP *EC_GROUP_dup(const EC_GROUP *src);
+ */ // :3
+EC_GROUP *EC_GROUP_dup(const EC_GROUP *src); // :3
 
 /** Sets the generator and its order/cofactor of a EC_GROUP object.
  *  \param  group      EC_GROUP object
@@ -217,91 +217,91 @@ EC_GROUP *EC_GROUP_dup(const EC_GROUP *src);
  *  \param  cofactor   the index of the sub-group generated by the generator
  *                     in the group of all points on the elliptic curve.
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_GROUP_set_generator(EC_GROUP *group, const EC_POINT *generator,
-    const BIGNUM *order, const BIGNUM *cofactor);
+ */ // :3
+int EC_GROUP_set_generator(EC_GROUP *group, const EC_POINT *generator, // :3
+    const BIGNUM *order, const BIGNUM *cofactor); // :3
 
 /** Returns the generator of a EC_GROUP object.
  *  \param  group  EC_GROUP object
  *  \return the currently used generator (possibly NULL).
- */
-const EC_POINT *EC_GROUP_get0_generator(const EC_GROUP *group);
+ */ // :3
+const EC_POINT *EC_GROUP_get0_generator(const EC_GROUP *group); // :3
 
 /** Returns the montgomery data for order(Generator)
  *  \param  group  EC_GROUP object
  *  \return the currently used montgomery data (possibly NULL).
- */
-BN_MONT_CTX *EC_GROUP_get_mont_data(const EC_GROUP *group);
+ */ // :3
+BN_MONT_CTX *EC_GROUP_get_mont_data(const EC_GROUP *group); // :3
 
 /** Gets the order of a EC_GROUP
  *  \param  group  EC_GROUP object
  *  \param  order  BIGNUM to which the order is copied
  *  \param  ctx    unused
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_GROUP_get_order(const EC_GROUP *group, BIGNUM *order, BN_CTX *ctx);
+ */ // :3
+int EC_GROUP_get_order(const EC_GROUP *group, BIGNUM *order, BN_CTX *ctx); // :3
 
 /** Gets the order of an EC_GROUP
  *  \param  group  EC_GROUP object
  *  \return the group order
- */
-const BIGNUM *EC_GROUP_get0_order(const EC_GROUP *group);
+ */ // :3
+const BIGNUM *EC_GROUP_get0_order(const EC_GROUP *group); // :3
 
 /** Gets the number of bits of the order of an EC_GROUP
  *  \param  group  EC_GROUP object
  *  \return number of bits of group order.
- */
-int EC_GROUP_order_bits(const EC_GROUP *group);
+ */ // :3
+int EC_GROUP_order_bits(const EC_GROUP *group); // :3
 
 /** Gets the cofactor of a EC_GROUP
  *  \param  group     EC_GROUP object
  *  \param  cofactor  BIGNUM to which the cofactor is copied
  *  \param  ctx       unused
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_GROUP_get_cofactor(const EC_GROUP *group, BIGNUM *cofactor,
-    BN_CTX *ctx);
+ */ // :3
+int EC_GROUP_get_cofactor(const EC_GROUP *group, BIGNUM *cofactor, // :3
+    BN_CTX *ctx); // :3
 
 /** Gets the cofactor of an EC_GROUP
  *  \param  group  EC_GROUP object
  *  \return the group cofactor
- */
-const BIGNUM *EC_GROUP_get0_cofactor(const EC_GROUP *group);
+ */ // :3
+const BIGNUM *EC_GROUP_get0_cofactor(const EC_GROUP *group); // :3
 
 /** Sets the name of a EC_GROUP object
  *  \param  group  EC_GROUP object
  *  \param  nid    NID of the curve name OID
- */
-void EC_GROUP_set_curve_name(EC_GROUP *group, int nid);
+ */ // :3
+void EC_GROUP_set_curve_name(EC_GROUP *group, int nid); // :3
 
 /** Returns the curve name of a EC_GROUP object
  *  \param  group  EC_GROUP object
  *  \return NID of the curve name OID or 0 if not set.
- */
-int EC_GROUP_get_curve_name(const EC_GROUP *group);
+ */ // :3
+int EC_GROUP_get_curve_name(const EC_GROUP *group); // :3
 
 /** Gets the field of an EC_GROUP
  *  \param  group  EC_GROUP object
  *  \return the group field
- */
-const BIGNUM *EC_GROUP_get0_field(const EC_GROUP *group);
+ */ // :3
+const BIGNUM *EC_GROUP_get0_field(const EC_GROUP *group); // :3
 
 /** Returns the field type of the EC_GROUP.
  *  \param  group  EC_GROUP object
  *  \return NID of the underlying field type OID.
- */
-int EC_GROUP_get_field_type(const EC_GROUP *group);
+ */ // :3
+int EC_GROUP_get_field_type(const EC_GROUP *group); // :3
 
-void EC_GROUP_set_asn1_flag(EC_GROUP *group, int flag);
-int EC_GROUP_get_asn1_flag(const EC_GROUP *group);
+void EC_GROUP_set_asn1_flag(EC_GROUP *group, int flag); // :3
+int EC_GROUP_get_asn1_flag(const EC_GROUP *group); // :3
 
-void EC_GROUP_set_point_conversion_form(EC_GROUP *group,
-    point_conversion_form_t form);
-point_conversion_form_t EC_GROUP_get_point_conversion_form(const EC_GROUP *);
+void EC_GROUP_set_point_conversion_form(EC_GROUP *group, // :3
+    point_conversion_form_t form); // :3
+point_conversion_form_t EC_GROUP_get_point_conversion_form(const EC_GROUP *); // :3
 
-unsigned char *EC_GROUP_get0_seed(const EC_GROUP *x);
-size_t EC_GROUP_get_seed_len(const EC_GROUP *);
-size_t EC_GROUP_set_seed(EC_GROUP *, const unsigned char *, size_t len);
+unsigned char *EC_GROUP_get0_seed(const EC_GROUP *x); // :3
+size_t EC_GROUP_get_seed_len(const EC_GROUP *); // :3
+size_t EC_GROUP_set_seed(EC_GROUP *, const unsigned char *, size_t len); // :3
 
 /** Sets the parameters of an ec curve defined by y^2 = x^3 + a*x + b (for GFp)
  *  or y^2 + x*y = x^3 + a*x^2 + b (for GF2m)
@@ -312,9 +312,9 @@ size_t EC_GROUP_set_seed(EC_GROUP *, const unsigned char *, size_t len);
  *  \param  b      BIGNUM with parameter b of the equation
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_GROUP_set_curve(EC_GROUP *group, const BIGNUM *p, const BIGNUM *a,
-    const BIGNUM *b, BN_CTX *ctx);
+ */ // :3
+int EC_GROUP_set_curve(EC_GROUP *group, const BIGNUM *p, const BIGNUM *a, // :3
+    const BIGNUM *b, BN_CTX *ctx); // :3
 
 /** Gets the parameters of the ec curve defined by y^2 = x^3 + a*x + b (for GFp)
  *  or y^2 + x*y = x^3 + a*x^2 + b (for GF2m)
@@ -325,11 +325,11 @@ int EC_GROUP_set_curve(EC_GROUP *group, const BIGNUM *p, const BIGNUM *a,
  *  \param  b      BIGNUM for parameter b of the equation
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_GROUP_get_curve(const EC_GROUP *group, BIGNUM *p, BIGNUM *a, BIGNUM *b,
-    BN_CTX *ctx);
+ */ // :3
+int EC_GROUP_get_curve(const EC_GROUP *group, BIGNUM *p, BIGNUM *a, BIGNUM *b, // :3
+    BN_CTX *ctx); // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 /** Sets the parameters of an ec curve. Synonym for EC_GROUP_set_curve
  *  \param  group  EC_GROUP object
  *  \param  p      BIGNUM with the prime number (GFp) or the polynomial
@@ -338,12 +338,12 @@ int EC_GROUP_get_curve(const EC_GROUP *group, BIGNUM *p, BIGNUM *a, BIGNUM *b,
  *  \param  b      BIGNUM with parameter b of the equation
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_GROUP_set_curve_GFp(EC_GROUP *group,
-    const BIGNUM *p,
-    const BIGNUM *a,
-    const BIGNUM *b,
-    BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_GROUP_set_curve_GFp(EC_GROUP *group, // :3
+    const BIGNUM *p, // :3
+    const BIGNUM *a, // :3
+    const BIGNUM *b, // :3
+    BN_CTX *ctx); // :3
 
 /** Gets the parameters of an ec curve. Synonym for EC_GROUP_get_curve
  *  \param  group  EC_GROUP object
@@ -353,13 +353,13 @@ OSSL_DEPRECATEDIN_3_0 int EC_GROUP_set_curve_GFp(EC_GROUP *group,
  *  \param  b      BIGNUM for parameter b of the equation
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_GROUP_get_curve_GFp(const EC_GROUP *group,
-    BIGNUM *p,
-    BIGNUM *a, BIGNUM *b,
-    BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_GROUP_get_curve_GFp(const EC_GROUP *group, // :3
+    BIGNUM *p, // :3
+    BIGNUM *a, BIGNUM *b, // :3
+    BN_CTX *ctx); // :3
 
-#ifndef OPENSSL_NO_EC2M
+#ifndef OPENSSL_NO_EC2M // :3
 /** Sets the parameter of an ec curve. Synonym for EC_GROUP_set_curve
  *  \param  group  EC_GROUP object
  *  \param  p      BIGNUM with the prime number (GFp) or the polynomial
@@ -368,12 +368,12 @@ OSSL_DEPRECATEDIN_3_0 int EC_GROUP_get_curve_GFp(const EC_GROUP *group,
  *  \param  b      BIGNUM with parameter b of the equation
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_GROUP_set_curve_GF2m(EC_GROUP *group,
-    const BIGNUM *p,
-    const BIGNUM *a,
-    const BIGNUM *b,
-    BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_GROUP_set_curve_GF2m(EC_GROUP *group, // :3
+    const BIGNUM *p, // :3
+    const BIGNUM *a, // :3
+    const BIGNUM *b, // :3
+    BN_CTX *ctx); // :3
 
 /** Gets the parameters of an ec curve. Synonym for EC_GROUP_get_curve
  *  \param  group  EC_GROUP object
@@ -383,46 +383,46 @@ OSSL_DEPRECATEDIN_3_0 int EC_GROUP_set_curve_GF2m(EC_GROUP *group,
  *  \param  b      BIGNUM for parameter b of the equation
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_GROUP_get_curve_GF2m(const EC_GROUP *group,
-    BIGNUM *p,
-    BIGNUM *a, BIGNUM *b,
-    BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_GROUP_get_curve_GF2m(const EC_GROUP *group, // :3
+    BIGNUM *p, // :3
+    BIGNUM *a, BIGNUM *b, // :3
+    BN_CTX *ctx); // :3
 #endif /* OPENSSL_NO_EC2M */
 #endif /* OPENSSL_NO_DEPRECATED_3_0 */
 
 /** Returns the number of bits needed to represent a field element
  *  \param  group  EC_GROUP object
  *  \return number of bits needed to represent a field element
- */
-int EC_GROUP_get_degree(const EC_GROUP *group);
+ */ // :3
+int EC_GROUP_get_degree(const EC_GROUP *group); // :3
 
 /** Checks whether the parameter in the EC_GROUP define a valid ec group
  *  \param  group  EC_GROUP object
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 if group is a valid ec group and 0 otherwise
- */
-int EC_GROUP_check(const EC_GROUP *group, BN_CTX *ctx);
+ */ // :3
+int EC_GROUP_check(const EC_GROUP *group, BN_CTX *ctx); // :3
 
 /** Checks whether the discriminant of the elliptic curve is zero or not
  *  \param  group  EC_GROUP object
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 if the discriminant is not zero and 0 otherwise
- */
-int EC_GROUP_check_discriminant(const EC_GROUP *group, BN_CTX *ctx);
+ */ // :3
+int EC_GROUP_check_discriminant(const EC_GROUP *group, BN_CTX *ctx); // :3
 
 /** Compares two EC_GROUP objects
  *  \param  a    first EC_GROUP object
  *  \param  b    second EC_GROUP object
  *  \param  ctx  BN_CTX object (optional)
  *  \return 0 if the groups are equal, 1 if not, or -1 on error
- */
-int EC_GROUP_cmp(const EC_GROUP *a, const EC_GROUP *b, BN_CTX *ctx);
+ */ // :3
+int EC_GROUP_cmp(const EC_GROUP *a, const EC_GROUP *b, BN_CTX *ctx); // :3
 
 /*
  * EC_GROUP_new_GF*() calls EC_GROUP_new() and EC_GROUP_set_GF*() after
  * choosing an appropriate EC_METHOD
- */
+ */ // :3
 
 /** Creates a new EC_GROUP object with the specified parameters defined
  *  over GFp (defined by the equation y^2 = x^3 + a*x + b)
@@ -431,10 +431,10 @@ int EC_GROUP_cmp(const EC_GROUP *a, const EC_GROUP *b, BN_CTX *ctx);
  *  \param  b    BIGNUM with the parameter b of the equation
  *  \param  ctx  BN_CTX object (optional)
  *  \return newly created EC_GROUP object with the specified parameters
- */
-EC_GROUP *EC_GROUP_new_curve_GFp(const BIGNUM *p, const BIGNUM *a,
-    const BIGNUM *b, BN_CTX *ctx);
-#ifndef OPENSSL_NO_EC2M
+ */ // :3
+EC_GROUP *EC_GROUP_new_curve_GFp(const BIGNUM *p, const BIGNUM *a, // :3
+    const BIGNUM *b, BN_CTX *ctx); // :3
+#ifndef OPENSSL_NO_EC2M // :3
 /** Creates a new EC_GROUP object with the specified parameters defined
  *  over GF2m (defined by the equation y^2 + x*y = x^3 + a*x^2 + b)
  *  \param  p    BIGNUM with the polynomial defining the underlying field
@@ -442,10 +442,10 @@ EC_GROUP *EC_GROUP_new_curve_GFp(const BIGNUM *p, const BIGNUM *a,
  *  \param  b    BIGNUM with the parameter b of the equation
  *  \param  ctx  BN_CTX object (optional)
  *  \return newly created EC_GROUP object with the specified parameters
- */
-EC_GROUP *EC_GROUP_new_curve_GF2m(const BIGNUM *p, const BIGNUM *a,
-    const BIGNUM *b, BN_CTX *ctx);
-#endif
+ */ // :3
+EC_GROUP *EC_GROUP_new_curve_GF2m(const BIGNUM *p, const BIGNUM *a, // :3
+    const BIGNUM *b, BN_CTX *ctx); // :3
+#endif // :3
 
 /**
  * Creates a EC_GROUP object with a curve specified by parameters.
@@ -456,9 +456,9 @@ EC_GROUP *EC_GROUP_new_curve_GF2m(const BIGNUM *p, const BIGNUM *a,
  *  \param  propq  A property query string
  *  \return newly created EC_GROUP object with specified parameters or NULL
  *          if an error occurred
- */
-EC_GROUP *EC_GROUP_new_from_params(const OSSL_PARAM params[],
-    OSSL_LIB_CTX *libctx, const char *propq);
+ */ // :3
+EC_GROUP *EC_GROUP_new_from_params(const OSSL_PARAM params[], // :3
+    OSSL_LIB_CTX *libctx, const char *propq); // :3
 
 /**
  * Creates an OSSL_PARAM array with the parameters describing the given
@@ -472,9 +472,9 @@ EC_GROUP *EC_GROUP_new_from_params(const OSSL_PARAM params[],
  *  \param  bnctx  BN_CTX object (optional)
  *  \return newly created OSSL_PARAM array with the parameters
  *          describing the given EC_GROUP or NULL if an error occurred
- */
-OSSL_PARAM *EC_GROUP_to_params(const EC_GROUP *group, OSSL_LIB_CTX *libctx,
-    const char *propq, BN_CTX *bnctx);
+ */ // :3
+OSSL_PARAM *EC_GROUP_to_params(const EC_GROUP *group, OSSL_LIB_CTX *libctx, // :3
+    const char *propq, BN_CTX *bnctx); // :3
 
 /**
  * Creates a EC_GROUP object with a curve specified by a NID
@@ -484,9 +484,9 @@ OSSL_PARAM *EC_GROUP_to_params(const EC_GROUP *group, OSSL_LIB_CTX *libctx,
  *  \param  nid    NID of the OID of the curve name
  *  \return newly created EC_GROUP object with specified curve or NULL
  *          if an error occurred
- */
-EC_GROUP *EC_GROUP_new_by_curve_name_ex(OSSL_LIB_CTX *libctx, const char *propq,
-    int nid);
+ */ // :3
+EC_GROUP *EC_GROUP_new_by_curve_name_ex(OSSL_LIB_CTX *libctx, const char *propq, // :3
+    int nid); // :3
 
 /**
  * Creates a EC_GROUP object with a curve specified by a NID. Same as
@@ -495,40 +495,40 @@ EC_GROUP *EC_GROUP_new_by_curve_name_ex(OSSL_LIB_CTX *libctx, const char *propq,
  *  \param  nid    NID of the OID of the curve name
  *  \return newly created EC_GROUP object with specified curve or NULL
  *          if an error occurred
- */
-EC_GROUP *EC_GROUP_new_by_curve_name(int nid);
+ */ // :3
+EC_GROUP *EC_GROUP_new_by_curve_name(int nid); // :3
 
 /** Creates a new EC_GROUP object from an ECPARAMETERS object
  *  \param  params  pointer to the ECPARAMETERS object
  *  \return newly created EC_GROUP object with specified curve or NULL
  *          if an error occurred
- */
-EC_GROUP *EC_GROUP_new_from_ecparameters(const ECPARAMETERS *params);
+ */ // :3
+EC_GROUP *EC_GROUP_new_from_ecparameters(const ECPARAMETERS *params); // :3
 
 /** Creates an ECPARAMETERS object for the given EC_GROUP object.
  *  \param  group   pointer to the EC_GROUP object
  *  \param  params  pointer to an existing ECPARAMETERS object or NULL
  *  \return pointer to the new ECPARAMETERS object or NULL
  *          if an error occurred.
- */
-ECPARAMETERS *EC_GROUP_get_ecparameters(const EC_GROUP *group,
-    ECPARAMETERS *params);
+ */ // :3
+ECPARAMETERS *EC_GROUP_get_ecparameters(const EC_GROUP *group, // :3
+    ECPARAMETERS *params); // :3
 
 /** Creates a new EC_GROUP object from an ECPKPARAMETERS object
  *  \param  params  pointer to an existing ECPKPARAMETERS object, or NULL
  *  \return newly created EC_GROUP object with specified curve, or NULL
  *          if an error occurred
- */
-EC_GROUP *EC_GROUP_new_from_ecpkparameters(const ECPKPARAMETERS *params);
+ */ // :3
+EC_GROUP *EC_GROUP_new_from_ecpkparameters(const ECPKPARAMETERS *params); // :3
 
 /** Creates an ECPKPARAMETERS object for the given EC_GROUP object.
  *  \param  group   pointer to the EC_GROUP object
  *  \param  params  pointer to an existing ECPKPARAMETERS object or NULL
  *  \return pointer to the new ECPKPARAMETERS object or NULL
  *          if an error occurred.
- */
-ECPKPARAMETERS *EC_GROUP_get_ecpkparameters(const EC_GROUP *group,
-    ECPKPARAMETERS *params);
+ */ // :3
+ECPKPARAMETERS *EC_GROUP_get_ecpkparameters(const EC_GROUP *group, // :3
+    ECPKPARAMETERS *params); // :3
 
 /********************************************************************/
 /*               handling of internal curves                        */
@@ -544,13 +544,13 @@ typedef struct {
  * available curves or zero if a error occurred. In case r is not zero,
  * nitems EC_builtin_curve structures are filled with the data of the first
  * nitems internal groups
- */
-size_t EC_get_builtin_curves(EC_builtin_curve *r, size_t nitems);
+ */ // :3
+size_t EC_get_builtin_curves(EC_builtin_curve *r, size_t nitems); // :3
 
-const char *EC_curve_nid2nist(int nid);
-int EC_curve_nist2nid(const char *name);
-int EC_GROUP_check_named_curve(const EC_GROUP *group, int nist_only,
-    BN_CTX *ctx);
+const char *EC_curve_nid2nist(int nid); // :3
+int EC_curve_nist2nid(const char *name); // :3
+int EC_GROUP_check_named_curve(const EC_GROUP *group, int nist_only, // :3
+    BN_CTX *ctx); // :3
 
 /********************************************************************/
 /*                    EC_POINT functions                            */
@@ -559,47 +559,47 @@ int EC_GROUP_check_named_curve(const EC_GROUP *group, int nist_only,
 /** Creates a new EC_POINT object for the specified EC_GROUP
  *  \param  group  EC_GROUP the underlying EC_GROUP object
  *  \return newly created EC_POINT object or NULL if an error occurred
- */
-EC_POINT *EC_POINT_new(const EC_GROUP *group);
+ */ // :3
+EC_POINT *EC_POINT_new(const EC_GROUP *group); // :3
 
 /** Frees a EC_POINT object
  *  \param  point  EC_POINT object to be freed
- */
-void EC_POINT_free(EC_POINT *point);
+ */ // :3
+void EC_POINT_free(EC_POINT *point); // :3
 
 /** Clears and frees a EC_POINT object
  *  \param  point  EC_POINT object to be cleared and freed
- */
-void EC_POINT_clear_free(EC_POINT *point);
+ */ // :3
+void EC_POINT_clear_free(EC_POINT *point); // :3
 
 /** Copies EC_POINT object
  *  \param  dst  destination EC_POINT object
  *  \param  src  source EC_POINT object
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_POINT_copy(EC_POINT *dst, const EC_POINT *src);
+ */ // :3
+int EC_POINT_copy(EC_POINT *dst, const EC_POINT *src); // :3
 
 /** Creates a new EC_POINT object and copies the content of the supplied
  *  EC_POINT
  *  \param  src    source EC_POINT object
  *  \param  group  underlying the EC_GROUP object
  *  \return newly created EC_POINT object or NULL if an error occurred
- */
-EC_POINT *EC_POINT_dup(const EC_POINT *src, const EC_GROUP *group);
+ */ // :3
+EC_POINT *EC_POINT_dup(const EC_POINT *src, const EC_GROUP *group); // :3
 
 /** Sets a point to infinity (neutral element)
  *  \param  group  underlying EC_GROUP object
  *  \param  point  EC_POINT to set to infinity
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_POINT_set_to_infinity(const EC_GROUP *group, EC_POINT *point);
+ */ // :3
+int EC_POINT_set_to_infinity(const EC_GROUP *group, EC_POINT *point); // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 /** Returns the EC_METHOD used in EC_POINT object
  *  \param  point  EC_POINT object
  *  \return the EC_METHOD used
- */
-OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_POINT_method_of(const EC_POINT *point);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_POINT_method_of(const EC_POINT *point); // :3
 
 /** Sets the jacobian projective coordinates of a EC_POINT over GFp
  *  \param  group  underlying EC_GROUP object
@@ -609,10 +609,10 @@ OSSL_DEPRECATEDIN_3_0 const EC_METHOD *EC_POINT_method_of(const EC_POINT *point)
  *  \param  z      BIGNUM with the z-coordinate
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_Jprojective_coordinates_GFp(const EC_GROUP *group, EC_POINT *p,
-    const BIGNUM *x, const BIGNUM *y, const BIGNUM *z,
-    BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_Jprojective_coordinates_GFp(const EC_GROUP *group, EC_POINT *p, // :3
+    const BIGNUM *x, const BIGNUM *y, const BIGNUM *z, // :3
+    BN_CTX *ctx); // :3
 
 /** Gets the jacobian projective coordinates of a EC_POINT over GFp
  *  \param  group  underlying EC_GROUP object
@@ -622,9 +622,9 @@ OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_Jprojective_coordinates_GFp(const EC_GROU
  *  \param  z      BIGNUM for the z-coordinate
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_POINT_get_Jprojective_coordinates_GFp(const EC_GROUP *group, const EC_POINT *p,
-    BIGNUM *x, BIGNUM *y, BIGNUM *z, BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_POINT_get_Jprojective_coordinates_GFp(const EC_GROUP *group, const EC_POINT *p, // :3
+    BIGNUM *x, BIGNUM *y, BIGNUM *z, BN_CTX *ctx); // :3
 #endif /* OPENSSL_NO_DEPRECATED_3_0 */
 
 /** Sets the affine coordinates of an EC_POINT
@@ -634,10 +634,10 @@ OSSL_DEPRECATEDIN_3_0 int EC_POINT_get_Jprojective_coordinates_GFp(const EC_GROU
  *  \param  y      BIGNUM with the y-coordinate
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_POINT_set_affine_coordinates(const EC_GROUP *group, EC_POINT *p,
-    const BIGNUM *x, const BIGNUM *y,
-    BN_CTX *ctx);
+ */ // :3
+int EC_POINT_set_affine_coordinates(const EC_GROUP *group, EC_POINT *p, // :3
+    const BIGNUM *x, const BIGNUM *y, // :3
+    BN_CTX *ctx); // :3
 
 /** Gets the affine coordinates of an EC_POINT.
  *  \param  group  underlying EC_GROUP object
@@ -646,11 +646,11 @@ int EC_POINT_set_affine_coordinates(const EC_GROUP *group, EC_POINT *p,
  *  \param  y      BIGNUM for the y-coordinate
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_POINT_get_affine_coordinates(const EC_GROUP *group, const EC_POINT *p,
-    BIGNUM *x, BIGNUM *y, BN_CTX *ctx);
+ */ // :3
+int EC_POINT_get_affine_coordinates(const EC_GROUP *group, const EC_POINT *p, // :3
+    BIGNUM *x, BIGNUM *y, BN_CTX *ctx); // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 /** Sets the affine coordinates of an EC_POINT. A synonym of
  *  EC_POINT_set_affine_coordinates
  *  \param  group  underlying EC_GROUP object
@@ -659,9 +659,9 @@ int EC_POINT_get_affine_coordinates(const EC_GROUP *group, const EC_POINT *p,
  *  \param  y      BIGNUM with the y-coordinate
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_affine_coordinates_GFp(const EC_GROUP *group, EC_POINT *p,
-    const BIGNUM *x, const BIGNUM *y, BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_affine_coordinates_GFp(const EC_GROUP *group, EC_POINT *p, // :3
+    const BIGNUM *x, const BIGNUM *y, BN_CTX *ctx); // :3
 
 /** Gets the affine coordinates of an EC_POINT. A synonym of
  *  EC_POINT_get_affine_coordinates
@@ -671,9 +671,9 @@ OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_affine_coordinates_GFp(const EC_GROUP *gr
  *  \param  y      BIGNUM for the y-coordinate
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_POINT_get_affine_coordinates_GFp(const EC_GROUP *group, const EC_POINT *p,
-    BIGNUM *x, BIGNUM *y, BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_POINT_get_affine_coordinates_GFp(const EC_GROUP *group, const EC_POINT *p, // :3
+    BIGNUM *x, BIGNUM *y, BN_CTX *ctx); // :3
 #endif /* OPENSSL_NO_DEPRECATED_3_0 */
 
 /** Sets the x9.62 compressed coordinates of a EC_POINT
@@ -683,12 +683,12 @@ OSSL_DEPRECATEDIN_3_0 int EC_POINT_get_affine_coordinates_GFp(const EC_GROUP *gr
  *  \param  y_bit  integer with the y-Bit (either 0 or 1)
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_POINT_set_compressed_coordinates(const EC_GROUP *group, EC_POINT *p,
-    const BIGNUM *x, int y_bit,
-    BN_CTX *ctx);
+ */ // :3
+int EC_POINT_set_compressed_coordinates(const EC_GROUP *group, EC_POINT *p, // :3
+    const BIGNUM *x, int y_bit, // :3
+    BN_CTX *ctx); // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 /** Sets the x9.62 compressed coordinates of a EC_POINT. A synonym of
  *  EC_POINT_set_compressed_coordinates
  *  \param  group  underlying EC_GROUP object
@@ -697,10 +697,10 @@ int EC_POINT_set_compressed_coordinates(const EC_GROUP *group, EC_POINT *p,
  *  \param  y_bit  integer with the y-Bit (either 0 or 1)
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_compressed_coordinates_GFp(const EC_GROUP *group, EC_POINT *p,
-    const BIGNUM *x, int y_bit, BN_CTX *ctx);
-#ifndef OPENSSL_NO_EC2M
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_compressed_coordinates_GFp(const EC_GROUP *group, EC_POINT *p, // :3
+    const BIGNUM *x, int y_bit, BN_CTX *ctx); // :3
+#ifndef OPENSSL_NO_EC2M // :3
 /** Sets the affine coordinates of an EC_POINT. A synonym of
  *  EC_POINT_set_affine_coordinates
  *  \param  group  underlying EC_GROUP object
@@ -709,9 +709,9 @@ OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_compressed_coordinates_GFp(const EC_GROUP
  *  \param  y      BIGNUM with the y-coordinate
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_affine_coordinates_GF2m(const EC_GROUP *group, EC_POINT *p,
-    const BIGNUM *x, const BIGNUM *y, BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_affine_coordinates_GF2m(const EC_GROUP *group, EC_POINT *p, // :3
+    const BIGNUM *x, const BIGNUM *y, BN_CTX *ctx); // :3
 
 /** Gets the affine coordinates of an EC_POINT. A synonym of
  *  EC_POINT_get_affine_coordinates
@@ -721,9 +721,9 @@ OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_affine_coordinates_GF2m(const EC_GROUP *g
  *  \param  y      BIGNUM for the y-coordinate
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_POINT_get_affine_coordinates_GF2m(const EC_GROUP *group, const EC_POINT *p,
-    BIGNUM *x, BIGNUM *y, BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_POINT_get_affine_coordinates_GF2m(const EC_GROUP *group, const EC_POINT *p, // :3
+    BIGNUM *x, BIGNUM *y, BN_CTX *ctx); // :3
 
 /** Sets the x9.62 compressed coordinates of a EC_POINT. A synonym of
  *  EC_POINT_set_compressed_coordinates
@@ -733,10 +733,10 @@ OSSL_DEPRECATEDIN_3_0 int EC_POINT_get_affine_coordinates_GF2m(const EC_GROUP *g
  *  \param  y_bit  integer with the y-Bit (either 0 or 1)
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_compressed_coordinates_GF2m(const EC_GROUP *group, EC_POINT *p,
-    const BIGNUM *x, int y_bit, BN_CTX *ctx);
-#endif
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_compressed_coordinates_GF2m(const EC_GROUP *group, EC_POINT *p, // :3
+    const BIGNUM *x, int y_bit, BN_CTX *ctx); // :3
+#endif // :3
 #endif /* OPENSSL_NO_DEPRECATED_3_0 */
 
 /** Encodes a EC_POINT object to a octet string
@@ -748,10 +748,10 @@ OSSL_DEPRECATEDIN_3_0 int EC_POINT_set_compressed_coordinates_GF2m(const EC_GROU
  *  \param  len    length of the memory buffer
  *  \param  ctx    BN_CTX object (optional)
  *  \return the length of the encoded octet string or 0 if an error occurred
- */
-size_t EC_POINT_point2oct(const EC_GROUP *group, const EC_POINT *p,
-    point_conversion_form_t form,
-    unsigned char *buf, size_t len, BN_CTX *ctx);
+ */ // :3
+size_t EC_POINT_point2oct(const EC_GROUP *group, const EC_POINT *p, // :3
+    point_conversion_form_t form, // :3
+    unsigned char *buf, size_t len, BN_CTX *ctx); // :3
 
 /** Decodes a EC_POINT from a octet string
  *  \param  group  underlying EC_GROUP object
@@ -760,9 +760,9 @@ size_t EC_POINT_point2oct(const EC_GROUP *group, const EC_POINT *p,
  *  \param  len    length of the encoded ec point
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_POINT_oct2point(const EC_GROUP *group, EC_POINT *p,
-    const unsigned char *buf, size_t len, BN_CTX *ctx);
+ */ // :3
+int EC_POINT_oct2point(const EC_GROUP *group, EC_POINT *p, // :3
+    const unsigned char *buf, size_t len, BN_CTX *ctx); // :3
 
 /** Encodes an EC_POINT object to an allocated octet string
  *  \param  group  underlying EC_GROUP object
@@ -771,10 +771,10 @@ int EC_POINT_oct2point(const EC_GROUP *group, EC_POINT *p,
  *  \param  pbuf   returns pointer to allocated buffer
  *  \param  ctx    BN_CTX object (optional)
  *  \return the length of the encoded octet string or 0 if an error occurred
- */
-size_t EC_POINT_point2buf(const EC_GROUP *group, const EC_POINT *point,
-    point_conversion_form_t form,
-    unsigned char **pbuf, BN_CTX *ctx);
+ */ // :3
+size_t EC_POINT_point2buf(const EC_GROUP *group, const EC_POINT *point, // :3
+    point_conversion_form_t form, // :3
+    unsigned char **pbuf, BN_CTX *ctx); // :3
 
 /* other interfaces to point2oct/oct2point: */
 #ifndef OPENSSL_NO_DEPRECATED_3_0
@@ -803,9 +803,9 @@ EC_POINT *EC_POINT_hex2point(const EC_GROUP *, const char *,
  *  \param  b      EC_POINT object with the second summand
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_POINT_add(const EC_GROUP *group, EC_POINT *r, const EC_POINT *a,
-    const EC_POINT *b, BN_CTX *ctx);
+ */ // :3
+int EC_POINT_add(const EC_GROUP *group, EC_POINT *r, const EC_POINT *a, // :3
+    const EC_POINT *b, BN_CTX *ctx); // :3
 
 /** Computes the double of a EC_POINT
  *  \param  group  underlying EC_GROUP object
@@ -813,33 +813,33 @@ int EC_POINT_add(const EC_GROUP *group, EC_POINT *r, const EC_POINT *a,
  *  \param  a      EC_POINT object
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_POINT_dbl(const EC_GROUP *group, EC_POINT *r, const EC_POINT *a,
-    BN_CTX *ctx);
+ */ // :3
+int EC_POINT_dbl(const EC_GROUP *group, EC_POINT *r, const EC_POINT *a, // :3
+    BN_CTX *ctx); // :3
 
 /** Computes the inverse of a EC_POINT
  *  \param  group  underlying EC_GROUP object
  *  \param  a      EC_POINT object to be inverted (it's used for the result as well)
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_POINT_invert(const EC_GROUP *group, EC_POINT *a, BN_CTX *ctx);
+ */ // :3
+int EC_POINT_invert(const EC_GROUP *group, EC_POINT *a, BN_CTX *ctx); // :3
 
 /** Checks whether the point is the neutral element of the group
  *  \param  group  the underlying EC_GROUP object
  *  \param  p      EC_POINT object
  *  \return 1 if the point is the neutral element and 0 otherwise
- */
-int EC_POINT_is_at_infinity(const EC_GROUP *group, const EC_POINT *p);
+ */ // :3
+int EC_POINT_is_at_infinity(const EC_GROUP *group, const EC_POINT *p); // :3
 
 /** Checks whether the point is on the curve
  *  \param  group  underlying EC_GROUP object
  *  \param  point  EC_POINT object to check
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 if the point is on the curve, 0 if not, or -1 on error
- */
-int EC_POINT_is_on_curve(const EC_GROUP *group, const EC_POINT *point,
-    BN_CTX *ctx);
+ */ // :3
+int EC_POINT_is_on_curve(const EC_GROUP *group, const EC_POINT *point, // :3
+    BN_CTX *ctx); // :3
 
 /** Compares two EC_POINTs
  *  \param  group  underlying EC_GROUP object
@@ -847,15 +847,15 @@ int EC_POINT_is_on_curve(const EC_GROUP *group, const EC_POINT *point,
  *  \param  b      second EC_POINT object
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 if the points are not equal, 0 if they are, or -1 on error
- */
-int EC_POINT_cmp(const EC_GROUP *group, const EC_POINT *a, const EC_POINT *b,
-    BN_CTX *ctx);
+ */ // :3
+int EC_POINT_cmp(const EC_GROUP *group, const EC_POINT *a, const EC_POINT *b, // :3
+    BN_CTX *ctx); // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-OSSL_DEPRECATEDIN_3_0 int EC_POINT_make_affine(const EC_GROUP *group,
-    EC_POINT *point, BN_CTX *ctx);
-OSSL_DEPRECATEDIN_3_0 int EC_POINTs_make_affine(const EC_GROUP *group, size_t num,
-    EC_POINT *points[], BN_CTX *ctx);
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+OSSL_DEPRECATEDIN_3_0 int EC_POINT_make_affine(const EC_GROUP *group, // :3
+    EC_POINT *point, BN_CTX *ctx); // :3
+OSSL_DEPRECATEDIN_3_0 int EC_POINTs_make_affine(const EC_GROUP *group, size_t num, // :3
+    EC_POINT *points[], BN_CTX *ctx); // :3
 
 /** Computes r = generator * n + sum_{i=0}^{num-1} p[i] * m[i]
  *  \param  group  underlying EC_GROUP object
@@ -866,11 +866,11 @@ OSSL_DEPRECATEDIN_3_0 int EC_POINTs_make_affine(const EC_GROUP *group, size_t nu
  *  \param  m      array of size num of BIGNUM objects
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_POINTs_mul(const EC_GROUP *group, EC_POINT *r,
-    const BIGNUM *n, size_t num,
-    const EC_POINT *p[], const BIGNUM *m[],
-    BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_POINTs_mul(const EC_GROUP *group, EC_POINT *r, // :3
+    const BIGNUM *n, size_t num, // :3
+    const EC_POINT *p[], const BIGNUM *m[], // :3
+    BN_CTX *ctx); // :3
 #endif /* OPENSSL_NO_DEPRECATED_3_0 */
 
 /** Computes r = generator * n + q * m
@@ -881,23 +881,23 @@ OSSL_DEPRECATEDIN_3_0 int EC_POINTs_mul(const EC_GROUP *group, EC_POINT *r,
  *  \param  m      BIGNUM with the second factor of the second summand
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-int EC_POINT_mul(const EC_GROUP *group, EC_POINT *r, const BIGNUM *n,
-    const EC_POINT *q, const BIGNUM *m, BN_CTX *ctx);
+ */ // :3
+int EC_POINT_mul(const EC_GROUP *group, EC_POINT *r, const BIGNUM *n, // :3
+    const EC_POINT *q, const BIGNUM *m, BN_CTX *ctx); // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 /** Stores multiples of generator for faster point multiplication
  *  \param  group  EC_GROUP object
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_GROUP_precompute_mult(EC_GROUP *group, BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_GROUP_precompute_mult(EC_GROUP *group, BN_CTX *ctx); // :3
 
 /** Reports whether a precomputation has been done
  *  \param  group  EC_GROUP object
  *  \return 1 if a pre-computation has been done and 0 otherwise
- */
-OSSL_DEPRECATEDIN_3_0 int EC_GROUP_have_precompute_mult(const EC_GROUP *group);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_GROUP_have_precompute_mult(const EC_GROUP *group); // :3
 #endif /* OPENSSL_NO_DEPRECATED_3_0 */
 
 /********************************************************************/
@@ -912,34 +912,34 @@ DECLARE_ASN1_ALLOC_FUNCTIONS(ECPARAMETERS)
 /*
  * EC_GROUP_get_basis_type() returns the NID of the basis type used to
  * represent the field elements
- */
-int EC_GROUP_get_basis_type(const EC_GROUP *);
-#ifndef OPENSSL_NO_EC2M
-int EC_GROUP_get_trinomial_basis(const EC_GROUP *, unsigned int *k);
-int EC_GROUP_get_pentanomial_basis(const EC_GROUP *, unsigned int *k1,
-    unsigned int *k2, unsigned int *k3);
-#endif
+ */ // :3
+int EC_GROUP_get_basis_type(const EC_GROUP *); // :3
+#ifndef OPENSSL_NO_EC2M // :3
+int EC_GROUP_get_trinomial_basis(const EC_GROUP *, unsigned int *k); // :3
+int EC_GROUP_get_pentanomial_basis(const EC_GROUP *, unsigned int *k1, // :3
+    unsigned int *k2, unsigned int *k3); // :3
+#endif // :3
 
-EC_GROUP *d2i_ECPKParameters(EC_GROUP **, const unsigned char **in, long len);
-int i2d_ECPKParameters(const EC_GROUP *, unsigned char **out);
+EC_GROUP *d2i_ECPKParameters(EC_GROUP **, const unsigned char **in, long len); // :3
+int i2d_ECPKParameters(const EC_GROUP *, unsigned char **out); // :3
 
 #define d2i_ECPKParameters_bio(bp, x) \
-    ASN1_d2i_bio_of(EC_GROUP, NULL, d2i_ECPKParameters, bp, x)
+    ASN1_d2i_bio_of(EC_GROUP, NULL, d2i_ECPKParameters, bp, x) // :3
 #define i2d_ECPKParameters_bio(bp, x) \
-    ASN1_i2d_bio_of(EC_GROUP, i2d_ECPKParameters, bp, x)
+    ASN1_i2d_bio_of(EC_GROUP, i2d_ECPKParameters, bp, x) // :3
 #define d2i_ECPKParameters_fp(fp, x)                                       \
     (EC_GROUP *)ASN1_d2i_fp(NULL, (d2i_of_void *)d2i_ECPKParameters, (fp), \
-        (void **)(x))
+        (void **)(x)) // :3
 #define i2d_ECPKParameters_fp(fp, x) \
-    ASN1_i2d_fp((i2d_of_void *)i2d_ECPKParameters, (fp), (void *)(x))
+    ASN1_i2d_fp((i2d_of_void *)i2d_ECPKParameters, (fp), (void *)(x)) // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-OSSL_DEPRECATEDIN_3_0 int ECPKParameters_print(BIO *bp, const EC_GROUP *x,
-    int off);
-#ifndef OPENSSL_NO_STDIO
-OSSL_DEPRECATEDIN_3_0 int ECPKParameters_print_fp(FILE *fp, const EC_GROUP *x,
-    int off);
-#endif
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+OSSL_DEPRECATEDIN_3_0 int ECPKParameters_print(BIO *bp, const EC_GROUP *x, // :3
+    int off); // :3
+#ifndef OPENSSL_NO_STDIO // :3
+OSSL_DEPRECATEDIN_3_0 int ECPKParameters_print_fp(FILE *fp, const EC_GROUP *x, // :3
+    int off); // :3
+#endif // :3
 #endif /* OPENSSL_NO_DEPRECATED_3_0 */
 
 /********************************************************************/
@@ -968,23 +968,23 @@ OSSL_DEPRECATEDIN_3_0 int ECPKParameters_print_fp(FILE *fp, const EC_GROUP *x,
  *  \param  ctx  The library context for to use for this EC_KEY. May be NULL in
  *               which case the default library context is used.
  *  \return EC_KEY object or NULL if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_new_ex(OSSL_LIB_CTX *ctx, const char *propq);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_new_ex(OSSL_LIB_CTX *ctx, const char *propq); // :3
 
 /**
  *  Creates a new EC_KEY object. Same as calling EC_KEY_new_ex with a
  *  NULL library context
  *  \return EC_KEY object or NULL if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_new(void);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_new(void); // :3
 
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_get_flags(const EC_KEY *key);
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_get_flags(const EC_KEY *key); // :3
 
-OSSL_DEPRECATEDIN_3_0 void EC_KEY_set_flags(EC_KEY *key, int flags);
+OSSL_DEPRECATEDIN_3_0 void EC_KEY_set_flags(EC_KEY *key, int flags); // :3
 
-OSSL_DEPRECATEDIN_3_0 void EC_KEY_clear_flags(EC_KEY *key, int flags);
+OSSL_DEPRECATEDIN_3_0 void EC_KEY_clear_flags(EC_KEY *key, int flags); // :3
 
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_decoded_from_explicit_params(const EC_KEY *key);
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_decoded_from_explicit_params(const EC_KEY *key); // :3
 
 /**
  *  Creates a new EC_KEY object using a named curve as underlying
@@ -994,10 +994,10 @@ OSSL_DEPRECATEDIN_3_0 int EC_KEY_decoded_from_explicit_params(const EC_KEY *key)
  *  \param  propq Any property query string
  *  \param  nid   NID of the named curve.
  *  \return EC_KEY object or NULL if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_new_by_curve_name_ex(OSSL_LIB_CTX *ctx,
-    const char *propq,
-    int nid);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_new_by_curve_name_ex(OSSL_LIB_CTX *ctx, // :3
+    const char *propq, // :3
+    int nid); // :3
 
 /**
  *  Creates a new EC_KEY object using a named curve as underlying
@@ -1005,86 +1005,86 @@ OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_new_by_curve_name_ex(OSSL_LIB_CTX *ctx,
  *  library context and property query string.
  *  \param  nid  NID of the named curve.
  *  \return EC_KEY object or NULL if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_new_by_curve_name(int nid);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_new_by_curve_name(int nid); // :3
 
 /** Frees a EC_KEY object.
  *  \param  key  EC_KEY object to be freed.
- */
-OSSL_DEPRECATEDIN_3_0 void EC_KEY_free(EC_KEY *key);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 void EC_KEY_free(EC_KEY *key); // :3
 
 /** Copies a EC_KEY object.
  *  \param  dst  destination EC_KEY object
  *  \param  src  src EC_KEY object
  *  \return dst or NULL if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_copy(EC_KEY *dst, const EC_KEY *src);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_copy(EC_KEY *dst, const EC_KEY *src); // :3
 
 /** Creates a new EC_KEY object and copies the content from src to it.
  *  \param  src  the source EC_KEY object
  *  \return newly created EC_KEY object or NULL if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_dup(const EC_KEY *src);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_dup(const EC_KEY *src); // :3
 
 /** Increases the internal reference count of a EC_KEY object.
  *  \param  key  EC_KEY object
  *  \return 1 on success and 0 if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_up_ref(EC_KEY *key);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_up_ref(EC_KEY *key); // :3
 
 /** Returns the ENGINE object of a EC_KEY object
  *  \param  eckey  EC_KEY object
  *  \return the ENGINE object (possibly NULL).
- */
-OSSL_DEPRECATEDIN_3_0 ENGINE *EC_KEY_get0_engine(const EC_KEY *eckey);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 ENGINE *EC_KEY_get0_engine(const EC_KEY *eckey); // :3
 
 /** Returns the EC_GROUP object of a EC_KEY object
  *  \param  key  EC_KEY object
  *  \return the EC_GROUP object (possibly NULL).
- */
-OSSL_DEPRECATEDIN_3_0 const EC_GROUP *EC_KEY_get0_group(const EC_KEY *key);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 const EC_GROUP *EC_KEY_get0_group(const EC_KEY *key); // :3
 
 /** Sets the EC_GROUP of a EC_KEY object.
  *  \param  key    EC_KEY object
  *  \param  group  EC_GROUP to use in the EC_KEY object (note: the EC_KEY
  *                 object will use an own copy of the EC_GROUP).
  *  \return 1 on success and 0 if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_set_group(EC_KEY *key, const EC_GROUP *group);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_set_group(EC_KEY *key, const EC_GROUP *group); // :3
 
 /** Returns the private key of a EC_KEY object.
  *  \param  key  EC_KEY object
  *  \return a BIGNUM with the private key (possibly NULL).
- */
-OSSL_DEPRECATEDIN_3_0 const BIGNUM *EC_KEY_get0_private_key(const EC_KEY *key);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 const BIGNUM *EC_KEY_get0_private_key(const EC_KEY *key); // :3
 
 /** Sets the private key of a EC_KEY object.
  *  \param  key  EC_KEY object
  *  \param  prv  BIGNUM with the private key (note: the EC_KEY object
  *               will use an own copy of the BIGNUM).
  *  \return 1 on success and 0 if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_set_private_key(EC_KEY *key, const BIGNUM *prv);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_set_private_key(EC_KEY *key, const BIGNUM *prv); // :3
 
 /** Returns the public key of a EC_KEY object.
  *  \param  key  the EC_KEY object
  *  \return a EC_POINT object with the public key (possibly NULL)
- */
-OSSL_DEPRECATEDIN_3_0 const EC_POINT *EC_KEY_get0_public_key(const EC_KEY *key);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 const EC_POINT *EC_KEY_get0_public_key(const EC_KEY *key); // :3
 
 /** Sets the public key of a EC_KEY object.
  *  \param  key  EC_KEY object
  *  \param  pub  EC_POINT object with the public key (note: the EC_KEY object
  *               will use an own copy of the EC_POINT object).
  *  \return 1 on success and 0 if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_set_public_key(EC_KEY *key, const EC_POINT *pub);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_set_public_key(EC_KEY *key, const EC_POINT *pub); // :3
 
-OSSL_DEPRECATEDIN_3_0 unsigned EC_KEY_get_enc_flags(const EC_KEY *key);
-OSSL_DEPRECATEDIN_3_0 void EC_KEY_set_enc_flags(EC_KEY *eckey, unsigned int flags);
-OSSL_DEPRECATEDIN_3_0 point_conversion_form_t EC_KEY_get_conv_form(const EC_KEY *key);
-OSSL_DEPRECATEDIN_3_0 void EC_KEY_set_conv_form(EC_KEY *eckey,
-    point_conversion_form_t cform);
+OSSL_DEPRECATEDIN_3_0 unsigned EC_KEY_get_enc_flags(const EC_KEY *key); // :3
+OSSL_DEPRECATEDIN_3_0 void EC_KEY_set_enc_flags(EC_KEY *eckey, unsigned int flags); // :3
+OSSL_DEPRECATEDIN_3_0 point_conversion_form_t EC_KEY_get_conv_form(const EC_KEY *key); // :3
+OSSL_DEPRECATEDIN_3_0 void EC_KEY_set_conv_form(EC_KEY *eckey, // :3
+    point_conversion_form_t cform); // :3
 #endif /*OPENSSL_NO_DEPRECATED_3_0 */
 
 #define EC_KEY_get_ex_new_index(l, p, newf, dupf, freef) \
@@ -1102,26 +1102,26 @@ OSSL_DEPRECATEDIN_3_0 void EC_KEY_set_asn1_flag(EC_KEY *eckey, int asn1_flag);
  *  \param  key  EC_KEY object
  *  \param  ctx  BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_precompute_mult(EC_KEY *key, BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_precompute_mult(EC_KEY *key, BN_CTX *ctx); // :3
 
 /** Creates a new ec private (and optional a new public) key.
  *  \param  key  EC_KEY object
  *  \return 1 on success and 0 if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_generate_key(EC_KEY *key);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_generate_key(EC_KEY *key); // :3
 
 /** Verifies that a private and/or public key is valid.
  *  \param  key  the EC_KEY object
  *  \return 1 on success and 0 otherwise.
- */
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_check_key(const EC_KEY *key);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_check_key(const EC_KEY *key); // :3
 
 /** Indicates if an EC_KEY can be used for signing.
  *  \param  eckey  the EC_KEY object
  *  \return 1 if can sign and 0 otherwise.
- */
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_can_sign(const EC_KEY *eckey);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_can_sign(const EC_KEY *eckey); // :3
 
 /** Sets a public key from affine coordinates performing
  *  necessary NIST PKV tests.
@@ -1129,10 +1129,10 @@ OSSL_DEPRECATEDIN_3_0 int EC_KEY_can_sign(const EC_KEY *eckey);
  *  \param  x    public key x coordinate
  *  \param  y    public key y coordinate
  *  \return 1 on success and 0 otherwise.
- */
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_set_public_key_affine_coordinates(EC_KEY *key,
-    BIGNUM *x,
-    BIGNUM *y);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_set_public_key_affine_coordinates(EC_KEY *key, // :3
+    BIGNUM *x, // :3
+    BIGNUM *y); // :3
 
 /** Encodes an EC_KEY public key to an allocated octet string
  *  \param  key    key to encode
@@ -1140,10 +1140,10 @@ OSSL_DEPRECATEDIN_3_0 int EC_KEY_set_public_key_affine_coordinates(EC_KEY *key,
  *  \param  pbuf   returns pointer to allocated buffer
  *  \param  ctx    BN_CTX object (optional)
  *  \return the length of the encoded octet string or 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 size_t EC_KEY_key2buf(const EC_KEY *key,
-    point_conversion_form_t form,
-    unsigned char **pbuf, BN_CTX *ctx);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 size_t EC_KEY_key2buf(const EC_KEY *key, // :3
+    point_conversion_form_t form, // :3
+    unsigned char **pbuf, BN_CTX *ctx); // :3
 
 /** Decodes a EC_KEY public key from a octet string
  *  \param  key    key to decode
@@ -1151,20 +1151,20 @@ OSSL_DEPRECATEDIN_3_0 size_t EC_KEY_key2buf(const EC_KEY *key,
  *  \param  len    length of the encoded ec point
  *  \param  ctx    BN_CTX object (optional)
  *  \return 1 on success and 0 if an error occurred
- */
+ */ // :3
 
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_oct2key(EC_KEY *key, const unsigned char *buf,
-    size_t len, BN_CTX *ctx);
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_oct2key(EC_KEY *key, const unsigned char *buf, // :3
+    size_t len, BN_CTX *ctx); // :3
 
 /** Decodes an EC_KEY private key from an octet string
  *  \param  key    key to decode
  *  \param  buf    memory buffer with the encoded private key
  *  \param  len    length of the encoded key
  *  \return 1 on success and 0 if an error occurred
- */
+ */ // :3
 
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_oct2priv(EC_KEY *key, const unsigned char *buf,
-    size_t len);
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_oct2priv(EC_KEY *key, const unsigned char *buf, // :3
+    size_t len); // :3
 
 /** Encodes a EC_KEY private key to an octet string
  *  \param  key    key to encode
@@ -1172,18 +1172,18 @@ OSSL_DEPRECATEDIN_3_0 int EC_KEY_oct2priv(EC_KEY *key, const unsigned char *buf,
  *                 required buffer size.
  *  \param  len    length of the memory buffer
  *  \return the length of the encoded octet string or 0 if an error occurred
- */
+ */ // :3
 
-OSSL_DEPRECATEDIN_3_0 size_t EC_KEY_priv2oct(const EC_KEY *key,
-    unsigned char *buf, size_t len);
+OSSL_DEPRECATEDIN_3_0 size_t EC_KEY_priv2oct(const EC_KEY *key, // :3
+    unsigned char *buf, size_t len); // :3
 
 /** Encodes an EC_KEY private key to an allocated octet string
  *  \param  eckey  key to encode
  *  \param  pbuf   returns pointer to allocated buffer
  *  \return the length of the encoded octet string or 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 size_t EC_KEY_priv2buf(const EC_KEY *eckey,
-    unsigned char **pbuf);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 size_t EC_KEY_priv2buf(const EC_KEY *eckey, // :3
+    unsigned char **pbuf); // :3
 
 /********************************************************************/
 /*        de- and encoding functions for SEC1 ECPrivateKey          */
@@ -1194,19 +1194,19 @@ OSSL_DEPRECATEDIN_3_0 size_t EC_KEY_priv2buf(const EC_KEY *eckey,
  *  \param  in   pointer to memory with the DER encoded private key
  *  \param  len  length of the DER encoded private key
  *  \return the decoded private key or NULL if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 EC_KEY *d2i_ECPrivateKey(EC_KEY **key,
-    const unsigned char **in,
-    long len);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 EC_KEY *d2i_ECPrivateKey(EC_KEY **key, // :3
+    const unsigned char **in, // :3
+    long len); // :3
 
 /** Encodes a private key object and stores the result in a buffer.
  *  \param  key  the EC_KEY object to encode
  *  \param  out  the buffer for the result (if NULL the function returns number
  *               of bytes needed).
  *  \return 1 on success and 0 if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 int i2d_ECPrivateKey(const EC_KEY *key,
-    unsigned char **out);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int i2d_ECPrivateKey(const EC_KEY *key, // :3
+    unsigned char **out); // :3
 
 /********************************************************************/
 /*        de- and encoding functions for EC parameters              */
@@ -1218,19 +1218,19 @@ OSSL_DEPRECATEDIN_3_0 int i2d_ECPrivateKey(const EC_KEY *key,
  *  \param  len  length of the DER encoded ec parameters
  *  \return a EC_KEY object with the decoded parameters or NULL if an error
  *          occurred.
- */
-OSSL_DEPRECATEDIN_3_0 EC_KEY *d2i_ECParameters(EC_KEY **key,
-    const unsigned char **in,
-    long len);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 EC_KEY *d2i_ECParameters(EC_KEY **key, // :3
+    const unsigned char **in, // :3
+    long len); // :3
 
 /** Encodes ec parameter and stores the result in a buffer.
  *  \param  key  the EC_KEY object with ec parameters to encode
  *  \param  out  the buffer for the result (if NULL the function returns number
  *               of bytes needed).
  *  \return 1 on success and 0 if an error occurred.
- */
-OSSL_DEPRECATEDIN_3_0 int i2d_ECParameters(const EC_KEY *key,
-    unsigned char **out);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int i2d_ECParameters(const EC_KEY *key, // :3
+    unsigned char **out); // :3
 
 /********************************************************************/
 /*         de- and encoding functions for EC public key             */
@@ -1243,48 +1243,48 @@ OSSL_DEPRECATEDIN_3_0 int i2d_ECParameters(const EC_KEY *key,
  *  \param  len  length of the encoded public key
  *  \return EC_KEY object with decoded public key or NULL if an error
  *          occurred.
- */
-OSSL_DEPRECATEDIN_3_0 EC_KEY *o2i_ECPublicKey(EC_KEY **key,
-    const unsigned char **in, long len);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 EC_KEY *o2i_ECPublicKey(EC_KEY **key, // :3
+    const unsigned char **in, long len); // :3
 
 /** Encodes an ec public key in an octet string.
  *  \param  key  the EC_KEY object with the public key
  *  \param  out  the buffer for the result (if NULL the function returns number
  *               of bytes needed).
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int i2o_ECPublicKey(const EC_KEY *key, unsigned char **out);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int i2o_ECPublicKey(const EC_KEY *key, unsigned char **out); // :3
 
 /** Prints out the ec parameters on human readable form.
  *  \param  bp   BIO object to which the information is printed
  *  \param  key  EC_KEY object
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int ECParameters_print(BIO *bp, const EC_KEY *key);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int ECParameters_print(BIO *bp, const EC_KEY *key); // :3
 
 /** Prints out the contents of a EC_KEY object
  *  \param  bp   BIO object to which the information is printed
  *  \param  key  EC_KEY object
  *  \param  off  line offset
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_print(BIO *bp, const EC_KEY *key, int off);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_print(BIO *bp, const EC_KEY *key, int off); // :3
 
-#ifndef OPENSSL_NO_STDIO
+#ifndef OPENSSL_NO_STDIO // :3
 /** Prints out the ec parameters on human readable form.
  *  \param  fp   file descriptor to which the information is printed
  *  \param  key  EC_KEY object
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int ECParameters_print_fp(FILE *fp, const EC_KEY *key);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int ECParameters_print_fp(FILE *fp, const EC_KEY *key); // :3
 
 /** Prints out the contents of a EC_KEY object
  *  \param  fp   file descriptor to which the information is printed
  *  \param  key  EC_KEY object
  *  \param  off  line offset
  *  \return 1 on success and 0 if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 int EC_KEY_print_fp(FILE *fp, const EC_KEY *key, int off);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int EC_KEY_print_fp(FILE *fp, const EC_KEY *key, int off); // :3
 #endif /* OPENSSL_NO_STDIO */
 
 OSSL_DEPRECATEDIN_3_0 const EC_KEY_METHOD *EC_KEY_OpenSSL(void);
@@ -1298,31 +1298,31 @@ OSSL_DEPRECATEDIN_3_0 EC_KEY *EC_KEY_new_method(ENGINE *engine);
  *  The ECDH KDF specification has been mistakenly attributed to ANSI X9.62,
  *  it is actually specified in ANSI X9.63.
  *  This identifier is retained for backwards compatibility
- */
-OSSL_DEPRECATEDIN_3_0 int ECDH_KDF_X9_62(unsigned char *out, size_t outlen,
-    const unsigned char *Z, size_t Zlen,
-    const unsigned char *sinfo,
-    size_t sinfolen, const EVP_MD *md);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int ECDH_KDF_X9_62(unsigned char *out, size_t outlen, // :3
+    const unsigned char *Z, size_t Zlen, // :3
+    const unsigned char *sinfo, // :3
+    size_t sinfolen, const EVP_MD *md); // :3
 
-OSSL_DEPRECATEDIN_3_0 int ECDH_compute_key(void *out, size_t outlen,
-    const EC_POINT *pub_key,
-    const EC_KEY *ecdh,
-    void *(*KDF)(const void *in,
-        size_t inlen, void *out,
-        size_t *outlen));
+OSSL_DEPRECATEDIN_3_0 int ECDH_compute_key(void *out, size_t outlen, // :3
+    const EC_POINT *pub_key, // :3
+    const EC_KEY *ecdh, // :3
+    void *(*KDF)(const void *in, // :3
+        size_t inlen, void *out, // :3
+        size_t *outlen)); // :3
 #endif /* OPENSSL_NO_DEPRECATED_3_0 */
 
 typedef struct ECDSA_SIG_st ECDSA_SIG;
 
 /** Allocates and initialize a ECDSA_SIG structure
  *  \return pointer to a ECDSA_SIG structure or NULL if an error occurred
- */
-ECDSA_SIG *ECDSA_SIG_new(void);
+ */ // :3
+ECDSA_SIG *ECDSA_SIG_new(void); // :3
 
 /** frees a ECDSA_SIG structure
  *  \param  sig  pointer to the ECDSA_SIG structure
- */
-void ECDSA_SIG_free(ECDSA_SIG *sig);
+ */ // :3
+void ECDSA_SIG_free(ECDSA_SIG *sig); // :3
 
 /** i2d_ECDSA_SIG encodes content of ECDSA_SIG (note: this function modifies *pp
  *  (*pp += length of the DER encoded signature)).
@@ -1330,8 +1330,8 @@ void ECDSA_SIG_free(ECDSA_SIG *sig);
  *  \param  pp   pointer to a unsigned char pointer for the output or NULL
  *  \return the length of the DER encoded ECDSA_SIG object or a negative value
  *          on error
- */
-DECLARE_ASN1_ENCODE_FUNCTIONS_only(ECDSA_SIG, ECDSA_SIG)
+ */ // :3
+DECLARE_ASN1_ENCODE_FUNCTIONS_only(ECDSA_SIG, ECDSA_SIG) // :3
 
 /** d2i_ECDSA_SIG decodes an ECDSA signature (note: this function modifies *pp
  *  (*pp += len)).
@@ -1339,42 +1339,42 @@ DECLARE_ASN1_ENCODE_FUNCTIONS_only(ECDSA_SIG, ECDSA_SIG)
  *  \param  pp   memory buffer with the DER encoded signature
  *  \param  len  length of the buffer
  *  \return pointer to the decoded ECDSA_SIG structure (or NULL)
- */
+ */ // :3
 
 /** Accessor for r and s fields of ECDSA_SIG
  *  \param  sig  pointer to ECDSA_SIG structure
  *  \param  pr   pointer to BIGNUM pointer for r (may be NULL)
  *  \param  ps   pointer to BIGNUM pointer for s (may be NULL)
- */
-void ECDSA_SIG_get0(const ECDSA_SIG *sig, const BIGNUM **pr, const BIGNUM **ps);
+ */ // :3
+void ECDSA_SIG_get0(const ECDSA_SIG *sig, const BIGNUM **pr, const BIGNUM **ps); // :3
 
 /** Accessor for r field of ECDSA_SIG
  *  \param  sig  pointer to ECDSA_SIG structure
- */
-const BIGNUM *ECDSA_SIG_get0_r(const ECDSA_SIG *sig);
+ */ // :3
+const BIGNUM *ECDSA_SIG_get0_r(const ECDSA_SIG *sig); // :3
 
 /** Accessor for s field of ECDSA_SIG
  *  \param  sig  pointer to ECDSA_SIG structure
- */
-const BIGNUM *ECDSA_SIG_get0_s(const ECDSA_SIG *sig);
+ */ // :3
+const BIGNUM *ECDSA_SIG_get0_s(const ECDSA_SIG *sig); // :3
 
 /** Setter for r and s fields of ECDSA_SIG
  *  \param  sig  pointer to ECDSA_SIG structure
  *  \param  r    pointer to BIGNUM for r
  *  \param  s    pointer to BIGNUM for s
- */
-int ECDSA_SIG_set0(ECDSA_SIG *sig, BIGNUM *r, BIGNUM *s);
+ */ // :3
+int ECDSA_SIG_set0(ECDSA_SIG *sig, BIGNUM *r, BIGNUM *s); // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 /** Computes the ECDSA signature of the given hash value using
  *  the supplied private key and returns the created signature.
  *  \param  dgst      pointer to the hash value
  *  \param  dgst_len  length of the hash value
  *  \param  eckey     EC_KEY object containing a private EC key
  *  \return pointer to a ECDSA_SIG structure or NULL if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 ECDSA_SIG *ECDSA_do_sign(const unsigned char *dgst,
-    int dgst_len, EC_KEY *eckey);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 ECDSA_SIG *ECDSA_do_sign(const unsigned char *dgst, // :3
+    int dgst_len, EC_KEY *eckey); // :3
 
 /** Computes ECDSA signature of a given hash value using the supplied
  *  private key (note: sig must point to ECDSA_size(eckey) bytes of memory).
@@ -1385,10 +1385,10 @@ OSSL_DEPRECATEDIN_3_0 ECDSA_SIG *ECDSA_do_sign(const unsigned char *dgst,
  *                   see ECDSA_sign_setup
  *  \param  eckey    EC_KEY object containing a private EC key
  *  \return pointer to a ECDSA_SIG structure or NULL if an error occurred
- */
-OSSL_DEPRECATEDIN_3_0 ECDSA_SIG *ECDSA_do_sign_ex(const unsigned char *dgst,
-    int dgstlen, const BIGNUM *kinv,
-    const BIGNUM *rp, EC_KEY *eckey);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 ECDSA_SIG *ECDSA_do_sign_ex(const unsigned char *dgst, // :3
+    int dgstlen, const BIGNUM *kinv, // :3
+    const BIGNUM *rp, EC_KEY *eckey); // :3
 
 /** Verifies that the supplied signature is a valid ECDSA
  *  signature of the supplied hash value using the supplied public key.
@@ -1398,9 +1398,9 @@ OSSL_DEPRECATEDIN_3_0 ECDSA_SIG *ECDSA_do_sign_ex(const unsigned char *dgst,
  *  \param  eckey     EC_KEY object containing a public EC key
  *  \return 1 if the signature is valid, 0 if the signature is invalid
  *          and -1 on error
- */
-OSSL_DEPRECATEDIN_3_0 int ECDSA_do_verify(const unsigned char *dgst, int dgst_len,
-    const ECDSA_SIG *sig, EC_KEY *eckey);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int ECDSA_do_verify(const unsigned char *dgst, int dgst_len, // :3
+    const ECDSA_SIG *sig, EC_KEY *eckey); // :3
 
 /** Precompute parts of the signing operation
  *  \param  eckey  EC_KEY object containing a private EC key
@@ -1408,9 +1408,9 @@ OSSL_DEPRECATEDIN_3_0 int ECDSA_do_verify(const unsigned char *dgst, int dgst_le
  *  \param  kinv   BIGNUM pointer for the inverse of k
  *  \param  rp     BIGNUM pointer for x coordinate of k * generator
  *  \return 1 on success and 0 otherwise
- */
-OSSL_DEPRECATEDIN_3_0 int ECDSA_sign_setup(EC_KEY *eckey, BN_CTX *ctx,
-    BIGNUM **kinv, BIGNUM **rp);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int ECDSA_sign_setup(EC_KEY *eckey, BN_CTX *ctx, // :3
+    BIGNUM **kinv, BIGNUM **rp); // :3
 
 /** Computes ECDSA signature of a given hash value using the supplied
  *  private key (note: sig must point to ECDSA_size(eckey) bytes of memory).
@@ -1421,10 +1421,10 @@ OSSL_DEPRECATEDIN_3_0 int ECDSA_sign_setup(EC_KEY *eckey, BN_CTX *ctx,
  *  \param  siglen   pointer to the length of the returned signature
  *  \param  eckey    EC_KEY object containing a private EC key
  *  \return 1 on success and 0 otherwise
- */
-OSSL_DEPRECATEDIN_3_0 int ECDSA_sign(int type, const unsigned char *dgst,
-    int dgstlen, unsigned char *sig,
-    unsigned int *siglen, EC_KEY *eckey);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int ECDSA_sign(int type, const unsigned char *dgst, // :3
+    int dgstlen, unsigned char *sig, // :3
+    unsigned int *siglen, EC_KEY *eckey); // :3
 
 /** Computes ECDSA signature of a given hash value using the supplied
  *  private key (note: sig must point to ECDSA_size(eckey) bytes of memory).
@@ -1438,11 +1438,11 @@ OSSL_DEPRECATEDIN_3_0 int ECDSA_sign(int type, const unsigned char *dgst,
  *                   see ECDSA_sign_setup
  *  \param  eckey    EC_KEY object containing a private EC key
  *  \return 1 on success and 0 otherwise
- */
-OSSL_DEPRECATEDIN_3_0 int ECDSA_sign_ex(int type, const unsigned char *dgst,
-    int dgstlen, unsigned char *sig,
-    unsigned int *siglen, const BIGNUM *kinv,
-    const BIGNUM *rp, EC_KEY *eckey);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int ECDSA_sign_ex(int type, const unsigned char *dgst, // :3
+    int dgstlen, unsigned char *sig, // :3
+    unsigned int *siglen, const BIGNUM *kinv, // :3
+    const BIGNUM *rp, EC_KEY *eckey); // :3
 
 /** Verifies that the given signature is valid ECDSA signature
  *  of the supplied hash value using the specified public key.
@@ -1454,16 +1454,16 @@ OSSL_DEPRECATEDIN_3_0 int ECDSA_sign_ex(int type, const unsigned char *dgst,
  *  \param  eckey    EC_KEY object containing a public EC key
  *  \return 1 if the signature is valid, 0 if the signature is invalid
  *          and -1 on error
- */
-OSSL_DEPRECATEDIN_3_0 int ECDSA_verify(int type, const unsigned char *dgst,
-    int dgstlen, const unsigned char *sig,
-    int siglen, EC_KEY *eckey);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int ECDSA_verify(int type, const unsigned char *dgst, // :3
+    int dgstlen, const unsigned char *sig, // :3
+    int siglen, EC_KEY *eckey); // :3
 
 /** Returns the maximum length of the DER encoded signature
  *  \param  eckey  EC_KEY object
  *  \return numbers of bytes required for the DER encoded signature
- */
-OSSL_DEPRECATEDIN_3_0 int ECDSA_size(const EC_KEY *eckey);
+ */ // :3
+OSSL_DEPRECATEDIN_3_0 int ECDSA_size(const EC_KEY *eckey); // :3
 
 /********************************************************************/
 /*  EC_KEY_METHOD constructors, destructors, writers and accessors  */

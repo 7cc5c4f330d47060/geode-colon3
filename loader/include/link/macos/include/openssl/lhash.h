@@ -5,7 +5,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -13,37 +13,37 @@
 
 /*
  * Header for dynamic hash table routines Author - Eric Young
- */
+ */ // :3
 
-#ifndef OPENSSL_LHASH_H
-#define OPENSSL_LHASH_H
-#pragma once
+#ifndef OPENSSL_LHASH_H // :3
+#define OPENSSL_LHASH_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_LHASH_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_LHASH_H // :3
+#endif // :3
 
-#include <openssl/e_os2.h>
-#include <openssl/bio.h>
-#ifndef OPENSSL_NO_STDIO
-#include <stdio.h>
-#endif
+#include <openssl/e_os2.h> // :3
+#include <openssl/bio.h> // :3
+#ifndef OPENSSL_NO_STDIO // :3
+#include <stdio.h> // :3
+#endif // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-typedef struct lhash_node_st OPENSSL_LH_NODE;
-typedef int (*OPENSSL_LH_COMPFUNC)(const void *, const void *);
-typedef int (*OPENSSL_LH_COMPFUNCTHUNK)(const void *, const void *, OPENSSL_LH_COMPFUNC cfn);
-typedef unsigned long (*OPENSSL_LH_HASHFUNC)(const void *);
-typedef unsigned long (*OPENSSL_LH_HASHFUNCTHUNK)(const void *, OPENSSL_LH_HASHFUNC hfn);
-typedef void (*OPENSSL_LH_DOALL_FUNC)(void *);
-typedef void (*OPENSSL_LH_DOALL_FUNC_THUNK)(void *, OPENSSL_LH_DOALL_FUNC doall);
-typedef void (*OPENSSL_LH_DOALL_FUNCARG)(void *, void *);
-typedef void (*OPENSSL_LH_DOALL_FUNCARG_THUNK)(void *, void *, OPENSSL_LH_DOALL_FUNCARG doall);
-typedef struct lhash_st OPENSSL_LHASH;
+typedef struct lhash_node_st OPENSSL_LH_NODE; // :3
+typedef int (*OPENSSL_LH_COMPFUNC)(const void *, const void *); // :3
+typedef int (*OPENSSL_LH_COMPFUNCTHUNK)(const void *, const void *, OPENSSL_LH_COMPFUNC cfn); // :3
+typedef unsigned long (*OPENSSL_LH_HASHFUNC)(const void *); // :3
+typedef unsigned long (*OPENSSL_LH_HASHFUNCTHUNK)(const void *, OPENSSL_LH_HASHFUNC hfn); // :3
+typedef void (*OPENSSL_LH_DOALL_FUNC)(void *); // :3
+typedef void (*OPENSSL_LH_DOALL_FUNC_THUNK)(void *, OPENSSL_LH_DOALL_FUNC doall); // :3
+typedef void (*OPENSSL_LH_DOALL_FUNCARG)(void *, void *); // :3
+typedef void (*OPENSSL_LH_DOALL_FUNCARG_THUNK)(void *, void *, OPENSSL_LH_DOALL_FUNCARG doall); // :3
+typedef struct lhash_st OPENSSL_LHASH; // :3
 
 /*
  * Macros for declaring and implementing type-safe wrappers for LHASH
@@ -52,7 +52,7 @@ typedef struct lhash_st OPENSSL_LHASH;
  * per-variable casting before deferring to the underlying type-specific
  * callbacks. NB: It is possible to place a "static" in front of both the
  * DECLARE and IMPLEMENT macros if the functions are strictly internal.
- */
+ */ // :3
 
 /* First: "hash" functions */
 #define DECLARE_LHASH_HASH_FN(name, o_type) \

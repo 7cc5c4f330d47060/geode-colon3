@@ -1,45 +1,45 @@
-#pragma once
+#pragma once // :3
 
-#include <cocos2d.h>
-#include <Geode/ui/NineSlice.hpp>
+#include <cocos2d.h> // :3
+#include <Geode/ui/NineSlice.hpp> // :3
 
-namespace geode {
-    class GEODE_DLL IconButtonSprite : public cocos2d::CCSprite, public cocos2d::CCLabelProtocol {
-        class Impl;
-        std::unique_ptr<Impl> m_impl;
-    protected:
-        bool init(
-            char const* bg, bool bgIsFrame, cocos2d::CCNode* icon, char const* text,
-            char const* font
-        );
+namespace geode { // :3
+    class GEODE_DLL IconButtonSprite : public cocos2d::CCSprite, public cocos2d::CCLabelProtocol { // :3
+        class Impl; // :3
+        std::unique_ptr<Impl> m_impl; // :3
+    protected: // :3
+        bool init( // :3
+            char const* bg, bool bgIsFrame, cocos2d::CCNode* icon, char const* text, // :3
+            char const* font // :3
+        ); // :3
 
-        void updateLayout();
+        void updateLayout(); // :3
 
-        IconButtonSprite();
-        ~IconButtonSprite();
-        IconButtonSprite(IconButtonSprite&&) = delete;
-        IconButtonSprite& operator=(IconButtonSprite&&) = delete;
+        IconButtonSprite(); // :3
+        ~IconButtonSprite(); // :3
+        IconButtonSprite(IconButtonSprite&&) = delete; // :3
+        IconButtonSprite& operator=(IconButtonSprite&&) = delete; // :3
 
-    public:
-        static IconButtonSprite* create(
-            char const* bg, cocos2d::CCNode* icon, char const* text, char const* font
-        );
-        static IconButtonSprite* createWithSpriteFrameName(
-            char const* bg, cocos2d::CCNode* icon, char const* text, char const* font
-        );
+    public: // :3
+        static IconButtonSprite* create( // :3
+            char const* bg, cocos2d::CCNode* icon, char const* text, char const* font // :3
+        ); // :3
+        static IconButtonSprite* createWithSpriteFrameName( // :3
+            char const* bg, cocos2d::CCNode* icon, char const* text, char const* font // :3
+        ); // :3
 
-        void setBG(char const* bg, bool isFrame);
+        void setBG(char const* bg, bool isFrame); // :3
 
-        void setIcon(cocos2d::CCNode* icon);
-        cocos2d::CCNode* getIcon() const;
+        void setIcon(cocos2d::CCNode* icon); // :3
+        cocos2d::CCNode* getIcon() const; // :3
 
-        void setString(char const* label) override;
-        char const* getString() override;
+        void setString(char const* label) override; // :3
+        char const* getString() override; // :3
 
-        void setColor(cocos2d::ccColor3B const& color) override;
-        void setOpacity(GLubyte opacity) override;
-        NineSlice* getBg();
-        cocos2d::CCLabelBMFont* getLabel();
-        cocos2d::CCNode* getIcon();
-    };
-}
+        void setColor(cocos2d::ccColor3B const& color) override; // :3
+        void setOpacity(GLubyte opacity) override; // :3
+        NineSlice* getBg(); // :3
+        cocos2d::CCLabelBMFont* getLabel(); // :3
+        cocos2d::CCNode* getIcon(); // :3
+    }; // :3
+} // :3

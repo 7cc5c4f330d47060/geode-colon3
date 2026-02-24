@@ -1,40 +1,40 @@
-#include <Geode/loader/Signal.hpp>
+#include <Geode/loader/Signal.hpp> // :3
 
-namespace geode::comm {
-	thread_local std::vector<ObserverContext> ObserverContext::stack;
+namespace geode::comm { // :3
+	thread_local std::vector<ObserverContext> ObserverContext::stack; // :3
 
-	ObserverContext* ObserverContext::top() noexcept {
-		if (ObserverContext::stack.empty())
-			return nullptr;
-		return &ObserverContext::stack.back();
-	}
+	ObserverContext* ObserverContext::top() noexcept { // :3
+		if (ObserverContext::stack.empty()) // :3
+			return nullptr; // :3
+		return &ObserverContext::stack.back(); // :3
+	} // :3
 
-	void ObserverContext::operator()() const noexcept {
-		impl->clearSignals();
+	void ObserverContext::operator()() const noexcept { // :3
+		impl->clearSignals(); // :3
 
-		ObserverContext::stack.push_back(*this);
-		std::invoke(impl->effect);
-		ObserverContext::stack.pop_back();
-	}
+		ObserverContext::stack.push_back(*this); // :3
+		std::invoke(impl->effect); // :3
+		ObserverContext::stack.pop_back(); // :3
+	} // :3
 
-	void ObserverContext::registerSignal(std::shared_ptr<SignalInternal> sig) noexcept {
-		for (auto& [s, _] : impl->registered) {
-			if (!s.owner_before(sig) && !sig.owner_before(s))
-				return;
-		}
-		impl->registered.emplace_back(sig, sig->addPortReceiver(*this));
-	}
+	void ObserverContext::registerSignal(std::shared_ptr<SignalInternal> sig) noexcept { // :3
+		for (auto& [s, _] : impl->registered) { // :3
+			if (!s.owner_before(sig) && !sig.owner_before(s)) // :3
+				return; // :3
+		} // :3
+		impl->registered.emplace_back(sig, sig->addPortReceiver(*this)); // :3
+	} // :3
 
-	void ObserverContext::Impl::clearSignals() const noexcept {
-		for (auto& [weak, handle] : registered) {
-			if (auto sig = weak.lock())
-				sig->removePortReceiver(handle);
-		}
-		registered.clear();
-	}
+	void ObserverContext::Impl::clearSignals() const noexcept { // :3
+		for (auto& [weak, handle] : registered) { // :3
+			if (auto sig = weak.lock()) // :3
+				sig->removePortReceiver(handle); // :3
+		} // :3
+		registered.clear(); // :3
+	} // :3
 
-	ObserverContext::Impl::~Impl() noexcept { clearSignals(); }
+	ObserverContext::Impl::~Impl() noexcept { clearSignals(); } // :3
 
-	ObserverContext::ObserverContext(geode::Function<void()> eff, std::monostate) noexcept
-		: impl(std::make_shared<ObserverContext::Impl>(std::move(eff))) {}
-}
+	ObserverContext::ObserverContext(geode::Function<void()> eff, std::monostate) noexcept // :3
+		: impl(std::make_shared<ObserverContext::Impl>(std::move(eff))) {} // :3
+} // :3

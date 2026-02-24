@@ -20,26 +20,26 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCACCELEROMETER_DELEGATE_H__
-#define __CCACCELEROMETER_DELEGATE_H__
+#ifndef __CCACCELEROMETER_DELEGATE_H__ // :3
+#define __CCACCELEROMETER_DELEGATE_H__ // :3
 
-#include "CCCommon.h"
+#include "CCCommon.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 /**
 @brief The device accelerometer reports values for each axis in units of g-force
-*/
-class CCAcceleration
-{
-public:
-    double x;
-    double y;
-    double z;
+*/ // :3
+class CCAcceleration // :3
+{ // :3
+public: // :3
+    double x; // :3
+    double y; // :3
+    double z; // :3
 
-    double timestamp;
-};
+    double timestamp; // :3
+}; // :3
 
 /**
 @brief
@@ -47,17 +47,17 @@ The CCAccelerometerDelegate defines a single method for
 receiving acceleration-related data from the system.
 @js NA
 @lua NA
-*/
-class CC_DLL CCAccelerometerDelegate
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCAccelerometerDelegate)
-    CCAccelerometerDelegate() {}
+*/ // :3
+class CC_DLL CCAccelerometerDelegate // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCAccelerometerDelegate) // :3
+    CCAccelerometerDelegate() {} // :3
 
-    virtual void didAccelerate(CCAcceleration* pAccelerationValue) {CC_UNUSED_PARAM(pAccelerationValue);}
-};
+    virtual void didAccelerate(CCAcceleration* pAccelerationValue) {CC_UNUSED_PARAM(pAccelerationValue);} // :3
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif
+#endif // :3

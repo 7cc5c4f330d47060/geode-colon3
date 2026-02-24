@@ -20,70 +20,70 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __AUTORELEASEPOOL_H__
-#define __AUTORELEASEPOOL_H__
+****************************************************************************/ // :3
+#ifndef __AUTORELEASEPOOL_H__ // :3
+#define __AUTORELEASEPOOL_H__ // :3
 
-#include "CCObject.h"
-#include "CCArray.h"
+#include "CCObject.h" // :3
+#include "CCArray.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup base_nodes
  * @{
  * @js NA
  * @lua NA
- */
+ */ // :3
 
-class CC_DLL CCAutoreleasePool : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    CCArray*    m_pManagedObjectArray;
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCAutoreleasePool, CCObject)
+class CC_DLL CCAutoreleasePool : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    CCArray*    m_pManagedObjectArray; // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCAutoreleasePool, CCObject) // :3
 
-    CCAutoreleasePool(void);
-    ~CCAutoreleasePool(void);
+    CCAutoreleasePool(void); // :3
+    ~CCAutoreleasePool(void); // :3
 
-    void addObject(CCObject *pObject);
-    void removeObject(CCObject *pObject);
+    void addObject(CCObject *pObject); // :3
+    void removeObject(CCObject *pObject); // :3
 
-    void clear();
-};
+    void clear(); // :3
+}; // :3
 
 /**
  * @js NA
  * @lua NA
- */
-class CC_DLL CCPoolManager
-{
-    GEODE_FRIEND_MODIFY
-    CCArray*    m_pReleasePoolStack;
-    CCAutoreleasePool*                    m_pCurReleasePool;
+ */ // :3
+class CC_DLL CCPoolManager // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+    CCArray*    m_pReleasePoolStack; // :3
+    CCAutoreleasePool*                    m_pCurReleasePool; // :3
 
-    CCAutoreleasePool* getCurReleasePool();
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCPoolManager)
+    CCAutoreleasePool* getCurReleasePool(); // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCPoolManager) // :3
 
-    CCPoolManager();
-    ~CCPoolManager();
-    void finalize();
-    void push();
-    void pop();
+    CCPoolManager(); // :3
+    ~CCPoolManager(); // :3
+    void finalize(); // :3
+    void push(); // :3
+    void pop(); // :3
 
-    void removeObject(CCObject* pObject);
-    void addObject(CCObject* pObject);
+    void removeObject(CCObject* pObject); // :3
+    void addObject(CCObject* pObject); // :3
 
-    static CCPoolManager* sharedPoolManager();
-    static void purgePoolManager();
+    static CCPoolManager* sharedPoolManager(); // :3
+    static void purgePoolManager(); // :3
 
-    friend class CCAutoreleasePool;
-};
+    friend class CCAutoreleasePool; // :3
+}; // :3
 
-// end of base_nodes group
-/// @}
+// end of base_nodes group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif //__AUTORELEASEPOOL_H__
+#endif //__AUTORELEASEPOOL_H__ :3

@@ -20,71 +20,71 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CC_APPLICATION_IOS_H__
-#define __CC_APPLICATION_IOS_H__
+#ifndef __CC_APPLICATION_IOS_H__ // :3
+#define __CC_APPLICATION_IOS_H__ // :3
 
-#include "../CCCommon.h"
-#include "../CCApplicationProtocol.h"
+#include "../CCCommon.h" // :3
+#include "../CCApplicationProtocol.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCRect;
+class CCRect; // :3
 
-class CC_DLL CCApplication : public CCApplicationProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
-	GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCApplication)
-    CCApplication();
+class CC_DLL CCApplication : public CCApplicationProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+	GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCApplication) // :3
+    CCApplication(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCApplication();
+     */ // :3
+    virtual ~CCApplication(); // :3
 
     /**
      @brief    Run the message loop.
      @js NA
      @lua NA
-    */
-    int run();
+    */ // :3
+    int run(); // :3
 
     /**
     @brief    Get the current application instance.
     @return Current application instance pointer.
     @js getInstance
-    */
-    static CCApplication* sharedApplication();
+    */ // :3
+    static CCApplication* sharedApplication(); // :3
 
-    static GEODE_DLL CCApplication* get();
+    static GEODE_DLL CCApplication* get(); // :3
 
     /**
      @brief    Callback by CCDirector for limit FPS.
      @interval       The time, expressed in seconds, between current frame and next.
      @lua NA
-     */
-    virtual void setAnimationInterval(double interval);
+     */ // :3
+    virtual void setAnimationInterval(double interval); // :3
 
     /**
     @brief Get current language config
     @return Current language config
-    */
-    virtual ccLanguageType getCurrentLanguage();
+    */ // :3
+    virtual ccLanguageType getCurrentLanguage(); // :3
 
     /**
      @brief Get target platform
-     */
-    virtual TargetPlatform getTargetPlatform();
+     */ // :3
+    virtual TargetPlatform getTargetPlatform(); // :3
 
-    //Robtop modification
-    virtual void openURL(char const* link);
+    //Robtop modification :3
+    virtual void openURL(char const* link); // :3
 
-protected:
-    static CCApplication * sm_pSharedApplication;
-};
+protected: // :3
+    static CCApplication * sm_pSharedApplication; // :3
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif    // end of __CC_APPLICATION_IOS_H__
+#endif    // end of __CC_APPLICATION_IOS_H__ :3

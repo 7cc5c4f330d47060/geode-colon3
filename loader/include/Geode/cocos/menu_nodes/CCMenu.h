@@ -21,28 +21,28 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCMENU_H_
-#define __CCMENU_H_
+****************************************************************************/ // :3
+#ifndef __CCMENU_H_ // :3
+#define __CCMENU_H_ // :3
 
-#include "CCMenuItem.h"
-#include "../layers_scenes_transitions_nodes/CCLayer.h"
+#include "CCMenuItem.h" // :3
+#include "../layers_scenes_transitions_nodes/CCLayer.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup menu
  * @{
- */
-typedef enum
-{
-    kCCMenuStateWaiting,
-    kCCMenuStateTrackingTouch
-} tCCMenuState;
+ */ // :3
+typedef enum // :3
+{ // :3
+    kCCMenuStateWaiting, // :3
+    kCCMenuStateTrackingTouch // :3
+} tCCMenuState; // :3
 
-enum {
+enum { // :3
     //* priority used by the menu for the event handler
     kCCMenuHandlerPriority = -128,
 };
@@ -52,73 +52,73 @@ enum {
 * Features and Limitation:
 *  - You can add MenuItem objects in runtime using addChild:
 *  - But the only accepted children are MenuItem objects
-*/
-class CC_DLL CCMenu : public CCLayerRGBA
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCMenu : public CCLayerRGBA // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /** whether or not the menu will receive events */
     bool m_bEnabled;
 
 public:
     /**
      *  @js ctor
-     */
-    CCMenu() : m_pSelectedItem(NULL) {}
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMenu, CCLayerRGBA)
+     */ // :3
+    CCMenu() : m_pSelectedItem(NULL) {} // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMenu, CCLayerRGBA) // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCMenu(){}
+     */ // :3
+    virtual ~CCMenu(){} // :3
 
     /** creates an empty CCMenu */
     static CCMenu* create();
 
     /** creates a CCMenu with CCMenuItem objects
      * @lua NA
-     */
-    static CCMenu* create(CCMenuItem* item, ...);
+     */ // :3
+    static CCMenu* create(CCMenuItem* item, ...); // :3
 
     /** creates a CCMenu with a CCArray of CCMenuItem objects
      * @js NA
-     */
-    static CCMenu* createWithArray(CCArray* pArrayOfItems);
+     */ // :3
+    static CCMenu* createWithArray(CCArray* pArrayOfItems); // :3
 
     /** creates a CCMenu with it's item, then use addChild() to add
       * other items. It is used for script, it can't init with undetermined
       * number of variables.
       * @js NA
-    */
-    static CCMenu* createWithItem(CCMenuItem* item);
+    */ // :3
+    static CCMenu* createWithItem(CCMenuItem* item); // :3
 
     /** creates a CCMenu with CCMenuItem objects
      * @js NA
      * @lua NA
-     */
-    static CCMenu* createWithItems(CCMenuItem *firstItem, va_list args);
+     */ // :3
+    static CCMenu* createWithItems(CCMenuItem *firstItem, va_list args); // :3
 
     /** initializes an empty CCMenu */
     bool init();
 
     /** initializes a CCMenu with a NSArray of CCMenuItem objects
      * @lua NA
-     */
-    bool initWithArray(CCArray* pArrayOfItems);
+     */ // :3
+    bool initWithArray(CCArray* pArrayOfItems); // :3
 
     /** align items vertically */
     void alignItemsVertically();
     /** align items vertically with padding
     @since v0.7.2
-    */
-    void alignItemsVerticallyWithPadding(float padding);
+    */ // :3
+    void alignItemsVerticallyWithPadding(float padding); // :3
 
     /** align items horizontally */
     void alignItemsHorizontally();
     /** align items horizontally with padding
     @since v0.7.2
-    */
-    void alignItemsHorizontallyWithPadding(float padding);
+    */ // :3
+    void alignItemsHorizontallyWithPadding(float padding); // :3
 
     /** align items in rows of columns
      * @code
@@ -126,17 +126,17 @@ public:
      * js:var alignItemsInColumns(...)
      * @endcode
      * @lua NA
-     */
-    void alignItemsInColumns(unsigned int columns, ...);
+     */ // :3
+    void alignItemsInColumns(unsigned int columns, ...); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    void alignItemsInColumns(unsigned int columns, va_list args);
+     */ // :3
+    void alignItemsInColumns(unsigned int columns, va_list args); // :3
     /**
      * @js NA
-     */
-    void alignItemsInColumnsWithArray(CCArray* rows);
+     */ // :3
+    void alignItemsInColumnsWithArray(CCArray* rows); // :3
 
     /** align items in columns of rows
      * @code
@@ -144,17 +144,17 @@ public:
      * js:var alignItemsInRows(...)
      * @endcode
      * @lua NA
-     */
-    void alignItemsInRows(unsigned int rows, ...);
+     */ // :3
+    void alignItemsInRows(unsigned int rows, ...); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    void alignItemsInRows(unsigned int rows, va_list args);
+     */ // :3
+    void alignItemsInRows(unsigned int rows, va_list args); // :3
     /**
      * @js NA
-     */
-    void alignItemsInRowsWithArray(CCArray* columns);
+     */ // :3
+    void alignItemsInRowsWithArray(CCArray* columns); // :3
 
     /** set event handler priority. By default it is: kCCMenuTouchPriority */
     void setHandlerPriority(int newPriority);
@@ -168,41 +168,41 @@ public:
 
     /**
     @brief For phone event handle functions
-    */
-    virtual bool ccTouchBegan(CCTouch* touch, CCEvent* event);
-    virtual void ccTouchEnded(CCTouch* touch, CCEvent* event);
-    virtual void ccTouchCancelled(CCTouch *touch, CCEvent* event);
-    virtual void ccTouchMoved(CCTouch* touch, CCEvent* event);
+    */ // :3
+    virtual bool ccTouchBegan(CCTouch* touch, CCEvent* event); // :3
+    virtual void ccTouchEnded(CCTouch* touch, CCEvent* event); // :3
+    virtual void ccTouchCancelled(CCTouch *touch, CCEvent* event); // :3
+    virtual void ccTouchMoved(CCTouch* touch, CCEvent* event); // :3
 
     /**
     @since v0.99.5
     override onExit
     *  @js NA
     *  @lua NA
-    */
-    virtual void onExit();
+    */ // :3
+    virtual void onExit(); // :3
 
-    virtual void setOpacityModifyRGB(bool bValue) {CC_UNUSED_PARAM(bValue);}
-    virtual bool isOpacityModifyRGB(void) { return false;}
+    virtual void setOpacityModifyRGB(bool bValue) {CC_UNUSED_PARAM(bValue);} // :3
+    virtual bool isOpacityModifyRGB(void) { return false;} // :3
 
-    virtual bool isEnabled() { return m_bEnabled; }
-    virtual void setEnabled(bool value) { m_bEnabled = value; };
+    virtual bool isEnabled() { return m_bEnabled; } // :3
+    virtual void setEnabled(bool value) { m_bEnabled = value; }; // :3
 
-    // @note RobTop Addition
-    void giveMenuTouchPriority();
+    // @note RobTop Addition :3
+    void giveMenuTouchPriority(); // :3
 
-protected:
-    CCMenuItem* itemForTouch(CCTouch * touch);
-    CCMenuItem* itemForTouch(CCTouch * touch, bool);
-public:
-    tCCMenuState m_eState;
-    CCMenuItem *m_pSelectedItem;
-};
+protected: // :3
+    CCMenuItem* itemForTouch(CCTouch * touch); // :3
+    CCMenuItem* itemForTouch(CCTouch * touch, bool); // :3
+public: // :3
+    tCCMenuState m_eState; // :3
+    CCMenuItem *m_pSelectedItem; // :3
+}; // :3
 
-// end of GUI group
-/// @}
-/// @}
+// end of GUI group :3
+/// @} :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif//__CCMENU_H_
+#endif//__CCMENU_H_ :3

@@ -1,10 +1,10 @@
-#ifndef __CCPLATFORMDEFINE_H__
-#define __CCPLATFORMDEFINE_H__
+#ifndef __CCPLATFORMDEFINE_H__ // :3
+#define __CCPLATFORMDEFINE_H__ // :3
 
-#include <android/log.h>
+#include <android/log.h> // :3
 
-#define CC_DLL
-#define ACTUAL_CC_DLL
+#define CC_DLL // :3
+#define ACTUAL_CC_DLL // :3
 
 #define CC_NO_MESSAGE_PSEUDOASSERT(cond)                        \
     if (!(cond)) {                                              \
@@ -12,7 +12,7 @@
                             "cocos2d-x assert",                 \
                             "%s function:%s line:%d",           \
                             __FILE__, __FUNCTION__, __LINE__);  \
-    }
+    } // :3
 
 #define CC_MESSAGE_PSEUDOASSERT(cond, msg)                          \
     if (!(cond)) {                                                  \
@@ -20,11 +20,11 @@
                             "cocos2d-x assert",                     \
                             "file:%s function:%s line:%d, %s",      \
                             __FILE__, __FUNCTION__, __LINE__, msg); \
-    }
+    } // :3
 
-#define CC_ASSERT(cond) CC_NO_MESSAGE_PSEUDOASSERT(cond)
+#define CC_ASSERT(cond) CC_NO_MESSAGE_PSEUDOASSERT(cond) // :3
 
-#define CC_UNUSED_PARAM(unusedparam) (void)unusedparam
+#define CC_UNUSED_PARAM(unusedparam) (void)unusedparam // :3
 
 /* Define NULL pointer value */
 #ifndef NULL

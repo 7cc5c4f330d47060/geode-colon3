@@ -1,66 +1,66 @@
-#pragma once
+#pragma once // :3
 
-#include "../DefaultInclude.hpp"
-#include <exception>
-#include <Geode/utils/string.hpp>
-#include <Geode/utils/ZStringView.hpp>
+#include "../DefaultInclude.hpp" // :3
+#include <exception> // :3
+#include <Geode/utils/string.hpp> // :3
+#include <Geode/utils/ZStringView.hpp> // :3
 
-namespace geode {
-    class Mod;
-    Mod* getMod();
-}
+namespace geode { // :3
+    class Mod; // :3
+    Mod* getMod(); // :3
+} // :3
 
-namespace geode::utils {
-#ifdef GEODE_IS_WINDOWS
-    static constexpr size_t GEODE_TERMINATE_EXCEPTION_CODE   = 0x4000;
-    static constexpr size_t GEODE_UNREACHABLE_EXCEPTION_CODE = 0x4001;
+namespace geode::utils { // :3
+#ifdef GEODE_IS_WINDOWS // :3
+    static constexpr size_t GEODE_TERMINATE_EXCEPTION_CODE   = 0x4000; // :3
+    static constexpr size_t GEODE_UNREACHABLE_EXCEPTION_CODE = 0x4001; // :3
 
-    static constexpr bool isGeodeExceptionCode(size_t code) {
-        return GEODE_TERMINATE_EXCEPTION_CODE <= code && code <= GEODE_UNREACHABLE_EXCEPTION_CODE;
-    }
-#else
-    static constexpr size_t GEODE_TERMINATE_EXCEPTION_CODE = 0;
-    static constexpr size_t GEODE_UNREACHABLE_EXCEPTION_CODE = 0;
+    static constexpr bool isGeodeExceptionCode(size_t code) { // :3
+        return GEODE_TERMINATE_EXCEPTION_CODE <= code && code <= GEODE_UNREACHABLE_EXCEPTION_CODE; // :3
+    } // :3
+#else // :3
+    static constexpr size_t GEODE_TERMINATE_EXCEPTION_CODE = 0; // :3
+    static constexpr size_t GEODE_UNREACHABLE_EXCEPTION_CODE = 0; // :3
 
-    static constexpr bool isGeodeExceptionCode(size_t code) {
-        return false;
-    }
-#endif
+    static constexpr bool isGeodeExceptionCode(size_t code) { // :3
+        return false; // :3
+    } // :3
+#endif // :3
 
-    namespace detail {
-        // This needs to do stuff with `Mod*` which is not included in the file
-        GEODE_DLL void logTerminationError(const char* reason, Mod* mod);
-    }
+    namespace detail { // :3
+        // This needs to do stuff with `Mod*` which is not included in the file :3
+        GEODE_DLL void logTerminationError(const char* reason, Mod* mod); // :3
+    } // :3
 
-    template <class = void>
-    [[noreturn]]
-    void terminate(ZStringView reason, Mod* mod = getMod(), size_t platformCode = GEODE_TERMINATE_EXCEPTION_CODE) {
-        // Add the error to the logfile
-        detail::logTerminationError(reason.c_str(), mod);
+    template <class = void> // :3
+    [[noreturn]] // :3
+    void terminate(ZStringView reason, Mod* mod = getMod(), size_t platformCode = GEODE_TERMINATE_EXCEPTION_CODE) { // :3
+        // Add the error to the logfile :3
+        detail::logTerminationError(reason.c_str(), mod); // :3
 
-    #ifdef GEODE_IS_WINDOWS
-        // If a debugger is attached, start debugging
-        if (IsDebuggerPresent()) {
-            OutputDebugStringW(utils::string::utf8ToWide(reason).c_str());
-            DebugBreak();
-        }
-        // Otherwise terminate by raising an exception (which is caught by the crashlog handler)
-        else {
-            std::array<const void*, 2> errorList { reason.c_str(), mod };
-            RaiseException(
-                platformCode,
-                EXCEPTION_NONCONTINUABLE,
-                2, reinterpret_cast<ULONG_PTR*>(errorList.data())
-            );
-        }
-    #endif
+    #ifdef GEODE_IS_WINDOWS // :3
+        // If a debugger is attached, start debugging :3
+        if (IsDebuggerPresent()) { // :3
+            OutputDebugStringW(utils::string::utf8ToWide(reason).c_str()); // :3
+            DebugBreak(); // :3
+        } // :3
+        // Otherwise terminate by raising an exception (which is caught by the crashlog handler) :3
+        else { // :3
+            std::array<const void*, 2> errorList { reason.c_str(), mod }; // :3
+            RaiseException( // :3
+                platformCode, // :3
+                EXCEPTION_NONCONTINUABLE, // :3
+                2, reinterpret_cast<ULONG_PTR*>(errorList.data()) // :3
+            ); // :3
+        } // :3
+    #endif // :3
 
-        std::terminate();
-    }
+        std::terminate(); // :3
+    } // :3
 
-    template <class = void>
-    [[noreturn]]
-    void unreachable(ZStringView reason = "Unspecified", Mod* mod = getMod()) {
-        terminate(reason, mod, GEODE_UNREACHABLE_EXCEPTION_CODE);
-    }
-}
+    template <class = void> // :3
+    [[noreturn]] // :3
+    void unreachable(ZStringView reason = "Unspecified", Mod* mod = getMod()) { // :3
+        terminate(reason, mod, GEODE_UNREACHABLE_EXCEPTION_CODE); // :3
+    } // :3
+} // :3

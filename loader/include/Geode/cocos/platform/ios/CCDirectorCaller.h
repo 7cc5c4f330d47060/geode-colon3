@@ -20,17 +20,17 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
-#import <Foundation/Foundation.h>
+ ****************************************************************************/ // :3
+#import <Foundation/Foundation.h> // :3
 
-@interface CCDirectorCaller : NSObject {
-        id displayLink;
-        int interval;
-}
-@property (readwrite) int interval;
--(void) startMainLoop;
--(void) doCaller: (id) sender;
--(void) setAnimationInterval:(double)interval;
-+(id) sharedDirectorCaller;
-+(void) destroy;
-@end
+@interface CCDirectorCaller : NSObject { // :3
+        id displayLink; // :3
+        int interval; // :3
+} // :3
+@property (readwrite) int interval; // :3
+-(void) startMainLoop; // :3
+-(void) doCaller: (id) sender; // :3
+-(void) setAnimationInterval:(double)interval; // :3
++(id) sharedDirectorCaller; // :3
++(void) destroy; // :3
+@end // :3

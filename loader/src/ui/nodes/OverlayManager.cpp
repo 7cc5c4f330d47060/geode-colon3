@@ -1,20 +1,20 @@
-#include <Geode/loader/ModEvent.hpp>
-#include <Geode/Loader.hpp>
-#include <Geode/ui/OverlayManager.hpp>
+#include <Geode/loader/ModEvent.hpp> // :3
+#include <Geode/Loader.hpp> // :3
+#include <Geode/ui/OverlayManager.hpp> // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-OverlayManager* OverlayManager::get() {
-    static OverlayManager* inst = nullptr;
-    if (!inst) {
-        inst = new OverlayManager();
-        inst->onEnter();
-    }
-    return inst;
-}
+OverlayManager* OverlayManager::get() { // :3
+    static OverlayManager* inst = nullptr; // :3
+    if (!inst) { // :3
+        inst = new OverlayManager(); // :3
+        inst->onEnter(); // :3
+    } // :3
+    return inst; // :3
+} // :3
 
-$on_mod(Loaded) {
-    queueInMainThread([] {
-        CCDirector::get()->m_pNotificationNode = OverlayManager::get();
-    });
-}
+$on_mod(Loaded) { // :3
+    queueInMainThread([] { // :3
+        CCDirector::get()->m_pNotificationNode = OverlayManager::get(); // :3
+    }); // :3
+} // :3

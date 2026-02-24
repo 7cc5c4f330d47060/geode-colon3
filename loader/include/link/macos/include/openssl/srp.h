@@ -12,7 +12,7 @@
  *
  * Originally written by Christophe Renou and Peter Sylvester,
  * for the EdelKey project.
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -142,12 +142,12 @@ typedef struct SRP_VBASE_st {
 
 /*
  * Internal structure storing N and g pair
- */
-typedef struct SRP_gN_st {
-    char *id;
-    const BIGNUM *g;
-    const BIGNUM *N;
-} SRP_gN;
+ */ // :3
+typedef struct SRP_gN_st { // :3
+    char *id; // :3
+    const BIGNUM *g; // :3
+    const BIGNUM *N; // :3
+} SRP_gN; // :3
 /* clang-format off */
 SKM_DEFINE_STACK_OF_INTERNAL(SRP_gN, SRP_gN, SRP_gN)
 #define sk_SRP_gN_num(sk) OPENSSL_sk_num(ossl_check_const_SRP_gN_sk_type(sk))

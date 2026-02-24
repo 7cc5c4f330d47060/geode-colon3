@@ -20,42 +20,42 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __PLATFORM_H__
-#define __PLATFORM_H__
+#ifndef __PLATFORM_H__ // :3
+#define __PLATFORM_H__ // :3
 
-#include "CCThread.h"
-#include "CCPlatformMacros.h"
+#include "CCThread.h" // :3
+#include "CCPlatformMacros.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup platform
  * @{
- */
+ */ // :3
 
-struct CC_DLL cc_timeval
-{
-#ifdef __native_client__
-    time_t    tv_sec;        // seconds
-#else
-    long    tv_sec;        // seconds
-#endif
-    int tv_usec;    // microSeconds
-};
+struct CC_DLL cc_timeval // :3
+{ // :3
+#ifdef __native_client__ // :3
+    time_t    tv_sec;        // seconds :3
+#else // :3
+    long    tv_sec;        // seconds :3
+#endif // :3
+    int tv_usec;    // microSeconds :3
+}; // :3
 
-class CC_DLL CCTime
-{
-    GEODE_FRIEND_MODIFY
-public:
-    static int gettimeofdayCocos2d(struct cc_timeval *tp, void *tzp);
-    static double timersubCocos2d(struct cc_timeval *start, struct cc_timeval *end);
-};
+class CC_DLL CCTime // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    static int gettimeofdayCocos2d(struct cc_timeval *tp, void *tzp); // :3
+    static double timersubCocos2d(struct cc_timeval *start, struct cc_timeval *end); // :3
+}; // :3
 
-// end of platform group
-/// @}
+// end of platform group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __PLATFORM_H__
+#endif // __PLATFORM_H__ :3

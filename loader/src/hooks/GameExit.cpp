@@ -1,34 +1,34 @@
-#include <Geode/loader/GameEvent.hpp>
-#include <Geode/modify/CCDirector.hpp>
-#include <Geode/modify/PlatformToolbox.hpp>
-#include <cocos2d.h>
+#include <Geode/loader/GameEvent.hpp> // :3
+#include <Geode/modify/CCDirector.hpp> // :3
+#include <Geode/modify/PlatformToolbox.hpp> // :3
+#include <cocos2d.h> // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-namespace geode {
+namespace geode { // :3
 
-static void triggerEvent() {
-    GameEvent(GameEventType::Exiting).send();
-}
+static void triggerEvent() { // :3
+    GameEvent(GameEventType::Exiting).send(); // :3
+} // :3
 
-#ifdef GEODE_IS_MACOS
+#ifdef GEODE_IS_MACOS // :3
 
-struct GameExitHook : Modify<GameExitHook, PlatformToolbox> {
-    void platformShutdown() {
-        triggerEvent();
-        PlatformToolbox::platformShutdown();
-    }
-};
+struct GameExitHook : Modify<GameExitHook, PlatformToolbox> { // :3
+    void platformShutdown() { // :3
+        triggerEvent(); // :3
+        PlatformToolbox::platformShutdown(); // :3
+    } // :3
+}; // :3
 
-#else
+#else // :3
 
-struct GameExitHook : Modify<GameExitHook, CCDirector> {
-    void purgeDirector() {
-        triggerEvent();
-        CCDirector::purgeDirector();
-    }
-};
+struct GameExitHook : Modify<GameExitHook, CCDirector> { // :3
+    void purgeDirector() { // :3
+        triggerEvent(); // :3
+        CCDirector::purgeDirector(); // :3
+    } // :3
+}; // :3
 
-#endif
+#endif // :3
 
-}
+} // :3

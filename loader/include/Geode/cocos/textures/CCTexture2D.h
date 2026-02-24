@@ -21,133 +21,133 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCTEXTURE2D_H__
-#define __CCTEXTURE2D_H__
+#ifndef __CCTEXTURE2D_H__ // :3
+#define __CCTEXTURE2D_H__ // :3
 
-#include <string>
-#include "../cocoa/CCObject.h"
-#include "../cocoa/CCGeometry.h"
-#include "../include/ccTypes.h"
-#ifdef EMSCRIPTEN
-#include "../base_nodes/CCGLBufferedNode.h"
-#endif // EMSCRIPTEN
+#include <string> // :3
+#include "../cocoa/CCObject.h" // :3
+#include "../cocoa/CCGeometry.h" // :3
+#include "../include/ccTypes.h" // :3
+#ifdef EMSCRIPTEN // :3
+#include "../base_nodes/CCGLBufferedNode.h" // :3
+#endif // EMSCRIPTEN :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCImage;
+class CCImage; // :3
 
 /**
  * @addtogroup textures
  * @{
- */
+ */ // :3
 
-//CONSTANTS:
+//CONSTANTS: :3
 
 /** @typedef CCTexture2DPixelFormat
 Possible texture pixel formats
-*/
-typedef enum {
+*/ // :3
+typedef enum { // :3
 
-    //! 32-bit texture: RGBA8888
-    kCCTexture2DPixelFormat_RGBA8888,
-    //! 24-bit texture: RGBA888
-    kCCTexture2DPixelFormat_RGB888,
-    //! 16-bit texture without Alpha channel
-    kCCTexture2DPixelFormat_RGB565,
-    //! 8-bit textures used as masks
-    kCCTexture2DPixelFormat_A8,
-    //! 8-bit intensity texture
-    kCCTexture2DPixelFormat_I8,
-    //! 16-bit textures used as masks
-    kCCTexture2DPixelFormat_AI88,
-    //! 16-bit textures: RGBA4444
-    kCCTexture2DPixelFormat_RGBA4444,
-    //! 16-bit textures: RGB5A1
-    kCCTexture2DPixelFormat_RGB5A1,
-    //! 4-bit PVRTC-compressed texture: PVRTC4
-    kCCTexture2DPixelFormat_PVRTC4,
-    //! 2-bit PVRTC-compressed texture: PVRTC2
-    kCCTexture2DPixelFormat_PVRTC2,
+    //! 32-bit texture: RGBA8888 :3
+    kCCTexture2DPixelFormat_RGBA8888, // :3
+    //! 24-bit texture: RGBA888 :3
+    kCCTexture2DPixelFormat_RGB888, // :3
+    //! 16-bit texture without Alpha channel :3
+    kCCTexture2DPixelFormat_RGB565, // :3
+    //! 8-bit textures used as masks :3
+    kCCTexture2DPixelFormat_A8, // :3
+    //! 8-bit intensity texture :3
+    kCCTexture2DPixelFormat_I8, // :3
+    //! 16-bit textures used as masks :3
+    kCCTexture2DPixelFormat_AI88, // :3
+    //! 16-bit textures: RGBA4444 :3
+    kCCTexture2DPixelFormat_RGBA4444, // :3
+    //! 16-bit textures: RGB5A1 :3
+    kCCTexture2DPixelFormat_RGB5A1, // :3
+    //! 4-bit PVRTC-compressed texture: PVRTC4 :3
+    kCCTexture2DPixelFormat_PVRTC4, // :3
+    //! 2-bit PVRTC-compressed texture: PVRTC2 :3
+    kCCTexture2DPixelFormat_PVRTC2, // :3
 
 
-    //! Default texture format: RGBA8888
-    kCCTexture2DPixelFormat_Default = kCCTexture2DPixelFormat_RGBA8888,
+    //! Default texture format: RGBA8888 :3
+    kCCTexture2DPixelFormat_Default = kCCTexture2DPixelFormat_RGBA8888, // :3
 
-    // backward compatibility stuff
-    kTexture2DPixelFormat_RGBA8888 = kCCTexture2DPixelFormat_RGBA8888,
-    kTexture2DPixelFormat_RGB888 = kCCTexture2DPixelFormat_RGB888,
-    kTexture2DPixelFormat_RGB565 = kCCTexture2DPixelFormat_RGB565,
-    kTexture2DPixelFormat_A8 = kCCTexture2DPixelFormat_A8,
-    kTexture2DPixelFormat_RGBA4444 = kCCTexture2DPixelFormat_RGBA4444,
-    kTexture2DPixelFormat_RGB5A1 = kCCTexture2DPixelFormat_RGB5A1,
-    kTexture2DPixelFormat_Default = kCCTexture2DPixelFormat_Default
+    // backward compatibility stuff :3
+    kTexture2DPixelFormat_RGBA8888 = kCCTexture2DPixelFormat_RGBA8888, // :3
+    kTexture2DPixelFormat_RGB888 = kCCTexture2DPixelFormat_RGB888, // :3
+    kTexture2DPixelFormat_RGB565 = kCCTexture2DPixelFormat_RGB565, // :3
+    kTexture2DPixelFormat_A8 = kCCTexture2DPixelFormat_A8, // :3
+    kTexture2DPixelFormat_RGBA4444 = kCCTexture2DPixelFormat_RGBA4444, // :3
+    kTexture2DPixelFormat_RGB5A1 = kCCTexture2DPixelFormat_RGB5A1, // :3
+    kTexture2DPixelFormat_Default = kCCTexture2DPixelFormat_Default // :3
 
-} CCTexture2DPixelFormat;
+} CCTexture2DPixelFormat; // :3
 
-class CCGLProgram;
+class CCGLProgram; // :3
 
 /**
 Extension to set the Min / Mag filter
-*/
-typedef struct _ccTexParams {
-    GLuint    minFilter;
-    GLuint    magFilter;
-    GLuint    wrapS;
-    GLuint    wrapT;
-} ccTexParams;
+*/ // :3
+typedef struct _ccTexParams { // :3
+    GLuint    minFilter; // :3
+    GLuint    magFilter; // :3
+    GLuint    wrapS; // :3
+    GLuint    wrapT; // :3
+} ccTexParams; // :3
 
-//CLASS INTERFACES:
+//CLASS INTERFACES: :3
 
 /** @brief CCTexture2D class.
 * This class allows to easily create OpenGL 2D textures from images, text or raw data.
 * The created CCTexture2D object will always have power-of-two dimensions.
 * Depending on how you create the CCTexture2D object, the actual image area of the texture might be smaller than the texture dimensions i.e. "contentSize" != (pixelsWide, pixelsHigh) and (maxS, maxT) != (1.0, 1.0).
 * Be aware that the content of the generated textures will be upside-down!
-*/
-class CC_DLL CCTexture2D : public CCObject
-#ifdef EMSCRIPTEN
-, public CCGLBufferedNode
-#endif // EMSCRIPTEN
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCTexture2D : public CCObject // :3
+#ifdef EMSCRIPTEN // :3
+, public CCGLBufferedNode // :3
+#endif // EMSCRIPTEN :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      * @js ctor
-     */
-    CCTexture2D();
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTexture2D, CCObject)
+     */ // :3
+    CCTexture2D(); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTexture2D, CCObject) // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCTexture2D();
+     */ // :3
+    virtual ~CCTexture2D(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    const char* description(void);
+     */ // :3
+    const char* description(void); // :3
 
     /** These functions are needed to create mutable textures
      * @js NA
-     */
-    void releaseData(void *data);
+     */ // :3
+    void releaseData(void *data); // :3
     /**
      * @js NA
-     */
-    void* keepData(void *data, unsigned int length);
+     */ // :3
+    void* keepData(void *data, unsigned int length); // :3
 
     /** Initializes with a texture2d with data
      * @js NA
      * @lua NA
-     */
-    bool initWithData(const void* data, CCTexture2DPixelFormat pixelFormat, unsigned int pixelsWide, unsigned int pixelsHigh, const CCSize& contentSize);
+     */ // :3
+    bool initWithData(const void* data, CCTexture2DPixelFormat pixelFormat, unsigned int pixelsWide, unsigned int pixelsHigh, const CCSize& contentSize); // :3
 
     /**
     Drawing extensions to make it easy to draw basic quads using a CCTexture2D object.
     These functions require GL_TEXTURE_2D and both GL_VERTEX_ARRAY and GL_TEXTURE_COORD_ARRAY client states to be enabled.
-    */
+    */ // :3
     /** draws a texture at a given point */
     void drawAtPoint(const CCPoint& point);
     /** draws a texture inside a rect */
@@ -156,7 +156,7 @@ public:
     /**
     Extensions to make it easy to create a CCTexture2D object from an image file.
     Note that RGBA type textures will have their alpha premultiplied - use the blending mode (GL_ONE, GL_ONE_MINUS_SRC_ALPHA).
-    */
+    */ // :3
     /** Initializes a texture from a UIImage object */
 
     bool initWithImage(CCImage * uiImage);
@@ -184,8 +184,8 @@ public:
     when this functon bound to js,the input param are changed
     js: var setTexParameters(var minFilter, var magFilter, var wrapS, var wrapT)
     @endcode
-    */
-    void setTexParameters(ccTexParams* texParams);
+    */ // :3
+    void setTexParameters(ccTexParams* texParams); // :3
 
     /** sets antialias texture parameters:
     - GL_TEXTURE_MIN_FILTER = GL_LINEAR
@@ -194,8 +194,8 @@ public:
     @warning Calling this method could allocate additional texture memory.
 
     @since v0.8
-    */
-    void setAntiAliasTexParameters();
+    */ // :3
+    void setAntiAliasTexParameters(); // :3
 
     /** sets alias texture parameters:
     - GL_TEXTURE_MIN_FILTER = GL_NEAREST
@@ -204,30 +204,30 @@ public:
     @warning Calling this method could allocate additional texture memory.
 
     @since v0.8
-    */
-    void setAliasTexParameters();
+    */ // :3
+    void setAliasTexParameters(); // :3
 
 
     /** Generates mipmap images for the texture.
     It only works if the texture size is POT (power of 2).
     @since v0.99.0
-    */
-    void generateMipmap();
+    */ // :3
+    void generateMipmap(); // :3
 
     /** returns the pixel format.
      @since v2.0
-     */
-    const char* stringForFormat();
+     */ // :3
+    const char* stringForFormat(); // :3
 
     /** returns the bits-per-pixel of the in-memory OpenGL texture
     @since v1.0
-    */
-    unsigned int bitsPerPixelForFormat();
+    */ // :3
+    unsigned int bitsPerPixelForFormat(); // :3
 
     /** Helper functions that returns bits per pixels for a given format.
      @since v2.0
-     */
-    unsigned int bitsPerPixelForFormat(CCTexture2DPixelFormat format);
+     */ // :3
+    unsigned int bitsPerPixelForFormat(CCTexture2DPixelFormat format); // :3
 
     /** sets the default pixel format for UIImagescontains alpha channel.
     If the UIImage contains alpha channel, then the options are:
@@ -245,14 +245,14 @@ public:
     This parameter is not valid for PVR / PVR.CCZ images.
 
     @since v0.8
-    */
-    static void setDefaultAlphaPixelFormat(CCTexture2DPixelFormat format);
+    */ // :3
+    static void setDefaultAlphaPixelFormat(CCTexture2DPixelFormat format); // :3
 
     /** returns the alpha pixel format
     @since v0.8
     @js getDefaultAlphaPixelFormat
-    */
-    static CCTexture2DPixelFormat defaultAlphaPixelFormat();
+    */ // :3
+    static CCTexture2DPixelFormat defaultAlphaPixelFormat(); // :3
 
     /** treats (or not) PVR files as if they have alpha premultiplied.
      Since it is impossible to know at runtime if the PVR images have the alpha channel premultiplied, it is
@@ -261,8 +261,8 @@ public:
      By default it is disabled.
 
      @since v0.99.5
-     */
-    static void PVRImagesHavePremultipliedAlpha(bool haveAlphaPremultiplied);
+     */ // :3
+    static void PVRImagesHavePremultipliedAlpha(bool haveAlphaPremultiplied); // :3
 
     /** content size */
     const CCSize& getContentSizeInPixels();

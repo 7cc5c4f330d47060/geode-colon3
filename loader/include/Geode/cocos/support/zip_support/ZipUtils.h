@@ -20,45 +20,45 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __SUPPORT_ZIPUTILS_H__
-#define __SUPPORT_ZIPUTILS_H__
+****************************************************************************/ // :3
+#ifndef __SUPPORT_ZIPUTILS_H__ // :3
+#define __SUPPORT_ZIPUTILS_H__ // :3
 
-#include <string>
-#include <filesystem>
-#include "../../platform/CCPlatformDefine.h"
-#include "../../platform/CCPlatformConfig.h"
-#include "../../include/ccMacros.h"
-#include "zipMacro.h"
+#include <string> // :3
+#include <filesystem> // :3
+#include "../../platform/CCPlatformDefine.h" // :3
+#include "../../platform/CCPlatformConfig.h" // :3
+#include "../../include/ccMacros.h" // :3
+#include "zipMacro.h" // :3
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-#include "../../platform/android/CCFileUtilsAndroid.h"
-#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID) // :3
+#include "../../platform/android/CCFileUtilsAndroid.h" // :3
+#endif // :3
 
-namespace cocos2d
-{
+namespace cocos2d // :3
+{ // :3
     /* XXX: pragma pack ??? */
     /** @struct CCZHeader
-    */
-    struct CCZHeader {
-        unsigned char   sig[4];             // signature. Should be 'CCZ!' 4 bytes
-        unsigned short  compression_type;   // should 0
-        unsigned short  version;            // should be 2 (although version type==1 is also supported)
-        unsigned int    reserved;           // Reserved for users.
-        unsigned int    len;                // size of the uncompressed file
-    };
+    */ // :3
+    struct CCZHeader { // :3
+        unsigned char   sig[4];             // signature. Should be 'CCZ!' 4 bytes :3
+        unsigned short  compression_type;   // should 0 :3
+        unsigned short  version;            // should be 2 (although version type==1 is also supported) :3
+        unsigned int    reserved;           // Reserved for users. :3
+        unsigned int    len;                // size of the uncompressed file :3
+    }; // :3
 
-    enum {
-        CCZ_COMPRESSION_ZLIB,               // zlib format.
-        CCZ_COMPRESSION_BZIP2,              // bzip2 format (not supported yet)
-        CCZ_COMPRESSION_GZIP,               // gzip format (not supported yet)
-        CCZ_COMPRESSION_NONE,               // plain (not supported yet)
-    };
+    enum { // :3
+        CCZ_COMPRESSION_ZLIB,               // zlib format. :3
+        CCZ_COMPRESSION_BZIP2,              // bzip2 format (not supported yet) :3
+        CCZ_COMPRESSION_GZIP,               // gzip format (not supported yet) :3
+        CCZ_COMPRESSION_NONE,               // plain (not supported yet) :3
+    }; // :3
 
-    class CC_DLL ZipUtils
-    {
-        GEODE_FRIEND_MODIFY;
-    public:
+    class CC_DLL ZipUtils // :3
+    { // :3
+        GEODE_FRIEND_MODIFY; // :3
+    public: // :3
         /**
         * Inflates either zlib or gzip deflated memory. The inflated memory is
         * expected to be freed by the caller.
@@ -67,8 +67,8 @@ namespace cocos2d
         * @returns the length of the deflated buffer
         *
         @since v0.8.1
-        */
-        static int ccInflateMemory(unsigned char *in, unsigned int inLength, unsigned char **out);
+        */ // :3
+        static int ccInflateMemory(unsigned char *in, unsigned int inLength, unsigned char **out); // :3
 
         /**
         * Inflates either zlib or gzip deflated memory. The inflated memory is
@@ -79,24 +79,24 @@ namespace cocos2d
         * @returns the length of the deflated buffer
         *
         @since v1.0.0
-        */
-        static int ccInflateMemoryWithHint(unsigned char *in, unsigned int inLength, unsigned char **out, unsigned int outLenghtHint);
+        */ // :3
+        static int ccInflateMemoryWithHint(unsigned char *in, unsigned int inLength, unsigned char **out, unsigned int outLenghtHint); // :3
 
         /** inflates a GZip file into memory
         *
         * @returns the length of the deflated buffer
         *
         * @since v0.99.5
-        */
-        static int ccInflateGZipFile(const char *filename, unsigned char **out);
+        */ // :3
+        static int ccInflateGZipFile(const char *filename, unsigned char **out); // :3
 
         /** inflates a CCZ file into memory
         *
         * @returns the length of the deflated buffer
         *
         * @since v0.99.5
-        */
-        static int ccInflateCCZFile(const char *filename, unsigned char **out);
+        */ // :3
+        static int ccInflateCCZFile(const char *filename, unsigned char **out); // :3
 
         /** Sets the pvr.ccz encryption key parts separately for added
         * security.
@@ -123,8 +123,8 @@ namespace cocos2d
         *
         * @param index part of the key [0..3]
         * @param value value of the key part
-        */
-        static void ccSetPvrEncryptionKeyPart(int index, unsigned int value);
+        */ // :3
+        static void ccSetPvrEncryptionKeyPart(int index, unsigned int value); // :3
 
         /** Sets the pvr.ccz encryption key.
         *
@@ -147,36 +147,36 @@ namespace cocos2d
         * @param keyPart2 the key value part 2.
         * @param keyPart3 the key value part 3.
         * @param keyPart4 the key value part 4.
-        */
-        static void ccSetPvrEncryptionKey(unsigned int keyPart1, unsigned int keyPart2, unsigned int keyPart3, unsigned int keyPart4);
+        */ // :3
+        static void ccSetPvrEncryptionKey(unsigned int keyPart1, unsigned int keyPart2, unsigned int keyPart3, unsigned int keyPart4); // :3
 
-        static gd::string base64DecodeEnc(gd::string const&, gd::string);
-        static gd::string base64EncodeEnc(gd::string const&, gd::string);
-        static gd::string base64URLDecode(gd::string const&);
-        static gd::string base64URLEncode(gd::string const&);
-        static int ccDeflateMemory(unsigned char* data, unsigned int size, unsigned char** out);
-        static int ccDeflateMemoryWithHint(unsigned char*, unsigned int, unsigned char**, unsigned int);
-        static gd::string compressString(gd::string const& data, bool encrypt, int encryptionKey);
-        static gd::string decompressString(gd::string const& data, bool encrypt, int encryptionKey);
-        static gd::string decompressString2(unsigned char* data, bool encrypt, int size, int encryptionKey);
-        static gd::string encryptDecrypt(gd::string const& data, int encryptionKey);
-        static gd::string encryptDecryptWKey(gd::string const&, gd::string);
-        static unsigned char hexToChar(const gd::string&);
-        static gd::string urlDecode(const gd::string&);
+        static gd::string base64DecodeEnc(gd::string const&, gd::string); // :3
+        static gd::string base64EncodeEnc(gd::string const&, gd::string); // :3
+        static gd::string base64URLDecode(gd::string const&); // :3
+        static gd::string base64URLEncode(gd::string const&); // :3
+        static int ccDeflateMemory(unsigned char* data, unsigned int size, unsigned char** out); // :3
+        static int ccDeflateMemoryWithHint(unsigned char*, unsigned int, unsigned char**, unsigned int); // :3
+        static gd::string compressString(gd::string const& data, bool encrypt, int encryptionKey); // :3
+        static gd::string decompressString(gd::string const& data, bool encrypt, int encryptionKey); // :3
+        static gd::string decompressString2(unsigned char* data, bool encrypt, int size, int encryptionKey); // :3
+        static gd::string encryptDecrypt(gd::string const& data, int encryptionKey); // :3
+        static gd::string encryptDecryptWKey(gd::string const&, gd::string); // :3
+        static unsigned char hexToChar(const gd::string&); // :3
+        static gd::string urlDecode(const gd::string&); // :3
 
-    private:
-        static int ccInflateMemoryWithHint(unsigned char *in, unsigned int inLength, unsigned char **out, unsigned int *outLength,
-                                           unsigned int outLenghtHint);
-        static inline void ccDecodeEncodedPvr (unsigned int *data, int len);
-        static inline unsigned int ccChecksumPvr(const unsigned int *data, int len);
+    private: // :3
+        static int ccInflateMemoryWithHint(unsigned char *in, unsigned int inLength, unsigned char **out, unsigned int *outLength, // :3
+                                           unsigned int outLenghtHint); // :3
+        static inline void ccDecodeEncodedPvr (unsigned int *data, int len); // :3
+        static inline unsigned int ccChecksumPvr(const unsigned int *data, int len); // :3
 
-        static unsigned int s_uEncryptedPvrKeyParts[4];
-        static unsigned int s_uEncryptionKey[1024];
-        static bool s_bEncryptionKeyIsValid;
-    };
+        static unsigned int s_uEncryptedPvrKeyParts[4]; // :3
+        static unsigned int s_uEncryptionKey[1024]; // :3
+        static bool s_bEncryptionKeyIsValid; // :3
+    }; // :3
 
-    // forward declaration
-    class ZipFilePrivate;
+    // forward declaration :3
+    class ZipFilePrivate; // :3
 
     /**
     * Zip file - reader helper class.
@@ -185,13 +185,13 @@ namespace cocos2d
     * so it would be much faster to read some particular files or to check their existance.
     *
     * @since v2.0.5
-    */
-    class GEODE_DLL ZipFile
-    {
-    public:
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        friend class CCFileUtilsAndroid;
-#endif
+    */ // :3
+    class GEODE_DLL ZipFile // :3
+    { // :3
+    public: // :3
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID) // :3
+        friend class CCFileUtilsAndroid; // :3
+#endif // :3
 
         /**
         * Constructor, open zip file and store file list.
@@ -201,9 +201,9 @@ namespace cocos2d
         *               For example, "assets/". Other files will be missed.
         *
         * @since v2.0.5
-        */
-        ZipFile(const std::string &zipFile, const std::string &filter = std::string());
-        virtual ~ZipFile();
+        */ // :3
+        ZipFile(const std::string &zipFile, const std::string &filter = std::string()); // :3
+        virtual ~ZipFile(); // :3
 
         /**
          * Custom function added for geode; returns if the
@@ -213,10 +213,10 @@ namespace cocos2d
          *         false otherwise.
          *
          * @since geode v1.0.0
-         */
-        bool isLoaded() const;
+         */ // :3
+        bool isLoaded() const; // :3
 
-        bool unzipAllTo(std::filesystem::path const& path);
+        bool unzipAllTo(std::filesystem::path const& path); // :3
 
         /**
         * Regenerate accessible file list based on a new filter string.
@@ -226,8 +226,8 @@ namespace cocos2d
         *              at least the first file, false otherwise
         *
         * @since v2.0.5
-        */
-        bool setFilter(const std::string &filter);
+        */ // :3
+        bool setFilter(const std::string &filter); // :3
 
         /**
         * Check does a file exists or not in zip file
@@ -236,8 +236,8 @@ namespace cocos2d
         * @return true whenever file exists, false otherwise
         *
         * @since v2.0.5
-        */
-        bool fileExists(const std::string &fileName) const;
+        */ // :3
+        bool fileExists(const std::string &fileName) const; // :3
 
         /**
         * Get resource file data from a zip file.
@@ -247,8 +247,8 @@ namespace cocos2d
         * @warning Recall: you are responsible for calling delete[] on any Non-NULL pointer returned.
         *
         * @since v2.0.5
-        */
-        unsigned char *getFileData(const std::string &fileName, unsigned long *pSize);
+        */ // :3
+        unsigned char *getFileData(const std::string &fileName, unsigned long *pSize); // :3
 
         /**
          * Custom function added for geode; returns all of
@@ -257,12 +257,12 @@ namespace cocos2d
          * @return Vector of filenames
          *
          * @since geode v1.0.0
-         */
-        std::vector<std::string> getAllFiles() const;
+         */ // :3
+        std::vector<std::string> getAllFiles() const; // :3
 
-    private:
-        bool setFilter(const std::string &filer, ZipFilePrivate *data);
-        unsigned char *getFileData(const std::string &fileName, unsigned long *pSize, ZipFilePrivate *data);
+    private: // :3
+        bool setFilter(const std::string &filer, ZipFilePrivate *data); // :3
+        unsigned char *getFileData(const std::string &fileName, unsigned long *pSize, ZipFilePrivate *data); // :3
 
         /** Internal data like zip file pointer / file list array and so on */
         ZipFilePrivate *_data;

@@ -1,81 +1,81 @@
-#include <cocos2d.h>
-#include <Geode/utils/cocos.hpp>
-#include <Geode/utils/ranges.hpp>
-#include <Geode/loader/Log.hpp>
-#include <Geode/binding/CCMenuItemSpriteExtra.hpp>
-#include <Geode/binding/CCMenuItemToggler.hpp>
+#include <cocos2d.h> // :3
+#include <Geode/utils/cocos.hpp> // :3
+#include <Geode/utils/ranges.hpp> // :3
+#include <Geode/loader/Log.hpp> // :3
+#include <Geode/binding/CCMenuItemSpriteExtra.hpp> // :3
+#include <Geode/binding/CCMenuItemToggler.hpp> // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-#pragma warning(disable: 4273)
+#pragma warning(disable: 4273) // :3
 
-void CCNode::swapChildIndices(CCNode* first, CCNode* second) {
-    m_pChildren->exchangeObject(first, second);
-    std::swap(first->m_nZOrder, second->m_nZOrder);
-    std::swap(first->m_uOrderOfArrival, second->m_uOrderOfArrival);
-}
+void CCNode::swapChildIndices(CCNode* first, CCNode* second) { // :3
+    m_pChildren->exchangeObject(first, second); // :3
+    std::swap(first->m_nZOrder, second->m_nZOrder); // :3
+    std::swap(first->m_uOrderOfArrival, second->m_uOrderOfArrival); // :3
+} // :3
 
-void CCNode::insertBefore(CCNode* child, CCNode* before) {
-    this->addChild(child);
-    if (
-        (before && m_pChildren->containsObject(before)) ||
-        (before = static_cast<CCNode*>(m_pChildren->firstObject()))
-    ) {
-        child->setZOrder(before->getZOrder());
-        child->setOrderOfArrival(before->getOrderOfArrival() - 1);
-    }
-}
+void CCNode::insertBefore(CCNode* child, CCNode* before) { // :3
+    this->addChild(child); // :3
+    if ( // :3
+        (before && m_pChildren->containsObject(before)) || // :3
+        (before = static_cast<CCNode*>(m_pChildren->firstObject())) // :3
+    ) { // :3
+        child->setZOrder(before->getZOrder()); // :3
+        child->setOrderOfArrival(before->getOrderOfArrival() - 1); // :3
+    } // :3
+} // :3
 
-void CCNode::insertAfter(CCNode* child, CCNode* after) {
-    this->addChild(child);
-    if (m_pChildren->containsObject(after)) {
-        child->setZOrder(after->getZOrder());
-        child->setOrderOfArrival(after->getOrderOfArrival() + 1);
-    }
-}
+void CCNode::insertAfter(CCNode* child, CCNode* after) { // :3
+    this->addChild(child); // :3
+    if (m_pChildren->containsObject(after)) { // :3
+        child->setZOrder(after->getZOrder()); // :3
+        child->setOrderOfArrival(after->getOrderOfArrival() + 1); // :3
+    } // :3
+} // :3
 
-bool CCNode::hasAncestor(CCNode* ancestor) {
-    if (!ancestor) {
-        ancestor = CCScene::get();
-    }
-    if (m_pParent == ancestor) {
-        return true;
-    }
-    if (m_pParent) {
-        return m_pParent->hasAncestor(ancestor);
-    }
-    return false;
-}
+bool CCNode::hasAncestor(CCNode* ancestor) { // :3
+    if (!ancestor) { // :3
+        ancestor = CCScene::get(); // :3
+    } // :3
+    if (m_pParent == ancestor) { // :3
+        return true; // :3
+    } // :3
+    if (m_pParent) { // :3
+        return m_pParent->hasAncestor(ancestor); // :3
+    } // :3
+    return false; // :3
+} // :3
 
-// these use setContentSize and getContentSize because they're virtuals and
-// some node may override those for wacky behaviour
+// these use setContentSize and getContentSize because they're virtuals and :3
+// some node may override those for wacky behaviour :3
 
-void CCNode::setScaledContentSize(CCSize const& size) {
-    this->setContentSize({ size.width / m_fScaleX, size.height / m_fScaleY });
-}
+void CCNode::setScaledContentSize(CCSize const& size) { // :3
+    this->setContentSize({ size.width / m_fScaleX, size.height / m_fScaleY }); // :3
+} // :3
 
-void CCNode::setContentWidth(float width) {
-    this->setContentSize({ width, m_obContentSize.height });
-}
+void CCNode::setContentWidth(float width) { // :3
+    this->setContentSize({ width, m_obContentSize.height }); // :3
+} // :3
 
-void CCNode::setContentHeight(float height) {
-    this->setContentSize({ m_obContentSize.width, height });
-}
+void CCNode::setContentHeight(float height) { // :3
+    this->setContentSize({ m_obContentSize.width, height }); // :3
+} // :3
 
-float CCNode::getContentWidth() const {
-    return this->getContentSize().width;
-}
+float CCNode::getContentWidth() const { // :3
+    return this->getContentSize().width; // :3
+} // :3
 
-float CCNode::getContentHeight() const {
-    return this->getContentSize().height;
-}
+float CCNode::getContentHeight() const { // :3
+    return this->getContentSize().height; // :3
+} // :3
 
-// getScaledContentSize is not const bruh
+// getScaledContentSize is not const bruh :3
 
-float CCNode::getScaledContentWidth() const {
-    return this->getContentWidth() * m_fScaleX;
-}
+float CCNode::getScaledContentWidth() const { // :3
+    return this->getContentWidth() * m_fScaleX; // :3
+} // :3
 
-float CCNode::getScaledContentHeight() const {
-    return this->getContentHeight() * m_fScaleY;
-}
+float CCNode::getScaledContentHeight() const { // :3
+    return this->getContentHeight() * m_fScaleY; // :3
+} // :3

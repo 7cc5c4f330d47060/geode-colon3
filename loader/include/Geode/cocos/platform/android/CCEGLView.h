@@ -20,41 +20,41 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CC_EGLVIEW_ANDROID_H__
-#define __CC_EGLVIEW_ANDROID_H__
+#ifndef __CC_EGLVIEW_ANDROID_H__ // :3
+#define __CC_EGLVIEW_ANDROID_H__ // :3
 
-#include "../../cocoa/CCGeometry.h"
-#include "../CCEGLViewProtocol.h"
+#include "../../cocoa/CCGeometry.h" // :3
+#include "../CCEGLViewProtocol.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CC_DLL CCEGLView : public CCEGLViewProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEGLView, CCEGLViewProtocol)
+class CC_DLL CCEGLView : public CCEGLViewProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEGLView, CCEGLViewProtocol) // :3
 
-    CCEGLView();
-    virtual ~CCEGLView();
+    CCEGLView(); // :3
+    virtual ~CCEGLView(); // :3
 
-    bool    isOpenGLReady();
+    bool    isOpenGLReady(); // :3
 
-    // keep compatible
-    void    end();
-    void    swapBuffers();
-    void    setIMEKeyboardState(bool bOpen);
+    // keep compatible :3
+    void    end(); // :3
+    void    swapBuffers(); // :3
+    void    setIMEKeyboardState(bool bOpen); // :3
 
-    // static function
+    // static function :3
     /**
     @brief    get the shared main open gl window
-    */
-    static CCEGLView* sharedOpenGLView();
+    */ // :3
+    static CCEGLView* sharedOpenGLView(); // :3
 
-    static GEODE_DLL CCEGLView* get();
-};
+    static GEODE_DLL CCEGLView* get(); // :3
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif    // end of __CC_EGLVIEW_ANDROID_H__
+#endif    // end of __CC_EGLVIEW_ANDROID_H__ :3

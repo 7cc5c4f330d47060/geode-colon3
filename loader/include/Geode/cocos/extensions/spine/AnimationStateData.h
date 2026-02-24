@@ -21,26 +21,26 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_ANIMATIONSTATEDATA_H_
-#define SPINE_ANIMATIONSTATEDATA_H_
+#ifndef SPINE_ANIMATIONSTATEDATA_H_ // :3
+#define SPINE_ANIMATIONSTATEDATA_H_ // :3
 
-#include "Animation.h"
-#include "SkeletonData.h"
+#include "Animation.h" // :3
+#include "SkeletonData.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-typedef struct {
-	SkeletonData* const skeletonData;
-	const void* const entries;
-} AnimationStateData;
+typedef struct { // :3
+	SkeletonData* const skeletonData; // :3
+	const void* const entries; // :3
+} AnimationStateData; // :3
 
-AnimationStateData* AnimationStateData_create (SkeletonData* skeletonData);
-void AnimationStateData_dispose (AnimationStateData* self);
+AnimationStateData* AnimationStateData_create (SkeletonData* skeletonData); // :3
+void AnimationStateData_dispose (AnimationStateData* self); // :3
 
-void AnimationStateData_setMixByName (AnimationStateData* self, const char* fromName, const char* toName, float duration);
-void AnimationStateData_setMix (AnimationStateData* self, Animation* from, Animation* to, float duration);
+void AnimationStateData_setMixByName (AnimationStateData* self, const char* fromName, const char* toName, float duration); // :3
+void AnimationStateData_setMix (AnimationStateData* self, Animation* from, Animation* to, float duration); // :3
 /* Returns 0 if there is no mixing between the animations. */
 float AnimationStateData_getMix (AnimationStateData* self, Animation* from, Animation* to);
 

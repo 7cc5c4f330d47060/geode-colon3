@@ -20,33 +20,33 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCKEYPAD_DELEGATE_H__
-#define __CCKEYPAD_DELEGATE_H__
+#ifndef __CCKEYPAD_DELEGATE_H__ // :3
+#define __CCKEYPAD_DELEGATE_H__ // :3
 
 
-#include "../cocoa/CCObject.h"
+#include "../cocoa/CCObject.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup input
  * @{
  * @js NA
  * @lua NA
- */
+ */ // :3
 
-class CC_DLL CCKeypadDelegate
-{
-    GEODE_FRIEND_MODIFY
-public:
-    // The back key clicked
-    virtual void keyBackClicked() {}
+class CC_DLL CCKeypadDelegate // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    // The back key clicked :3
+    virtual void keyBackClicked() {} // :3
 
-    // The menu key clicked. only available on wophone & android
-    virtual void keyMenuClicked() {};
-};
+    // The menu key clicked. only available on wophone & android :3
+    virtual void keyMenuClicked() {}; // :3
+}; // :3
 
 /**
  * @brief
@@ -54,14 +54,14 @@ public:
  * Object than contains the CCKeypadDelegate.
  * @js NA
  * @lua NA
- */
-class CC_DLL CCKeypadHandler : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-	GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCKeypadHandler, CCObject)
-	inline CCKeypadHandler() = default;
-    virtual ~CCKeypadHandler(void);
+ */ // :3
+class CC_DLL CCKeypadHandler : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+	GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCKeypadHandler, CCObject) // :3
+	inline CCKeypadHandler() = default; // :3
+    virtual ~CCKeypadHandler(void); // :3
 
     /** delegate */
     CCKeypadDelegate* getDelegate();

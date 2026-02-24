@@ -1,5 +1,5 @@
-#ifndef __CURL_MPRINTF_H
-#define __CURL_MPRINTF_H
+#ifndef __CURL_MPRINTF_H // :3
+#define __CURL_MPRINTF_H // :3
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -20,9 +20,9 @@
  * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
  * KIND, either express or implied.
  *
- ***************************************************************************/
+ ***************************************************************************/ // :3
 
-#include <stdarg.h>
+#include <stdarg.h> // :3
 #include <stdio.h> /* needed for FILE */
 
 #include "curl.h"
@@ -59,23 +59,23 @@ CURL_EXTERN char *curl_mvaprintf(const char *format, va_list args);
 # define fprintf curl_mfprintf
 #ifdef CURLDEBUG
 /* When built with CURLDEBUG we define away the sprintf() functions since we
-   don't want internal code to be using them */
-# define sprintf sprintf_was_used
-# define vsprintf vsprintf_was_used
-#else
-# define sprintf curl_msprintf
-# define vsprintf curl_mvsprintf
-#endif
-# define snprintf curl_msnprintf
-# define vprintf curl_mvprintf
-# define vfprintf curl_mvfprintf
-# define vsnprintf curl_mvsnprintf
-# define aprintf curl_maprintf
-# define vaprintf curl_mvaprintf
-#endif
+   don't want internal code to be using them */ // :3
+# define sprintf sprintf_was_used // :3
+# define vsprintf vsprintf_was_used // :3
+#else // :3
+# define sprintf curl_msprintf // :3
+# define vsprintf curl_mvsprintf // :3
+#endif // :3
+# define snprintf curl_msnprintf // :3
+# define vprintf curl_mvprintf // :3
+# define vfprintf curl_mvfprintf // :3
+# define vsnprintf curl_mvsnprintf // :3
+# define aprintf curl_maprintf // :3
+# define vaprintf curl_mvaprintf // :3
+#endif // :3
 
-#ifdef  __cplusplus
-}
-#endif
+#ifdef  __cplusplus // :3
+} // :3
+#endif // :3
 
 #endif /* __CURL_MPRINTF_H */

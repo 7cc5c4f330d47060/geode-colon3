@@ -21,29 +21,29 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_SLOT_H_
-#define SPINE_SLOT_H_
+#ifndef SPINE_SLOT_H_ // :3
+#define SPINE_SLOT_H_ // :3
 
-#include "Bone.h"
-#include "Attachment.h"
-#include "SlotData.h"
+#include "Bone.h" // :3
+#include "Attachment.h" // :3
+#include "SlotData.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-struct Skeleton;
+struct Skeleton; // :3
 
-typedef struct Slot {
-	SlotData* const data;
-	struct Skeleton* const skeleton;
-	Bone* const bone;
-	float r, g, b, a;
-	Attachment* const attachment;
-} Slot;
+typedef struct Slot { // :3
+	SlotData* const data; // :3
+	struct Skeleton* const skeleton; // :3
+	Bone* const bone; // :3
+	float r, g, b, a; // :3
+	Attachment* const attachment; // :3
+} Slot; // :3
 
-Slot* Slot_create (SlotData* data, struct Skeleton* skeleton, Bone* bone);
-void Slot_dispose (Slot* self);
+Slot* Slot_create (SlotData* data, struct Skeleton* skeleton, Bone* bone); // :3
+void Slot_dispose (Slot* self); // :3
 
 /* @param attachment May be 0 to clear the attachment for the slot. */
 void Slot_setAttachment (Slot* self, Attachment* attachment);

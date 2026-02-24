@@ -21,54 +21,54 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __ACTION_CCEASE_ACTION_H__
-#define __ACTION_CCEASE_ACTION_H__
+#ifndef __ACTION_CCEASE_ACTION_H__ // :3
+#define __ACTION_CCEASE_ACTION_H__ // :3
 
-#include "CCActionInterval.h"
+#include "CCActionInterval.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCObject;
-class CCZone;
+class CCObject; // :3
+class CCZone; // :3
 
 /**
  * @addtogroup actions
  * @{
- */
+ */ // :3
 
 /**
  @brief Base class for Easing actions
  @ingroup Actions
- */
-class CC_DLL CCActionEase : public CCActionInterval
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCActionEase, CCActionInterval);
-    CCActionEase() {}
+ */ // :3
+class CC_DLL CCActionEase : public CCActionInterval // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCActionEase, CCActionInterval); // :3
+    CCActionEase() {} // :3
 
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCActionEase(void);
+     */ // :3
+    virtual ~CCActionEase(void); // :3
 
     /** initializes the action */
     bool initWithAction(CCActionInterval *pAction);
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void startWithTarget(CCNode *pTarget);
-    virtual void stop(void);
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
-    virtual CCActionInterval* getInnerAction();
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void startWithTarget(CCNode *pTarget); // :3
+    virtual void stop(void); // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
+    virtual CCActionInterval* getInnerAction(); // :3
 
-public:
+public: // :3
 
     /** creates the action */
     static CCActionEase* create(CCActionInterval *pAction);
@@ -81,19 +81,19 @@ public:
 /**
  @brief Base class for Easing actions with rate parameters
  @ingroup Actions
- */
-class CC_DLL CCEaseRateAction : public CCActionEase
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEaseRateAction, CCActionEase);
-    CCEaseRateAction() {}
+ */ // :3
+class CC_DLL CCEaseRateAction : public CCActionEase // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEaseRateAction, CCActionEase); // :3
+    CCEaseRateAction() {} // :3
 
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCEaseRateAction(void);
+     */ // :3
+    virtual ~CCEaseRateAction(void); // :3
 
     /** set rate value for the actions */
     inline void setRate(float rate) { m_fRate = rate; }
@@ -105,11 +105,11 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual CCActionInterval* reverse(void);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual CCActionInterval* reverse(void); // :3
 
-public:
+public: // :3
 
     /** Creates the action with the inner action and the rate parameter */
     static CCEaseRateAction* create(CCActionInterval* pAction, float fRate);
@@ -121,19 +121,19 @@ public:
 /**
  @brief CCEaseIn action with a rate
  @ingroup Actions
- */
-class CC_DLL CCEaseIn : public CCEaseRateAction
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
+ */ // :3
+class CC_DLL CCEaseIn : public CCEaseRateAction // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-public:
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+public: // :3
 
     /** Creates the action with the inner action and the rate parameter */
     static CCEaseIn* create(CCActionInterval* pAction, float fRate);
@@ -142,20 +142,20 @@ public:
 /**
  @brief CCEaseOut action with a rate
  @ingroup Actions
- */
-class CC_DLL CCEaseOut : public CCEaseRateAction
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse();
+ */ // :3
+class CC_DLL CCEaseOut : public CCEaseRateAction // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
 
     /** Creates the action with the inner action and the rate parameter */
     static CCEaseOut* create(CCActionInterval* pAction, float fRate);
@@ -164,20 +164,20 @@ public:
 /**
  @brief CCEaseInOut action with a rate
  @ingroup Actions
- */
-class CC_DLL CCEaseInOut : public CCEaseRateAction
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
+ */ // :3
+class CC_DLL CCEaseInOut : public CCEaseRateAction // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual CCActionInterval* reverse(void);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual CCActionInterval* reverse(void); // :3
 
-public:
+public: // :3
 
     /** Creates the action with the inner action and the rate parameter */
     static CCEaseInOut* create(CCActionInterval* pAction, float fRate);
@@ -186,20 +186,20 @@ public:
 /**
  @brief CCEase Exponential In
  @ingroup Actions
- */
-class CC_DLL CCEaseExponentialIn : public CCActionEase
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
+ */ // :3
+class CC_DLL CCEaseExponentialIn : public CCActionEase // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
     /** creates the action */
     static CCEaseExponentialIn* create(CCActionInterval* pAction);
 };
@@ -207,20 +207,20 @@ public:
 /**
  @brief Ease Exponential Out
  @ingroup Actions
- */
-class CC_DLL CCEaseExponentialOut : public CCActionEase
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
+ */ // :3
+class CC_DLL CCEaseExponentialOut : public CCActionEase // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
     /** creates the action */
     static CCEaseExponentialOut* create(CCActionInterval* pAction);
 };
@@ -228,20 +228,20 @@ public:
 /**
  @brief Ease Exponential InOut
  @ingroup Actions
- */
-class CC_DLL CCEaseExponentialInOut : public CCActionEase
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
+ */ // :3
+class CC_DLL CCEaseExponentialInOut : public CCActionEase // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual CCActionInterval* reverse();
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual CCActionInterval* reverse(); // :3
 
-public:
+public: // :3
 
     /** creates the action */
     static CCEaseExponentialInOut* create(CCActionInterval* pAction);
@@ -250,20 +250,20 @@ public:
 /**
  @brief Ease Sine In
  @ingroup Actions
- */
-class CC_DLL CCEaseSineIn : public CCActionEase
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
+ */ // :3
+class CC_DLL CCEaseSineIn : public CCActionEase // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
     /** creates the action */
     static CCEaseSineIn* create(CCActionInterval* pAction);
 };
@@ -271,20 +271,20 @@ public:
 /**
  @brief Ease Sine Out
  @ingroup Actions
- */
-class CC_DLL CCEaseSineOut : public CCActionEase
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
+ */ // :3
+class CC_DLL CCEaseSineOut : public CCActionEase // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
 
     /** creates the action */
     static CCEaseSineOut* create(CCActionInterval* pAction);
@@ -293,20 +293,20 @@ public:
 /**
  @brief Ease Sine InOut
  @ingroup Actions
- */
-class CC_DLL CCEaseSineInOut : public CCActionEase
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
+ */ // :3
+class CC_DLL CCEaseSineInOut : public CCActionEase // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual CCActionInterval* reverse();
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual CCActionInterval* reverse(); // :3
 
-public:
+public: // :3
 
     /** creates the action */
     static CCEaseSineInOut* create(CCActionInterval* pAction);
@@ -316,11 +316,11 @@ public:
  @brief Ease Elastic abstract class
  @since v0.8.2
  @ingroup Actions
- */
-class CC_DLL CCEaseElastic : public CCActionEase
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCEaseElastic : public CCActionEase // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /** get period of the wave in radians. default is 0.3 */
     inline float getPeriod(void) { return m_fPeriod; }
     /** set period of the wave in radians. */
@@ -333,10 +333,10 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
 
     /** Creates the action with the inner action and the period in radians (default is 0.3) */
     static CCEaseElastic* create(CCActionInterval *pAction, float fPeriod);
@@ -350,20 +350,20 @@ public:
  @warning This action doesn't use a bijective function. Actions like Sequence might have an unexpected result when used with this action.
  @since v0.8.2
  @ingroup Actions
- */
-class CC_DLL CCEaseElasticIn : public CCEaseElastic
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
+ */ // :3
+class CC_DLL CCEaseElasticIn : public CCEaseElastic // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
 
     /** Creates the action with the inner action and the period in radians (default is 0.3) */
     static CCEaseElasticIn* create(CCActionInterval *pAction, float fPeriod);
@@ -375,20 +375,20 @@ public:
  @warning This action doesn't use a bijective function. Actions like Sequence might have an unexpected result when used with this action.
  @since v0.8.2
  @ingroup Actions
- */
-class CC_DLL CCEaseElasticOut : public CCEaseElastic
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
+ */ // :3
+class CC_DLL CCEaseElasticOut : public CCEaseElastic // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
 
     /** Creates the action with the inner action and the period in radians (default is 0.3) */
     static CCEaseElasticOut* create(CCActionInterval *pAction, float fPeriod);
@@ -400,20 +400,20 @@ public:
  @warning This action doesn't use a bijective function. Actions like Sequence might have an unexpected result when used with this action.
  @since v0.8.2
  @ingroup Actions
- */
-class CC_DLL CCEaseElasticInOut : public CCEaseElastic
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
+ */ // :3
+class CC_DLL CCEaseElasticInOut : public CCEaseElastic // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
 
     /** Creates the action with the inner action and the period in radians (default is 0.3) */
     static CCEaseElasticInOut* create(CCActionInterval *pAction, float fPeriod);
@@ -424,20 +424,20 @@ public:
  @brief CCEaseBounce abstract class.
  @since v0.8.2
  @ingroup Actions
-*/
-class CC_DLL CCEaseBounce : public CCActionEase
-{
-    GEODE_FRIEND_MODIFY
-public:
-    float bounceTime(float time);
+*/ // :3
+class CC_DLL CCEaseBounce : public CCActionEase // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    float bounceTime(float time); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual CCActionInterval* reverse();
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual CCActionInterval* reverse(); // :3
 
-public:
+public: // :3
 
     /** creates the action */
     static CCEaseBounce* create(CCActionInterval* pAction);
@@ -448,20 +448,20 @@ public:
  @warning This action doesn't use a bijective function. Actions like Sequence might have an unexpected result when used with this action.
  @since v0.8.2
  @ingroup Actions
-*/
-class CC_DLL CCEaseBounceIn : public CCEaseBounce
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
+*/ // :3
+class CC_DLL CCEaseBounceIn : public CCEaseBounce // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
 
     /** creates the action */
     static CCEaseBounceIn* create(CCActionInterval* pAction);
@@ -472,20 +472,20 @@ public:
  @warning This action doesn't use a bijective function. Actions like Sequence might have an unexpected result when used with this action.
  @since v0.8.2
  @ingroup Actions
- */
-class CC_DLL CCEaseBounceOut : public CCEaseBounce
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
+ */ // :3
+class CC_DLL CCEaseBounceOut : public CCEaseBounce // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
 
     /** creates the action */
     static CCEaseBounceOut* create(CCActionInterval* pAction);
@@ -496,20 +496,20 @@ public:
  @warning This action doesn't use a bijective function. Actions like Sequence might have an unexpected result when used with this action.
  @since v0.8.2
  @ingroup Actions
- */
-class CC_DLL CCEaseBounceInOut : public CCEaseBounce
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
+ */ // :3
+class CC_DLL CCEaseBounceInOut : public CCEaseBounce // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual CCActionInterval* reverse();
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual CCActionInterval* reverse(); // :3
 
-public:
+public: // :3
 
     /** creates the action */
     static CCEaseBounceInOut* create(CCActionInterval* pAction);
@@ -520,20 +520,20 @@ public:
  @warning This action doesn't use a bijective function. Actions like Sequence might have an unexpected result when used with this action.
  @since v0.8.2
  @ingroup Actions
- */
-class CC_DLL CCEaseBackIn : public CCActionEase
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
+ */ // :3
+class CC_DLL CCEaseBackIn : public CCActionEase // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
 
     /** creates the action */
     static CCEaseBackIn* create(CCActionInterval* pAction);
@@ -544,20 +544,20 @@ public:
  @warning This action doesn't use a bijective function. Actions like Sequence might have an unexpected result when used with this action.
  @since v0.8.2
  @ingroup Actions
- */
-class CC_DLL CCEaseBackOut : public CCActionEase
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
-    virtual CCActionInterval* reverse(void);
+ */ // :3
+class CC_DLL CCEaseBackOut : public CCActionEase // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
+    virtual CCActionInterval* reverse(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
 
     /** creates the action */
     static CCEaseBackOut* create(CCActionInterval* pAction);
@@ -568,20 +568,20 @@ public:
  @warning This action doesn't use a bijective function. Actions like Sequence might have an unexpected result when used with this action.
  @since v0.8.2
  @ingroup Actions
- */
-class CC_DLL CCEaseBackInOut : public CCActionEase
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
+ */ // :3
+class CC_DLL CCEaseBackInOut : public CCActionEase // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual CCActionInterval* reverse();
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual CCActionInterval* reverse(); // :3
 
-public:
+public: // :3
 
     /** creates the action */
     static CCEaseBackInOut* create(CCActionInterval* pAction);

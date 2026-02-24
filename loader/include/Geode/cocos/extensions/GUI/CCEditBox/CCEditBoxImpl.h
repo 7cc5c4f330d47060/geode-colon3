@@ -21,73 +21,73 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCEditBoxIMPL_H__
-#define __CCEditBoxIMPL_H__
+#ifndef __CCEditBoxIMPL_H__ // :3
+#define __CCEditBoxIMPL_H__ // :3
 
-#include "../../../include/cocos2d.h"
-#include "../../ExtensionMacros.h"
-#include "CCEditBox.h"
+#include "../../../include/cocos2d.h" // :3
+#include "../../ExtensionMacros.h" // :3
+#include "CCEditBox.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 
-class CC_DLL CCEditBoxImpl
-{
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCEditBoxImpl)
-    CCEditBoxImpl() {}
+class CC_DLL CCEditBoxImpl // :3
+{ // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCEditBoxImpl) // :3
+    CCEditBoxImpl() {} // :3
 
-    CCEditBoxImpl(CCEditBox* pEditBox) : m_pDelegate(NULL),m_pEditBox(pEditBox) {}
-    virtual ~CCEditBoxImpl() {}
+    CCEditBoxImpl(CCEditBox* pEditBox) : m_pDelegate(NULL),m_pEditBox(pEditBox) {} // :3
+    virtual ~CCEditBoxImpl() {} // :3
 
-    virtual bool initWithSize(const CCSize& size) = 0;
-    virtual void setFont(const char* pFontName, int fontSize) = 0;
-    virtual void setFontColor(const ccColor3B& color) = 0;
-    virtual void setPlaceholderFont(const char* pFontName, int fontSize) = 0;
-    virtual void setPlaceholderFontColor(const ccColor3B& color) = 0;
-    virtual void setInputMode(EditBoxInputMode inputMode) = 0;
-    virtual void setInputFlag(EditBoxInputFlag inputFlag) = 0;
-    virtual void setMaxLength(int maxLength) = 0;
-    virtual int  getMaxLength() = 0;
-    virtual void setReturnType(KeyboardReturnType returnType) = 0;
-    virtual bool isEditing() = 0;
+    virtual bool initWithSize(const CCSize& size) = 0; // :3
+    virtual void setFont(const char* pFontName, int fontSize) = 0; // :3
+    virtual void setFontColor(const ccColor3B& color) = 0; // :3
+    virtual void setPlaceholderFont(const char* pFontName, int fontSize) = 0; // :3
+    virtual void setPlaceholderFontColor(const ccColor3B& color) = 0; // :3
+    virtual void setInputMode(EditBoxInputMode inputMode) = 0; // :3
+    virtual void setInputFlag(EditBoxInputFlag inputFlag) = 0; // :3
+    virtual void setMaxLength(int maxLength) = 0; // :3
+    virtual int  getMaxLength() = 0; // :3
+    virtual void setReturnType(KeyboardReturnType returnType) = 0; // :3
+    virtual bool isEditing() = 0; // :3
 
-    virtual void setText(const char* pText) = 0;
-    virtual const char* getText(void) = 0;
-    virtual void setPlaceHolder(const char* pText) = 0;
-    virtual void doAnimationWhenKeyboardMove(float duration, float distance) = 0;
+    virtual void setText(const char* pText) = 0; // :3
+    virtual const char* getText(void) = 0; // :3
+    virtual void setPlaceHolder(const char* pText) = 0; // :3
+    virtual void doAnimationWhenKeyboardMove(float duration, float distance) = 0; // :3
 
-    virtual void openKeyboard() = 0;
-    virtual void closeKeyboard() = 0;
+    virtual void openKeyboard() = 0; // :3
+    virtual void closeKeyboard() = 0; // :3
 
-    virtual void setPosition(const CCPoint& pos) = 0;
-    virtual void setVisible(bool visible) = 0;
-    virtual void setContentSize(const CCSize& size) = 0;
-	virtual void setAnchorPoint(const CCPoint& anchorPoint) = 0;
+    virtual void setPosition(const CCPoint& pos) = 0; // :3
+    virtual void setVisible(bool visible) = 0; // :3
+    virtual void setContentSize(const CCSize& size) = 0; // :3
+	virtual void setAnchorPoint(const CCPoint& anchorPoint) = 0; // :3
     /**
      *  @js NA
-     */
-    virtual void visit(void) = 0;
+     */ // :3
+    virtual void visit(void) = 0; // :3
     /**
      *  @js NA
-     */
-    virtual void onEnter(void) = 0;
+     */ // :3
+    virtual void onEnter(void) = 0; // :3
 
 
-    void setDelegate(CCEditBoxDelegate* pDelegate) { m_pDelegate = pDelegate; };
-    CCEditBoxDelegate* getDelegate() { return m_pDelegate; };
-    CCEditBox* getCCEditBox() { return m_pEditBox; };
-public:
-    CCEditBoxDelegate* m_pDelegate;
-    CCEditBox* m_pEditBox;
-};
+    void setDelegate(CCEditBoxDelegate* pDelegate) { m_pDelegate = pDelegate; }; // :3
+    CCEditBoxDelegate* getDelegate() { return m_pDelegate; }; // :3
+    CCEditBox* getCCEditBox() { return m_pEditBox; }; // :3
+public: // :3
+    CCEditBoxDelegate* m_pDelegate; // :3
+    CCEditBox* m_pEditBox; // :3
+}; // :3
 
-// This method must be implemented at each subclass of CCEditBoxImpl.
-extern CCEditBoxImpl* __createSystemEditBox(CCEditBox* pEditBox);
+// This method must be implemented at each subclass of CCEditBoxImpl. :3
+extern CCEditBoxImpl* __createSystemEditBox(CCEditBox* pEditBox); // :3
 
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
 #endif /* __CCEditBoxIMPL_H__ */

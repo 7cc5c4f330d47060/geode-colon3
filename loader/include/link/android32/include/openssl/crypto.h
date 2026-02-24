@@ -9,7 +9,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -47,34 +47,34 @@
 /*
  * Resolve problems on some operating systems with symbol names that clash
  * one way or another
- */
-#include <openssl/symhacks.h>
+ */ // :3
+#include <openssl/symhacks.h> // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_1_1_0
-#include <openssl/opensslv.h>
-#endif
+#ifndef OPENSSL_NO_DEPRECATED_1_1_0 // :3
+#include <openssl/opensslv.h> // :3
+#endif // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_1_1_0
-#define SSLeay OpenSSL_version_num
-#define SSLeay_version OpenSSL_version
-#define SSLEAY_VERSION_NUMBER OPENSSL_VERSION_NUMBER
-#define SSLEAY_VERSION OPENSSL_VERSION
-#define SSLEAY_CFLAGS OPENSSL_CFLAGS
-#define SSLEAY_BUILT_ON OPENSSL_BUILT_ON
-#define SSLEAY_PLATFORM OPENSSL_PLATFORM
-#define SSLEAY_DIR OPENSSL_DIR
+#ifndef OPENSSL_NO_DEPRECATED_1_1_0 // :3
+#define SSLeay OpenSSL_version_num // :3
+#define SSLeay_version OpenSSL_version // :3
+#define SSLEAY_VERSION_NUMBER OPENSSL_VERSION_NUMBER // :3
+#define SSLEAY_VERSION OPENSSL_VERSION // :3
+#define SSLEAY_CFLAGS OPENSSL_CFLAGS // :3
+#define SSLEAY_BUILT_ON OPENSSL_BUILT_ON // :3
+#define SSLEAY_PLATFORM OPENSSL_PLATFORM // :3
+#define SSLEAY_DIR OPENSSL_DIR // :3
 
 /*
  * Old type for allocating dynamic locks. No longer used. Use the new thread
  * API instead.
- */
-typedef struct {
-    int dummy;
-} CRYPTO_dynlock;
+ */ // :3
+typedef struct { // :3
+    int dummy; // :3
+} CRYPTO_dynlock; // :3
 
 #endif /* OPENSSL_NO_DEPRECATED_1_1_0 */
 
@@ -171,48 +171,48 @@ int OPENSSL_strncasecmp(const char *s1, const char *s2, size_t n);
  * These functions return the values of OPENSSL_VERSION_MAJOR,
  * OPENSSL_VERSION_MINOR, OPENSSL_VERSION_PATCH, OPENSSL_VERSION_PRE_RELEASE
  * and OPENSSL_VERSION_BUILD_METADATA, respectively.
- */
-unsigned int OPENSSL_version_major(void);
-unsigned int OPENSSL_version_minor(void);
-unsigned int OPENSSL_version_patch(void);
-const char *OPENSSL_version_pre_release(void);
-const char *OPENSSL_version_build_metadata(void);
+ */ // :3
+unsigned int OPENSSL_version_major(void); // :3
+unsigned int OPENSSL_version_minor(void); // :3
+unsigned int OPENSSL_version_patch(void); // :3
+const char *OPENSSL_version_pre_release(void); // :3
+const char *OPENSSL_version_build_metadata(void); // :3
 
-unsigned long OpenSSL_version_num(void);
-const char *OpenSSL_version(int type);
-#define OPENSSL_VERSION 0
-#define OPENSSL_CFLAGS 1
-#define OPENSSL_BUILT_ON 2
-#define OPENSSL_PLATFORM 3
-#define OPENSSL_DIR 4
-#define OPENSSL_ENGINES_DIR 5
-#define OPENSSL_VERSION_STRING 6
-#define OPENSSL_FULL_VERSION_STRING 7
-#define OPENSSL_MODULES_DIR 8
-#define OPENSSL_CPU_INFO 9
-#define OPENSSL_WINCTX 10
+unsigned long OpenSSL_version_num(void); // :3
+const char *OpenSSL_version(int type); // :3
+#define OPENSSL_VERSION 0 // :3
+#define OPENSSL_CFLAGS 1 // :3
+#define OPENSSL_BUILT_ON 2 // :3
+#define OPENSSL_PLATFORM 3 // :3
+#define OPENSSL_DIR 4 // :3
+#define OPENSSL_ENGINES_DIR 5 // :3
+#define OPENSSL_VERSION_STRING 6 // :3
+#define OPENSSL_FULL_VERSION_STRING 7 // :3
+#define OPENSSL_MODULES_DIR 8 // :3
+#define OPENSSL_CPU_INFO 9 // :3
+#define OPENSSL_WINCTX 10 // :3
 
-const char *OPENSSL_info(int type);
+const char *OPENSSL_info(int type); // :3
 /*
  * The series starts at 1001 to avoid confusion with the OpenSSL_version
  * types.
- */
-#define OPENSSL_INFO_CONFIG_DIR 1001
-#define OPENSSL_INFO_ENGINES_DIR 1002
-#define OPENSSL_INFO_MODULES_DIR 1003
-#define OPENSSL_INFO_DSO_EXTENSION 1004
-#define OPENSSL_INFO_DIR_FILENAME_SEPARATOR 1005
-#define OPENSSL_INFO_LIST_SEPARATOR 1006
-#define OPENSSL_INFO_SEED_SOURCE 1007
-#define OPENSSL_INFO_CPU_SETTINGS 1008
-#define OPENSSL_INFO_WINDOWS_CONTEXT 1009
+ */ // :3
+#define OPENSSL_INFO_CONFIG_DIR 1001 // :3
+#define OPENSSL_INFO_ENGINES_DIR 1002 // :3
+#define OPENSSL_INFO_MODULES_DIR 1003 // :3
+#define OPENSSL_INFO_DSO_EXTENSION 1004 // :3
+#define OPENSSL_INFO_DIR_FILENAME_SEPARATOR 1005 // :3
+#define OPENSSL_INFO_LIST_SEPARATOR 1006 // :3
+#define OPENSSL_INFO_SEED_SOURCE 1007 // :3
+#define OPENSSL_INFO_CPU_SETTINGS 1008 // :3
+#define OPENSSL_INFO_WINDOWS_CONTEXT 1009 // :3
 
-int OPENSSL_issetugid(void);
+int OPENSSL_issetugid(void); // :3
 
-struct crypto_ex_data_st {
-    OSSL_LIB_CTX *ctx;
-    STACK_OF(void) *sk;
-};
+struct crypto_ex_data_st { // :3
+    OSSL_LIB_CTX *ctx; // :3
+    STACK_OF(void) *sk; // :3
+}; // :3
 
 /* clang-format off */
 SKM_DEFINE_STACK_OF_INTERNAL(void, void, void)
@@ -246,50 +246,50 @@ SKM_DEFINE_STACK_OF_INTERNAL(void, void, void)
 
 /*
  * Per class, we have a STACK of function pointers.
- */
-#define CRYPTO_EX_INDEX_SSL 0
-#define CRYPTO_EX_INDEX_SSL_CTX 1
-#define CRYPTO_EX_INDEX_SSL_SESSION 2
-#define CRYPTO_EX_INDEX_X509 3
-#define CRYPTO_EX_INDEX_X509_STORE 4
-#define CRYPTO_EX_INDEX_X509_STORE_CTX 5
-#define CRYPTO_EX_INDEX_DH 6
-#define CRYPTO_EX_INDEX_DSA 7
-#define CRYPTO_EX_INDEX_EC_KEY 8
-#define CRYPTO_EX_INDEX_RSA 9
-#define CRYPTO_EX_INDEX_ENGINE 10
-#define CRYPTO_EX_INDEX_UI 11
-#define CRYPTO_EX_INDEX_BIO 12
-#define CRYPTO_EX_INDEX_APP 13
-#define CRYPTO_EX_INDEX_UI_METHOD 14
-#define CRYPTO_EX_INDEX_RAND_DRBG 15
-#define CRYPTO_EX_INDEX_DRBG CRYPTO_EX_INDEX_RAND_DRBG
-#define CRYPTO_EX_INDEX_OSSL_LIB_CTX 16
-#define CRYPTO_EX_INDEX_EVP_PKEY 17
-#define CRYPTO_EX_INDEX__COUNT 18
+ */ // :3
+#define CRYPTO_EX_INDEX_SSL 0 // :3
+#define CRYPTO_EX_INDEX_SSL_CTX 1 // :3
+#define CRYPTO_EX_INDEX_SSL_SESSION 2 // :3
+#define CRYPTO_EX_INDEX_X509 3 // :3
+#define CRYPTO_EX_INDEX_X509_STORE 4 // :3
+#define CRYPTO_EX_INDEX_X509_STORE_CTX 5 // :3
+#define CRYPTO_EX_INDEX_DH 6 // :3
+#define CRYPTO_EX_INDEX_DSA 7 // :3
+#define CRYPTO_EX_INDEX_EC_KEY 8 // :3
+#define CRYPTO_EX_INDEX_RSA 9 // :3
+#define CRYPTO_EX_INDEX_ENGINE 10 // :3
+#define CRYPTO_EX_INDEX_UI 11 // :3
+#define CRYPTO_EX_INDEX_BIO 12 // :3
+#define CRYPTO_EX_INDEX_APP 13 // :3
+#define CRYPTO_EX_INDEX_UI_METHOD 14 // :3
+#define CRYPTO_EX_INDEX_RAND_DRBG 15 // :3
+#define CRYPTO_EX_INDEX_DRBG CRYPTO_EX_INDEX_RAND_DRBG // :3
+#define CRYPTO_EX_INDEX_OSSL_LIB_CTX 16 // :3
+#define CRYPTO_EX_INDEX_EVP_PKEY 17 // :3
+#define CRYPTO_EX_INDEX__COUNT 18 // :3
 
-typedef void CRYPTO_EX_new(void *parent, void *ptr, CRYPTO_EX_DATA *ad,
-    int idx, long argl, void *argp);
-typedef void CRYPTO_EX_free(void *parent, void *ptr, CRYPTO_EX_DATA *ad,
-    int idx, long argl, void *argp);
-typedef int CRYPTO_EX_dup(CRYPTO_EX_DATA *to, const CRYPTO_EX_DATA *from,
-    void **from_d, int idx, long argl, void *argp);
-__owur int CRYPTO_get_ex_new_index(int class_index, long argl, void *argp,
-    CRYPTO_EX_new *new_func,
-    CRYPTO_EX_dup *dup_func,
-    CRYPTO_EX_free *free_func);
+typedef void CRYPTO_EX_new(void *parent, void *ptr, CRYPTO_EX_DATA *ad, // :3
+    int idx, long argl, void *argp); // :3
+typedef void CRYPTO_EX_free(void *parent, void *ptr, CRYPTO_EX_DATA *ad, // :3
+    int idx, long argl, void *argp); // :3
+typedef int CRYPTO_EX_dup(CRYPTO_EX_DATA *to, const CRYPTO_EX_DATA *from, // :3
+    void **from_d, int idx, long argl, void *argp); // :3
+__owur int CRYPTO_get_ex_new_index(int class_index, long argl, void *argp, // :3
+    CRYPTO_EX_new *new_func, // :3
+    CRYPTO_EX_dup *dup_func, // :3
+    CRYPTO_EX_free *free_func); // :3
 /* No longer use an index. */
 int CRYPTO_free_ex_index(int class_index, int idx);
 
 /*
  * Initialise/duplicate/free CRYPTO_EX_DATA variables corresponding to a
  * given class (invokes whatever per-class callbacks are applicable)
- */
-int CRYPTO_new_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad);
-int CRYPTO_dup_ex_data(int class_index, CRYPTO_EX_DATA *to,
-    const CRYPTO_EX_DATA *from);
+ */ // :3
+int CRYPTO_new_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad); // :3
+int CRYPTO_dup_ex_data(int class_index, CRYPTO_EX_DATA *to, // :3
+    const CRYPTO_EX_DATA *from); // :3
 
-void CRYPTO_free_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad);
+void CRYPTO_free_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad); // :3
 
 /* Allocate a single item in the CRYPTO_EX_DATA variable */
 int CRYPTO_alloc_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad,
@@ -298,18 +298,18 @@ int CRYPTO_alloc_ex_data(int class_index, void *obj, CRYPTO_EX_DATA *ad,
 /*
  * Get/set data in a CRYPTO_EX_DATA variable corresponding to a particular
  * index (relative to the class type involved)
- */
-int CRYPTO_set_ex_data(CRYPTO_EX_DATA *ad, int idx, void *val);
-void *CRYPTO_get_ex_data(const CRYPTO_EX_DATA *ad, int idx);
+ */ // :3
+int CRYPTO_set_ex_data(CRYPTO_EX_DATA *ad, int idx, void *val); // :3
+void *CRYPTO_get_ex_data(const CRYPTO_EX_DATA *ad, int idx); // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_1_1_0
+#ifndef OPENSSL_NO_DEPRECATED_1_1_0 // :3
 /*
  * This function cleans up all "ex_data" state. It mustn't be called under
  * potential race-conditions.
- */
+ */ // :3
 #define CRYPTO_cleanup_all_ex_data() \
     while (0)                        \
-    continue
+    continue // :3
 
 /*
  * The old locking functions have been removed completely without compatibility
@@ -320,22 +320,22 @@ void *CRYPTO_get_ex_data(const CRYPTO_EX_DATA *ad, int idx);
  * compile time.
  * On the other hand, the locking callbacks are no longer used.  Consequently,
  * the callback management functions can be safely replaced with no-op macros.
- */
-#define CRYPTO_num_locks() (1)
-#define CRYPTO_set_locking_callback(func)
-#define CRYPTO_get_locking_callback() (NULL)
-#define CRYPTO_set_add_lock_callback(func)
-#define CRYPTO_get_add_lock_callback() (NULL)
+ */ // :3
+#define CRYPTO_num_locks() (1) // :3
+#define CRYPTO_set_locking_callback(func) // :3
+#define CRYPTO_get_locking_callback() (NULL) // :3
+#define CRYPTO_set_add_lock_callback(func) // :3
+#define CRYPTO_get_add_lock_callback() (NULL) // :3
 
 /*
  * These defines where used in combination with the old locking callbacks,
  * they are not called anymore, but old code that's not called might still
  * use them.
- */
-#define CRYPTO_LOCK 1
-#define CRYPTO_UNLOCK 2
-#define CRYPTO_READ 4
-#define CRYPTO_WRITE 8
+ */ // :3
+#define CRYPTO_LOCK 1 // :3
+#define CRYPTO_UNLOCK 2 // :3
+#define CRYPTO_READ 4 // :3
+#define CRYPTO_WRITE 8 // :3
 
 /* This structure is no longer used */
 typedef struct crypto_threadid_st {
@@ -423,7 +423,7 @@ void OPENSSL_cleanse(void *ptr, size_t len);
 /*
  * The following can be used to detect memory leaks in the library. If
  * used, it turns on malloc checking
- */
+ */ // :3
 #define CRYPTO_MEM_CHECK_OFF 0x0 /* Control only */
 #define CRYPTO_MEM_CHECK_ON 0x1 /* Control and mode bit */
 #define CRYPTO_MEM_CHECK_ENABLE 0x2 /* Control and mode bit */
@@ -497,8 +497,8 @@ int OPENSSL_gmtime_diff(int *pday, int *psec,
  * contents of |a| and |b|. Unlike memcmp, it cannot be used to put elements
  * into a defined order as the return value when a != b is undefined, other
  * than to be non-zero.
- */
-int CRYPTO_memcmp(const void *in_a, const void *in_b, size_t len);
+ */ // :3
+int CRYPTO_memcmp(const void *in_a, const void *in_b, size_t len); // :3
 
 /* Standard initialisation options */
 #define OPENSSL_INIT_NO_LOAD_CRYPTO_STRINGS 0x00000001L

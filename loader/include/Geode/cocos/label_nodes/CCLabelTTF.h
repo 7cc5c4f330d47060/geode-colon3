@@ -21,21 +21,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCLABELTTF_H__
-#define __CCLABELTTF_H__
+****************************************************************************/ // :3
+#ifndef __CCLABELTTF_H__ // :3
+#define __CCLABELTTF_H__ // :3
 
-#include "../sprite_nodes/CCSprite.h"
-#include "../textures/CCTexture2D.h"
+#include "../sprite_nodes/CCSprite.h" // :3
+#include "../textures/CCTexture2D.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup label
  * @{
- */
+ */ // :3
 
 
 
@@ -53,45 +53,45 @@ NS_CC_BEGIN
  *                                          kCCTextAlignmentLeft, kCCVerticalTextAlignmentCenter);
  * @endcode
  *
- */
+ */ // :3
 
-class CC_DLL CCLabelTTF : public CCSprite, public CCLabelProtocol
-{
-	GEODE_FRIEND_MODIFY
-public:
+class CC_DLL CCLabelTTF : public CCSprite, public CCLabelProtocol // :3
+{ // :3
+	GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
-     */
-    CCLabelTTF();
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCLabelTTF, CCSprite)
+     */ // :3
+    CCLabelTTF(); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCLabelTTF, CCSprite) // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCLabelTTF();
+     */ // :3
+    virtual ~CCLabelTTF(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    const char* description();
+     */ // :3
+    const char* description(); // :3
 
     /** creates a CCLabelTTF with a font name and font size in points
      @since v2.0.1
-     */
-    static CCLabelTTF * create(const char *string, const char *fontName, float fontSize);
+     */ // :3
+    static CCLabelTTF * create(const char *string, const char *fontName, float fontSize); // :3
 
     /** creates a CCLabelTTF from a fontname, horizontal alignment, dimension in points,  and font size in points.
      @since v2.0.1
-     */
-    static CCLabelTTF * create(const char *string, const char *fontName, float fontSize,
-                               const CCSize& dimensions, CCTextAlignment hAlignment);
+     */ // :3
+    static CCLabelTTF * create(const char *string, const char *fontName, float fontSize, // :3
+                               const CCSize& dimensions, CCTextAlignment hAlignment); // :3
 
     /** creates a CCLabel from a fontname, alignment, dimension in points and font size in points
      @since v2.0.1
-     */
-    static CCLabelTTF * create(const char *string, const char *fontName, float fontSize,
-                               const CCSize& dimensions, CCTextAlignment hAlignment,
-                               CCVerticalTextAlignment vAlignment);
+     */ // :3
+    static CCLabelTTF * create(const char *string, const char *fontName, float fontSize, // :3
+                               const CCSize& dimensions, CCTextAlignment hAlignment, // :3
+                               CCVerticalTextAlignment vAlignment); // :3
 
 
     /** Create a lable with string and a font definition*/
@@ -141,85 +141,85 @@ public:
     bool init();
 
     /** Creates an label.
-     */
-    static CCLabelTTF * create();
+     */ // :3
+    static CCLabelTTF * create(); // :3
 
     /** changes the string to render
     * @warning Changing the string is as expensive as creating a new CCLabelTTF. To obtain better performance use CCLabelAtlas
-    */
-    virtual void setString(const char *label);
-    virtual const char* getString(void);
+    */ // :3
+    virtual void setString(const char *label); // :3
+    virtual const char* getString(void); // :3
 
-    CCTextAlignment getHorizontalAlignment() {
-	    return m_hAlignment;
-	}
-    void setHorizontalAlignment(CCTextAlignment alignment) {
-	    if (alignment != m_hAlignment)
-	    {
-	        m_hAlignment = alignment;
+    CCTextAlignment getHorizontalAlignment() { // :3
+	    return m_hAlignment; // :3
+	} // :3
+    void setHorizontalAlignment(CCTextAlignment alignment) { // :3
+	    if (alignment != m_hAlignment) // :3
+	    { // :3
+	        m_hAlignment = alignment; // :3
 
-	        // Force update
-	        if (m_string.size() > 0)
-	        {
-	            this->updateTexture();
-	        }
-	    }
-	}
+	        // Force update :3
+	        if (m_string.size() > 0) // :3
+	        { // :3
+	            this->updateTexture(); // :3
+	        } // :3
+	    } // :3
+	} // :3
 
-    CCVerticalTextAlignment getVerticalAlignment() {
-	    return m_vAlignment;
-	}
-    void setVerticalAlignment(CCVerticalTextAlignment verticalAlignment) {
-	    if (verticalAlignment != m_vAlignment)
-	    {
-	        m_vAlignment = verticalAlignment;
+    CCVerticalTextAlignment getVerticalAlignment() { // :3
+	    return m_vAlignment; // :3
+	} // :3
+    void setVerticalAlignment(CCVerticalTextAlignment verticalAlignment) { // :3
+	    if (verticalAlignment != m_vAlignment) // :3
+	    { // :3
+	        m_vAlignment = verticalAlignment; // :3
 
-	        // Force update
-	        if (m_string.size() > 0)
-	        {
-	            this->updateTexture();
-	        }
-	    }
-	}
+	        // Force update :3
+	        if (m_string.size() > 0) // :3
+	        { // :3
+	            this->updateTexture(); // :3
+	        } // :3
+	    } // :3
+	} // :3
 
-    CCSize getDimensions() {
-    	return m_tDimensions;
-    }
-    void setDimensions(const CCSize &dim) {
-    	if (dim.width != m_tDimensions.width || dim.height != m_tDimensions.height)
-	    {
-	        m_tDimensions = dim;
+    CCSize getDimensions() { // :3
+    	return m_tDimensions; // :3
+    } // :3
+    void setDimensions(const CCSize &dim) { // :3
+    	if (dim.width != m_tDimensions.width || dim.height != m_tDimensions.height) // :3
+	    { // :3
+	        m_tDimensions = dim; // :3
 
-	        // Force update
-	        if (m_string.size() > 0)
-	        {
-	            this->updateTexture();
-	        }
-	    }
-    }
+	        // Force update :3
+	        if (m_string.size() > 0) // :3
+	        { // :3
+	            this->updateTexture(); // :3
+	        } // :3
+	    } // :3
+    } // :3
 
-    float getFontSize() {
-    	return m_fFontSize;
-    }
-    void setFontSize(float fontSize) {
-    	if (m_fFontSize != fontSize)
-	    {
-	        m_fFontSize = fontSize;
+    float getFontSize() { // :3
+    	return m_fFontSize; // :3
+    } // :3
+    void setFontSize(float fontSize) { // :3
+    	if (m_fFontSize != fontSize) // :3
+	    { // :3
+	        m_fFontSize = fontSize; // :3
 
-	        // Force update
-	        if (m_string.size() > 0)
-	        {
-	            this->updateTexture();
-	        }
-	    }
-    }
+	        // Force update :3
+	        if (m_string.size() > 0) // :3
+	        { // :3
+	            this->updateTexture(); // :3
+	        } // :3
+	    } // :3
+    } // :3
 
-    const char* getFontName();
-    void setFontName(const char *fontName);
+    const char* getFontName(); // :3
+    void setFontName(const char *fontName); // :3
 
-private:
-    bool updateTexture();
-protected:
+private: // :3
+    bool updateTexture(); // :3
+protected: // :3
 
     /** set the text definition for this label */
     void                _updateWithTextDefinition(ccFontDefinition & textDefinition, bool mustUpdateTexture = true);

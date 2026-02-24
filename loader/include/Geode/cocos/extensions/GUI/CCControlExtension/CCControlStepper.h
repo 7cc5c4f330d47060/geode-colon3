@@ -23,44 +23,44 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- */
+ */ // :3
 
-#ifndef __CCCONTROLSTEPPER_H__
-#define __CCCONTROLSTEPPER_H__
+#ifndef __CCCONTROLSTEPPER_H__ // :3
+#define __CCCONTROLSTEPPER_H__ // :3
 
-#include "CCControl.h"
+#include "CCControl.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup control_extension
  * @{
- */
+ */ // :3
 
-typedef enum
-{
-    kCCControlStepperPartMinus,
-    kCCControlStepperPartPlus,
-    kCCControlStepperPartNone,
-} CCControlStepperPart;
+typedef enum // :3
+{ // :3
+    kCCControlStepperPartMinus, // :3
+    kCCControlStepperPartPlus, // :3
+    kCCControlStepperPartNone, // :3
+} CCControlStepperPart; // :3
 
-class CC_DLL CCControlStepper : public CCControl
-{
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCControlStepper, CCControl)
-    CCControlStepper();
-    virtual ~CCControlStepper();
+class CC_DLL CCControlStepper : public CCControl // :3
+{ // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCControlStepper, CCControl) // :3
+    CCControlStepper(); // :3
+    virtual ~CCControlStepper(); // :3
 
-    bool initWithMinusSpriteAndPlusSprite(CCSprite *minusSprite, CCSprite *plusSprite);
-    static CCControlStepper* create(CCSprite *minusSprite, CCSprite *plusSprite);
-    virtual void setWraps(bool wraps);
-    virtual void setMinimumValue(double minimumValue);
-    virtual void setMaximumValue(double maximumValue);
-    virtual void setValue(double value);
-    virtual double getValue();
-    virtual void setStepValue(double stepValue);
+    bool initWithMinusSpriteAndPlusSprite(CCSprite *minusSprite, CCSprite *plusSprite); // :3
+    static CCControlStepper* create(CCSprite *minusSprite, CCSprite *plusSprite); // :3
+    virtual void setWraps(bool wraps); // :3
+    virtual void setMinimumValue(double minimumValue); // :3
+    virtual void setMaximumValue(double maximumValue); // :3
+    virtual void setValue(double value); // :3
+    virtual double getValue(); // :3
+    virtual void setStepValue(double stepValue); // :3
     /** Set the numeric value of the stepper. If send is true, the CCControlEventValueChanged is sent. */
     virtual void setValueWithSendingEvent(double value, bool send);
     virtual bool isContinuous();

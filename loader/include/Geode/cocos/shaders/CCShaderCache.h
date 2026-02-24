@@ -22,44 +22,44 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCSHADERCACHE_H__
-#define __CCSHADERCACHE_H__
+#ifndef __CCSHADERCACHE_H__ // :3
+#define __CCSHADERCACHE_H__ // :3
 
-#include "../cocoa/CCDictionary.h"
+#include "../cocoa/CCDictionary.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCGLProgram;
+class CCGLProgram; // :3
 
 /**
  * @addtogroup shaders
  * @{
- */
+ */ // :3
 
 /** CCShaderCache
  Singleton that stores manages GL shaders
  @since v2.0
- */
-class CC_DLL CCShaderCache : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCShaderCache, CCObject)
+ */ // :3
+class CC_DLL CCShaderCache : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCShaderCache, CCObject) // :3
     /**
      * @js ctor
-     */
-    CCShaderCache();
+     */ // :3
+    CCShaderCache(); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCShaderCache();
+     */ // :3
+    virtual ~CCShaderCache(); // :3
     /** returns the shared instance
      *  @js getInstance
-     */
-    static CCShaderCache* sharedShaderCache();
+     */ // :3
+    static CCShaderCache* sharedShaderCache(); // :3
 
     /** purges the cache. It releases the retained instance. */
     static void purgeSharedShaderCache();
@@ -74,8 +74,8 @@ public:
 
     /** returns a GL program for a given key
      *  @js getProgram
-     */
-    CCGLProgram * programForKey(const char* key);
+     */ // :3
+    CCGLProgram * programForKey(const char* key); // :3
 
     /** adds a CCGLProgram to the cache for a given name */
     void addProgram(CCGLProgram* program, const char* key);

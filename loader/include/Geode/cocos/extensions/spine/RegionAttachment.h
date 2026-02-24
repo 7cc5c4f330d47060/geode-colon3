@@ -21,27 +21,27 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_REGIONATTACHMENT_H_
-#define SPINE_REGIONATTACHMENT_H_
+#ifndef SPINE_REGIONATTACHMENT_H_ // :3
+#define SPINE_REGIONATTACHMENT_H_ // :3
 
-#include "Attachment.h"
-#include "Atlas.h"
-#include "Slot.h"
+#include "Attachment.h" // :3
+#include "Atlas.h" // :3
+#include "Slot.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-typedef enum {
-	VERTEX_X1 = 0, VERTEX_Y1, VERTEX_X2, VERTEX_Y2, VERTEX_X3, VERTEX_Y3, VERTEX_X4, VERTEX_Y4
-} VertexIndex;
+typedef enum { // :3
+	VERTEX_X1 = 0, VERTEX_Y1, VERTEX_X2, VERTEX_Y2, VERTEX_X3, VERTEX_Y3, VERTEX_X4, VERTEX_Y4 // :3
+} VertexIndex; // :3
 
-typedef struct RegionAttachment RegionAttachment;
-struct RegionAttachment {
-	Attachment super;
-	float x, y, scaleX, scaleY, rotation, width, height;
+typedef struct RegionAttachment RegionAttachment; // :3
+struct RegionAttachment { // :3
+	Attachment super; // :3
+	float x, y, scaleX, scaleY, rotation, width, height; // :3
 
-	void* rendererObject;
+	void* rendererObject; // :3
 	int regionOffsetX, regionOffsetY; /* Pixels stripped from the bottom left, unrotated. */
 	int regionWidth, regionHeight; /* Unrotated, stripped pixel size. */
 	int regionOriginalWidth, regionOriginalHeight; /* Unrotated, unstripped pixel size. */

@@ -1,17 +1,17 @@
-#ifndef __CARES_BUILD_H
-#define __CARES_BUILD_H
+#ifndef __CARES_BUILD_H // :3
+#define __CARES_BUILD_H // :3
 /*
  * Copyright (C) The c-ares project and its contributors
  * SPDX-License-Identifier: MIT
- */
+ */ // :3
 
-#define CARES_TYPEOF_ARES_SOCKLEN_T socklen_t
-#define CARES_TYPEOF_ARES_SSIZE_T __int64
+#define CARES_TYPEOF_ARES_SOCKLEN_T socklen_t // :3
+#define CARES_TYPEOF_ARES_SSIZE_T __int64 // :3
 
 /* Prefix names with CARES_ to make sure they don't conflict with other config.h
  * files.  We need to include some dependent headers that may be system specific
- * for C-Ares */
-#define CARES_HAVE_SYS_TYPES_H
+ * for C-Ares */ // :3
+#define CARES_HAVE_SYS_TYPES_H // :3
 /* #undef CARES_HAVE_SYS_SOCKET_H */
 /* #undef CARES_HAVE_SYS_SELECT_H */
 #define CARES_HAVE_WINDOWS_H

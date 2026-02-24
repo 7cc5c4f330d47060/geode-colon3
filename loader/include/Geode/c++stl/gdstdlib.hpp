@@ -1,11 +1,11 @@
-#pragma once
+#pragma once // :3
 
-#include <Geode/platform/platform.hpp>
+#include <Geode/platform/platform.hpp> // :3
 
-#include "string.hpp"
+#include "string.hpp" // :3
 
-#if defined(GEODE_IS_ANDROID)
-#include "gnustl.hpp"
-#else
-#include "aliastl.hpp"
-#endif
+#if defined(GEODE_IS_ANDROID) // :3
+#include "gnustl.hpp" // :3
+#else // :3
+#include "aliastl.hpp" // :3
+#endif // :3

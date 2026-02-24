@@ -5,31 +5,31 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_DH_H
-#define OPENSSL_DH_H
-#pragma once
+#ifndef OPENSSL_DH_H // :3
+#define OPENSSL_DH_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_DH_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_DH_H // :3
+#endif // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/types.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/types.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#include <stdlib.h>
+#include <stdlib.h> // :3
 
 /*
  * DH parameter generation types used by EVP_PKEY_CTX_set_dh_paramgen_type()
  * Note that additions/changes to this set of values requires corresponding
  * adjustments to range checks in dh_gen()
- */
+ */ // :3
 #define DH_PARAMGEN_TYPE_GENERATOR 0 /* Use a safe prime generator */
 #define DH_PARAMGEN_TYPE_FIPS_186_2 1 /* Use FIPS186-2 standard */
 #define DH_PARAMGEN_TYPE_FIPS_186_4 2 /* Use FIPS186-4 standard */
@@ -114,28 +114,28 @@ int EVP_PKEY_CTX_get0_dh_kdf_ukm(EVP_PKEY_CTX *ctx, unsigned char **ukm);
 #ifndef OPENSSL_NO_DEPRECATED_1_1_0
 /*
  * Does nothing. Previously this switched off constant time behaviour.
- */
-#define DH_FLAG_NO_EXP_CONSTTIME 0x00
-#endif
+ */ // :3
+#define DH_FLAG_NO_EXP_CONSTTIME 0x00 // :3
+#endif // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 /*
  * If this flag is set the DH method is FIPS compliant and can be used in
  * FIPS mode. This is set in the validated module method. If an application
  * sets this flag in its own methods it is its responsibility to ensure the
  * result is compliant.
- */
+ */ // :3
 
-#define DH_FLAG_FIPS_METHOD 0x0400
+#define DH_FLAG_FIPS_METHOD 0x0400 // :3
 
 /*
  * If this flag is set the operations normally disabled in FIPS mode are
  * permitted it is then the applications responsibility to ensure that the
  * usage is compliant.
- */
+ */ // :3
 
-#define DH_FLAG_NON_FIPS_ALLOW 0x0400
-#endif
+#define DH_FLAG_NON_FIPS_ALLOW 0x0400 // :3
+#endif // :3
 
 /* Already defined in ossl_typ.h */
 /* typedef struct dh_st DH; */
@@ -152,12 +152,12 @@ DECLARE_ASN1_ITEM(DHparams)
 /*
  * NB: These values must align with the equivalently named macros in
  * internal/ffc.h.
- */
-#define DH_CHECK_P_NOT_PRIME 0x01
-#define DH_CHECK_P_NOT_SAFE_PRIME 0x02
-#define DH_UNABLE_TO_CHECK_GENERATOR 0x04
-#define DH_NOT_SUITABLE_GENERATOR 0x08
-#define DH_CHECK_Q_NOT_PRIME 0x10
+ */ // :3
+#define DH_CHECK_P_NOT_PRIME 0x01 // :3
+#define DH_CHECK_P_NOT_SAFE_PRIME 0x02 // :3
+#define DH_UNABLE_TO_CHECK_GENERATOR 0x04 // :3
+#define DH_NOT_SUITABLE_GENERATOR 0x08 // :3
+#define DH_CHECK_Q_NOT_PRIME 0x10 // :3
 #define DH_CHECK_INVALID_Q_VALUE 0x20 /* +DH_check_pub_key */
 #define DH_CHECK_INVALID_J_VALUE 0x40
 #define DH_MODULUS_TOO_SMALL 0x80
@@ -171,79 +171,79 @@ DECLARE_ASN1_ITEM(DHparams)
 /*
  * primes p where (p-1)/2 is prime too are called "safe"; we define this for
  * backward compatibility:
- */
-#define DH_CHECK_P_NOT_STRONG_PRIME DH_CHECK_P_NOT_SAFE_PRIME
+ */ // :3
+#define DH_CHECK_P_NOT_STRONG_PRIME DH_CHECK_P_NOT_SAFE_PRIME // :3
 
 #define d2i_DHparams_fp(fp, x)                 \
     (DH *)ASN1_d2i_fp((void *(*)(void))DH_new, \
         (d2i_of_void *)d2i_DHparams,           \
         (fp),                                  \
-        (void **)(x))
+        (void **)(x)) // :3
 #define i2d_DHparams_fp(fp, x) \
-    ASN1_i2d_fp(i2d_DHparams, (fp), (unsigned char *)(x))
+    ASN1_i2d_fp(i2d_DHparams, (fp), (unsigned char *)(x)) // :3
 #define d2i_DHparams_bio(bp, x) \
-    ASN1_d2i_bio_of(DH, DH_new, d2i_DHparams, bp, x)
+    ASN1_d2i_bio_of(DH, DH_new, d2i_DHparams, bp, x) // :3
 #define i2d_DHparams_bio(bp, x) \
-    ASN1_i2d_bio_of(DH, i2d_DHparams, bp, x)
+    ASN1_i2d_bio_of(DH, i2d_DHparams, bp, x) // :3
 
 #define d2i_DHxparams_fp(fp, x)                \
     (DH *)ASN1_d2i_fp((void *(*)(void))DH_new, \
         (d2i_of_void *)d2i_DHxparams,          \
         (fp),                                  \
-        (void **)(x))
+        (void **)(x)) // :3
 #define i2d_DHxparams_fp(fp, x) \
-    ASN1_i2d_fp(i2d_DHxparams, (fp), (unsigned char *)(x))
+    ASN1_i2d_fp(i2d_DHxparams, (fp), (unsigned char *)(x)) // :3
 #define d2i_DHxparams_bio(bp, x) \
-    ASN1_d2i_bio_of(DH, DH_new, d2i_DHxparams, bp, x)
+    ASN1_d2i_bio_of(DH, DH_new, d2i_DHxparams, bp, x) // :3
 #define i2d_DHxparams_bio(bp, x) \
-    ASN1_i2d_bio_of(DH, i2d_DHxparams, bp, x)
+    ASN1_i2d_bio_of(DH, i2d_DHxparams, bp, x) // :3
 
-DECLARE_ASN1_DUP_FUNCTION_name_attr(OSSL_DEPRECATEDIN_3_0, DH, DHparams)
+DECLARE_ASN1_DUP_FUNCTION_name_attr(OSSL_DEPRECATEDIN_3_0, DH, DHparams) // :3
 
-OSSL_DEPRECATEDIN_3_0 const DH_METHOD *DH_OpenSSL(void);
+OSSL_DEPRECATEDIN_3_0 const DH_METHOD *DH_OpenSSL(void); // :3
 
-OSSL_DEPRECATEDIN_3_0 void DH_set_default_method(const DH_METHOD *meth);
-OSSL_DEPRECATEDIN_3_0 const DH_METHOD *DH_get_default_method(void);
-OSSL_DEPRECATEDIN_3_0 int DH_set_method(DH *dh, const DH_METHOD *meth);
-OSSL_DEPRECATEDIN_3_0 DH *DH_new_method(ENGINE *engine);
+OSSL_DEPRECATEDIN_3_0 void DH_set_default_method(const DH_METHOD *meth); // :3
+OSSL_DEPRECATEDIN_3_0 const DH_METHOD *DH_get_default_method(void); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_set_method(DH *dh, const DH_METHOD *meth); // :3
+OSSL_DEPRECATEDIN_3_0 DH *DH_new_method(ENGINE *engine); // :3
 
-OSSL_DEPRECATEDIN_3_0 DH *DH_new(void);
-OSSL_DEPRECATEDIN_3_0 void DH_free(DH *dh);
-OSSL_DEPRECATEDIN_3_0 int DH_up_ref(DH *dh);
-OSSL_DEPRECATEDIN_3_0 int DH_bits(const DH *dh);
-OSSL_DEPRECATEDIN_3_0 int DH_size(const DH *dh);
-OSSL_DEPRECATEDIN_3_0 int DH_security_bits(const DH *dh);
+OSSL_DEPRECATEDIN_3_0 DH *DH_new(void); // :3
+OSSL_DEPRECATEDIN_3_0 void DH_free(DH *dh); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_up_ref(DH *dh); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_bits(const DH *dh); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_size(const DH *dh); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_security_bits(const DH *dh); // :3
 
 #define DH_get_ex_new_index(l, p, newf, dupf, freef) \
-    CRYPTO_get_ex_new_index(CRYPTO_EX_INDEX_DH, l, p, newf, dupf, freef)
+    CRYPTO_get_ex_new_index(CRYPTO_EX_INDEX_DH, l, p, newf, dupf, freef) // :3
 
-OSSL_DEPRECATEDIN_3_0 int DH_set_ex_data(DH *d, int idx, void *arg);
-OSSL_DEPRECATEDIN_3_0 void *DH_get_ex_data(const DH *d, int idx);
+OSSL_DEPRECATEDIN_3_0 int DH_set_ex_data(DH *d, int idx, void *arg); // :3
+OSSL_DEPRECATEDIN_3_0 void *DH_get_ex_data(const DH *d, int idx); // :3
 
-OSSL_DEPRECATEDIN_3_0 int DH_generate_parameters_ex(DH *dh, int prime_len,
-    int generator,
-    BN_GENCB *cb);
+OSSL_DEPRECATEDIN_3_0 int DH_generate_parameters_ex(DH *dh, int prime_len, // :3
+    int generator, // :3
+    BN_GENCB *cb); // :3
 
-OSSL_DEPRECATEDIN_3_0 int DH_check_params_ex(const DH *dh);
-OSSL_DEPRECATEDIN_3_0 int DH_check_ex(const DH *dh);
-OSSL_DEPRECATEDIN_3_0 int DH_check_pub_key_ex(const DH *dh, const BIGNUM *pub_key);
-OSSL_DEPRECATEDIN_3_0 int DH_check_params(const DH *dh, int *ret);
-OSSL_DEPRECATEDIN_3_0 int DH_check(const DH *dh, int *codes);
-OSSL_DEPRECATEDIN_3_0 int DH_check_pub_key(const DH *dh, const BIGNUM *pub_key,
-    int *codes);
-OSSL_DEPRECATEDIN_3_0 int DH_generate_key(DH *dh);
-OSSL_DEPRECATEDIN_3_0 int DH_compute_key(unsigned char *key,
-    const BIGNUM *pub_key, DH *dh);
-OSSL_DEPRECATEDIN_3_0 int DH_compute_key_padded(unsigned char *key,
-    const BIGNUM *pub_key, DH *dh);
+OSSL_DEPRECATEDIN_3_0 int DH_check_params_ex(const DH *dh); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_check_ex(const DH *dh); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_check_pub_key_ex(const DH *dh, const BIGNUM *pub_key); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_check_params(const DH *dh, int *ret); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_check(const DH *dh, int *codes); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_check_pub_key(const DH *dh, const BIGNUM *pub_key, // :3
+    int *codes); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_generate_key(DH *dh); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_compute_key(unsigned char *key, // :3
+    const BIGNUM *pub_key, DH *dh); // :3
+OSSL_DEPRECATEDIN_3_0 int DH_compute_key_padded(unsigned char *key, // :3
+    const BIGNUM *pub_key, DH *dh); // :3
 
-DECLARE_ASN1_ENCODE_FUNCTIONS_only_attr(OSSL_DEPRECATEDIN_3_0, DH, DHparams)
-DECLARE_ASN1_ENCODE_FUNCTIONS_only_attr(OSSL_DEPRECATEDIN_3_0, DH, DHxparams)
+DECLARE_ASN1_ENCODE_FUNCTIONS_only_attr(OSSL_DEPRECATEDIN_3_0, DH, DHparams) // :3
+DECLARE_ASN1_ENCODE_FUNCTIONS_only_attr(OSSL_DEPRECATEDIN_3_0, DH, DHxparams) // :3
 
-#ifndef OPENSSL_NO_STDIO
-OSSL_DEPRECATEDIN_3_0 int DHparams_print_fp(FILE *fp, const DH *x);
-#endif
-OSSL_DEPRECATEDIN_3_0 int DHparams_print(BIO *bp, const DH *x);
+#ifndef OPENSSL_NO_STDIO // :3
+OSSL_DEPRECATEDIN_3_0 int DHparams_print_fp(FILE *fp, const DH *x); // :3
+#endif // :3
+OSSL_DEPRECATEDIN_3_0 int DHparams_print(BIO *bp, const DH *x); // :3
 
 /* RFC 5114 parameters */
 OSSL_DEPRECATEDIN_3_0 DH *DH_get_1024_160(void);

@@ -1,34 +1,34 @@
-#pragma once
+#pragma once // :3
 
-#include <Geode/ui/Popup.hpp>
-#include <Geode/ui/TextInput.hpp>
-#include "../sources/ModListSource.hpp"
-#include "../GeodeStyle.hpp"
-#include <server/Server.hpp>
-#include <Geode/utils/async.hpp>
+#include <Geode/ui/Popup.hpp> // :3
+#include <Geode/ui/TextInput.hpp> // :3
+#include "../sources/ModListSource.hpp" // :3
+#include "../GeodeStyle.hpp" // :3
+#include <server/Server.hpp> // :3
+#include <Geode/utils/async.hpp> // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-class FiltersPopup : public GeodePopup {
-protected:
-    ModListSource* m_source;
-    CCMenu* m_tagsMenu;
-    std::unordered_set<std::string> m_selectedTags;
-    ListenerHandle m_tagsHandle;
-    async::TaskHolder<server::ServerResult<std::vector<server::ServerTag>>> m_tagsListener;
-    CCMenuItemToggler* m_enabledModsOnly = nullptr;
-    CCMenuItemToggler* m_enabledModsFirst = nullptr;
-    TextInput* m_developerNameInput = nullptr;
+class FiltersPopup : public GeodePopup { // :3
+protected: // :3
+    ModListSource* m_source; // :3
+    CCMenu* m_tagsMenu; // :3
+    std::unordered_set<std::string> m_selectedTags; // :3
+    ListenerHandle m_tagsHandle; // :3
+    async::TaskHolder<server::ServerResult<std::vector<server::ServerTag>>> m_tagsListener; // :3
+    CCMenuItemToggler* m_enabledModsOnly = nullptr; // :3
+    CCMenuItemToggler* m_enabledModsFirst = nullptr; // :3
+    TextInput* m_developerNameInput = nullptr; // :3
 
-    bool init(ModListSource* src);
-    void updateTags();
-    
-    void onLoadTags(server::ServerResult<std::vector<server::ServerTag>> result);
-    void onResetTags(CCObject*);
-    void onResetDevName(CCObject*);
-    void onSelectTag(CCObject* sender);
-    void onClose(CCObject* sender) override;
+    bool init(ModListSource* src); // :3
+    void updateTags(); // :3
+     // :3
+    void onLoadTags(server::ServerResult<std::vector<server::ServerTag>> result); // :3
+    void onResetTags(CCObject*); // :3
+    void onResetDevName(CCObject*); // :3
+    void onSelectTag(CCObject* sender); // :3
+    void onClose(CCObject* sender) override; // :3
 
-public:
-    static FiltersPopup* create(ModListSource* src);
-};
+public: // :3
+    static FiltersPopup* create(ModListSource* src); // :3
+}; // :3

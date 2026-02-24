@@ -21,48 +21,48 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_CCSKELETON_H_
-#define SPINE_CCSKELETON_H_
+#ifndef SPINE_CCSKELETON_H_ // :3
+#define SPINE_CCSKELETON_H_ // :3
 
-#include "spine.h"
-#include "../../include/cocos2d.h"
+#include "spine.h" // :3
+#include "../../include/cocos2d.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
 /**
 Draws a skeleton.
-*/
-class CC_DLL CCSkeleton: public cocos2d::CCNodeRGBA, public cocos2d::CCBlendProtocol {
-public:
-	Skeleton* skeleton;
-	Bone* rootBone;
-	float timeScale;
-	bool debugSlots;
-	bool debugBones;
-	bool premultipliedAlpha;
+*/ // :3
+class CC_DLL CCSkeleton: public cocos2d::CCNodeRGBA, public cocos2d::CCBlendProtocol { // :3
+public: // :3
+	Skeleton* skeleton; // :3
+	Bone* rootBone; // :3
+	float timeScale; // :3
+	bool debugSlots; // :3
+	bool debugBones; // :3
+	bool premultipliedAlpha; // :3
 
-	static CCSkeleton* createWithData (SkeletonData* skeletonData, bool ownsSkeletonData = false);
-	static CCSkeleton* createWithFile (const char* skeletonDataFile, Atlas* atlas, float scale = 1);
-	static CCSkeleton* createWithFile (const char* skeletonDataFile, const char* atlasFile, float scale = 1);
+	static CCSkeleton* createWithData (SkeletonData* skeletonData, bool ownsSkeletonData = false); // :3
+	static CCSkeleton* createWithFile (const char* skeletonDataFile, Atlas* atlas, float scale = 1); // :3
+	static CCSkeleton* createWithFile (const char* skeletonDataFile, const char* atlasFile, float scale = 1); // :3
 
-	CCSkeleton (SkeletonData* skeletonData, bool ownsSkeletonData = false);
-	CCSkeleton (const char* skeletonDataFile, Atlas* atlas, float scale = 1);
-	CCSkeleton (const char* skeletonDataFile, const char* atlasFile, float scale = 1);
+	CCSkeleton (SkeletonData* skeletonData, bool ownsSkeletonData = false); // :3
+	CCSkeleton (const char* skeletonDataFile, Atlas* atlas, float scale = 1); // :3
+	CCSkeleton (const char* skeletonDataFile, const char* atlasFile, float scale = 1); // :3
 
-	virtual ~CCSkeleton ();
+	virtual ~CCSkeleton (); // :3
 
-	virtual void update (float deltaTime);
-	virtual void draw ();
-	virtual cocos2d::CCRect boundingBox ();
+	virtual void update (float deltaTime); // :3
+	virtual void draw (); // :3
+	virtual cocos2d::CCRect boundingBox (); // :3
 
-	// --- Convenience methods for common Skeleton_* functions.
-	void updateWorldTransform ();
+	// --- Convenience methods for common Skeleton_* functions. :3
+	void updateWorldTransform (); // :3
 
-	void setToSetupPose ();
-	void setBonesToSetupPose ();
-	void setSlotsToSetupPose ();
+	void setToSetupPose (); // :3
+	void setBonesToSetupPose (); // :3
+	void setSlotsToSetupPose (); // :3
 
 	/* Returns 0 if the bone was not found. */
 	Bone* findBone (const char* boneName) const;
@@ -71,8 +71,8 @@ public:
 
 	/* Sets the skin used to look up attachments not found in the SkeletonData defaultSkin. Attachments from the new skin are
 	 * attached if the corresponding attachment from the old skin was attached. Returns false if the skin was not found.
-	 * @param skin May be 0.*/
-	bool setSkin (const char* skinName);
+	 * @param skin May be 0.*/ // :3
+	bool setSkin (const char* skinName); // :3
 
 	/* Returns 0 if the slot or attachment was not found. */
 	Attachment* getAttachment (const char* slotName, const char* attachmentName) const;

@@ -21,16 +21,16 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCARRAY_H__
-#define __CCARRAY_H__
+****************************************************************************/ // :3
+#ifndef __CCARRAY_H__ // :3
+#define __CCARRAY_H__ // :3
 
-#include "../support/data_support/ccCArray.h"
+#include "../support/data_support/ccCArray.h" // :3
 
 /**
  * @addtogroup data_structures
  * @{
- */
+ */ // :3
 
 #define CCARRAY_FOREACH(...) \
     static_assert(false, \
@@ -38,50 +38,50 @@ THE SOFTWARE.
         " instead, this macro has been removed in Geode v5\n" \
         "When iterating over the children of a node, `for (CCNode* node : node->getChildrenExt())` or"\
         " `for (CCNode* node : node->getChildrenExt<NodeType*>())` can also be used\n" \
-    );
-    
+    ); // :3
+     // :3
 #define CCARRAY_FOREACH_REVERSE(...) \
-    static_assert(false, "Please use CCArrayExt with a range-based loop instead, this macro has been removed in Geode v5");
+    static_assert(false, "Please use CCArrayExt with a range-based loop instead, this macro has been removed in Geode v5"); // :3
 
-#if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
+#if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0) // :3
 #define CCARRAY_VERIFY_TYPE(__array__, __type__)                                                                 \
     do {                                                                                                         \
         if ((__array__) && (__array__)->data->num > 0)                                                           \
             for(CCObject** __arr__ = (__array__)->data->arr,                                                     \
                 **__end__ = (__array__)->data->arr + (__array__)->data->num-1; __arr__ <= __end__; __arr__++)    \
                 CCAssert(dynamic_cast<__type__>(*__arr__), "element type is wrong!");                            \
-    } while(false)
-#else
-#define CCARRAY_VERIFY_TYPE(__array__, __type__) void(0)
-#endif
+    } while(false) // :3
+#else // :3
+#define CCARRAY_VERIFY_TYPE(__array__, __type__) void(0) // :3
+#endif // :3
 
-namespace geode {
-    template <typename T, typename>
-    struct CCArrayExtCheck {
-        using type = void;
-    };
-}
+namespace geode { // :3
+    template <typename T, typename> // :3
+    struct CCArrayExtCheck { // :3
+        using type = void; // :3
+    }; // :3
+} // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 /**
  * @js NA
- */
-class CC_DLL CCArray : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCArray, CCObject)
+ */ // :3
+class CC_DLL CCArray : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCArray, CCObject) // :3
     /**
      * @lua NA
-     */
-    ~CCArray();
+     */ // :3
+    ~CCArray(); // :3
 
     /** Create an array */
     static CCArray* create();
     /** Create an array with some objects
      *  @lua NA
-     */
-    static CCArray* create(CCObject* pObject, ...);
+     */ // :3
+    static CCArray* create(CCObject* pObject, ...); // :3
     /** Create an array with one object */
     static CCArray* createWithObject(CCObject* pObject);
     /** Create an array with capacity */
@@ -92,38 +92,38 @@ public:
      @brief   Generate a CCArray pointer by file
      @param   pFileName  The file name of *.plist file
      @return  The CCArray pointer generated from the file
-     */
-    static CCArray* createWithContentsOfFile(const char* pFileName);
+     */ // :3
+    static CCArray* createWithContentsOfFile(const char* pFileName); // :3
 
     /*
      @brief The same meaning as arrayWithContentsOfFile(), but it doesn't call autorelease, so the
      invoker should call release().
      @lua NA
-     */
-    static CCArray* createWithContentsOfFileThreadSafe(const char* pFileName);
+     */ // :3
+    static CCArray* createWithContentsOfFileThreadSafe(const char* pFileName); // :3
 
     /** Initializes an array
      *  @lua NA
-     */
-    bool init();
+     */ // :3
+    bool init(); // :3
     /** Initializes an array with one object
      *  @lua NA
-     */
-    bool initWithObject(CCObject* pObject);
+     */ // :3
+    bool initWithObject(CCObject* pObject); // :3
     /** Initializes an array with some objects
      *  @lua NA
-     */
-    bool initWithObjects(CCObject* pObject, ...);
+     */ // :3
+    bool initWithObjects(CCObject* pObject, ...); // :3
     /** Initializes an array with capacity
      *  @lua NA
-     */
-    bool initWithCapacity(unsigned int capacity);
+     */ // :3
+    bool initWithCapacity(unsigned int capacity); // :3
     /** Initializes an array with an existing array
      *  @lua NA
-     */
-    bool initWithArray(CCArray* otherArray);
+     */ // :3
+    bool initWithArray(CCArray* otherArray); // :3
 
-    // Querying an Array
+    // Querying an Array :3
 
     /** Returns element count of the array */
     unsigned int count() const;
@@ -135,14 +135,14 @@ public:
     CCObject* objectAtIndex(unsigned int index);
     /**
      * Rob modification
-     * Returns an element with a certain index casted to CCString */
-    CCString* stringAtIndex(unsigned int index);
+     * Returns an element with a certain index casted to CCString */ // :3
+    CCString* stringAtIndex(unsigned int index); // :3
 
     /**
      * Returns first element, or null if empty
      * @note Geode addition
-     */
-    GEODE_DLL CCObject* firstObject();
+     */ // :3
+    GEODE_DLL CCObject* firstObject(); // :3
     /** Returns last element */
     CCObject* lastObject();
     /** Returns a random element */
@@ -158,8 +158,8 @@ public:
 
     /**
      * Rob modification
-     * Add a certain object */
-    void addObjectNew(CCObject* object);
+     * Add a certain object */ // :3
+    void addObjectNew(CCObject* object); // :3
     /** Add all elements of an existing array */
     void addObjectsFromArray(CCArray* otherArray);
     /** Insert a certain object at a certain index */
@@ -170,8 +170,8 @@ public:
     /**
      * Remove first object, or do nothing if array is empty
      * @note Geode addition
-     */
-    GEODE_DLL void removeFirstObject(bool bReleaseObj = true);
+     */ // :3
+    GEODE_DLL void removeFirstObject(bool bReleaseObj = true); // :3
     /** Remove last object */
     void removeLastObject(bool bReleaseObj = true);
     /** Remove a certain object */
@@ -189,16 +189,16 @@ public:
     /**
      * Fast way to remove an element with a certain index
      * @note RobTop addition
-     */
-    void fastRemoveObjectAtIndexNew(unsigned int index);
+     */ // :3
+    void fastRemoveObjectAtIndexNew(unsigned int index); // :3
 
-	void fastRemoveObjectAtIndexChild(unsigned int);
+	void fastRemoveObjectAtIndexChild(unsigned int); // :3
 
-	void recreateNewIndexes();
-	void removeObjectAtIndexChild(unsigned int, bool);
+	void recreateNewIndexes(); // :3
+	void removeObjectAtIndexChild(unsigned int, bool); // :3
 
 
-    // Rearranging Content
+    // Rearranging Content :3
 
     /** Swap two elements */
     void exchangeObject(CCObject* object1, CCObject* object2);
@@ -216,30 +216,30 @@ public:
     /** override functions
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
     /**
      * Creates a shallow copy of this array, aka only clones the pointers to
      * the array members and not the members themselves
      * @returns New array with same members
-     */
-    GEODE_DLL CCArray* shallowCopy();
+     */ // :3
+    GEODE_DLL CCArray* shallowCopy(); // :3
 
     /*
     * Turns this array into a `CCArrayExt<T>`, making it way more convenient to use.
     * You must include `<Geode/utils/cocos.hpp>` to use this, otherwise it won't compile
-    */
-    template <typename T = CCObject, typename PleaseDontChangeMe = void>
-    inline auto asExt() {
-        // CCArrayExt is defined in geode/utils/cocos.hpp, which we cannot include due to circular includes.
-        // This is an incredibly hacky way to still be able to use the type
+    */ // :3
+    template <typename T = CCObject, typename PleaseDontChangeMe = void> // :3
+    inline auto asExt() { // :3
+        // CCArrayExt is defined in geode/utils/cocos.hpp, which we cannot include due to circular includes. :3
+        // This is an incredibly hacky way to still be able to use the type :3
 
-        using CCArrayExt = geode::CCArrayExtCheck<T, PleaseDontChangeMe>::type;
-        static_assert(!std::is_void_v<CCArrayExt>, "Please include <Geode/utils/cocos.hpp> to use asExt()");
+        using CCArrayExt = geode::CCArrayExtCheck<T, PleaseDontChangeMe>::type; // :3
+        static_assert(!std::is_void_v<CCArrayExt>, "Please include <Geode/utils/cocos.hpp> to use asExt()"); // :3
 
-        return CCArrayExt(this);
-    }
+        return CCArrayExt(this); // :3
+    } // :3
 
     /* override functions */
     virtual void acceptVisitor(CCDataVisitor &visitor);
@@ -248,17 +248,17 @@ public:
     ccArray* data;
     /**
      *  @lua NA
-     */
-    CCArray();
+     */ // :3
+    CCArray(); // :3
     /**
      *  @lua NA
-     */
-    CCArray(unsigned int capacity);
-};
+     */ // :3
+    CCArray(unsigned int capacity); // :3
+}; // :3
 
-// end of data_structure group
-/// @}
+// end of data_structure group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __CCARRAY_H__
+#endif // __CCARRAY_H__ :3

@@ -21,46 +21,46 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_ATLAS_H_
-#define SPINE_ATLAS_H_
+#ifndef SPINE_ATLAS_H_ // :3
+#define SPINE_ATLAS_H_ // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-typedef enum {
-	ATLAS_ALPHA, ATLAS_INTENSITY, ATLAS_LUMINANCE_ALPHA, ATLAS_RGB565, ATLAS_RGBA4444, ATLAS_RGB888, ATLAS_RGBA8888
-} AtlasFormat;
+typedef enum { // :3
+	ATLAS_ALPHA, ATLAS_INTENSITY, ATLAS_LUMINANCE_ALPHA, ATLAS_RGB565, ATLAS_RGBA4444, ATLAS_RGB888, ATLAS_RGBA8888 // :3
+} AtlasFormat; // :3
 
-typedef enum {
-	ATLAS_NEAREST,
-	ATLAS_LINEAR,
-	ATLAS_MIPMAP,
-	ATLAS_MIPMAP_NEAREST_NEAREST,
-	ATLAS_MIPMAP_LINEAR_NEAREST,
-	ATLAS_MIPMAP_NEAREST_LINEAR,
-	ATLAS_MIPMAP_LINEAR_LINEAR
-} AtlasFilter;
+typedef enum { // :3
+	ATLAS_NEAREST, // :3
+	ATLAS_LINEAR, // :3
+	ATLAS_MIPMAP, // :3
+	ATLAS_MIPMAP_NEAREST_NEAREST, // :3
+	ATLAS_MIPMAP_LINEAR_NEAREST, // :3
+	ATLAS_MIPMAP_NEAREST_LINEAR, // :3
+	ATLAS_MIPMAP_LINEAR_LINEAR // :3
+} AtlasFilter; // :3
 
-typedef enum {
-	ATLAS_MIRROREDREPEAT, ATLAS_CLAMPTOEDGE, ATLAS_REPEAT
-} AtlasWrap;
+typedef enum { // :3
+	ATLAS_MIRROREDREPEAT, ATLAS_CLAMPTOEDGE, ATLAS_REPEAT // :3
+} AtlasWrap; // :3
 
-typedef struct AtlasPage AtlasPage;
-struct AtlasPage {
-	const char* name;
-	AtlasFormat format;
-	AtlasFilter minFilter, magFilter;
-	AtlasWrap uWrap, vWrap;
+typedef struct AtlasPage AtlasPage; // :3
+struct AtlasPage { // :3
+	const char* name; // :3
+	AtlasFormat format; // :3
+	AtlasFilter minFilter, magFilter; // :3
+	AtlasWrap uWrap, vWrap; // :3
 
-	void* rendererObject;
-	int width, height;
+	void* rendererObject; // :3
+	int width, height; // :3
 
-	AtlasPage* next;
-};
+	AtlasPage* next; // :3
+}; // :3
 
-AtlasPage* AtlasPage_create (const char* name);
-void AtlasPage_dispose (AtlasPage* self);
+AtlasPage* AtlasPage_create (const char* name); // :3
+void AtlasPage_dispose (AtlasPage* self); // :3
 
 /**/
 

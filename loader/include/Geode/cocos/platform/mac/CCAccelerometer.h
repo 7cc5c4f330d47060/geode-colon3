@@ -20,27 +20,27 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __PLATFORM_MAC_CCACCELEROMETER_H__
-#define __PLATFORM_MAC_CCACCELEROMETER_H__
+#ifndef __PLATFORM_MAC_CCACCELEROMETER_H__ // :3
+#define __PLATFORM_MAC_CCACCELEROMETER_H__ // :3
 
-#include "../CCAccelerometerDelegate.h"
+#include "../CCAccelerometerDelegate.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CC_DLL CCAccelerometer
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCAccelerometer)
-    CCAccelerometer() {}
-    ~CCAccelerometer() {}
+class CC_DLL CCAccelerometer // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCAccelerometer) // :3
+    CCAccelerometer() {} // :3
+    ~CCAccelerometer() {} // :3
 
-    void setDelegate(CCAccelerometerDelegate* pDelegate) { CC_UNUSED_PARAM(pDelegate); }
-    void setAccelerometerInterval(float interval) {CC_UNUSED_PARAM(interval);};
-};
+    void setDelegate(CCAccelerometerDelegate* pDelegate) { CC_UNUSED_PARAM(pDelegate); } // :3
+    void setAccelerometerInterval(float interval) {CC_UNUSED_PARAM(interval);}; // :3
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif
+#endif // :3

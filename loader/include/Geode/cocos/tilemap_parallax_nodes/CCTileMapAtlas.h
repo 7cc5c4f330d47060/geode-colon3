@@ -22,22 +22,22 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCTILE_MAP_ATLAS__
-#define __CCTILE_MAP_ATLAS__
+****************************************************************************/ // :3
+#ifndef __CCTILE_MAP_ATLAS__ // :3
+#define __CCTILE_MAP_ATLAS__ // :3
 
 
-#include "../base_nodes/CCAtlasNode.h"
+#include "../base_nodes/CCAtlasNode.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-struct sImageTGA;
-class CCDictionary;
+struct sImageTGA; // :3
+class CCDictionary; // :3
 
 /**
  * @addtogroup tilemap_parallax_nodes
  * @{
- */
+ */ // :3
 
 /** @brief CCTileMapAtlas is a subclass of CCAtlasNode.
 
@@ -53,42 +53,42 @@ IMPORTANT:
 This class is deprecated. It is maintained for compatibility reasons only.
 You SHOULD not use this class.
 Instead, use the newer TMX file format: CCTMXTiledMap
-*/
-class CC_DLL CCTileMapAtlas : public CCAtlasNode
-{
-    GEODE_FRIEND_MODIFY
+*/ // :3
+class CC_DLL CCTileMapAtlas : public CCAtlasNode // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
     /** TileMap info */
     CC_PROPERTY(struct sImageTGA*, m_pTGAInfo, TGAInfo);
 public:
     GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTileMapAtlas, CCAtlasNode)
     /**
      * @js ctor
-     */
-    CCTileMapAtlas();
+     */ // :3
+    CCTileMapAtlas(); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCTileMapAtlas();
+     */ // :3
+    virtual ~CCTileMapAtlas(); // :3
 
     /** creates a CCTileMap with a tile file (atlas) with a map file and the width and height of each tile in points.
     The tile file will be loaded using the TextureMgr.
-    */
-    static CCTileMapAtlas * create(const char *tile, const char *mapFile, int tileWidth, int tileHeight);
+    */ // :3
+    static CCTileMapAtlas * create(const char *tile, const char *mapFile, int tileWidth, int tileHeight); // :3
 
     /** initializes a CCTileMap with a tile file (atlas) with a map file and the width and height of each tile in points.
     The file will be loaded using the TextureMgr.
-    */
-    bool initWithTileFile(const char *tile, const char *mapFile, int tileWidth, int tileHeight);
+    */ // :3
+    bool initWithTileFile(const char *tile, const char *mapFile, int tileWidth, int tileHeight); // :3
     /** returns a tile from position x,y.
      For the moment only channel R is used
      @js getTileAt
-     */
-    ccColor3B tileAt(const CCPoint& position);
+     */ // :3
+    ccColor3B tileAt(const CCPoint& position); // :3
     /** sets a tile at position x,y.
     For the moment only channel R is used
-    */
-    void setTile(const ccColor3B& tile, const CCPoint& position);
+    */ // :3
+    void setTile(const ccColor3B& tile, const CCPoint& position); // :3
     /** dealloc the map from memory */
     void releaseMap();
 private:

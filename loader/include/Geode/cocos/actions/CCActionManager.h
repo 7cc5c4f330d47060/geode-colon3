@@ -23,25 +23,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __ACTION_CCACTION_MANAGER_H__
-#define __ACTION_CCACTION_MANAGER_H__
+#ifndef __ACTION_CCACTION_MANAGER_H__ // :3
+#define __ACTION_CCACTION_MANAGER_H__ // :3
 
-#include "CCAction.h"
-#include "../cocoa/CCArray.h"
-#include "../cocoa/CCObject.h"
+#include "CCAction.h" // :3
+#include "../cocoa/CCArray.h" // :3
+#include "../cocoa/CCObject.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCSet;
+class CCSet; // :3
 
-struct _hashElement;
+struct _hashElement; // :3
 
 /**
  * @addtogroup actions
  * @{
- */
+ */ // :3
 
 /**
  @brief CCActionManager is a singleton that manages all the actions.
@@ -53,93 +53,93 @@ struct _hashElement;
     - When you want to pause / resume the actions
 
  @since v0.8
- */
-class CC_DLL CCActionManager : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCActionManager : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
-     */
-    CCActionManager(void);
+     */ // :3
+    CCActionManager(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    ~CCActionManager(void);
+     */ // :3
+    ~CCActionManager(void); // :3
 
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCActionManager, CCObject);
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCActionManager, CCObject); // :3
 
-    // actions
+    // actions :3
 
     /** Adds an action with a target.
      If the target is already present, then the action will be added to the existing target.
      If the target is not present, a new instance of this target will be created either paused or not, and the action will be added to the newly created target.
      When the target is paused, the queued actions won't be 'ticked'.
-     */
-    void addAction(CCAction *pAction, CCNode *pTarget, bool paused);
+     */ // :3
+    void addAction(CCAction *pAction, CCNode *pTarget, bool paused); // :3
 
     /** Removes all actions from all the targets.
-    */
-    void removeAllActions(void);
+    */ // :3
+    void removeAllActions(void); // :3
 
     /** Removes all actions from a certain target.
      All the actions that belongs to the target will be removed.
-     */
-    void removeAllActionsFromTarget(CCObject *pTarget);
+     */ // :3
+    void removeAllActionsFromTarget(CCObject *pTarget); // :3
 
     /** Removes an action given an action reference.
-    */
-    void removeAction(CCAction *pAction);
+    */ // :3
+    void removeAction(CCAction *pAction); // :3
 
     /** Removes an action given its tag and the target */
     void removeActionByTag(unsigned int tag, CCObject *pTarget);
 
     /** Gets an action given its tag an a target
      @return the Action the with the given tag
-     */
-    CCAction* getActionByTag(unsigned int tag, CCObject *pTarget);
+     */ // :3
+    CCAction* getActionByTag(unsigned int tag, CCObject *pTarget); // :3
 
     /** Returns the numbers of actions that are running in a certain target.
      * Composable actions are counted as 1 action. Example:
      * - If you are running 1 Sequence of 7 actions, it will return 1.
      * - If you are running 7 Sequences of 2 actions, it will return 7.
-     */
-    unsigned int numberOfRunningActionsInTarget(CCObject *pTarget);
+     */ // :3
+    unsigned int numberOfRunningActionsInTarget(CCObject *pTarget); // :3
 
     /** Pauses the target: all running actions and newly added actions will be paused.
-    */
-    void pauseTarget(CCObject *pTarget);
+    */ // :3
+    void pauseTarget(CCObject *pTarget); // :3
 
     /** Resumes the target. All queued actions will be resumed.
-    */
-    void resumeTarget(CCObject *pTarget);
+    */ // :3
+    void resumeTarget(CCObject *pTarget); // :3
 
     /** Pauses all running actions, returning a list of targets whose actions were paused.
-     */
-    CCSet* pauseAllRunningActions();
+     */ // :3
+    CCSet* pauseAllRunningActions(); // :3
 
     /** Resume a set of targets (convenience function to reverse a pauseAllRunningActions call)
-     */
-    void resumeTargets(CCSet *targetsToResume);
+     */ // :3
+    void resumeTargets(CCSet *targetsToResume); // :3
 
-protected:
-    // declared in CCActionManager.m
+protected: // :3
+    // declared in CCActionManager.m :3
 
-    void removeActionAtIndex(unsigned int uIndex, struct _hashElement *pElement);
-    void deleteHashElement(struct _hashElement *pElement);
-    void actionAllocWithHashElement(struct _hashElement *pElement);
-    void update(float dt);
+    void removeActionAtIndex(unsigned int uIndex, struct _hashElement *pElement); // :3
+    void deleteHashElement(struct _hashElement *pElement); // :3
+    void actionAllocWithHashElement(struct _hashElement *pElement); // :3
+    void update(float dt); // :3
 
-public:
-    struct _hashElement    *m_pTargets;
-    struct _hashElement    *m_pCurrentTarget;
-    bool            m_bCurrentTargetSalvaged;
-};
+public: // :3
+    struct _hashElement    *m_pTargets; // :3
+    struct _hashElement    *m_pCurrentTarget; // :3
+    bool            m_bCurrentTargetSalvaged; // :3
+}; // :3
 
-// end of actions group
-/// @}
+// end of actions group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __ACTION_CCACTION_MANAGER_H__
+#endif // __ACTION_CCACTION_MANAGER_H__ :3

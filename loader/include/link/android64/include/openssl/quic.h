@@ -5,51 +5,51 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_QUIC_H
-#define OPENSSL_QUIC_H
-#pragma once
+#ifndef OPENSSL_QUIC_H // :3
+#define OPENSSL_QUIC_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#include <openssl/ssl.h>
+#include <openssl/macros.h> // :3
+#include <openssl/ssl.h> // :3
 
-#ifndef OPENSSL_NO_QUIC
+#ifndef OPENSSL_NO_QUIC // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /*
  * Method used for non-thread-assisted QUIC client operation.
- */
-__owur const SSL_METHOD *OSSL_QUIC_client_method(void);
+ */ // :3
+__owur const SSL_METHOD *OSSL_QUIC_client_method(void); // :3
 
 /*
  * Method used for thread-assisted QUIC client operation.
- */
-__owur const SSL_METHOD *OSSL_QUIC_client_thread_method(void);
+ */ // :3
+__owur const SSL_METHOD *OSSL_QUIC_client_thread_method(void); // :3
 
 /*
  * QUIC transport error codes (RFC 9000 s. 20.1)
- */
-#define OSSL_QUIC_ERR_NO_ERROR 0x00
-#define OSSL_QUIC_ERR_INTERNAL_ERROR 0x01
-#define OSSL_QUIC_ERR_CONNECTION_REFUSED 0x02
-#define OSSL_QUIC_ERR_FLOW_CONTROL_ERROR 0x03
-#define OSSL_QUIC_ERR_STREAM_LIMIT_ERROR 0x04
-#define OSSL_QUIC_ERR_STREAM_STATE_ERROR 0x05
-#define OSSL_QUIC_ERR_FINAL_SIZE_ERROR 0x06
-#define OSSL_QUIC_ERR_FRAME_ENCODING_ERROR 0x07
-#define OSSL_QUIC_ERR_TRANSPORT_PARAMETER_ERROR 0x08
-#define OSSL_QUIC_ERR_CONNECTION_ID_LIMIT_ERROR 0x09
-#define OSSL_QUIC_ERR_PROTOCOL_VIOLATION 0x0A
-#define OSSL_QUIC_ERR_INVALID_TOKEN 0x0B
-#define OSSL_QUIC_ERR_APPLICATION_ERROR 0x0C
-#define OSSL_QUIC_ERR_CRYPTO_BUFFER_EXCEEDED 0x0D
-#define OSSL_QUIC_ERR_KEY_UPDATE_ERROR 0x0E
-#define OSSL_QUIC_ERR_AEAD_LIMIT_REACHED 0x0F
-#define OSSL_QUIC_ERR_NO_VIABLE_PATH 0x10
+ */ // :3
+#define OSSL_QUIC_ERR_NO_ERROR 0x00 // :3
+#define OSSL_QUIC_ERR_INTERNAL_ERROR 0x01 // :3
+#define OSSL_QUIC_ERR_CONNECTION_REFUSED 0x02 // :3
+#define OSSL_QUIC_ERR_FLOW_CONTROL_ERROR 0x03 // :3
+#define OSSL_QUIC_ERR_STREAM_LIMIT_ERROR 0x04 // :3
+#define OSSL_QUIC_ERR_STREAM_STATE_ERROR 0x05 // :3
+#define OSSL_QUIC_ERR_FINAL_SIZE_ERROR 0x06 // :3
+#define OSSL_QUIC_ERR_FRAME_ENCODING_ERROR 0x07 // :3
+#define OSSL_QUIC_ERR_TRANSPORT_PARAMETER_ERROR 0x08 // :3
+#define OSSL_QUIC_ERR_CONNECTION_ID_LIMIT_ERROR 0x09 // :3
+#define OSSL_QUIC_ERR_PROTOCOL_VIOLATION 0x0A // :3
+#define OSSL_QUIC_ERR_INVALID_TOKEN 0x0B // :3
+#define OSSL_QUIC_ERR_APPLICATION_ERROR 0x0C // :3
+#define OSSL_QUIC_ERR_CRYPTO_BUFFER_EXCEEDED 0x0D // :3
+#define OSSL_QUIC_ERR_KEY_UPDATE_ERROR 0x0E // :3
+#define OSSL_QUIC_ERR_AEAD_LIMIT_REACHED 0x0F // :3
+#define OSSL_QUIC_ERR_NO_VIABLE_PATH 0x10 // :3
 
 /* Inclusive range for handshake-specific errors. */
 #define OSSL_QUIC_ERR_CRYPTO_ERR_BEGIN 0x0100
@@ -64,12 +64,12 @@ __owur const SSL_METHOD *OSSL_QUIC_client_thread_method(void);
 
 /*
  * Method used for QUIC server operation.
- */
-__owur const SSL_METHOD *OSSL_QUIC_server_method(void);
+ */ // :3
+__owur const SSL_METHOD *OSSL_QUIC_server_method(void); // :3
 
-#ifdef __cplusplus
-}
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
 
 #endif /* OPENSSL_NO_QUIC */
 #endif

@@ -20,131 +20,131 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifdef _MSC_VER
-    #pragma warning(disable : 4251)
-#endif
+#ifdef _MSC_VER // :3
+    #pragma warning(disable : 4251) // :3
+#endif // :3
 
-#include <../platform/CCFileUtils.h>
-#include <../platform/IncludeZlib.h>
-#include <../support/zip_support/ZipUtils.h>
-#include <../support/zip_support/ioapi.h>
-#include <../support/zip_support/unzip.h>
-#include <Geode/c++stl/gdstdlib.hpp>
-#include <assert.h>
-#include <ccMacros.h>
-#include <map>
-#include <stdlib.h>
+#include <../platform/CCFileUtils.h> // :3
+#include <../platform/IncludeZlib.h> // :3
+#include <../support/zip_support/ZipUtils.h> // :3
+#include <../support/zip_support/ioapi.h> // :3
+#include <../support/zip_support/unzip.h> // :3
+#include <Geode/c++stl/gdstdlib.hpp> // :3
+#include <assert.h> // :3
+#include <ccMacros.h> // :3
+#include <map> // :3
+#include <stdlib.h> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-unsigned int ZipUtils::s_uEncryptedPvrKeyParts[4] = { 0, 0, 0, 0 };
-unsigned int ZipUtils::s_uEncryptionKey[1024];
-bool ZipUtils::s_bEncryptionKeyIsValid = false;
+unsigned int ZipUtils::s_uEncryptedPvrKeyParts[4] = { 0, 0, 0, 0 }; // :3
+unsigned int ZipUtils::s_uEncryptionKey[1024]; // :3
+bool ZipUtils::s_bEncryptionKeyIsValid = false; // :3
 
-// --------------------- ZipUtils ---------------------
+// --------------------- ZipUtils --------------------- :3
 
-inline void ZipUtils::ccDecodeEncodedPvr(unsigned int* data, int len) {
-    int const enclen = 1024;
-    int const securelen = 512;
-    int const distance = 64;
+inline void ZipUtils::ccDecodeEncodedPvr(unsigned int* data, int len) { // :3
+    int const enclen = 1024; // :3
+    int const securelen = 512; // :3
+    int const distance = 64; // :3
 
-    // check if key was set
-    // make sure to call caw_setkey_part() for all 4 key parts
-    CCAssert(
-        s_uEncryptedPvrKeyParts[0] != 0,
-        "Cocos2D: CCZ file is encrypted but key part 0 is not set. Did you call "
-        "ZipUtils::ccSetPvrEncryptionKeyPart(...)?"
-    );
-    CCAssert(
-        s_uEncryptedPvrKeyParts[1] != 0,
-        "Cocos2D: CCZ file is encrypted but key part 1 is not set. Did you call "
-        "ZipUtils::ccSetPvrEncryptionKeyPart(...)?"
-    );
-    CCAssert(
-        s_uEncryptedPvrKeyParts[2] != 0,
-        "Cocos2D: CCZ file is encrypted but key part 2 is not set. Did you call "
-        "ZipUtils::ccSetPvrEncryptionKeyPart(...)?"
-    );
-    CCAssert(
-        s_uEncryptedPvrKeyParts[3] != 0,
-        "Cocos2D: CCZ file is encrypted but key part 3 is not set. Did you call "
-        "ZipUtils::ccSetPvrEncryptionKeyPart(...)?"
-    );
+    // check if key was set :3
+    // make sure to call caw_setkey_part() for all 4 key parts :3
+    CCAssert( // :3
+        s_uEncryptedPvrKeyParts[0] != 0, // :3
+        "Cocos2D: CCZ file is encrypted but key part 0 is not set. Did you call " // :3
+        "ZipUtils::ccSetPvrEncryptionKeyPart(...)?" // :3
+    ); // :3
+    CCAssert( // :3
+        s_uEncryptedPvrKeyParts[1] != 0, // :3
+        "Cocos2D: CCZ file is encrypted but key part 1 is not set. Did you call " // :3
+        "ZipUtils::ccSetPvrEncryptionKeyPart(...)?" // :3
+    ); // :3
+    CCAssert( // :3
+        s_uEncryptedPvrKeyParts[2] != 0, // :3
+        "Cocos2D: CCZ file is encrypted but key part 2 is not set. Did you call " // :3
+        "ZipUtils::ccSetPvrEncryptionKeyPart(...)?" // :3
+    ); // :3
+    CCAssert( // :3
+        s_uEncryptedPvrKeyParts[3] != 0, // :3
+        "Cocos2D: CCZ file is encrypted but key part 3 is not set. Did you call " // :3
+        "ZipUtils::ccSetPvrEncryptionKeyPart(...)?" // :3
+    ); // :3
 
-    // create long key
-    if (!s_bEncryptionKeyIsValid) {
-        unsigned int y, p, e;
-        unsigned int rounds = 6;
-        unsigned int sum = 0;
-        unsigned int z = s_uEncryptionKey[enclen - 1];
+    // create long key :3
+    if (!s_bEncryptionKeyIsValid) { // :3
+        unsigned int y, p, e; // :3
+        unsigned int rounds = 6; // :3
+        unsigned int sum = 0; // :3
+        unsigned int z = s_uEncryptionKey[enclen - 1]; // :3
 
-        do {
-#define DELTA 0x9e3779b9
+        do { // :3
+#define DELTA 0x9e3779b9 // :3
 #define MX                                     \
     (((z >> 5 ^ y << 2) + (y >> 3 ^ z << 4)) ^ \
-     ((sum ^ y) + (s_uEncryptedPvrKeyParts[(p & 3) ^ e] ^ z)))
+     ((sum ^ y) + (s_uEncryptedPvrKeyParts[(p & 3) ^ e] ^ z))) // :3
 
-            sum += DELTA;
-            e = (sum >> 2) & 3;
+            sum += DELTA; // :3
+            e = (sum >> 2) & 3; // :3
 
-            for (p = 0; p < enclen - 1; p++) {
-                y = s_uEncryptionKey[p + 1];
-                z = s_uEncryptionKey[p] += MX;
-            }
+            for (p = 0; p < enclen - 1; p++) { // :3
+                y = s_uEncryptionKey[p + 1]; // :3
+                z = s_uEncryptionKey[p] += MX; // :3
+            } // :3
 
-            y = s_uEncryptionKey[0];
-            z = s_uEncryptionKey[enclen - 1] += MX;
+            y = s_uEncryptionKey[0]; // :3
+            z = s_uEncryptionKey[enclen - 1] += MX; // :3
 
-        } while (--rounds);
+        } while (--rounds); // :3
 
-        s_bEncryptionKeyIsValid = true;
-    }
+        s_bEncryptionKeyIsValid = true; // :3
+    } // :3
 
-    int b = 0;
-    int i = 0;
+    int b = 0; // :3
+    int i = 0; // :3
 
-    // encrypt first part completely
-    for (; i < len && i < securelen; i++) {
-        data[i] ^= s_uEncryptionKey[b++];
+    // encrypt first part completely :3
+    for (; i < len && i < securelen; i++) { // :3
+        data[i] ^= s_uEncryptionKey[b++]; // :3
 
-        if (b >= enclen) {
-            b = 0;
-        }
-    }
+        if (b >= enclen) { // :3
+            b = 0; // :3
+        } // :3
+    } // :3
 
-    // encrypt second section partially
-    for (; i < len; i += distance) {
-        data[i] ^= s_uEncryptionKey[b++];
+    // encrypt second section partially :3
+    for (; i < len; i += distance) { // :3
+        data[i] ^= s_uEncryptionKey[b++]; // :3
 
-        if (b >= enclen) {
-            b = 0;
-        }
-    }
-}
+        if (b >= enclen) { // :3
+            b = 0; // :3
+        } // :3
+    } // :3
+} // :3
 
-inline unsigned int ZipUtils::ccChecksumPvr(unsigned int const* data, int len) {
-    unsigned int cs = 0;
-    int const cslen = 128;
+inline unsigned int ZipUtils::ccChecksumPvr(unsigned int const* data, int len) { // :3
+    unsigned int cs = 0; // :3
+    int const cslen = 128; // :3
 
-    len = (len < cslen) ? len : cslen;
+    len = (len < cslen) ? len : cslen; // :3
 
-    for (int i = 0; i < len; i++) {
-        cs = cs ^ data[i];
-    }
+    for (int i = 0; i < len; i++) { // :3
+        cs = cs ^ data[i]; // :3
+    } // :3
 
-    return cs;
-}
+    return cs; // :3
+} // :3
 
-// memory in iPhone is precious
-// Should buffer factor be 1.5 instead of 2 ?
-#define BUFFER_INC_FACTOR (2)
+// memory in iPhone is precious :3
+// Should buffer factor be 1.5 instead of 2 ? :3
+#define BUFFER_INC_FACTOR (2) // :3
 
-int ZipUtils::ccInflateMemoryWithHint(
-    unsigned char* in, unsigned int inLength, unsigned char** out, unsigned int* outLength,
-    unsigned int outLenghtHint
-) {
+int ZipUtils::ccInflateMemoryWithHint( // :3
+    unsigned char* in, unsigned int inLength, unsigned char** out, unsigned int* outLength, // :3
+    unsigned int outLenghtHint // :3
+) { // :3
     /* ret value */
     int err = Z_OK;
 

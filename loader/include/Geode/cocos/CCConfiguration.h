@@ -21,41 +21,41 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCCONFIGURATION_H__
-#define __CCCONFIGURATION_H__
+#ifndef __CCCONFIGURATION_H__ // :3
+#define __CCCONFIGURATION_H__ // :3
 
-#include "cocoa/CCObject.h"
-#include "platform/CCGL.h"
-#include "cocoa/CCString.h"
-#include <string>
+#include "cocoa/CCObject.h" // :3
+#include "platform/CCGL.h" // :3
+#include "cocoa/CCString.h" // :3
+#include <string> // :3
 
 
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-typedef enum _ccConfigurationType {
-    ConfigurationError,
-    ConfigurationString,
-    ConfigurationInt,
-    ConfigurationDouble,
-    ConfigurationBoolean
-} ccConfigurationType;
+typedef enum _ccConfigurationType { // :3
+    ConfigurationError, // :3
+    ConfigurationString, // :3
+    ConfigurationInt, // :3
+    ConfigurationDouble, // :3
+    ConfigurationBoolean // :3
+} ccConfigurationType; // :3
 
 
 /**
  * @addtogroup global
  * @{
- */
+ */ // :3
 /**
  @brief CCConfiguration contains some openGL variables
  @since v0.99.0
- */
-class CC_DLL CCConfiguration : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCConfiguration : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /** returns a shared instance of CCConfiguration */
     static CCConfiguration *sharedConfiguration(void);
 
@@ -67,8 +67,8 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-	virtual ~CCConfiguration(void);
+     */ // :3
+	virtual ~CCConfiguration(void); // :3
 
     /** OpenGL Max texture size. */
 	int getMaxTextureSize(void) const;
@@ -78,33 +78,33 @@ public:
 
     /** returns the maximum texture units
      @since v2.0.0
-     */
-	int getMaxTextureUnits(void) const;
+     */ // :3
+	int getMaxTextureUnits(void) const; // :3
 
     /** Whether or not the GPU supports NPOT (Non Power Of Two) textures.
      OpenGL ES 2.0 already supports NPOT (iOS).
 
      @since v0.99.2
-     */
-	bool supportsNPOT(void) const;
+     */ // :3
+	bool supportsNPOT(void) const; // :3
 
     /** Whether or not PVR Texture Compressed is supported */
 	bool supportsPVRTC(void) const;
 
     /** Whether or not BGRA8888 textures are supported.
      @since v0.99.2
-     */
-	bool supportsBGRA8888(void) const;
+     */ // :3
+	bool supportsBGRA8888(void) const; // :3
 
     /** Whether or not glDiscardFramebufferEXT is supported
      @since v0.99.2
-     */
-	bool supportsDiscardFramebuffer(void) const;
+     */ // :3
+	bool supportsDiscardFramebuffer(void) const; // :3
 
     /** Whether or not shareable VAOs are supported.
      @since v2.0.0
-     */
-	bool supportsShareableVAO(void) const;
+     */ // :3
+	bool supportsShareableVAO(void) const; // :3
 
     /** returns whether or not an OpenGL is supported */
     bool checkForGLExtension(const gd::string &searchName) const;
@@ -112,16 +112,16 @@ public:
     bool init(void);
 
 	/** returns the value of a given key as a string.
-	 If the key is not found, it will return the default value */
-	const char* getCString( const char *key, const char *default_value=NULL ) const;
+	 If the key is not found, it will return the default value */ // :3
+	const char* getCString( const char *key, const char *default_value=NULL ) const; // :3
 
 	/** returns the value of a given key as a boolean.
-	 If the key is not found, it will return the default value */
-	bool getBool( const char *key, bool default_value=false ) const;
+	 If the key is not found, it will return the default value */ // :3
+	bool getBool( const char *key, bool default_value=false ) const; // :3
 
 	/** returns the value of a given key as a double.
-	 If the key is not found, it will return the default value */
-	double getNumber( const char *key, double default_value=0.0 ) const;
+	 If the key is not found, it will return the default value */ // :3
+	double getNumber( const char *key, double default_value=0.0 ) const; // :3
 
 	/** returns the value of a given key as a double */
 	CCObject * getObject( const char *key ) const;

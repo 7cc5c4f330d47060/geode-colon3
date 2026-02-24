@@ -5,52 +5,52 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_ENCODER_H
-#define OPENSSL_ENCODER_H
-#pragma once
+#ifndef OPENSSL_ENCODER_H // :3
+#define OPENSSL_ENCODER_H // :3
+#pragma once // :3
 
-#include <openssl/opensslconf.h>
+#include <openssl/opensslconf.h> // :3
 
-#ifndef OPENSSL_NO_STDIO
-#include <stdio.h>
-#endif
-#include <stdarg.h>
-#include <stddef.h>
-#include <openssl/encodererr.h>
-#include <openssl/types.h>
-#include <openssl/core.h>
+#ifndef OPENSSL_NO_STDIO // :3
+#include <stdio.h> // :3
+#endif // :3
+#include <stdarg.h> // :3
+#include <stddef.h> // :3
+#include <openssl/encodererr.h> // :3
+#include <openssl/types.h> // :3
+#include <openssl/core.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-OSSL_ENCODER *OSSL_ENCODER_fetch(OSSL_LIB_CTX *libctx, const char *name,
-    const char *properties);
-int OSSL_ENCODER_up_ref(OSSL_ENCODER *encoder);
-void OSSL_ENCODER_free(OSSL_ENCODER *encoder);
+OSSL_ENCODER *OSSL_ENCODER_fetch(OSSL_LIB_CTX *libctx, const char *name, // :3
+    const char *properties); // :3
+int OSSL_ENCODER_up_ref(OSSL_ENCODER *encoder); // :3
+void OSSL_ENCODER_free(OSSL_ENCODER *encoder); // :3
 
-const OSSL_PROVIDER *OSSL_ENCODER_get0_provider(const OSSL_ENCODER *encoder);
-const char *OSSL_ENCODER_get0_properties(const OSSL_ENCODER *encoder);
-const char *OSSL_ENCODER_get0_name(const OSSL_ENCODER *kdf);
-const char *OSSL_ENCODER_get0_description(const OSSL_ENCODER *kdf);
-int OSSL_ENCODER_is_a(const OSSL_ENCODER *encoder, const char *name);
+const OSSL_PROVIDER *OSSL_ENCODER_get0_provider(const OSSL_ENCODER *encoder); // :3
+const char *OSSL_ENCODER_get0_properties(const OSSL_ENCODER *encoder); // :3
+const char *OSSL_ENCODER_get0_name(const OSSL_ENCODER *kdf); // :3
+const char *OSSL_ENCODER_get0_description(const OSSL_ENCODER *kdf); // :3
+int OSSL_ENCODER_is_a(const OSSL_ENCODER *encoder, const char *name); // :3
 
-void OSSL_ENCODER_do_all_provided(OSSL_LIB_CTX *libctx,
-    void (*fn)(OSSL_ENCODER *encoder, void *arg),
-    void *arg);
-int OSSL_ENCODER_names_do_all(const OSSL_ENCODER *encoder,
-    void (*fn)(const char *name, void *data),
-    void *data);
-const OSSL_PARAM *OSSL_ENCODER_gettable_params(OSSL_ENCODER *encoder);
-int OSSL_ENCODER_get_params(OSSL_ENCODER *encoder, OSSL_PARAM params[]);
+void OSSL_ENCODER_do_all_provided(OSSL_LIB_CTX *libctx, // :3
+    void (*fn)(OSSL_ENCODER *encoder, void *arg), // :3
+    void *arg); // :3
+int OSSL_ENCODER_names_do_all(const OSSL_ENCODER *encoder, // :3
+    void (*fn)(const char *name, void *data), // :3
+    void *data); // :3
+const OSSL_PARAM *OSSL_ENCODER_gettable_params(OSSL_ENCODER *encoder); // :3
+int OSSL_ENCODER_get_params(OSSL_ENCODER *encoder, OSSL_PARAM params[]); // :3
 
-const OSSL_PARAM *OSSL_ENCODER_settable_ctx_params(OSSL_ENCODER *encoder);
-OSSL_ENCODER_CTX *OSSL_ENCODER_CTX_new(void);
-int OSSL_ENCODER_CTX_set_params(OSSL_ENCODER_CTX *ctx,
-    const OSSL_PARAM params[]);
-void OSSL_ENCODER_CTX_free(OSSL_ENCODER_CTX *ctx);
+const OSSL_PARAM *OSSL_ENCODER_settable_ctx_params(OSSL_ENCODER *encoder); // :3
+OSSL_ENCODER_CTX *OSSL_ENCODER_CTX_new(void); // :3
+int OSSL_ENCODER_CTX_set_params(OSSL_ENCODER_CTX *ctx, // :3
+    const OSSL_PARAM params[]); // :3
+void OSSL_ENCODER_CTX_free(OSSL_ENCODER_CTX *ctx); // :3
 
 /* Utilities that help set specific parameters */
 int OSSL_ENCODER_CTX_set_passphrase(OSSL_ENCODER_CTX *ctx,
@@ -111,14 +111,14 @@ int OSSL_ENCODER_to_data(OSSL_ENCODER_CTX *ctx, unsigned char **pdata,
  * Create the OSSL_ENCODER_CTX with an associated type.  This will perform
  * an implicit OSSL_ENCODER_fetch(), suitable for the object of that type.
  * This is more useful than calling OSSL_ENCODER_CTX_new().
- */
-OSSL_ENCODER_CTX *OSSL_ENCODER_CTX_new_for_pkey(const EVP_PKEY *pkey,
-    int selection,
-    const char *output_type,
-    const char *output_struct,
-    const char *propquery);
+ */ // :3
+OSSL_ENCODER_CTX *OSSL_ENCODER_CTX_new_for_pkey(const EVP_PKEY *pkey, // :3
+    int selection, // :3
+    const char *output_type, // :3
+    const char *output_struct, // :3
+    const char *propquery); // :3
 
-#ifdef __cplusplus
-}
-#endif
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
+#endif // :3

@@ -20,19 +20,19 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __PLATFOMR_CCNS_H__
-#define __PLATFOMR_CCNS_H__
+#ifndef __PLATFOMR_CCNS_H__ // :3
+#define __PLATFOMR_CCNS_H__ // :3
 
-#include "CCGeometry.h"
+#include "CCGeometry.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup data_structures
  * @{
- */
+ */ // :3
 
 /**
 @brief Returns a Core Graphics rectangle structure corresponding to the data in a given string.
@@ -43,8 +43,8 @@ NS_CC_BEGIN
                     The string is not localized, so items are always separated with a comma.
 @return A Core Graphics structure that represents a rectangle.
         If the string is not well-formed, the function returns CCRectZero.
-*/
-CCRect CC_DLL CCRectFromString(const char* pszContent);
+*/ // :3
+CCRect CC_DLL CCRectFromString(const char* pszContent); // :3
 
 /**
 @brief Returns a Core Graphics point structure corresponding to the data in a given string.
@@ -55,8 +55,8 @@ CCRect CC_DLL CCRectFromString(const char* pszContent);
                     The string is not localized, so items are always separated with a comma.
 @return A Core Graphics structure that represents a point.
         If the string is not well-formed, the function returns CCPointZero.
-*/
-CCPoint CC_DLL CCPointFromString(const char* pszContent);
+*/ // :3
+CCPoint CC_DLL CCPointFromString(const char* pszContent); // :3
 
 /**
 @brief Returns a Core Graphics size structure corresponding to the data in a given string.
@@ -67,14 +67,14 @@ CCPoint CC_DLL CCPointFromString(const char* pszContent);
                     The string is not localized, so items are always separated with a comma.
 @return A Core Graphics structure that represents a size.
         If the string is not well-formed, the function returns CCSizeZero.
-*/
-CCSize CC_DLL CCSizeFromString(const char* pszContent);
+*/ // :3
+CCSize CC_DLL CCSizeFromString(const char* pszContent); // :3
 
-// end of data_structure group
-/// @}
+// end of data_structure group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __PLATFOMR_CCNS_H__
+#endif // __PLATFOMR_CCNS_H__ :3
 
 

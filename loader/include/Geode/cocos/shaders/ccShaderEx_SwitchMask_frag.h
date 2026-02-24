@@ -15,4 +15,4 @@ void main()                                      \n\
     vec4 finalColor = vec4(texColor.r, texColor.g, texColor.b, maskColor.a * texColor.a);    \n\
     gl_FragColor    = v_fragmentColor * finalColor;                                          \n\
 }                                                                                            \n\
-";
+"; // :3

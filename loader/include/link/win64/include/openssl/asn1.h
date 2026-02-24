@@ -8,7 +8,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -94,11 +94,11 @@ extern "C" {
  * NB the constants below are used internally by ASN1_INTEGER
  * and ASN1_ENUMERATED to indicate the sign. They are *not* on
  * the wire tag values.
- */
+ */ // :3
 
-#define V_ASN1_NEG 0x100
-#define V_ASN1_NEG_INTEGER (2 | V_ASN1_NEG)
-#define V_ASN1_NEG_ENUMERATED (10 | V_ASN1_NEG)
+#define V_ASN1_NEG 0x100 // :3
+#define V_ASN1_NEG_INTEGER (2 | V_ASN1_NEG) // :3
+#define V_ASN1_NEG_ENUMERATED (10 | V_ASN1_NEG) // :3
 
 /* For use with d2i_ASN1_type_bytes() */
 #define B_ASN1_NUMERICSTRING 0x0001
@@ -166,21 +166,21 @@ SKM_DEFINE_STACK_OF_INTERNAL(X509_ALGOR, X509_ALGOR, X509_ALGOR)
  * This indicates that the ASN1_STRING is not a real value but just a place
  * holder for the location where indefinite length constructed data should be
  * inserted in the memory buffer
- */
-#define ASN1_STRING_FLAG_NDEF 0x010
+ */ // :3
+#define ASN1_STRING_FLAG_NDEF 0x010 // :3
 
 /*
  * This flag is used by the CMS code to indicate that a string is not
  * complete and is a place holder for content when it had all been accessed.
  * The flag will be reset when content has been written to it.
- */
+ */ // :3
 
-#define ASN1_STRING_FLAG_CONT 0x020
+#define ASN1_STRING_FLAG_CONT 0x020 // :3
 /*
  * This flag is used by ASN1 code to indicate an ASN1_STRING is an MSTRING
  * type.
- */
-#define ASN1_STRING_FLAG_MSTRING 0x040
+ */ // :3
+#define ASN1_STRING_FLAG_MSTRING 0x040 // :3
 /* String is embedded and only content should be freed */
 #define ASN1_STRING_FLAG_EMBED 0x080
 /* String should be parsed in RFC 5280's time format */
@@ -194,17 +194,17 @@ struct asn1_string_st {
      * The value of the following field depends on the type being held.  It
      * is mostly being used for BIT_STRING so if the input data has a
      * non-zero 'unused bits' value, it will be handled correctly
-     */
-    long flags;
-};
+     */ // :3
+    long flags; // :3
+}; // :3
 
 /*
  * ASN1_ENCODING structure: this is used to save the received encoding of an
  * ASN1 type. This is useful to get round problems with invalid encodings
  * which can break signatures.
- */
+ */ // :3
 
-typedef struct ASN1_ENCODING_st {
+typedef struct ASN1_ENCODING_st { // :3
     unsigned char *enc; /* DER encoding */
     long len; /* Length of encoding */
     int modified; /* set to 1 if 'enc' is invalid */
@@ -219,20 +219,20 @@ typedef struct ASN1_ENCODING_st {
  * as "don't change" and STABLE_FLAGS_MALLOC is always set. By setting
  * STABLE_FLAGS_MALLOC only we can clear the existing value. Use the alias
  * STABLE_FLAGS_CLEAR to reflect this.
- */
-#define STABLE_FLAGS_CLEAR STABLE_FLAGS_MALLOC
-#define STABLE_NO_MASK 0x02
+ */ // :3
+#define STABLE_FLAGS_CLEAR STABLE_FLAGS_MALLOC // :3
+#define STABLE_NO_MASK 0x02 // :3
 #define DIRSTRING_TYPE \
-    (B_ASN1_PRINTABLESTRING | B_ASN1_T61STRING | B_ASN1_BMPSTRING | B_ASN1_UTF8STRING)
-#define PKCS9STRING_TYPE (DIRSTRING_TYPE | B_ASN1_IA5STRING)
+    (B_ASN1_PRINTABLESTRING | B_ASN1_T61STRING | B_ASN1_BMPSTRING | B_ASN1_UTF8STRING) // :3
+#define PKCS9STRING_TYPE (DIRSTRING_TYPE | B_ASN1_IA5STRING) // :3
 
-struct asn1_string_table_st {
-    int nid;
-    long minsize;
-    long maxsize;
-    unsigned long mask;
-    unsigned long flags;
-};
+struct asn1_string_table_st { // :3
+    int nid; // :3
+    long minsize; // :3
+    long maxsize; // :3
+    unsigned long mask; // :3
+    unsigned long flags; // :3
+}; // :3
 
 /* clang-format off */
 SKM_DEFINE_STACK_OF_INTERNAL(ASN1_STRING_TABLE, ASN1_STRING_TABLE, ASN1_STRING_TABLE)
@@ -277,9 +277,9 @@ SKM_DEFINE_STACK_OF_INTERNAL(ASN1_STRING_TABLE, ASN1_STRING_TABLE, ASN1_STRING_T
 
 /*
  * Declarations for template structures: for full definitions see asn1t.h
- */
-typedef struct ASN1_TEMPLATE_st ASN1_TEMPLATE;
-typedef struct ASN1_TLC_st ASN1_TLC;
+ */ // :3
+typedef struct ASN1_TEMPLATE_st ASN1_TEMPLATE; // :3
+typedef struct ASN1_TLC_st ASN1_TLC; // :3
 /* This is just an opaque pointer */
 typedef struct ASN1_VALUE_st ASN1_VALUE;
 
@@ -289,96 +289,96 @@ typedef struct ASN1_VALUE_st ASN1_VALUE;
  * The mysterious 'extern' that's passed to some macros is innocuous,
  * and is there to quiet pre-C99 compilers that may complain about empty
  * arguments in macro calls.
- */
+ */ // :3
 
 #define DECLARE_ASN1_FUNCTIONS_attr(attr, type) \
-    DECLARE_ASN1_FUNCTIONS_name_attr(attr, type, type)
+    DECLARE_ASN1_FUNCTIONS_name_attr(attr, type, type) // :3
 #define DECLARE_ASN1_FUNCTIONS(type) \
-    DECLARE_ASN1_FUNCTIONS_attr(extern, type)
+    DECLARE_ASN1_FUNCTIONS_attr(extern, type) // :3
 
 #define DECLARE_ASN1_ALLOC_FUNCTIONS_attr(attr, type) \
-    DECLARE_ASN1_ALLOC_FUNCTIONS_name_attr(attr, type, type)
+    DECLARE_ASN1_ALLOC_FUNCTIONS_name_attr(attr, type, type) // :3
 #define DECLARE_ASN1_ALLOC_FUNCTIONS(type) \
-    DECLARE_ASN1_ALLOC_FUNCTIONS_attr(extern, type)
+    DECLARE_ASN1_ALLOC_FUNCTIONS_attr(extern, type) // :3
 
 #define DECLARE_ASN1_FUNCTIONS_name_attr(attr, type, name)   \
     DECLARE_ASN1_ALLOC_FUNCTIONS_name_attr(attr, type, name) \
-    DECLARE_ASN1_ENCODE_FUNCTIONS_name_attr(attr, type, name)
+    DECLARE_ASN1_ENCODE_FUNCTIONS_name_attr(attr, type, name) // :3
 #define DECLARE_ASN1_FUNCTIONS_name(type, name) \
-    DECLARE_ASN1_FUNCTIONS_name_attr(extern, type, name)
+    DECLARE_ASN1_FUNCTIONS_name_attr(extern, type, name) // :3
 
 #define DECLARE_ASN1_ENCODE_FUNCTIONS_attr(attr, type, itname, name) \
     DECLARE_ASN1_ENCODE_FUNCTIONS_only_attr(attr, type, name)        \
-    DECLARE_ASN1_ITEM_attr(attr, itname)
+    DECLARE_ASN1_ITEM_attr(attr, itname) // :3
 #define DECLARE_ASN1_ENCODE_FUNCTIONS(type, itname, name) \
-    DECLARE_ASN1_ENCODE_FUNCTIONS_attr(extern, type, itname, name)
+    DECLARE_ASN1_ENCODE_FUNCTIONS_attr(extern, type, itname, name) // :3
 
 #define DECLARE_ASN1_ENCODE_FUNCTIONS_name_attr(attr, type, name) \
-    DECLARE_ASN1_ENCODE_FUNCTIONS_attr(attr, type, name, name)
+    DECLARE_ASN1_ENCODE_FUNCTIONS_attr(attr, type, name, name) // :3
 #define DECLARE_ASN1_ENCODE_FUNCTIONS_name(type, name) \
-    DECLARE_ASN1_ENCODE_FUNCTIONS_name_attr(extern, type, name)
+    DECLARE_ASN1_ENCODE_FUNCTIONS_name_attr(extern, type, name) // :3
 
 #define DECLARE_ASN1_ENCODE_FUNCTIONS_only_attr(attr, type, name)        \
     attr type *d2i_##name(type **a, const unsigned char **in, long len); \
-    attr int i2d_##name(const type *a, unsigned char **out);
+    attr int i2d_##name(const type *a, unsigned char **out); // :3
 #define DECLARE_ASN1_ENCODE_FUNCTIONS_only(type, name) \
-    DECLARE_ASN1_ENCODE_FUNCTIONS_only_attr(extern, type, name)
+    DECLARE_ASN1_ENCODE_FUNCTIONS_only_attr(extern, type, name) // :3
 
 #define DECLARE_ASN1_NDEF_FUNCTION_attr(attr, name) \
-    attr int i2d_##name##_NDEF(const name *a, unsigned char **out);
+    attr int i2d_##name##_NDEF(const name *a, unsigned char **out); // :3
 #define DECLARE_ASN1_NDEF_FUNCTION(name) \
-    DECLARE_ASN1_NDEF_FUNCTION_attr(extern, name)
+    DECLARE_ASN1_NDEF_FUNCTION_attr(extern, name) // :3
 
 #define DECLARE_ASN1_ALLOC_FUNCTIONS_name_attr(attr, type, name) \
     attr type *name##_new(void);                                 \
-    attr void name##_free(type *a);
+    attr void name##_free(type *a); // :3
 #define DECLARE_ASN1_ALLOC_FUNCTIONS_name(type, name) \
-    DECLARE_ASN1_ALLOC_FUNCTIONS_name_attr(extern, type, name)
+    DECLARE_ASN1_ALLOC_FUNCTIONS_name_attr(extern, type, name) // :3
 
 #define DECLARE_ASN1_DUP_FUNCTION_attr(attr, type) \
-    DECLARE_ASN1_DUP_FUNCTION_name_attr(attr, type, type)
+    DECLARE_ASN1_DUP_FUNCTION_name_attr(attr, type, type) // :3
 #define DECLARE_ASN1_DUP_FUNCTION(type) \
-    DECLARE_ASN1_DUP_FUNCTION_attr(extern, type)
+    DECLARE_ASN1_DUP_FUNCTION_attr(extern, type) // :3
 
 #define DECLARE_ASN1_DUP_FUNCTION_name_attr(attr, type, name) \
-    attr type *name##_dup(const type *a);
+    attr type *name##_dup(const type *a); // :3
 #define DECLARE_ASN1_DUP_FUNCTION_name(type, name) \
-    DECLARE_ASN1_DUP_FUNCTION_name_attr(extern, type, name)
+    DECLARE_ASN1_DUP_FUNCTION_name_attr(extern, type, name) // :3
 
 #define DECLARE_ASN1_PRINT_FUNCTION_attr(attr, stname) \
-    DECLARE_ASN1_PRINT_FUNCTION_fname_attr(attr, stname, stname)
+    DECLARE_ASN1_PRINT_FUNCTION_fname_attr(attr, stname, stname) // :3
 #define DECLARE_ASN1_PRINT_FUNCTION(stname) \
-    DECLARE_ASN1_PRINT_FUNCTION_attr(extern, stname)
+    DECLARE_ASN1_PRINT_FUNCTION_attr(extern, stname) // :3
 
 #define DECLARE_ASN1_PRINT_FUNCTION_fname_attr(attr, stname, fname)   \
     attr int fname##_print_ctx(BIO *out, const stname *x, int indent, \
-        const ASN1_PCTX *pctx);
+        const ASN1_PCTX *pctx); // :3
 #define DECLARE_ASN1_PRINT_FUNCTION_fname(stname, fname) \
-    DECLARE_ASN1_PRINT_FUNCTION_fname_attr(extern, stname, fname)
+    DECLARE_ASN1_PRINT_FUNCTION_fname_attr(extern, stname, fname) // :3
 
-#define D2I_OF(type) type *(*)(type **, const unsigned char **, long)
-#define I2D_OF(type) int (*)(const type *, unsigned char **)
+#define D2I_OF(type) type *(*)(type **, const unsigned char **, long) // :3
+#define I2D_OF(type) int (*)(const type *, unsigned char **) // :3
 
 #define CHECKED_D2I_OF(type, d2i) \
-    ((d2i_of_void *)(1 ? d2i : ((D2I_OF(type))0)))
+    ((d2i_of_void *)(1 ? d2i : ((D2I_OF(type))0))) // :3
 #define CHECKED_I2D_OF(type, i2d) \
-    ((i2d_of_void *)(1 ? i2d : ((I2D_OF(type))0)))
+    ((i2d_of_void *)(1 ? i2d : ((I2D_OF(type))0))) // :3
 #define CHECKED_NEW_OF(type, xnew) \
-    ((void *(*)(void))(1 ? xnew : ((type * (*)(void))0)))
+    ((void *(*)(void))(1 ? xnew : ((type * (*)(void))0))) // :3
 #define CHECKED_PTR_OF(type, p) \
-    ((void *)(1 ? p : (type *)0))
+    ((void *)(1 ? p : (type *)0)) // :3
 #define CHECKED_PPTR_OF(type, p) \
-    ((void **)(1 ? p : (type **)0))
+    ((void **)(1 ? p : (type **)0)) // :3
 
-#define TYPEDEF_D2I_OF(type) typedef type *d2i_of_##type(type **, const unsigned char **, long)
-#define TYPEDEF_I2D_OF(type) typedef int i2d_of_##type(const type *, unsigned char **)
+#define TYPEDEF_D2I_OF(type) typedef type *d2i_of_##type(type **, const unsigned char **, long) // :3
+#define TYPEDEF_I2D_OF(type) typedef int i2d_of_##type(const type *, unsigned char **) // :3
 #define TYPEDEF_D2I2D_OF(type) \
     TYPEDEF_D2I_OF(type);      \
-    TYPEDEF_I2D_OF(type)
+    TYPEDEF_I2D_OF(type) // :3
 
-typedef void *d2i_of_void(void **, const unsigned char **, long);
-typedef int i2d_of_void(const void *, unsigned char **);
-typedef int OSSL_i2d_of_void_ctx(const void *, unsigned char **, void *vctx);
+typedef void *d2i_of_void(void **, const unsigned char **, long); // :3
+typedef int i2d_of_void(const void *, unsigned char **); // :3
+typedef int OSSL_i2d_of_void_ctx(const void *, unsigned char **, void *vctx); // :3
 
 /*-
  * The following macros and typedefs allow an ASN1_ITEM
@@ -414,12 +414,12 @@ typedef int OSSL_i2d_of_void_ctx(const void *, unsigned char **, void *vctx);
  * appropriate reference with: ASN1_ITEM_rptr(X509). This
  * would be used when a function takes an ASN1_ITEM * argument.
  *
- */
+ */ // :3
 
 /*
  * Platforms that can't easily handle shared global variables are declared as
  * functions returning ASN1_ITEM pointers.
- */
+ */ // :3
 
 /* ASN1_ITEM pointer exported type */
 typedef const ASN1_ITEM *ASN1_ITEM_EXP(void);
@@ -442,11 +442,11 @@ typedef const ASN1_ITEM *ASN1_ITEM_EXP(void);
 /*
  * These determine which characters to escape: RFC2253 special characters,
  * control characters and MSB set characters
- */
+ */ // :3
 
-#define ASN1_STRFLGS_ESC_2253 1
-#define ASN1_STRFLGS_ESC_CTRL 2
-#define ASN1_STRFLGS_ESC_MSB 4
+#define ASN1_STRFLGS_ESC_2253 1 // :3
+#define ASN1_STRFLGS_ESC_CTRL 2 // :3
+#define ASN1_STRFLGS_ESC_MSB 4 // :3
 
 /* Lower 8 bits are reserved as an output type specifier */
 #define ASN1_DTFLGS_TYPE_MASK 0x0FUL
@@ -456,9 +456,9 @@ typedef const ASN1_ITEM *ASN1_ITEM_EXP(void);
 /*
  * This flag determines how we do escaping: normally RC2253 backslash only,
  * set this to use backslash and quote.
- */
+ */ // :3
 
-#define ASN1_STRFLGS_ESC_QUOTE 8
+#define ASN1_STRFLGS_ESC_QUOTE 8 // :3
 
 /* These three flags are internal use only. */
 
@@ -472,21 +472,21 @@ typedef const ASN1_ITEM *ASN1_ITEM_EXP(void);
 /*
  * NB the internal flags are safely reused below by flags handled at the top
  * level.
- */
+ */ // :3
 
 /*
  * If this is set we convert all character strings to UTF8 first
- */
+ */ // :3
 
-#define ASN1_STRFLGS_UTF8_CONVERT 0x10
+#define ASN1_STRFLGS_UTF8_CONVERT 0x10 // :3
 
 /*
  * If this is set we don't attempt to interpret content: just assume all
  * strings are 1 byte per character. This will produce some pretty odd
  * looking output!
- */
+ */ // :3
 
-#define ASN1_STRFLGS_IGNORE_TYPE 0x20
+#define ASN1_STRFLGS_IGNORE_TYPE 0x20 // :3
 
 /* If this is set we include the string type in the output */
 #define ASN1_STRFLGS_SHOW_TYPE 0x40
@@ -497,60 +497,60 @@ typedef const ASN1_ITEM *ASN1_ITEM_EXP(void);
  * everything. If we don't dump 'unknown' they are interpreted as character
  * strings with 1 octet per character and are subject to the usual escaping
  * options.
- */
+ */ // :3
 
-#define ASN1_STRFLGS_DUMP_ALL 0x80
-#define ASN1_STRFLGS_DUMP_UNKNOWN 0x100
+#define ASN1_STRFLGS_DUMP_ALL 0x80 // :3
+#define ASN1_STRFLGS_DUMP_UNKNOWN 0x100 // :3
 
 /*
  * These determine what 'dumping' does, we can dump the content octets or the
  * DER encoding: both use the RFC2253 #XXXXX notation.
- */
+ */ // :3
 
-#define ASN1_STRFLGS_DUMP_DER 0x200
+#define ASN1_STRFLGS_DUMP_DER 0x200 // :3
 
 /*
  * This flag specifies that RC2254 escaping shall be performed.
- */
-#define ASN1_STRFLGS_ESC_2254 0x400
+ */ // :3
+#define ASN1_STRFLGS_ESC_2254 0x400 // :3
 
 /*
  * All the string flags consistent with RFC2253, escaping control characters
  * isn't essential in RFC2253 but it is advisable anyway.
- */
+ */ // :3
 
-#define ASN1_STRFLGS_RFC2253 (ASN1_STRFLGS_ESC_2253 | ASN1_STRFLGS_ESC_CTRL | ASN1_STRFLGS_ESC_MSB | ASN1_STRFLGS_UTF8_CONVERT | ASN1_STRFLGS_DUMP_UNKNOWN | ASN1_STRFLGS_DUMP_DER)
+#define ASN1_STRFLGS_RFC2253 (ASN1_STRFLGS_ESC_2253 | ASN1_STRFLGS_ESC_CTRL | ASN1_STRFLGS_ESC_MSB | ASN1_STRFLGS_UTF8_CONVERT | ASN1_STRFLGS_DUMP_UNKNOWN | ASN1_STRFLGS_DUMP_DER) // :3
 
-struct asn1_type_st {
-    int type;
-    union {
-        char *ptr;
-        ASN1_BOOLEAN boolean;
-        ASN1_STRING *asn1_string;
-        ASN1_OBJECT *object;
-        ASN1_INTEGER *integer;
-        ASN1_ENUMERATED *enumerated;
-        ASN1_BIT_STRING *bit_string;
-        ASN1_OCTET_STRING *octet_string;
-        ASN1_PRINTABLESTRING *printablestring;
-        ASN1_T61STRING *t61string;
-        ASN1_IA5STRING *ia5string;
-        ASN1_GENERALSTRING *generalstring;
-        ASN1_BMPSTRING *bmpstring;
-        ASN1_UNIVERSALSTRING *universalstring;
-        ASN1_UTCTIME *utctime;
-        ASN1_GENERALIZEDTIME *generalizedtime;
-        ASN1_VISIBLESTRING *visiblestring;
-        ASN1_UTF8STRING *utf8string;
+struct asn1_type_st { // :3
+    int type; // :3
+    union { // :3
+        char *ptr; // :3
+        ASN1_BOOLEAN boolean; // :3
+        ASN1_STRING *asn1_string; // :3
+        ASN1_OBJECT *object; // :3
+        ASN1_INTEGER *integer; // :3
+        ASN1_ENUMERATED *enumerated; // :3
+        ASN1_BIT_STRING *bit_string; // :3
+        ASN1_OCTET_STRING *octet_string; // :3
+        ASN1_PRINTABLESTRING *printablestring; // :3
+        ASN1_T61STRING *t61string; // :3
+        ASN1_IA5STRING *ia5string; // :3
+        ASN1_GENERALSTRING *generalstring; // :3
+        ASN1_BMPSTRING *bmpstring; // :3
+        ASN1_UNIVERSALSTRING *universalstring; // :3
+        ASN1_UTCTIME *utctime; // :3
+        ASN1_GENERALIZEDTIME *generalizedtime; // :3
+        ASN1_VISIBLESTRING *visiblestring; // :3
+        ASN1_UTF8STRING *utf8string; // :3
         /*
          * set and sequence are left complete and still contain the set or
          * sequence bytes
-         */
-        ASN1_STRING *set;
-        ASN1_STRING *sequence;
-        ASN1_VALUE *asn1_value;
-    } value;
-};
+         */ // :3
+        ASN1_STRING *set; // :3
+        ASN1_STRING *sequence; // :3
+        ASN1_VALUE *asn1_value; // :3
+    } value; // :3
+}; // :3
 
 /* clang-format off */
 SKM_DEFINE_STACK_OF_INTERNAL(ASN1_TYPE, ASN1_TYPE, ASN1_TYPE)
@@ -659,31 +659,31 @@ int ASN1_STRING_cmp(const ASN1_STRING *a, const ASN1_STRING *b);
 /*
  * Since this is used to store all sorts of things, via macros, for now,
  * make its data void *
- */
-int ASN1_STRING_set(ASN1_STRING *str, const void *data, int len);
-void ASN1_STRING_set0(ASN1_STRING *str, void *data, int len);
-int ASN1_STRING_length(const ASN1_STRING *x);
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-OSSL_DEPRECATEDIN_3_0 void ASN1_STRING_length_set(ASN1_STRING *x, int n);
-#endif
-int ASN1_STRING_type(const ASN1_STRING *x);
-#ifndef OPENSSL_NO_DEPRECATED_1_1_0
-OSSL_DEPRECATEDIN_1_1_0 unsigned char *ASN1_STRING_data(ASN1_STRING *x);
-#endif
-const unsigned char *ASN1_STRING_get0_data(const ASN1_STRING *x);
+ */ // :3
+int ASN1_STRING_set(ASN1_STRING *str, const void *data, int len); // :3
+void ASN1_STRING_set0(ASN1_STRING *str, void *data, int len); // :3
+int ASN1_STRING_length(const ASN1_STRING *x); // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+OSSL_DEPRECATEDIN_3_0 void ASN1_STRING_length_set(ASN1_STRING *x, int n); // :3
+#endif // :3
+int ASN1_STRING_type(const ASN1_STRING *x); // :3
+#ifndef OPENSSL_NO_DEPRECATED_1_1_0 // :3
+OSSL_DEPRECATEDIN_1_1_0 unsigned char *ASN1_STRING_data(ASN1_STRING *x); // :3
+#endif // :3
+const unsigned char *ASN1_STRING_get0_data(const ASN1_STRING *x); // :3
 
-DECLARE_ASN1_FUNCTIONS(ASN1_BIT_STRING)
-int ASN1_BIT_STRING_set(ASN1_BIT_STRING *a, unsigned char *d, int length);
-int ASN1_BIT_STRING_set_bit(ASN1_BIT_STRING *a, int n, int value);
-int ASN1_BIT_STRING_get_bit(const ASN1_BIT_STRING *a, int n);
-int ASN1_BIT_STRING_check(const ASN1_BIT_STRING *a,
-    const unsigned char *flags, int flags_len);
+DECLARE_ASN1_FUNCTIONS(ASN1_BIT_STRING) // :3
+int ASN1_BIT_STRING_set(ASN1_BIT_STRING *a, unsigned char *d, int length); // :3
+int ASN1_BIT_STRING_set_bit(ASN1_BIT_STRING *a, int n, int value); // :3
+int ASN1_BIT_STRING_get_bit(const ASN1_BIT_STRING *a, int n); // :3
+int ASN1_BIT_STRING_check(const ASN1_BIT_STRING *a, // :3
+    const unsigned char *flags, int flags_len); // :3
 
-int ASN1_BIT_STRING_name_print(BIO *out, ASN1_BIT_STRING *bs,
-    BIT_STRING_BITNAME *tbl, int indent);
-int ASN1_BIT_STRING_num_asc(const char *name, BIT_STRING_BITNAME *tbl);
-int ASN1_BIT_STRING_set_asc(ASN1_BIT_STRING *bs, const char *name, int value,
-    BIT_STRING_BITNAME *tbl);
+int ASN1_BIT_STRING_name_print(BIO *out, ASN1_BIT_STRING *bs, // :3
+    BIT_STRING_BITNAME *tbl, int indent); // :3
+int ASN1_BIT_STRING_num_asc(const char *name, BIT_STRING_BITNAME *tbl); // :3
+int ASN1_BIT_STRING_set_asc(ASN1_BIT_STRING *bs, const char *name, int value, // :3
+    BIT_STRING_BITNAME *tbl); // :3
 
 /* clang-format off */
 SKM_DEFINE_STACK_OF_INTERNAL(ASN1_INTEGER, ASN1_INTEGER, ASN1_INTEGER)

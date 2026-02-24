@@ -27,63 +27,63 @@
  * THE SOFTWARE.
  *
  * Converted to c++ / cocos2d-x by Angus C
- */
+ */ // :3
 
 
-#ifndef __CCCONTROL_HUE_PICKER_H__
-#define __CCCONTROL_HUE_PICKER_H__
+#ifndef __CCCONTROL_HUE_PICKER_H__ // :3
+#define __CCCONTROL_HUE_PICKER_H__ // :3
 
-#include "CCControl.h"
-#include "CCInvocation.h"
+#include "CCControl.h" // :3
+#include "CCInvocation.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup control_extension
  * @{
- */
+ */ // :3
 
-class CC_DLL CCControlHuePicker : public CCControl
-{
-    GEODE_FRIEND_MODIFY
+class CC_DLL CCControlHuePicker : public CCControl // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
 
-    //maunally put in the setters
-    CC_SYNTHESIZE_READONLY_NV(float, m_hue, Hue);
-    virtual void setHue(float val);
-    CC_SYNTHESIZE_READONLY_NV(float, m_huePercentage, HuePercentage);
-    virtual void setHuePercentage(float val);
+    //maunally put in the setters :3
+    CC_SYNTHESIZE_READONLY_NV(float, m_hue, Hue); // :3
+    virtual void setHue(float val); // :3
+    CC_SYNTHESIZE_READONLY_NV(float, m_huePercentage, HuePercentage); // :3
+    virtual void setHuePercentage(float val); // :3
 
 
-    //not sure if these need to be there actually. I suppose someone might want to access the sprite?
-    CC_SYNTHESIZE_NV_RETAIN(CCSprite*, m_background, Background);
-    CC_SYNTHESIZE_NV_RETAIN(CCSprite*, m_slider, Slider);
-    CC_SYNTHESIZE_READONLY_NV(CCPoint, m_startPos, StartPos);
+    //not sure if these need to be there actually. I suppose someone might want to access the sprite? :3
+    CC_SYNTHESIZE_NV_RETAIN(CCSprite*, m_background, Background); // :3
+    CC_SYNTHESIZE_NV_RETAIN(CCSprite*, m_slider, Slider); // :3
+    CC_SYNTHESIZE_READONLY_NV(CCPoint, m_startPos, StartPos); // :3
 
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCControlHuePicker, CCControl)
-    CCControlHuePicker();
-    virtual ~CCControlHuePicker();
-    virtual bool initWithTargetAndPos(CCNode* target, CCPoint pos);
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCControlHuePicker, CCControl) // :3
+    CCControlHuePicker(); // :3
+    virtual ~CCControlHuePicker(); // :3
+    virtual bool initWithTargetAndPos(CCNode* target, CCPoint pos); // :3
 
-    static CCControlHuePicker* create(CCNode* target, CCPoint pos);
-    virtual void setEnabled(bool enabled);
+    static CCControlHuePicker* create(CCNode* target, CCPoint pos); // :3
+    virtual void setEnabled(bool enabled); // :3
 
-    // @note RobTop Addition
-    virtual void registerWithTouchDispatcher();
-protected:
-    void updateSliderPosition(CCPoint location);
-    bool checkSliderPosition(CCPoint location);
+    // @note RobTop Addition :3
+    virtual void registerWithTouchDispatcher(); // :3
+protected: // :3
+    void updateSliderPosition(CCPoint location); // :3
+    bool checkSliderPosition(CCPoint location); // :3
 
-    virtual bool ccTouchBegan(CCTouch* touch, CCEvent* pEvent);
-    virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
-};
+    virtual bool ccTouchBegan(CCTouch* touch, CCEvent* pEvent); // :3
+    virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent); // :3
+}; // :3
 
-// end of GUI group
-/// @}
-/// @}
+// end of GUI group :3
+/// @} :3
+/// @} :3
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
-#endif
+#endif // :3

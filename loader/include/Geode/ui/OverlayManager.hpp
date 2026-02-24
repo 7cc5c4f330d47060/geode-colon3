@@ -1,11 +1,11 @@
-#pragma once
+#pragma once // :3
 
-#include "../DefaultInclude.hpp"
-#include <cocos2d.h>
+#include "../DefaultInclude.hpp" // :3
+#include <cocos2d.h> // :3
 
-namespace geode {
-    class GEODE_DLL OverlayManager final : public cocos2d::CCNode {
-    public:
-        static OverlayManager* get();
-    };
-}
+namespace geode { // :3
+    class GEODE_DLL OverlayManager final : public cocos2d::CCNode { // :3
+    public: // :3
+        static OverlayManager* get(); // :3
+    }; // :3
+} // :3

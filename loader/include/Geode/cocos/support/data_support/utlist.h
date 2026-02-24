@@ -19,14 +19,14 @@ PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
 LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+*/ // :3
 
-#ifndef UTLIST_H
-#define UTLIST_H
+#ifndef UTLIST_H // :3
+#define UTLIST_H // :3
 
-#define UTLIST_VERSION 1.9.8
+#define UTLIST_VERSION 1.9.8 // :3
 
-#include <assert.h>
+#include <assert.h> // :3
 
 /*
  * This file contains macros to manipulate singly and doubly-linked lists.
@@ -57,12 +57,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * For doubly-linked lists, the append and delete macros are O(1)
  * For singly-linked lists, append and delete are O(n) but prepend is O(1)
  * The sort macro is O(n log(n)) for all types of single/double/circular lists.
- */
+ */ // :3
 
 /* These macros use decltype or the earlier __typeof GNU extension.
    As decltype is only available in newer compilers (VS2010 or gcc 4.3+
    when compiling c++ code), this code uses whatever method is needed
-   or, for VS2008 where neither is available, uses casting workarounds. */
+   or, for VS2008 where neither is available, uses casting workarounds. */ // :3
 #ifdef _MSC_VER            /* MS compiler */
 #if _MSC_VER >= 1600 && defined(__cplusplus)  /* VS2010 or newer in C++ mode */
 #define LDECLTYPE(x) decltype(x)
@@ -76,11 +76,11 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 /* for VS2008 we use some workarounds to get around the lack of decltype,
  * namely, we always reassign our tmp variable to the list head if we need
- * to dereference its prev/next pointers, and save/restore the real head.*/
-#ifdef NO_DECLTYPE
-#define _SV(elt,list) _tmp = (char*)(list); {char **_alias = (char**)&(list); *_alias = (elt); }
-#define _NEXT(elt,list,next) ((char*)((list)->next))
-#define _NEXTASGN(elt,list,to,next) { char **_alias = (char**)&((list)->next); *_alias=(char*)(to); }
+ * to dereference its prev/next pointers, and save/restore the real head.*/ // :3
+#ifdef NO_DECLTYPE // :3
+#define _SV(elt,list) _tmp = (char*)(list); {char **_alias = (char**)&(list); *_alias = (elt); } // :3
+#define _NEXT(elt,list,next) ((char*)((list)->next)) // :3
+#define _NEXTASGN(elt,list,to,next) { char **_alias = (char**)&((list)->next); *_alias=(char*)(to); } // :3
 /* #define _PREV(elt,list,prev) ((char*)((list)->prev)) */
 #define _PREVASGN(elt,list,to,prev) { char **_alias = (char**)&((list)->prev); *_alias=(char*)(to); }
 #define _RS(list) { char **_alias = (char**)&(list); *_alias=_tmp; }
@@ -98,9 +98,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /******************************************************************************
  * The sort macro is an adaptation of Simon Tatham's O(n log(n)) mergesort    *
  * Unwieldy variable names used here to avoid shadowing passed-in variables.  *
- *****************************************************************************/
+ *****************************************************************************/ // :3
 #define LL_SORT(list, cmp)                                                                     \
-    LL_SORT2(list, cmp, next)
+    LL_SORT2(list, cmp, next) // :3
 
 #define LL_SORT2(list, cmp, next)                                                              \
 do {                                                                                           \
@@ -159,11 +159,11 @@ do {                                                                            
       _ls_insize *= 2;                                                                         \
     }                                                                                          \
   }                                                                                            \
-} while (0)
+} while (0) // :3
 
 
 #define DL_SORT(list, cmp)                                                                     \
-    DL_SORT2(list, cmp, prev, next)
+    DL_SORT2(list, cmp, prev, next) // :3
 
 #define DL_SORT2(list, cmp, prev, next)                                                        \
 do {                                                                                           \
@@ -222,10 +222,10 @@ do {                                                                            
       _ls_insize *= 2;                                                                         \
     }                                                                                          \
   }                                                                                            \
-} while (0)
+} while (0) // :3
 
 #define CDL_SORT(list, cmp)                                                                    \
-    CDL_SORT2(list, cmp, prev, next)
+    CDL_SORT2(list, cmp, prev, next) // :3
 
 #define CDL_SORT2(list, cmp, prev, next)                                                       \
 do {                                                                                           \
@@ -298,22 +298,22 @@ do {                                                                            
       _ls_insize *= 2;                                                                         \
     }                                                                                          \
   }                                                                                            \
-} while (0)
+} while (0) // :3
 
 /******************************************************************************
  * singly linked list macros (non-circular)                                   *
- *****************************************************************************/
+ *****************************************************************************/ // :3
 #define LL_PREPEND(head,add)                                                                   \
-    LL_PREPEND2(head,add,next)
+    LL_PREPEND2(head,add,next) // :3
 
 #define LL_PREPEND2(head,add,next)                                                             \
 do {                                                                                           \
   (add)->next = head;                                                                          \
   head = add;                                                                                  \
-} while (0)
+} while (0) // :3
 
 #define LL_CONCAT(head1,head2)                                                                 \
-    LL_CONCAT2(head1,head2,next)
+    LL_CONCAT2(head1,head2,next) // :3
 
 #define LL_CONCAT2(head1,head2,next)                                                           \
 do {                                                                                           \
@@ -325,10 +325,10 @@ do {                                                                            
   } else {                                                                                     \
     (head1)=(head2);                                                                           \
   }                                                                                            \
-} while (0)
+} while (0) // :3
 
 #define LL_APPEND(head,add)                                                                    \
-    LL_APPEND2(head,add,next)
+    LL_APPEND2(head,add,next) // :3
 
 #define LL_APPEND2(head,add,next)                                                              \
 do {                                                                                           \
@@ -341,10 +341,10 @@ do {                                                                            
   } else {                                                                                     \
     (head)=(add);                                                                              \
   }                                                                                            \
-} while (0)
+} while (0) // :3
 
 #define LL_DELETE(head,del)                                                                    \
-    LL_DELETE2(head,del,next)
+    LL_DELETE2(head,del,next) // :3
 
 #define LL_DELETE2(head,del,next)                                                              \
 do {                                                                                           \
@@ -360,7 +360,7 @@ do {                                                                            
       _tmp->next = ((del)->next);                                                              \
     }                                                                                          \
   }                                                                                            \
-} while (0)
+} while (0) // :3
 
 /* Here are VS2008 replacements for LL_APPEND and LL_DELETE */
 #define LL_APPEND_VS2008(head,add)                                                             \
@@ -488,9 +488,9 @@ do {                                                                            
 
 /******************************************************************************
  * doubly linked list macros (non-circular)                                   *
- *****************************************************************************/
+ *****************************************************************************/ // :3
 #define DL_PREPEND(head,add)                                                                   \
-    DL_PREPEND2(head,add,prev,next)
+    DL_PREPEND2(head,add,prev,next) // :3
 
 #define DL_PREPEND2(head,add,prev,next)                                                        \
 do {                                                                                           \
@@ -502,10 +502,10 @@ do {                                                                            
    (add)->prev = (add);                                                                        \
  }                                                                                             \
  (head) = (add);                                                                               \
-} while (0)
+} while (0) // :3
 
 #define DL_APPEND(head,add)                                                                    \
-    DL_APPEND2(head,add,prev,next)
+    DL_APPEND2(head,add,prev,next) // :3
 
 #define DL_APPEND2(head,add,prev,next)                                                         \
 do {                                                                                           \
@@ -519,10 +519,10 @@ do {                                                                            
       (head)->prev = (head);                                                                   \
       (head)->next = NULL;                                                                     \
   }                                                                                            \
-} while (0)
+} while (0) // :3
 
 #define DL_CONCAT(head1,head2)                                                                 \
-    DL_CONCAT2(head1,head2,prev,next)
+    DL_CONCAT2(head1,head2,prev,next) // :3
 
 #define DL_CONCAT2(head1,head2,prev,next)                                                      \
 do {                                                                                           \
@@ -537,10 +537,10 @@ do {                                                                            
         (head1)=(head2);                                                                       \
     }                                                                                          \
   }                                                                                            \
-} while (0)
+} while (0) // :3
 
 #define DL_DELETE(head,del)                                                                    \
-    DL_DELETE2(head,del,prev,next)
+    DL_DELETE2(head,del,prev,next) // :3
 
 #define DL_DELETE2(head,del,prev,next)                                                         \
 do {                                                                                           \
@@ -558,14 +558,14 @@ do {                                                                            
           (head)->prev = (del)->prev;                                                          \
       }                                                                                        \
   }                                                                                            \
-} while (0)
+} while (0) // :3
 
 
 #define DL_FOREACH(head,el)                                                                    \
-    DL_FOREACH2(head,el,next)
+    DL_FOREACH2(head,el,next) // :3
 
 #define DL_FOREACH2(head,el,next)                                                              \
-    for(el=head;el;el=(el)->next)
+    for(el=head;el;el=(el)->next) // :3
 
 /* this version is safe for deleting the elements during iteration */
 #define DL_FOREACH_SAFE(head,el,tmp)                                                           \
@@ -624,9 +624,9 @@ do {                                                                            
 
 /******************************************************************************
  * circular doubly linked list macros                                         *
- *****************************************************************************/
+ *****************************************************************************/ // :3
 #define CDL_PREPEND(head,add)                                                                  \
-    CDL_PREPEND2(head,add,prev,next)
+    CDL_PREPEND2(head,add,prev,next) // :3
 
 #define CDL_PREPEND2(head,add,prev,next)                                                       \
 do {                                                                                           \
@@ -640,10 +640,10 @@ do {                                                                            
    (add)->next = (add);                                                                        \
  }                                                                                             \
 (head)=(add);                                                                                  \
-} while (0)
+} while (0) // :3
 
 #define CDL_DELETE(head,del)                                                                   \
-    CDL_DELETE2(head,del,prev,next)
+    CDL_DELETE2(head,del,prev,next) // :3
 
 #define CDL_DELETE2(head,del,prev,next)                                                        \
 do {                                                                                           \
@@ -654,41 +654,41 @@ do {                                                                            
      (del)->prev->next = (del)->next;                                                          \
      if ((del) == (head)) (head)=(del)->next;                                                  \
   }                                                                                            \
-} while (0)
+} while (0) // :3
 
 #define CDL_FOREACH(head,el)                                                                   \
-    CDL_FOREACH2(head,el,next)
+    CDL_FOREACH2(head,el,next) // :3
 
 #define CDL_FOREACH2(head,el,next)                                                             \
-    for(el=head;el;el=((el)->next==head ? 0L : (el)->next))
+    for(el=head;el;el=((el)->next==head ? 0L : (el)->next)) // :3
 
 #define CDL_FOREACH_SAFE(head,el,tmp1,tmp2)                                                    \
-    CDL_FOREACH_SAFE2(head,el,tmp1,tmp2,prev,next)
+    CDL_FOREACH_SAFE2(head,el,tmp1,tmp2,prev,next) // :3
 
 #define CDL_FOREACH_SAFE2(head,el,tmp1,tmp2,prev,next)                                         \
   for((el)=(head), ((tmp1)=(head)?((head)->prev):NULL);                                        \
       (el) && ((tmp2)=(el)->next, 1);                                                          \
-      ((el) = (((el)==(tmp1)) ? 0L : (tmp2))))
+      ((el) = (((el)==(tmp1)) ? 0L : (tmp2)))) // :3
 
 #define CDL_SEARCH_SCALAR(head,out,field,val)                                                  \
-    CDL_SEARCH_SCALAR2(head,out,field,val,next)
+    CDL_SEARCH_SCALAR2(head,out,field,val,next) // :3
 
 #define CDL_SEARCH_SCALAR2(head,out,field,val,next)                                            \
 do {                                                                                           \
     CDL_FOREACH2(head,out,next) {                                                              \
       if ((out)->field == (val)) break;                                                        \
     }                                                                                          \
-} while(0)
+} while(0) // :3
 
 #define CDL_SEARCH(head,out,elt,cmp)                                                           \
-    CDL_SEARCH2(head,out,elt,cmp,next)
+    CDL_SEARCH2(head,out,elt,cmp,next) // :3
 
 #define CDL_SEARCH2(head,out,elt,cmp,next)                                                     \
 do {                                                                                           \
     CDL_FOREACH2(head,out,next) {                                                              \
       if ((cmp(out,elt))==0) break;                                                            \
     }                                                                                          \
-} while(0)
+} while(0) // :3
 
 #define CDL_REPLACE_ELEM(head, el, add)                                                        \
 do {                                                                                           \
@@ -708,7 +708,7 @@ do {                                                                            
    (head) = (add);                                                                             \
   }                                                                                            \
  }                                                                                             \
-} while (0)
+} while (0) // :3
 
 #define CDL_PREPEND_ELEM(head, el, add)                                                        \
 do {                                                                                           \

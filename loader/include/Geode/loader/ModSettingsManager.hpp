@@ -1,30 +1,30 @@
-#pragma once
+#pragma once // :3
 
-#include <Geode/DefaultInclude.hpp>
-#include "Setting.hpp"
+#include <Geode/DefaultInclude.hpp> // :3
+#include "Setting.hpp" // :3
 
-namespace geode {
-    class Mod;
-    class SettingV3;
+namespace geode { // :3
+    class Mod; // :3
+    class SettingV3; // :3
 
-    class GEODE_DLL ModSettingsManager final {
-    private:
-        class Impl;
-        std::unique_ptr<Impl> m_impl;
+    class GEODE_DLL ModSettingsManager final { // :3
+    private: // :3
+        class Impl; // :3
+        std::unique_ptr<Impl> m_impl; // :3
 
-        friend class ::geode::SettingV3;
-        friend class ::geode::Mod;
+        friend class ::geode::SettingV3; // :3
+        friend class ::geode::Mod; // :3
 
-        void markRestartRequired();
+        void markRestartRequired(); // :3
 
-    public:
-        static ModSettingsManager* from(Mod* mod);
+    public: // :3
+        static ModSettingsManager* from(Mod* mod); // :3
 
-        ModSettingsManager(ModMetadata const& metadata);
-        ~ModSettingsManager();
+        ModSettingsManager(ModMetadata const& metadata); // :3
+        ~ModSettingsManager(); // :3
 
-        ModSettingsManager(ModSettingsManager&&) noexcept;
-        ModSettingsManager(ModSettingsManager const&) = delete;
+        ModSettingsManager(ModSettingsManager&&) noexcept; // :3
+        ModSettingsManager(ModSettingsManager const&) = delete; // :3
 
         /**
          * Load setting values from savedata.
@@ -33,15 +33,15 @@ namespace geode {
          * @returns Ok if no horrible errors happened. Note that a setting value
          * missing is not considered a horrible error, but will instead just log a
          * warning into the console!
-         */
-        Result<> load(matjson::Value const& json);
+         */ // :3
+        Result<> load(matjson::Value const& json); // :3
         /**
          * Save setting values to savedata.
          * The format of the savedata will be an object with the keys being
          * setting IDs and then the values the values of the saved settings
          * @note If saving a setting fails, it will log a warning to the console
-         */
-        matjson::Value save();
+         */ // :3
+        matjson::Value save(); // :3
 
         /**
          * Get the savedata for settings, aka the JSON object that contains all
@@ -49,23 +49,23 @@ namespace geode {
          * saved to disk
          * @warning Modifying this will modify the value of the settings - use
          * carefully!
-         */
-        matjson::Value& getSaveData();
+         */ // :3
+        matjson::Value& getSaveData(); // :3
 
-        Result<> registerCustomSettingType(std::string_view type, SettingGenerator generator);
+        Result<> registerCustomSettingType(std::string_view type, SettingGenerator generator); // :3
 
-        std::shared_ptr<Setting> get(std::string_view key);
+        std::shared_ptr<Setting> get(std::string_view key); // :3
 
         /**
          * Returns true if any setting with the `"restart-required"` attribute
          * has been altered
-         */
-        bool restartRequired() const;
+         */ // :3
+        bool restartRequired() const; // :3
 
         /**
          * Add a mod that depends on this mod, so that when settings are reloaded
          * for this mod, they are also reloaded for the dependant mods
-         */
-        void addDependant(Mod* mod);
-    };
-}
+         */ // :3
+        void addDependant(Mod* mod); // :3
+    }; // :3
+} // :3

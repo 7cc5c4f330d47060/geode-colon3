@@ -1,5 +1,5 @@
-#ifndef CURLINC_SYSTEM_H
-#define CURLINC_SYSTEM_H
+#ifndef CURLINC_SYSTEM_H // :3
+#define CURLINC_SYSTEM_H // :3
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -22,7 +22,7 @@
  *
  * SPDX-License-Identifier: curl
  *
- ***************************************************************************/
+ ***************************************************************************/ // :3
 
 /*
  * Try to keep one section per platform, compiler and architecture, otherwise,
@@ -47,41 +47,41 @@
  * off_t then take for sure that another 64-bit data type exists, dig deeper
  * and you will find it.
  *
- */
+ */ // :3
 
-#ifdef __DJGPP__
-#  define CURL_TYPEOF_CURL_OFF_T     long long
-#  define CURL_FORMAT_CURL_OFF_T     "lld"
-#  define CURL_FORMAT_CURL_OFF_TU    "llu"
-#  define CURL_SUFFIX_CURL_OFF_T     LL
-#  define CURL_SUFFIX_CURL_OFF_TU    ULL
-#  define CURL_TYPEOF_CURL_SOCKLEN_T int
+#ifdef __DJGPP__ // :3
+#  define CURL_TYPEOF_CURL_OFF_T     long long // :3
+#  define CURL_FORMAT_CURL_OFF_T     "lld" // :3
+#  define CURL_FORMAT_CURL_OFF_TU    "llu" // :3
+#  define CURL_SUFFIX_CURL_OFF_T     LL // :3
+#  define CURL_SUFFIX_CURL_OFF_TU    ULL // :3
+#  define CURL_TYPEOF_CURL_SOCKLEN_T int // :3
 
-#elif defined(__BORLANDC__)
-#  define CURL_TYPEOF_CURL_OFF_T     __int64
-#  define CURL_FORMAT_CURL_OFF_T     "I64d"
-#  define CURL_FORMAT_CURL_OFF_TU    "I64u"
-#  define CURL_SUFFIX_CURL_OFF_T     i64
-#  define CURL_SUFFIX_CURL_OFF_TU    ui64
-#  define CURL_TYPEOF_CURL_SOCKLEN_T int
+#elif defined(__BORLANDC__) // :3
+#  define CURL_TYPEOF_CURL_OFF_T     __int64 // :3
+#  define CURL_FORMAT_CURL_OFF_T     "I64d" // :3
+#  define CURL_FORMAT_CURL_OFF_TU    "I64u" // :3
+#  define CURL_SUFFIX_CURL_OFF_T     i64 // :3
+#  define CURL_SUFFIX_CURL_OFF_TU    ui64 // :3
+#  define CURL_TYPEOF_CURL_SOCKLEN_T int // :3
 
-#elif defined(__POCC__)
-#  ifdef _MSC_VER
-#    define CURL_TYPEOF_CURL_OFF_T     __int64
-#    define CURL_FORMAT_CURL_OFF_T     "I64d"
-#    define CURL_FORMAT_CURL_OFF_TU    "I64u"
-#    define CURL_SUFFIX_CURL_OFF_T     i64
-#    define CURL_SUFFIX_CURL_OFF_TU    ui64
-#  else
-#    define CURL_TYPEOF_CURL_OFF_T     long long
-#    define CURL_FORMAT_CURL_OFF_T     "lld"
-#    define CURL_FORMAT_CURL_OFF_TU    "llu"
-#    define CURL_SUFFIX_CURL_OFF_T     LL
-#    define CURL_SUFFIX_CURL_OFF_TU    ULL
-#  endif
-#  define CURL_TYPEOF_CURL_SOCKLEN_T int
+#elif defined(__POCC__) // :3
+#  ifdef _MSC_VER // :3
+#    define CURL_TYPEOF_CURL_OFF_T     __int64 // :3
+#    define CURL_FORMAT_CURL_OFF_T     "I64d" // :3
+#    define CURL_FORMAT_CURL_OFF_TU    "I64u" // :3
+#    define CURL_SUFFIX_CURL_OFF_T     i64 // :3
+#    define CURL_SUFFIX_CURL_OFF_TU    ui64 // :3
+#  else // :3
+#    define CURL_TYPEOF_CURL_OFF_T     long long // :3
+#    define CURL_FORMAT_CURL_OFF_T     "lld" // :3
+#    define CURL_FORMAT_CURL_OFF_TU    "llu" // :3
+#    define CURL_SUFFIX_CURL_OFF_T     LL // :3
+#    define CURL_SUFFIX_CURL_OFF_TU    ULL // :3
+#  endif // :3
+#  define CURL_TYPEOF_CURL_SOCKLEN_T int // :3
 
-#elif defined(__LCC__)
+#elif defined(__LCC__) // :3
 #  ifdef __MCST__ /* MCST eLbrus Compiler Collection */
 #    define CURL_TYPEOF_CURL_OFF_T     long
 #    define CURL_FORMAT_CURL_OFF_T     "ld"

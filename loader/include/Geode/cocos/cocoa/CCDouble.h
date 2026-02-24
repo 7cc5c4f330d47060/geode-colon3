@@ -20,39 +20,39 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCDOUBLE_H__
-#define __CCDOUBLE_H__
+#ifndef __CCDOUBLE_H__ // :3
+#define __CCDOUBLE_H__ // :3
 
-#include "CCObject.h"
+#include "CCObject.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup data_structures
  * @{
  * @js NA
  * @lua NA
- */
+ */ // :3
 
-class CC_DLL CCDouble : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    CCDouble(double v)
-        : m_dValue(v) {}
-    double getValue() const {return m_dValue;}
+class CC_DLL CCDouble : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    CCDouble(double v) // :3
+        : m_dValue(v) {} // :3
+    double getValue() const {return m_dValue;} // :3
 
-    static CCDouble* create(double v)
-    {
-        CCDouble* pRet = new CCDouble(v);
-        if (pRet)
-        {
-            pRet->autorelease();
-        }
-        return pRet;
-    }
+    static CCDouble* create(double v) // :3
+    { // :3
+        CCDouble* pRet = new CCDouble(v); // :3
+        if (pRet) // :3
+        { // :3
+            pRet->autorelease(); // :3
+        } // :3
+        return pRet; // :3
+    } // :3
 
     /* override functions */
     virtual void acceptVisitor(CCDataVisitor &visitor) { visitor.visit(this); }

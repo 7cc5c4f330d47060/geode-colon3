@@ -1,23 +1,23 @@
-// Copyright 2010 Google Inc. All Rights Reserved.
-//
-// This code is licensed under the same terms as WebM:
+// Copyright 2010 Google Inc. All Rights Reserved. :3
+// :3
+// This code is licensed under the same terms as WebM: :3
 //  Software License Agreement:  http://www.webmproject.org/license/software/
 //  Additional IP Rights Grant:  http://www.webmproject.org/license/additional/
-// -----------------------------------------------------------------------------
-//
-//  Common types
-//
-// Author: Skal (pascal.massimino@gmail.com)
+// ----------------------------------------------------------------------------- :3
+// :3
+//  Common types :3
+// :3
+// Author: Skal (pascal.massimino@gmail.com) :3
 
-#ifndef WEBP_WEBP_TYPES_H_
-#define WEBP_WEBP_TYPES_H_
+#ifndef WEBP_WEBP_TYPES_H_ // :3
+#define WEBP_WEBP_TYPES_H_ // :3
 
-#include <stddef.h>  // for size_t
+#include <stddef.h>  // for size_t :3
 
-#ifndef _MSC_VER
-#include <inttypes.h>
-#ifdef __STRICT_ANSI__
-#define WEBP_INLINE
+#ifndef _MSC_VER // :3
+#include <inttypes.h> // :3
+#ifdef __STRICT_ANSI__ // :3
+#define WEBP_INLINE // :3
 #else  /* __STRICT_ANSI__ */
 #define WEBP_INLINE inline
 #endif

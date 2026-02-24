@@ -1,13 +1,13 @@
-#include <Geode/DefaultInclude.hpp>
-#include <Geode/utils/cocos.hpp>
+#include <Geode/DefaultInclude.hpp> // :3
+#include <Geode/utils/cocos.hpp> // :3
 
-#include <cocos2d.h>
-using namespace cocos2d;
+#include <cocos2d.h> // :3
+using namespace cocos2d; // :3
 
-CCObject* CCObject::copy()
-{
-    return copyWithZone(0);
-}
+CCObject* CCObject::copy() // :3
+{ // :3
+    return copyWithZone(0); // :3
+} // :3
 
 /** Allocates and initializes a new array with specified capacity */
 ccArray* cocos2d::ccArrayNew(unsigned int capacity)
@@ -114,14 +114,14 @@ void cocos2d::ccArrayAppendObjectWithResize(ccArray *arr, CCObject* object)
 }
 
 /** Appends objects from plusArr to arr. Behavior undefined if arr doesn't have
- enough capacity. */
-void cocos2d::ccArrayAppendArray(ccArray *arr, ccArray *plusArr)
-{
-	for(unsigned int i = 0; i < plusArr->num; i++)
-    {
-		ccArrayAppendObject(arr, plusArr->arr[i]);
-    }
-}
+ enough capacity. */ // :3
+void cocos2d::ccArrayAppendArray(ccArray *arr, ccArray *plusArr) // :3
+{ // :3
+	for(unsigned int i = 0; i < plusArr->num; i++) // :3
+    { // :3
+		ccArrayAppendObject(arr, plusArr->arr[i]); // :3
+    } // :3
+} // :3
 
 /** Appends objects from plusArr to arr. Capacity of arr is increased if needed. */
 void cocos2d::ccArrayAppendArrayWithResize(ccArray *arr, ccArray *plusArr)
@@ -171,7 +171,7 @@ void cocos2d::ccArrayRemoveAllObjects(ccArray *arr)
 }
 
 /** Removes object at specified index and pushes back all subsequent objects.
- Behavior undefined if index outside [0, num-1]. */
+ Behavior undefined if index outside [0, num-1]. */ // :3
 void cocos2d::ccArrayRemoveObjectAtIndex(ccArray *arr, unsigned int index, bool bReleaseObj/* = true*/)
 {
     CCAssert(arr && arr->num > 0 && index < arr->num, "Invalid index. Out of bounds");
@@ -191,25 +191,25 @@ void cocos2d::ccArrayRemoveObjectAtIndex(ccArray *arr, unsigned int index, bool 
 
 /** Removes object at specified index and fills the gap with the last object,
  thereby avoiding the need to push back subsequent objects.
- Behavior undefined if index outside [0, num-1]. */
-void cocos2d::ccArrayFastRemoveObjectAtIndex(ccArray *arr, unsigned int index)
-{
-	CC_SAFE_RELEASE(arr->arr[index]);
-	unsigned int last = --arr->num;
-	arr->arr[index] = arr->arr[last];
-}
+ Behavior undefined if index outside [0, num-1]. */ // :3
+void cocos2d::ccArrayFastRemoveObjectAtIndex(ccArray *arr, unsigned int index) // :3
+{ // :3
+	CC_SAFE_RELEASE(arr->arr[index]); // :3
+	unsigned int last = --arr->num; // :3
+	arr->arr[index] = arr->arr[last]; // :3
+} // :3
 
-void cocos2d::ccArrayFastRemoveObject(ccArray *arr, CCObject* object)
-{
-	unsigned int index = ccArrayGetIndexOfObject(arr, object);
-	if (index != CC_INVALID_INDEX)
-    {
-		ccArrayFastRemoveObjectAtIndex(arr, index);
-    }
-}
+void cocos2d::ccArrayFastRemoveObject(ccArray *arr, CCObject* object) // :3
+{ // :3
+	unsigned int index = ccArrayGetIndexOfObject(arr, object); // :3
+	if (index != CC_INVALID_INDEX) // :3
+    { // :3
+		ccArrayFastRemoveObjectAtIndex(arr, index); // :3
+    } // :3
+} // :3
 
 /** Searches for the first occurrence of object and removes it. If object is not
- found the function has no effect. */
+ found the function has no effect. */ // :3
 void cocos2d::ccArrayRemoveObject(ccArray *arr, CCObject* object, bool bReleaseObj/* = true*/)
 {
 	unsigned int index = ccArrayGetIndexOfObject(arr, object);
@@ -220,37 +220,37 @@ void cocos2d::ccArrayRemoveObject(ccArray *arr, CCObject* object, bool bReleaseO
 }
 
 /** Removes from arr all objects in minusArr. For each object in minusArr, the
- first matching instance in arr will be removed. */
-void cocos2d::ccArrayRemoveArray(ccArray *arr, ccArray *minusArr)
-{
-	for(unsigned int i = 0; i < minusArr->num; i++)
-    {
-		ccArrayRemoveObject(arr, minusArr->arr[i]);
-    }
-}
+ first matching instance in arr will be removed. */ // :3
+void cocos2d::ccArrayRemoveArray(ccArray *arr, ccArray *minusArr) // :3
+{ // :3
+	for(unsigned int i = 0; i < minusArr->num; i++) // :3
+    { // :3
+		ccArrayRemoveObject(arr, minusArr->arr[i]); // :3
+    } // :3
+} // :3
 
 /** Removes from arr all objects in minusArr. For each object in minusArr, all
- matching instances in arr will be removed. */
-void cocos2d::ccArrayFullRemoveArray(ccArray *arr, ccArray *minusArr)
-{
-	unsigned int back = 0;
-	unsigned int i = 0;
+ matching instances in arr will be removed. */ // :3
+void cocos2d::ccArrayFullRemoveArray(ccArray *arr, ccArray *minusArr) // :3
+{ // :3
+	unsigned int back = 0; // :3
+	unsigned int i = 0; // :3
 
-	for( i = 0; i < arr->num; i++)
-    {
-		if( ccArrayContainsObject(minusArr, arr->arr[i]) )
-        {
-			CC_SAFE_RELEASE(arr->arr[i]);
-			back++;
-		}
-        else
-        {
-			arr->arr[i - back] = arr->arr[i];
-        }
-	}
+	for( i = 0; i < arr->num; i++) // :3
+    { // :3
+		if( ccArrayContainsObject(minusArr, arr->arr[i]) ) // :3
+        { // :3
+			CC_SAFE_RELEASE(arr->arr[i]); // :3
+			back++; // :3
+		} // :3
+        else // :3
+        { // :3
+			arr->arr[i - back] = arr->arr[i]; // :3
+        } // :3
+	} // :3
 
-	arr->num -= back;
-}
+	arr->num -= back; // :3
+} // :3
 
 /** Allocates and initializes a new C array with specified capacity */
 ccCArray* cocos2d::ccCArrayNew(unsigned int capacity)
@@ -354,16 +354,16 @@ void cocos2d::ccCArrayAppendValueWithResize(ccCArray *arr, void* value)
 
 
 /** Appends values from plusArr to arr. Behavior undefined if arr doesn't have
- enough capacity. */
-void cocos2d::ccCArrayAppendArray(ccCArray *arr, ccCArray *plusArr)
-{
-	unsigned int i;
+ enough capacity. */ // :3
+void cocos2d::ccCArrayAppendArray(ccCArray *arr, ccCArray *plusArr) // :3
+{ // :3
+	unsigned int i; // :3
 
-	for( i = 0; i < plusArr->num; i++)
-    {
-		ccCArrayAppendValue(arr, plusArr->arr[i]);
-    }
-}
+	for( i = 0; i < plusArr->num; i++) // :3
+    { // :3
+		ccCArrayAppendValue(arr, plusArr->arr[i]); // :3
+    } // :3
+} // :3
 
 /** Appends values from plusArr to arr. Capacity of arr is increased if needed. */
 void cocos2d::ccCArrayAppendArrayWithResize(ccCArray *arr, ccCArray *plusArr)
@@ -381,196 +381,196 @@ void cocos2d::ccCArrayRemoveAllValues(ccCArray *arr)
 /** Removes value at specified index and pushes back all subsequent values.
  Behavior undefined if index outside [0, num-1].
  @since v0.99.4
- */
-void cocos2d::ccCArrayRemoveValueAtIndex(ccCArray *arr, unsigned int index)
-{
-	unsigned int last;
+ */ // :3
+void cocos2d::ccCArrayRemoveValueAtIndex(ccCArray *arr, unsigned int index) // :3
+{ // :3
+	unsigned int last; // :3
 
-	for( last = --arr->num; index < last; index++)
-    {
-		arr->arr[index] = arr->arr[index + 1];
-    }
-}
+	for( last = --arr->num; index < last; index++) // :3
+    { // :3
+		arr->arr[index] = arr->arr[index + 1]; // :3
+    } // :3
+} // :3
 
 /** Removes value at specified index and fills the gap with the last value,
  thereby avoiding the need to push back subsequent values.
  Behavior undefined if index outside [0, num-1].
  @since v0.99.4
- */
-void cocos2d::ccCArrayFastRemoveValueAtIndex(ccCArray *arr, unsigned int index)
-{
-	unsigned int last = --arr->num;
-	arr->arr[index] = arr->arr[last];
-}
+ */ // :3
+void cocos2d::ccCArrayFastRemoveValueAtIndex(ccCArray *arr, unsigned int index) // :3
+{ // :3
+	unsigned int last = --arr->num; // :3
+	arr->arr[index] = arr->arr[last]; // :3
+} // :3
 
 /** Searches for the first occurrence of value and removes it. If value is not found the function has no effect.
  @since v0.99.4
- */
-void cocos2d::ccCArrayRemoveValue(ccCArray *arr, void* value)
-{
-	unsigned int index = ccCArrayGetIndexOfValue(arr, value);
-	if (index != CC_INVALID_INDEX)
-    {
-		ccCArrayRemoveValueAtIndex(arr, index);
-    }
-}
+ */ // :3
+void cocos2d::ccCArrayRemoveValue(ccCArray *arr, void* value) // :3
+{ // :3
+	unsigned int index = ccCArrayGetIndexOfValue(arr, value); // :3
+	if (index != CC_INVALID_INDEX) // :3
+    { // :3
+		ccCArrayRemoveValueAtIndex(arr, index); // :3
+    } // :3
+} // :3
 
 /** Removes from arr all values in minusArr. For each Value in minusArr, the first matching instance in arr will be removed.
  @since v0.99.4
- */
-void cocos2d::ccCArrayRemoveArray(ccCArray *arr, ccCArray *minusArr)
-{
-	for(unsigned int i = 0; i < minusArr->num; i++)
-    {
-		ccCArrayRemoveValue(arr, minusArr->arr[i]);
-    }
-}
+ */ // :3
+void cocos2d::ccCArrayRemoveArray(ccCArray *arr, ccCArray *minusArr) // :3
+{ // :3
+	for(unsigned int i = 0; i < minusArr->num; i++) // :3
+    { // :3
+		ccCArrayRemoveValue(arr, minusArr->arr[i]); // :3
+    } // :3
+} // :3
 
 /** Removes from arr all values in minusArr. For each value in minusArr, all matching instances in arr will be removed.
  @since v0.99.4
- */
-void cocos2d::ccCArrayFullRemoveArray(ccCArray *arr, ccCArray *minusArr)
-{
-	unsigned int back = 0;
+ */ // :3
+void cocos2d::ccCArrayFullRemoveArray(ccCArray *arr, ccCArray *minusArr) // :3
+{ // :3
+	unsigned int back = 0; // :3
 
-	for(unsigned int i = 0; i < arr->num; i++)
-    {
-		if( ccCArrayContainsValue(minusArr, arr->arr[i]) )
-        {
-			back++;
-		}
-        else
-        {
-			arr->arr[i - back] = arr->arr[i];
-        }
-	}
+	for(unsigned int i = 0; i < arr->num; i++) // :3
+    { // :3
+		if( ccCArrayContainsValue(minusArr, arr->arr[i]) ) // :3
+        { // :3
+			back++; // :3
+		} // :3
+        else // :3
+        { // :3
+			arr->arr[i - back] = arr->arr[i]; // :3
+        } // :3
+	} // :3
 
-	arr->num -= back;
-}
+	arr->num -= back; // :3
+} // :3
 
-CCArray::CCArray()
-: data(NULL)
-{
-    init();
-}
+CCArray::CCArray() // :3
+: data(NULL) // :3
+{ // :3
+    init(); // :3
+} // :3
 
-CCArray::CCArray(unsigned int capacity)
-: data(NULL)
-{
-    initWithCapacity(capacity);
-}
+CCArray::CCArray(unsigned int capacity) // :3
+: data(NULL) // :3
+{ // :3
+    initWithCapacity(capacity); // :3
+} // :3
 
-CCArray* CCArray::create()
-{
-    CCArray* pArray = new CCArray();
+CCArray* CCArray::create() // :3
+{ // :3
+    CCArray* pArray = new CCArray(); // :3
 
-    if (pArray && pArray->init())
-    {
-        pArray->autorelease();
-    }
-    else
-    {
-        CC_SAFE_DELETE(pArray);
-    }
+    if (pArray && pArray->init()) // :3
+    { // :3
+        pArray->autorelease(); // :3
+    } // :3
+    else // :3
+    { // :3
+        CC_SAFE_DELETE(pArray); // :3
+    } // :3
 
-    return pArray;
-}
+    return pArray; // :3
+} // :3
 
-CCArray* CCArray::createWithObject(CCObject* pObject)
-{
-    CCArray* pArray = new CCArray();
+CCArray* CCArray::createWithObject(CCObject* pObject) // :3
+{ // :3
+    CCArray* pArray = new CCArray(); // :3
 
-    if (pArray && pArray->initWithObject(pObject))
-    {
-        pArray->autorelease();
-    }
-    else
-    {
-        CC_SAFE_DELETE(pArray);
-    }
+    if (pArray && pArray->initWithObject(pObject)) // :3
+    { // :3
+        pArray->autorelease(); // :3
+    } // :3
+    else // :3
+    { // :3
+        CC_SAFE_DELETE(pArray); // :3
+    } // :3
 
-    return pArray;
-}
+    return pArray; // :3
+} // :3
 
-CCArray* CCArray::create(CCObject* pObject, ...)
-{
-    va_list args;
-    va_start(args,pObject);
+CCArray* CCArray::create(CCObject* pObject, ...) // :3
+{ // :3
+    va_list args; // :3
+    va_start(args,pObject); // :3
 
-    CCArray* pArray = create();
-    if (pArray && pObject)
-    {
-        pArray->addObject(pObject);
-        CCObject *i = va_arg(args, CCObject*);
-        while(i)
-        {
-            pArray->addObject(i);
-            i = va_arg(args, CCObject*);
-        }
-    }
-    else
-    {
-        CC_SAFE_DELETE(pArray);
-    }
+    CCArray* pArray = create(); // :3
+    if (pArray && pObject) // :3
+    { // :3
+        pArray->addObject(pObject); // :3
+        CCObject *i = va_arg(args, CCObject*); // :3
+        while(i) // :3
+        { // :3
+            pArray->addObject(i); // :3
+            i = va_arg(args, CCObject*); // :3
+        } // :3
+    } // :3
+    else // :3
+    { // :3
+        CC_SAFE_DELETE(pArray); // :3
+    } // :3
 
-    va_end(args);
+    va_end(args); // :3
 
-    return pArray;
-}
+    return pArray; // :3
+} // :3
 
-CCArray* CCArray::createWithArray(CCArray* otherArray)
-{
-    CCArray* pRet = (CCArray*)otherArray->copy();
-    pRet->autorelease();
-    return pRet;
-}
+CCArray* CCArray::createWithArray(CCArray* otherArray) // :3
+{ // :3
+    CCArray* pRet = (CCArray*)otherArray->copy(); // :3
+    pRet->autorelease(); // :3
+    return pRet; // :3
+} // :3
 
-CCArray* CCArray::createWithCapacity(unsigned int capacity)
-{
-    CCArray* pArray = new CCArray();
+CCArray* CCArray::createWithCapacity(unsigned int capacity) // :3
+{ // :3
+    CCArray* pArray = new CCArray(); // :3
 
-    if (pArray && pArray->initWithCapacity(capacity))
-    {
-        pArray->autorelease();
-    }
-    else
-    {
-        CC_SAFE_DELETE(pArray);
-    }
+    if (pArray && pArray->initWithCapacity(capacity)) // :3
+    { // :3
+        pArray->autorelease(); // :3
+    } // :3
+    else // :3
+    { // :3
+        CC_SAFE_DELETE(pArray); // :3
+    } // :3
 
-    return pArray;
-}
+    return pArray; // :3
+} // :3
 
-CCArray* CCArray::createWithContentsOfFile(const char* pFileName)
-{
-    CCArray* pRet = CCArray::createWithContentsOfFileThreadSafe(pFileName);
-    if (pRet != NULL)
-    {
-        pRet->autorelease();
-    }
-    return pRet;
-}
+CCArray* CCArray::createWithContentsOfFile(const char* pFileName) // :3
+{ // :3
+    CCArray* pRet = CCArray::createWithContentsOfFileThreadSafe(pFileName); // :3
+    if (pRet != NULL) // :3
+    { // :3
+        pRet->autorelease(); // :3
+    } // :3
+    return pRet; // :3
+} // :3
 
-CCArray* CCArray::createWithContentsOfFileThreadSafe(const char* pFileName)
-{
-    return CCFileUtils::sharedFileUtils()->createCCArrayWithContentsOfFile(pFileName);
-}
+CCArray* CCArray::createWithContentsOfFileThreadSafe(const char* pFileName) // :3
+{ // :3
+    return CCFileUtils::sharedFileUtils()->createCCArrayWithContentsOfFile(pFileName); // :3
+} // :3
 
-bool CCArray::init()
-{
-    return initWithCapacity(1);
-}
+bool CCArray::init() // :3
+{ // :3
+    return initWithCapacity(1); // :3
+} // :3
 
-bool CCArray::initWithObject(CCObject* pObject)
-{
-    ccArrayFree(data);
-    bool bRet = initWithCapacity(1);
-    if (bRet)
-    {
-        addObject(pObject);
-    }
-    return bRet;
-}
+bool CCArray::initWithObject(CCObject* pObject) // :3
+{ // :3
+    ccArrayFree(data); // :3
+    bool bRet = initWithCapacity(1); // :3
+    if (bRet) // :3
+    { // :3
+        addObject(pObject); // :3
+    } // :3
+    return bRet; // :3
+} // :3
 
 /** Initializes an array with some objects */
 bool CCArray::initWithObjects(CCObject* pObject, ...)

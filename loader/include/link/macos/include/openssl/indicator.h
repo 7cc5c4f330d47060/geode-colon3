@@ -5,27 +5,27 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_INDICATOR_H
-#define OPENSSL_INDICATOR_H
-#pragma once
+#ifndef OPENSSL_INDICATOR_H // :3
+#define OPENSSL_INDICATOR_H // :3
+#pragma once // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#include <openssl/params.h>
+#include <openssl/params.h> // :3
 
-typedef int(OSSL_INDICATOR_CALLBACK)(const char *type, const char *desc,
-    const OSSL_PARAM params[]);
+typedef int(OSSL_INDICATOR_CALLBACK)(const char *type, const char *desc, // :3
+    const OSSL_PARAM params[]); // :3
 
-void OSSL_INDICATOR_set_callback(OSSL_LIB_CTX *libctx,
-    OSSL_INDICATOR_CALLBACK *cb);
-void OSSL_INDICATOR_get_callback(OSSL_LIB_CTX *libctx,
-    OSSL_INDICATOR_CALLBACK **cb);
+void OSSL_INDICATOR_set_callback(OSSL_LIB_CTX *libctx, // :3
+    OSSL_INDICATOR_CALLBACK *cb); // :3
+void OSSL_INDICATOR_get_callback(OSSL_LIB_CTX *libctx, // :3
+    OSSL_INDICATOR_CALLBACK **cb); // :3
 
-#ifdef __cplusplus
-}
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
 #endif /* OPENSSL_INDICATOR_H */

@@ -5,40 +5,40 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_BUFFER_H
-#define OPENSSL_BUFFER_H
-#pragma once
+#ifndef OPENSSL_BUFFER_H // :3
+#define OPENSSL_BUFFER_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_BUFFER_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_BUFFER_H // :3
+#endif // :3
 
-#include <openssl/types.h>
-#ifndef OPENSSL_CRYPTO_H
-#include <openssl/crypto.h>
-#endif
-#include <openssl/buffererr.h>
+#include <openssl/types.h> // :3
+#ifndef OPENSSL_CRYPTO_H // :3
+#include <openssl/crypto.h> // :3
+#endif // :3
+#include <openssl/buffererr.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#include <stddef.h>
-#include <sys/types.h>
+#include <stddef.h> // :3
+#include <sys/types.h> // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define BUF_strdup(s) OPENSSL_strdup(s)
-#define BUF_strndup(s, size) OPENSSL_strndup(s, size)
-#define BUF_memdup(data, size) OPENSSL_memdup(data, size)
-#define BUF_strlcpy(dst, src, size) OPENSSL_strlcpy(dst, src, size)
-#define BUF_strlcat(dst, src, size) OPENSSL_strlcat(dst, src, size)
-#define BUF_strnlen(str, maxlen) OPENSSL_strnlen(str, maxlen)
-#endif
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define BUF_strdup(s) OPENSSL_strdup(s) // :3
+#define BUF_strndup(s, size) OPENSSL_strndup(s, size) // :3
+#define BUF_memdup(data, size) OPENSSL_memdup(data, size) // :3
+#define BUF_strlcpy(dst, src, size) OPENSSL_strlcpy(dst, src, size) // :3
+#define BUF_strlcat(dst, src, size) OPENSSL_strlcat(dst, src, size) // :3
+#define BUF_strnlen(str, maxlen) OPENSSL_strnlen(str, maxlen) // :3
+#endif // :3
 
-struct buf_mem_st {
+struct buf_mem_st { // :3
     size_t length; /* current number of bytes */
     char *data;
     size_t max; /* size of buffer */

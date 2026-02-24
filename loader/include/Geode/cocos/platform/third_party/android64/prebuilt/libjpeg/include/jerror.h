@@ -12,15 +12,15 @@
  * A set of error-reporting macros are defined too.  Some applications using
  * the JPEG library may wish to include this file to get the error codes
  * and/or the macros.
- */
+ */ // :3
 
 /*
  * To define the enum list of message codes, include this file without
  * defining macro JMESSAGE.  To create a message string table, include it
  * again with a suitable JMESSAGE definition (see jerror.c for an example).
- */
-#ifndef JMESSAGE
-#ifndef JERROR_H
+ */ // :3
+#ifndef JMESSAGE // :3
+#ifndef JERROR_H // :3
 /* First time through, define the enum list */
 #define JMAKE_ENUM_LIST
 #else

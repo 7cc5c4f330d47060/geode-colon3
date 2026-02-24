@@ -5,36 +5,36 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_CAMELLIA_H
-#define OPENSSL_CAMELLIA_H
-#pragma once
+#ifndef OPENSSL_CAMELLIA_H // :3
+#define OPENSSL_CAMELLIA_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_CAMELLIA_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_CAMELLIA_H // :3
+#endif // :3
 
-#include <openssl/opensslconf.h>
+#include <openssl/opensslconf.h> // :3
 
-#ifndef OPENSSL_NO_CAMELLIA
-#include <stddef.h>
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifndef OPENSSL_NO_CAMELLIA // :3
+#include <stddef.h> // :3
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#define CAMELLIA_BLOCK_SIZE 16
+#define CAMELLIA_BLOCK_SIZE 16 // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 
-#define CAMELLIA_ENCRYPT 1
-#define CAMELLIA_DECRYPT 0
+#define CAMELLIA_ENCRYPT 1 // :3
+#define CAMELLIA_DECRYPT 0 // :3
 
 /*
  * Because array size can't be a const in C, the following two are macros.
  * Both sizes are in bytes.
- */
+ */ // :3
 
 /* This should be a hidden type, but EVP requires that the size be known */
 
@@ -42,10 +42,10 @@ extern "C" {
 #define CAMELLIA_TABLE_WORD_LEN (CAMELLIA_TABLE_BYTE_LEN / 4)
 
 typedef unsigned int KEY_TABLE_TYPE[CAMELLIA_TABLE_WORD_LEN]; /* to match
-                                                               * with WORD */
+                                                               * with WORD */ // :3
 
-struct camellia_key_st {
-    union {
+struct camellia_key_st { // :3
+    union { // :3
         double d; /* ensures 64-bit align */
         KEY_TABLE_TYPE rd_key;
     } u;

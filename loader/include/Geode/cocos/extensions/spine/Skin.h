@@ -21,23 +21,23 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_SKIN_H_
-#define SPINE_SKIN_H_
+#ifndef SPINE_SKIN_H_ // :3
+#define SPINE_SKIN_H_ // :3
 
-#include "Attachment.h"
+#include "Attachment.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-struct Skeleton;
+struct Skeleton; // :3
 
-typedef struct {
-	const char* const name;
-} Skin;
+typedef struct { // :3
+	const char* const name; // :3
+} Skin; // :3
 
-Skin* Skin_create (const char* name);
-void Skin_dispose (Skin* self);
+Skin* Skin_create (const char* name); // :3
+void Skin_dispose (Skin* self); // :3
 
 /* The Skin owns the attachment. */
 void Skin_addAttachment (Skin* self, int slotIndex, const char* name, Attachment* attachment);

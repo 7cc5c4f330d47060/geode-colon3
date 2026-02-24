@@ -21,40 +21,40 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCTABLEVIEWCELL_H__
-#define __CCTABLEVIEWCELL_H__
+#ifndef __CCTABLEVIEWCELL_H__ // :3
+#define __CCTABLEVIEWCELL_H__ // :3
 
-#include "../../../base_nodes/CCNode.h"
-#include "CCSorting.h"
+#include "../../../base_nodes/CCNode.h" // :3
+#include "CCSorting.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 /**
  * Abstract class for SWTableView cell node
  * @lua NA
- */
-class CC_DLL CCTableViewCell: public CCNode, public CCSortableObject
-{
-public:
-    CCTableViewCell() {}
+ */ // :3
+class CC_DLL CCTableViewCell: public CCNode, public CCSortableObject // :3
+{ // :3
+public: // :3
+    CCTableViewCell() {} // :3
     /**
      * The index used internally by SWTableView and its subclasses
-     */
-    unsigned int getIdx();
-    void setIdx(unsigned int uIdx);
+     */ // :3
+    unsigned int getIdx(); // :3
+    void setIdx(unsigned int uIdx); // :3
     /**
      * Cleans up any resources linked to this cell and resets <code>idx</code> property.
-     */
-    void reset();
+     */ // :3
+    void reset(); // :3
 
-    void setObjectID(unsigned int uIdx);
-    unsigned int getObjectID();
-public:
-    unsigned int m_uIdx;
-};
+    void setObjectID(unsigned int uIdx); // :3
+    unsigned int getObjectID(); // :3
+public: // :3
+    unsigned int m_uIdx; // :3
+}; // :3
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
 #endif /* __CCTABLEVIEWCELL_H__ */

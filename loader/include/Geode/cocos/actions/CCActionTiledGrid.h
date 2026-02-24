@@ -21,18 +21,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __ACTION_CCTILEDGRID_ACTION_H__
-#define __ACTION_CCTILEDGRID_ACTION_H__
+****************************************************************************/ // :3
+#ifndef __ACTION_CCTILEDGRID_ACTION_H__ // :3
+#define __ACTION_CCTILEDGRID_ACTION_H__ // :3
 
-#include "CCActionGrid.h"
+#include "CCActionGrid.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup actions
  * @{
- */
+ */ // :3
 
 /** @brief CCShakyTiles3D action */
 class CC_DLL CCShakyTiles3D : public CCTiledGrid3DAction
@@ -44,11 +44,11 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
 
     /** creates the action with a range, whether or not to shake Z vertices, a grid size, and duration */
     static CCShakyTiles3D* create(float duration, const CCSize& gridSize, int nRange, bool bShakeZ);
@@ -68,11 +68,11 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
 
     /** creates the action with a range, whether of not to shatter Z vertices, a grid size and duration */
     static CCShatteredTiles3D* create(float duration, const CCSize& gridSize, int nRange, bool bShatterZ);
@@ -85,18 +85,18 @@ public:
 struct Tile;
 /** @brief CCShuffleTiles action
  Shuffle the tiles in random order
- */
-class CC_DLL CCShuffleTiles : public CCTiledGrid3DAction
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCShuffleTiles, CCTiledGrid3DAction)
-    CCShuffleTiles() {}
+ */ // :3
+class CC_DLL CCShuffleTiles : public CCTiledGrid3DAction // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCShuffleTiles, CCTiledGrid3DAction) // :3
+    CCShuffleTiles() {} // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    ~CCShuffleTiles(void);
+     */ // :3
+    ~CCShuffleTiles(void); // :3
     /** initializes the action with a random seed, the grid size and the duration */
     virtual bool initWithDuration(float duration, const CCSize& gridSize, unsigned int seed);
     void shuffle(unsigned int *pArray, unsigned int nLen);
@@ -108,10 +108,10 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
     /** creates the action with a random seed, the grid size and the duration */
     static CCShuffleTiles* create(float duration, const CCSize& gridSize, unsigned int seed);
 public:
@@ -123,18 +123,18 @@ public:
 
 /** @brief CCFadeOutTRTiles action
  Fades out the tiles in a Top-Right direction
- */
-class CC_DLL CCFadeOutTRTiles : public CCTiledGrid3DAction
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual float testFunc(const CCSize& pos, float time);
-    void turnOnTile(const CCPoint& pos);
-    void turnOffTile(const CCPoint& pos);
-    virtual void transformTile(const CCPoint& pos, float distance);
-    virtual void update(float time);
+ */ // :3
+class CC_DLL CCFadeOutTRTiles : public CCTiledGrid3DAction // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual float testFunc(const CCSize& pos, float time); // :3
+    void turnOnTile(const CCPoint& pos); // :3
+    void turnOffTile(const CCPoint& pos); // :3
+    virtual void transformTile(const CCPoint& pos, float distance); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
 
     /** creates the action with the grid size and the duration */
     static CCFadeOutTRTiles* create(float duration, const CCSize& gridSize);
@@ -142,14 +142,14 @@ public:
 
 /** @brief CCFadeOutBLTiles action.
  Fades out the tiles in a Bottom-Left direction
- */
-class CC_DLL CCFadeOutBLTiles : public CCFadeOutTRTiles
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual float testFunc(const CCSize& pos, float time);
+ */ // :3
+class CC_DLL CCFadeOutBLTiles : public CCFadeOutTRTiles // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual float testFunc(const CCSize& pos, float time); // :3
 
-public:
+public: // :3
 
     /** creates the action with the grid size and the duration */
     static CCFadeOutBLTiles* create(float duration, const CCSize& gridSize);
@@ -157,15 +157,15 @@ public:
 
 /** @brief CCFadeOutUpTiles action.
  Fades out the tiles in upwards direction
- */
-class CC_DLL CCFadeOutUpTiles : public CCFadeOutTRTiles
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual float testFunc(const CCSize& pos, float time);
-    virtual void transformTile(const CCPoint& pos, float distance);
+ */ // :3
+class CC_DLL CCFadeOutUpTiles : public CCFadeOutTRTiles // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual float testFunc(const CCSize& pos, float time); // :3
+    virtual void transformTile(const CCPoint& pos, float distance); // :3
 
-public:
+public: // :3
     /** creates the action with the grid size and the duration */
     static CCFadeOutUpTiles* create(float duration, const CCSize& gridSize);
 
@@ -173,14 +173,14 @@ public:
 
 /** @brief CCFadeOutDownTiles action.
  Fades out the tiles in downwards direction
- */
-class CC_DLL CCFadeOutDownTiles : public CCFadeOutUpTiles
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual float testFunc(const CCSize& pos, float time);
+ */ // :3
+class CC_DLL CCFadeOutDownTiles : public CCFadeOutUpTiles // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual float testFunc(const CCSize& pos, float time); // :3
 
-public:
+public: // :3
 
     /** creates the action with the grid size and the duration */
     static CCFadeOutDownTiles* create(float duration, const CCSize& gridSize);
@@ -188,18 +188,18 @@ public:
 
 /** @brief CCTurnOffTiles action.
  Turn off the files in random order
- */
-class CC_DLL CCTurnOffTiles : public CCTiledGrid3DAction
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTurnOffTiles, CCTiledGrid3DAction)
-    CCTurnOffTiles() {}
+ */ // :3
+class CC_DLL CCTurnOffTiles : public CCTiledGrid3DAction // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTurnOffTiles, CCTiledGrid3DAction) // :3
+    CCTurnOffTiles() {} // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    ~CCTurnOffTiles(void);
+     */ // :3
+    ~CCTurnOffTiles(void); // :3
     /** initializes the action with a random seed, the grid size and the duration */
     virtual bool initWithDuration(float duration, const CCSize& gridSize, unsigned int seed);
     void shuffle(unsigned int *pArray, unsigned int nLen);
@@ -208,12 +208,12 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void startWithTarget(CCNode *pTarget);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void startWithTarget(CCNode *pTarget); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
 
     /** creates the action with the grid size and the duration */
     static CCTurnOffTiles* create(float duration, const CCSize& gridSize);
@@ -244,11 +244,11 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
     /** creates the action with a number of waves, the waves amplitude, the grid size and the duration */
     static CCWavesTiles3D* create(float duration, const CCSize& gridSize, unsigned int waves, float amplitude);
 public:
@@ -259,11 +259,11 @@ public:
 
 /** @brief CCJumpTiles3D action.
  A sin function is executed to move the tiles across the Z axis
- */
-class CC_DLL CCJumpTiles3D : public CCTiledGrid3DAction
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCJumpTiles3D : public CCTiledGrid3DAction // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /** amplitude of the sin*/
     inline float getAmplitude(void) { return m_fAmplitude; }
     inline void setAmplitude(float fAmplitude) { m_fAmplitude = fAmplitude; }
@@ -277,11 +277,11 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
 
     /** creates the action with the number of jumps, the sin amplitude, the grid size and the duration */
     static CCJumpTiles3D* create(float duration, const CCSize& gridSize, unsigned int numberOfJumps, float amplitude);
@@ -301,12 +301,12 @@ public :
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
-    virtual void startWithTarget(CCNode *pTarget);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
+    virtual void startWithTarget(CCNode *pTarget); // :3
 
-public:
+public: // :3
 
     /** creates the action with the number of rows to split and the duration */
     static CCSplitRows* create(float duration, unsigned int nRows);
@@ -325,12 +325,12 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
-    virtual void startWithTarget(CCNode *pTarget);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
+    virtual void startWithTarget(CCNode *pTarget); // :3
 
-public:
+public: // :3
     /** creates the action with the number of columns to split and the duration */
     static CCSplitCols* create(float duration, unsigned int nCols);
 public:

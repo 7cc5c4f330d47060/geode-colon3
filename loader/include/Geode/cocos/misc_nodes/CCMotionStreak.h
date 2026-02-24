@@ -21,70 +21,70 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCMOTION_STREAK_H__
-#define __CCMOTION_STREAK_H__
+****************************************************************************/ // :3
+#ifndef __CCMOTION_STREAK_H__ // :3
+#define __CCMOTION_STREAK_H__ // :3
 
-#include "../base_nodes/CCNode.h"
-#include "../include/CCProtocols.h"
-#include "../include/ccTypes.h"
-#include "../textures/CCTexture2D.h"
-#ifdef EMSCRIPTEN
-    #include "../base_nodes/CCGLBufferedNode.h"
-#endif // EMSCRIPTEN
+#include "../base_nodes/CCNode.h" // :3
+#include "../include/CCProtocols.h" // :3
+#include "../include/ccTypes.h" // :3
+#include "../textures/CCTexture2D.h" // :3
+#ifdef EMSCRIPTEN // :3
+    #include "../base_nodes/CCGLBufferedNode.h" // :3
+#endif // EMSCRIPTEN :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup misc_nodes
  * @{
- */
+ */ // :3
 
 /** MotionStreak.
  Creates a trailing path.
- */
-class CC_DLL CCMotionStreak :
-    public CCNodeRGBA,
-    public CCTextureProtocol
-#ifdef EMSCRIPTEN
-    ,
-    public CCGLBufferedNode
-#endif // EMSCRIPTEN
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCMotionStreak : // :3
+    public CCNodeRGBA, // :3
+    public CCTextureProtocol // :3
+#ifdef EMSCRIPTEN // :3
+    , // :3
+    public CCGLBufferedNode // :3
+#endif // EMSCRIPTEN :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      * @js ctor
-     */
-    CCMotionStreak();
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMotionStreak, CCNodeRGBA)
+     */ // :3
+    CCMotionStreak(); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMotionStreak, CCNodeRGBA) // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCMotionStreak();
+     */ // :3
+    virtual ~CCMotionStreak(); // :3
 
     /** creates and initializes a motion streak with fade in seconds, minimum segments, stroke's
-     * width, color, texture filename */
-    static CCMotionStreak* create(
-        float fade, float minSeg, float stroke, ccColor3B const& color, char const* path
-    );
+     * width, color, texture filename */ // :3
+    static CCMotionStreak* create( // :3
+        float fade, float minSeg, float stroke, ccColor3B const& color, char const* path // :3
+    ); // :3
     /** creates and initializes a motion streak with fade in seconds, minimum segments, stroke's
-     * width, color, texture */
-    static CCMotionStreak* create(
-        float fade, float minSeg, float stroke, ccColor3B const& color, CCTexture2D* texture
-    );
+     * width, color, texture */ // :3
+    static CCMotionStreak* create( // :3
+        float fade, float minSeg, float stroke, ccColor3B const& color, CCTexture2D* texture // :3
+    ); // :3
 
     /** initializes a motion streak with fade in seconds, minimum segments, stroke's width, color
-     * and texture filename */
-    bool initWithFade(
-        float fade, float minSeg, float stroke, ccColor3B const& color, char const* path
-    );
+     * and texture filename */ // :3
+    bool initWithFade( // :3
+        float fade, float minSeg, float stroke, ccColor3B const& color, char const* path // :3
+    ); // :3
     /** initializes a motion streak with fade in seconds, minimum segments, stroke's width, color
-     * and texture  */
-    bool initWithFade(
-        float fade, float minSeg, float stroke, ccColor3B const& color, CCTexture2D* texture
-    );
+     * and texture  */ // :3
+    bool initWithFade( // :3
+        float fade, float minSeg, float stroke, ccColor3B const& color, CCTexture2D* texture // :3
+    ); // :3
 
     /** color used for the tint */
     void tintWithColor(ccColor3B colors);
@@ -102,29 +102,29 @@ public:
     virtual void setTexture(CCTexture2D* texture);
     /**
      * @js NA
-     */
-    virtual void setBlendFunc(ccBlendFunc blendFunc);
+     */ // :3
+    virtual void setBlendFunc(ccBlendFunc blendFunc); // :3
     /**
      * @js NA
-     */
-    virtual ccBlendFunc getBlendFunc(void);
-    virtual GLubyte getOpacity(void);
-    virtual void setOpacity(GLubyte opacity);
-    virtual void setOpacityModifyRGB(bool bValue);
-    virtual bool isOpacityModifyRGB(void);
+     */ // :3
+    virtual ccBlendFunc getBlendFunc(void); // :3
+    virtual GLubyte getOpacity(void); // :3
+    virtual void setOpacity(GLubyte opacity); // :3
+    virtual void setOpacityModifyRGB(bool bValue); // :3
+    virtual bool isOpacityModifyRGB(void); // :3
 
-    // @note RobTop Addition
-    void resumeStroke();
-    // @note RobTop Addition
-    void stopStroke();
+    // @note RobTop Addition :3
+    void resumeStroke(); // :3
+    // @note RobTop Addition :3
+    void stopStroke(); // :3
 
-	// @note RobTop Addition
-    void enableRepeatMode(float);
+	// @note RobTop Addition :3
+    void enableRepeatMode(float); // :3
 
-	// @note RobTop Addition
-	void setStroke(float);
-    // @note RobTop Addition
-	void updateFade(float);
+	// @note RobTop Addition :3
+	void setStroke(float); // :3
+    // @note RobTop Addition :3
+	void updateFade(float); // :3
 
 
     /** When fast mode is enabled, new points are added faster but with lower precision */

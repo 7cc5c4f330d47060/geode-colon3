@@ -1,134 +1,134 @@
-#pragma once
+#pragma once // :3
 
-#include "Server.hpp"
-#include <asp/time/SystemTime.hpp>
+#include "Server.hpp" // :3
+#include <asp/time/SystemTime.hpp> // :3
 
-namespace server {
-    struct DownloadStatusFetching {
-        uint8_t percentage;
-        bool operator==(DownloadStatusFetching const&) const = default;
-    };
-    struct DownloadStatusConfirm {
-        ServerModVersion version;
-        bool operator==(DownloadStatusConfirm const&) const = default;
-    };
-    struct DownloadStatusDownloading {
-        uint8_t percentage;
-        bool operator==(DownloadStatusDownloading const&) const = default;
-    };
-    struct DownloadStatusDone {
-        ServerModVersion version;
-        bool operator==(DownloadStatusDone const&) const = default;
-    };
-    struct DownloadStatusError {
-        std::string details;
-        bool operator==(DownloadStatusError const&) const = default;
-    };
-    struct DownloadStatusCancelled {
-        bool operator==(DownloadStatusCancelled const&) const = default;
-    };
+namespace server { // :3
+    struct DownloadStatusFetching { // :3
+        uint8_t percentage; // :3
+        bool operator==(DownloadStatusFetching const&) const = default; // :3
+    }; // :3
+    struct DownloadStatusConfirm { // :3
+        ServerModVersion version; // :3
+        bool operator==(DownloadStatusConfirm const&) const = default; // :3
+    }; // :3
+    struct DownloadStatusDownloading { // :3
+        uint8_t percentage; // :3
+        bool operator==(DownloadStatusDownloading const&) const = default; // :3
+    }; // :3
+    struct DownloadStatusDone { // :3
+        ServerModVersion version; // :3
+        bool operator==(DownloadStatusDone const&) const = default; // :3
+    }; // :3
+    struct DownloadStatusError { // :3
+        std::string details; // :3
+        bool operator==(DownloadStatusError const&) const = default; // :3
+    }; // :3
+    struct DownloadStatusCancelled { // :3
+        bool operator==(DownloadStatusCancelled const&) const = default; // :3
+    }; // :3
 
-    using DownloadStatus = std::variant<
-        DownloadStatusFetching,
-        DownloadStatusConfirm,
-        DownloadStatusDownloading,
-        DownloadStatusDone,
-        DownloadStatusError,
-        DownloadStatusCancelled
-    >;
+    using DownloadStatus = std::variant< // :3
+        DownloadStatusFetching, // :3
+        DownloadStatusConfirm, // :3
+        DownloadStatusDownloading, // :3
+        DownloadStatusDone, // :3
+        DownloadStatusError, // :3
+        DownloadStatusCancelled // :3
+    >; // :3
 
-    class ModDownloadEvent : public GlobalEvent<ModDownloadEvent, bool(std::string_view), bool(), std::string> {
-    public:
-        // filter params id
-        using GlobalEvent::GlobalEvent;
-    };
+    class ModDownloadEvent : public GlobalEvent<ModDownloadEvent, bool(std::string_view), bool(), std::string> { // :3
+    public: // :3
+        // filter params id :3
+        using GlobalEvent::GlobalEvent; // :3
+    }; // :3
 
-    using DependencyFor = std::pair<std::string, bool>;
+    using DependencyFor = std::pair<std::string, bool>; // :3
 
-    class ModDownload final {
-    private:
-        class Impl;
+    class ModDownload final { // :3
+    private: // :3
+        class Impl; // :3
 
-        std::shared_ptr<Impl> m_impl;
+        std::shared_ptr<Impl> m_impl; // :3
 
-        ModDownload(
-            std::string id,
-            std::optional<VersionInfo> version,
-            std::optional<DependencyFor> dependencyFor,
-            std::optional<std::string> replacesMod
-        );
+        ModDownload( // :3
+            std::string id, // :3
+            std::optional<VersionInfo> version, // :3
+            std::optional<DependencyFor> dependencyFor, // :3
+            std::optional<std::string> replacesMod // :3
+        ); // :3
 
-        friend class ModDownloadManager;
+        friend class ModDownloadManager; // :3
 
-    public:
-        void confirm();
-        void cancel();
+    public: // :3
+        void confirm(); // :3
+        void cancel(); // :3
 
-        bool isDone() const;
-        bool isActive() const;
-        bool canRetry() const;
-        std::optional<std::string> getReplacesMod() const;
-        std::optional<DependencyFor> getDependencyFor() const;
-        std::string getID() const;
-        DownloadStatus getStatus() const;
-        std::optional<VersionInfo> getVersion() const;
-    };
+        bool isDone() const; // :3
+        bool isActive() const; // :3
+        bool canRetry() const; // :3
+        std::optional<std::string> getReplacesMod() const; // :3
+        std::optional<DependencyFor> getDependencyFor() const; // :3
+        std::string getID() const; // :3
+        DownloadStatus getStatus() const; // :3
+        std::optional<VersionInfo> getVersion() const; // :3
+    }; // :3
 
-    struct RecentlyUpdatedMod final {
-        std::string modID;
-        asp::SystemTime updateTime;
-    };
+    struct RecentlyUpdatedMod final { // :3
+        std::string modID; // :3
+        asp::SystemTime updateTime; // :3
+    }; // :3
 
-    class ModDownloadManager final {
-    private:
-        class Impl;
+    class ModDownloadManager final { // :3
+    private: // :3
+        class Impl; // :3
 
-        std::unique_ptr<Impl> m_impl;
+        std::unique_ptr<Impl> m_impl; // :3
 
-        ModDownloadManager();
+        ModDownloadManager(); // :3
 
-        friend class ModDownload;
+        friend class ModDownload; // :3
 
-    public:
-        static ModDownloadManager* get();
-        ~ModDownloadManager();
+    public: // :3
+        static ModDownloadManager* get(); // :3
+        ~ModDownloadManager(); // :3
 
-        std::optional<ModDownload> startDownload(
-            std::string id,
-            std::optional<VersionInfo> version,
-            std::optional<DependencyFor> dependencyFor = std::nullopt,
-            std::optional<std::string> replacesMod = std::nullopt
-        );
-        void startUpdateAll();
-        void confirmAll();
-        void cancelAll();
-        void dismissAll();
-        bool checkAutoConfirm();
+        std::optional<ModDownload> startDownload( // :3
+            std::string id, // :3
+            std::optional<VersionInfo> version, // :3
+            std::optional<DependencyFor> dependencyFor = std::nullopt, // :3
+            std::optional<std::string> replacesMod = std::nullopt // :3
+        ); // :3
+        void startUpdateAll(); // :3
+        void confirmAll(); // :3
+        void cancelAll(); // :3
+        void dismissAll(); // :3
+        bool checkAutoConfirm(); // :3
 
-        std::optional<ModDownload> getDownload(std::string_view id) const;
-        std::vector<ModDownload> getDownloads() const;
-        bool hasActiveDownloads() const;
+        std::optional<ModDownload> getDownload(std::string_view id) const; // :3
+        std::vector<ModDownload> getDownloads() const; // :3
+        bool hasActiveDownloads() const; // :3
 
-        bool wantsRestart() const;
+        bool wantsRestart() const; // :3
 
-        void markRecentlyUpdated(std::string_view id);
-        std::vector<RecentlyUpdatedMod> const& getRecentlyUpdatedMods();
-        std::optional<RecentlyUpdatedMod> getRecentlyUpdatedInfo(std::string_view id);
-    };
-}
+        void markRecentlyUpdated(std::string_view id); // :3
+        std::vector<RecentlyUpdatedMod> const& getRecentlyUpdatedMods(); // :3
+        std::optional<RecentlyUpdatedMod> getRecentlyUpdatedInfo(std::string_view id); // :3
+    }; // :3
+} // :3
 
-template <>
-struct matjson::Serialize<server::RecentlyUpdatedMod> {
-    static Value toJson(server::RecentlyUpdatedMod const& value) {
-        return matjson::makeObject({
-            { "id", value.modID },
-            { "time", value.updateTime.timeSinceEpoch().seconds()},
-        });
-    }
-    static geode::Result<server::RecentlyUpdatedMod> fromJson(Value const& value) {
-        return geode::Ok(server::RecentlyUpdatedMod {
-            .modID = GEODE_UNWRAP(value["id"].asString()),
-            .updateTime = asp::SystemTime::fromUnix(GEODE_UNWRAP(value["time"].asUInt())),
-        });
-    }
-};
+template <> // :3
+struct matjson::Serialize<server::RecentlyUpdatedMod> { // :3
+    static Value toJson(server::RecentlyUpdatedMod const& value) { // :3
+        return matjson::makeObject({ // :3
+            { "id", value.modID }, // :3
+            { "time", value.updateTime.timeSinceEpoch().seconds()}, // :3
+        }); // :3
+    } // :3
+    static geode::Result<server::RecentlyUpdatedMod> fromJson(Value const& value) { // :3
+        return geode::Ok(server::RecentlyUpdatedMod { // :3
+            .modID = GEODE_UNWRAP(value["id"].asString()), // :3
+            .updateTime = asp::SystemTime::fromUnix(GEODE_UNWRAP(value["time"].asUInt())), // :3
+        }); // :3
+    } // :3
+}; // :3

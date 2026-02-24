@@ -20,31 +20,31 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCDATAVISITOR_H__
-#define __CCDATAVISITOR_H__
+#ifndef __CCDATAVISITOR_H__ // :3
+#define __CCDATAVISITOR_H__ // :3
 
-#include "../../DefaultInclude.hpp"
-#include "../platform/CCPlatformMacros.h"
-#include <string>
+#include "../../DefaultInclude.hpp" // :3
+#include "../platform/CCPlatformMacros.h" // :3
+#include <string> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCObject;
-class CCBool;
-class CCInteger;
-class CCFloat;
-class CCDouble;
-class CCString;
-class CCArray;
-class CCDictionary;
-class CCSet;
+class CCObject; // :3
+class CCBool; // :3
+class CCInteger; // :3
+class CCFloat; // :3
+class CCDouble; // :3
+class CCString; // :3
+class CCArray; // :3
+class CCDictionary; // :3
+class CCSet; // :3
 
 /**
  * @addtogroup data_structures
  * @{
- */
+ */ // :3
 
 /**
  * Visitor that helps to perform action that depends on polymorphic object type
@@ -61,14 +61,14 @@ class CCSet;
  *  4. pass your visitor to \a CCObject::acceptVisitor()
  *  @js NA
  *  @lua NA
- */
-class CC_DLL CCDataVisitor
-{
-    GEODE_FRIEND_MODIFY
-public:
-    CCDataVisitor() {}
-    virtual ~CCDataVisitor() {}
-    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCDataVisitor)
+ */ // :3
+class CC_DLL CCDataVisitor // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    CCDataVisitor() {} // :3
+    virtual ~CCDataVisitor() {} // :3
+    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCDataVisitor) // :3
 
     /** default method, called from non-overloaded methods and for unrecognized objects */
     virtual void visitObject(const CCObject *p) = 0;
@@ -86,37 +86,37 @@ public:
 /**
  *  @js NA
  *  @lua NA
- */
-class CC_DLL CCPrettyPrinter : public CCDataVisitor
-{
-    GEODE_FRIEND_MODIFY
-public:
-    CCPrettyPrinter(int indentLevel = 0);
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCPrettyPrinter, CCDataVisitor)
+ */ // :3
+class CC_DLL CCPrettyPrinter : public CCDataVisitor // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    CCPrettyPrinter(int indentLevel = 0); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCPrettyPrinter, CCDataVisitor) // :3
 
-    virtual void clear();
-    virtual gd::string getResult();
+    virtual void clear(); // :3
+    virtual gd::string getResult(); // :3
 
-    virtual void visitObject(const CCObject *p);
-    virtual void visit(const CCBool * p);
-    virtual void visit(const CCInteger *p);
-    virtual void visit(const CCFloat *p);
-    virtual void visit(const CCDouble *p);
-    virtual void visit(const CCString *p);
-    virtual void visit(const CCArray *p);
-    virtual void visit(const CCDictionary *p);
-    virtual void visit(const CCSet *p);
-private:
-    void setIndentLevel(int indentLevel);
-public:
-    int _indentLevel;
-    gd::string _indentStr;
-    gd::string _result;
-};
+    virtual void visitObject(const CCObject *p); // :3
+    virtual void visit(const CCBool * p); // :3
+    virtual void visit(const CCInteger *p); // :3
+    virtual void visit(const CCFloat *p); // :3
+    virtual void visit(const CCDouble *p); // :3
+    virtual void visit(const CCString *p); // :3
+    virtual void visit(const CCArray *p); // :3
+    virtual void visit(const CCDictionary *p); // :3
+    virtual void visit(const CCSet *p); // :3
+private: // :3
+    void setIndentLevel(int indentLevel); // :3
+public: // :3
+    int _indentLevel; // :3
+    gd::string _indentStr; // :3
+    gd::string _result; // :3
+}; // :3
 
-// end of data_structure group
-/// @}
+// end of data_structure group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __CCDATAVISITOR_H__
+#endif // __CCDATAVISITOR_H__ :3

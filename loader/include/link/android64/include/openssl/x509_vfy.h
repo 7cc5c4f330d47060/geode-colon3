@@ -8,7 +8,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -25,22 +25,22 @@
 
 /*
  * Protect against recursion, x509.h and x509_vfy.h each include the other.
- */
-#ifndef OPENSSL_X509_H
-#include <openssl/x509.h>
-#endif
+ */ // :3
+#ifndef OPENSSL_X509_H // :3
+#include <openssl/x509.h> // :3
+#endif // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/lhash.h>
-#include <openssl/bio.h>
-#include <openssl/crypto.h>
-#include <openssl/symhacks.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/lhash.h> // :3
+#include <openssl/bio.h> // :3
+#include <openssl/crypto.h> // :3
+#include <openssl/symhacks.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-DEFINE_STACK_OF(OCSP_RESPONSE)
+DEFINE_STACK_OF(OCSP_RESPONSE) // :3
 
 /*-
 SSL_CTX -> X509_STORE
@@ -57,18 +57,18 @@ A X509_STORE_CTX is used while validating a single certificate.
 The X509_STORE has X509_LOOKUPs for looking up certs.
 The X509_STORE then calls a function to actually verify the
 certificate chain.
-*/
+*/ // :3
 
-typedef enum {
-    X509_LU_NONE = 0,
-    X509_LU_X509,
-    X509_LU_CRL
-} X509_LOOKUP_TYPE;
+typedef enum { // :3
+    X509_LU_NONE = 0, // :3
+    X509_LU_X509, // :3
+    X509_LU_CRL // :3
+} X509_LOOKUP_TYPE; // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_1_1_0
-#define X509_LU_RETRY -1
-#define X509_LU_FAIL 0
-#endif
+#ifndef OPENSSL_NO_DEPRECATED_1_1_0 // :3
+#define X509_LU_RETRY -1 // :3
+#define X509_LU_FAIL 0 // :3
+#endif // :3
 
 /* clang-format off */
 SKM_DEFINE_STACK_OF_INTERNAL(X509_LOOKUP, X509_LOOKUP, X509_LOOKUP)
@@ -476,8 +476,8 @@ void X509_STORE_CTX_set_depth(X509_STORE_CTX *ctx, int depth);
  * If the initial chain is not trusted, do not attempt to build an alternative
  * chain. Alternate chain checking was introduced in 1.1.0. Setting this flag
  * will force the behaviour to match that of previous versions.
- */
-#define X509_V_FLAG_NO_ALT_CHAINS 0x100000
+ */ // :3
+#define X509_V_FLAG_NO_ALT_CHAINS 0x100000 // :3
 /* Do not check certificate/CRL validity against current time */
 #define X509_V_FLAG_NO_CHECK_TIME 0x200000
 
@@ -813,9 +813,9 @@ int X509_STORE_CTX_set_default(X509_STORE_CTX *ctx, const char *name);
 /*
  * Bridge opacity barrier between libcrypt and libssl, also needed to support
  * offline testing in test/danetest.c
- */
-void X509_STORE_CTX_set0_dane(X509_STORE_CTX *ctx, SSL_DANE *dane);
-#define DANE_FLAG_NO_DANE_EE_NAMECHECKS (1L << 0)
+ */ // :3
+void X509_STORE_CTX_set0_dane(X509_STORE_CTX *ctx, SSL_DANE *dane); // :3
+#define DANE_FLAG_NO_DANE_EE_NAMECHECKS (1L << 0) // :3
 
 /* X509_VERIFY_PARAM functions */
 
@@ -884,7 +884,7 @@ void X509_VERIFY_PARAM_table_cleanup(void);
 /*
  * Positive return values form a bit mask, all but the first are internal to
  * the library and don't appear in results from X509_policy_check().
- */
+ */ // :3
 #define X509_PCY_TREE_VALID 1 /* The policy tree is valid */
 #define X509_PCY_TREE_EMPTY 2 /* The policy tree is empty */
 #define X509_PCY_TREE_EXPLICIT 4 /* Explicit policy required */

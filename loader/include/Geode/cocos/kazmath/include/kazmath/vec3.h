@@ -21,31 +21,31 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
 ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+*/ // :3
 
-#ifndef VEC3_H_INCLUDED
-#define VEC3_H_INCLUDED
+#ifndef VEC3_H_INCLUDED // :3
+#define VEC3_H_INCLUDED // :3
 
-#include "../../../platform/CCPlatformMacros.h"
-#include <assert.h>
+#include "../../../platform/CCPlatformMacros.h" // :3
+#include <assert.h> // :3
 
-#ifndef kmScalar
-#define kmScalar float
-#endif
+#ifndef kmScalar // :3
+#define kmScalar float // :3
+#endif // :3
 
-struct kmMat4;
+struct kmMat4; // :3
 
-typedef struct kmVec3 {
-    kmScalar x;
-    kmScalar y;
-    kmScalar z;
-} kmVec3;
+typedef struct kmVec3 { // :3
+    kmScalar x; // :3
+    kmScalar y; // :3
+    kmScalar z; // :3
+} kmVec3; // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-CC_DLL kmVec3* kmVec3Fill(kmVec3* pOut, kmScalar x, kmScalar y, kmScalar z);
+CC_DLL kmVec3* kmVec3Fill(kmVec3* pOut, kmScalar x, kmScalar y, kmScalar z); // :3
 CC_DLL kmScalar kmVec3Length(const kmVec3* pIn); /** Returns the length of the vector */
 CC_DLL kmScalar kmVec3LengthSq(const kmVec3* pIn); /** Returns the square of the length of the vector */
 CC_DLL kmVec3* kmVec3Normalize(kmVec3* pOut, const kmVec3* pIn); /** Returns the vector passed in set to unit length */

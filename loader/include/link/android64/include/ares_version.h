@@ -22,10 +22,10 @@
  * SOFTWARE.
  *
  * SPDX-License-Identifier: MIT
- */
+ */ // :3
 
-#ifndef ARES__VERSION_H
-#define ARES__VERSION_H
+#ifndef ARES__VERSION_H // :3
+#define ARES__VERSION_H // :3
 
 /* This is the global package copyright */
 #define ARES_COPYRIGHT "2004 - 2024 Daniel Stenberg, <daniel@haxx.se>."
@@ -38,10 +38,10 @@
 /* NOTE: We cannot make the version string a C preprocessor stringify operation
  *       due to assumptions made by integrators that aren't properly using
  *       pkgconf or cmake and are doing their own detection based on parsing
- *       this header */
+ *       this header */ // :3
 
 #define ARES_VERSION                                        \
   ((ARES_VERSION_MAJOR << 16) | (ARES_VERSION_MINOR << 8) | \
-   (ARES_VERSION_PATCH))
+   (ARES_VERSION_PATCH)) // :3
 
-#endif
+#endif // :3

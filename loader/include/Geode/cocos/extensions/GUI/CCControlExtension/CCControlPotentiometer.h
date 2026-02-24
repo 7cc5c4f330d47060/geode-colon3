@@ -23,20 +23,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- */
-#ifndef __CCCONTROLPOTENTIOMETER_H__
-#define __CCCONTROLPOTENTIOMETER_H__
+ */ // :3
+#ifndef __CCCONTROLPOTENTIOMETER_H__ // :3
+#define __CCCONTROLPOTENTIOMETER_H__ // :3
 
-#include "CCControl.h"
+#include "CCControl.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup control_extension
  * @{
- */
+ */ // :3
 
 /** @class CCControlPotentiometer Potentiometer control for Cocos2D. */
 class CC_DLL CCControlPotentiometer : public CCControl
@@ -48,47 +48,47 @@ public:
     virtual ~CCControlPotentiometer();
     /**
      * Creates potentiometer with a track filename and a progress filename.
-     */
-    static CCControlPotentiometer* create(const char* backgroundFile, const char* progressFile, const char* thumbFile);
+     */ // :3
+    static CCControlPotentiometer* create(const char* backgroundFile, const char* progressFile, const char* thumbFile); // :3
 
     /**
      * Initializes a potentiometer with a track sprite and a progress bar.
      *
      * @param trackSprite CCSprite, that is used as a background.
      * @param progressSprite CCProgressTimer, that is used as a progress bar.
-     */
-    bool initWithTrackSprite_ProgressTimer_ThumbSprite(CCSprite* trackSprite, CCProgressTimer* progressTimer, CCSprite* thumbSprite);
-    void setValue(float value);
-    float getValue();
+     */ // :3
+    bool initWithTrackSprite_ProgressTimer_ThumbSprite(CCSprite* trackSprite, CCProgressTimer* progressTimer, CCSprite* thumbSprite); // :3
+    void setValue(float value); // :3
+    float getValue(); // :3
 
-    void setMinimumValue(float minimumValue);
-    float getMinimumValue();
+    void setMinimumValue(float minimumValue); // :3
+    float getMinimumValue(); // :3
 
-    void setMaximumValue(float maximumValue);
-    float getMaximumValue();
+    void setMaximumValue(float maximumValue); // :3
+    float getMaximumValue(); // :3
 
-    void setEnabled(bool enabled);
+    void setEnabled(bool enabled); // :3
 
-    virtual bool isTouchInside(CCTouch * touch);
+    virtual bool isTouchInside(CCTouch * touch); // :3
 
-    virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
-    virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
-    virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
+    virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent); // :3
+    virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent); // :3
+    virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent); // :3
 
-public:
-    CC_SYNTHESIZE_NV_RETAIN(CCSprite*, m_pThumbSprite, ThumbSprite)
-    CC_SYNTHESIZE_NV_RETAIN(CCProgressTimer*, m_pProgressTimer, ProgressTimer)
-    CC_SYNTHESIZE_NV(CCPoint, m_tPreviousLocation, PreviousLocation)
+public: // :3
+    CC_SYNTHESIZE_NV_RETAIN(CCSprite*, m_pThumbSprite, ThumbSprite) // :3
+    CC_SYNTHESIZE_NV_RETAIN(CCProgressTimer*, m_pProgressTimer, ProgressTimer) // :3
+    CC_SYNTHESIZE_NV(CCPoint, m_tPreviousLocation, PreviousLocation) // :3
     /** Contains the receiver’s current value. */
     float           m_fValue;
     /** Contains the minimum value of the receiver.
-    * The default value of this property is 0.0. */
-    float           m_fMinimumValue;
+    * The default value of this property is 0.0. */ // :3
+    float           m_fMinimumValue; // :3
     /** Contains the maximum value of the receiver.
-    * The default value of this property is 1.0. */
-    float           m_fMaximumValue;
+    * The default value of this property is 1.0. */ // :3
+    float           m_fMaximumValue; // :3
 
-protected:
+protected: // :3
     /** Factorize the event dispath into these methods. */
     void potentiometerBegan(CCPoint location);
     void potentiometerMoved(CCPoint location);

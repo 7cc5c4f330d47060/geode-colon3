@@ -1,19 +1,19 @@
-#pragma once
+#pragma once // :3
 
-#include <cstdint>
+#include <cstdint> // :3
 
-#if UINTPTR_MAX > 0xffffffff
-# include "c++config-arm64.h"
-#else
-# include "c++config-armeabi-v7a.h"
-#endif
+#if UINTPTR_MAX > 0xffffffff // :3
+# include "c++config-arm64.h" // :3
+#else // :3
+# include "c++config-armeabi-v7a.h" // :3
+#endif // :3
 
-#include "type_traits.h"
+#include "type_traits.h" // :3
 
-#define _GLIBCXX_NODISCARD __attribute__ ((__warn_unused_result__))
-#define _GLIBCXX20_CONSTEXPR constexpr
-#define _GLIBCXX17_CONSTEXPR constexpr
-#define _GLIBCXX14_CONSTEXPR constexpr
-#define _GLIBCXX_NOEXCEPT_IF(...) noexcept(__VA_ARGS__)
+#define _GLIBCXX_NODISCARD __attribute__ ((__warn_unused_result__)) // :3
+#define _GLIBCXX20_CONSTEXPR constexpr // :3
+#define _GLIBCXX17_CONSTEXPR constexpr // :3
+#define _GLIBCXX14_CONSTEXPR constexpr // :3
+#define _GLIBCXX_NOEXCEPT_IF(...) noexcept(__VA_ARGS__) // :3
 
-# define __glibcxx_requires_valid_range(_First,_Last)
+# define __glibcxx_requires_valid_range(_First,_Last) // :3

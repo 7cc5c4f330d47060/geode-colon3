@@ -20,34 +20,34 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
-#ifndef __CC_FILEUTILS_ANDROID_H__
-#define __CC_FILEUTILS_ANDROID_H__
+ ****************************************************************************/ // :3
+#ifndef __CC_FILEUTILS_ANDROID_H__ // :3
+#define __CC_FILEUTILS_ANDROID_H__ // :3
 
-#include "../CCFileUtils.h"
-#include "../CCPlatformMacros.h"
-#include "../../include/ccTypes.h"
-#include "../../include/ccTypeInfo.h"
-#include <string>
-#include <vector>
+#include "../CCFileUtils.h" // :3
+#include "../CCPlatformMacros.h" // :3
+#include "../../include/ccTypes.h" // :3
+#include "../../include/ccTypeInfo.h" // :3
+#include <string> // :3
+#include <vector> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup platform
  * @{
- */
+ */ // :3
 
-//! @brief  Helper class to handle file operations
-class CC_DLL CCFileUtilsAndroid : public CCFileUtils
-{
-    GEODE_FRIEND_MODIFY
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCFileUtilsAndroid, CCFileUtils)
+//! @brief  Helper class to handle file operations :3
+class CC_DLL CCFileUtilsAndroid : public CCFileUtils // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCFileUtilsAndroid, CCFileUtils) // :3
 
-    friend class CCFileUtils;
-    CCFileUtilsAndroid();
-public:
-    virtual ~CCFileUtilsAndroid();
+    friend class CCFileUtils; // :3
+    CCFileUtilsAndroid(); // :3
+public: // :3
+    virtual ~CCFileUtilsAndroid(); // :3
 
     /* override funtions */
     bool init();
@@ -58,17 +58,17 @@ public:
 
     /** This function is android specific. It is used for CCTextureCache::addImageAsync().
      Don't use it in your codes.
-     */
-    unsigned char* getFileDataForAsync(const char* pszFileName, const char* pszMode, unsigned long * pSize);
+     */ // :3
+    unsigned char* getFileDataForAsync(const char* pszFileName, const char* pszMode, unsigned long * pSize); // :3
 
-private:
-    unsigned char* doGetFileData(const char* pszFileName, const char* pszMode, unsigned long * pSize, bool forAsync);
-};
+private: // :3
+    unsigned char* doGetFileData(const char* pszFileName, const char* pszMode, unsigned long * pSize, bool forAsync); // :3
+}; // :3
 
-// end of platform group
-/// @}
+// end of platform group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif    // __CC_FILEUTILS_ANDROID_H__
+#endif    // __CC_FILEUTILS_ANDROID_H__ :3
 

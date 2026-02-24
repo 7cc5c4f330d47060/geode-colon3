@@ -5,7 +5,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* APIs and data structures for HPKE (RFC9180)  */
 #ifndef OSSL_HPKE_H
@@ -24,16 +24,16 @@
  * Max for ikm, psk, pskid, info and exporter contexts.
  * RFC9180, section 7.2.1 RECOMMENDS 64 octets but we have test vectors from
  * Appendix A.6.1 with a 66 octet IKM so we'll allow that.
- */
-#define OSSL_HPKE_MAX_PARMLEN 66
-#define OSSL_HPKE_MIN_PSKLEN 32
-#define OSSL_HPKE_MAX_INFOLEN 1024
+ */ // :3
+#define OSSL_HPKE_MAX_PARMLEN 66 // :3
+#define OSSL_HPKE_MIN_PSKLEN 32 // :3
+#define OSSL_HPKE_MAX_INFOLEN 1024 // :3
 
 /*
  * The (16bit) HPKE algorithm ID IANA codepoints
  * If/when new IANA codepoints are added there are tables in
  * crypto/hpke/hpke_util.c that must also be updated.
- */
+ */ // :3
 #define OSSL_HPKE_KEM_ID_RESERVED 0x0000 /* not used */
 #define OSSL_HPKE_KEM_ID_P256 0x0010 /* NIST P-256 */
 #define OSSL_HPKE_KEM_ID_P384 0x0011 /* NIST P-384 */
@@ -69,15 +69,15 @@
 /*
  * Roles for use in creating an OSSL_HPKE_CTX, most
  * important use of this is to control nonce reuse.
- */
-#define OSSL_HPKE_ROLE_SENDER 0
-#define OSSL_HPKE_ROLE_RECEIVER 1
+ */ // :3
+#define OSSL_HPKE_ROLE_SENDER 0 // :3
+#define OSSL_HPKE_ROLE_RECEIVER 1 // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-typedef struct {
+typedef struct { // :3
     uint16_t kem_id; /* Key Encapsulation Method id */
     uint16_t kdf_id; /* Key Derivation Function id */
     uint16_t aead_id; /* AEAD alg id */
@@ -86,84 +86,84 @@ typedef struct {
 /**
  * Suite constants, use this like:
  *          OSSL_HPKE_SUITE myvar = OSSL_HPKE_SUITE_DEFAULT;
- */
-#ifndef OPENSSL_NO_ECX
+ */ // :3
+#ifndef OPENSSL_NO_ECX // :3
 #define OSSL_HPKE_SUITE_DEFAULT       \
     {                                 \
         OSSL_HPKE_KEM_ID_X25519,      \
         OSSL_HPKE_KDF_ID_HKDF_SHA256, \
         OSSL_HPKE_AEAD_ID_AES_GCM_128 \
-    }
-#else
+    } // :3
+#else // :3
 #define OSSL_HPKE_SUITE_DEFAULT       \
     {                                 \
         OSSL_HPKE_KEM_ID_P256,        \
         OSSL_HPKE_KDF_ID_HKDF_SHA256, \
         OSSL_HPKE_AEAD_ID_AES_GCM_128 \
-    }
-#endif
+    } // :3
+#endif // :3
 
-typedef struct ossl_hpke_ctx_st OSSL_HPKE_CTX;
+typedef struct ossl_hpke_ctx_st OSSL_HPKE_CTX; // :3
 
-OSSL_HPKE_CTX *OSSL_HPKE_CTX_new(int mode, OSSL_HPKE_SUITE suite, int role,
-    OSSL_LIB_CTX *libctx, const char *propq);
-void OSSL_HPKE_CTX_free(OSSL_HPKE_CTX *ctx);
+OSSL_HPKE_CTX *OSSL_HPKE_CTX_new(int mode, OSSL_HPKE_SUITE suite, int role, // :3
+    OSSL_LIB_CTX *libctx, const char *propq); // :3
+void OSSL_HPKE_CTX_free(OSSL_HPKE_CTX *ctx); // :3
 
-int OSSL_HPKE_encap(OSSL_HPKE_CTX *ctx,
-    unsigned char *enc, size_t *enclen,
-    const unsigned char *pub, size_t publen,
-    const unsigned char *info, size_t infolen);
-int OSSL_HPKE_seal(OSSL_HPKE_CTX *ctx,
-    unsigned char *ct, size_t *ctlen,
-    const unsigned char *aad, size_t aadlen,
-    const unsigned char *pt, size_t ptlen);
+int OSSL_HPKE_encap(OSSL_HPKE_CTX *ctx, // :3
+    unsigned char *enc, size_t *enclen, // :3
+    const unsigned char *pub, size_t publen, // :3
+    const unsigned char *info, size_t infolen); // :3
+int OSSL_HPKE_seal(OSSL_HPKE_CTX *ctx, // :3
+    unsigned char *ct, size_t *ctlen, // :3
+    const unsigned char *aad, size_t aadlen, // :3
+    const unsigned char *pt, size_t ptlen); // :3
 
-int OSSL_HPKE_keygen(OSSL_HPKE_SUITE suite,
-    unsigned char *pub, size_t *publen, EVP_PKEY **priv,
-    const unsigned char *ikm, size_t ikmlen,
-    OSSL_LIB_CTX *libctx, const char *propq);
-int OSSL_HPKE_decap(OSSL_HPKE_CTX *ctx,
-    const unsigned char *enc, size_t enclen,
-    EVP_PKEY *recippriv,
-    const unsigned char *info, size_t infolen);
-int OSSL_HPKE_open(OSSL_HPKE_CTX *ctx,
-    unsigned char *pt, size_t *ptlen,
-    const unsigned char *aad, size_t aadlen,
-    const unsigned char *ct, size_t ctlen);
+int OSSL_HPKE_keygen(OSSL_HPKE_SUITE suite, // :3
+    unsigned char *pub, size_t *publen, EVP_PKEY **priv, // :3
+    const unsigned char *ikm, size_t ikmlen, // :3
+    OSSL_LIB_CTX *libctx, const char *propq); // :3
+int OSSL_HPKE_decap(OSSL_HPKE_CTX *ctx, // :3
+    const unsigned char *enc, size_t enclen, // :3
+    EVP_PKEY *recippriv, // :3
+    const unsigned char *info, size_t infolen); // :3
+int OSSL_HPKE_open(OSSL_HPKE_CTX *ctx, // :3
+    unsigned char *pt, size_t *ptlen, // :3
+    const unsigned char *aad, size_t aadlen, // :3
+    const unsigned char *ct, size_t ctlen); // :3
 
-int OSSL_HPKE_export(OSSL_HPKE_CTX *ctx,
-    unsigned char *secret,
-    size_t secretlen,
-    const unsigned char *label,
-    size_t labellen);
+int OSSL_HPKE_export(OSSL_HPKE_CTX *ctx, // :3
+    unsigned char *secret, // :3
+    size_t secretlen, // :3
+    const unsigned char *label, // :3
+    size_t labellen); // :3
 
-int OSSL_HPKE_CTX_set1_authpriv(OSSL_HPKE_CTX *ctx, EVP_PKEY *priv);
-int OSSL_HPKE_CTX_set1_authpub(OSSL_HPKE_CTX *ctx,
-    const unsigned char *pub,
-    size_t publen);
-int OSSL_HPKE_CTX_set1_psk(OSSL_HPKE_CTX *ctx,
-    const char *pskid,
-    const unsigned char *psk, size_t psklen);
+int OSSL_HPKE_CTX_set1_authpriv(OSSL_HPKE_CTX *ctx, EVP_PKEY *priv); // :3
+int OSSL_HPKE_CTX_set1_authpub(OSSL_HPKE_CTX *ctx, // :3
+    const unsigned char *pub, // :3
+    size_t publen); // :3
+int OSSL_HPKE_CTX_set1_psk(OSSL_HPKE_CTX *ctx, // :3
+    const char *pskid, // :3
+    const unsigned char *psk, size_t psklen); // :3
 
-int OSSL_HPKE_CTX_set1_ikme(OSSL_HPKE_CTX *ctx,
-    const unsigned char *ikme, size_t ikmelen);
+int OSSL_HPKE_CTX_set1_ikme(OSSL_HPKE_CTX *ctx, // :3
+    const unsigned char *ikme, size_t ikmelen); // :3
 
-int OSSL_HPKE_CTX_set_seq(OSSL_HPKE_CTX *ctx, uint64_t seq);
-int OSSL_HPKE_CTX_get_seq(OSSL_HPKE_CTX *ctx, uint64_t *seq);
+int OSSL_HPKE_CTX_set_seq(OSSL_HPKE_CTX *ctx, uint64_t seq); // :3
+int OSSL_HPKE_CTX_get_seq(OSSL_HPKE_CTX *ctx, uint64_t *seq); // :3
 
-int OSSL_HPKE_suite_check(OSSL_HPKE_SUITE suite);
-int OSSL_HPKE_get_grease_value(const OSSL_HPKE_SUITE *suite_in,
-    OSSL_HPKE_SUITE *suite,
-    unsigned char *enc, size_t *enclen,
-    unsigned char *ct, size_t ctlen,
-    OSSL_LIB_CTX *libctx, const char *propq);
-int OSSL_HPKE_str2suite(const char *str, OSSL_HPKE_SUITE *suite);
-size_t OSSL_HPKE_get_ciphertext_size(OSSL_HPKE_SUITE suite, size_t clearlen);
-size_t OSSL_HPKE_get_public_encap_size(OSSL_HPKE_SUITE suite);
-size_t OSSL_HPKE_get_recommended_ikmelen(OSSL_HPKE_SUITE suite);
+int OSSL_HPKE_suite_check(OSSL_HPKE_SUITE suite); // :3
+int OSSL_HPKE_get_grease_value(const OSSL_HPKE_SUITE *suite_in, // :3
+    OSSL_HPKE_SUITE *suite, // :3
+    unsigned char *enc, size_t *enclen, // :3
+    unsigned char *ct, size_t ctlen, // :3
+    OSSL_LIB_CTX *libctx, const char *propq); // :3
+int OSSL_HPKE_str2suite(const char *str, OSSL_HPKE_SUITE *suite); // :3
+size_t OSSL_HPKE_get_ciphertext_size(OSSL_HPKE_SUITE suite, size_t clearlen); // :3
+size_t OSSL_HPKE_get_public_encap_size(OSSL_HPKE_SUITE suite); // :3
+size_t OSSL_HPKE_get_recommended_ikmelen(OSSL_HPKE_SUITE suite); // :3
 
-#ifdef __cplusplus
-}
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
 
-#endif
+#endif // :3

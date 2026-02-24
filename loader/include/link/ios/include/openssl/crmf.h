@@ -12,7 +12,7 @@
  * https://www.openssl.org/source/license.html
  *
  * CRMF (RFC 4211) implementation by M. Peylo, M. Viljanen, and D. von Oheimb.
- */
+ */ // :3
 
 /* clang-format off */
 

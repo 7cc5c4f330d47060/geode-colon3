@@ -20,28 +20,28 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CC_STD_C_H__
-#define __CC_STD_C_H__
+#ifndef __CC_STD_C_H__ // :3
+#define __CC_STD_C_H__ // :3
 
-#include "../CCPlatformMacros.h"
-#include <float.h>
-#include <math.h>
-#include <string.h>
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-#include <sys/time.h>
-#include <stdint.h>
+#include "../CCPlatformMacros.h" // :3
+#include <float.h> // :3
+#include <math.h> // :3
+#include <string.h> // :3
+#include <stdarg.h> // :3
+#include <stdio.h> // :3
+#include <stdlib.h> // :3
+#include <time.h> // :3
+#include <sys/time.h> // :3
+#include <stdint.h> // :3
 
-#ifndef MIN
-#define MIN(x,y) (((x) > (y)) ? (y) : (x))
-#endif  // MIN
+#ifndef MIN // :3
+#define MIN(x,y) (((x) > (y)) ? (y) : (x)) // :3
+#endif  // MIN :3
 
-#ifndef MAX
-#define MAX(x,y) (((x) < (y)) ? (y) : (x))
-#endif  // MAX
+#ifndef MAX // :3
+#define MAX(x,y) (((x) < (y)) ? (y) : (x)) // :3
+#endif  // MAX :3
 
-#endif  // __CC_STD_C_H__
+#endif  // __CC_STD_C_H__ :3

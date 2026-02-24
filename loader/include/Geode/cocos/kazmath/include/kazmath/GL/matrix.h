@@ -21,40 +21,40 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
 ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+*/ // :3
 
-#ifndef KM_GL_MATRIX_H_INCLUDED
-#define KM_GL_MATRIX_H_INCLUDED
+#ifndef KM_GL_MATRIX_H_INCLUDED // :3
+#define KM_GL_MATRIX_H_INCLUDED // :3
 
-#include "../../../../platform/CCPlatformMacros.h"
+#include "../../../../platform/CCPlatformMacros.h" // :3
 
-#define KM_GL_MODELVIEW 0x1700
-#define KM_GL_PROJECTION 0x1701
-#define KM_GL_TEXTURE 0x1702
+#define KM_GL_MODELVIEW 0x1700 // :3
+#define KM_GL_PROJECTION 0x1701 // :3
+#define KM_GL_TEXTURE 0x1702 // :3
 
-typedef unsigned int kmGLEnum;
+typedef unsigned int kmGLEnum; // :3
 
-#include "../mat4.h"
-#include "../vec3.h"
+#include "../mat4.h" // :3
+#include "../vec3.h" // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-void CC_DLL kmGLFreeAll(void);
-void CC_DLL kmGLPushMatrix(void);
-void CC_DLL kmGLPopMatrix(void);
-void CC_DLL kmGLMatrixMode(kmGLEnum mode);
-void CC_DLL kmGLLoadIdentity(void);
-void CC_DLL kmGLLoadMatrix(const kmMat4* pIn);
-void CC_DLL kmGLMultMatrix(const kmMat4* pIn);
-void CC_DLL kmGLTranslatef(float x, float y, float z);
-void CC_DLL kmGLRotatef(float angle, float x, float y, float z);
-void CC_DLL kmGLScalef(float x, float y, float z);
-void CC_DLL kmGLGetMatrix(kmGLEnum mode, kmMat4* pOut);
+void CC_DLL kmGLFreeAll(void); // :3
+void CC_DLL kmGLPushMatrix(void); // :3
+void CC_DLL kmGLPopMatrix(void); // :3
+void CC_DLL kmGLMatrixMode(kmGLEnum mode); // :3
+void CC_DLL kmGLLoadIdentity(void); // :3
+void CC_DLL kmGLLoadMatrix(const kmMat4* pIn); // :3
+void CC_DLL kmGLMultMatrix(const kmMat4* pIn); // :3
+void CC_DLL kmGLTranslatef(float x, float y, float z); // :3
+void CC_DLL kmGLRotatef(float angle, float x, float y, float z); // :3
+void CC_DLL kmGLScalef(float x, float y, float z); // :3
+void CC_DLL kmGLGetMatrix(kmGLEnum mode, kmMat4* pOut); // :3
 
-#ifdef __cplusplus
-}
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
 
-#endif // MATRIX_H_INCLUDED
+#endif // MATRIX_H_INCLUDED :3

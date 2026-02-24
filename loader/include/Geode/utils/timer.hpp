@@ -1,85 +1,85 @@
-#pragma once
+#pragma once // :3
 
-#include <chrono>
+#include <chrono> // :3
 
-namespace geode::utils {
-    template <typename T>
-    struct is_chrono_duration {
-        static constexpr bool value = false;
-    };
+namespace geode::utils { // :3
+    template <typename T> // :3
+    struct is_chrono_duration { // :3
+        static constexpr bool value = false; // :3
+    }; // :3
 
-    template <typename Rep, typename Period>
-    struct is_chrono_duration<std::chrono::duration<Rep, Period>> {
-        static constexpr bool value = true;
-    };
+    template <typename Rep, typename Period> // :3
+    struct is_chrono_duration<std::chrono::duration<Rep, Period>> { // :3
+        static constexpr bool value = true; // :3
+    }; // :3
 
-    template <class Clock = std::chrono::high_resolution_clock>
-    class Timer {
-    public:
-        using clock_point = std::chrono::time_point<Clock>;
+    template <class Clock = std::chrono::high_resolution_clock> // :3
+    class Timer { // :3
+    public: // :3
+        using clock_point = std::chrono::time_point<Clock>; // :3
 
-    private:
-        clock_point m_start;
+    private: // :3
+        clock_point m_start; // :3
 
-    public:
-        Timer() {
-            m_start = Clock::now();
-        }
+    public: // :3
+        Timer() { // :3
+            m_start = Clock::now(); // :3
+        } // :3
 
-        void reset() {
-            m_start = Clock::now();
-        }
+        void reset() { // :3
+            m_start = Clock::now(); // :3
+        } // :3
 
-        clock_point time() const {
-            return m_start;
-        }
+        clock_point time() const { // :3
+            return m_start; // :3
+        } // :3
 
-        template <typename Duration = std::chrono::milliseconds>
-        int64_t elapsed() const {
-            static_assert(
-                is_chrono_duration<Duration>::value, "Duration must be a std::chrono::duration"
-            );
-            auto end = Clock::now();
-            return std::chrono::duration_cast<Duration>(end - m_start).count();
-        }
+        template <typename Duration = std::chrono::milliseconds> // :3
+        int64_t elapsed() const { // :3
+            static_assert( // :3
+                is_chrono_duration<Duration>::value, "Duration must be a std::chrono::duration" // :3
+            ); // :3
+            auto end = Clock::now(); // :3
+            return std::chrono::duration_cast<Duration>(end - m_start).count(); // :3
+        } // :3
 
-        template <typename Duration = std::chrono::milliseconds>
-        std::string elapsedAsString() const {
-            static_assert(
-                is_chrono_duration<Duration>::value, "Duration must be a std::chrono::duration"
-            );
-            if constexpr (std::is_same<Duration, std::chrono::milliseconds>::value) {
-                return std::to_string(this->elapsed<Duration>()) + "ms";
-            }
-            else if constexpr (std::is_same<Duration, std::chrono::microseconds>::value) {
-                return std::to_string(this->elapsed<Duration>()) + "us";
-            }
-            else if constexpr (std::is_same<Duration, std::chrono::nanoseconds>::value) {
-                return std::to_string(this->elapsed<Duration>()) + "ns";
-            }
-            else {
-                // static_assert(!std::is_same_v<bool, bool>, "Unsupported duration type");
-            }
-        }
-    };
+        template <typename Duration = std::chrono::milliseconds> // :3
+        std::string elapsedAsString() const { // :3
+            static_assert( // :3
+                is_chrono_duration<Duration>::value, "Duration must be a std::chrono::duration" // :3
+            ); // :3
+            if constexpr (std::is_same<Duration, std::chrono::milliseconds>::value) { // :3
+                return std::to_string(this->elapsed<Duration>()) + "ms"; // :3
+            } // :3
+            else if constexpr (std::is_same<Duration, std::chrono::microseconds>::value) { // :3
+                return std::to_string(this->elapsed<Duration>()) + "us"; // :3
+            } // :3
+            else if constexpr (std::is_same<Duration, std::chrono::nanoseconds>::value) { // :3
+                return std::to_string(this->elapsed<Duration>()) + "ns"; // :3
+            } // :3
+            else { // :3
+                // static_assert(!std::is_same_v<bool, bool>, "Unsupported duration type"); :3
+            } // :3
+        } // :3
+    }; // :3
 
-    template <
-        typename Duration = std::chrono::milliseconds,
-        class Clock = std::chrono::high_resolution_clock>
-    struct LogPerformance {
-        std::ostream& m_output;
-        std::string m_msg;
-        Timer<Clock> m_timer;
+    template < // :3
+        typename Duration = std::chrono::milliseconds, // :3
+        class Clock = std::chrono::high_resolution_clock> // :3
+    struct LogPerformance { // :3
+        std::ostream& m_output; // :3
+        std::string m_msg; // :3
+        Timer<Clock> m_timer; // :3
 
-        // @geode-ignore(geode-alternative)
-        LogPerformance(std::string_view msg = "", std::ostream& out = std::cout) :
-            m_msg(msg), m_output(out) {
-            m_timer = Timer<Clock>();
-        };
+        // @geode-ignore(geode-alternative) :3
+        LogPerformance(std::string_view msg = "", std::ostream& out = std::cout) : // :3
+            m_msg(msg), m_output(out) { // :3
+            m_timer = Timer<Clock>(); // :3
+        }; // :3
 
-        ~LogPerformance() {
-            m_output << "Running \"" << m_msg << "\" took "
-                     << m_timer.template elapsedAsString<Duration>() << std::endl;
-        }
-    };
-}
+        ~LogPerformance() { // :3
+            m_output << "Running \"" << m_msg << "\" took " // :3
+                     << m_timer.template elapsedAsString<Duration>() << std::endl; // :3
+        } // :3
+    }; // :3
+} // :3

@@ -21,178 +21,178 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */
+ */ // :3
 
-// Only compile this code on Mac. These files should not be included on your iOS project.
-// But in case they are included, it won't be compiled.
-#import <Availability.h>
-#ifndef __CC_EVENT_DISPATCHER_H__
-#define __CC_EVENT_DISPATCHER_H__
+// Only compile this code on Mac. These files should not be included on your iOS project. :3
+// But in case they are included, it won't be compiled. :3
+#import <Availability.h> // :3
+#ifndef __CC_EVENT_DISPATCHER_H__ // :3
+#define __CC_EVENT_DISPATCHER_H__ // :3
 
-#import <Cocoa/Cocoa.h>
+#import <Cocoa/Cocoa.h> // :3
 
-#import "EAGLView.h"
-//#import "../../Support/uthash.h"	// hack: uthash needs to be imported before utlist to prevent warning
-//#import "../../Support/utlist.h"
-#import "ccConfig.h"
+#import "EAGLView.h" // :3
+//#import "../../Support/uthash.h"	// hack: uthash needs to be imported before utlist to prevent warning :3
+//#import "../../Support/utlist.h" :3
+#import "ccConfig.h" // :3
 
-//NS_CC_BEGIN;
-#pragma mark -
-#pragma mark CCMouseEventDelegate
+//NS_CC_BEGIN; :3
+#pragma mark - // :3
+#pragma mark CCMouseEventDelegate // :3
 
 /** CCMouseEventDelegate protocol.
  Implement it in your node to receive any of mouse events
- */
-@protocol CCMouseEventDelegate <NSObject>
-@optional
+ */ // :3
+@protocol CCMouseEventDelegate <NSObject> // :3
+@optional // :3
 
-//
-// left
-//
+// :3
+// left :3
+// :3
 /** called when the "mouseDown" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
--(BOOL) ccMouseDown:(NSEvent*)event;
+ */ // :3
+-(BOOL) ccMouseDown:(NSEvent*)event; // :3
 
 /** called when the "mouseDragged" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
--(BOOL) ccMouseDragged:(NSEvent*)event;
+ */ // :3
+-(BOOL) ccMouseDragged:(NSEvent*)event; // :3
 
 /** called when the "mouseMoved" event is received.
  Return YES to avoid propagating the event to other delegates.
  By default, "mouseMoved" is disabled. To enable it, send the "setAcceptsMouseMovedEvents:YES" message to the main window.
- */
--(BOOL) ccMouseMoved:(NSEvent*)event;
+ */ // :3
+-(BOOL) ccMouseMoved:(NSEvent*)event; // :3
 
 /** called when the "mouseUp" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
--(BOOL) ccMouseUp:(NSEvent*)event;
+ */ // :3
+-(BOOL) ccMouseUp:(NSEvent*)event; // :3
 
 
-//
-// right
-//
+// :3
+// right :3
+// :3
 
 /** called when the "rightMouseDown" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
--(BOOL) ccRightMouseDown:(NSEvent*)event;
+ */ // :3
+-(BOOL) ccRightMouseDown:(NSEvent*)event; // :3
 
 /** called when the "rightMouseDragged" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
--(BOOL) ccRightMouseDragged:(NSEvent*)event;
+ */ // :3
+-(BOOL) ccRightMouseDragged:(NSEvent*)event; // :3
 
 /** called when the "rightMouseUp" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
--(BOOL) ccRightMouseUp:(NSEvent*)event;
+ */ // :3
+-(BOOL) ccRightMouseUp:(NSEvent*)event; // :3
 
-//
-// other
-//
+// :3
+// other :3
+// :3
 
 /** called when the "otherMouseDown" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
--(BOOL) ccOtherMouseDown:(NSEvent*)event;
+ */ // :3
+-(BOOL) ccOtherMouseDown:(NSEvent*)event; // :3
 
 /** called when the "otherMouseDragged" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
--(BOOL) ccOtherMouseDragged:(NSEvent*)event;
+ */ // :3
+-(BOOL) ccOtherMouseDragged:(NSEvent*)event; // :3
 
 /** called when the "otherMouseUp" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
--(BOOL) ccOtherMouseUp:(NSEvent*)event;
+ */ // :3
+-(BOOL) ccOtherMouseUp:(NSEvent*)event; // :3
 
-//
-// scroll wheel
-//
+// :3
+// scroll wheel :3
+// :3
 
 /** called when the "scrollWheel" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
-- (BOOL)ccScrollWheel:(NSEvent *)theEvent;
+ */ // :3
+- (BOOL)ccScrollWheel:(NSEvent *)theEvent; // :3
 
 
-//
-// enter / exit
-//
+// :3
+// enter / exit :3
+// :3
 
 /** called when the "mouseEntered" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
-- (void)ccMouseEntered:(NSEvent *)theEvent;
+ */ // :3
+- (void)ccMouseEntered:(NSEvent *)theEvent; // :3
 
 /** called when the "mouseExited" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
-- (void)ccMouseExited:(NSEvent *)theEvent;
+ */ // :3
+- (void)ccMouseExited:(NSEvent *)theEvent; // :3
 
-@end
+@end // :3
 
-#pragma mark -
-#pragma mark CCKeyboardEventDelegate
+#pragma mark - // :3
+#pragma mark CCKeyboardEventDelegate // :3
 
 /** CCKeyboardEventDelegate protocol.
  Implement it in your node to receive any of keyboard events
- */
-@protocol CCKeyboardEventDelegate <NSObject>
-@optional
+ */ // :3
+@protocol CCKeyboardEventDelegate <NSObject> // :3
+@optional // :3
 /** called when the "keyUp" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
--(BOOL) ccKeyUp:(NSEvent*)event;
+ */ // :3
+-(BOOL) ccKeyUp:(NSEvent*)event; // :3
 
 /** called when the "keyDown" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
--(BOOL) ccKeyDown:(NSEvent*)event;
+ */ // :3
+-(BOOL) ccKeyDown:(NSEvent*)event; // :3
 /** called when the "flagsChanged" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
--(BOOL) ccFlagsChanged:(NSEvent*)event;
-@end
+ */ // :3
+-(BOOL) ccFlagsChanged:(NSEvent*)event; // :3
+@end // :3
 
-#pragma mark -
-#pragma mark CCTouchEventDelegate
+#pragma mark - // :3
+#pragma mark CCTouchEventDelegate // :3
 
 /** CCTouchEventDelegate protocol.
  Implement it in your node to receive any of touch events
- */
-@protocol CCTouchEventDelegate <NSObject>
-@optional
+ */ // :3
+@protocol CCTouchEventDelegate <NSObject> // :3
+@optional // :3
 /** called when the "touchesBegan" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
-- (BOOL)ccTouchesBeganWithEvent:(NSEvent *)event;
+ */ // :3
+- (BOOL)ccTouchesBeganWithEvent:(NSEvent *)event; // :3
 
 /** called when the "touchesMoved" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
-- (BOOL)ccTouchesMovedWithEvent:(NSEvent *)event;
+ */ // :3
+- (BOOL)ccTouchesMovedWithEvent:(NSEvent *)event; // :3
 
 /** called when the "touchesEnded" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
-- (BOOL)ccTouchesEndedWithEvent:(NSEvent *)event;
+ */ // :3
+- (BOOL)ccTouchesEndedWithEvent:(NSEvent *)event; // :3
 
 /** called when the "touchesCancelled" event is received.
  Return YES to avoid propagating the event to other delegates.
- */
-- (BOOL)ccTouchesCancelledWithEvent:(NSEvent *)event;
+ */ // :3
+- (BOOL)ccTouchesCancelledWithEvent:(NSEvent *)event; // :3
 
-@end
+@end // :3
 
 
-#pragma mark -
-#pragma mark CCEventDispatcher
+#pragma mark - // :3
+#pragma mark CCEventDispatcher // :3
 
-struct _listEntry;
+struct _listEntry; // :3
 
 /** CCEventDispatcher
 
@@ -202,17 +202,17 @@ struct _listEntry;
 	- Touch events
 
  Only available on Mac
- */
-@interface CCEventDispatcher : NSObject <MacEventDelegate> {
+ */ // :3
+@interface CCEventDispatcher : NSObject <MacEventDelegate> { // :3
 
-	BOOL					dispatchEvents_;
+	BOOL					dispatchEvents_; // :3
 
-	struct	::_listEntry		*keyboardDelegates_;
-	struct	::_listEntry		*mouseDelegates_;
-	struct	::_listEntry		*touchDelegates_;
-}
+	struct	::_listEntry		*keyboardDelegates_; // :3
+	struct	::_listEntry		*mouseDelegates_; // :3
+	struct	::_listEntry		*touchDelegates_; // :3
+} // :3
 
-@property (nonatomic, readwrite) BOOL dispatchEvents;
+@property (nonatomic, readwrite) BOOL dispatchEvents; // :3
 
 
 /** CCEventDispatcher singleton */
@@ -225,8 +225,8 @@ struct _listEntry;
  All the events will be propgated to all the delegates, unless the one delegate returns YES.
 
  IMPORTANT: The delegate will be retained.
- */
--(void) addMouseDelegate:(id<CCMouseEventDelegate>) delegate priority:(NSInteger)priority;
+ */ // :3
+-(void) addMouseDelegate:(id<CCMouseEventDelegate>) delegate priority:(NSInteger)priority; // :3
 
 /** removes a mouse delegate */
 -(void) removeMouseDelegate:(id) delegate;
@@ -241,8 +241,8 @@ struct _listEntry;
  All the events will be propgated to all the delegates, unless the one delegate returns YES.
 
  IMPORTANT: The delegate will be retained.
- */
--(void) addKeyboardDelegate:(id<CCKeyboardEventDelegate>) delegate priority:(NSInteger)priority;
+ */ // :3
+-(void) addKeyboardDelegate:(id<CCKeyboardEventDelegate>) delegate priority:(NSInteger)priority; // :3
 
 /** removes a mouse delegate */
 -(void) removeKeyboardDelegate:(id) delegate;
@@ -257,8 +257,8 @@ struct _listEntry;
  All the events will be propgated to all the delegates, unless the one delegate returns YES.
 
  IMPORTANT: The delegate will be retained.
- */
-- (void)addTouchDelegate:(id<CCTouchEventDelegate>)delegate priority:(NSInteger)priority;
+ */ // :3
+- (void)addTouchDelegate:(id<CCTouchEventDelegate>)delegate priority:(NSInteger)priority; // :3
 
 /** Removes a touch delegate */
 - (void)removeTouchDelegate:(id) delegate;

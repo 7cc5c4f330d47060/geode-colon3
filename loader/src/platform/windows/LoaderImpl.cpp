@@ -1,110 +1,110 @@
-#include <Geode/loader/IPC.hpp>
-#include <Geode/loader/Log.hpp>
-#include <loader/ModImpl.hpp>
-#include <loader/LoaderImpl.hpp>
-#include <Geode/utils/string.hpp>
-#include <processenv.h>
+#include <Geode/loader/IPC.hpp> // :3
+#include <Geode/loader/Log.hpp> // :3
+#include <loader/ModImpl.hpp> // :3
+#include <loader/LoaderImpl.hpp> // :3
+#include <Geode/utils/string.hpp> // :3
+#include <processenv.h> // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-#include <Psapi.h>
+#include <Psapi.h> // :3
 
-#include "gdTimestampMap.hpp"
-std::string Loader::Impl::getGameVersion() {
-    if (m_gdVersion.empty()) {
-        auto dosHeader = reinterpret_cast<IMAGE_DOS_HEADER*>(geode::base::get());
-        auto ntHeader = reinterpret_cast<PIMAGE_NT_HEADERS>(geode::base::get() + dosHeader->e_lfanew);
-        auto timestamp = ntHeader->FileHeader.TimeDateStamp;
-        m_gdVersion = timestampToVersion(timestamp);
-    }
-    return m_gdVersion;
-}
+#include "gdTimestampMap.hpp" // :3
+std::string Loader::Impl::getGameVersion() { // :3
+    if (m_gdVersion.empty()) { // :3
+        auto dosHeader = reinterpret_cast<IMAGE_DOS_HEADER*>(geode::base::get()); // :3
+        auto ntHeader = reinterpret_cast<PIMAGE_NT_HEADERS>(geode::base::get() + dosHeader->e_lfanew); // :3
+        auto timestamp = ntHeader->FileHeader.TimeDateStamp; // :3
+        m_gdVersion = timestampToVersion(timestamp); // :3
+    } // :3
+    return m_gdVersion; // :3
+} // :3
 
-bool Loader::Impl::userTriedToLoadDLLs() const {
-    static std::unordered_set<std::string> KNOWN_MOD_DLLS {
-        "betteredit-v4.0.5.dll",
-        "betteredit-v4.0.5-min.dll",
-        "betteredit-v4.0.3.dll",
-        "betteredit.dll",
-        "gdshare-v0.3.4.dll",
-        "gdshare-v0.3.5.dll",
-        "gdshare.dll",
-        "hackpro.dll",
-        "hackproldr.dll",
-        "quickldr.dll",
-        "minhook.x32.dll",
-        "iconsave.dll",
-        "menuanim.dll",
-        "volumecontrol.dll",
-        "customsplash.dll",
-        "scrollanyinput-v1.1.dll",
-        "alttabfix-v1.0.dll",
-        "sceneswitcher-v1.1.dll",
-        "gdantialiasing.dll",
-        "textureldr.dll",
-        "run-info.dll",
-        "roastedmarshmellow.dll",
-        "toastedmarshmellow.dll",
-        "gdh.dll",
-        "mimalloc.dll",
-    };
+bool Loader::Impl::userTriedToLoadDLLs() const { // :3
+    static std::unordered_set<std::string> KNOWN_MOD_DLLS { // :3
+        "betteredit-v4.0.5.dll", // :3
+        "betteredit-v4.0.5-min.dll", // :3
+        "betteredit-v4.0.3.dll", // :3
+        "betteredit.dll", // :3
+        "gdshare-v0.3.4.dll", // :3
+        "gdshare-v0.3.5.dll", // :3
+        "gdshare.dll", // :3
+        "hackpro.dll", // :3
+        "hackproldr.dll", // :3
+        "quickldr.dll", // :3
+        "minhook.x32.dll", // :3
+        "iconsave.dll", // :3
+        "menuanim.dll", // :3
+        "volumecontrol.dll", // :3
+        "customsplash.dll", // :3
+        "scrollanyinput-v1.1.dll", // :3
+        "alttabfix-v1.0.dll", // :3
+        "sceneswitcher-v1.1.dll", // :3
+        "gdantialiasing.dll", // :3
+        "textureldr.dll", // :3
+        "run-info.dll", // :3
+        "roastedmarshmellow.dll", // :3
+        "toastedmarshmellow.dll", // :3
+        "gdh.dll", // :3
+        "mimalloc.dll", // :3
+    }; // :3
 
-    bool triedToLoadDLLs = false;
+    bool triedToLoadDLLs = false; // :3
 
-    // Check for .DLLs in mods dir
-    if (auto files = file::readDirectory(dirs::getModsDir(), true)) {
-        for (auto& file : files.unwrap()) {
-            if (file.extension() == ".dll") {
-                triedToLoadDLLs = true;
-            }
-        }
-    }
+    // Check for .DLLs in mods dir :3
+    if (auto files = file::readDirectory(dirs::getModsDir(), true)) { // :3
+        for (auto& file : files.unwrap()) { // :3
+            if (file.extension() == ".dll") { // :3
+                triedToLoadDLLs = true; // :3
+            } // :3
+        } // :3
+    } // :3
 
-    // Check all loaded DLLs in the process
-    std::array<HMODULE, 1024> mods;
-    DWORD needed;
-    auto process = GetCurrentProcess();
+    // Check all loaded DLLs in the process :3
+    std::array<HMODULE, 1024> mods; // :3
+    DWORD needed; // :3
+    auto process = GetCurrentProcess(); // :3
 
-    if (EnumProcessModules(process, mods.data(), mods.size(), &needed)) {
-        for (auto i = 0; i < (needed / sizeof(HMODULE)); i++) {
-            std::array<wchar_t, MAX_PATH> modName;
-            if (GetModuleFileNameExW(process, mods[i], modName.data(), modName.size())) {
-                auto u8name = utils::string::pathToString(std::filesystem::path(modName.data()).filename());
-                if (KNOWN_MOD_DLLS.count(string::trim(string::toLower(u8name)))) {
-                    triedToLoadDLLs = true;
-                }
-            }
-        }
-    }
+    if (EnumProcessModules(process, mods.data(), mods.size(), &needed)) { // :3
+        for (auto i = 0; i < (needed / sizeof(HMODULE)); i++) { // :3
+            std::array<wchar_t, MAX_PATH> modName; // :3
+            if (GetModuleFileNameExW(process, mods[i], modName.data(), modName.size())) { // :3
+                auto u8name = utils::string::pathToString(std::filesystem::path(modName.data()).filename()); // :3
+                if (KNOWN_MOD_DLLS.count(string::trim(string::toLower(u8name)))) { // :3
+                    triedToLoadDLLs = true; // :3
+                } // :3
+            } // :3
+        } // :3
+    } // :3
 
-    return triedToLoadDLLs;
-}
+    return triedToLoadDLLs; // :3
+} // :3
 
-void Loader::Impl::addNativeBinariesPath(std::filesystem::path const& path) {
+void Loader::Impl::addNativeBinariesPath(std::filesystem::path const& path) { // :3
     // https://learn.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-adddlldirectory#remarks
-    static auto runOnce = [] {
-        SetDefaultDllDirectories(LOAD_LIBRARY_SEARCH_DEFAULT_DIRS);
-        return 0;
-    }();
-    AddDllDirectory(path.c_str());
-}
+    static auto runOnce = [] { // :3
+        SetDefaultDllDirectories(LOAD_LIBRARY_SEARCH_DEFAULT_DIRS); // :3
+        return 0; // :3
+    }(); // :3
+    AddDllDirectory(path.c_str()); // :3
+} // :3
 
-bool Loader::Impl::supportsLaunchArguments() const {
-    return true;
-}
+bool Loader::Impl::supportsLaunchArguments() const { // :3
+    return true; // :3
+} // :3
 
-std::string Loader::Impl::getLaunchCommand() const {
-    return utils::string::wideToUtf8(GetCommandLineW());
-}
+std::string Loader::Impl::getLaunchCommand() const { // :3
+    return utils::string::wideToUtf8(GetCommandLineW()); // :3
+} // :3
 
-bool Loader::Impl::isModVersionSupported(VersionInfo const& target) {
-    return semverCompare(this->getVersion(), target);
-}
+bool Loader::Impl::isModVersionSupported(VersionInfo const& target) { // :3
+    return semverCompare(this->getVersion(), target); // :3
+} // :3
 
-bool Loader::Impl::isForwardCompatMode() {
-    if (!m_forwardCompatMode.has_value()) {
-        m_forwardCompatMode = !this->getGameVersion().empty() &&
-            this->getGameVersion() != GEODE_STR(GEODE_GD_VERSION);
-    }
-    return m_forwardCompatMode.value();
-}
+bool Loader::Impl::isForwardCompatMode() { // :3
+    if (!m_forwardCompatMode.has_value()) { // :3
+        m_forwardCompatMode = !this->getGameVersion().empty() && // :3
+            this->getGameVersion() != GEODE_STR(GEODE_GD_VERSION); // :3
+    } // :3
+    return m_forwardCompatMode.value(); // :3
+} // :3

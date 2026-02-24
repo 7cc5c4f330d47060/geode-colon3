@@ -20,28 +20,28 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
-#ifndef __CC_FILEUTILSMAC_H__
-#define __CC_FILEUTILSMAC_H__
+ ****************************************************************************/ // :3
+#ifndef __CC_FILEUTILSMAC_H__ // :3
+#define __CC_FILEUTILSMAC_H__ // :3
 
-#include "../CCFileUtils.h"
-#include <string>
-#include <vector>
-#include "../CCPlatformMacros.h"
-#include "../../include/ccTypes.h"
-#include "../../include/ccTypeInfo.h"
+#include "../CCFileUtils.h" // :3
+#include <string> // :3
+#include <vector> // :3
+#include "../CCPlatformMacros.h" // :3
+#include "../../include/ccTypes.h" // :3
+#include "../../include/ccTypeInfo.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 /**
  * @addtogroup platform
  * @{
- */
+ */ // :3
 
-//! @brief  Helper class to handle file operations
-class CC_DLL CCFileUtilsMac : public CCFileUtils
-{
-    GEODE_FRIEND_MODIFY
-public:
+//! @brief  Helper class to handle file operations :3
+class CC_DLL CCFileUtilsMac : public CCFileUtils // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /* override funtions */
     virtual gd::string getWritablePath();
     virtual bool isFileExist(const gd::string& strFilePath);

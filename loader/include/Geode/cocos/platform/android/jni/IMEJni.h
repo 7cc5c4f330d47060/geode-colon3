@@ -20,14 +20,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __ANDROID_IME_JNI_H__
-#define __ANDROID_IME_JNI_H__
+****************************************************************************/ // :3
+#ifndef __ANDROID_IME_JNI_H__ // :3
+#define __ANDROID_IME_JNI_H__ // :3
 
-extern "C" {
-    extern void setKeyboardStateJNI(int bOpen);
-    extern void openKeyboardJNI();
-    extern void closeKeyboardJNI();
-}
+extern "C" { // :3
+    extern void setKeyboardStateJNI(int bOpen); // :3
+    extern void openKeyboardJNI(); // :3
+    extern void closeKeyboardJNI(); // :3
+} // :3
 
-#endif // __ANDROID_IME_JNI_H__
+#endif // __ANDROID_IME_JNI_H__ :3

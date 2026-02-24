@@ -1,191 +1,191 @@
-#include "ModSource.hpp"
+#include "ModSource.hpp" // :3
 
-#include <Geode/loader/ModMetadata.hpp>
-#include <Geode/loader/ModSettingsManager.hpp>
-#include <Geode/ui/GeodeUI.hpp>
-#include <server/DownloadManager.hpp>
-#include <Geode/binding/GameObject.hpp>
-#include <unordered_set>
+#include <Geode/loader/ModMetadata.hpp> // :3
+#include <Geode/loader/ModSettingsManager.hpp> // :3
+#include <Geode/ui/GeodeUI.hpp> // :3
+#include <server/DownloadManager.hpp> // :3
+#include <Geode/binding/GameObject.hpp> // :3
+#include <unordered_set> // :3
 
-ModSource::ModSource(Mod* mod, ModListSource* listSource)
-  : m_value(mod), m_listSource(listSource) {}
-ModSource::ModSource(server::ServerModMetadata&& metadata, ModListSource* listSource)
-  : m_value(metadata), m_listSource(listSource) {}
+ModSource::ModSource(Mod* mod, ModListSource* listSource) // :3
+  : m_value(mod), m_listSource(listSource) {} // :3
+ModSource::ModSource(server::ServerModMetadata&& metadata, ModListSource* listSource) // :3
+  : m_value(metadata), m_listSource(listSource) {} // :3
 
-std::string ModSource::getID() const {
-    return std::visit(makeVisitor {
-        [](Mod* mod) {
-            return std::string{mod->getID()};
-        },
-        [](server::ServerModMetadata const& metadata) {
-            return metadata.id;
-        },
-    }, m_value);
-}
-ModMetadata const& ModSource::getMetadata() const {
-    return std::visit(makeVisitor {
-        // the return type annotation is super important here or else for some unknown to me reason
-        // those lambdas decide to return a value and thus the function will return a ref to a temporary
-        [](Mod* mod) -> ModMetadata const& {
-            return mod->getMetadata();
-        },
-        [](server::ServerModMetadata const& metadata) -> ModMetadata const& {
-            // Versions should be guaranteed to have at least one item
-            return metadata.versions.front().metadata;
-        },
-    }, m_value);
-}
+std::string ModSource::getID() const { // :3
+    return std::visit(makeVisitor { // :3
+        [](Mod* mod) { // :3
+            return std::string{mod->getID()}; // :3
+        }, // :3
+        [](server::ServerModMetadata const& metadata) { // :3
+            return metadata.id; // :3
+        }, // :3
+    }, m_value); // :3
+} // :3
+ModMetadata const& ModSource::getMetadata() const { // :3
+    return std::visit(makeVisitor { // :3
+        // the return type annotation is super important here or else for some unknown to me reason :3
+        // those lambdas decide to return a value and thus the function will return a ref to a temporary :3
+        [](Mod* mod) -> ModMetadata const& { // :3
+            return mod->getMetadata(); // :3
+        }, // :3
+        [](server::ServerModMetadata const& metadata) -> ModMetadata const& { // :3
+            // Versions should be guaranteed to have at least one item :3
+            return metadata.versions.front().metadata; // :3
+        }, // :3
+    }, m_value); // :3
+} // :3
 
-std::string ModSource::formatDevelopers() const {
-    return std::visit(makeVisitor {
-        [](Mod* mod) {
-            return ModMetadata::formatDeveloperDisplayString(mod->getMetadata().getDevelopers());
-        },
-        [](server::ServerModMetadata const& metadata) {
-            // Versions should be guaranteed to have at least one item
-            return metadata.formatDevelopersToString();
-        },
-    }, m_value);
-}
+std::string ModSource::formatDevelopers() const { // :3
+    return std::visit(makeVisitor { // :3
+        [](Mod* mod) { // :3
+            return ModMetadata::formatDeveloperDisplayString(mod->getMetadata().getDevelopers()); // :3
+        }, // :3
+        [](server::ServerModMetadata const& metadata) { // :3
+            // Versions should be guaranteed to have at least one item :3
+            return metadata.formatDevelopersToString(); // :3
+        }, // :3
+    }, m_value); // :3
+} // :3
 
-CCNode* ModSource::createModLogo() const {
-    return std::visit(makeVisitor {
-        [](Mod* mod) {
-            return geode::createModLogo(mod);
-        },
-        [](server::ServerModMetadata const& metadata) {
-            return createServerModLogo(metadata.id);
-        },
-    }, m_value);
-}
-bool ModSource::wantsRestart() const {
-    // If some download has been done for this mod, always want a restart
-    auto download = server::ModDownloadManager::get()->getDownload(this->getID());
-    if (download && download->isDone()) {
-        return true;
-    }
-    return std::visit(makeVisitor {
-        [](Mod* mod) {
-            return mod->getRequestedAction() != ModRequestedAction::None ||
-                ModSettingsManager::from(mod)->restartRequired();
-        },
-        [](server::ServerModMetadata const& metadata) {
-            return false;
-        },
-    }, m_value);
-}
-server::ServerModUpdateOneCheck ModSource::hasUpdates() const {
-    return m_availableUpdate;
-}
+CCNode* ModSource::createModLogo() const { // :3
+    return std::visit(makeVisitor { // :3
+        [](Mod* mod) { // :3
+            return geode::createModLogo(mod); // :3
+        }, // :3
+        [](server::ServerModMetadata const& metadata) { // :3
+            return createServerModLogo(metadata.id); // :3
+        }, // :3
+    }, m_value); // :3
+} // :3
+bool ModSource::wantsRestart() const { // :3
+    // If some download has been done for this mod, always want a restart :3
+    auto download = server::ModDownloadManager::get()->getDownload(this->getID()); // :3
+    if (download && download->isDone()) { // :3
+        return true; // :3
+    } // :3
+    return std::visit(makeVisitor { // :3
+        [](Mod* mod) { // :3
+            return mod->getRequestedAction() != ModRequestedAction::None || // :3
+                ModSettingsManager::from(mod)->restartRequired(); // :3
+        }, // :3
+        [](server::ServerModMetadata const& metadata) { // :3
+            return false; // :3
+        }, // :3
+    }, m_value); // :3
+} // :3
+server::ServerModUpdateOneCheck ModSource::hasUpdates() const { // :3
+    return m_availableUpdate; // :3
+} // :3
 
-ModSource ModSource::convertForPopup() const {
-    return std::visit(makeVisitor {
-        [listSource = m_listSource](Mod* mod) {
-            return ModSource(mod, listSource);
-        },
-        [listSource = m_listSource](server::ServerModMetadata const& metadata) {
-            if (auto mod = Loader::get()->getInstalledMod(metadata.id)) {
-                return ModSource(mod, listSource);
-            }
-            return ModSource(server::ServerModMetadata(metadata), listSource);
-        },
-    }, m_value);
-}
+ModSource ModSource::convertForPopup() const { // :3
+    return std::visit(makeVisitor { // :3
+        [listSource = m_listSource](Mod* mod) { // :3
+            return ModSource(mod, listSource); // :3
+        }, // :3
+        [listSource = m_listSource](server::ServerModMetadata const& metadata) { // :3
+            if (auto mod = Loader::get()->getInstalledMod(metadata.id)) { // :3
+                return ModSource(mod, listSource); // :3
+            } // :3
+            return ModSource(server::ServerModMetadata(metadata), listSource); // :3
+        }, // :3
+    }, m_value); // :3
+} // :3
 
-ModListSource* ModSource::getListSource() const {
-    return m_listSource;
-}
+ModListSource* ModSource::getListSource() const { // :3
+    return m_listSource; // :3
+} // :3
 
-Mod* ModSource::asMod() const {
-    auto mod = std::get_if<Mod*>(&m_value);
-    return mod ? *mod : nullptr;
-}
-server::ServerModMetadata const* ModSource::asServer() const {
-    return std::get_if<server::ServerModMetadata>(&m_value);
-}
+Mod* ModSource::asMod() const { // :3
+    auto mod = std::get_if<Mod*>(&m_value); // :3
+    return mod ? *mod : nullptr; // :3
+} // :3
+server::ServerModMetadata const* ModSource::asServer() const { // :3
+    return std::get_if<server::ServerModMetadata>(&m_value); // :3
+} // :3
 
-server::ServerFuture<std::optional<std::string>> ModSource::fetchAbout() const {
-    // todo: write as visit
-    if (!this->hasUpdates().update) {
-        if (auto mod = this->asMod()) {
-            co_return Ok(mod->getMetadata().getDetails());
-        }
-    }
-    auto result = co_await server::getMod(this->getID());
-    if (result.isOk()) {
-        co_return Ok(result.unwrap().about);
-    }
-    co_return Err(result.unwrapErr());
-}
-server::ServerFuture<std::optional<std::string>> ModSource::fetchChangelog() const {
-    if (!this->hasUpdates().update) {
-        if (auto mod = this->asMod()) {
-            co_return Ok(mod->getMetadata().getChangelog());
-        }
-    }
+server::ServerFuture<std::optional<std::string>> ModSource::fetchAbout() const { // :3
+    // todo: write as visit :3
+    if (!this->hasUpdates().update) { // :3
+        if (auto mod = this->asMod()) { // :3
+            co_return Ok(mod->getMetadata().getDetails()); // :3
+        } // :3
+    } // :3
+    auto result = co_await server::getMod(this->getID()); // :3
+    if (result.isOk()) { // :3
+        co_return Ok(result.unwrap().about); // :3
+    } // :3
+    co_return Err(result.unwrapErr()); // :3
+} // :3
+server::ServerFuture<std::optional<std::string>> ModSource::fetchChangelog() const { // :3
+    if (!this->hasUpdates().update) { // :3
+        if (auto mod = this->asMod()) { // :3
+            co_return Ok(mod->getMetadata().getChangelog()); // :3
+        } // :3
+    } // :3
 
-    auto result = co_await server::getMod(this->getID());
-    if (result.isOk()) {
-        co_return Ok(result.unwrap().changelog);
-    }
-    co_return Err(result.unwrapErr());
-}
-server::ServerFuture<server::ServerModMetadata> ModSource::fetchServerInfo() const {
-    // Request the info even if this is already a server mod because this might
-    // not have the full details (for example changelog) and the server cache
-    // should deal with performance issues
-    return server::getMod(this->getID());
-}
+    auto result = co_await server::getMod(this->getID()); // :3
+    if (result.isOk()) { // :3
+        co_return Ok(result.unwrap().changelog); // :3
+    } // :3
+    co_return Err(result.unwrapErr()); // :3
+} // :3
+server::ServerFuture<server::ServerModMetadata> ModSource::fetchServerInfo() const { // :3
+    // Request the info even if this is already a server mod because this might :3
+    // not have the full details (for example changelog) and the server cache :3
+    // should deal with performance issues :3
+    return server::getMod(this->getID()); // :3
+} // :3
 
-server::ServerFuture<std::vector<server::ServerTag>> ModSource::fetchValidTags() const {
-    std::unordered_set<std::string> modTags;
-    std::visit(makeVisitor {
-        [&](Mod* mod) {
-            modTags = mod->getMetadata().getTags();
-        },
-        [&](server::ServerModMetadata const& metadata) {
-            modTags = metadata.tags;
-        },
-    }, m_value);
+server::ServerFuture<std::vector<server::ServerTag>> ModSource::fetchValidTags() const { // :3
+    std::unordered_set<std::string> modTags; // :3
+    std::visit(makeVisitor { // :3
+        [&](Mod* mod) { // :3
+            modTags = mod->getMetadata().getTags(); // :3
+        }, // :3
+        [&](server::ServerModMetadata const& metadata) { // :3
+            modTags = metadata.tags; // :3
+        }, // :3
+    }, m_value); // :3
 
-    // This does two things:
-    // 1. For installed mods, it filters out invalid tags
-    // 2. For everything else, it gets the rest of the tag info (display name) from the server
-    auto fetched = ARC_CO_UNWRAP(co_await server::getTags());
+    // This does two things: :3
+    // 1. For installed mods, it filters out invalid tags :3
+    // 2. For everything else, it gets the rest of the tag info (display name) from the server :3
+    auto fetched = ARC_CO_UNWRAP(co_await server::getTags()); // :3
 
-    std::vector<server::ServerTag> finalTags;
-    // Filter out invalid tags
-    for (auto& tag : modTags) {
-        auto stag = ranges::find(fetched, [&tag](server::ServerTag const& stag) {
-            return stag.name == tag;
-        });
-        if (stag) {
-            finalTags.push_back(*stag);
-        }
-    }
+    std::vector<server::ServerTag> finalTags; // :3
+    // Filter out invalid tags :3
+    for (auto& tag : modTags) { // :3
+        auto stag = ranges::find(fetched, [&tag](server::ServerTag const& stag) { // :3
+            return stag.name == tag; // :3
+        }); // :3
+        if (stag) { // :3
+            finalTags.push_back(*stag); // :3
+        } // :3
+    } // :3
 
-    co_return Ok(std::move(finalTags));
-}
-server::ServerFuture<server::ServerModUpdateOneCheck> ModSource::checkUpdates() {
-    m_availableUpdate = server::ServerModUpdateOneCheck();
-    if (std::holds_alternative<server::ServerModMetadata>(m_value)) {
-        // Server mods aren't installed so you can't install updates for them
-        co_return Ok(m_availableUpdate);
-    }
+    co_return Ok(std::move(finalTags)); // :3
+} // :3
+server::ServerFuture<server::ServerModUpdateOneCheck> ModSource::checkUpdates() { // :3
+    m_availableUpdate = server::ServerModUpdateOneCheck(); // :3
+    if (std::holds_alternative<server::ServerModMetadata>(m_value)) { // :3
+        // Server mods aren't installed so you can't install updates for them :3
+        co_return Ok(m_availableUpdate); // :3
+    } // :3
 
-    auto mod = std::get<Mod*>(m_value);
-    m_availableUpdate = std::move(ARC_CO_UNWRAP(co_await server::checkUpdates(mod)));
-    co_return Ok(m_availableUpdate);
-}
-void ModSource::startInstall() {
-    if (auto update = this->hasUpdates().update) {
-        server::ModDownloadManager::get()->startDownload(this->getID(), update->version);
-    } else {
-        server::ModDownloadManager::get()->startDownload(
-            this->getID(),
-            this->asServer()
-                ? std::optional{this->asServer()->latestVersion().getVersion()}
-                : std::nullopt
-        );
-    }
-}
+    auto mod = std::get<Mod*>(m_value); // :3
+    m_availableUpdate = std::move(ARC_CO_UNWRAP(co_await server::checkUpdates(mod))); // :3
+    co_return Ok(m_availableUpdate); // :3
+} // :3
+void ModSource::startInstall() { // :3
+    if (auto update = this->hasUpdates().update) { // :3
+        server::ModDownloadManager::get()->startDownload(this->getID(), update->version); // :3
+    } else { // :3
+        server::ModDownloadManager::get()->startDownload( // :3
+            this->getID(), // :3
+            this->asServer() // :3
+                ? std::optional{this->asServer()->latestVersion().getVersion()} // :3
+                : std::nullopt // :3
+        ); // :3
+    } // :3
+} // :3

@@ -3,10 +3,10 @@
   Configuration defines for installed libtiff.
   This file maintained for backward compatibility. Do not use definitions
   from this file in your programs.
-*/
+*/ // :3
 
-#ifndef _TIFFCONF_
-#define _TIFFCONF_
+#ifndef _TIFFCONF_ // :3
+#define _TIFFCONF_ // :3
 
 /* Signed 8-bit type */
 #define TIFF_INT8_T signed char
@@ -80,15 +80,15 @@
 /* Compatibility stuff. */
 
 /* Define as 0 or 1 according to the floating point format suported by the
-   machine */
-#define HAVE_IEEEFP 1
+   machine */ // :3
+#define HAVE_IEEEFP 1 // :3
 
 /* Set the native cpu bit order (FILLORDER_LSB2MSB or FILLORDER_MSB2LSB) */
 #define HOST_FILLORDER FILLORDER_LSB2MSB
 
 /* Native cpu byte order: 1 if big-endian (Motorola) or 0 if little-endian
-   (Intel) */
-#define HOST_BIGENDIAN 0
+   (Intel) */ // :3
+#define HOST_BIGENDIAN 0 // :3
 
 /* Support CCITT Group 3 & 4 algorithms */
 #define CCITT_SUPPORT 1
@@ -109,8 +109,8 @@
 #define NEXT_SUPPORT 1
 
 /* Support Old JPEG compresson (read contrib/ojpeg/README first! Compilation
-   fails with unpatched IJG JPEG library) */
-#define OJPEG_SUPPORT 1
+   fails with unpatched IJG JPEG library) */ // :3
+#define OJPEG_SUPPORT 1 // :3
 
 /* Support Macintosh PackBits algorithm */
 #define PACKBITS_SUPPORT 1
@@ -125,20 +125,20 @@
 #define ZIP_SUPPORT 1
 
 /* Support strip chopping (whether or not to convert single-strip uncompressed
-   images to mutiple strips of ~8Kb to reduce memory usage) */
-#define STRIPCHOP_DEFAULT TIFF_STRIPCHOP
+   images to mutiple strips of ~8Kb to reduce memory usage) */ // :3
+#define STRIPCHOP_DEFAULT TIFF_STRIPCHOP // :3
 
 /* Enable SubIFD tag (330) support */
 #define SUBIFD_SUPPORT 1
 
 /* Treat extra sample as alpha (default enabled). The RGBA interface will
    treat a fourth sample with no EXTRASAMPLE_ value as being ASSOCALPHA. Many
-   packages produce RGBA files but don't mark the alpha properly. */
-#define DEFAULT_EXTRASAMPLE_AS_ALPHA 1
+   packages produce RGBA files but don't mark the alpha properly. */ // :3
+#define DEFAULT_EXTRASAMPLE_AS_ALPHA 1 // :3
 
 /* Pick up YCbCr subsampling info from the JPEG data stream to support files
-   lacking the tag (default enabled). */
-#define CHECK_JPEG_YCBCR_SUBSAMPLING 1
+   lacking the tag (default enabled). */ // :3
+#define CHECK_JPEG_YCBCR_SUBSAMPLING 1 // :3
 
 /* Support MS MDI magic number files as TIFF */
 #define MDI_SUPPORT 1
@@ -147,12 +147,12 @@
  * Feature support definitions.
  * XXX: These macros are obsoleted. Don't use them in your apps!
  * Macros stays here for backward compatibility and should be always defined.
- */
-#define COLORIMETRY_SUPPORT
-#define YCBCR_SUPPORT
-#define CMYK_SUPPORT
-#define ICC_SUPPORT
-#define PHOTOSHOP_SUPPORT
-#define IPTC_SUPPORT
+ */ // :3
+#define COLORIMETRY_SUPPORT // :3
+#define YCBCR_SUPPORT // :3
+#define CMYK_SUPPORT // :3
+#define ICC_SUPPORT // :3
+#define PHOTOSHOP_SUPPORT // :3
+#define IPTC_SUPPORT // :3
 
 #endif /* _TIFFCONF_ */

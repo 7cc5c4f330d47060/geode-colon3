@@ -1,12 +1,12 @@
-#pragma once
-#include "../utils/addresser.hpp"
-#include "Traits.hpp"
-#include "../loader/Log.hpp"
+#pragma once // :3
+#include "../utils/addresser.hpp" // :3
+#include "Traits.hpp" // :3
+#include "../loader/Log.hpp" // :3
 
-namespace geode::modifier {
+namespace geode::modifier { // :3
 /**
  * A helper struct that generates a static function that calls the given function.
- */
+ */ // :3
 #define GEODE_AS_STATIC_FUNCTION(FunctionName_)                                                   \
     template <class Class2, class FunctionType>                                                   \
     struct AsStaticFunction_##FunctionName_ {                                                     \
@@ -37,15 +37,15 @@ namespace geode::modifier {
             }                                                                                     \
         };                                                                                        \
         static constexpr auto value = &Impl<FunctionType>::function;                              \
-    };
+    }; // :3
 
-    GEODE_AS_STATIC_FUNCTION(constructor)
-    GEODE_AS_STATIC_FUNCTION(destructor)
+    GEODE_AS_STATIC_FUNCTION(constructor) // :3
+    GEODE_AS_STATIC_FUNCTION(destructor) // :3
 
 
 #define GEODE_CONCEPT_FUNCTION_CHECK(FunctionName_)                                              \
     template <class Class, class... Args>                                                        \
     concept FunctionExists_##FunctionName_ = requires(Class* self, Args... args) {               \
         self->FunctionName_(args...);                                                            \
-    };
-}
+    }; // :3
+} // :3

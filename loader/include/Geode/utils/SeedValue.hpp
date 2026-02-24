@@ -1,17 +1,17 @@
-#pragma once
+#pragma once // :3
 
-#include <array>
-#include <fmt/format.h>
+#include <array> // :3
+#include <fmt/format.h> // :3
 
-namespace geode {
-    class BaseSeedValue {
-    public:
-        BaseSeedValue() = default;
-        BaseSeedValue(BaseSeedValue const& other) = default;
-        BaseSeedValue(BaseSeedValue&& other) = default;
-        BaseSeedValue& operator=(BaseSeedValue const& other) = default;
-        BaseSeedValue& operator=(BaseSeedValue&& other) = default;
-    };
+namespace geode { // :3
+    class BaseSeedValue { // :3
+    public: // :3
+        BaseSeedValue() = default; // :3
+        BaseSeedValue(BaseSeedValue const& other) = default; // :3
+        BaseSeedValue(BaseSeedValue&& other) = default; // :3
+        BaseSeedValue& operator=(BaseSeedValue const& other) = default; // :3
+        BaseSeedValue& operator=(BaseSeedValue&& other) = default; // :3
+    }; // :3
 
 #define GEODE_SEED_VALUE_COMMON_OPS()                        \
     SeedValue& operator=(int value) {                        \
@@ -23,277 +23,277 @@ namespace geode {
         internalValue() = internalRandom() - internalSeed(); \
         return internalValue();                              \
     }                                                        \
-    operator int() { return this->value(); }
+    operator int() { return this->value(); } // :3
 
-    class SeedValueSR : public BaseSeedValue {
-    private:
-        using SeedValue = SeedValueSR;
-        std::array<int, 2> m_values;
+    class SeedValueSR : public BaseSeedValue { // :3
+    private: // :3
+        using SeedValue = SeedValueSR; // :3
+        std::array<int, 2> m_values; // :3
 
-        int& internalSeed() {
-            return m_values[0];
-        }
+        int& internalSeed() { // :3
+            return m_values[0]; // :3
+        } // :3
 
-        int& internalRandom() {
-            return m_values[1];
-        }
+        int& internalRandom() { // :3
+            return m_values[1]; // :3
+        } // :3
 
-    public:
+    public: // :3
 
-        using BaseSeedValue::BaseSeedValue;
+        using BaseSeedValue::BaseSeedValue; // :3
 
-        SeedValueSR(int value, int seed) : m_values({seed, value + seed}) {}
+        SeedValueSR(int value, int seed) : m_values({seed, value + seed}) {} // :3
 
-        SeedValue& operator=(int value) {
-            internalRandom() = value + internalSeed();
-            return *this;
-        }
+        SeedValue& operator=(int value) { // :3
+            internalRandom() = value + internalSeed(); // :3
+            return *this; // :3
+        } // :3
 
-        int value() {
-            return internalRandom() - internalSeed();
-        }
+        int value() { // :3
+            return internalRandom() - internalSeed(); // :3
+        } // :3
 
-        operator int() {
-            return this->value();
-        }
-    };
+        operator int() { // :3
+            return this->value(); // :3
+        } // :3
+    }; // :3
 
-    class SeedValueRS : public BaseSeedValue {
-    private:
-        using SeedValue = SeedValueRS;
-        std::array<int, 2> m_values;
+    class SeedValueRS : public BaseSeedValue { // :3
+    private: // :3
+        using SeedValue = SeedValueRS; // :3
+        std::array<int, 2> m_values; // :3
 
-        int& internalRandom() {
-            return m_values[0];
-        }
+        int& internalRandom() { // :3
+            return m_values[0]; // :3
+        } // :3
 
-        int& internalSeed() {
-            return m_values[1];
-        }
+        int& internalSeed() { // :3
+            return m_values[1]; // :3
+        } // :3
 
-    public:
-        using BaseSeedValue::BaseSeedValue;
+    public: // :3
+        using BaseSeedValue::BaseSeedValue; // :3
 
-        SeedValueRS(int value, int seed) : m_values({value + seed, seed}) {}
+        SeedValueRS(int value, int seed) : m_values({value + seed, seed}) {} // :3
 
-        SeedValue& operator=(int value) {
-            internalRandom() = value + internalSeed();
-            return *this;
-        }
+        SeedValue& operator=(int value) { // :3
+            internalRandom() = value + internalSeed(); // :3
+            return *this; // :3
+        } // :3
 
-        int value() {
-            return internalRandom() - internalSeed();
-        }
+        int value() { // :3
+            return internalRandom() - internalSeed(); // :3
+        } // :3
 
-        operator int() {
-            return this->value();
-        }
-    };
+        operator int() { // :3
+            return this->value(); // :3
+        } // :3
+    }; // :3
 
-    class SeedValueVRS : public BaseSeedValue {
-    private:
-        using SeedValue = SeedValueVRS;
-        std::array<int, 3> m_values;
+    class SeedValueVRS : public BaseSeedValue { // :3
+    private: // :3
+        using SeedValue = SeedValueVRS; // :3
+        std::array<int, 3> m_values; // :3
 
-        int& internalValue() {
-            return m_values[0];
-        }
+        int& internalValue() { // :3
+            return m_values[0]; // :3
+        } // :3
 
-        int& internalRandom() {
-            return m_values[1];
-        }
+        int& internalRandom() { // :3
+            return m_values[1]; // :3
+        } // :3
 
-        int& internalSeed() {
-            return m_values[2];
-        }
+        int& internalSeed() { // :3
+            return m_values[2]; // :3
+        } // :3
 
-    public:
-        using BaseSeedValue::BaseSeedValue;
+    public: // :3
+        using BaseSeedValue::BaseSeedValue; // :3
 
-        SeedValueVRS(int value, int seed) : m_values({value, value + seed, seed}) {}
+        SeedValueVRS(int value, int seed) : m_values({value, value + seed, seed}) {} // :3
 
-        GEODE_SEED_VALUE_COMMON_OPS();
-    };
+        GEODE_SEED_VALUE_COMMON_OPS(); // :3
+    }; // :3
 
-    class SeedValueVSR : public BaseSeedValue {
-    private:
-        using SeedValue = SeedValueVSR;
-        std::array<int, 3> m_values;
+    class SeedValueVSR : public BaseSeedValue { // :3
+    private: // :3
+        using SeedValue = SeedValueVSR; // :3
+        std::array<int, 3> m_values; // :3
 
-        int& internalValue() {
-            return m_values[0];
-        }
+        int& internalValue() { // :3
+            return m_values[0]; // :3
+        } // :3
 
-        int& internalSeed() {
-            return m_values[1];
-        }
+        int& internalSeed() { // :3
+            return m_values[1]; // :3
+        } // :3
 
-        int& internalRandom() {
-            return m_values[2];
-        }
+        int& internalRandom() { // :3
+            return m_values[2]; // :3
+        } // :3
 
-    public:
-        using BaseSeedValue::BaseSeedValue;
+    public: // :3
+        using BaseSeedValue::BaseSeedValue; // :3
 
-        SeedValueVSR(int value, int seed) : m_values({value, seed, value + seed}) {}
+        SeedValueVSR(int value, int seed) : m_values({value, seed, value + seed}) {} // :3
 
-        GEODE_SEED_VALUE_COMMON_OPS();
-    };
+        GEODE_SEED_VALUE_COMMON_OPS(); // :3
+    }; // :3
 
-    class SeedValueRVS : public BaseSeedValue {
-    private:
-        using SeedValue = SeedValueRVS;
-        std::array<int, 3> m_values;
+    class SeedValueRVS : public BaseSeedValue { // :3
+    private: // :3
+        using SeedValue = SeedValueRVS; // :3
+        std::array<int, 3> m_values; // :3
 
-        int& internalRandom() {
-            return m_values[0];
-        }
+        int& internalRandom() { // :3
+            return m_values[0]; // :3
+        } // :3
 
-        int& internalValue() {
-            return m_values[1];
-        }
+        int& internalValue() { // :3
+            return m_values[1]; // :3
+        } // :3
 
-        int& internalSeed() {
-            return m_values[2];
-        }
+        int& internalSeed() { // :3
+            return m_values[2]; // :3
+        } // :3
 
-    public:
-        using BaseSeedValue::BaseSeedValue;
+    public: // :3
+        using BaseSeedValue::BaseSeedValue; // :3
 
-        SeedValueRVS(int value, int seed) : m_values({value + seed, value, seed}) {}
+        SeedValueRVS(int value, int seed) : m_values({value + seed, value, seed}) {} // :3
 
-        GEODE_SEED_VALUE_COMMON_OPS();
-    };
+        GEODE_SEED_VALUE_COMMON_OPS(); // :3
+    }; // :3
 
-    class SeedValueRSV : public BaseSeedValue {
-    private:
-        using SeedValue = SeedValueRSV;
-        std::array<int, 3> m_values;
+    class SeedValueRSV : public BaseSeedValue { // :3
+    private: // :3
+        using SeedValue = SeedValueRSV; // :3
+        std::array<int, 3> m_values; // :3
 
-        int& internalRandom() {
-            return m_values[0];
-        }
-
-        int& internalSeed() {
-            return m_values[1];
-        }
-
-        int& internalValue() {
-            return m_values[2];
-        }
-
-    public:
-        using BaseSeedValue::BaseSeedValue;
-
-        SeedValueRSV(int value, int seed) : m_values({value + seed, seed, value}) {}
-
-        GEODE_SEED_VALUE_COMMON_OPS();
-    };
-
-    class SeedValueSVR : public BaseSeedValue {
-    private:
-        using SeedValue = SeedValueSVR;
-        std::array<int, 3> m_values;
-
-        int& internalSeed() {
-            return m_values[0];
-        }
-
-        int& internalValue() {
-            return m_values[1];
-        }
-
-        int& internalRandom() {
-            return m_values[2];
-        }
-
-    public:
-        using BaseSeedValue::BaseSeedValue;
-
-        SeedValueSVR(int value, int seed) : m_values({seed, value, value + seed}) {}
-
-        GEODE_SEED_VALUE_COMMON_OPS();
-    };
-
-    class SeedValueSRV : public BaseSeedValue {
-    private:
-        using SeedValue = SeedValueSRV;
-        std::array<int, 3> m_values;
-
-        int& internalSeed() {
-            return m_values[0];
-        }
-
-        int& internalRandom() {
-            return m_values[1];
-        }
-
-        int& internalValue() {
-            return m_values[2];
-        }
-
-    public:
-        using BaseSeedValue::BaseSeedValue;
-
-        SeedValueSRV(int value, int seed) : m_values({seed, value + seed, value}) {}
-
-        GEODE_SEED_VALUE_COMMON_OPS();
-    };
-#undef GEODE_SEED_VALUE_COMMON_OPS
-} // namespace geode
-
-template <>
-struct fmt::formatter<geode::SeedValueSR> : formatter<int> {
-    template <typename FormatContext>
-    auto format(geode::SeedValueSR& value, FormatContext& ctx) const noexcept {
-        return formatter<int>::format(value.value(), ctx);
-    }
-};
-
-template <>
-struct fmt::formatter<geode::SeedValueRS> : formatter<int> {
-    template <typename FormatContext>
-    auto format(geode::SeedValueRS& value, FormatContext& ctx) const noexcept {
-        return formatter<int>::format(value.value(), ctx);
-    }
-};
-
-template <>
-struct fmt::formatter<geode::SeedValueVRS> : formatter<int> {
-    template <typename FormatContext>
-    auto format(geode::SeedValueVRS& value, FormatContext& ctx) const noexcept {
-        return formatter<int>::format(value.value(), ctx);
-    }
-};
-
-template <>
-struct fmt::formatter<geode::SeedValueVSR> : formatter<int> {
-    template <typename FormatContext>
-    auto format(geode::SeedValueVSR& value, FormatContext& ctx) const noexcept {
-        return formatter<int>::format(value.value(), ctx);
-    }
-};
-
-template <>
-struct fmt::formatter<geode::SeedValueRVS> : formatter<int> {
-    template <typename FormatContext>
-    auto format(geode::SeedValueRVS& value, FormatContext& ctx) const noexcept {
-        return formatter<int>::format(value.value(), ctx);
-    }
-};
-
-template <>
-struct fmt::formatter<geode::SeedValueRSV> : formatter<int> {
-    template <typename FormatContext>
-    auto format(geode::SeedValueRSV& value, FormatContext& ctx) const noexcept {
-        return formatter<int>::format(value.value(), ctx);
-    }
-};
-
-template <>
-struct fmt::formatter<geode::SeedValueSVR> : formatter<int> {
-    template <typename FormatContext>
-    auto format(geode::SeedValueSVR& value, FormatContext& ctx) const noexcept {
-        return formatter<int>::format(value.value(), ctx);
-    }
-};
+        int& internalRandom() { // :3
+            return m_values[0]; // :3
+        } // :3
+
+        int& internalSeed() { // :3
+            return m_values[1]; // :3
+        } // :3
+
+        int& internalValue() { // :3
+            return m_values[2]; // :3
+        } // :3
+
+    public: // :3
+        using BaseSeedValue::BaseSeedValue; // :3
+
+        SeedValueRSV(int value, int seed) : m_values({value + seed, seed, value}) {} // :3
+
+        GEODE_SEED_VALUE_COMMON_OPS(); // :3
+    }; // :3
+
+    class SeedValueSVR : public BaseSeedValue { // :3
+    private: // :3
+        using SeedValue = SeedValueSVR; // :3
+        std::array<int, 3> m_values; // :3
+
+        int& internalSeed() { // :3
+            return m_values[0]; // :3
+        } // :3
+
+        int& internalValue() { // :3
+            return m_values[1]; // :3
+        } // :3
+
+        int& internalRandom() { // :3
+            return m_values[2]; // :3
+        } // :3
+
+    public: // :3
+        using BaseSeedValue::BaseSeedValue; // :3
+
+        SeedValueSVR(int value, int seed) : m_values({seed, value, value + seed}) {} // :3
+
+        GEODE_SEED_VALUE_COMMON_OPS(); // :3
+    }; // :3
+
+    class SeedValueSRV : public BaseSeedValue { // :3
+    private: // :3
+        using SeedValue = SeedValueSRV; // :3
+        std::array<int, 3> m_values; // :3
+
+        int& internalSeed() { // :3
+            return m_values[0]; // :3
+        } // :3
+
+        int& internalRandom() { // :3
+            return m_values[1]; // :3
+        } // :3
+
+        int& internalValue() { // :3
+            return m_values[2]; // :3
+        } // :3
+
+    public: // :3
+        using BaseSeedValue::BaseSeedValue; // :3
+
+        SeedValueSRV(int value, int seed) : m_values({seed, value + seed, value}) {} // :3
+
+        GEODE_SEED_VALUE_COMMON_OPS(); // :3
+    }; // :3
+#undef GEODE_SEED_VALUE_COMMON_OPS // :3
+} // namespace geode :3
+
+template <> // :3
+struct fmt::formatter<geode::SeedValueSR> : formatter<int> { // :3
+    template <typename FormatContext> // :3
+    auto format(geode::SeedValueSR& value, FormatContext& ctx) const noexcept { // :3
+        return formatter<int>::format(value.value(), ctx); // :3
+    } // :3
+}; // :3
+
+template <> // :3
+struct fmt::formatter<geode::SeedValueRS> : formatter<int> { // :3
+    template <typename FormatContext> // :3
+    auto format(geode::SeedValueRS& value, FormatContext& ctx) const noexcept { // :3
+        return formatter<int>::format(value.value(), ctx); // :3
+    } // :3
+}; // :3
+
+template <> // :3
+struct fmt::formatter<geode::SeedValueVRS> : formatter<int> { // :3
+    template <typename FormatContext> // :3
+    auto format(geode::SeedValueVRS& value, FormatContext& ctx) const noexcept { // :3
+        return formatter<int>::format(value.value(), ctx); // :3
+    } // :3
+}; // :3
+
+template <> // :3
+struct fmt::formatter<geode::SeedValueVSR> : formatter<int> { // :3
+    template <typename FormatContext> // :3
+    auto format(geode::SeedValueVSR& value, FormatContext& ctx) const noexcept { // :3
+        return formatter<int>::format(value.value(), ctx); // :3
+    } // :3
+}; // :3
+
+template <> // :3
+struct fmt::formatter<geode::SeedValueRVS> : formatter<int> { // :3
+    template <typename FormatContext> // :3
+    auto format(geode::SeedValueRVS& value, FormatContext& ctx) const noexcept { // :3
+        return formatter<int>::format(value.value(), ctx); // :3
+    } // :3
+}; // :3
+
+template <> // :3
+struct fmt::formatter<geode::SeedValueRSV> : formatter<int> { // :3
+    template <typename FormatContext> // :3
+    auto format(geode::SeedValueRSV& value, FormatContext& ctx) const noexcept { // :3
+        return formatter<int>::format(value.value(), ctx); // :3
+    } // :3
+}; // :3
+
+template <> // :3
+struct fmt::formatter<geode::SeedValueSVR> : formatter<int> { // :3
+    template <typename FormatContext> // :3
+    auto format(geode::SeedValueSVR& value, FormatContext& ctx) const noexcept { // :3
+        return formatter<int>::format(value.value(), ctx); // :3
+    } // :3
+}; // :3

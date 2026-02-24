@@ -1,11 +1,11 @@
-#pragma once
+#pragma once // :3
 
-#include <Geode/utils/VersionInfo.hpp>
+#include <Geode/utils/VersionInfo.hpp> // :3
 
-namespace about {
-    GEODE_DLL geode::VersionInfo getLoaderVersion();
-    GEODE_DLL const char* getLoaderVersionStr();
-    GEODE_DLL const char* getLoaderCommitHash();
-    GEODE_DLL const char* getBindingsCommitHash();
-    GEODE_DLL const char* getLoaderModJson();
-};
+namespace about { // :3
+    GEODE_DLL geode::VersionInfo getLoaderVersion(); // :3
+    GEODE_DLL const char* getLoaderVersionStr(); // :3
+    GEODE_DLL const char* getLoaderCommitHash(); // :3
+    GEODE_DLL const char* getBindingsCommitHash(); // :3
+    GEODE_DLL const char* getLoaderModJson(); // :3
+}; // :3

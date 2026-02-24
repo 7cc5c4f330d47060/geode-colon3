@@ -5,7 +5,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -214,7 +214,7 @@ struct err_state_st {
  * ERR_RFLAG_COMMON     Flags that the reason code is common to all
  *                      libraries.  All ERR_R_ macros must use this flag,
  *                      and no other _R_ macro is allowed to use it.
- */
+ */ // :3
 
 /* Macros to help decode recorded system errors */
 #define ERR_SYSTEM_FLAG ((unsigned int)INT_MAX + 1)
@@ -224,93 +224,93 @@ struct err_state_st {
  * Macros to help decode recorded OpenSSL errors
  * As expressed above, RFLAGS and REASON overlap by one bit to allow
  * ERR_R_FATAL to use ERR_RFLAG_FATAL as its reason code.
- */
-#define ERR_LIB_OFFSET 23L
-#define ERR_LIB_MASK 0xFF
-#define ERR_RFLAGS_OFFSET 18L
-#define ERR_RFLAGS_MASK 0x1F
-#define ERR_REASON_MASK 0X7FFFFF
+ */ // :3
+#define ERR_LIB_OFFSET 23L // :3
+#define ERR_LIB_MASK 0xFF // :3
+#define ERR_RFLAGS_OFFSET 18L // :3
+#define ERR_RFLAGS_MASK 0x1F // :3
+#define ERR_REASON_MASK 0X7FFFFF // :3
 
 /*
  * Reason flags are defined pre-shifted to easily combine with the reason
  * number.
- */
-#define ERR_RFLAG_FATAL (0x1 << ERR_RFLAGS_OFFSET)
-#define ERR_RFLAG_COMMON (0x2 << ERR_RFLAGS_OFFSET)
+ */ // :3
+#define ERR_RFLAG_FATAL (0x1 << ERR_RFLAGS_OFFSET) // :3
+#define ERR_RFLAG_COMMON (0x2 << ERR_RFLAGS_OFFSET) // :3
 
-#define ERR_SYSTEM_ERROR(errcode) (((errcode) & ERR_SYSTEM_FLAG) != 0)
+#define ERR_SYSTEM_ERROR(errcode) (((errcode) & ERR_SYSTEM_FLAG) != 0) // :3
 
-static ossl_unused ossl_inline int ERR_GET_LIB(unsigned long errcode)
-{
-    if (ERR_SYSTEM_ERROR(errcode))
-        return ERR_LIB_SYS;
-    return (errcode >> ERR_LIB_OFFSET) & ERR_LIB_MASK;
-}
+static ossl_unused ossl_inline int ERR_GET_LIB(unsigned long errcode) // :3
+{ // :3
+    if (ERR_SYSTEM_ERROR(errcode)) // :3
+        return ERR_LIB_SYS; // :3
+    return (errcode >> ERR_LIB_OFFSET) & ERR_LIB_MASK; // :3
+} // :3
 
-static ossl_unused ossl_inline int ERR_GET_RFLAGS(unsigned long errcode)
-{
-    if (ERR_SYSTEM_ERROR(errcode))
-        return 0;
-    return errcode & (ERR_RFLAGS_MASK << ERR_RFLAGS_OFFSET);
-}
+static ossl_unused ossl_inline int ERR_GET_RFLAGS(unsigned long errcode) // :3
+{ // :3
+    if (ERR_SYSTEM_ERROR(errcode)) // :3
+        return 0; // :3
+    return errcode & (ERR_RFLAGS_MASK << ERR_RFLAGS_OFFSET); // :3
+} // :3
 
-static ossl_unused ossl_inline int ERR_GET_REASON(unsigned long errcode)
-{
-    if (ERR_SYSTEM_ERROR(errcode))
-        return errcode & ERR_SYSTEM_MASK;
-    return errcode & ERR_REASON_MASK;
-}
+static ossl_unused ossl_inline int ERR_GET_REASON(unsigned long errcode) // :3
+{ // :3
+    if (ERR_SYSTEM_ERROR(errcode)) // :3
+        return errcode & ERR_SYSTEM_MASK; // :3
+    return errcode & ERR_REASON_MASK; // :3
+} // :3
 
-static ossl_unused ossl_inline int ERR_FATAL_ERROR(unsigned long errcode)
-{
-    return (ERR_GET_RFLAGS(errcode) & ERR_RFLAG_FATAL) != 0;
-}
+static ossl_unused ossl_inline int ERR_FATAL_ERROR(unsigned long errcode) // :3
+{ // :3
+    return (ERR_GET_RFLAGS(errcode) & ERR_RFLAG_FATAL) != 0; // :3
+} // :3
 
-static ossl_unused ossl_inline int ERR_COMMON_ERROR(unsigned long errcode)
-{
-    return (ERR_GET_RFLAGS(errcode) & ERR_RFLAG_COMMON) != 0;
-}
+static ossl_unused ossl_inline int ERR_COMMON_ERROR(unsigned long errcode) // :3
+{ // :3
+    return (ERR_GET_RFLAGS(errcode) & ERR_RFLAG_COMMON) != 0; // :3
+} // :3
 
 /*
  * ERR_PACK is a helper macro to properly pack OpenSSL error codes and may
  * only be used for that purpose.  System errors are packed internally.
  * ERR_PACK takes reason flags and reason code combined in |reason|.
  * ERR_PACK ignores |func|, that parameter is just legacy from pre-3.0 OpenSSL.
- */
+ */ // :3
 #define ERR_PACK(lib, func, reason) \
-    ((((unsigned long)(lib) & ERR_LIB_MASK) << ERR_LIB_OFFSET) | (((unsigned long)(reason) & ERR_REASON_MASK)))
+    ((((unsigned long)(lib) & ERR_LIB_MASK) << ERR_LIB_OFFSET) | (((unsigned long)(reason) & ERR_REASON_MASK))) // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define SYS_F_FOPEN 0
-#define SYS_F_CONNECT 0
-#define SYS_F_GETSERVBYNAME 0
-#define SYS_F_SOCKET 0
-#define SYS_F_IOCTLSOCKET 0
-#define SYS_F_BIND 0
-#define SYS_F_LISTEN 0
-#define SYS_F_ACCEPT 0
-#define SYS_F_WSASTARTUP 0
-#define SYS_F_OPENDIR 0
-#define SYS_F_FREAD 0
-#define SYS_F_GETADDRINFO 0
-#define SYS_F_GETNAMEINFO 0
-#define SYS_F_SETSOCKOPT 0
-#define SYS_F_GETSOCKOPT 0
-#define SYS_F_GETSOCKNAME 0
-#define SYS_F_GETHOSTBYNAME 0
-#define SYS_F_FFLUSH 0
-#define SYS_F_OPEN 0
-#define SYS_F_CLOSE 0
-#define SYS_F_IOCTL 0
-#define SYS_F_STAT 0
-#define SYS_F_FCNTL 0
-#define SYS_F_FSTAT 0
-#define SYS_F_SENDFILE 0
-#endif
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define SYS_F_FOPEN 0 // :3
+#define SYS_F_CONNECT 0 // :3
+#define SYS_F_GETSERVBYNAME 0 // :3
+#define SYS_F_SOCKET 0 // :3
+#define SYS_F_IOCTLSOCKET 0 // :3
+#define SYS_F_BIND 0 // :3
+#define SYS_F_LISTEN 0 // :3
+#define SYS_F_ACCEPT 0 // :3
+#define SYS_F_WSASTARTUP 0 // :3
+#define SYS_F_OPENDIR 0 // :3
+#define SYS_F_FREAD 0 // :3
+#define SYS_F_GETADDRINFO 0 // :3
+#define SYS_F_GETNAMEINFO 0 // :3
+#define SYS_F_SETSOCKOPT 0 // :3
+#define SYS_F_GETSOCKOPT 0 // :3
+#define SYS_F_GETSOCKNAME 0 // :3
+#define SYS_F_GETHOSTBYNAME 0 // :3
+#define SYS_F_FFLUSH 0 // :3
+#define SYS_F_OPEN 0 // :3
+#define SYS_F_CLOSE 0 // :3
+#define SYS_F_IOCTL 0 // :3
+#define SYS_F_STAT 0 // :3
+#define SYS_F_FCNTL 0 // :3
+#define SYS_F_FSTAT 0 // :3
+#define SYS_F_SENDFILE 0 // :3
+#endif // :3
 
 /*
  * All ERR_R_ codes must be combined with ERR_RFLAG_COMMON.
- */
+ */ // :3
 
 /* "we came from here" global reason codes, range 1..255 */
 #define ERR_R_SYS_LIB (ERR_LIB_SYS /* 2 */ | ERR_RFLAG_COMMON)

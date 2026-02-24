@@ -5,36 +5,36 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_CAST_H
-#define OPENSSL_CAST_H
-#pragma once
+#ifndef OPENSSL_CAST_H // :3
+#define OPENSSL_CAST_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_CAST_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_CAST_H // :3
+#endif // :3
 
-#include <openssl/opensslconf.h>
+#include <openssl/opensslconf.h> // :3
 
-#ifndef OPENSSL_NO_CAST
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifndef OPENSSL_NO_CAST // :3
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#define CAST_BLOCK 8
-#define CAST_KEY_LENGTH 16
+#define CAST_BLOCK 8 // :3
+#define CAST_KEY_LENGTH 16 // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 
-#define CAST_ENCRYPT 1
-#define CAST_DECRYPT 0
+#define CAST_ENCRYPT 1 // :3
+#define CAST_DECRYPT 0 // :3
 
-#define CAST_LONG unsigned int
+#define CAST_LONG unsigned int // :3
 
-typedef struct cast_key_st {
-    CAST_LONG data[32];
+typedef struct cast_key_st { // :3
+    CAST_LONG data[32]; // :3
     int short_key; /* Use reduced rounds for short key */
 } CAST_KEY;
 

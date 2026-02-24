@@ -22,23 +22,23 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CC_ANIMATION_CACHE_H__
-#define __CC_ANIMATION_CACHE_H__
+****************************************************************************/ // :3
+#ifndef __CC_ANIMATION_CACHE_H__ // :3
+#define __CC_ANIMATION_CACHE_H__ // :3
 
-#include "../cocoa/CCObject.h"
-#include "../cocoa/CCDictionary.h"
+#include "../cocoa/CCObject.h" // :3
+#include "../cocoa/CCDictionary.h" // :3
 
-#include <string>
+#include <string> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCAnimation;
+class CCAnimation; // :3
 
 /**
  * @addtogroup sprite_nodes
  * @{
- */
+ */ // :3
 
 /** Singleton that manages the Animations.
 It saves in a cache the animations. You should use this class if you want to save your animations in a cache.
@@ -46,74 +46,74 @@ It saves in a cache the animations. You should use this class if you want to sav
 Before v0.99.5, the recommend way was to save them on the CCSprite. Since v0.99.5, you should use this class instead.
 
 @since v0.99.5
-*/
-class CC_DLL CCAnimationCache : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCAnimationCache, CCObject)
+*/ // :3
+class CC_DLL CCAnimationCache : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCAnimationCache, CCObject) // :3
     /**
      * @js ctor
-     */
-    CCAnimationCache();
+     */ // :3
+    CCAnimationCache(); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    ~CCAnimationCache();
+     */ // :3
+    ~CCAnimationCache(); // :3
     /** Returns the shared instance of the Animation cache
      *  @js getInstance
-     */
-    static CCAnimationCache* sharedAnimationCache(void);
+     */ // :3
+    static CCAnimationCache* sharedAnimationCache(void); // :3
 
     /** Purges the cache. It releases all the CCAnimation objects and the shared instance.
-    */
-    static void purgeSharedAnimationCache(void);
+    */ // :3
+    static void purgeSharedAnimationCache(void); // :3
 
     /** Adds a CCAnimation with a name.
-    */
-    void addAnimation(CCAnimation *animation, const char * name);
+    */ // :3
+    void addAnimation(CCAnimation *animation, const char * name); // :3
 
     /** Deletes a CCAnimation from the cache.
      *@js removeAnimation
-     */
-    void removeAnimationByName(const char* name);
+     */ // :3
+    void removeAnimationByName(const char* name); // :3
 
     /** Returns a CCAnimation that was previously added.
     If the name is not found it will return nil.
     You should retain the returned copy if you are going to use it.
     @js getAnimation
-    */
-    CCAnimation* animationByName(const char* name);
+    */ // :3
+    CCAnimation* animationByName(const char* name); // :3
 
     /** Adds an animation from an NSDictionary
      Make sure that the frames were previously loaded in the CCSpriteFrameCache.
      @param plist The path of the relative file,it use to find the plist path for load SpriteFrames.
      @since v1.1
-     */
-    void addAnimationsWithDictionary(CCDictionary* dictionary,const char* plist = NULL);
+     */ // :3
+    void addAnimationsWithDictionary(CCDictionary* dictionary,const char* plist = NULL); // :3
 
     /** Adds an animation from a plist file.
      Make sure that the frames were previously loaded in the CCSpriteFrameCache.
      @since v1.1
      @js addAnimations
-     */
-    void addAnimationsWithFile(const char* plist);
+     */ // :3
+    void addAnimationsWithFile(const char* plist); // :3
 
-    bool init(void);
+    bool init(void); // :3
 
-private:
-    void parseVersion1(CCDictionary* animations);
-    void parseVersion2(CCDictionary* animations);
-public:
-    CCDictionary* m_pAnimations;
-private:
-    static CCAnimationCache* s_pSharedAnimationCache;
-};
+private: // :3
+    void parseVersion1(CCDictionary* animations); // :3
+    void parseVersion2(CCDictionary* animations); // :3
+public: // :3
+    CCDictionary* m_pAnimations; // :3
+private: // :3
+    static CCAnimationCache* s_pSharedAnimationCache; // :3
+}; // :3
 
-// end of sprite_nodes group
-/// @}
+// end of sprite_nodes group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __CC_ANIMATION_CACHE_H__
+#endif // __CC_ANIMATION_CACHE_H__ :3

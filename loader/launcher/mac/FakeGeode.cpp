@@ -1,1 +1,1 @@
-extern "C" void fake() {}
+extern "C" void fake() {} // :3

@@ -1,163 +1,163 @@
-#pragma once
+#pragma once // :3
 
-#include <Geode/loader/Loader.hpp> // another great circular dependency fix
-#include <Geode/utils/ZStringView.hpp>
-#include <Geode/utils/StringMap.hpp>
-#include <Geode/utils/async.hpp>
-#include <Geode/utils/general.hpp>
-#include <Geode/loader/Event.hpp>
-#include <arc/sync/oneshot.hpp>
-#include <matjson.hpp>
-#include <Geode/Result.hpp>
-#include <chrono>
-#include <optional>
-#include <string_view>
-#include <span>
+#include <Geode/loader/Loader.hpp> // another great circular dependency fix :3
+#include <Geode/utils/ZStringView.hpp> // :3
+#include <Geode/utils/StringMap.hpp> // :3
+#include <Geode/utils/async.hpp> // :3
+#include <Geode/utils/general.hpp> // :3
+#include <Geode/loader/Event.hpp> // :3
+#include <arc/sync/oneshot.hpp> // :3
+#include <matjson.hpp> // :3
+#include <Geode/Result.hpp> // :3
+#include <chrono> // :3
+#include <optional> // :3
+#include <string_view> // :3
+#include <span> // :3
 
-namespace geode::utils::web {
-    GEODE_DLL void openLinkInBrowser(ZStringView url);
+namespace geode::utils::web { // :3
+    GEODE_DLL void openLinkInBrowser(ZStringView url); // :3
 
     // https://curl.se/libcurl/c/CURLOPT_HTTPAUTH.html
-    namespace http_auth {
-        constexpr static long BASIC = 0x0001;
-        constexpr static long DIGEST = 0x0002;
-        constexpr static long DIGEST_IE = 0x0004;
-        constexpr static long BEARER = 0x0008;
-        constexpr static long NEGOTIATE = 0x0010;
-        constexpr static long NTLM = 0x0020;
-        constexpr static long NTLM_WB = 0x0040;
-        constexpr static long ANY = 0x0080;
-        constexpr static long ANYSAFE = 0x0100;
-        constexpr static long ONLY = 0x0200;
-        constexpr static long AWS_SIGV4 = 0x0400;
-    }
+    namespace http_auth { // :3
+        constexpr static long BASIC = 0x0001; // :3
+        constexpr static long DIGEST = 0x0002; // :3
+        constexpr static long DIGEST_IE = 0x0004; // :3
+        constexpr static long BEARER = 0x0008; // :3
+        constexpr static long NEGOTIATE = 0x0010; // :3
+        constexpr static long NTLM = 0x0020; // :3
+        constexpr static long NTLM_WB = 0x0040; // :3
+        constexpr static long ANY = 0x0080; // :3
+        constexpr static long ANYSAFE = 0x0100; // :3
+        constexpr static long ONLY = 0x0200; // :3
+        constexpr static long AWS_SIGV4 = 0x0400; // :3
+    } // :3
 
     // https://curl.se/libcurl/c/CURLOPT_HTTP_VERSION.html
-    enum class HttpVersion {
-        DEFAULT,
-        VERSION_1_0,
-        VERSION_1_1,
-        VERSION_2_0,
-        VERSION_2TLS,
-        VERSION_2_PRIOR_KNOWLEDGE,
-        VERSION_3 = 30,
-        VERSION_3ONLY = 31
-    };
+    enum class HttpVersion { // :3
+        DEFAULT, // :3
+        VERSION_1_0, // :3
+        VERSION_1_1, // :3
+        VERSION_2_0, // :3
+        VERSION_2TLS, // :3
+        VERSION_2_PRIOR_KNOWLEDGE, // :3
+        VERSION_3 = 30, // :3
+        VERSION_3ONLY = 31 // :3
+    }; // :3
 
     // https://curl.se/libcurl/c/CURLOPT_PROXYTYPE.html
-    enum class ProxyType {
-        HTTP, // HTTP
-        HTTPS, // HTTPS
-        HTTPS2, // HTTPS (attempt to use HTTP/2)
-        SOCKS4, // Socks4
-        SOCKS4A, // Socks4 with hostname resolution
-        SOCKS5, // Socks5
-        SOCKS5H, // Socks5 with hostname resolution
-    };
+    enum class ProxyType { // :3
+        HTTP, // HTTP :3
+        HTTPS, // HTTPS :3
+        HTTPS2, // HTTPS (attempt to use HTTP/2) :3
+        SOCKS4, // Socks4 :3
+        SOCKS4A, // Socks4 with hostname resolution :3
+        SOCKS5, // Socks5 :3
+        SOCKS5H, // Socks5 with hostname resolution :3
+    }; // :3
 
-    enum class GeodeWebError {
-        CURL_INITIALIZATION_ERROR = -999,
-        REQUEST_CANCELLED = -998,
-        QUEUE_FULL = -997,
-        CHANNEL_CLOSED = -996
-    };
+    enum class GeodeWebError { // :3
+        CURL_INITIALIZATION_ERROR = -999, // :3
+        REQUEST_CANCELLED = -998, // :3
+        QUEUE_FULL = -997, // :3
+        CHANNEL_CLOSED = -996 // :3
+    }; // :3
 
-    struct ProxyOpts {
-        std::string address; // Proxy address/FQDN
-        std::optional<std::uint16_t> port; // Proxy port
-        ProxyType type = ProxyType::HTTP; // Proxy type
+    struct ProxyOpts { // :3
+        std::string address; // Proxy address/FQDN :3
+        std::optional<std::uint16_t> port; // Proxy port :3
+        ProxyType type = ProxyType::HTTP; // Proxy type :3
         long auth = http_auth::BASIC; // HTTP proxy auth method
-        std::string username; // Proxy username
-        std::string password; // Proxy password
-        bool tunneling = false; // Enable HTTP tunneling
-        bool certVerification = true; // Enable HTTPS certificate verification
-    };
+        std::string username; // Proxy username :3
+        std::string password; // Proxy password :3
+        bool tunneling = false; // Enable HTTP tunneling :3
+        bool certVerification = true; // Enable HTTPS certificate verification :3
+    }; // :3
 
-    /// Represents a multipart-form object to be sent in a `WebRequest`.
-    ///
-    /// @example
-    /// web::MultipartForm form;
-    /// form.param("key", "value");
-    /// form.param("key2", "value2");
-    /// form.file("file", { 0xAA, 0xBB, 0xCC }, "raw.bin");
-    /// form.file("file2", "path/to/image.png", "screenshot.png", "image/png");
-    ///
-    /// auto req = web::WebRequest()
-    ///     .bodyMultipart(form)
-    ///     .get(url);
-    class GEODE_DLL MultipartForm final {
-    private:
-        class Impl;
+    /// Represents a multipart-form object to be sent in a `WebRequest`. :3
+    /// :3
+    /// @example :3
+    /// web::MultipartForm form; :3
+    /// form.param("key", "value"); :3
+    /// form.param("key2", "value2"); :3
+    /// form.file("file", { 0xAA, 0xBB, 0xCC }, "raw.bin"); :3
+    /// form.file("file2", "path/to/image.png", "screenshot.png", "image/png"); :3
+    /// :3
+    /// auto req = web::WebRequest() :3
+    ///     .bodyMultipart(form) :3
+    ///     .get(url); :3
+    class GEODE_DLL MultipartForm final { // :3
+    private: // :3
+        class Impl; // :3
 
-        std::shared_ptr<Impl> m_impl;
+        std::shared_ptr<Impl> m_impl; // :3
 
-    public:
-        MultipartForm();
-        ~MultipartForm();
+    public: // :3
+        MultipartForm(); // :3
+        ~MultipartForm(); // :3
 
-        MultipartForm& param(std::string name, std::string value);
-        template <std::integral T>
-        MultipartForm& param(std::string name, T value) {
-            return this->param(std::move(name), fmt::to_string(value));
-        }
+        MultipartForm& param(std::string name, std::string value); // :3
+        template <std::integral T> // :3
+        MultipartForm& param(std::string name, T value) { // :3
+            return this->param(std::move(name), fmt::to_string(value)); // :3
+        } // :3
 
-        MultipartForm& file(std::string name, std::span<uint8_t const> data, std::string filename, std::string mime = "application/octet-stream");
-        Result<MultipartForm&> file(std::string name, std::filesystem::path const& path, std::string mime = "application/octet-stream");
+        MultipartForm& file(std::string name, std::span<uint8_t const> data, std::string filename, std::string mime = "application/octet-stream"); // :3
+        Result<MultipartForm&> file(std::string name, std::filesystem::path const& path, std::string mime = "application/octet-stream"); // :3
 
         /**
          * Returns the unique boundary string used in the multipart form.
          * This will also finalize the form, so adding more parameters will not work.
          * @return std::string_view
-         */
-        std::string_view getBoundary() const;
+         */ // :3
+        std::string_view getBoundary() const; // :3
 
         /**
          * Returns the value for the Content-Type header with unique boundary string.
          * This will also finalize the form, so adding more parameters will not work.
          * @return std::string
-         */
-        std::string getHeader() const;
+         */ // :3
+        std::string getHeader() const; // :3
 
         /**
          * Returns merged body of all parameters and files, with the correct boundary.
          * This will also finalize the form, so adding more parameters will not work.
          * @return ByteVector
-         */
-        ByteVector getBody() const;
-    };
+         */ // :3
+        ByteVector getBody() const; // :3
+    }; // :3
 
-    class WebRequest;
+    class WebRequest; // :3
 
-    class GEODE_DLL WebResponse final {
-    private:
-        class Impl;
+    class GEODE_DLL WebResponse final { // :3
+    private: // :3
+        class Impl; // :3
 
-        std::shared_ptr<Impl> m_impl;
+        std::shared_ptr<Impl> m_impl; // :3
 
-        friend class WebRequest;
-        friend class WebRequestsManager;
+        friend class WebRequest; // :3
+        friend class WebRequestsManager; // :3
 
-    public:
-        // Must be default-constructible for use in Promise
-        WebResponse();
+    public: // :3
+        // Must be default-constructible for use in Promise :3
+        WebResponse(); // :3
 
-        bool info() const;
-        bool ok() const;
-        bool redirected() const;
-        bool badClient() const;
-        bool badServer() const;
-        bool error() const;
-        bool cancelled() const;
-        int code() const;
+        bool info() const; // :3
+        bool ok() const; // :3
+        bool redirected() const; // :3
+        bool badClient() const; // :3
+        bool badServer() const; // :3
+        bool error() const; // :3
+        bool cancelled() const; // :3
+        int code() const; // :3
 
-        Result<std::string> string() const;
-        Result<matjson::Value> json() const;
-        ByteVector const& data() const&;
-        ByteVector data() &&;
-        Result<> into(std::filesystem::path const& path) const;
+        Result<std::string> string() const; // :3
+        Result<matjson::Value> json() const; // :3
+        ByteVector const& data() const&; // :3
+        ByteVector data() &&; // :3
+        Result<> into(std::filesystem::path const& path) const; // :3
 
-        std::vector<std::string> headers() const;
-        std::optional<ZStringView> header(std::string_view name) const;
+        std::vector<std::string> headers() const; // :3
+        std::optional<ZStringView> header(std::string_view name) const; // :3
 
         /**
          * Retrieves a list of all headers from the response with a given name - there can be
@@ -165,77 +165,77 @@ namespace geode::utils::web {
          * header
          * @param name name of the header
          * @return std::optional<std::vector<std::string>>
-         */
-        std::optional<std::vector<std::string>> getAllHeadersNamed(std::string_view name) const;
+         */ // :3
+        std::optional<std::vector<std::string>> getAllHeadersNamed(std::string_view name) const; // :3
 
         /**
          * Returns additional error information, in case the request failed.
          * In case the request did not fail, or no more information is available beyond what `string` returns,
          * an empty string is returned.
-         */
-        std::string_view errorMessage() const;
-    };
+         */ // :3
+        std::string_view errorMessage() const; // :3
+    }; // :3
 
-    class WebProgress final {
-    private:
-        size_t m_downloadCurrent = 0;
-        size_t m_downloadTotal = 0;
-        size_t m_uploadCurrent = 0;
-        size_t m_uploadTotal = 0;
+    class WebProgress final { // :3
+    private: // :3
+        size_t m_downloadCurrent = 0; // :3
+        size_t m_downloadTotal = 0; // :3
+        size_t m_uploadCurrent = 0; // :3
+        size_t m_uploadTotal = 0; // :3
 
-        friend class WebRequest;
+        friend class WebRequest; // :3
 
-    public:
-        // Must be default-constructible for use in Promise
-        WebProgress() = default;
+    public: // :3
+        // Must be default-constructible for use in Promise :3
+        WebProgress() = default; // :3
 
-        size_t downloaded() const { return m_downloadCurrent; }
-        size_t downloadTotal() const { return m_downloadTotal; }
-        std::optional<float> downloadProgress() const {
-            return downloadTotal() > 0 ? std::optional(downloaded() * 100.f / downloadTotal()) : std::nullopt;
-        }
+        size_t downloaded() const { return m_downloadCurrent; } // :3
+        size_t downloadTotal() const { return m_downloadTotal; } // :3
+        std::optional<float> downloadProgress() const { // :3
+            return downloadTotal() > 0 ? std::optional(downloaded() * 100.f / downloadTotal()) : std::nullopt; // :3
+        } // :3
 
-        size_t uploaded() const { return m_uploadCurrent; }
-        size_t uploadTotal() const { return m_uploadTotal; }
-        std::optional<float> uploadProgress() const {
-            return uploadTotal() > 0 ? std::optional(uploaded() * 100.f / uploadTotal()) : std::nullopt;
-        }
-    };
+        size_t uploaded() const { return m_uploadCurrent; } // :3
+        size_t uploadTotal() const { return m_uploadTotal; } // :3
+        std::optional<float> uploadProgress() const { // :3
+            return uploadTotal() > 0 ? std::optional(uploaded() * 100.f / uploadTotal()) : std::nullopt; // :3
+        } // :3
+    }; // :3
 
-    struct WebFuture;
+    struct WebFuture; // :3
 
-    class GEODE_DLL WebRequest final {
-    private:
-        class Impl;
+    class GEODE_DLL WebRequest final { // :3
+    private: // :3
+        class Impl; // :3
 
-        std::shared_ptr<Impl> m_impl;
+        std::shared_ptr<Impl> m_impl; // :3
 
-        friend class WebRequestsManager;
-        friend struct WebFuture;
-    public:
-        WebRequest();
-        ~WebRequest();
+        friend class WebRequestsManager; // :3
+        friend struct WebFuture; // :3
+    public: // :3
+        WebRequest(); // :3
+        ~WebRequest(); // :3
 
-        WebFuture send(std::string method, std::string url, Mod* mod = geode::getMod());
-        WebFuture post(std::string url, Mod* mod = geode::getMod());
-        WebFuture get(std::string url, Mod* mod = geode::getMod());
-        WebFuture put(std::string url, Mod* mod = geode::getMod());
-        WebFuture patch(std::string url, Mod* mod = geode::getMod());
+        WebFuture send(std::string method, std::string url, Mod* mod = geode::getMod()); // :3
+        WebFuture post(std::string url, Mod* mod = geode::getMod()); // :3
+        WebFuture get(std::string url, Mod* mod = geode::getMod()); // :3
+        WebFuture put(std::string url, Mod* mod = geode::getMod()); // :3
+        WebFuture patch(std::string url, Mod* mod = geode::getMod()); // :3
 
-        WebResponse sendSync(std::string method, std::string url, Mod* mod = geode::getMod());
-        WebResponse postSync(std::string url, Mod* mod = geode::getMod());
-        WebResponse getSync(std::string url, Mod* mod = geode::getMod());
-        WebResponse putSync(std::string url, Mod* mod = geode::getMod());
-        WebResponse patchSync(std::string url, Mod* mod = geode::getMod());
+        WebResponse sendSync(std::string method, std::string url, Mod* mod = geode::getMod()); // :3
+        WebResponse postSync(std::string url, Mod* mod = geode::getMod()); // :3
+        WebResponse getSync(std::string url, Mod* mod = geode::getMod()); // :3
+        WebResponse putSync(std::string url, Mod* mod = geode::getMod()); // :3
+        WebResponse patchSync(std::string url, Mod* mod = geode::getMod()); // :3
 
-        WebRequest& header(std::string name, std::string value);
-        WebRequest& removeHeader(std::string_view name);
-        WebRequest& param(std::string name, std::string value);
-        template <std::integral T>
-        WebRequest& param(std::string name, T value) {
-            return this->param(std::move(name), fmt::to_string(value));
-        }
-        WebRequest& removeParam(std::string_view name);
+        WebRequest& header(std::string name, std::string value); // :3
+        WebRequest& removeHeader(std::string_view name); // :3
+        WebRequest& param(std::string name, std::string value); // :3
+        template <std::integral T> // :3
+        WebRequest& param(std::string name, T value) { // :3
+            return this->param(std::move(name), fmt::to_string(value)); // :3
+        } // :3
+        WebRequest& removeParam(std::string_view name); // :3
 
         /**
          * Sets the request's method.
@@ -244,8 +244,8 @@ namespace geode::utils::web {
          *
          * @param method
          * @return WebRequest&
-         */
-        WebRequest& method(std::string method);
+         */ // :3
+        WebRequest& method(std::string method); // :3
 
         /**
          * Sets the request's URL.
@@ -254,8 +254,8 @@ namespace geode::utils::web {
          *
          * @param url
          * @return WebRequest&
-         */
-        WebRequest& url(std::string url);
+         */ // :3
+        WebRequest& url(std::string url); // :3
 
         /**
          * Sets the request's user agent.
@@ -263,8 +263,8 @@ namespace geode::utils::web {
          *
          * @param name
          * @return WebRequest&
-         */
-        WebRequest& userAgent(std::string name);
+         */ // :3
+        WebRequest& userAgent(std::string name); // :3
 
         /**
          * Sets the response's encoding. Valid values include: br, gzip, deflate, ...
@@ -279,8 +279,8 @@ namespace geode::utils::web {
          *
          * @param encodingType Target response encoding type. An empty string ("") will use all built-in supported encodings.
          * @return WebRequest&
-         */
-        WebRequest& acceptEncoding(std::string encodingType);
+         */ // :3
+        WebRequest& acceptEncoding(std::string encodingType); // :3
 
         /**
          * Sets the maximum amount of seconds to allow the entire transfer operation to take.
@@ -288,8 +288,8 @@ namespace geode::utils::web {
          *
          * @param time
          * @return WebRequest&
-         */
-        WebRequest& timeout(std::chrono::seconds time);
+         */ // :3
+        WebRequest& timeout(std::chrono::seconds time); // :3
 
         /**
          * Sets the target byte range to request.
@@ -297,8 +297,8 @@ namespace geode::utils::web {
          *
          * @param byteRange a pair of ints, first value is what byte to start from, second value is the last byte to get (both inclusive)
          * @return WebRequest&
-         */
-        WebRequest& downloadRange(std::pair<std::uint64_t, std::uint64_t> byteRange);
+         */ // :3
+        WebRequest& downloadRange(std::pair<std::uint64_t, std::uint64_t> byteRange); // :3
 
         /**
          * Enable or disables peer verification in SSL handshake.
@@ -306,8 +306,8 @@ namespace geode::utils::web {
          *
          * @param enabled
          * @return WebRequest&
-         */
-        WebRequest& certVerification(bool enabled);
+         */ // :3
+        WebRequest& certVerification(bool enabled); // :3
 
         /**
          * Enables or disabled getting the body of a request. For HTTP(S), this does a HEAD request.
@@ -316,8 +316,8 @@ namespace geode::utils::web {
          *
          * @param enabled
          * @return WebRequest&
-         */
-        WebRequest& transferBody(bool enabled);
+         */ // :3
+        WebRequest& transferBody(bool enabled); // :3
 
         /**
          * Follow HTTP 3xx redirects.
@@ -325,8 +325,8 @@ namespace geode::utils::web {
          *
          * @param enabled
          * @return WebRequest&
-         */
-        WebRequest& followRedirects(bool enabled);
+         */ // :3
+        WebRequest& followRedirects(bool enabled); // :3
 
         /**
          * Enables or disables ignoring the content length header.
@@ -334,8 +334,8 @@ namespace geode::utils::web {
          *
          * @param enabled
          * @return WebRequest&
-         */
-        WebRequest& ignoreContentLength(bool enabled);
+         */ // :3
+        WebRequest& ignoreContentLength(bool enabled); // :3
 
         /**
          * Sets the Certificate Authority (CA) bundle content.
@@ -343,8 +343,8 @@ namespace geode::utils::web {
          *
          * @param content
          * @return WebRequest&
-         */
-        WebRequest& CABundleContent(std::string content);
+         */ // :3
+        WebRequest& CABundleContent(std::string content); // :3
 
         /**
          * Sets the request's proxy.
@@ -352,8 +352,8 @@ namespace geode::utils::web {
          *
          * @param proxyOpts
          * @return WebRequest&
-         */
-        WebRequest& proxyOpts(ProxyOpts proxyOpts);
+         */ // :3
+        WebRequest& proxyOpts(ProxyOpts proxyOpts); // :3
 
         /**
          * Sets the request's HTTP version.
@@ -361,129 +361,129 @@ namespace geode::utils::web {
          *
          * @param httpVersion
          * @return WebRequest&
-         */
-        WebRequest& version(HttpVersion httpVersion);
+         */ // :3
+        WebRequest& version(HttpVersion httpVersion); // :3
 
         /**
          * Sets the body of the request to a byte vector.
          *
          * @param raw The raw bytes to set as the body.
          * @return WebRequest&
-         */
-        WebRequest& body(ByteVector raw);
+         */ // :3
+        WebRequest& body(ByteVector raw); // :3
         /**
          * Sets the body of the request to a string.
          *
          * @param str The string to set as the body.
          * @return WebRequest&
-         */
-        WebRequest& bodyString(std::string_view str);
+         */ // :3
+        WebRequest& bodyString(std::string_view str); // :3
         /**
          * Sets the body of the request to a json object.
          *
          * @param json
          * @return WebRequest&
-         */
-        WebRequest& bodyJSON(matjson::Value const& json);
+         */ // :3
+        WebRequest& bodyJSON(matjson::Value const& json); // :3
         /**
          * Sets the body of the request to a multipart form.
          *
          * @param form The multipart form to set as the body.
          * @return WebRequest&
-         */
-        WebRequest& bodyMultipart(MultipartForm const& form);
+         */ // :3
+        WebRequest& bodyMultipart(MultipartForm const& form); // :3
 
         /**
          * Sets the function that will be called when progress is made on the request.
          * This is an alternative to manually polling it via `getProgress()`.
-         */
-        WebRequest& onProgress(Function<void(WebProgress const&)> callback);
+         */ // :3
+        WebRequest& onProgress(Function<void(WebProgress const&)> callback); // :3
 
         /**
          * Gets the unique request ID
          *
          * @return size_t
-         */
-        size_t getID() const;
+         */ // :3
+        size_t getID() const; // :3
 
         /**
          * Gets the mod which owns the request.
          *
          * @return geode::Mod*
-         */
-        Mod* getMod() const;
+         */ // :3
+        Mod* getMod() const; // :3
 
         /**
          * Gets the request method as a string
          *
          * @return std::string
-         */
-        ZStringView getMethod() const;
+         */ // :3
+        ZStringView getMethod() const; // :3
 
         /**
          * Gets the request URL
          *
          * @return std::string
-         */
-        ZStringView getUrl() const;
+         */ // :3
+        ZStringView getUrl() const; // :3
 
         /**
          * Gets the request headers
          *
          * @return std::unordered_map<std::string, std::vector<std::string>>
-         */
-        utils::StringMap<std::vector<std::string>> const& getHeaders() const;
+         */ // :3
+        utils::StringMap<std::vector<std::string>> const& getHeaders() const; // :3
 
         /**
          * Gets the parameters inside the URL
          *
          * @return std::unordered_map<std::string, std::string>
-         */
-        utils::StringMap<std::string> const& getUrlParams() const;
+         */ // :3
+        utils::StringMap<std::string> const& getUrlParams() const; // :3
 
         /**
          * Gets the post body stream
          *
          * @return std::optional<ByteVector>
-         */
-        std::optional<ByteVector> getBody() const;
+         */ // :3
+        std::optional<ByteVector> getBody() const; // :3
 
         /**
          * Gets the request timeout in seconds
          *
          * @return std::optional<std::chrono::seconds>
-         */
-        std::optional<std::chrono::seconds> getTimeout() const;
+         */ // :3
+        std::optional<std::chrono::seconds> getTimeout() const; // :3
 
         /**
          * Gets HTTP versions applied to the request
          *
          * @return HttpVersion
-         */
-        HttpVersion getHttpVersion() const;
+         */ // :3
+        HttpVersion getHttpVersion() const; // :3
 
         /**
          * Gets the current progress of the request, if it was sent.
          * Otherwise, default values are returned.
-         */
-        WebProgress getProgress() const;
-    };
+         */ // :3
+        WebProgress getProgress() const; // :3
+    }; // :3
 
-    struct GEODE_DLL ARC_NODISCARD WebFuture : arc::Pollable<WebFuture, WebResponse> {
-        explicit WebFuture(std::shared_ptr<WebRequest::Impl> request);
-        ~WebFuture();
+    struct GEODE_DLL ARC_NODISCARD WebFuture : arc::Pollable<WebFuture, WebResponse> { // :3
+        explicit WebFuture(std::shared_ptr<WebRequest::Impl> request); // :3
+        ~WebFuture(); // :3
 
-        WebFuture(WebFuture&&) noexcept = default;
-        WebFuture& operator=(WebFuture&&) noexcept = delete;
-        WebFuture(WebFuture const&) = delete;
-        WebFuture& operator=(WebFuture const&) = delete;
+        WebFuture(WebFuture&&) noexcept = default; // :3
+        WebFuture& operator=(WebFuture&&) noexcept = delete; // :3
+        WebFuture(WebFuture const&) = delete; // :3
+        WebFuture& operator=(WebFuture const&) = delete; // :3
 
-        std::optional<WebResponse> poll(arc::Context& cx);
+        std::optional<WebResponse> poll(arc::Context& cx); // :3
 
-    private:
-        struct Impl;
-        std::shared_ptr<Impl> m_impl;
-    };
+    private: // :3
+        struct Impl; // :3
+        std::shared_ptr<Impl> m_impl; // :3
+    }; // :3
 
     /**
      * Allows you to intercept and modify requests before they're sent with either a mod ID filter or globally.
@@ -491,20 +491,20 @@ namespace geode::utils::web {
      * @example
      * WebRequestInterceptEvent(Mod::get()->getID()).listen([](auto& req) { return ListenerResult::Propagate; }, Priority::Normal);
      * WebRequestInterceptEvent().listen([](auto id, auto& req) { return ListenerResult::Stop; }, Priority::VeryEarly);
-     */
-    struct WebRequestInterceptEvent : ThreadSafeGlobalEvent<WebRequestInterceptEvent, bool(std::string_view, WebRequest&), bool(WebRequest&), std::string> {
-        using ThreadSafeGlobalEvent::ThreadSafeGlobalEvent;
-    };
+     */ // :3
+    struct WebRequestInterceptEvent : ThreadSafeGlobalEvent<WebRequestInterceptEvent, bool(std::string_view, WebRequest&), bool(WebRequest&), std::string> { // :3
+        using ThreadSafeGlobalEvent::ThreadSafeGlobalEvent; // :3
+    }; // :3
 
     /**
      * Allows you to intercept and modify requests before they're sent using the request identifier.
      *
      * @example
      * IDBasedWebRequestInterceptEvent(req.getID()).listen([](auto& req) { return ListenerResult::Propagate; }, Priority::Normal);
-     */
-    struct IDBasedWebRequestInterceptEvent : ThreadSafeEvent<IDBasedWebRequestInterceptEvent, bool(WebRequest&), size_t> {
-        using ThreadSafeEvent::ThreadSafeEvent;
-    };
+     */ // :3
+    struct IDBasedWebRequestInterceptEvent : ThreadSafeEvent<IDBasedWebRequestInterceptEvent, bool(WebRequest&), size_t> { // :3
+        using ThreadSafeEvent::ThreadSafeEvent; // :3
+    }; // :3
 
     /**
      * Allows you to listen for responses after it was received with either a mod ID filter or globally.
@@ -512,18 +512,18 @@ namespace geode::utils::web {
      * @example
      * WebResponseEvent(Mod::get()->getID()).listen([](auto const& res) { return ListenerResult::Propagate; }, Priority::Normal);
      * WebResponseEvent().listen([](auto id, auto const& res) { return ListenerResult::Stop; }, Priority::VeryEarly);
-     */
-    struct WebResponseEvent : ThreadSafeGlobalEvent<WebResponseEvent, bool(std::string_view, WebResponse const&), bool(WebResponse const&), std::string> {
-        using ThreadSafeGlobalEvent::ThreadSafeGlobalEvent;
-    };
+     */ // :3
+    struct WebResponseEvent : ThreadSafeGlobalEvent<WebResponseEvent, bool(std::string_view, WebResponse const&), bool(WebResponse const&), std::string> { // :3
+        using ThreadSafeGlobalEvent::ThreadSafeGlobalEvent; // :3
+    }; // :3
 
     /**
      * Allows you to listen for responses after it was received using the request identifier.
      *
      * @example
      * IDBasedWebResponseEvent(req.getID()).listen([](auto const& res) { return ListenerResult::Propagate; }, Priority::Normal);
-     */
-    struct IDBasedWebResponseEvent : ThreadSafeEvent<IDBasedWebResponseEvent, bool(WebResponse const&), size_t> {
-        using ThreadSafeEvent::ThreadSafeEvent;
-    };
-}
+     */ // :3
+    struct IDBasedWebResponseEvent : ThreadSafeEvent<IDBasedWebResponseEvent, bool(WebResponse const&), size_t> { // :3
+        using ThreadSafeEvent::ThreadSafeEvent; // :3
+    }; // :3
+} // :3

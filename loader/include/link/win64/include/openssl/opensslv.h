@@ -8,25 +8,25 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_OPENSSLV_H
-#define OPENSSL_OPENSSLV_H
-#pragma once
+#ifndef OPENSSL_OPENSSLV_H // :3
+#define OPENSSL_OPENSSLV_H // :3
+#pragma once // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /*
  * SECTION 1: VERSION DATA.  These will change for each release
- */
+ */ // :3
 
 /*
  * Base version macros
  *
  * These macros express version number MAJOR.MINOR.PATCH exactly
- */
+ */ // :3
 /* clang-format off */
 # define OPENSSL_VERSION_MAJOR  3
 /* clang-format on */
@@ -42,7 +42,7 @@ extern "C" {
  *
  * These are also part of the new version scheme, but aren't part
  * of the version number itself.
- */
+ */ // :3
 
 /* Could be: #define OPENSSL_VERSION_PRE_RELEASE "-alpha.1" */
 /* clang-format off */
@@ -58,7 +58,7 @@ extern "C" {
  * Note: The OpenSSL Project will never define OPENSSL_VERSION_BUILD_METADATA
  * to be anything but the empty string.  Its use is entirely reserved for
  * others
- */
+ */ // :3
 
 /*
  * Shared library version
@@ -66,14 +66,14 @@ extern "C" {
  * This is strictly to express ABI version, which may or may not
  * be related to the API version expressed with the macros above.
  * This is defined in free form.
- */
+ */ // :3
 /* clang-format off */
 # define OPENSSL_SHLIB_VERSION 3
 /* clang-format on */
 
 /*
  * SECTION 2: USEFUL MACROS
- */
+ */ // :3
 
 /* For checking general API compatibility when preprocessing */
 #define OPENSSL_VERSION_PREREQ(maj, min) \
@@ -85,7 +85,7 @@ extern "C" {
  * with the values from the corresponding OPENSSL_VERSION_ macros) and the
  * longer variant with OPENSSL_VERSION_PRE_RELEASE_STR and
  * OPENSSL_VERSION_BUILD_METADATA_STR appended.
- */
+ */ // :3
 /* clang-format off */
 # define OPENSSL_VERSION_STR "3.6.1"
 /* clang-format on */
@@ -97,14 +97,14 @@ extern "C" {
  * SECTION 3: ADDITIONAL METADATA
  *
  * These strings are defined separately to allow them to be parsable.
- */
+ */ // :3
 /* clang-format off */
 # define OPENSSL_RELEASE_DATE "27 Jan 2026"
 /* clang-format on */
 
 /*
  * SECTION 4: BACKWARD COMPATIBILITY
- */
+ */ // :3
 
 /* clang-format off */
 # define OPENSSL_VERSION_TEXT "OpenSSL 3.6.1 27 Jan 2026"

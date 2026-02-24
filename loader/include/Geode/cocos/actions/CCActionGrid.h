@@ -21,21 +21,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __ACTION_CCGRID_ACTION_H__
-#define __ACTION_CCGRID_ACTION_H__
+****************************************************************************/ // :3
+#ifndef __ACTION_CCGRID_ACTION_H__ // :3
+#define __ACTION_CCGRID_ACTION_H__ // :3
 
-#include "CCActionInterval.h"
-#include "CCActionInstant.h"
+#include "CCActionInterval.h" // :3
+#include "CCActionInstant.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCGridBase;
+class CCGridBase; // :3
 
 /**
  * @addtogroup actions
  * @{
- */
+ */ // :3
 
 /** @brief Base class for Grid actions */
 class CC_DLL CCGridAction : public CCActionInterval
@@ -48,10 +48,10 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void startWithTarget(CCNode *pTarget);
-    virtual CCActionInterval* reverse(void);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void startWithTarget(CCNode *pTarget); // :3
+    virtual CCActionInterval* reverse(void); // :3
 
     /** initializes the action with size and duration */
     virtual bool initWithDuration(float duration, const CCSize& gridSize);
@@ -74,11 +74,11 @@ public:
 /**
  @brief Base class for CCGrid3D actions.
  Grid3D actions can modify a non-tiled grid.
- */
-class CC_DLL CCGrid3DAction : public CCGridAction
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCGrid3DAction : public CCGridAction // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /** returns the grid */
     virtual CCGridBase* getGrid(void);
     /** returns the vertex than belongs to certain position in the grid */
@@ -92,9 +92,9 @@ public:
     /** creates the action with size and duration
      *  @js NA
      *  @lua NA
-     */
-    static CCGrid3DAction* create(float duration, const CCSize& gridSize);
-};
+     */ // :3
+    static CCGrid3DAction* create(float duration, const CCSize& gridSize); // :3
+}; // :3
 
 /** @brief Base class for CCTiledGrid3D actions */
 class CC_DLL CCTiledGrid3DAction : public CCGridAction
@@ -118,9 +118,9 @@ public:
     /** creates the action with size and duration
      *  @js NA
      *  @lua NA
-     */
-    static CCTiledGrid3DAction* create(float duration, const CCSize& gridSize);
-};
+     */ // :3
+    static CCTiledGrid3DAction* create(float duration, const CCSize& gridSize); // :3
+}; // :3
 
 /** @brief CCAccelDeccelAmplitude action */
 class CC_DLL CCAccelDeccelAmplitude : public CCActionInterval
@@ -133,8 +133,8 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCAccelDeccelAmplitude(void);
+     */ // :3
+    virtual ~CCAccelDeccelAmplitude(void); // :3
     /** initializes the action with an inner action that has the amplitude property, and a duration time */
     bool initWithAction(CCAction *pAction, float duration);
 
@@ -167,8 +167,8 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    ~CCAccelAmplitude(void);
+     */ // :3
+    ~CCAccelAmplitude(void); // :3
     /** initializes the action with an inner action that has the amplitude property, and a duration time */
     bool initWithAction(CCAction *pAction, float duration);
 
@@ -200,8 +200,8 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    ~CCDeccelAmplitude(void);
+     */ // :3
+    ~CCDeccelAmplitude(void); // :3
     /** initializes the action with an inner action that has the amplitude property, and a duration time */
     bool initWithAction(CCAction *pAction, float duration);
 
@@ -227,14 +227,14 @@ public:
  @warning Don't call this action if another grid action is active.
  Call if you want to remove the the grid effect. Example:
  CCSequence::actions(Lens::action(...), CCStopGrid::action(...), NULL);
- */
-class CC_DLL CCStopGrid : public CCActionInstant
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void startWithTarget(CCNode *pTarget);
+ */ // :3
+class CC_DLL CCStopGrid : public CCActionInstant // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void startWithTarget(CCNode *pTarget); // :3
 
-public:
+public: // :3
     /** Allocates and initializes the action */
     static CCStopGrid* create(void);
 };

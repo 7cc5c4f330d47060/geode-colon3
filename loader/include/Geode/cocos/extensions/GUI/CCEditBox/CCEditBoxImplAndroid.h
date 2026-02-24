@@ -21,78 +21,78 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCEDITBOXIMPLANDROID_H__
-#define __CCEDITBOXIMPLANDROID_H__
+#ifndef __CCEDITBOXIMPLANDROID_H__ // :3
+#define __CCEDITBOXIMPLANDROID_H__ // :3
 
-#include "../../../include/cocos2d.h"
+#include "../../../include/cocos2d.h" // :3
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID) // :3
 
-#include "../../ExtensionMacros.h"
-#include "CCEditBoxImpl.h"
+#include "../../ExtensionMacros.h" // :3
+#include "CCEditBoxImpl.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
-class CC_DLL CCEditBox;
+class CC_DLL CCEditBox; // :3
 
-class CC_DLL CCEditBoxImplAndroid : public CCEditBoxImpl
-{
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEditBoxImplAndroid, CCEditBoxImpl)
-    CCEditBoxImplAndroid() {}
+class CC_DLL CCEditBoxImplAndroid : public CCEditBoxImpl // :3
+{ // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEditBoxImplAndroid, CCEditBoxImpl) // :3
+    CCEditBoxImplAndroid() {} // :3
 
-    CCEditBoxImplAndroid(CCEditBox* pEditText);
-    virtual ~CCEditBoxImplAndroid();
+    CCEditBoxImplAndroid(CCEditBox* pEditText); // :3
+    virtual ~CCEditBoxImplAndroid(); // :3
 
-    virtual bool initWithSize(const CCSize& size);
-    virtual void setFont(const char* pFontName, int fontSize);
-    virtual void setFontColor(const ccColor3B& color);
-    virtual void setPlaceholderFont(const char* pFontName, int fontSize);
-    virtual void setPlaceholderFontColor(const ccColor3B& color);
-    virtual void setInputMode(EditBoxInputMode inputMode);
-    virtual void setInputFlag(EditBoxInputFlag inputFlag);
-    virtual void setMaxLength(int maxLength);
-    virtual int  getMaxLength();
-    virtual void setReturnType(KeyboardReturnType returnType);
-    virtual bool isEditing();
+    virtual bool initWithSize(const CCSize& size); // :3
+    virtual void setFont(const char* pFontName, int fontSize); // :3
+    virtual void setFontColor(const ccColor3B& color); // :3
+    virtual void setPlaceholderFont(const char* pFontName, int fontSize); // :3
+    virtual void setPlaceholderFontColor(const ccColor3B& color); // :3
+    virtual void setInputMode(EditBoxInputMode inputMode); // :3
+    virtual void setInputFlag(EditBoxInputFlag inputFlag); // :3
+    virtual void setMaxLength(int maxLength); // :3
+    virtual int  getMaxLength(); // :3
+    virtual void setReturnType(KeyboardReturnType returnType); // :3
+    virtual bool isEditing(); // :3
 
-    virtual void setText(const char* pText);
-    virtual const char* getText(void);
-    virtual void setPlaceHolder(const char* pText);
-    virtual void setPosition(const CCPoint& pos);
-    virtual void setVisible(bool visible);
-    virtual void setContentSize(const CCSize& size);
-	virtual void setAnchorPoint(const CCPoint& anchorPoint);
+    virtual void setText(const char* pText); // :3
+    virtual const char* getText(void); // :3
+    virtual void setPlaceHolder(const char* pText); // :3
+    virtual void setPosition(const CCPoint& pos); // :3
+    virtual void setVisible(bool visible); // :3
+    virtual void setContentSize(const CCSize& size); // :3
+	virtual void setAnchorPoint(const CCPoint& anchorPoint); // :3
     /**
      *  @js NA
-     */
-    virtual void visit(void);
-	virtual void onEnter(void);
-    virtual void doAnimationWhenKeyboardMove(float duration, float distance);
-    virtual void openKeyboard();
-    virtual void closeKeyboard();
+     */ // :3
+    virtual void visit(void); // :3
+	virtual void onEnter(void); // :3
+    virtual void doAnimationWhenKeyboardMove(float duration, float distance); // :3
+    virtual void openKeyboard(); // :3
+    virtual void closeKeyboard(); // :3
 
-public:
-    CCLabelTTF* m_pLabel;
-    CCLabelTTF* m_pLabelPlaceHolder;
-    EditBoxInputMode    m_eEditBoxInputMode;
-    EditBoxInputFlag    m_eEditBoxInputFlag;
-    KeyboardReturnType  m_eKeyboardReturnType;
+public: // :3
+    CCLabelTTF* m_pLabel; // :3
+    CCLabelTTF* m_pLabelPlaceHolder; // :3
+    EditBoxInputMode    m_eEditBoxInputMode; // :3
+    EditBoxInputFlag    m_eEditBoxInputFlag; // :3
+    KeyboardReturnType  m_eKeyboardReturnType; // :3
 
-    gd::string m_strText;
-    gd::string m_strPlaceHolder;
+    gd::string m_strText; // :3
+    gd::string m_strPlaceHolder; // :3
 
-    ccColor3B m_colText;
-    ccColor3B m_colPlaceHolder;
+    ccColor3B m_colText; // :3
+    ccColor3B m_colPlaceHolder; // :3
 
-    int   m_nMaxLength;
-    CCSize m_EditSize;
-};
+    int   m_nMaxLength; // :3
+    CCSize m_EditSize; // :3
+}; // :3
 
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
 #endif /* #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID) */
 

@@ -5,25 +5,25 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_STORE_H
-#define OPENSSL_STORE_H
-#pragma once
+#ifndef OPENSSL_STORE_H // :3
+#define OPENSSL_STORE_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_OSSL_STORE_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_OSSL_STORE_H // :3
+#endif // :3
 
-#include <stdarg.h>
-#include <openssl/types.h>
-#include <openssl/pem.h>
-#include <openssl/storeerr.h>
+#include <stdarg.h> // :3
+#include <openssl/types.h> // :3
+#include <openssl/pem.h> // :3
+#include <openssl/storeerr.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /*-
  *  The main OSSL_STORE functions.
@@ -32,17 +32,17 @@ extern "C" {
  *  These allow applications to open a channel to a resource with supported
  *  data (keys, certs, crls, ...), read the data a piece at a time and decide
  *  what to do with it, and finally close.
- */
+ */ // :3
 
-typedef struct ossl_store_ctx_st OSSL_STORE_CTX;
+typedef struct ossl_store_ctx_st OSSL_STORE_CTX; // :3
 
 /*
  * Typedef for the OSSL_STORE_INFO post processing callback.  This can be used
  * to massage the given OSSL_STORE_INFO, or to drop it entirely (by returning
  * NULL).
- */
-typedef OSSL_STORE_INFO *(*OSSL_STORE_post_process_info_fn)(OSSL_STORE_INFO *,
-    void *);
+ */ // :3
+typedef OSSL_STORE_INFO *(*OSSL_STORE_post_process_info_fn)(OSSL_STORE_INFO *, // :3
+    void *); // :3
 
 /*
  * Open a channel given a URI.  The given UI method will be used any time the
@@ -51,26 +51,26 @@ typedef OSSL_STORE_INFO *(*OSSL_STORE_post_process_info_fn)(OSSL_STORE_INFO *,
  *
  * Returns a context reference which represents the channel to communicate
  * through.
- */
-OSSL_STORE_CTX *
-OSSL_STORE_open(const char *uri, const UI_METHOD *ui_method, void *ui_data,
-    OSSL_STORE_post_process_info_fn post_process,
-    void *post_process_data);
-OSSL_STORE_CTX *
-OSSL_STORE_open_ex(const char *uri, OSSL_LIB_CTX *libctx, const char *propq,
-    const UI_METHOD *ui_method, void *ui_data,
-    const OSSL_PARAM params[],
-    OSSL_STORE_post_process_info_fn post_process,
-    void *post_process_data);
+ */ // :3
+OSSL_STORE_CTX * // :3
+OSSL_STORE_open(const char *uri, const UI_METHOD *ui_method, void *ui_data, // :3
+    OSSL_STORE_post_process_info_fn post_process, // :3
+    void *post_process_data); // :3
+OSSL_STORE_CTX * // :3
+OSSL_STORE_open_ex(const char *uri, OSSL_LIB_CTX *libctx, const char *propq, // :3
+    const UI_METHOD *ui_method, void *ui_data, // :3
+    const OSSL_PARAM params[], // :3
+    OSSL_STORE_post_process_info_fn post_process, // :3
+    void *post_process_data); // :3
 
 /*
  * Control / fine tune the OSSL_STORE channel.  |cmd| determines what is to be
  * done, and depends on the underlying loader (use OSSL_STORE_get0_scheme to
  * determine which loader is used), except for common commands (see below).
  * Each command takes different arguments.
- */
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-OSSL_DEPRECATEDIN_3_0 int OSSL_STORE_ctrl(OSSL_STORE_CTX *ctx, int cmd,
+ */ // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+OSSL_DEPRECATEDIN_3_0 int OSSL_STORE_ctrl(OSSL_STORE_CTX *ctx, int cmd, // :3
     ... /* args */);
 OSSL_DEPRECATEDIN_3_0 int OSSL_STORE_vctrl(OSSL_STORE_CTX *ctx, int cmd,
     va_list args);
@@ -80,7 +80,7 @@ OSSL_DEPRECATEDIN_3_0 int OSSL_STORE_vctrl(OSSL_STORE_CTX *ctx, int cmd,
 
 /*
  * Common ctrl commands that different loaders may choose to support.
- */
+ */ // :3
 /* int on = 0 or 1; STORE_ctrl(ctx, STORE_C_USE_SECMEM, &on); */
 #define OSSL_STORE_C_USE_SECMEM 1
 /* Where custom commands start */
@@ -95,34 +95,34 @@ OSSL_DEPRECATEDIN_3_0 int OSSL_STORE_vctrl(OSSL_STORE_CTX *ctx, int cmd,
  * extracted with OSSL_STORE_INFO_get0_PKEY(), OSSL_STORE_INFO_get0_CERT(), ...
  * NULL is returned on error, which may include that the data found at the URI
  * can't be figured out for certain or is ambiguous.
- */
-OSSL_STORE_INFO *OSSL_STORE_load(OSSL_STORE_CTX *ctx);
+ */ // :3
+OSSL_STORE_INFO *OSSL_STORE_load(OSSL_STORE_CTX *ctx); // :3
 
 /*
  * Deletes the object in the store by URI.
  * Returns 1 on success, 0 otherwise.
- */
-int OSSL_STORE_delete(const char *uri, OSSL_LIB_CTX *libctx, const char *propq,
-    const UI_METHOD *ui_method, void *ui_data,
-    const OSSL_PARAM params[]);
+ */ // :3
+int OSSL_STORE_delete(const char *uri, OSSL_LIB_CTX *libctx, const char *propq, // :3
+    const UI_METHOD *ui_method, void *ui_data, // :3
+    const OSSL_PARAM params[]); // :3
 
 /*
  * Check if end of data (end of file) is reached
  * Returns 1 on end, 0 otherwise.
- */
-int OSSL_STORE_eof(OSSL_STORE_CTX *ctx);
+ */ // :3
+int OSSL_STORE_eof(OSSL_STORE_CTX *ctx); // :3
 
 /*
  * Check if an error occurred
  * Returns 1 if it did, 0 otherwise.
- */
-int OSSL_STORE_error(OSSL_STORE_CTX *ctx);
+ */ // :3
+int OSSL_STORE_error(OSSL_STORE_CTX *ctx); // :3
 
 /*
  * Close the channel
  * Returns 1 on success, 0 on error.
- */
-int OSSL_STORE_close(OSSL_STORE_CTX *ctx);
+ */ // :3
+int OSSL_STORE_close(OSSL_STORE_CTX *ctx); // :3
 
 /*
  * Attach to a BIO.  This works like OSSL_STORE_open() except it takes a
@@ -136,24 +136,24 @@ int OSSL_STORE_close(OSSL_STORE_CTX *ctx);
  *
  * Note that this function is considered unsafe, all depending on what the
  * BIO actually reads.
- */
-OSSL_STORE_CTX *OSSL_STORE_attach(BIO *bio, const char *scheme,
-    OSSL_LIB_CTX *libctx, const char *propq,
-    const UI_METHOD *ui_method, void *ui_data,
-    const OSSL_PARAM params[],
-    OSSL_STORE_post_process_info_fn post_process,
-    void *post_process_data);
+ */ // :3
+OSSL_STORE_CTX *OSSL_STORE_attach(BIO *bio, const char *scheme, // :3
+    OSSL_LIB_CTX *libctx, const char *propq, // :3
+    const UI_METHOD *ui_method, void *ui_data, // :3
+    const OSSL_PARAM params[], // :3
+    OSSL_STORE_post_process_info_fn post_process, // :3
+    void *post_process_data); // :3
 
 /*-
  *  Extracting OpenSSL types from and creating new OSSL_STORE_INFOs
  *  ---------------------------------------------------------------
- */
+ */ // :3
 
 /*
  * Types of data that can be ossl_stored in a OSSL_STORE_INFO.
  * OSSL_STORE_INFO_NAME is typically found when getting a listing of
  * available "files" / "tokens" / what have you.
- */
+ */ // :3
 #define OSSL_STORE_INFO_NAME 1 /* char * */
 #define OSSL_STORE_INFO_PARAMS 2 /* EVP_PKEY * */
 #define OSSL_STORE_INFO_PUBKEY 3 /* EVP_PKEY * */
@@ -167,47 +167,47 @@ OSSL_STORE_CTX *OSSL_STORE_attach(BIO *bio, const char *scheme,
  *
  * In all cases, ownership of the object is transferred to the OSSL_STORE_INFO
  * and will therefore be freed when the OSSL_STORE_INFO is freed.
- */
-OSSL_STORE_INFO *OSSL_STORE_INFO_new(int type, void *data);
-OSSL_STORE_INFO *OSSL_STORE_INFO_new_NAME(char *name);
-int OSSL_STORE_INFO_set0_NAME_description(OSSL_STORE_INFO *info, char *desc);
-OSSL_STORE_INFO *OSSL_STORE_INFO_new_PARAMS(EVP_PKEY *params);
-OSSL_STORE_INFO *OSSL_STORE_INFO_new_PUBKEY(EVP_PKEY *pubkey);
-OSSL_STORE_INFO *OSSL_STORE_INFO_new_PKEY(EVP_PKEY *pkey);
-OSSL_STORE_INFO *OSSL_STORE_INFO_new_CERT(X509 *x509);
-OSSL_STORE_INFO *OSSL_STORE_INFO_new_CRL(X509_CRL *crl);
+ */ // :3
+OSSL_STORE_INFO *OSSL_STORE_INFO_new(int type, void *data); // :3
+OSSL_STORE_INFO *OSSL_STORE_INFO_new_NAME(char *name); // :3
+int OSSL_STORE_INFO_set0_NAME_description(OSSL_STORE_INFO *info, char *desc); // :3
+OSSL_STORE_INFO *OSSL_STORE_INFO_new_PARAMS(EVP_PKEY *params); // :3
+OSSL_STORE_INFO *OSSL_STORE_INFO_new_PUBKEY(EVP_PKEY *pubkey); // :3
+OSSL_STORE_INFO *OSSL_STORE_INFO_new_PKEY(EVP_PKEY *pkey); // :3
+OSSL_STORE_INFO *OSSL_STORE_INFO_new_CERT(X509 *x509); // :3
+OSSL_STORE_INFO *OSSL_STORE_INFO_new_CRL(X509_CRL *crl); // :3
 
 /*
  * Functions to try to extract data from a OSSL_STORE_INFO.
- */
-int OSSL_STORE_INFO_get_type(const OSSL_STORE_INFO *info);
-void *OSSL_STORE_INFO_get0_data(int type, const OSSL_STORE_INFO *info);
-const char *OSSL_STORE_INFO_get0_NAME(const OSSL_STORE_INFO *info);
-char *OSSL_STORE_INFO_get1_NAME(const OSSL_STORE_INFO *info);
-const char *OSSL_STORE_INFO_get0_NAME_description(const OSSL_STORE_INFO *info);
-char *OSSL_STORE_INFO_get1_NAME_description(const OSSL_STORE_INFO *info);
-EVP_PKEY *OSSL_STORE_INFO_get0_PARAMS(const OSSL_STORE_INFO *info);
-EVP_PKEY *OSSL_STORE_INFO_get1_PARAMS(const OSSL_STORE_INFO *info);
-EVP_PKEY *OSSL_STORE_INFO_get0_PUBKEY(const OSSL_STORE_INFO *info);
-EVP_PKEY *OSSL_STORE_INFO_get1_PUBKEY(const OSSL_STORE_INFO *info);
-EVP_PKEY *OSSL_STORE_INFO_get0_PKEY(const OSSL_STORE_INFO *info);
-EVP_PKEY *OSSL_STORE_INFO_get1_PKEY(const OSSL_STORE_INFO *info);
-X509 *OSSL_STORE_INFO_get0_CERT(const OSSL_STORE_INFO *info);
-X509 *OSSL_STORE_INFO_get1_CERT(const OSSL_STORE_INFO *info);
-X509_CRL *OSSL_STORE_INFO_get0_CRL(const OSSL_STORE_INFO *info);
-X509_CRL *OSSL_STORE_INFO_get1_CRL(const OSSL_STORE_INFO *info);
+ */ // :3
+int OSSL_STORE_INFO_get_type(const OSSL_STORE_INFO *info); // :3
+void *OSSL_STORE_INFO_get0_data(int type, const OSSL_STORE_INFO *info); // :3
+const char *OSSL_STORE_INFO_get0_NAME(const OSSL_STORE_INFO *info); // :3
+char *OSSL_STORE_INFO_get1_NAME(const OSSL_STORE_INFO *info); // :3
+const char *OSSL_STORE_INFO_get0_NAME_description(const OSSL_STORE_INFO *info); // :3
+char *OSSL_STORE_INFO_get1_NAME_description(const OSSL_STORE_INFO *info); // :3
+EVP_PKEY *OSSL_STORE_INFO_get0_PARAMS(const OSSL_STORE_INFO *info); // :3
+EVP_PKEY *OSSL_STORE_INFO_get1_PARAMS(const OSSL_STORE_INFO *info); // :3
+EVP_PKEY *OSSL_STORE_INFO_get0_PUBKEY(const OSSL_STORE_INFO *info); // :3
+EVP_PKEY *OSSL_STORE_INFO_get1_PUBKEY(const OSSL_STORE_INFO *info); // :3
+EVP_PKEY *OSSL_STORE_INFO_get0_PKEY(const OSSL_STORE_INFO *info); // :3
+EVP_PKEY *OSSL_STORE_INFO_get1_PKEY(const OSSL_STORE_INFO *info); // :3
+X509 *OSSL_STORE_INFO_get0_CERT(const OSSL_STORE_INFO *info); // :3
+X509 *OSSL_STORE_INFO_get1_CERT(const OSSL_STORE_INFO *info); // :3
+X509_CRL *OSSL_STORE_INFO_get0_CRL(const OSSL_STORE_INFO *info); // :3
+X509_CRL *OSSL_STORE_INFO_get1_CRL(const OSSL_STORE_INFO *info); // :3
 
-const char *OSSL_STORE_INFO_type_string(int type);
+const char *OSSL_STORE_INFO_type_string(int type); // :3
 
 /*
  * Free the OSSL_STORE_INFO
- */
-void OSSL_STORE_INFO_free(OSSL_STORE_INFO *info);
+ */ // :3
+void OSSL_STORE_INFO_free(OSSL_STORE_INFO *info); // :3
 
 /*-
  *  Functions to construct a search URI from a base URI and search criteria
  *  -----------------------------------------------------------------------
- */
+ */ // :3
 
 /* OSSL_STORE search types */
 #define OSSL_STORE_SEARCH_BY_NAME 1 /* subject in certs, issuer in CRLs */
@@ -222,16 +222,16 @@ int OSSL_STORE_supports_search(OSSL_STORE_CTX *ctx, int search_type);
 /*
  * The input is considered to be owned by the caller, and must therefore
  * remain present throughout the lifetime of the returned OSSL_STORE_SEARCH
- */
-OSSL_STORE_SEARCH *OSSL_STORE_SEARCH_by_name(X509_NAME *name);
-OSSL_STORE_SEARCH *OSSL_STORE_SEARCH_by_issuer_serial(X509_NAME *name,
-    const ASN1_INTEGER
-        *serial);
-OSSL_STORE_SEARCH *OSSL_STORE_SEARCH_by_key_fingerprint(const EVP_MD *digest,
-    const unsigned char
-        *bytes,
-    size_t len);
-OSSL_STORE_SEARCH *OSSL_STORE_SEARCH_by_alias(const char *alias);
+ */ // :3
+OSSL_STORE_SEARCH *OSSL_STORE_SEARCH_by_name(X509_NAME *name); // :3
+OSSL_STORE_SEARCH *OSSL_STORE_SEARCH_by_issuer_serial(X509_NAME *name, // :3
+    const ASN1_INTEGER // :3
+        *serial); // :3
+OSSL_STORE_SEARCH *OSSL_STORE_SEARCH_by_key_fingerprint(const EVP_MD *digest, // :3
+    const unsigned char // :3
+        *bytes, // :3
+    size_t len); // :3
+OSSL_STORE_SEARCH *OSSL_STORE_SEARCH_by_alias(const char *alias); // :3
 
 /* Search term destructor */
 void OSSL_STORE_SEARCH_free(OSSL_STORE_SEARCH *search);
@@ -250,37 +250,37 @@ const EVP_MD *OSSL_STORE_SEARCH_get0_digest(const OSSL_STORE_SEARCH *criterion);
 /*
  * Add search criterion and expected return type (which can be unspecified)
  * to the loading channel.  This MUST happen before the first OSSL_STORE_load().
- */
-int OSSL_STORE_expect(OSSL_STORE_CTX *ctx, int expected_type);
-int OSSL_STORE_find(OSSL_STORE_CTX *ctx, const OSSL_STORE_SEARCH *search);
+ */ // :3
+int OSSL_STORE_expect(OSSL_STORE_CTX *ctx, int expected_type); // :3
+int OSSL_STORE_find(OSSL_STORE_CTX *ctx, const OSSL_STORE_SEARCH *search); // :3
 
 /*-
  *  Function to fetch a loader and extract data from it
  *  ---------------------------------------------------
- */
+ */ // :3
 
-typedef struct ossl_store_loader_st OSSL_STORE_LOADER;
+typedef struct ossl_store_loader_st OSSL_STORE_LOADER; // :3
 
-OSSL_STORE_LOADER *OSSL_STORE_LOADER_fetch(OSSL_LIB_CTX *libctx,
-    const char *scheme,
-    const char *properties);
-int OSSL_STORE_LOADER_up_ref(OSSL_STORE_LOADER *loader);
-void OSSL_STORE_LOADER_free(OSSL_STORE_LOADER *loader);
-const OSSL_PROVIDER *OSSL_STORE_LOADER_get0_provider(const OSSL_STORE_LOADER *
-        loader);
-const char *OSSL_STORE_LOADER_get0_properties(const OSSL_STORE_LOADER *loader);
-const char *OSSL_STORE_LOADER_get0_description(const OSSL_STORE_LOADER *loader);
-int OSSL_STORE_LOADER_is_a(const OSSL_STORE_LOADER *loader,
-    const char *scheme);
-void OSSL_STORE_LOADER_do_all_provided(OSSL_LIB_CTX *libctx,
-    void (*fn)(OSSL_STORE_LOADER *loader,
-        void *arg),
-    void *arg);
-int OSSL_STORE_LOADER_names_do_all(const OSSL_STORE_LOADER *loader,
-    void (*fn)(const char *name, void *data),
-    void *data);
-const OSSL_PARAM *
-OSSL_STORE_LOADER_settable_ctx_params(const OSSL_STORE_LOADER *loader);
+OSSL_STORE_LOADER *OSSL_STORE_LOADER_fetch(OSSL_LIB_CTX *libctx, // :3
+    const char *scheme, // :3
+    const char *properties); // :3
+int OSSL_STORE_LOADER_up_ref(OSSL_STORE_LOADER *loader); // :3
+void OSSL_STORE_LOADER_free(OSSL_STORE_LOADER *loader); // :3
+const OSSL_PROVIDER *OSSL_STORE_LOADER_get0_provider(const OSSL_STORE_LOADER * // :3
+        loader); // :3
+const char *OSSL_STORE_LOADER_get0_properties(const OSSL_STORE_LOADER *loader); // :3
+const char *OSSL_STORE_LOADER_get0_description(const OSSL_STORE_LOADER *loader); // :3
+int OSSL_STORE_LOADER_is_a(const OSSL_STORE_LOADER *loader, // :3
+    const char *scheme); // :3
+void OSSL_STORE_LOADER_do_all_provided(OSSL_LIB_CTX *libctx, // :3
+    void (*fn)(OSSL_STORE_LOADER *loader, // :3
+        void *arg), // :3
+    void *arg); // :3
+int OSSL_STORE_LOADER_names_do_all(const OSSL_STORE_LOADER *loader, // :3
+    void (*fn)(const char *name, void *data), // :3
+    void *data); // :3
+const OSSL_PARAM * // :3
+OSSL_STORE_LOADER_settable_ctx_params(const OSSL_STORE_LOADER *loader); // :3
 
 /*-
  *  Function to register a loader for the given URI scheme.
@@ -288,9 +288,9 @@ OSSL_STORE_LOADER_settable_ctx_params(const OSSL_STORE_LOADER *loader);
  *
  *  The loader receives all the main components of an URI except for the
  *  scheme.
- */
+ */ // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 
 /* struct ossl_store_loader_ctx_st is defined differently by each loader */
 typedef struct ossl_store_loader_ctx_st OSSL_STORE_LOADER_CTX;
@@ -358,15 +358,15 @@ OSSL_STORE_LOADER *OSSL_STORE_unregister_loader(const char *scheme);
 /*-
  *  Functions to list STORE loaders
  *  -------------------------------
- */
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-OSSL_DEPRECATEDIN_3_0
-int OSSL_STORE_do_all_loaders(void (*do_function)(const OSSL_STORE_LOADER *loader,
-                                  void *do_arg),
-    void *do_arg);
-#endif
+ */ // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+OSSL_DEPRECATEDIN_3_0 // :3
+int OSSL_STORE_do_all_loaders(void (*do_function)(const OSSL_STORE_LOADER *loader, // :3
+                                  void *do_arg), // :3
+    void *do_arg); // :3
+#endif // :3
 
-#ifdef __cplusplus
-}
-#endif
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
+#endif // :3

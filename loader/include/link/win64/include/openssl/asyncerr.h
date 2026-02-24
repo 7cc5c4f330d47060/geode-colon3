@@ -6,22 +6,22 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_ASYNCERR_H
-#define OPENSSL_ASYNCERR_H
-#pragma once
+#ifndef OPENSSL_ASYNCERR_H // :3
+#define OPENSSL_ASYNCERR_H // :3
+#pragma once // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/symhacks.h>
-#include <openssl/cryptoerr_legacy.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/symhacks.h> // :3
+#include <openssl/cryptoerr_legacy.h> // :3
 
 /*
  * ASYNC reason codes.
- */
-#define ASYNC_R_FAILED_TO_SET_POOL 101
-#define ASYNC_R_FAILED_TO_SWAP_CONTEXT 102
-#define ASYNC_R_INIT_FAILED 105
-#define ASYNC_R_INVALID_POOL_SIZE 103
+ */ // :3
+#define ASYNC_R_FAILED_TO_SET_POOL 101 // :3
+#define ASYNC_R_FAILED_TO_SWAP_CONTEXT 102 // :3
+#define ASYNC_R_INIT_FAILED 105 // :3
+#define ASYNC_R_INVALID_POOL_SIZE 103 // :3
 
-#endif
+#endif // :3

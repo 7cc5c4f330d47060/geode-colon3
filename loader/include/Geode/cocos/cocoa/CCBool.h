@@ -20,40 +20,40 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCBOOL_H__
-#define __CCBOOL_H__
+#ifndef __CCBOOL_H__ // :3
+#define __CCBOOL_H__ // :3
 
-#include "CCObject.h"
+#include "CCObject.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup data_structures
  * @{
  * @js NA
  * @lua NA
- */
+ */ // :3
 
-class CC_DLL CCBool : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    CCBool(bool v)
-        : m_bValue(v) {}
-    bool getValue() const {return m_bValue;}
-    bool setValue(bool value) { m_bValue = value; return value; }
+class CC_DLL CCBool : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    CCBool(bool v) // :3
+        : m_bValue(v) {} // :3
+    bool getValue() const {return m_bValue;} // :3
+    bool setValue(bool value) { m_bValue = value; return value; } // :3
 
-    static CCBool* create(bool v)
-    {
-        CCBool* pRet = new CCBool(v);
-        if (pRet)
-        {
-            pRet->autorelease();
-        }
-        return pRet;
-    }
+    static CCBool* create(bool v) // :3
+    { // :3
+        CCBool* pRet = new CCBool(v); // :3
+        if (pRet) // :3
+        { // :3
+            pRet->autorelease(); // :3
+        } // :3
+        return pRet; // :3
+    } // :3
 
     /* override functions */
     virtual void acceptVisitor(CCDataVisitor &visitor) { visitor.visit(this); }

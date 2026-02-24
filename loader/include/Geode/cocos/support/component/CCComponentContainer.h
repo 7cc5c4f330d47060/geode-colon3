@@ -20,53 +20,53 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CC_FRAMEWORK_COMCONTAINER_H__
-#define __CC_FRAMEWORK_COMCONTAINER_H__
+#ifndef __CC_FRAMEWORK_COMCONTAINER_H__ // :3
+#define __CC_FRAMEWORK_COMCONTAINER_H__ // :3
 
-#include "../../cocoa/CCDictionary.h"
+#include "../../cocoa/CCDictionary.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCComponent;
-class CCNode;
+class CCComponent; // :3
+class CCNode; // :3
 /**
  *  @js NA
  *  @lua NA
- */
-class CC_DLL CCComponentContainer
-{
-    GEODE_FRIEND_MODIFY
-protected:
+ */ // :3
+class CC_DLL CCComponentContainer // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+protected: // :3
 
 
-    CCComponentContainer(CCNode *pNode);
+    CCComponentContainer(CCNode *pNode); // :3
 
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCComponentContainer)
-    CCComponentContainer() {}
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCComponentContainer) // :3
+    CCComponentContainer() {} // :3
 
-    virtual ~CCComponentContainer(void);
-    virtual CCComponent* get(const char *pName) const;
-    virtual bool add(CCComponent *pCom);
-    virtual bool remove(const char *pName);
-    virtual bool remove(CCComponent *pCom);
-    virtual void removeAll();
-    virtual void visit(float fDelta);
-public:
-    bool isEmpty() const;
+    virtual ~CCComponentContainer(void); // :3
+    virtual CCComponent* get(const char *pName) const; // :3
+    virtual bool add(CCComponent *pCom); // :3
+    virtual bool remove(const char *pName); // :3
+    virtual bool remove(CCComponent *pCom); // :3
+    virtual void removeAll(); // :3
+    virtual void visit(float fDelta); // :3
+public: // :3
+    bool isEmpty() const; // :3
 
-private:
-    void alloc(void);
+private: // :3
+    void alloc(void); // :3
 
-public:
-    CCDictionary *m_pComponents;        ///< Dictionary of components
-    CCNode *m_pOwner;
+public: // :3
+    CCDictionary *m_pComponents;        ///< Dictionary of components :3
+    CCNode *m_pOwner; // :3
 
-    friend class CCNode;
-};
+    friend class CCNode; // :3
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif  // __FUNDATION__CCCOMPONENT_H__
+#endif  // __FUNDATION__CCCOMPONENT_H__ :3

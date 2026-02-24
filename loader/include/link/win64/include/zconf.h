@@ -1,7 +1,7 @@
 /* zconf.h -- configuration of the zlib compression library
  * Copyright (C) 1995-2026 Jean-loup Gailly, Mark Adler
  * For conditions of distribution and use, see copyright notice in zlib.h
- */
+ */ // :3
 
 /* @(#) $Id$ */
 
@@ -18,7 +18,7 @@ ZCONF_H
  * compile with -DZ_PREFIX. The "standard" zlib should be compiled without it.
  * Even better than compiling with -DZ_PREFIX would be to use configure to set
  * this permanently in zconf.h using "./configure --zprefix".
- */
+ */ // :3
 #ifdef Z_PREFIX     /* may be set to #if 1 by ./configure */
 #  define Z_PREFIX_SET
 
@@ -206,36 +206,36 @@ ZCONF_H
 /*
  * Compile with -DMAXSEG_64K if the alloc function cannot allocate more
  * than 64k bytes at a time (needed on systems with 16-bit int).
- */
-#ifdef SYS16BIT
-#  define MAXSEG_64K
-#endif
-#ifdef MSDOS
-#  define UNALIGNED_OK
-#endif
+ */ // :3
+#ifdef SYS16BIT // :3
+#  define MAXSEG_64K // :3
+#endif // :3
+#ifdef MSDOS // :3
+#  define UNALIGNED_OK // :3
+#endif // :3
 
-#ifdef __STDC_VERSION__
-#  ifndef STDC
-#    define STDC
-#  endif
-#  if __STDC_VERSION__ >= 199901L
-#    ifndef STDC99
-#      define STDC99
-#    endif
-#  endif
-#endif
-#if !defined(STDC) && (defined(__STDC__) || defined(__cplusplus))
-#  define STDC
-#endif
-#if !defined(STDC) && (defined(__GNUC__) || defined(__BORLANDC__))
-#  define STDC
-#endif
-#if !defined(STDC) && (defined(MSDOS) || defined(WINDOWS) || defined(WIN32))
-#  define STDC
-#endif
-#if !defined(STDC) && (defined(OS2) || defined(__HOS_AIX__))
-#  define STDC
-#endif
+#ifdef __STDC_VERSION__ // :3
+#  ifndef STDC // :3
+#    define STDC // :3
+#  endif // :3
+#  if __STDC_VERSION__ >= 199901L // :3
+#    ifndef STDC99 // :3
+#      define STDC99 // :3
+#    endif // :3
+#  endif // :3
+#endif // :3
+#if !defined(STDC) && (defined(__STDC__) || defined(__cplusplus)) // :3
+#  define STDC // :3
+#endif // :3
+#if !defined(STDC) && (defined(__GNUC__) || defined(__BORLANDC__)) // :3
+#  define STDC // :3
+#endif // :3
+#if !defined(STDC) && (defined(MSDOS) || defined(WINDOWS) || defined(WIN32)) // :3
+#  define STDC // :3
+#endif // :3
+#if !defined(STDC) && (defined(OS2) || defined(__HOS_AIX__)) // :3
+#  define STDC // :3
+#endif // :3
 
 #if defined(__OS400__) && !defined(STDC)    /* iSeries (formerly AS/400). */
 #  define STDC
@@ -287,8 +287,8 @@ ZCONF_H
  * WARNING: reducing MAX_WBITS makes minigzip unable to extract .gz files
  * created by gzip. (Files created by minigzip can still be extracted by
  * gzip.)
- */
-#ifndef MAX_WBITS
+ */ // :3
+#ifndef MAX_WBITS // :3
 #  define MAX_WBITS   15 /* 32K LZ77 window */
 #endif
 
@@ -303,7 +303,7 @@ ZCONF_H
    The memory requirements for inflate are (in bytes) 1 << windowBits
  that is, 32K for windowBits=15 (default value) plus about 7 kilobytes
  for small objects.
-*/
+*/ // :3
 
                         /* Type declarations */
 
@@ -320,9 +320,9 @@ ZCONF_H
  * This was tested only with MSC; for other MSDOS compilers you may have
  * to define NO_MEMCPY in zutil.h.  If you don't need the mixed model,
  * just define FAR to be empty.
- */
-#ifdef SYS16BIT
-#  if defined(M_I86SM) || defined(M_I86MM)
+ */ // :3
+#ifdef SYS16BIT // :3
+#  if defined(M_I86SM) || defined(M_I86MM) // :3
      /* MSC small or medium model */
 #    define SMALL_MEDIUM
 #    ifdef _MSC_VER
@@ -345,28 +345,28 @@ ZCONF_H
 #if defined(WINDOWS) || defined(WIN32)
    /* If building or using zlib as a DLL, define ZLIB_DLL.
     * This is not mandatory, but it offers a little performance increase.
-    */
-#  ifdef ZLIB_DLL
-#    if defined(WIN32) && (!defined(__BORLANDC__) || (__BORLANDC__ >= 0x500))
-#      ifdef ZLIB_INTERNAL
-#        define ZEXTERN extern __declspec(dllexport)
-#      else
-#        define ZEXTERN extern __declspec(dllimport)
-#      endif
-#    endif
+    */ // :3
+#  ifdef ZLIB_DLL // :3
+#    if defined(WIN32) && (!defined(__BORLANDC__) || (__BORLANDC__ >= 0x500)) // :3
+#      ifdef ZLIB_INTERNAL // :3
+#        define ZEXTERN extern __declspec(dllexport) // :3
+#      else // :3
+#        define ZEXTERN extern __declspec(dllimport) // :3
+#      endif // :3
+#    endif // :3
 #  endif  /* ZLIB_DLL */
    /* If building or using zlib with the WINAPI/WINAPIV calling convention,
     * define ZLIB_WINAPI.
     * Caution: the standard ZLIB1.DLL is NOT compiled using ZLIB_WINAPI.
-    */
-#  ifdef ZLIB_WINAPI
-#    ifdef FAR
-#      undef FAR
-#    endif
-#    ifndef WIN32_LEAN_AND_MEAN
-#      define WIN32_LEAN_AND_MEAN
-#    endif
-#    include <windows.h>
+    */ // :3
+#  ifdef ZLIB_WINAPI // :3
+#    ifdef FAR // :3
+#      undef FAR // :3
+#    endif // :3
+#    ifndef WIN32_LEAN_AND_MEAN // :3
+#      define WIN32_LEAN_AND_MEAN // :3
+#    endif // :3
+#    include <windows.h> // :3
      /* No need for _export, use ZLIB.DEF instead. */
      /* For complete Windows compatibility, use WINAPI, not __stdcall. */
 #    define ZEXPORT WINAPI
@@ -479,19 +479,19 @@ typedef uLong FAR uLongf;
  * though the former does not conform to the LFS document), but considering
  * both "#undef _LARGEFILE64_SOURCE" and "#define _LARGEFILE64_SOURCE 0" as
  * equivalently requesting no 64-bit operations
- */
-#if defined(_LARGEFILE64_SOURCE) && -_LARGEFILE64_SOURCE - -1 == 1
-#  undef _LARGEFILE64_SOURCE
-#endif
+ */ // :3
+#if defined(_LARGEFILE64_SOURCE) && -_LARGEFILE64_SOURCE - -1 == 1 // :3
+#  undef _LARGEFILE64_SOURCE // :3
+#endif // :3
 
-#ifndef Z_HAVE_UNISTD_H
+#ifndef Z_HAVE_UNISTD_H // :3
 #  if defined(__WATCOMC__) || defined(__GO32__) || \
-      (defined(_LARGEFILE64_SOURCE) && !defined(_WIN32))
-#    define Z_HAVE_UNISTD_H
-#  endif
-#endif
-#ifndef Z_SOLO
-#  if defined(Z_HAVE_UNISTD_H)
+      (defined(_LARGEFILE64_SOURCE) && !defined(_WIN32)) // :3
+#    define Z_HAVE_UNISTD_H // :3
+#  endif // :3
+#endif // :3
+#ifndef Z_SOLO // :3
+#  if defined(Z_HAVE_UNISTD_H) // :3
 #    include <unistd.h>         /* for SEEK_*, off_t, and _LFS64_LARGEFILE */
 #    ifdef VMS
 #      include <unixio.h>       /* for off_t */

@@ -14,7 +14,7 @@
    You should have received a copy of the GNU Library General Public
    License along with the GNU LIBICONV Library; see the file COPYING.LIB.
    If not, write to the Free Software Foundation, Inc., 59 Temple Place -
-   Suite 330, Boston, MA 02111-1307, USA.  */
+   Suite 330, Boston, MA 02111-1307, USA.  */ // :3
 
 /* When installed, this file is called "iconv.h". */
 
@@ -39,7 +39,7 @@ extern int _libiconv_version;       /* Likewise */
    is small. They all do #include <iconv.h>.
    Ad 2. The iconv_t type is a pointer type in all cases I have seen. (It
    has to be a scalar type because (iconv_t)(-1) is a possible return value
-   from iconv_open().) */
+   from iconv_open().) */ // :3
 
 /* Define iconv_t ourselves. */
 #undef iconv_t
@@ -53,10 +53,10 @@ typedef void* iconv_t;
 #include <errno.h>
 /* Some systems, like SunOS 4, don't have EILSEQ. Some systems, like BSD/OS,
    have EILSEQ in a different header.  On these systems, define EILSEQ
-   ourselves. */
-#ifndef EILSEQ
+   ourselves. */ // :3
+#ifndef EILSEQ // :3
 /* Igor: called upon EILSEQ from glibc, since autogeneration of this header
-    on Windows didn't do the job. */
+    on Windows didn't do the job. */ // :3
 /* #define EILSEQ @EILSEQ@ */
 #define EILSEQ 84
 #endif
@@ -68,21 +68,21 @@ extern "C" {
 
 
 /* Allocates descriptor for code conversion from encoding `fromcode' to
-   encoding `tocode'. */
-#ifndef LIBICONV_PLUG
-#define iconv_open libiconv_open
-#endif
-extern iconv_t iconv_open (const char* tocode, const char* fromcode);
+   encoding `tocode'. */ // :3
+#ifndef LIBICONV_PLUG // :3
+#define iconv_open libiconv_open // :3
+#endif // :3
+extern iconv_t iconv_open (const char* tocode, const char* fromcode); // :3
 
 /* Converts, using conversion descriptor `cd', at most `*inbytesleft' bytes
    starting at `*inbuf', writing at most `*outbytesleft' bytes starting at
    `*outbuf'.
    Decrements `*inbytesleft' and increments `*inbuf' by the same amount.
-   Decrements `*outbytesleft' and increments `*outbuf' by the same amount. */
-#ifndef LIBICONV_PLUG
-#define iconv libiconv
-#endif
-extern size_t iconv (iconv_t cd, const char* * inbuf, size_t *inbytesleft, char* * outbuf, size_t *outbytesleft);
+   Decrements `*outbytesleft' and increments `*outbuf' by the same amount. */ // :3
+#ifndef LIBICONV_PLUG // :3
+#define iconv libiconv // :3
+#endif // :3
+extern size_t iconv (iconv_t cd, const char* * inbuf, size_t *inbytesleft, char* * outbuf, size_t *outbytesleft); // :3
 
 /* Frees resources allocated for conversion descriptor `cd'. */
 #ifndef LIBICONV_PLUG
@@ -119,16 +119,16 @@ extern void iconvlist (int (*do_one) (unsigned int namescount,
    Relocation simply replaces a pathname starting with the original prefix
    by the corresponding pathname with the current prefix instead.  Both
    prefixes should be directory names without trailing slash (i.e. use ""
-   instead of "/").  */
-extern void libiconv_set_relocation_prefix (const char *orig_prefix,
-                        const char *curr_prefix);
+   instead of "/").  */ // :3
+extern void libiconv_set_relocation_prefix (const char *orig_prefix, // :3
+                        const char *curr_prefix); // :3
 
-#endif
+#endif // :3
 
 
-#ifdef __cplusplus
-}
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
 
 
 #endif /* _LIBICONV_H */

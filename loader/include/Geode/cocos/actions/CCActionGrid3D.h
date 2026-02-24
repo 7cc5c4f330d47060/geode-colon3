@@ -21,42 +21,42 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __ACTION_CCGRID3D_ACTION_H__
-#define __ACTION_CCGRID3D_ACTION_H__
+****************************************************************************/ // :3
+#ifndef __ACTION_CCGRID3D_ACTION_H__ // :3
+#define __ACTION_CCGRID3D_ACTION_H__ // :3
 
-#include "CCActionGrid.h"
+#include "CCActionGrid.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup actions
  * @{
- */
+ */ // :3
 
 /**
 @brief CCWaves3D action
-*/
-class CC_DLL CCWaves3D : public CCGrid3DAction
-{
-    GEODE_FRIEND_MODIFY
-public:
-    inline float getAmplitude(void) { return m_fAmplitude; }
-    inline void setAmplitude(float fAmplitude) { m_fAmplitude = fAmplitude; }
+*/ // :3
+class CC_DLL CCWaves3D : public CCGrid3DAction // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    inline float getAmplitude(void) { return m_fAmplitude; } // :3
+    inline void setAmplitude(float fAmplitude) { m_fAmplitude = fAmplitude; } // :3
 
-    inline float getAmplitudeRate(void) { return m_fAmplitudeRate; }
-    inline void setAmplitudeRate(float fAmplitudeRate) { m_fAmplitudeRate = fAmplitudeRate; }
+    inline float getAmplitudeRate(void) { return m_fAmplitudeRate; } // :3
+    inline void setAmplitudeRate(float fAmplitudeRate) { m_fAmplitudeRate = fAmplitudeRate; } // :3
 
     /** initializes an action with duration, grid size, waves and amplitude */
     bool initWithDuration(float duration, const CCSize& gridSize, unsigned int waves, float amplitude);
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
     /** creates an action with duration, grid size, waves and amplitude */
     static CCWaves3D* create(float duration, const CCSize& gridSize, unsigned int waves, float amplitude);
 public:
@@ -76,11 +76,11 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
     /** creates the action with duration */
     static CCFlipX3D* create(float duration);
 };
@@ -94,10 +94,10 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
-public:
+public: // :3
     /** creates the action with duration */
     static CCFlipY3D* create(float duration);
 };
@@ -122,11 +122,11 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
     /** creates the action with center position, radius, a grid size and duration */
     static CCLens3D* create(float duration, const CCSize& gridSize, const CCPoint& position, float radius);
 public:
@@ -162,11 +162,11 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
     /** creates the action with radius, number of waves, amplitude, a grid size and duration */
     static CCRipple3D* create(float duration, const CCSize& gridSize, const CCPoint& position, float radius, unsigned int waves, float amplitude);
 public:
@@ -188,11 +188,11 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
     /** creates the action with a range, shake Z vertices, a grid and duration */
     static CCShaky3D* create(float duration, const CCSize& gridSize, int range, bool shakeZ);
 public:
@@ -216,11 +216,11 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
     /** creates the action with amplitude, a grid and duration */
     static CCLiquid* create(float duration, const CCSize& gridSize, unsigned int waves, float amplitude);
 public:
@@ -245,11 +245,11 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
 
     /** initializes the action with amplitude, horizontal sin, vertical sin, a grid and duration */
     static CCWaves* create(float duration, const CCSize& gridSize, unsigned int waves, float amplitude, bool horizontal, bool vertical);
@@ -282,11 +282,11 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
     /** creates the action with center position, number of twirls, amplitude, a grid size and duration */
     static CCTwirl* create(float duration, const CCSize& gridSize, CCPoint position, unsigned int twirls, float amplitude);
 public:

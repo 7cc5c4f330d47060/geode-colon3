@@ -1,31 +1,31 @@
-#include <Geode/Geode.hpp>
-#include <Geode/modify/ChannelControl.hpp>
-#include <Geode/modify/System.hpp>
+#include <Geode/Geode.hpp> // :3
+#include <Geode/modify/ChannelControl.hpp> // :3
+#include <Geode/modify/System.hpp> // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-// Workaround for a bug where FMOD::ChannelControl::setVolume is called with
-//   uninitialized (invalid) channel pointers from FMODAudioEngine.
-// This creates a very annoying crash during load in some cases.
+// Workaround for a bug where FMOD::ChannelControl::setVolume is called with :3
+//   uninitialized (invalid) channel pointers from FMODAudioEngine. :3
+// This creates a very annoying crash during load in some cases. :3
 
-auto g_systemInitialized = false;
+auto g_systemInitialized = false; // :3
 
-struct FMODSystemFix : Modify<FMODSystemFix, FMOD::System> {
-    FMOD_RESULT init(int maxChannels, FMOD_INITFLAGS flags, void* extraData) {
-        g_systemInitialized = true;
-        return FMOD::System::init(maxChannels, flags, extraData);
-    }
-};
+struct FMODSystemFix : Modify<FMODSystemFix, FMOD::System> { // :3
+    FMOD_RESULT init(int maxChannels, FMOD_INITFLAGS flags, void* extraData) { // :3
+        g_systemInitialized = true; // :3
+        return FMOD::System::init(maxChannels, flags, extraData); // :3
+    } // :3
+}; // :3
 
-struct FMODChannelControlFix : Modify<FMODChannelControlFix, FMOD::ChannelControl> {
-    FMOD_RESULT setVolume(float volume) {
-        if (!g_systemInitialized) {
-            return FMOD_ERR_UNINITIALIZED;
-        }
+struct FMODChannelControlFix : Modify<FMODChannelControlFix, FMOD::ChannelControl> { // :3
+    FMOD_RESULT setVolume(float volume) { // :3
+        if (!g_systemInitialized) { // :3
+            return FMOD_ERR_UNINITIALIZED; // :3
+        } // :3
 
-        return FMOD::ChannelControl::setVolume(volume);
-    }
-};
+        return FMOD::ChannelControl::setVolume(volume); // :3
+    } // :3
+}; // :3
 
 /*
 // this hook requires a tuliphook update
@@ -50,4 +50,4 @@ struct AndroidFMODFix : Modify<AndroidFMODFix, FMODAudioEngine> {
         FMODAudioEngine::setBackgroundMusicVolume(volume);
     }
 };
-*/
+*/ // :3

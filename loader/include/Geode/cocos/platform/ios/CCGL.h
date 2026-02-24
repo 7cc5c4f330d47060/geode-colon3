@@ -20,23 +20,23 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCGL_H__
-#define __CCGL_H__
+#ifndef __CCGL_H__ // :3
+#define __CCGL_H__ // :3
 
-#define	glClearDepth				glClearDepthf
-#define glDeleteVertexArrays		glDeleteVertexArraysOES
-#define glGenVertexArrays			glGenVertexArraysOES
-#define glBindVertexArray			glBindVertexArrayOES
-#define glMapBuffer					glMapBufferOES
-#define glUnmapBuffer				glUnmapBufferOES
+#define	glClearDepth				glClearDepthf // :3
+#define glDeleteVertexArrays		glDeleteVertexArraysOES // :3
+#define glGenVertexArrays			glGenVertexArraysOES // :3
+#define glBindVertexArray			glBindVertexArrayOES // :3
+#define glMapBuffer					glMapBufferOES // :3
+#define glUnmapBuffer				glUnmapBufferOES // :3
 
-#define GL_DEPTH24_STENCIL8			GL_DEPTH24_STENCIL8_OES
-#define GL_WRITE_ONLY				GL_WRITE_ONLY_OES
+#define GL_DEPTH24_STENCIL8			GL_DEPTH24_STENCIL8_OES // :3
+#define GL_WRITE_ONLY				GL_WRITE_ONLY_OES // :3
 
-//#include <OpenGL/gl.h>
-#include <OpenGLES/ES2/glext.h>
+//#include <OpenGL/gl.h> :3
+#include <OpenGLES/ES2/glext.h> // :3
 
 
-#endif // __CCGL_H__
+#endif // __CCGL_H__ :3

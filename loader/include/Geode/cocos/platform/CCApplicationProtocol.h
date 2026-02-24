@@ -21,94 +21,94 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CC_APPLICATION_PROTOCOL_H__
-#define __CC_APPLICATION_PROTOCOL_H__
+****************************************************************************/ // :3
+#ifndef __CC_APPLICATION_PROTOCOL_H__ // :3
+#define __CC_APPLICATION_PROTOCOL_H__ // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-enum TargetPlatform
-{
-    kTargetWindows,
-    kTargetLinux,
-    kTargetMacOS,
-    kTargetAndroid,
-    kTargetIphone,
-    kTargetIpad,
-    kTargetBlackBerry,
-    kTargetNaCl,
-    kTargetEmscripten,
-    kTargetTizen,
-    kTargetWinRT,
-    kTargetWP8
-};
+enum TargetPlatform // :3
+{ // :3
+    kTargetWindows, // :3
+    kTargetLinux, // :3
+    kTargetMacOS, // :3
+    kTargetAndroid, // :3
+    kTargetIphone, // :3
+    kTargetIpad, // :3
+    kTargetBlackBerry, // :3
+    kTargetNaCl, // :3
+    kTargetEmscripten, // :3
+    kTargetTizen, // :3
+    kTargetWinRT, // :3
+    kTargetWP8 // :3
+}; // :3
 
 /**
  * @addtogroup platform
  * @{
  * @js NA
  * @lua NA
- */
+ */ // :3
 
-class CC_DLL CCApplicationProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
+class CC_DLL CCApplicationProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
 
-    virtual ~CCApplicationProtocol() {}
+    virtual ~CCApplicationProtocol() {} // :3
 
     /**
     @brief    Implement CCDirector and CCScene init code here.
     @return true    Initialize success, app continue.
     @return false   Initialize failed, app terminate.
-    */
-    virtual bool applicationDidFinishLaunching() { return true; }
+    */ // :3
+    virtual bool applicationDidFinishLaunching() { return true; } // :3
 
     /**
     @brief  The function be called when the application enter background
     @param  the pointer of the application
-    */
-    virtual void applicationDidEnterBackground() {}
+    */ // :3
+    virtual void applicationDidEnterBackground() {} // :3
 
     /**
     @brief  The function be called when the application enter foreground
     @param  the pointer of the application
-    */
-    virtual void applicationWillEnterForeground() {}
+    */ // :3
+    virtual void applicationWillEnterForeground() {} // :3
 
-    // @note RobTop Addition
-    virtual void applicationWillBecomeActive() {}
-    // @note RobTop Addition
-    virtual void applicationWillResignActive() {}
-    // @note RobTop Addition
-    virtual void trySaveGame(bool) {}
-    // @note RobTop Addition
-    virtual void gameDidSave() {}
+    // @note RobTop Addition :3
+    virtual void applicationWillBecomeActive() {} // :3
+    // @note RobTop Addition :3
+    virtual void applicationWillResignActive() {} // :3
+    // @note RobTop Addition :3
+    virtual void trySaveGame(bool) {} // :3
+    // @note RobTop Addition :3
+    virtual void gameDidSave() {} // :3
 
     /**
     @brief    Callback by CCDirector for limit FPS.
     @interval       The time, expressed in seconds, between current frame and next.
-    */
-    virtual void setAnimationInterval(double interval) {}
+    */ // :3
+    virtual void setAnimationInterval(double interval) {} // :3
 
     /**
     @brief Get current language config
     @return Current language config
-    */
-    virtual ccLanguageType getCurrentLanguage() { return kLanguageEnglish; }
+    */ // :3
+    virtual ccLanguageType getCurrentLanguage() { return kLanguageEnglish; } // :3
 
     /**
      @brief Get target platform
-     */
-    virtual TargetPlatform getTargetPlatform() { return kTargetWindows; }
+     */ // :3
+    virtual TargetPlatform getTargetPlatform() { return kTargetWindows; } // :3
 
-    // @note RobTop Addition
-    virtual void openURL(const char* url) {}
-};
+    // @note RobTop Addition :3
+    virtual void openURL(const char* url) {} // :3
+}; // :3
 
-// end of platform group
-/// @}
+// end of platform group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif    // __CC_APPLICATION_PROTOCOL_H__
+#endif    // __CC_APPLICATION_PROTOCOL_H__ :3

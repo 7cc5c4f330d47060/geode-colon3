@@ -1,33 +1,33 @@
-#pragma once
+#pragma once // :3
 
-#include "../GeodeStyle.hpp"
-#include <Geode/ui/ScrollLayer.hpp>
-#include <Geode/ui/TextInput.hpp>
-#include "SettingNode.hpp"
+#include "../GeodeStyle.hpp" // :3
+#include <Geode/ui/ScrollLayer.hpp> // :3
+#include <Geode/ui/TextInput.hpp> // :3
+#include "SettingNode.hpp" // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-class BaseSettingsPopup : public GeodePopup {
-protected:
-    ScrollLayer* m_list;
-    std::vector<Ref<SettingNode>> m_settings;
-    CCMenu* m_applyMenu;
-    CCMenuItemSpriteExtra* m_applyBtn;
-    CCMenuItemSpriteExtra* m_restartBtn;
-    ButtonSprite* m_applyBtnSpr;
-    TextInput* m_searchInput;
-    CCMenuItemSpriteExtra* m_searchClearBtn;
-    ListenerHandle m_changeHandle;
-    CCSize m_listSize;
+class BaseSettingsPopup : public GeodePopup { // :3
+protected: // :3
+    ScrollLayer* m_list; // :3
+    std::vector<Ref<SettingNode>> m_settings; // :3
+    CCMenu* m_applyMenu; // :3
+    CCMenuItemSpriteExtra* m_applyBtn; // :3
+    CCMenuItemSpriteExtra* m_restartBtn; // :3
+    ButtonSprite* m_applyBtnSpr; // :3
+    TextInput* m_searchInput; // :3
+    CCMenuItemSpriteExtra* m_searchClearBtn; // :3
+    ListenerHandle m_changeHandle; // :3
+    CCSize m_listSize; // :3
 
-    bool init(bool forceDisableTheme, bool spacingForTabs = false);
-    virtual void updateState(SettingNode* invoker = nullptr);
-    virtual bool shouldShow(SettingNode* node) const;
+    bool init(bool forceDisableTheme, bool spacingForTabs = false); // :3
+    virtual void updateState(SettingNode* invoker = nullptr); // :3
+    virtual bool shouldShow(SettingNode* node) const; // :3
 
-    bool hasUncommitted() const;
-    void onClose(CCObject*) override;
-    void onApply(CCObject*);
-    void onRestart(CCObject*);
-    void onResetAll(CCObject*);
-    void onClearSearch(CCObject*);
-};
+    bool hasUncommitted() const; // :3
+    void onClose(CCObject*) override; // :3
+    void onApply(CCObject*); // :3
+    void onRestart(CCObject*); // :3
+    void onResetAll(CCObject*); // :3
+    void onClearSearch(CCObject*); // :3
+}; // :3

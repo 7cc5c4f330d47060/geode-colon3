@@ -20,70 +20,70 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCSTRING_H__
-#define __CCSTRING_H__
+****************************************************************************/ // :3
+#ifndef __CCSTRING_H__ // :3
+#define __CCSTRING_H__ // :3
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_BLACKBERRY)
-#include <string.h>
-#endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_BLACKBERRY) // :3
+#include <string.h> // :3
+#endif // :3
 
-#include <stdarg.h>
-#include <string>
-#include <functional>
-#include "CCObject.h"
+#include <stdarg.h> // :3
+#include <string> // :3
+#include <functional> // :3
+#include "CCObject.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup data_structures
  * @{
  * @ js NA
- */
+ */ // :3
 
-#define kMaxStringLen (1024*100)
+#define kMaxStringLen (1024*100) // :3
 
-class CC_DLL CCString : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCString, CCObject)
+class CC_DLL CCString : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCString, CCObject) // :3
     /**
      * @lua NA
-     */
-#if defined(GEODE_IS_ANDROID) || defined(GEODE_IS_WINDOWS)
-    // Make sure its imported because of gd::string stuff,
-    // check android/main.cpp for more info
-    CCString();
-#else
-    inline CCString() : m_sString("") {}
-#endif
+     */ // :3
+#if defined(GEODE_IS_ANDROID) || defined(GEODE_IS_WINDOWS) // :3
+    // Make sure its imported because of gd::string stuff, :3
+    // check android/main.cpp for more info :3
+    CCString(); // :3
+#else // :3
+    inline CCString() : m_sString("") {} // :3
+#endif // :3
     /**
      * @lua NA
-     */
-    inline CCString(const char* str) : m_sString(str) {}
+     */ // :3
+    inline CCString(const char* str) : m_sString(str) {} // :3
     /**
      * @lua NA
-     */
-    inline CCString(const gd::string& str) : m_sString(str.c_str()) {}
+     */ // :3
+    inline CCString(const gd::string& str) : m_sString(str.c_str()) {} // :3
     /**
      * @lua NA
-     */
-    inline CCString(const CCString& str) {}
+     */ // :3
+    inline CCString(const CCString& str) {} // :3
     /**
      * @lua NA
-     */
-    virtual inline ~CCString() {}
+     */ // :3
+    virtual inline ~CCString() {} // :3
 
     /* override assignment operator
      * @lua NA
-     */
-    CCString& operator= (const CCString& other);
+     */ // :3
+    CCString& operator= (const CCString& other); // :3
 
     /** init a string with format, it's similar with the c function 'sprintf'
      * @lua NA
-     */
-    bool initWithFormat(const char* format, ...) CC_FORMAT_PRINTF(2, 3);
+     */ // :3
+    bool initWithFormat(const char* format, ...) CC_FORMAT_PRINTF(2, 3); // :3
 
     /** convert to int value */
     int intValue() const;
@@ -112,52 +112,52 @@ public:
     /* override functions
      * @lua NA
      * @js  NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual bool isEqual(const CCObject* pObject);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual bool isEqual(const CCObject* pObject); // :3
 
     /** create a string with std string, you can also pass a c string pointer because the default constructor of gd::string can access a c string pointer.
      *  @return A CCString pointer which is an autorelease object pointer,
      *          it means that you needn't do a release operation unless you retain it.
-     */
-    // Geode change: this is kind of a hack but i think it will work
-    static inline CCString* create(gd::string const& str) {
-    	return CCString::createWithData(reinterpret_cast<unsigned char const*>(str.c_str()), str.size());
-    }
+     */ // :3
+    // Geode change: this is kind of a hack but i think it will work :3
+    static inline CCString* create(gd::string const& str) { // :3
+    	return CCString::createWithData(reinterpret_cast<unsigned char const*>(str.c_str()), str.size()); // :3
+    } // :3
 
     /** create a string with format, it's similar with the c function 'sprintf', the default buffer size is (1024*100) bytes,
      *  if you want to change it, you should modify the kMaxStringLen macro in CCString.cpp file.
      *  @return A CCString pointer which is an autorelease object pointer,
      *          it means that you needn't do a release operation unless you retain it.
      *  @lua NA
-     */
-    static inline CCString* createWithFormat(const char* format, ...) CC_FORMAT_PRINTF(1, 2) {
-    	CCString* pRet = CCString::create("");
-	    va_list ap;
-	    va_start(ap, format);
-	    pRet->initWithFormatAndValist(format, ap);
-	    va_end(ap);
+     */ // :3
+    static inline CCString* createWithFormat(const char* format, ...) CC_FORMAT_PRINTF(1, 2) { // :3
+    	CCString* pRet = CCString::create(""); // :3
+	    va_list ap; // :3
+	    va_start(ap, format); // :3
+	    pRet->initWithFormatAndValist(format, ap); // :3
+	    va_end(ap); // :3
 
-	    return pRet;
-    }
+	    return pRet; // :3
+    } // :3
 
     /** create a string with binary data
      *  @return A CCString pointer which is an autorelease object pointer,
      *          it means that you needn't do a release operation unless you retain it.
-     */
-    static CCString* createWithData(const unsigned char* pData, unsigned long nLen);
+     */ // :3
+    static CCString* createWithData(const unsigned char* pData, unsigned long nLen); // :3
 
     /** create a string with a file,
      *  @return A CCString pointer which is an autorelease object pointer,
      *          it means that you needn't do a release operation unless you retain it.
-     */
-    static CCString* createWithContentsOfFile(const char* pszFileName);
+     */ // :3
+    static CCString* createWithContentsOfFile(const char* pszFileName); // :3
     /**
      * @lua NA
-     */
-    virtual void acceptVisitor(CCDataVisitor &visitor);
+     */ // :3
+    virtual void acceptVisitor(CCDataVisitor &visitor); // :3
 
-private:
+private: // :3
 
     /** only for internal use */
     bool initWithFormatAndValist(const char* format, va_list ap) {
@@ -183,14 +183,14 @@ struct CCStringCompare : public std::binary_function<CCString *, CCString *, boo
         bool operator() (CCString * a, CCString * b) const {
             return strcmp(a->getCString(), b->getCString()) < 0;
         }
-};*/
+};*/ // :3
 
-#define CCStringMake(str) CCString::create(str)
-#define ccs               CCStringMake
+#define CCStringMake(str) CCString::create(str) // :3
+#define ccs               CCStringMake // :3
 
-// end of data_structure group
-/// @}
+// end of data_structure group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif //__CCSTRING_H__
+#endif //__CCSTRING_H__ :3

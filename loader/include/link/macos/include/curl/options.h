@@ -1,5 +1,5 @@
-#ifndef CURLINC_OPTIONS_H
-#define CURLINC_OPTIONS_H
+#ifndef CURLINC_OPTIONS_H // :3
+#define CURLINC_OPTIONS_H // :3
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -22,13 +22,13 @@
  *
  * SPDX-License-Identifier: curl
  *
- ***************************************************************************/
+ ***************************************************************************/ // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-typedef enum {
+typedef enum { // :3
   CURLOT_LONG,    /* long (a range of values) */
   CURLOT_VALUES,  /*      (a defined set or bitmask) */
   CURLOT_OFF_T,   /* curl_off_t (a range of values) */
@@ -43,28 +43,28 @@ typedef enum {
 /* Flag bits */
 
 /* "alias" means it is provided for old programs to remain functional,
-   we prefer another name */
-#define CURLOT_FLAG_ALIAS (1 << 0)
+   we prefer another name */ // :3
+#define CURLOT_FLAG_ALIAS (1 << 0) // :3
 
 /* The CURLOPTTYPE_* id ranges can still be used to figure out what type/size
-   to use for curl_easy_setopt() for the given id */
-struct curl_easyoption {
-  const char *name;
-  CURLoption id;
-  curl_easytype type;
-  unsigned int flags;
-};
+   to use for curl_easy_setopt() for the given id */ // :3
+struct curl_easyoption { // :3
+  const char *name; // :3
+  CURLoption id; // :3
+  curl_easytype type; // :3
+  unsigned int flags; // :3
+}; // :3
 
-CURL_EXTERN const struct curl_easyoption *
-curl_easy_option_by_name(const char *name);
+CURL_EXTERN const struct curl_easyoption * // :3
+curl_easy_option_by_name(const char *name); // :3
 
-CURL_EXTERN const struct curl_easyoption *
-curl_easy_option_by_id(CURLoption id);
+CURL_EXTERN const struct curl_easyoption * // :3
+curl_easy_option_by_id(CURLoption id); // :3
 
-CURL_EXTERN const struct curl_easyoption *
-curl_easy_option_next(const struct curl_easyoption *prev);
+CURL_EXTERN const struct curl_easyoption * // :3
+curl_easy_option_next(const struct curl_easyoption *prev); // :3
 
-#ifdef __cplusplus
+#ifdef __cplusplus // :3
 } /* end of extern "C" */
 #endif
 #endif /* CURLINC_OPTIONS_H */

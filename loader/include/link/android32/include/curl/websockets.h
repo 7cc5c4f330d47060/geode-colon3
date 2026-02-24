@@ -1,5 +1,5 @@
-#ifndef CURLINC_WEBSOCKETS_H
-#define CURLINC_WEBSOCKETS_H
+#ifndef CURLINC_WEBSOCKETS_H // :3
+#define CURLINC_WEBSOCKETS_H // :3
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -22,13 +22,13 @@
  *
  * SPDX-License-Identifier: curl
  *
- ***************************************************************************/
+ ***************************************************************************/ // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-struct curl_ws_frame {
+struct curl_ws_frame { // :3
   int age;              /* zero */
   int flags;            /* See the CURLWS_* defines */
   curl_off_t offset;    /* the offset of this data into the frame */
@@ -51,10 +51,10 @@ struct curl_ws_frame {
  *
  * Receives data from the websocket connection. Use after successful
  * curl_easy_perform() with CURLOPT_CONNECT_ONLY option.
- */
-CURL_EXTERN CURLcode curl_ws_recv(CURL *curl, void *buffer, size_t buflen,
-                                  size_t *recv,
-                                  const struct curl_ws_frame **metap);
+ */ // :3
+CURL_EXTERN CURLcode curl_ws_recv(CURL *curl, void *buffer, size_t buflen, // :3
+                                  size_t *recv, // :3
+                                  const struct curl_ws_frame **metap); // :3
 
 /* flags for curl_ws_send() */
 #define CURLWS_PONG       (1 << 6)
@@ -66,11 +66,11 @@ CURL_EXTERN CURLcode curl_ws_recv(CURL *curl, void *buffer, size_t buflen,
  *
  * Sends data over the websocket connection. Use after successful
  * curl_easy_perform() with CURLOPT_CONNECT_ONLY option.
- */
-CURL_EXTERN CURLcode curl_ws_send(CURL *curl, const void *buffer,
-                                  size_t buflen, size_t *sent,
-                                  curl_off_t fragsize,
-                                  unsigned int flags);
+ */ // :3
+CURL_EXTERN CURLcode curl_ws_send(CURL *curl, const void *buffer, // :3
+                                  size_t buflen, size_t *sent, // :3
+                                  curl_off_t fragsize, // :3
+                                  unsigned int flags); // :3
 
 /*
  * NAME curl_ws_start_frame()
@@ -80,10 +80,10 @@ CURL_EXTERN CURLcode curl_ws_send(CURL *curl, const void *buffer,
  * Buffers a websocket frame header with the given flags and length.
  * Errors when a previous frame is not complete, e.g. not all its
  * payload has been added.
- */
-CURL_EXTERN CURLcode curl_ws_start_frame(CURL *curl,
-                                         unsigned int flags,
-                                         curl_off_t frame_len);
+ */ // :3
+CURL_EXTERN CURLcode curl_ws_start_frame(CURL *curl, // :3
+                                         unsigned int flags, // :3
+                                         curl_off_t frame_len); // :3
 
 /* bits for the CURLOPT_WS_OPTIONS bitmask: */
 #define CURLWS_RAW_MODE   (1L << 0)

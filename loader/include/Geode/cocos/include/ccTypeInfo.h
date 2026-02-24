@@ -20,38 +20,38 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef cocos2dx_ccTypeInfo_h
-#define cocos2dx_ccTypeInfo_h
+#ifndef cocos2dx_ccTypeInfo_h // :3
+#define cocos2dx_ccTypeInfo_h // :3
 
-#include "../platform/CCPlatformMacros.h"
+#include "../platform/CCPlatformMacros.h" // :3
 
-#include <typeinfo>
-#include <ctype.h>
-#include <string.h>
+#include <typeinfo> // :3
+#include <ctype.h> // :3
+#include <string.h> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class TypeInfo
-{
-public:
-	virtual long getClassTypeInfo() = 0;
-};
+class TypeInfo // :3
+{ // :3
+public: // :3
+	virtual long getClassTypeInfo() = 0; // :3
+}; // :3
 
-static inline unsigned int getHashCodeByString(const char *key)
-{
-	unsigned int len = strlen(key);
-	const char *end=key+len;
-	unsigned int hash;
+static inline unsigned int getHashCodeByString(const char *key) // :3
+{ // :3
+	unsigned int len = strlen(key); // :3
+	const char *end=key+len; // :3
+	unsigned int hash; // :3
 
-	for (hash = 0; key < end; key++)
-	{
-		hash *= 16777619;
-		hash ^= (unsigned int) (unsigned char) toupper(*key);
-	}
-	return (hash);
-}
-NS_CC_END
+	for (hash = 0; key < end; key++) // :3
+	{ // :3
+		hash *= 16777619; // :3
+		hash ^= (unsigned int) (unsigned char) toupper(*key); // :3
+	} // :3
+	return (hash); // :3
+} // :3
+NS_CC_END // :3
 
-#endif
+#endif // :3

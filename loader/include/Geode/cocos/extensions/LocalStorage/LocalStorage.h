@@ -20,18 +20,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-*/
+*/ // :3
 
 /*
  Local Storage support for the JS Bindings for iOS.
  Works on cocos2d-iphone and cocos2d-x.
- */
+ */ // :3
 
-#ifndef __JSB_LOCALSTORAGE_H
-#define __JSB_LOCALSTORAGE_H
+#ifndef __JSB_LOCALSTORAGE_H // :3
+#define __JSB_LOCALSTORAGE_H // :3
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h> // :3
+#include <stdlib.h> // :3
 
 /** Initializes the database. If path is null, it will create an in-memory DB */
 void localStorageInit( const char *fullpath);

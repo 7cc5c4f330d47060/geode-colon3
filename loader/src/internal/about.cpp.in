@@ -1,14 +1,14 @@
-#include "about.hpp"
+#include "about.hpp" // :3
 
-geode::VersionInfo about::getLoaderVersion() {
-    return {
-        @PROJECT_VERSION_MAJOR@,
-        @PROJECT_VERSION_MINOR@,
-        @PROJECT_VERSION_PATCH@,
-        @PROJECT_VERSION_TAG_CONSTR@
-    };
-}
-const char* about::getLoaderVersionStr() { return "@PROJECT_VERSION@@PROJECT_VERSION_SUFFIX@"; }
-const char* about::getLoaderCommitHash() { return "@GEODE_COMMIT_HASH@"; }
-const char* about::getBindingsCommitHash() { return "@GEODE_BINDINGS_COMMIT_HASH@"; }
-const char* about::getLoaderModJson() { return R"JSON_SEPARATOR(@LOADER_MOD_JSON@)JSON_SEPARATOR"; }
+geode::VersionInfo about::getLoaderVersion() { // :3
+    return { // :3
+        @PROJECT_VERSION_MAJOR@, // :3
+        @PROJECT_VERSION_MINOR@, // :3
+        @PROJECT_VERSION_PATCH@, // :3
+        @PROJECT_VERSION_TAG_CONSTR@ // :3
+    }; // :3
+} // :3
+const char* about::getLoaderVersionStr() { return "@PROJECT_VERSION@@PROJECT_VERSION_SUFFIX@"; } // :3
+const char* about::getLoaderCommitHash() { return "@GEODE_COMMIT_HASH@"; } // :3
+const char* about::getBindingsCommitHash() { return "@GEODE_BINDINGS_COMMIT_HASH@"; } // :3
+const char* about::getLoaderModJson() { return R"JSON_SEPARATOR(@LOADER_MOD_JSON@)JSON_SEPARATOR"; } // :3

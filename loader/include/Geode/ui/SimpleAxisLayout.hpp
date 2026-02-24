@@ -1,245 +1,245 @@
-#pragma once
+#pragma once // :3
 
-#include "Layout.hpp"
+#include "Layout.hpp" // :3
 
-namespace geode {
-enum class AxisScaling {
-    // Does not scale items
-    None,
-    // Scales items down if necessary to fit
-    ScaleDown,
-    // Scales items up/down to fit
-    Scale,
-    // Grows the layout if necessary to fit
-    Grow,
-    // Fits the layout to the items
-    Fit,
-    // Shrinks gaps if needed to fit, then scales down items
-    ScaleDownGaps,
-};
+namespace geode { // :3
+enum class AxisScaling { // :3
+    // Does not scale items :3
+    None, // :3
+    // Scales items down if necessary to fit :3
+    ScaleDown, // :3
+    // Scales items up/down to fit :3
+    Scale, // :3
+    // Grows the layout if necessary to fit :3
+    Grow, // :3
+    // Fits the layout to the items :3
+    Fit, // :3
+    // Shrinks gaps if needed to fit, then scales down items :3
+    ScaleDownGaps, // :3
+}; // :3
 
-enum class ScalingPriority {
-    // Scales down first
-    First,
-    // Scales down second
-    Early,
-    // Default scaling priority
-    Normal,
-    // Scales down second to last
-    Late,
-    // Scales down last
-    Last,
-    // Does not scale
-    Never = 128,
-};
+enum class ScalingPriority { // :3
+    // Scales down first :3
+    First, // :3
+    // Scales down second :3
+    Early, // :3
+    // Default scaling priority :3
+    Normal, // :3
+    // Scales down second to last :3
+    Late, // :3
+    // Scales down last :3
+    Last, // :3
+    // Does not scale :3
+    Never = 128, // :3
+}; // :3
 
-enum class MainAxisAlignment {
-    // Align items to the start
-    // |ooo......|
-    Start,
-    // All items are centered
-    // |...ooo...|
-    Center,
-    // Align items to the end
-    // |......ooo|
-    End,
-    // Each item gets the same portion from the layout (disregards gap)
-    // |.o..o..o.|
-    Even,
-    // Space between each item is the same (disregards gap)
-    // |o...o...o|
-    Between,
-    // Space around each item is the same (disregards gap)
-    // |.o..o..o.|
-    Around,
-};
+enum class MainAxisAlignment { // :3
+    // Align items to the start :3
+    // |ooo......| :3
+    Start, // :3
+    // All items are centered :3
+    // |...ooo...| :3
+    Center, // :3
+    // Align items to the end :3
+    // |......ooo| :3
+    End, // :3
+    // Each item gets the same portion from the layout (disregards gap) :3
+    // |.o..o..o.| :3
+    Even, // :3
+    // Space between each item is the same (disregards gap) :3
+    // |o...o...o| :3
+    Between, // :3
+    // Space around each item is the same (disregards gap) :3
+    // |.o..o..o.| :3
+    Around, // :3
+}; // :3
 
-enum class CrossAxisAlignment {
-    // Align items to the start
-    // |ooo......|
-    Start,
-    // All items are centered
-    // |...ooo...|
-    Center,
-    // Align items to the end
-    // |......ooo|
-    End,
-};
+enum class CrossAxisAlignment { // :3
+    // Align items to the start :3
+    // |ooo......| :3
+    Start, // :3
+    // All items are centered :3
+    // |...ooo...| :3
+    Center, // :3
+    // Align items to the end :3
+    // |......ooo| :3
+    End, // :3
+}; // :3
 
-enum class AxisDirection {
-    // Items are laid out from top to bottom
-    TopToBottom = 1,
-    // Items are laid out from bottom to top
-    BottomToTop = 0,
-    // Items are laid out from left to right
-    LeftToRight = 0,
-    // Items are laid out from right to left
-    RightToLeft = 1,
-    // Items are laid out from front to back
-    FrontToBack = 0,
-    // Items are laid out from back to front
-    BackToFront = 1,
-};
+enum class AxisDirection { // :3
+    // Items are laid out from top to bottom :3
+    TopToBottom = 1, // :3
+    // Items are laid out from bottom to top :3
+    BottomToTop = 0, // :3
+    // Items are laid out from left to right :3
+    LeftToRight = 0, // :3
+    // Items are laid out from right to left :3
+    RightToLeft = 1, // :3
+    // Items are laid out from front to back :3
+    FrontToBack = 0, // :3
+    // Items are laid out from back to front :3
+    BackToFront = 1, // :3
+}; // :3
 
-class GEODE_DLL SimpleAxisLayoutOptions : public LayoutOptions {
-protected:
-    class Impl;
+class GEODE_DLL SimpleAxisLayoutOptions : public LayoutOptions { // :3
+protected: // :3
+    class Impl; // :3
 
-    std::unique_ptr<Impl> m_impl;
+    std::unique_ptr<Impl> m_impl; // :3
 
-    SimpleAxisLayoutOptions();
+    SimpleAxisLayoutOptions(); // :3
 
-public:
-    static SimpleAxisLayoutOptions* create();
+public: // :3
+    static SimpleAxisLayoutOptions* create(); // :3
 
-    virtual ~SimpleAxisLayoutOptions();
+    virtual ~SimpleAxisLayoutOptions(); // :3
 
     /**
      * Sets the minimum relative scale the node can be scaled to
      * if required to scale down to fit the layout
-     */
-    SimpleAxisLayoutOptions* setMinRelativeScale(std::optional<float> scale);
+     */ // :3
+    SimpleAxisLayoutOptions* setMinRelativeScale(std::optional<float> scale); // :3
     /**
      * Sets the maximum relative scale the node can be scaled to
      * if required to scale up to fit the layout
-     */
-    SimpleAxisLayoutOptions* setMaxRelativeScale(std::optional<float> scale);
+     */ // :3
+    SimpleAxisLayoutOptions* setMaxRelativeScale(std::optional<float> scale); // :3
     /**
      * Sets the scaling priority for the node, to specify
      * when the node should be scaled compared to other nodes
      * during main axis scaling
-     */
-    SimpleAxisLayoutOptions* setScalingPriority(ScalingPriority priority);
+     */ // :3
+    SimpleAxisLayoutOptions* setScalingPriority(ScalingPriority priority); // :3
 
-    std::optional<float> getMinRelativeScale() const;
-    std::optional<float> getMaxRelativeScale() const;
-    ScalingPriority getScalingPriority() const;
-};
+    std::optional<float> getMinRelativeScale() const; // :3
+    std::optional<float> getMaxRelativeScale() const; // :3
+    ScalingPriority getScalingPriority() const; // :3
+}; // :3
 
-class GEODE_DLL SimpleAxisLayout : public Layout {
-protected:
-    class Impl;
+class GEODE_DLL SimpleAxisLayout : public Layout { // :3
+protected: // :3
+    class Impl; // :3
 
-    std::unique_ptr<Impl> m_impl;
+    std::unique_ptr<Impl> m_impl; // :3
 
-    SimpleAxisLayout(Axis);
+    SimpleAxisLayout(Axis); // :3
 
-public:
-    static SimpleAxisLayout* create(Axis axis);
+public: // :3
+    static SimpleAxisLayout* create(Axis axis); // :3
 
-    virtual ~SimpleAxisLayout();
+    virtual ~SimpleAxisLayout(); // :3
 
-    void apply(cocos2d::CCNode* on) override;
-    cocos2d::CCSize getSizeHint(cocos2d::CCNode* on) const override;
+    void apply(cocos2d::CCNode* on) override; // :3
+    cocos2d::CCSize getSizeHint(cocos2d::CCNode* on) const override; // :3
 
     /**
      * Sets the axis of the layout
-     */
-    SimpleAxisLayout* setAxis(Axis axis);
+     */ // :3
+    SimpleAxisLayout* setAxis(Axis axis); // :3
     /**
      * Sets the scaling behaviour of the main axis
      * The default is set to AxisScaling::None
-     */
-    SimpleAxisLayout* setMainAxisScaling(AxisScaling scaling);
+     */ // :3
+    SimpleAxisLayout* setMainAxisScaling(AxisScaling scaling); // :3
     /**
      * Sets the scaling behaviour of the cross axis
      * The default is set to AxisScaling::None
-     */
-    SimpleAxisLayout* setCrossAxisScaling(AxisScaling scaling);
+     */ // :3
+    SimpleAxisLayout* setCrossAxisScaling(AxisScaling scaling); // :3
     /**
      * Sets how the items are aligned on the main axis
      * The default is set to MainAxisAlignment::Start
-     */
-    SimpleAxisLayout* setMainAxisAlignment(MainAxisAlignment alignment);
+     */ // :3
+    SimpleAxisLayout* setMainAxisAlignment(MainAxisAlignment alignment); // :3
     /**
      * Sets how the items are aligned on the cross axis
      * The default is set to CrossAxisAlignment::Center
-     */
-    SimpleAxisLayout* setCrossAxisAlignment(CrossAxisAlignment alignment);
+     */ // :3
+    SimpleAxisLayout* setCrossAxisAlignment(CrossAxisAlignment alignment); // :3
     /**
      * Sets the direction of the main axis
      * The default is set to AxisDirection::TopToBottom for SimpleRow
      * and AxisDirection::LeftToRight for SimpleColumn
-     */
-    SimpleAxisLayout* setMainAxisDirection(AxisDirection direction);
+     */ // :3
+    SimpleAxisLayout* setMainAxisDirection(AxisDirection direction); // :3
     /**
      * Sets the direction of the cross axis
      * The default is set to AxisDirection::TopToBottom for SimpleRow
      * and AxisDirection::LeftToRight for SimpleColumn
-     */
-    SimpleAxisLayout* setCrossAxisDirection(AxisDirection direction);
+     */ // :3
+    SimpleAxisLayout* setCrossAxisDirection(AxisDirection direction); // :3
     /**
      * Sets the gap between items, unless overridden by a AxisGap node
      * The default is set to 0.0f
-     */
-    SimpleAxisLayout* setGap(float gap);
+     */ // :3
+    SimpleAxisLayout* setGap(float gap); // :3
     /**
      * Sets the minimum relative scale the node can be scaled to
      * The default is set to 0.5f
-     */
-    SimpleAxisLayout* setMinRelativeScale(std::optional<float> scale);
+     */ // :3
+    SimpleAxisLayout* setMinRelativeScale(std::optional<float> scale); // :3
     /**
      * Sets the maximum relative scale the node can be scaled to
      * The default is set to 2.0f
-     */
-    SimpleAxisLayout* setMaxRelativeScale(std::optional<float> scale);
+     */ // :3
+    SimpleAxisLayout* setMaxRelativeScale(std::optional<float> scale); // :3
     /**
      * If true, the layout will not take into account invisible children when creating gaps or
      * calculating content sizes
-     */
-    SimpleAxisLayout* ignoreInvisibleChildren(bool ignore = true);
-    bool isIgnoreInvisibleChildren() const;
+     */ // :3
+    SimpleAxisLayout* ignoreInvisibleChildren(bool ignore = true); // :3
+    bool isIgnoreInvisibleChildren() const; // :3
 
-    Axis getAxis() const;
-    AxisScaling getMainAxisScaling() const;
-    AxisScaling getCrossAxisScaling() const;
-    MainAxisAlignment getMainAxisAlignment() const;
-    CrossAxisAlignment getCrossAxisAlignment() const;
-    AxisDirection getMainAxisDirection() const;
-    AxisDirection getCrossAxisDirection() const;
-    float getGap() const;
-    std::optional<float> getMinRelativeScale() const;
-    std::optional<float> getMaxRelativeScale() const;
-};
+    Axis getAxis() const; // :3
+    AxisScaling getMainAxisScaling() const; // :3
+    AxisScaling getCrossAxisScaling() const; // :3
+    MainAxisAlignment getMainAxisAlignment() const; // :3
+    CrossAxisAlignment getCrossAxisAlignment() const; // :3
+    AxisDirection getMainAxisDirection() const; // :3
+    AxisDirection getCrossAxisDirection() const; // :3
+    float getGap() const; // :3
+    std::optional<float> getMinRelativeScale() const; // :3
+    std::optional<float> getMaxRelativeScale() const; // :3
+}; // :3
 
-class GEODE_DLL SimpleRowLayout final : public SimpleAxisLayout {
-protected:
-    SimpleRowLayout();
+class GEODE_DLL SimpleRowLayout final : public SimpleAxisLayout { // :3
+protected: // :3
+    SimpleRowLayout(); // :3
 
-public:
-    static SimpleRowLayout* create();
+public: // :3
+    static SimpleRowLayout* create(); // :3
 
-    virtual ~SimpleRowLayout();
-};
+    virtual ~SimpleRowLayout(); // :3
+}; // :3
 
-class GEODE_DLL SimpleColumnLayout final : public SimpleAxisLayout {
-protected:
-    SimpleColumnLayout();
+class GEODE_DLL SimpleColumnLayout final : public SimpleAxisLayout { // :3
+protected: // :3
+    SimpleColumnLayout(); // :3
 
-public:
-    static SimpleColumnLayout* create();
+public: // :3
+    static SimpleColumnLayout* create(); // :3
 
-    virtual ~SimpleColumnLayout();
-};
+    virtual ~SimpleColumnLayout(); // :3
+}; // :3
 
-class GEODE_DLL AxisGap final : public cocos2d::CCNode {
-protected:
-    class Impl;
+class GEODE_DLL AxisGap final : public cocos2d::CCNode { // :3
+protected: // :3
+    class Impl; // :3
 
-    std::unique_ptr<Impl> m_impl;
+    std::unique_ptr<Impl> m_impl; // :3
 
-    AxisGap(float gap);
+    AxisGap(float gap); // :3
 
-public:
-    static AxisGap* create(float gap);
+public: // :3
+    static AxisGap* create(float gap); // :3
 
-    virtual ~AxisGap();
+    virtual ~AxisGap(); // :3
 
     /**
      * Sets the gap between items in the layout
-     */
-    AxisGap* setGap(float gap);
+     */ // :3
+    AxisGap* setGap(float gap); // :3
 
-    float getGap() const;
-};
-}
+    float getGap() const; // :3
+}; // :3
+} // :3

@@ -20,101 +20,101 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CC_IME_DISPATCHER_H__
-#define __CC_IME_DISPATCHER_H__
+#ifndef __CC_IME_DISPATCHER_H__ // :3
+#define __CC_IME_DISPATCHER_H__ // :3
 
-#include "CCIMEDelegate.h"
+#include "CCIMEDelegate.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup input
  * @{
- */
+ */ // :3
 
 /**
 @brief    Input Method Edit Message Dispatcher.
 @js NA
 @lua NA
-*/
-class CC_DLL CCIMEDispatcher
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCIMEDispatcher)
-    ~CCIMEDispatcher();
+*/ // :3
+class CC_DLL CCIMEDispatcher // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCIMEDispatcher) // :3
+    ~CCIMEDispatcher(); // :3
 
     /**
     @brief Returns the shared CCIMEDispatcher object for the system.
-    */
-    static CCIMEDispatcher* sharedDispatcher();
+    */ // :3
+    static CCIMEDispatcher* sharedDispatcher(); // :3
 
 //     /**
 //     @brief Releases all CCIMEDelegates from the shared dispatcher.
-//     */
-//     static void purgeSharedDispatcher();
+//     */ :3
+//     static void purgeSharedDispatcher(); :3
 
     /**
     @brief Dispatches the input text from IME.
-    */
-    void dispatchInsertText(const char * pText, int nLen, cocos2d::enumKeyCodes);
+    */ // :3
+    void dispatchInsertText(const char * pText, int nLen, cocos2d::enumKeyCodes); // :3
 
     /**
     @brief Dispatches the delete-backward operation.
-    */
-    void dispatchDeleteBackward();
+    */ // :3
+    void dispatchDeleteBackward(); // :3
 
-	void dispatchDeleteForward();
+	void dispatchDeleteForward(); // :3
 
-	bool hasDelegate();
+	bool hasDelegate(); // :3
 
     /**
     @brief Get the content text from CCIMEDelegate, retrieved previously from IME.
-    */
-    const char * getContentText();
+    */ // :3
+    const char * getContentText(); // :3
 
-    //////////////////////////////////////////////////////////////////////////
-    // dispatch keyboard notification
-    //////////////////////////////////////////////////////////////////////////
-    void dispatchKeyboardWillShow(CCIMEKeyboardNotificationInfo& info);
-    void dispatchKeyboardDidShow(CCIMEKeyboardNotificationInfo& info);
-    void dispatchKeyboardWillHide(CCIMEKeyboardNotificationInfo& info);
-    void dispatchKeyboardWillHide();
-    void dispatchKeyboardDidHide(CCIMEKeyboardNotificationInfo& info);
+    ////////////////////////////////////////////////////////////////////////// :3
+    // dispatch keyboard notification :3
+    ////////////////////////////////////////////////////////////////////////// :3
+    void dispatchKeyboardWillShow(CCIMEKeyboardNotificationInfo& info); // :3
+    void dispatchKeyboardDidShow(CCIMEKeyboardNotificationInfo& info); // :3
+    void dispatchKeyboardWillHide(CCIMEKeyboardNotificationInfo& info); // :3
+    void dispatchKeyboardWillHide(); // :3
+    void dispatchKeyboardDidHide(CCIMEKeyboardNotificationInfo& info); // :3
 
-protected:
-    friend class CCIMEDelegate;
+protected: // :3
+    friend class CCIMEDelegate; // :3
 
     /**
     @brief Add delegate to receive IME messages.
-    */
-    void addDelegate(CCIMEDelegate * pDelegate);
+    */ // :3
+    void addDelegate(CCIMEDelegate * pDelegate); // :3
 
     /**
     @brief Attach the pDelegate to the IME.
     @return If the old delegate can detach from the IME, and the new delegate
             can attach to the IME, return true, otherwise false.
-    */
-    bool attachDelegateWithIME(CCIMEDelegate * pDelegate);
-    bool detachDelegateWithIME(CCIMEDelegate * pDelegate);
+    */ // :3
+    bool attachDelegateWithIME(CCIMEDelegate * pDelegate); // :3
+    bool detachDelegateWithIME(CCIMEDelegate * pDelegate); // :3
 
     /**
     @brief Remove the delegate from the delegates which receive IME messages.
-    */
-    void removeDelegate(CCIMEDelegate * pDelegate);
+    */ // :3
+    void removeDelegate(CCIMEDelegate * pDelegate); // :3
 
-private:
-    CCIMEDispatcher();
+private: // :3
+    CCIMEDispatcher(); // :3
 
-    class Impl;
-    Impl * m_pImpl;
-};
+    class Impl; // :3
+    Impl * m_pImpl; // :3
+}; // :3
 
-// end of input group
-/// @}
+// end of input group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif    // __CC_IME_DISPATCHER_H__
+#endif    // __CC_IME_DISPATCHER_H__ :3

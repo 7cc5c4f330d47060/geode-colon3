@@ -20,32 +20,32 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CC_TOUCH_H__
-#define __CC_TOUCH_H__
+#ifndef __CC_TOUCH_H__ // :3
+#define __CC_TOUCH_H__ // :3
 
-#include "../cocoa/CCObject.h"
-#include "../cocoa/CCGeometry.h"
+#include "../cocoa/CCObject.h" // :3
+#include "../cocoa/CCGeometry.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup input
  * @{
- */
+ */ // :3
 
-class CC_DLL CCTouch : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
+class CC_DLL CCTouch : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      * @js ctor
-     */
-    CCTouch()
-        : m_nId(0),
-        m_startPointCaptured(false)
-    {}
+     */ // :3
+    CCTouch() // :3
+        : m_nId(0), // :3
+        m_startPointCaptured(false) // :3
+    {} // :3
 
     /** returns the current touch location in OpenGL coordinates */
     CCPoint getLocation() const;
@@ -76,30 +76,30 @@ public:
     }
     /**
      *  @js getId
-     */
-    int getID() const
-    {
-        return m_nId;
-    }
+     */ // :3
+    int getID() const // :3
+    { // :3
+        return m_nId; // :3
+    } // :3
 
-public:
-    int m_nId;
-    bool m_startPointCaptured;
-    CCPoint m_startPoint;
-    CCPoint m_point;
-    CCPoint m_prevPoint;
-    // @note RobTop Addition
-    CC_SYNTHESIZE_NV(double, m_timestamp, Timestamp);
-};
+public: // :3
+    int m_nId; // :3
+    bool m_startPointCaptured; // :3
+    CCPoint m_startPoint; // :3
+    CCPoint m_point; // :3
+    CCPoint m_prevPoint; // :3
+    // @note RobTop Addition :3
+    CC_SYNTHESIZE_NV(double, m_timestamp, Timestamp); // :3
+}; // :3
 
-class CC_DLL CCEvent : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-};
+class CC_DLL CCEvent : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+}; // :3
 
-// end of input group
-/// @}
+// end of input group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif  // __PLATFORM_TOUCH_H__
+#endif  // __PLATFORM_TOUCH_H__ :3

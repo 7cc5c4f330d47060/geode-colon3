@@ -20,25 +20,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __PLATFORM_IPHONE_PLATFORM_CCLOCK_H__
-#define __PLATFORM_IPHONE_PLATFORM_CCLOCK_H__
+#ifndef __PLATFORM_IPHONE_PLATFORM_CCLOCK_H__ // :3
+#define __PLATFORM_IPHONE_PLATFORM_CCLOCK_H__ // :3
 
-#include "../CCPlatformMacros.h"
+#include "../CCPlatformMacros.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCLock
-{
-public:
-    CCLock(void);
-    ~CCLock(void);
+class CCLock // :3
+{ // :3
+public: // :3
+    CCLock(void); // :3
+    ~CCLock(void); // :3
 
-    void lock(void);
-    void unlock(void);
-};
+    void lock(void); // :3
+    void unlock(void); // :3
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __PLATFORM_IPHONE_PLATFORM_CCLOCK_H__
+#endif // __PLATFORM_IPHONE_PLATFORM_CCLOCK_H__ :3

@@ -20,71 +20,71 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCEditBoxIMPLWP8_H__
-#define __CCEditBoxIMPLWP8_H__
+****************************************************************************/ // :3
+#ifndef __CCEditBoxIMPLWP8_H__ // :3
+#define __CCEditBoxIMPLWP8_H__ // :3
 
-#include "../../ExtensionMacros.h"
-#include "CCEditBoxImpl.h"
+#include "../../ExtensionMacros.h" // :3
+#include "CCEditBoxImpl.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
-class CC_DLL CCEditBox;
+class CC_DLL CCEditBox; // :3
 
-class CC_DLL CCEditBoxImplWp8 : public CCEditBoxImpl
-{
-public:
-	GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEditBoxImplWp8, CCEditBoxImpl)
-	CCEditBoxImplWp8() {}
+class CC_DLL CCEditBoxImplWp8 : public CCEditBoxImpl // :3
+{ // :3
+public: // :3
+	GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEditBoxImplWp8, CCEditBoxImpl) // :3
+	CCEditBoxImplWp8() {} // :3
 
-	CCEditBoxImplWp8(CCEditBox* pEditText);
-	virtual ~CCEditBoxImplWp8();
+	CCEditBoxImplWp8(CCEditBox* pEditText); // :3
+	virtual ~CCEditBoxImplWp8(); // :3
 
-	virtual bool initWithSize(const CCSize& size);
-	virtual void setFont(const char* pFontName, int fontSize);
-	virtual void setFontColor(const ccColor3B& color);
-	virtual void setPlaceholderFont(const char* pFontName, int fontSize);
-	virtual void setPlaceholderFontColor(const ccColor3B& color);
-	virtual void setInputMode(EditBoxInputMode inputMode);
-	virtual void setInputFlag(EditBoxInputFlag inputFlag);
-	virtual void setMaxLength(int maxLength);
-	virtual int  getMaxLength();
-	virtual void setReturnType(KeyboardReturnType returnType);
-	virtual bool isEditing();
+	virtual bool initWithSize(const CCSize& size); // :3
+	virtual void setFont(const char* pFontName, int fontSize); // :3
+	virtual void setFontColor(const ccColor3B& color); // :3
+	virtual void setPlaceholderFont(const char* pFontName, int fontSize); // :3
+	virtual void setPlaceholderFontColor(const ccColor3B& color); // :3
+	virtual void setInputMode(EditBoxInputMode inputMode); // :3
+	virtual void setInputFlag(EditBoxInputFlag inputFlag); // :3
+	virtual void setMaxLength(int maxLength); // :3
+	virtual int  getMaxLength(); // :3
+	virtual void setReturnType(KeyboardReturnType returnType); // :3
+	virtual bool isEditing(); // :3
 
-	virtual void setText(const char* pText);
-	virtual const char* getText(void);
-	virtual void setPlaceHolder(const char* pText);
-	virtual void setPosition(const CCPoint& pos);
-	virtual void setVisible(bool visible);
-	virtual void setContentSize(const CCSize& size);
-	virtual void setAnchorPoint(const CCPoint& anchorPoint);
-	virtual void visit(void);
-	virtual void doAnimationWhenKeyboardMove(float duration, float distance);
-	virtual void openKeyboard();
-	virtual void closeKeyboard();
-	virtual void onEnter(void);
-private:
-	Platform::String^ stringToPlatformString(gd::string strSrc);
-	gd::string PlatformStringTostring(Platform::String^ strSrc);
-public:
+	virtual void setText(const char* pText); // :3
+	virtual const char* getText(void); // :3
+	virtual void setPlaceHolder(const char* pText); // :3
+	virtual void setPosition(const CCPoint& pos); // :3
+	virtual void setVisible(bool visible); // :3
+	virtual void setContentSize(const CCSize& size); // :3
+	virtual void setAnchorPoint(const CCPoint& anchorPoint); // :3
+	virtual void visit(void); // :3
+	virtual void doAnimationWhenKeyboardMove(float duration, float distance); // :3
+	virtual void openKeyboard(); // :3
+	virtual void closeKeyboard(); // :3
+	virtual void onEnter(void); // :3
+private: // :3
+	Platform::String^ stringToPlatformString(gd::string strSrc); // :3
+	gd::string PlatformStringTostring(Platform::String^ strSrc); // :3
+public: // :3
 
-	CCLabelTTF* m_pLabel;
-	CCLabelTTF* m_pLabelPlaceHolder;
-	EditBoxInputMode    m_eEditBoxInputMode;
-	EditBoxInputFlag    m_eEditBoxInputFlag;
-	KeyboardReturnType  m_eKeyboardReturnType;
+	CCLabelTTF* m_pLabel; // :3
+	CCLabelTTF* m_pLabelPlaceHolder; // :3
+	EditBoxInputMode    m_eEditBoxInputMode; // :3
+	EditBoxInputFlag    m_eEditBoxInputFlag; // :3
+	KeyboardReturnType  m_eKeyboardReturnType; // :3
 
-	gd::string m_strText;
-	gd::string m_strPlaceHolder;
+	gd::string m_strText; // :3
+	gd::string m_strPlaceHolder; // :3
 
-	ccColor3B m_colText;
-	ccColor3B m_colPlaceHolder;
+	ccColor3B m_colText; // :3
+	ccColor3B m_colPlaceHolder; // :3
 
-	int   m_nMaxLength;
-	CCSize m_EditSize;
-};
+	int   m_nMaxLength; // :3
+	CCSize m_EditSize; // :3
+}; // :3
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
-#endif
+#endif // :3

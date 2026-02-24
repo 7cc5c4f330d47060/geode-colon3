@@ -6,38 +6,38 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_CTERR_H
-#define OPENSSL_CTERR_H
-#pragma once
+#ifndef OPENSSL_CTERR_H // :3
+#define OPENSSL_CTERR_H // :3
+#pragma once // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/symhacks.h>
-#include <openssl/cryptoerr_legacy.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/symhacks.h> // :3
+#include <openssl/cryptoerr_legacy.h> // :3
 
-#ifndef OPENSSL_NO_CT
+#ifndef OPENSSL_NO_CT // :3
 
 /*
  * CT reason codes.
- */
-#define CT_R_BASE64_DECODE_ERROR 108
-#define CT_R_INVALID_LOG_ID_LENGTH 100
-#define CT_R_LOG_CONF_INVALID 109
-#define CT_R_LOG_CONF_INVALID_KEY 110
-#define CT_R_LOG_CONF_MISSING_DESCRIPTION 111
-#define CT_R_LOG_CONF_MISSING_KEY 112
-#define CT_R_LOG_KEY_INVALID 113
-#define CT_R_SCT_FUTURE_TIMESTAMP 116
-#define CT_R_SCT_INVALID 104
-#define CT_R_SCT_INVALID_SIGNATURE 107
-#define CT_R_SCT_LIST_INVALID 105
-#define CT_R_SCT_LOG_ID_MISMATCH 114
-#define CT_R_SCT_NOT_SET 106
-#define CT_R_SCT_UNSUPPORTED_VERSION 115
-#define CT_R_UNRECOGNIZED_SIGNATURE_NID 101
-#define CT_R_UNSUPPORTED_ENTRY_TYPE 102
-#define CT_R_UNSUPPORTED_VERSION 103
+ */ // :3
+#define CT_R_BASE64_DECODE_ERROR 108 // :3
+#define CT_R_INVALID_LOG_ID_LENGTH 100 // :3
+#define CT_R_LOG_CONF_INVALID 109 // :3
+#define CT_R_LOG_CONF_INVALID_KEY 110 // :3
+#define CT_R_LOG_CONF_MISSING_DESCRIPTION 111 // :3
+#define CT_R_LOG_CONF_MISSING_KEY 112 // :3
+#define CT_R_LOG_KEY_INVALID 113 // :3
+#define CT_R_SCT_FUTURE_TIMESTAMP 116 // :3
+#define CT_R_SCT_INVALID 104 // :3
+#define CT_R_SCT_INVALID_SIGNATURE 107 // :3
+#define CT_R_SCT_LIST_INVALID 105 // :3
+#define CT_R_SCT_LOG_ID_MISMATCH 114 // :3
+#define CT_R_SCT_NOT_SET 106 // :3
+#define CT_R_SCT_UNSUPPORTED_VERSION 115 // :3
+#define CT_R_UNRECOGNIZED_SIGNATURE_NID 101 // :3
+#define CT_R_UNSUPPORTED_ENTRY_TYPE 102 // :3
+#define CT_R_UNSUPPORTED_VERSION 103 // :3
 
-#endif
-#endif
+#endif // :3
+#endif // :3

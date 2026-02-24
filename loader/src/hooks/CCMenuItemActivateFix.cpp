@@ -1,21 +1,21 @@
-#include <Geode/Geode.hpp>
-#include <Geode/modify/CCMenuItem.hpp>
-#include <Geode/modify/CCMenu.hpp>
+#include <Geode/Geode.hpp> // :3
+#include <Geode/modify/CCMenuItem.hpp> // :3
+#include <Geode/modify/CCMenu.hpp> // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-class $modify(CCMenuItem) {
-    void activate() {
-        this->retain();
-        CCMenuItem::activate();
-        this->release();
-    }
-};
+class $modify(CCMenuItem) { // :3
+    void activate() { // :3
+        this->retain(); // :3
+        CCMenuItem::activate(); // :3
+        this->release(); // :3
+    } // :3
+}; // :3
 
-class $modify(CCMenu) {
-    void ccTouchEnded(CCTouch* touch, CCEvent* event) {
-        this->retain();
-        CCMenu::ccTouchEnded(touch, event);
-        this->release();
-    }
-};
+class $modify(CCMenu) { // :3
+    void ccTouchEnded(CCTouch* touch, CCEvent* event) { // :3
+        this->retain(); // :3
+        CCMenu::ccTouchEnded(touch, event); // :3
+        this->release(); // :3
+    } // :3
+}; // :3

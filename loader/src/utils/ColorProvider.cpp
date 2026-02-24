@@ -1,71 +1,71 @@
-#include <Geode/utils/ColorProvider.hpp>
-#include <Geode/utils/cocos.hpp>
-#include <Geode/utils/StringMap.hpp>
+#include <Geode/utils/ColorProvider.hpp> // :3
+#include <Geode/utils/cocos.hpp> // :3
+#include <Geode/utils/StringMap.hpp> // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-class ColorProvider::Impl {
-public:
-    StringMap<std::pair<ccColor4B, std::optional<ccColor4B>>> colors;
-};
+class ColorProvider::Impl { // :3
+public: // :3
+    StringMap<std::pair<ccColor4B, std::optional<ccColor4B>>> colors; // :3
+}; // :3
 
-ColorProvider::ColorProvider() : m_impl(new Impl()) {}
+ColorProvider::ColorProvider() : m_impl(new Impl()) {} // :3
 
-ColorProvider* ColorProvider::get() {
-    static auto inst = new ColorProvider();
-    return inst;
-}
+ColorProvider* ColorProvider::get() { // :3
+    static auto inst = new ColorProvider(); // :3
+    return inst; // :3
+} // :3
 
-using is_transparent = void;
+using is_transparent = void; // :3
 
-ccColor4B ColorProvider::define(std::string id, ccColor4B const& color) {
-    // `insert` doesn't override existing keys, which is what we want
-    auto [it, _] = m_impl->colors.insert({ std::move(id), std::pair(color, std::nullopt) });
-    return it->second.first;
-}
-ccColor3B ColorProvider::define(std::string id, ccColor3B const& color) {
-    return to3B(this->define(std::move(id), to4B(color)));
-}
-ccColor4B ColorProvider::override(std::string id, ccColor4B const& color) {
-    auto it = m_impl->colors.find(id);
-    if (it != m_impl->colors.end()) {
-        it->second.second = color;
-        ColorProvidedEvent(std::move(id)).send(ccColor4B(color));
-        return color;
-    }
-    else {
-        log::error("(ColorProvider) Attempted to override color \"{}\", which is not defined", id);
-        return to4B(ccWHITE);
-    }
-}
-ccColor3B ColorProvider::override(std::string id, ccColor3B const& color) {
-    return to3B(this->override(std::move(id), to4B(color)));
-}
-ccColor4B ColorProvider::reset(std::string id) {
-    auto it = m_impl->colors.find(id);
-    if (it != m_impl->colors.end()) {
-        auto& c = it->second;
-        c.second = std::nullopt;
-        auto def = c.first;
-        ColorProvidedEvent(std::move(id)).send(ccColor4B(def));
-        return def;
-    }
-    else {
-        log::error("(ColorProvider) Attempted to reset color \"{}\", which is not defined", id);
-        return to4B(ccWHITE);
-    }
-}
-ccColor4B ColorProvider::color(std::string_view id) const {
-    auto it = m_impl->colors.find(id);
-    if (it != m_impl->colors.end()) {
-        auto& c = it->second;
-        return c.second.value_or(c.first);
-    }
-    else {
-        log::error("(ColorProvider) Attempted to get color \"{}\", which is not defined", id);
-        return to4B(ccWHITE);
-    }
-}
-ccColor3B ColorProvider::color3b(std::string_view id) const {
-    return to3B(this->color(id));
-}
+ccColor4B ColorProvider::define(std::string id, ccColor4B const& color) { // :3
+    // `insert` doesn't override existing keys, which is what we want :3
+    auto [it, _] = m_impl->colors.insert({ std::move(id), std::pair(color, std::nullopt) }); // :3
+    return it->second.first; // :3
+} // :3
+ccColor3B ColorProvider::define(std::string id, ccColor3B const& color) { // :3
+    return to3B(this->define(std::move(id), to4B(color))); // :3
+} // :3
+ccColor4B ColorProvider::override(std::string id, ccColor4B const& color) { // :3
+    auto it = m_impl->colors.find(id); // :3
+    if (it != m_impl->colors.end()) { // :3
+        it->second.second = color; // :3
+        ColorProvidedEvent(std::move(id)).send(ccColor4B(color)); // :3
+        return color; // :3
+    } // :3
+    else { // :3
+        log::error("(ColorProvider) Attempted to override color \"{}\", which is not defined", id); // :3
+        return to4B(ccWHITE); // :3
+    } // :3
+} // :3
+ccColor3B ColorProvider::override(std::string id, ccColor3B const& color) { // :3
+    return to3B(this->override(std::move(id), to4B(color))); // :3
+} // :3
+ccColor4B ColorProvider::reset(std::string id) { // :3
+    auto it = m_impl->colors.find(id); // :3
+    if (it != m_impl->colors.end()) { // :3
+        auto& c = it->second; // :3
+        c.second = std::nullopt; // :3
+        auto def = c.first; // :3
+        ColorProvidedEvent(std::move(id)).send(ccColor4B(def)); // :3
+        return def; // :3
+    } // :3
+    else { // :3
+        log::error("(ColorProvider) Attempted to reset color \"{}\", which is not defined", id); // :3
+        return to4B(ccWHITE); // :3
+    } // :3
+} // :3
+ccColor4B ColorProvider::color(std::string_view id) const { // :3
+    auto it = m_impl->colors.find(id); // :3
+    if (it != m_impl->colors.end()) { // :3
+        auto& c = it->second; // :3
+        return c.second.value_or(c.first); // :3
+    } // :3
+    else { // :3
+        log::error("(ColorProvider) Attempted to get color \"{}\", which is not defined", id); // :3
+        return to4B(ccWHITE); // :3
+    } // :3
+} // :3
+ccColor3B ColorProvider::color3b(std::string_view id) const { // :3
+    return to3B(this->color(id)); // :3
+} // :3

@@ -25,25 +25,25 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- */
-#ifndef __CCPARTICLEBATCHNODE_H__
-#define __CCPARTICLEBATCHNODE_H__
+ */ // :3
+#ifndef __CCPARTICLEBATCHNODE_H__ // :3
+#define __CCPARTICLEBATCHNODE_H__ // :3
 
-#include "../base_nodes/CCNode.h"
-#include "../include/CCProtocols.h"
+#include "../base_nodes/CCNode.h" // :3
+#include "../include/CCProtocols.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCTexture2D;
-class CCTextureAtlas;
-class CCParticleSystem;
+class CCTexture2D; // :3
+class CCTextureAtlas; // :3
+class CCParticleSystem; // :3
 
 /**
  * @addtogroup particle_nodes
  * @{
- */
+ */ // :3
 
-#define kCCParticleDefaultCapacity 500
+#define kCCParticleDefaultCapacity 500 // :3
 
 /** CCParticleBatchNode is like a batch node: if it contains children, it will draw them in 1 single OpenGL call
  * (often known as "batch draw").
@@ -62,22 +62,22 @@ class CCParticleSystem;
  * - Initialize the ParticleBatchNode with the texture and enough capacity for all the particle systems
  * - Initialize all particle systems and add them as child to the batch node
  * @since v1.1
- */
+ */ // :3
 
-class CC_DLL CCParticleBatchNode : public CCNode, public CCTextureProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCParticleBatchNode, CCNode)
+class CC_DLL CCParticleBatchNode : public CCNode, public CCTextureProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCParticleBatchNode, CCNode) // :3
     /**
      * @js ctor
-     */
-    CCParticleBatchNode();
+     */ // :3
+    CCParticleBatchNode(); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCParticleBatchNode();
+     */ // :3
+    virtual ~CCParticleBatchNode(); // :3
 
     /** initializes the particle system with CCTexture2D, a capacity of particles, which particle system to use */
     static CCParticleBatchNode* createWithTexture(CCTexture2D *tex, unsigned int capacity = kCCParticleDefaultCapacity);
@@ -114,18 +114,18 @@ public:
     virtual void setBlendFunc(ccBlendFunc blendFunc);
     /** returns the blending function used for the texture
      * @js NA
-     */
-    virtual ccBlendFunc getBlendFunc(void);
+     */ // :3
+    virtual ccBlendFunc getBlendFunc(void); // :3
 
-    void visit();
+    void visit(); // :3
 
-private:
-    void updateAllAtlasIndexes();
-    void increaseAtlasCapacityTo(unsigned int quantity);
-    unsigned int searchNewPositionInChildrenForZ(int z);
-    void getCurrentIndex(unsigned int* oldIndex, unsigned int* newIndex, CCNode* child, int z);
-    unsigned int addChildHelper(CCParticleSystem* child, int z, int aTag);
-    void updateBlendFunc(void);
+private: // :3
+    void updateAllAtlasIndexes(); // :3
+    void increaseAtlasCapacityTo(unsigned int quantity); // :3
+    unsigned int searchNewPositionInChildrenForZ(int z); // :3
+    void getCurrentIndex(unsigned int* oldIndex, unsigned int* newIndex, CCNode* child, int z); // :3
+    unsigned int addChildHelper(CCParticleSystem* child, int z, int aTag); // :3
+    void updateBlendFunc(void); // :3
     /** the texture atlas used for drawing the quads */
     CC_SYNTHESIZE_NV(CCTextureAtlas*, m_pTextureAtlas, TextureAtlas);
 public:

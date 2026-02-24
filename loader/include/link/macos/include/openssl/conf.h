@@ -8,7 +8,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -147,35 +147,35 @@ OSSL_DEPRECATEDIN_1_1_0 void OPENSSL_config(const char *config_name);
 /*
  * New conf code.  The semantics are different from the functions above. If
  * that wasn't the case, the above functions would have been replaced
- */
+ */ // :3
 
-CONF *NCONF_new_ex(OSSL_LIB_CTX *libctx, CONF_METHOD *meth);
-OSSL_LIB_CTX *NCONF_get0_libctx(const CONF *conf);
-CONF *NCONF_new(CONF_METHOD *meth);
-CONF_METHOD *NCONF_default(void);
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-OSSL_DEPRECATEDIN_3_0 CONF_METHOD *NCONF_WIN32(void);
-#endif
-void NCONF_free(CONF *conf);
-void NCONF_free_data(CONF *conf);
+CONF *NCONF_new_ex(OSSL_LIB_CTX *libctx, CONF_METHOD *meth); // :3
+OSSL_LIB_CTX *NCONF_get0_libctx(const CONF *conf); // :3
+CONF *NCONF_new(CONF_METHOD *meth); // :3
+CONF_METHOD *NCONF_default(void); // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+OSSL_DEPRECATEDIN_3_0 CONF_METHOD *NCONF_WIN32(void); // :3
+#endif // :3
+void NCONF_free(CONF *conf); // :3
+void NCONF_free_data(CONF *conf); // :3
 
-int NCONF_load(CONF *conf, const char *file, long *eline);
-#ifndef OPENSSL_NO_STDIO
-int NCONF_load_fp(CONF *conf, FILE *fp, long *eline);
-#endif
-int NCONF_load_bio(CONF *conf, BIO *bp, long *eline);
-STACK_OF(OPENSSL_CSTRING) *NCONF_get_section_names(const CONF *conf);
-STACK_OF(CONF_VALUE) *NCONF_get_section(const CONF *conf,
-    const char *section);
-char *NCONF_get_string(const CONF *conf, const char *group, const char *name);
-int NCONF_get_number_e(const CONF *conf, const char *group, const char *name,
-    long *result);
-#ifndef OPENSSL_NO_STDIO
-int NCONF_dump_fp(const CONF *conf, FILE *out);
-#endif
-int NCONF_dump_bio(const CONF *conf, BIO *out);
+int NCONF_load(CONF *conf, const char *file, long *eline); // :3
+#ifndef OPENSSL_NO_STDIO // :3
+int NCONF_load_fp(CONF *conf, FILE *fp, long *eline); // :3
+#endif // :3
+int NCONF_load_bio(CONF *conf, BIO *bp, long *eline); // :3
+STACK_OF(OPENSSL_CSTRING) *NCONF_get_section_names(const CONF *conf); // :3
+STACK_OF(CONF_VALUE) *NCONF_get_section(const CONF *conf, // :3
+    const char *section); // :3
+char *NCONF_get_string(const CONF *conf, const char *group, const char *name); // :3
+int NCONF_get_number_e(const CONF *conf, const char *group, const char *name, // :3
+    long *result); // :3
+#ifndef OPENSSL_NO_STDIO // :3
+int NCONF_dump_fp(const CONF *conf, FILE *out); // :3
+#endif // :3
+int NCONF_dump_bio(const CONF *conf, BIO *out); // :3
 
-#define NCONF_get_number(c, g, n, r) NCONF_get_number_e(c, g, n, r)
+#define NCONF_get_number(c, g, n, r) NCONF_get_number_e(c, g, n, r) // :3
 
 /* Module functions */
 

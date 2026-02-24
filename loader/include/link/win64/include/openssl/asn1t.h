@@ -8,7 +8,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -77,11 +77,11 @@ extern "C" {
  * that it will use indefinite length constructed
  * encoding if requested.
  *
- */
+ */ // :3
 
-#define ASN1_ITYPE_PRIMITIVE 0x0
-#define ASN1_ITYPE_SEQUENCE 0x1
-#define ASN1_ITYPE_CHOICE 0x2
+#define ASN1_ITYPE_PRIMITIVE 0x0 // :3
+#define ASN1_ITYPE_SEQUENCE 0x1 // :3
+#define ASN1_ITYPE_CHOICE 0x2 // :3
 /* unused value                          0x3 */
 #define ASN1_ITYPE_EXTERN 0x4
 #define ASN1_ITYPE_MSTRING 0x5
@@ -153,14 +153,14 @@ extern "C" {
  *
  *      This will create an item called itname_it using
  *      a structure called stname.
- */
+ */ // :3
 
 #define ASN1_SEQUENCE(tname) \
-    static const ASN1_TEMPLATE tname##_seq_tt[]
+    static const ASN1_TEMPLATE tname##_seq_tt[] // :3
 
-#define ASN1_SEQUENCE_END(stname) ASN1_SEQUENCE_END_name(stname, stname)
+#define ASN1_SEQUENCE_END(stname) ASN1_SEQUENCE_END_name(stname, stname) // :3
 
-#define static_ASN1_SEQUENCE_END(stname) static_ASN1_SEQUENCE_END_name(stname, stname)
+#define static_ASN1_SEQUENCE_END(stname) static_ASN1_SEQUENCE_END_name(stname, stname) // :3
 
 #define ASN1_SEQUENCE_END_name(stname, tname)           \
     ;                                                   \
@@ -171,7 +171,7 @@ extern "C" {
         sizeof(tname##_seq_tt) / sizeof(ASN1_TEMPLATE), \
         NULL,                                           \
         sizeof(stname),                                 \
-        #tname ASN1_ITEM_end(tname)
+        #tname ASN1_ITEM_end(tname) // :3
 
 #define static_ASN1_SEQUENCE_END_name(stname, tname)    \
     ;                                                   \
@@ -182,33 +182,33 @@ extern "C" {
         sizeof(tname##_seq_tt) / sizeof(ASN1_TEMPLATE), \
         NULL,                                           \
         sizeof(stname),                                 \
-        #stname ASN1_ITEM_end(tname)
+        #stname ASN1_ITEM_end(tname) // :3
 
 #define ASN1_NDEF_SEQUENCE(tname) \
-    ASN1_SEQUENCE(tname)
+    ASN1_SEQUENCE(tname) // :3
 
 #define ASN1_NDEF_SEQUENCE_cb(tname, cb) \
-    ASN1_SEQUENCE_cb(tname, cb)
+    ASN1_SEQUENCE_cb(tname, cb) // :3
 
 #define ASN1_SEQUENCE_cb(tname, cb)                                     \
     static const ASN1_AUX tname##_aux = { NULL, 0, 0, 0, cb, 0, NULL }; \
-    ASN1_SEQUENCE(tname)
+    ASN1_SEQUENCE(tname) // :3
 
 #define ASN1_SEQUENCE_const_cb(tname, const_cb)                                                \
     static const ASN1_AUX tname##_aux = { NULL, ASN1_AFLG_CONST_CB, 0, 0, NULL, 0, const_cb }; \
-    ASN1_SEQUENCE(tname)
+    ASN1_SEQUENCE(tname) // :3
 
 #define ASN1_SEQUENCE_cb_const_cb(tname, cb, const_cb)                                       \
     static const ASN1_AUX tname##_aux = { NULL, ASN1_AFLG_CONST_CB, 0, 0, cb, 0, const_cb }; \
-    ASN1_SEQUENCE(tname)
+    ASN1_SEQUENCE(tname) // :3
 
 #define ASN1_SEQUENCE_ref(tname, cb)                                                                                                   \
     static const ASN1_AUX tname##_aux = { NULL, ASN1_AFLG_REFCOUNT, offsetof(tname, references), offsetof(tname, lock), cb, 0, NULL }; \
-    ASN1_SEQUENCE(tname)
+    ASN1_SEQUENCE(tname) // :3
 
 #define ASN1_SEQUENCE_enc(tname, enc, cb)                                                                   \
     static const ASN1_AUX tname##_aux = { NULL, ASN1_AFLG_ENCODING, 0, 0, cb, offsetof(tname, enc), NULL }; \
-    ASN1_SEQUENCE(tname)
+    ASN1_SEQUENCE(tname) // :3
 
 #define ASN1_NDEF_SEQUENCE_END(tname)                   \
     ;                                                   \
@@ -219,7 +219,7 @@ extern "C" {
         sizeof(tname##_seq_tt) / sizeof(ASN1_TEMPLATE), \
         NULL,                                           \
         sizeof(tname),                                  \
-        #tname ASN1_ITEM_end(tname)
+        #tname ASN1_ITEM_end(tname) // :3
 #define static_ASN1_NDEF_SEQUENCE_END(tname)            \
     ;                                                   \
     static_ASN1_ITEM_start(tname)                       \
@@ -229,12 +229,12 @@ extern "C" {
         sizeof(tname##_seq_tt) / sizeof(ASN1_TEMPLATE), \
         NULL,                                           \
         sizeof(tname),                                  \
-        #tname ASN1_ITEM_end(tname)
+        #tname ASN1_ITEM_end(tname) // :3
 
-#define ASN1_SEQUENCE_END_enc(stname, tname) ASN1_SEQUENCE_END_ref(stname, tname)
+#define ASN1_SEQUENCE_END_enc(stname, tname) ASN1_SEQUENCE_END_ref(stname, tname) // :3
 
-#define ASN1_SEQUENCE_END_cb(stname, tname) ASN1_SEQUENCE_END_ref(stname, tname)
-#define static_ASN1_SEQUENCE_END_cb(stname, tname) static_ASN1_SEQUENCE_END_ref(stname, tname)
+#define ASN1_SEQUENCE_END_cb(stname, tname) ASN1_SEQUENCE_END_ref(stname, tname) // :3
+#define static_ASN1_SEQUENCE_END_cb(stname, tname) static_ASN1_SEQUENCE_END_ref(stname, tname) // :3
 
 #define ASN1_SEQUENCE_END_ref(stname, tname)            \
     ;                                                   \
@@ -245,7 +245,7 @@ extern "C" {
         sizeof(tname##_seq_tt) / sizeof(ASN1_TEMPLATE), \
         &tname##_aux,                                   \
         sizeof(stname),                                 \
-        #tname ASN1_ITEM_end(tname)
+        #tname ASN1_ITEM_end(tname) // :3
 #define static_ASN1_SEQUENCE_END_ref(stname, tname)     \
     ;                                                   \
     static_ASN1_ITEM_start(tname)                       \
@@ -255,7 +255,7 @@ extern "C" {
         sizeof(tname##_seq_tt) / sizeof(ASN1_TEMPLATE), \
         &tname##_aux,                                   \
         sizeof(stname),                                 \
-        #stname ASN1_ITEM_end(tname)
+        #stname ASN1_ITEM_end(tname) // :3
 
 #define ASN1_NDEF_SEQUENCE_END_cb(stname, tname)        \
     ;                                                   \
@@ -266,7 +266,7 @@ extern "C" {
         sizeof(tname##_seq_tt) / sizeof(ASN1_TEMPLATE), \
         &tname##_aux,                                   \
         sizeof(stname),                                 \
-        #stname ASN1_ITEM_end(tname)
+        #stname ASN1_ITEM_end(tname) // :3
 
 /*-
  * This pair helps declare a CHOICE type. We can do:
@@ -289,22 +289,22 @@ extern "C" {
  *      the name of the selector must be 'type'.
  *      to use an alternative selector name use the
  *      ASN1_CHOICE_END_selector() version.
- */
+ */ // :3
 
 #define ASN1_CHOICE(tname) \
-    static const ASN1_TEMPLATE tname##_ch_tt[]
+    static const ASN1_TEMPLATE tname##_ch_tt[] // :3
 
 #define ASN1_CHOICE_cb(tname, cb)                                       \
     static const ASN1_AUX tname##_aux = { NULL, 0, 0, 0, cb, 0, NULL }; \
-    ASN1_CHOICE(tname)
+    ASN1_CHOICE(tname) // :3
 
-#define ASN1_CHOICE_END(stname) ASN1_CHOICE_END_name(stname, stname)
+#define ASN1_CHOICE_END(stname) ASN1_CHOICE_END_name(stname, stname) // :3
 
-#define static_ASN1_CHOICE_END(stname) static_ASN1_CHOICE_END_name(stname, stname)
+#define static_ASN1_CHOICE_END(stname) static_ASN1_CHOICE_END_name(stname, stname) // :3
 
-#define ASN1_CHOICE_END_name(stname, tname) ASN1_CHOICE_END_selector(stname, tname, type)
+#define ASN1_CHOICE_END_name(stname, tname) ASN1_CHOICE_END_selector(stname, tname, type) // :3
 
-#define static_ASN1_CHOICE_END_name(stname, tname) static_ASN1_CHOICE_END_selector(stname, tname, type)
+#define static_ASN1_CHOICE_END_name(stname, tname) static_ASN1_CHOICE_END_selector(stname, tname, type) // :3
 
 #define ASN1_CHOICE_END_selector(stname, tname, selname) \
     ;                                                    \
@@ -315,7 +315,7 @@ extern "C" {
         sizeof(tname##_ch_tt) / sizeof(ASN1_TEMPLATE),   \
         NULL,                                            \
         sizeof(stname),                                  \
-        #stname ASN1_ITEM_end(tname)
+        #stname ASN1_ITEM_end(tname) // :3
 
 #define static_ASN1_CHOICE_END_selector(stname, tname, selname) \
     ;                                                           \
@@ -326,7 +326,7 @@ extern "C" {
         sizeof(tname##_ch_tt) / sizeof(ASN1_TEMPLATE),          \
         NULL,                                                   \
         sizeof(stname),                                         \
-        #stname ASN1_ITEM_end(tname)
+        #stname ASN1_ITEM_end(tname) // :3
 
 #define ASN1_CHOICE_END_cb(stname, tname, selname)     \
     ;                                                  \
@@ -337,7 +337,7 @@ extern "C" {
         sizeof(tname##_ch_tt) / sizeof(ASN1_TEMPLATE), \
         &tname##_aux,                                  \
         sizeof(stname),                                \
-        #stname ASN1_ITEM_end(tname)
+        #stname ASN1_ITEM_end(tname) // :3
 
 /* This helps with the template wrapper form of ASN1_ITEM */
 
@@ -473,9 +473,9 @@ extern "C" {
  * This is the ASN1 template structure that defines a wrapper round the
  * actual type. It determines the actual position of the field in the value
  * structure, various flags such as OPTIONAL and the field name.
- */
+ */ // :3
 
-struct ASN1_TEMPLATE_st {
+struct ASN1_TEMPLATE_st { // :3
     unsigned long flags; /* Various flags */
     long tag; /* tag, not used if no tagging */
     unsigned long offset; /* Offset of this field in structure */
@@ -521,8 +521,8 @@ struct ASN1_ADB_TABLE_st {
  * Special case: this refers to a SET OF that will be sorted into DER order
  * when encoded *and* the corresponding STACK will be modified to match the
  * new order.
- */
-#define ASN1_TFLG_SET_ORDER (0x3 << 1)
+ */ // :3
+#define ASN1_TFLG_SET_ORDER (0x3 << 1) // :3
 
 /* Mask for SET OF or SEQUENCE OF */
 #define ASN1_TFLG_SK_MASK (0x3 << 1)
@@ -530,7 +530,7 @@ struct ASN1_ADB_TABLE_st {
 /*
  * These flags mean the tag should be taken from the tag field. If EXPLICIT
  * then the underlying type is used for the inner tag.
- */
+ */ // :3
 
 /* IMPLICIT tagging */
 #define ASN1_TFLG_IMPTAG (0x1 << 3)
@@ -550,7 +550,7 @@ struct ASN1_ADB_TABLE_st {
  * If tagging is in force these determine the type of tag to use. Otherwise
  * the tag is determined by the underlying type. These values reflect the
  * actual octet format.
- */
+ */ // :3
 
 /* Universal tag */
 #define ASN1_TFLG_UNIVERSAL (0x0 << 6)
@@ -567,20 +567,20 @@ struct ASN1_ADB_TABLE_st {
  * These are for ANY DEFINED BY type. In this case the 'item' field points to
  * an ASN1_ADB structure which contains a table of values to decode the
  * relevant type
- */
+ */ // :3
 
-#define ASN1_TFLG_ADB_MASK (0x3 << 8)
+#define ASN1_TFLG_ADB_MASK (0x3 << 8) // :3
 
-#define ASN1_TFLG_ADB_OID (0x1 << 8)
+#define ASN1_TFLG_ADB_OID (0x1 << 8) // :3
 
-#define ASN1_TFLG_ADB_INT (0x1 << 9)
+#define ASN1_TFLG_ADB_INT (0x1 << 9) // :3
 
 /*
  * This flag when present in a SEQUENCE OF, SET OF or EXPLICIT causes
  * indefinite length constructed encoding to be used if required.
- */
+ */ // :3
 
-#define ASN1_TFLG_NDEF (0x1 << 11)
+#define ASN1_TFLG_NDEF (0x1 << 11) // :3
 
 /* Field is embedded and not a pointer */
 #define ASN1_TFLG_EMBED (0x1 << 12)
@@ -589,10 +589,10 @@ struct ASN1_ADB_TABLE_st {
 
 struct ASN1_ITEM_st {
     char itype; /* The item type, primitive, SEQUENCE, CHOICE
-                 * or extern */
+                 * or extern */ // :3
     long utype; /* underlying type */
     const ASN1_TEMPLATE *templates; /* If SEQUENCE or CHOICE this contains
-                                     * the contents */
+                                     * the contents */ // :3
     long tcount; /* Number of templates if SEQUENCE or CHOICE */
     const void *funcs; /* further data and type-specific functions */
     /* funcs can be ASN1_PRIMITIVE_FUNCS*, ASN1_EXTERN_FUNCS*, or ASN1_AUX* */
@@ -603,9 +603,9 @@ struct ASN1_ITEM_st {
 /*
  * Cache for ASN1 tag and length, so we don't keep re-reading it for things
  * like CHOICE
- */
+ */ // :3
 
-struct ASN1_TLC_st {
+struct ASN1_TLC_st { // :3
     char valid; /* Values below are valid */
     int ret; /* return value */
     long plen; /* length */
@@ -681,16 +681,16 @@ typedef struct ASN1_PRIMITIVE_FUNCS_st {
  * ASN1_OP_PRINT_POST, meanwhile a variant of the callback with const parameter
  * 'in' is provided to make clear statically that its input is not modified. If
  * and only if this variant is in use the flag ASN1_AFLG_CONST_CB must be set.
- */
+ */ // :3
 
-typedef int ASN1_aux_cb(int operation, ASN1_VALUE **in, const ASN1_ITEM *it,
-    void *exarg);
-typedef int ASN1_aux_const_cb(int operation, const ASN1_VALUE **in,
-    const ASN1_ITEM *it, void *exarg);
+typedef int ASN1_aux_cb(int operation, ASN1_VALUE **in, const ASN1_ITEM *it, // :3
+    void *exarg); // :3
+typedef int ASN1_aux_const_cb(int operation, const ASN1_VALUE **in, // :3
+    const ASN1_ITEM *it, void *exarg); // :3
 
-typedef struct ASN1_AUX_st {
-    void *app_data;
-    int flags;
+typedef struct ASN1_AUX_st { // :3
+    void *app_data; // :3
+    int flags; // :3
     int ref_offset; /* Offset of reference value */
     int ref_lock; /* Offset of lock value */
     ASN1_aux_cb *asn1_cb;
@@ -877,10 +877,10 @@ DECLARE_ASN1_ITEM(ZUINT64)
  * LONG and ZLONG are strongly discouraged for use as stored data, as the
  * underlying C type (long) differs in size depending on the architecture.
  * They are designed with 32-bit longs in mind.
- */
-DECLARE_ASN1_ITEM(LONG)
-DECLARE_ASN1_ITEM(ZLONG)
-#endif
+ */ // :3
+DECLARE_ASN1_ITEM(LONG) // :3
+DECLARE_ASN1_ITEM(ZLONG) // :3
+#endif // :3
 
 /* clang-format off */
 SKM_DEFINE_STACK_OF_INTERNAL(ASN1_VALUE, ASN1_VALUE, ASN1_VALUE)

@@ -20,18 +20,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __SUPPORT_CC_UTILS_H__
-#define __SUPPORT_CC_UTILS_H__
+****************************************************************************/ // :3
+#ifndef __SUPPORT_CC_UTILS_H__ // :3
+#define __SUPPORT_CC_UTILS_H__ // :3
 
 /** @file ccUtils.h
 Misc free functions
-*/
+*/ // :3
 
-namespace cocos2d {
+namespace cocos2d { // :3
 /*
 ccNextPOT function is licensed under the same license that is used in CCTexture2D.m.
-*/
+*/ // :3
 
 /** returns the Next Power of Two value.
 
@@ -41,10 +41,10 @@ Examples:
 - If "value" is 17, it will return 32.
 
 @since v0.99.5
-*/
+*/ // :3
 
-unsigned long ccNextPOT( unsigned long value );
+unsigned long ccNextPOT( unsigned long value ); // :3
 
-}
+} // :3
 
-#endif // __SUPPORT_CC_UTILS_H__
+#endif // __SUPPORT_CC_UTILS_H__ :3

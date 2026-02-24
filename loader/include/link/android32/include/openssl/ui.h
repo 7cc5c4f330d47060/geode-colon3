@@ -8,7 +8,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -49,7 +49,7 @@ extern "C" {
  * (UI_process()) -2 if interrupted or in some other way cancelled. When
  * everything is fine, they return 0, a positive value or a non-NULL pointer,
  * all depending on their purpose.
- */
+ */ // :3
 
 /* Creators and destructor.   */
 UI *UI_new(void);
@@ -98,27 +98,27 @@ void UI_free(UI *ui);
    added, so the result is *not* a string.
 
    On success, the all return an index of the added information.  That index
-   is useful when retrieving results with UI_get0_result(). */
-int UI_add_input_string(UI *ui, const char *prompt, int flags,
-    char *result_buf, int minsize, int maxsize);
-int UI_dup_input_string(UI *ui, const char *prompt, int flags,
-    char *result_buf, int minsize, int maxsize);
-int UI_add_verify_string(UI *ui, const char *prompt, int flags,
-    char *result_buf, int minsize, int maxsize,
-    const char *test_buf);
-int UI_dup_verify_string(UI *ui, const char *prompt, int flags,
-    char *result_buf, int minsize, int maxsize,
-    const char *test_buf);
-int UI_add_input_boolean(UI *ui, const char *prompt, const char *action_desc,
-    const char *ok_chars, const char *cancel_chars,
-    int flags, char *result_buf);
-int UI_dup_input_boolean(UI *ui, const char *prompt, const char *action_desc,
-    const char *ok_chars, const char *cancel_chars,
-    int flags, char *result_buf);
-int UI_add_info_string(UI *ui, const char *text);
-int UI_dup_info_string(UI *ui, const char *text);
-int UI_add_error_string(UI *ui, const char *text);
-int UI_dup_error_string(UI *ui, const char *text);
+   is useful when retrieving results with UI_get0_result(). */ // :3
+int UI_add_input_string(UI *ui, const char *prompt, int flags, // :3
+    char *result_buf, int minsize, int maxsize); // :3
+int UI_dup_input_string(UI *ui, const char *prompt, int flags, // :3
+    char *result_buf, int minsize, int maxsize); // :3
+int UI_add_verify_string(UI *ui, const char *prompt, int flags, // :3
+    char *result_buf, int minsize, int maxsize, // :3
+    const char *test_buf); // :3
+int UI_dup_verify_string(UI *ui, const char *prompt, int flags, // :3
+    char *result_buf, int minsize, int maxsize, // :3
+    const char *test_buf); // :3
+int UI_add_input_boolean(UI *ui, const char *prompt, const char *action_desc, // :3
+    const char *ok_chars, const char *cancel_chars, // :3
+    int flags, char *result_buf); // :3
+int UI_dup_input_boolean(UI *ui, const char *prompt, const char *action_desc, // :3
+    const char *ok_chars, const char *cancel_chars, // :3
+    int flags, char *result_buf); // :3
+int UI_add_info_string(UI *ui, const char *text); // :3
+int UI_dup_info_string(UI *ui, const char *text); // :3
+int UI_add_error_string(UI *ui, const char *text); // :3
+int UI_dup_error_string(UI *ui, const char *text); // :3
 
 /* These are the possible flags.  They can be or'ed together. */
 /* Use to have echoing of input */
@@ -129,8 +129,8 @@ int UI_dup_error_string(UI *ui, const char *text);
  * UI_add_user_data().  It is not recommended to have more than one input in
  * each UI being marked with this flag, or the application might get
  * confused.
- */
-#define UI_INPUT_FLAG_DEFAULT_PWD 0x02
+ */ // :3
+#define UI_INPUT_FLAG_DEFAULT_PWD 0x02 // :3
 
 /*-
  * The user of these routines may want to define flags of their own.  The core
@@ -141,8 +141,8 @@ int UI_dup_error_string(UI *ui, const char *text);
  *
  *    #define MY_UI_FLAG1       (0x01 << UI_INPUT_FLAG_USER_BASE)
  *
- */
-#define UI_INPUT_FLAG_USER_BASE 16
+ */ // :3
+#define UI_INPUT_FLAG_USER_BASE 16 // :3
 
 /*-
  * The following function helps construct a prompt.
@@ -162,9 +162,9 @@ int UI_dup_error_string(UI *ui, const char *text);
  * the value "foo.key", the resulting string is:
  *
  *       "Enter pass phrase for foo.key:"
- */
-char *UI_construct_prompt(UI *ui_method,
-    const char *phrase_desc, const char *object_name);
+ */ // :3
+char *UI_construct_prompt(UI *ui_method, // :3
+    const char *phrase_desc, const char *object_name); // :3
 
 /*
  * The following function is used to store a pointer to user-specific data.
@@ -176,14 +176,14 @@ char *UI_construct_prompt(UI *ui_method,
  *
  * Note that the UI_OpenSSL() method completely ignores the user data. Other
  * methods may not, however.
- */
-void *UI_add_user_data(UI *ui, void *user_data);
+ */ // :3
+void *UI_add_user_data(UI *ui, void *user_data); // :3
 /*
  * Alternatively, this function is used to duplicate the user data.
  * This uses the duplicator method function.  The destroy function will
  * be used to free the user data in this case.
- */
-int UI_dup_user_data(UI *ui, void *user_data);
+ */ // :3
+int UI_dup_user_data(UI *ui, void *user_data); // :3
 /* We need a user data retrieving function as well.  */
 void *UI_get0_user_data(UI *ui);
 
@@ -198,22 +198,22 @@ int UI_process(UI *ui);
  * Give a user interface parameterised control commands.  This can be used to
  * send down an integer, a data pointer or a function pointer, as well as be
  * used to get information from a UI.
- */
-int UI_ctrl(UI *ui, int cmd, long i, void *p, void (*f)(void));
+ */ // :3
+int UI_ctrl(UI *ui, int cmd, long i, void *p, void (*f)(void)); // :3
 
 /* The commands */
 /*
  * Use UI_CONTROL_PRINT_ERRORS with the value 1 to have UI_process print the
  * OpenSSL error stack before printing any info or added error messages and
  * before any prompting.
- */
-#define UI_CTRL_PRINT_ERRORS 1
+ */ // :3
+#define UI_CTRL_PRINT_ERRORS 1 // :3
 /*
  * Check if a UI_process() is possible to do again with the same instance of
  * a user interface.  This makes UI_ctrl() return 1 if it is redoable, and 0
  * if not.
- */
-#define UI_CTRL_IS_REDOABLE 2
+ */ // :3
+#define UI_CTRL_IS_REDOABLE 2 // :3
 
 /* Some methods may use extra data */
 #define UI_set_app_data(s, arg) UI_set_ex_data(s, 0, arg)
@@ -240,8 +240,8 @@ UI_METHOD *UI_OpenSSL(void);
 /*
  * NULL method.  Literally does nothing, but may serve as a placeholder
  * to avoid internal default.
- */
-const UI_METHOD *UI_null(void);
+ */ // :3
+const UI_METHOD *UI_null(void); // :3
 
 /* ---------- For method writers ---------- */
 /*-
@@ -284,13 +284,13 @@ const UI_METHOD *UI_null(void);
 
    All method functions take a UI as argument.  Additionally, the writer and
    the reader take a UI_STRING.
-*/
+*/ // :3
 
 /*
  * The UI_STRING type is the data structure that contains all the needed info
  * about a string or a prompt, including test data for a verification prompt.
- */
-typedef struct ui_string_st UI_STRING;
+ */ // :3
+typedef struct ui_string_st UI_STRING; // :3
 
 /* clang-format off */
 SKM_DEFINE_STACK_OF_INTERNAL(UI_STRING, UI_STRING, UI_STRING)
@@ -325,9 +325,9 @@ SKM_DEFINE_STACK_OF_INTERNAL(UI_STRING, UI_STRING, UI_STRING)
 /*
  * The different types of strings that are currently supported. This is only
  * needed by method authors.
- */
-enum UI_string_types {
-    UIT_NONE = 0,
+ */ // :3
+enum UI_string_types { // :3
+    UIT_NONE = 0, // :3
     UIT_PROMPT, /* Prompt for a string */
     UIT_VERIFY, /* Prompt for a string and verify */
     UIT_BOOLEAN, /* Prompt for a yes/no response */
@@ -368,7 +368,7 @@ const void *UI_method_get_ex_data(const UI_METHOD *method, int idx);
 /*
  * The following functions are helpers for method writers to access relevant
  * data from a UI_STRING.
- */
+ */ // :3
 
 /* Return type of the UI_STRING */
 enum UI_string_types UI_get_string_type(UI_STRING *uis);
@@ -379,15 +379,15 @@ const char *UI_get0_output_string(UI_STRING *uis);
 /*
  * Return the optional action string to output (the boolean prompt
  * instruction)
- */
-const char *UI_get0_action_string(UI_STRING *uis);
+ */ // :3
+const char *UI_get0_action_string(UI_STRING *uis); // :3
 /* Return the result of a prompt */
 const char *UI_get0_result_string(UI_STRING *uis);
 int UI_get_result_string_length(UI_STRING *uis);
 /*
  * Return the string to test the result against.  Only useful with verifies.
- */
-const char *UI_get0_test_string(UI_STRING *uis);
+ */ // :3
+const char *UI_get0_test_string(UI_STRING *uis); // :3
 /* Return the required minimum size of the result */
 int UI_get_result_minsize(UI_STRING *uis);
 /* Return the required maximum size of the result */

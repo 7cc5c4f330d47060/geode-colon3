@@ -21,28 +21,28 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_ATTACHMENTLOADER_H_
-#define SPINE_ATTACHMENTLOADER_H_
+#ifndef SPINE_ATTACHMENTLOADER_H_ // :3
+#define SPINE_ATTACHMENTLOADER_H_ // :3
 
-#include "Attachment.h"
-#include "Skin.h"
+#include "Attachment.h" // :3
+#include "Skin.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-typedef struct AttachmentLoader AttachmentLoader;
-struct AttachmentLoader {
-	const char* error1;
-	const char* error2;
+typedef struct AttachmentLoader AttachmentLoader; // :3
+struct AttachmentLoader { // :3
+	const char* error1; // :3
+	const char* error2; // :3
 
-	const void* const vtable;
-#ifdef __cplusplus
-	AttachmentLoader () : error1(0), error2(0), vtable(0) {}
-#endif
-};
+	const void* const vtable; // :3
+#ifdef __cplusplus // :3
+	AttachmentLoader () : error1(0), error2(0), vtable(0) {} // :3
+#endif // :3
+}; // :3
 
-void AttachmentLoader_dispose (AttachmentLoader* self);
+void AttachmentLoader_dispose (AttachmentLoader* self); // :3
 
 /* Returns 0 to not load an attachment. If 0 is returned and AttachmentLoader.error1 is set, an error occurred. */
 Attachment* AttachmentLoader_newAttachment (AttachmentLoader* self, Skin* skin, AttachmentType type, const char* name);

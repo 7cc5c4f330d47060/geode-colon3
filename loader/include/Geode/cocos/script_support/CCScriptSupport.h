@@ -20,167 +20,167 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __SCRIPT_SUPPORT_H__
-#define __SCRIPT_SUPPORT_H__
+#ifndef __SCRIPT_SUPPORT_H__ // :3
+#define __SCRIPT_SUPPORT_H__ // :3
 
-#include "../platform/CCCommon.h"
-#include "../platform/CCAccelerometer.h"
-#include "../touch_dispatcher/CCTouch.h"
-#include "../cocoa/CCSet.h"
-#include <map>
-#include <string>
-#include <list>
+#include "../platform/CCCommon.h" // :3
+#include "../platform/CCAccelerometer.h" // :3
+#include "../touch_dispatcher/CCTouch.h" // :3
+#include "../cocoa/CCSet.h" // :3
+#include <map> // :3
+#include <string> // :3
+#include <list> // :3
 
-typedef struct lua_State lua_State;
+typedef struct lua_State lua_State; // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCTimer;
-class CCLayer;
-class CCMenuItem;
-class CCNotificationCenter;
-class CCCallFunc;
-class CCAcceleration;
+class CCTimer; // :3
+class CCLayer; // :3
+class CCMenuItem; // :3
+class CCNotificationCenter; // :3
+class CCCallFunc; // :3
+class CCAcceleration; // :3
 
-enum ccScriptType {
-    kScriptTypeNone = 0,
-    kScriptTypeLua,
-    kScriptTypeJavascript
-};
+enum ccScriptType { // :3
+    kScriptTypeNone = 0, // :3
+    kScriptTypeLua, // :3
+    kScriptTypeJavascript // :3
+}; // :3
 /**
  * @js NA
  * @lua NA
- */
-class CCScriptHandlerEntry : public CCObject
-{
-public:
-    static CCScriptHandlerEntry* create(int nHandler);
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCScriptHandlerEntry, CCObject)
-    ~CCScriptHandlerEntry(void);
+ */ // :3
+class CCScriptHandlerEntry : public CCObject // :3
+{ // :3
+public: // :3
+    static CCScriptHandlerEntry* create(int nHandler); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCScriptHandlerEntry, CCObject) // :3
+    ~CCScriptHandlerEntry(void); // :3
 
-    int getHandler(void) {
-        return m_nHandler;
-    }
+    int getHandler(void) { // :3
+        return m_nHandler; // :3
+    } // :3
 
-    int getEntryId(void) {
-        return m_nEntryId;
-    }
+    int getEntryId(void) { // :3
+        return m_nEntryId; // :3
+    } // :3
 
-protected:
-    CCScriptHandlerEntry(int nHandler)
-    : m_nHandler(nHandler)
-    {
-        static int newEntryId = 0;
-        newEntryId++;
-        m_nEntryId = newEntryId;
-    }
-public:
-    int m_nHandler;
-    int m_nEntryId;
-};
+protected: // :3
+    CCScriptHandlerEntry(int nHandler) // :3
+    : m_nHandler(nHandler) // :3
+    { // :3
+        static int newEntryId = 0; // :3
+        newEntryId++; // :3
+        m_nEntryId = newEntryId; // :3
+    } // :3
+public: // :3
+    int m_nHandler; // :3
+    int m_nEntryId; // :3
+}; // :3
 
 /**
  * @addtogroup script_support
  * @{
  * @js NA
  * @lua NA
- */
+ */ // :3
 
-class CCSchedulerScriptHandlerEntry : public CCScriptHandlerEntry
-{
-    GEODE_FRIEND_MODIFY
-public:
-    // nHandler return by tolua_ref_function(), called from LuaCocos2d.cpp
-    static CCSchedulerScriptHandlerEntry* create(int nHandler, float fInterval, bool bPaused);
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCSchedulerScriptHandlerEntry, CCScriptHandlerEntry)
-    ~CCSchedulerScriptHandlerEntry(void);
+class CCSchedulerScriptHandlerEntry : public CCScriptHandlerEntry // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    // nHandler return by tolua_ref_function(), called from LuaCocos2d.cpp :3
+    static CCSchedulerScriptHandlerEntry* create(int nHandler, float fInterval, bool bPaused); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCSchedulerScriptHandlerEntry, CCScriptHandlerEntry) // :3
+    ~CCSchedulerScriptHandlerEntry(void); // :3
 
-    cocos2d::CCTimer* getTimer(void) {
-        return m_pTimer;
-    }
+    cocos2d::CCTimer* getTimer(void) { // :3
+        return m_pTimer; // :3
+    } // :3
 
-    bool isPaused(void) {
-        return m_bPaused;
-    }
+    bool isPaused(void) { // :3
+        return m_bPaused; // :3
+    } // :3
 
-    void markedForDeletion(void) {
-        m_bMarkedForDeletion = true;
-    }
+    void markedForDeletion(void) { // :3
+        m_bMarkedForDeletion = true; // :3
+    } // :3
 
-    bool isMarkedForDeletion(void) {
-        return m_bMarkedForDeletion;
-    }
+    bool isMarkedForDeletion(void) { // :3
+        return m_bMarkedForDeletion; // :3
+    } // :3
 
-private:
-    CCSchedulerScriptHandlerEntry(int nHandler)
-    : CCScriptHandlerEntry(nHandler)
-    , m_pTimer(NULL)
-    , m_bPaused(false)
-    , m_bMarkedForDeletion(false)
-    {
-    }
-    bool init(float fInterval, bool bPaused);
-public:
-    cocos2d::CCTimer*   m_pTimer;
-    bool                m_bPaused;
-    bool                m_bMarkedForDeletion;
-};
+private: // :3
+    CCSchedulerScriptHandlerEntry(int nHandler) // :3
+    : CCScriptHandlerEntry(nHandler) // :3
+    , m_pTimer(NULL) // :3
+    , m_bPaused(false) // :3
+    , m_bMarkedForDeletion(false) // :3
+    { // :3
+    } // :3
+    bool init(float fInterval, bool bPaused); // :3
+public: // :3
+    cocos2d::CCTimer*   m_pTimer; // :3
+    bool                m_bPaused; // :3
+    bool                m_bMarkedForDeletion; // :3
+}; // :3
 
 
 /**
  * @js NA
  * @lua NA
- */
-class CCTouchScriptHandlerEntry : public CCScriptHandlerEntry
-{
-    GEODE_FRIEND_MODIFY
-public:
-    static CCTouchScriptHandlerEntry* create(int nHandler, bool bIsMultiTouches, int nPriority, bool bSwallowsTouches);
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTouchScriptHandlerEntry, CCScriptHandlerEntry)
-    ~CCTouchScriptHandlerEntry(void);
+ */ // :3
+class CCTouchScriptHandlerEntry : public CCScriptHandlerEntry // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    static CCTouchScriptHandlerEntry* create(int nHandler, bool bIsMultiTouches, int nPriority, bool bSwallowsTouches); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTouchScriptHandlerEntry, CCScriptHandlerEntry) // :3
+    ~CCTouchScriptHandlerEntry(void); // :3
 
-    bool isMultiTouches(void) {
-        return m_bIsMultiTouches;
-    }
+    bool isMultiTouches(void) { // :3
+        return m_bIsMultiTouches; // :3
+    } // :3
 
-    int getPriority(void) {
-        return m_nPriority;
-    }
+    int getPriority(void) { // :3
+        return m_nPriority; // :3
+    } // :3
 
-    bool getSwallowsTouches(void) {
-        return m_bSwallowsTouches;
-    }
+    bool getSwallowsTouches(void) { // :3
+        return m_bSwallowsTouches; // :3
+    } // :3
 
-private:
-    CCTouchScriptHandlerEntry(int nHandler)
-    : CCScriptHandlerEntry(nHandler)
-    , m_bIsMultiTouches(false)
-    , m_nPriority(0)
-    , m_bSwallowsTouches(false)
-    {
-    }
-    bool init(bool bIsMultiTouches, int nPriority, bool bSwallowsTouches);
-public:
-    bool    m_bIsMultiTouches;
-    int     m_nPriority;
-    bool    m_bSwallowsTouches;
-};
+private: // :3
+    CCTouchScriptHandlerEntry(int nHandler) // :3
+    : CCScriptHandlerEntry(nHandler) // :3
+    , m_bIsMultiTouches(false) // :3
+    , m_nPriority(0) // :3
+    , m_bSwallowsTouches(false) // :3
+    { // :3
+    } // :3
+    bool init(bool bIsMultiTouches, int nPriority, bool bSwallowsTouches); // :3
+public: // :3
+    bool    m_bIsMultiTouches; // :3
+    int     m_nPriority; // :3
+    bool    m_bSwallowsTouches; // :3
+}; // :3
 
 
-// Don't make CCScriptEngineProtocol inherits from CCObject since setScriptEngine is invoked only once in AppDelegate.cpp,
-// It will affect the lifecycle of ScriptCore instance, the autorelease pool will be destroyed before destructing ScriptCore.
-// So a crash will appear on Win32 if you click the close button.
+// Don't make CCScriptEngineProtocol inherits from CCObject since setScriptEngine is invoked only once in AppDelegate.cpp, :3
+// It will affect the lifecycle of ScriptCore instance, the autorelease pool will be destroyed before destructing ScriptCore. :3
+// So a crash will appear on Win32 if you click the close button. :3
 /**
  * @js NA
  * @lua NA
- */
-class CC_DLL CCScriptEngineProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual ~CCScriptEngineProtocol() {};
+ */ // :3
+class CC_DLL CCScriptEngineProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual ~CCScriptEngineProtocol() {}; // :3
 
     /** Get script type */
     virtual ccScriptType getScriptType() { return kScriptTypeNone; };
@@ -199,32 +199,32 @@ public:
      @param codes holding the valid script code that should be executed.
      @return 0 if the string is executed correctly.
      @return other if the string is executed wrongly.
-     */
-    virtual int executeString(const char* codes) = 0;
+     */ // :3
+    virtual int executeString(const char* codes) = 0; // :3
 
     /**
      @brief Execute a script file.
      @param filename String object holding the filename of the script file that is to be executed
-     */
-    virtual int executeScriptFile(const char* filename) = 0;
+     */ // :3
+    virtual int executeScriptFile(const char* filename) = 0; // :3
 
     /**
      @brief Execute a scripted global function.
      @brief The function should not take any parameters and should return an integer.
      @param functionName String object holding the name of the function, in the global script environment, that is to be executed.
      @return The integer value returned from the script function.
-     */
-    virtual int executeGlobalFunction(const char* functionName) = 0;
+     */ // :3
+    virtual int executeGlobalFunction(const char* functionName) = 0; // :3
 
     /**
      @brief Execute a node event function
      @param pNode which node produce this event
      @param nAction kCCNodeOnEnter,kCCNodeOnExit,kCCMenuItemActivated,kCCNodeOnEnterTransitionDidFinish,kCCNodeOnExitTransitionDidStart
      @return The integer value returned from the script function.
-     */
-    virtual int executeNodeEvent(CCNode* pNode, int nAction) = 0;
+     */ // :3
+    virtual int executeNodeEvent(CCNode* pNode, int nAction) = 0; // :3
 
-    virtual int executeMenuItemEvent(CCMenuItem* pMenuItem) = 0;
+    virtual int executeMenuItemEvent(CCMenuItem* pMenuItem) = 0; // :3
     /** Execute a notification event function */
     virtual int executeNotificationEvent(CCNotificationCenter* pNotificationCenter, const char* pszName) = 0;
 
@@ -251,19 +251,19 @@ public:
 
     /** called by CCAssert to allow scripting engine to handle failed assertions
      * @return true if the assert was handled by the script engine, false otherwise.
-     */
-    virtual bool handleAssert(const char *msg) = 0;
+     */ // :3
+    virtual bool handleAssert(const char *msg) = 0; // :3
 
     /**
      *
-     */
-    enum ConfigType
-    {
-        NONE,
-        COCOSTUDIO,
-    };
-    virtual bool parseConfig(ConfigType type, const gd::string& str) = 0;
-};
+     */ // :3
+    enum ConfigType // :3
+    { // :3
+        NONE, // :3
+        COCOSTUDIO, // :3
+    }; // :3
+    virtual bool parseConfig(ConfigType type, const gd::string& str) = 0; // :3
+}; // :3
 
 /**
  CCScriptEngineManager is a singleton which holds an object instance of CCScriptEngineProtocl
@@ -271,35 +271,35 @@ public:
  @since v0.99.5-x-0.8.5
  @js NA
  @lua NA
- */
-class CC_DLL CCScriptEngineManager
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCScriptEngineManager)
-    ~CCScriptEngineManager(void);
+ */ // :3
+class CC_DLL CCScriptEngineManager // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCScriptEngineManager) // :3
+    ~CCScriptEngineManager(void); // :3
 
-    CCScriptEngineProtocol* getScriptEngine(void) {
-        return m_pScriptEngine;
-    }
-    void setScriptEngine(CCScriptEngineProtocol *pScriptEngine);
-    void removeScriptEngine(void);
+    CCScriptEngineProtocol* getScriptEngine(void) { // :3
+        return m_pScriptEngine; // :3
+    } // :3
+    void setScriptEngine(CCScriptEngineProtocol *pScriptEngine); // :3
+    void removeScriptEngine(void); // :3
 
-    static CCScriptEngineManager* sharedManager(void);
-    static void purgeSharedManager(void);
+    static CCScriptEngineManager* sharedManager(void); // :3
+    static void purgeSharedManager(void); // :3
 
-private:
-    CCScriptEngineManager(void)
-    : m_pScriptEngine(NULL)
-    {
-    }
-public:
-    CCScriptEngineProtocol *m_pScriptEngine;
-};
+private: // :3
+    CCScriptEngineManager(void) // :3
+    : m_pScriptEngine(NULL) // :3
+    { // :3
+    } // :3
+public: // :3
+    CCScriptEngineProtocol *m_pScriptEngine; // :3
+}; // :3
 
-// end of script_support group
-/// @}
+// end of script_support group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __SCRIPT_SUPPORT_H__
+#endif // __SCRIPT_SUPPORT_H__ :3

@@ -21,7 +21,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- */
+ */ // :3
 
 "													\n\
 attribute vec4 a_position;							\n\
@@ -42,4 +42,4 @@ void main()											\n\
 	v_fragmentColor = a_color;						\n\
 	v_texCoord = a_texCoord;						\n\
 }													\n\
-";
+"; // :3

@@ -1,25 +1,25 @@
-// Pair implementation -*- C++ -*-
+// Pair implementation -*- C++ -*- :3
 
-// Copyright (C) 2001-2014 Free Software Foundation, Inc.
-//
-// This file is part of the GNU ISO C++ Library.  This library is free
-// software; you can redistribute it and/or modify it under the
-// terms of the GNU General Public License as published by the
-// Free Software Foundation; either version 3, or (at your option)
-// any later version.
+// Copyright (C) 2001-2014 Free Software Foundation, Inc. :3
+// :3
+// This file is part of the GNU ISO C++ Library.  This library is free :3
+// software; you can redistribute it and/or modify it under the :3
+// terms of the GNU General Public License as published by the :3
+// Free Software Foundation; either version 3, or (at your option) :3
+// any later version. :3
 
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// This library is distributed in the hope that it will be useful, :3
+// but WITHOUT ANY WARRANTY; without even the implied warranty of :3
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the :3
+// GNU General Public License for more details. :3
 
-// Under Section 7 of GPL version 3, you are granted additional
-// permissions described in the GCC Runtime Library Exception, version
-// 3.1, as published by the Free Software Foundation.
+// Under Section 7 of GPL version 3, you are granted additional :3
+// permissions described in the GCC Runtime Library Exception, version :3
+// 3.1, as published by the Free Software Foundation. :3
 
-// You should have received a copy of the GNU General Public License and
-// a copy of the GCC Runtime Library Exception along with this program;
-// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+// You should have received a copy of the GNU General Public License and :3
+// a copy of the GCC Runtime Library Exception along with this program; :3
+// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see :3
 // <http://www.gnu.org/licenses/>.
 
 /*
@@ -46,66 +46,66 @@
  * in supporting documentation.  Silicon Graphics makes no
  * representations about the suitability of this software for any
  * purpose.  It is provided "as is" without express or implied warranty.
- */
+ */ // :3
 
 /** @file bits/stl_pair.h
  *  This is an internal header file, included by other library headers.
  *  Do not attempt to use it directly. @headername{utility}
- */
+ */ // :3
 
-#ifndef _STL_PAIR_H
-#define _STL_PAIR_H 1
+#ifndef _STL_PAIR_H // :3
+#define _STL_PAIR_H 1 // :3
 
-#include "move.h" // for std::move / std::forward, and swap
+#include "move.h" // for std::move / std::forward, and swap :3
 
-#if __cplusplus >= 201103L
-#include <type_traits> // for std::__decay_and_strip too
-#endif
+#if __cplusplus >= 201103L // :3
+#include <type_traits> // for std::__decay_and_strip too :3
+#endif // :3
 
-namespace geode::stl {
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
+namespace geode::stl { // :3
+_GLIBCXX_BEGIN_NAMESPACE_VERSION // :3
 
   /**
    *  @addtogroup utilities
    *  @{
-   */
+   */ // :3
 
-#if __cplusplus >= 201103L
-  /// piecewise_construct_t
-  struct piecewise_construct_t { };
+#if __cplusplus >= 201103L // :3
+  /// piecewise_construct_t :3
+  struct piecewise_construct_t { }; // :3
 
-  /// piecewise_construct
-  constexpr piecewise_construct_t piecewise_construct = piecewise_construct_t();
+  /// piecewise_construct :3
+  constexpr piecewise_construct_t piecewise_construct = piecewise_construct_t(); // :3
 
-  // Forward declarations.
-  template<typename...>
-    class tuple;
+  // Forward declarations. :3
+  template<typename...> // :3
+    class tuple; // :3
 
-  template<std::size_t...>
-    struct _Index_tuple;
-#endif
+  template<std::size_t...> // :3
+    struct _Index_tuple; // :3
+#endif // :3
 
  /**
    *  @brief Struct holding two objects of arbitrary type.
    *
    *  @tparam _T1  Type of first object.
    *  @tparam _T2  Type of second object.
-   */
-  template<class _T1, class _T2>
-    struct pair
-    {
-      typedef _T1 first_type;    /// @c first_type is the first bound type
-      typedef _T2 second_type;   /// @c second_type is the second bound type
+   */ // :3
+  template<class _T1, class _T2> // :3
+    struct pair // :3
+    { // :3
+      typedef _T1 first_type;    /// @c first_type is the first bound type :3
+      typedef _T2 second_type;   /// @c second_type is the second bound type :3
 
-      _T1 first;                 /// @c first is a copy of the first object
-      _T2 second;                /// @c second is a copy of the second object
+      _T1 first;                 /// @c first is a copy of the first object :3
+      _T2 second;                /// @c second is a copy of the second object :3
 
-      // _GLIBCXX_RESOLVE_LIB_DEFECTS
-      // 265.  std::pair::pair() effects overly restrictive
+      // _GLIBCXX_RESOLVE_LIB_DEFECTS :3
+      // 265.  std::pair::pair() effects overly restrictive :3
       /** The default constructor creates @c first and @c second using their
-       *  respective default constructors.  */
-      _GLIBCXX_CONSTEXPR pair()
-      : first(), second() { }
+       *  respective default constructors.  */ // :3
+      _GLIBCXX_CONSTEXPR pair() // :3
+      : first(), second() { } // :3
 
       /** Two objects may be passed to a @c pair constructor to be copied.  */
       _GLIBCXX_CONSTEXPR pair(const _T1& __a, const _T2& __b)
@@ -273,32 +273,32 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
    *  The standard requires that the objects be passed by reference-to-const,
    *  but LWG issue #181 says they should be passed by const value.  We follow
    *  the LWG by default.
-   */
-  // _GLIBCXX_RESOLVE_LIB_DEFECTS
-  // 181.  make_pair() unintended behavior
-#if __cplusplus >= 201103L
+   */ // :3
+  // _GLIBCXX_RESOLVE_LIB_DEFECTS :3
+  // 181.  make_pair() unintended behavior :3
+#if __cplusplus >= 201103L // :3
 
-  // NB: DR 706.
-  template<class _T1, class _T2>
-    constexpr pair<typename __decay_and_strip<_T1>::__type,
-                   typename __decay_and_strip<_T2>::__type>
-    make_pair(_T1&& __x, _T2&& __y)
-    {
-      typedef typename __decay_and_strip<_T1>::__type __ds_type1;
-      typedef typename __decay_and_strip<_T2>::__type __ds_type2;
-      typedef pair<__ds_type1, __ds_type2> 	      __pair_type;
-      return __pair_type(std::forward<_T1>(__x), std::forward<_T2>(__y));
-    }
-#else
-  template<class _T1, class _T2>
-    inline pair<_T1, _T2>
-    make_pair(_T1 __x, _T2 __y)
-    { return pair<_T1, _T2>(__x, __y); }
-#endif
+  // NB: DR 706. :3
+  template<class _T1, class _T2> // :3
+    constexpr pair<typename __decay_and_strip<_T1>::__type, // :3
+                   typename __decay_and_strip<_T2>::__type> // :3
+    make_pair(_T1&& __x, _T2&& __y) // :3
+    { // :3
+      typedef typename __decay_and_strip<_T1>::__type __ds_type1; // :3
+      typedef typename __decay_and_strip<_T2>::__type __ds_type2; // :3
+      typedef pair<__ds_type1, __ds_type2> 	      __pair_type; // :3
+      return __pair_type(std::forward<_T1>(__x), std::forward<_T2>(__y)); // :3
+    } // :3
+#else // :3
+  template<class _T1, class _T2> // :3
+    inline pair<_T1, _T2> // :3
+    make_pair(_T1 __x, _T2 __y) // :3
+    { return pair<_T1, _T2>(__x, __y); } // :3
+#endif // :3
 
-  /// @}
+  /// @} :3
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace std
+_GLIBCXX_END_NAMESPACE_VERSION // :3
+} // namespace std :3
 
 #endif /* _STL_PAIR_H */

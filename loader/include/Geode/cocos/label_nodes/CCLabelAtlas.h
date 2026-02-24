@@ -22,20 +22,20 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCLABEL_ATLAS_H__
-#define __CCLABEL_ATLAS_H__
+****************************************************************************/ // :3
+#ifndef __CCLABEL_ATLAS_H__ // :3
+#define __CCLABEL_ATLAS_H__ // :3
 
-#include "../base_nodes/CCAtlasNode.h"
+#include "../base_nodes/CCAtlasNode.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup label
  * @{
- */
+ */ // :3
 
 /** @brief CCLabelAtlas is a subclass of CCAtlasNode.
 
@@ -47,26 +47,26 @@ CCLabelAtlas versus CCLabel:
 - CCLabelAtlas "characters" can be anything you want since they are taken from an image file
 
 A more flexible class is CCLabelBMFont. It supports variable width characters and it also has a nice editor.
-*/
-class CC_DLL CCLabelAtlas : public CCAtlasNode, public CCLabelProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCLabelAtlas : public CCAtlasNode, public CCLabelProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
      *  @lua NA
-     */
-    CCLabelAtlas()
-        :m_sString("")
-    {}
+     */ // :3
+    CCLabelAtlas() // :3
+        :m_sString("") // :3
+    {} // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCLabelAtlas()
-    {
-        m_sString = "";
-    }
+     */ // :3
+    virtual ~CCLabelAtlas() // :3
+    { // :3
+        m_sString = ""; // :3
+    } // :3
 
     /** creates the CCLabelAtlas with a string, a char map file(the atlas), the width and height of each element and the starting char of the atlas */
     static CCLabelAtlas * create(const char *string, const char *charMapFile, unsigned int itemWidth, unsigned int itemHeight, unsigned int startCharMap);
@@ -74,16 +74,16 @@ public:
     /** creates the CCLabelAtlas with a string and a configuration file
      @since v2.0
      @js _create
-     */
-    static CCLabelAtlas* create(const char *string, const char *fntFile);
+     */ // :3
+    static CCLabelAtlas* create(const char *string, const char *fntFile); // :3
 
     /** initializes the CCLabelAtlas with a string, a char map file(the atlas), the width and height of each element and the starting char of the atlas */
     bool initWithString(const char *string, const char *charMapFile, unsigned int itemWidth, unsigned int itemHeight, unsigned int startCharMap);
 
     /** initializes the CCLabelAtlas with a string and a configuration file
      @since v2.0
-     */
-    bool initWithString(const char *string, const char *fntFile);
+     */ // :3
+    bool initWithString(const char *string, const char *fntFile); // :3
 
     /** initializes the CCLabelAtlas with a string, a texture, the width and height in points of each element and the starting char of the atlas */
     bool initWithString(const char* string, CCTexture2D* texture, unsigned int itemWidth, unsigned int itemHeight, unsigned int startCharMap);

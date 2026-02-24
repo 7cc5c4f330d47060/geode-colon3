@@ -10,7 +10,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -107,69 +107,69 @@ extern "C" {
  *       -- certificate cannot be issued because a duplicate
  *       -- certificate already exists
  *   }
- */
-#define OSSL_CMP_PKIFAILUREINFO_badAlg 0
-#define OSSL_CMP_PKIFAILUREINFO_badMessageCheck 1
-#define OSSL_CMP_PKIFAILUREINFO_badRequest 2
-#define OSSL_CMP_PKIFAILUREINFO_badTime 3
-#define OSSL_CMP_PKIFAILUREINFO_badCertId 4
-#define OSSL_CMP_PKIFAILUREINFO_badDataFormat 5
-#define OSSL_CMP_PKIFAILUREINFO_wrongAuthority 6
-#define OSSL_CMP_PKIFAILUREINFO_incorrectData 7
-#define OSSL_CMP_PKIFAILUREINFO_missingTimeStamp 8
-#define OSSL_CMP_PKIFAILUREINFO_badPOP 9
-#define OSSL_CMP_PKIFAILUREINFO_certRevoked 10
-#define OSSL_CMP_PKIFAILUREINFO_certConfirmed 11
-#define OSSL_CMP_PKIFAILUREINFO_wrongIntegrity 12
-#define OSSL_CMP_PKIFAILUREINFO_badRecipientNonce 13
-#define OSSL_CMP_PKIFAILUREINFO_timeNotAvailable 14
-#define OSSL_CMP_PKIFAILUREINFO_unacceptedPolicy 15
-#define OSSL_CMP_PKIFAILUREINFO_unacceptedExtension 16
-#define OSSL_CMP_PKIFAILUREINFO_addInfoNotAvailable 17
-#define OSSL_CMP_PKIFAILUREINFO_badSenderNonce 18
-#define OSSL_CMP_PKIFAILUREINFO_badCertTemplate 19
-#define OSSL_CMP_PKIFAILUREINFO_signerNotTrusted 20
-#define OSSL_CMP_PKIFAILUREINFO_transactionIdInUse 21
-#define OSSL_CMP_PKIFAILUREINFO_unsupportedVersion 22
-#define OSSL_CMP_PKIFAILUREINFO_notAuthorized 23
-#define OSSL_CMP_PKIFAILUREINFO_systemUnavail 24
-#define OSSL_CMP_PKIFAILUREINFO_systemFailure 25
-#define OSSL_CMP_PKIFAILUREINFO_duplicateCertReq 26
-#define OSSL_CMP_PKIFAILUREINFO_MAX 26
+ */ // :3
+#define OSSL_CMP_PKIFAILUREINFO_badAlg 0 // :3
+#define OSSL_CMP_PKIFAILUREINFO_badMessageCheck 1 // :3
+#define OSSL_CMP_PKIFAILUREINFO_badRequest 2 // :3
+#define OSSL_CMP_PKIFAILUREINFO_badTime 3 // :3
+#define OSSL_CMP_PKIFAILUREINFO_badCertId 4 // :3
+#define OSSL_CMP_PKIFAILUREINFO_badDataFormat 5 // :3
+#define OSSL_CMP_PKIFAILUREINFO_wrongAuthority 6 // :3
+#define OSSL_CMP_PKIFAILUREINFO_incorrectData 7 // :3
+#define OSSL_CMP_PKIFAILUREINFO_missingTimeStamp 8 // :3
+#define OSSL_CMP_PKIFAILUREINFO_badPOP 9 // :3
+#define OSSL_CMP_PKIFAILUREINFO_certRevoked 10 // :3
+#define OSSL_CMP_PKIFAILUREINFO_certConfirmed 11 // :3
+#define OSSL_CMP_PKIFAILUREINFO_wrongIntegrity 12 // :3
+#define OSSL_CMP_PKIFAILUREINFO_badRecipientNonce 13 // :3
+#define OSSL_CMP_PKIFAILUREINFO_timeNotAvailable 14 // :3
+#define OSSL_CMP_PKIFAILUREINFO_unacceptedPolicy 15 // :3
+#define OSSL_CMP_PKIFAILUREINFO_unacceptedExtension 16 // :3
+#define OSSL_CMP_PKIFAILUREINFO_addInfoNotAvailable 17 // :3
+#define OSSL_CMP_PKIFAILUREINFO_badSenderNonce 18 // :3
+#define OSSL_CMP_PKIFAILUREINFO_badCertTemplate 19 // :3
+#define OSSL_CMP_PKIFAILUREINFO_signerNotTrusted 20 // :3
+#define OSSL_CMP_PKIFAILUREINFO_transactionIdInUse 21 // :3
+#define OSSL_CMP_PKIFAILUREINFO_unsupportedVersion 22 // :3
+#define OSSL_CMP_PKIFAILUREINFO_notAuthorized 23 // :3
+#define OSSL_CMP_PKIFAILUREINFO_systemUnavail 24 // :3
+#define OSSL_CMP_PKIFAILUREINFO_systemFailure 25 // :3
+#define OSSL_CMP_PKIFAILUREINFO_duplicateCertReq 26 // :3
+#define OSSL_CMP_PKIFAILUREINFO_MAX 26 // :3
 #define OSSL_CMP_PKIFAILUREINFO_MAX_BIT_PATTERN \
-    ((1 << (OSSL_CMP_PKIFAILUREINFO_MAX + 1)) - 1)
-#if OSSL_CMP_PKIFAILUREINFO_MAX_BIT_PATTERN > INT_MAX
-#error CMP_PKIFAILUREINFO_MAX bit pattern does not fit in type int
-#endif
-typedef ASN1_BIT_STRING OSSL_CMP_PKIFAILUREINFO;
+    ((1 << (OSSL_CMP_PKIFAILUREINFO_MAX + 1)) - 1) // :3
+#if OSSL_CMP_PKIFAILUREINFO_MAX_BIT_PATTERN > INT_MAX // :3
+#error CMP_PKIFAILUREINFO_MAX bit pattern does not fit in type int // :3
+#endif // :3
+typedef ASN1_BIT_STRING OSSL_CMP_PKIFAILUREINFO; // :3
 
-#define OSSL_CMP_CTX_FAILINFO_badAlg (1 << 0)
-#define OSSL_CMP_CTX_FAILINFO_badMessageCheck (1 << 1)
-#define OSSL_CMP_CTX_FAILINFO_badRequest (1 << 2)
-#define OSSL_CMP_CTX_FAILINFO_badTime (1 << 3)
-#define OSSL_CMP_CTX_FAILINFO_badCertId (1 << 4)
-#define OSSL_CMP_CTX_FAILINFO_badDataFormat (1 << 5)
-#define OSSL_CMP_CTX_FAILINFO_wrongAuthority (1 << 6)
-#define OSSL_CMP_CTX_FAILINFO_incorrectData (1 << 7)
-#define OSSL_CMP_CTX_FAILINFO_missingTimeStamp (1 << 8)
-#define OSSL_CMP_CTX_FAILINFO_badPOP (1 << 9)
-#define OSSL_CMP_CTX_FAILINFO_certRevoked (1 << 10)
-#define OSSL_CMP_CTX_FAILINFO_certConfirmed (1 << 11)
-#define OSSL_CMP_CTX_FAILINFO_wrongIntegrity (1 << 12)
-#define OSSL_CMP_CTX_FAILINFO_badRecipientNonce (1 << 13)
-#define OSSL_CMP_CTX_FAILINFO_timeNotAvailable (1 << 14)
-#define OSSL_CMP_CTX_FAILINFO_unacceptedPolicy (1 << 15)
-#define OSSL_CMP_CTX_FAILINFO_unacceptedExtension (1 << 16)
-#define OSSL_CMP_CTX_FAILINFO_addInfoNotAvailable (1 << 17)
-#define OSSL_CMP_CTX_FAILINFO_badSenderNonce (1 << 18)
-#define OSSL_CMP_CTX_FAILINFO_badCertTemplate (1 << 19)
-#define OSSL_CMP_CTX_FAILINFO_signerNotTrusted (1 << 20)
-#define OSSL_CMP_CTX_FAILINFO_transactionIdInUse (1 << 21)
-#define OSSL_CMP_CTX_FAILINFO_unsupportedVersion (1 << 22)
-#define OSSL_CMP_CTX_FAILINFO_notAuthorized (1 << 23)
-#define OSSL_CMP_CTX_FAILINFO_systemUnavail (1 << 24)
-#define OSSL_CMP_CTX_FAILINFO_systemFailure (1 << 25)
-#define OSSL_CMP_CTX_FAILINFO_duplicateCertReq (1 << 26)
+#define OSSL_CMP_CTX_FAILINFO_badAlg (1 << 0) // :3
+#define OSSL_CMP_CTX_FAILINFO_badMessageCheck (1 << 1) // :3
+#define OSSL_CMP_CTX_FAILINFO_badRequest (1 << 2) // :3
+#define OSSL_CMP_CTX_FAILINFO_badTime (1 << 3) // :3
+#define OSSL_CMP_CTX_FAILINFO_badCertId (1 << 4) // :3
+#define OSSL_CMP_CTX_FAILINFO_badDataFormat (1 << 5) // :3
+#define OSSL_CMP_CTX_FAILINFO_wrongAuthority (1 << 6) // :3
+#define OSSL_CMP_CTX_FAILINFO_incorrectData (1 << 7) // :3
+#define OSSL_CMP_CTX_FAILINFO_missingTimeStamp (1 << 8) // :3
+#define OSSL_CMP_CTX_FAILINFO_badPOP (1 << 9) // :3
+#define OSSL_CMP_CTX_FAILINFO_certRevoked (1 << 10) // :3
+#define OSSL_CMP_CTX_FAILINFO_certConfirmed (1 << 11) // :3
+#define OSSL_CMP_CTX_FAILINFO_wrongIntegrity (1 << 12) // :3
+#define OSSL_CMP_CTX_FAILINFO_badRecipientNonce (1 << 13) // :3
+#define OSSL_CMP_CTX_FAILINFO_timeNotAvailable (1 << 14) // :3
+#define OSSL_CMP_CTX_FAILINFO_unacceptedPolicy (1 << 15) // :3
+#define OSSL_CMP_CTX_FAILINFO_unacceptedExtension (1 << 16) // :3
+#define OSSL_CMP_CTX_FAILINFO_addInfoNotAvailable (1 << 17) // :3
+#define OSSL_CMP_CTX_FAILINFO_badSenderNonce (1 << 18) // :3
+#define OSSL_CMP_CTX_FAILINFO_badCertTemplate (1 << 19) // :3
+#define OSSL_CMP_CTX_FAILINFO_signerNotTrusted (1 << 20) // :3
+#define OSSL_CMP_CTX_FAILINFO_transactionIdInUse (1 << 21) // :3
+#define OSSL_CMP_CTX_FAILINFO_unsupportedVersion (1 << 22) // :3
+#define OSSL_CMP_CTX_FAILINFO_notAuthorized (1 << 23) // :3
+#define OSSL_CMP_CTX_FAILINFO_systemUnavail (1 << 24) // :3
+#define OSSL_CMP_CTX_FAILINFO_systemFailure (1 << 25) // :3
+#define OSSL_CMP_CTX_FAILINFO_duplicateCertReq (1 << 26) // :3
 
 /*-
  *   PKIStatus ::= INTEGER {
@@ -195,23 +195,23 @@ typedef ASN1_BIT_STRING OSSL_CMP_PKIFAILUREINFO;
  *       -- update already done for the oldCertId specified in
  *       -- CertReqMsg
  *   }
- */
-#define OSSL_CMP_PKISTATUS_request -3
-#define OSSL_CMP_PKISTATUS_trans -2
-#define OSSL_CMP_PKISTATUS_unspecified -1
-#define OSSL_CMP_PKISTATUS_accepted 0
-#define OSSL_CMP_PKISTATUS_grantedWithMods 1
-#define OSSL_CMP_PKISTATUS_rejection 2
-#define OSSL_CMP_PKISTATUS_waiting 3
-#define OSSL_CMP_PKISTATUS_revocationWarning 4
-#define OSSL_CMP_PKISTATUS_revocationNotification 5
-#define OSSL_CMP_PKISTATUS_keyUpdateWarning 6
-typedef ASN1_INTEGER OSSL_CMP_PKISTATUS;
+ */ // :3
+#define OSSL_CMP_PKISTATUS_request -3 // :3
+#define OSSL_CMP_PKISTATUS_trans -2 // :3
+#define OSSL_CMP_PKISTATUS_unspecified -1 // :3
+#define OSSL_CMP_PKISTATUS_accepted 0 // :3
+#define OSSL_CMP_PKISTATUS_grantedWithMods 1 // :3
+#define OSSL_CMP_PKISTATUS_rejection 2 // :3
+#define OSSL_CMP_PKISTATUS_waiting 3 // :3
+#define OSSL_CMP_PKISTATUS_revocationWarning 4 // :3
+#define OSSL_CMP_PKISTATUS_revocationNotification 5 // :3
+#define OSSL_CMP_PKISTATUS_keyUpdateWarning 6 // :3
+typedef ASN1_INTEGER OSSL_CMP_PKISTATUS; // :3
 
-DECLARE_ASN1_ITEM(OSSL_CMP_PKISTATUS)
+DECLARE_ASN1_ITEM(OSSL_CMP_PKISTATUS) // :3
 
-#define OSSL_CMP_CERTORENCCERT_CERTIFICATE 0
-#define OSSL_CMP_CERTORENCCERT_ENCRYPTEDCERT 1
+#define OSSL_CMP_CERTORENCCERT_CERTIFICATE 0 // :3
+#define OSSL_CMP_CERTORENCCERT_ENCRYPTEDCERT 1 // :3
 
 /* data type declarations */
 typedef struct ossl_cmp_ctx_st OSSL_CMP_CTX;
@@ -422,7 +422,7 @@ typedef STACK_OF(ASN1_UTF8STRING) OSSL_CMP_PKIFREETEXT;
 
 /*
  * function DECLARATIONS
- */
+ */ // :3
 
 /* from cmp_asn.c */
 OSSL_CMP_ITAV *OSSL_CMP_ITAV_create(ASN1_OBJECT *type, ASN1_TYPE *value);

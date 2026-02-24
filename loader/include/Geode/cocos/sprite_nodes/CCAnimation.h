@@ -22,27 +22,27 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CC_ANIMATION_H__
-#define __CC_ANIMATION_H__
+****************************************************************************/ // :3
+#ifndef __CC_ANIMATION_H__ // :3
+#define __CC_ANIMATION_H__ // :3
 
-#include "../platform/CCPlatformConfig.h"
-#include "../cocoa/CCObject.h"
-#include "../cocoa/CCArray.h"
-#include "../cocoa/CCDictionary.h"
-#include "../cocoa/CCGeometry.h"
-#include "CCSpriteFrame.h"
-#include <string>
+#include "../platform/CCPlatformConfig.h" // :3
+#include "../cocoa/CCObject.h" // :3
+#include "../cocoa/CCArray.h" // :3
+#include "../cocoa/CCDictionary.h" // :3
+#include "../cocoa/CCGeometry.h" // :3
+#include "CCSpriteFrame.h" // :3
+#include <string> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCTexture2D;
-class CCSpriteFrame;
+class CCTexture2D; // :3
+class CCSpriteFrame; // :3
 
 /**
  * @addtogroup sprite_nodes
  * @{
- */
+ */ // :3
 
 /** CCAnimationFrame
  A frame of the animation. It contains information like:
@@ -51,26 +51,26 @@ class CCSpriteFrame;
     - offset
 
  @since v2.0
- */
-class CC_DLL CCAnimationFrame : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCAnimationFrame, CCObject)
+ */ // :3
+class CC_DLL CCAnimationFrame : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCAnimationFrame, CCObject) // :3
     /**
      * @js ctor
-     */
-    CCAnimationFrame();
+     */ // :3
+    CCAnimationFrame(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCAnimationFrame();
+     */ // :3
+    virtual ~CCAnimationFrame(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
     /** initializes the animation frame with a spriteframe, number of delay units and a notification user info */
     bool initWithSpriteFrame(CCSpriteFrame* spriteFrame, float delayUnits, CCDictionary* userInfo);
 
@@ -94,80 +94,80 @@ You can animate a CCAnimation object by using the CCAnimate action. Example:
 
 [sprite runAction:[CCAnimate actionWithAnimation:animation]];
 
-*/
-class CC_DLL CCAnimation : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCAnimation, CCObject)
+*/ // :3
+class CC_DLL CCAnimation : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCAnimation, CCObject) // :3
     /**
      * @js ctor
-     */
-    CCAnimation();
+     */ // :3
+    CCAnimation(); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    ~CCAnimation(void);
-public:
+     */ // :3
+    ~CCAnimation(void); // :3
+public: // :3
     /** Creates an animation
     @since v0.99.5
-    */
-    static CCAnimation* create(void);
+    */ // :3
+    static CCAnimation* create(void); // :3
 
     /* Creates an animation with an array of CCSpriteFrame and a delay between frames in seconds.
      The frames will be added with one "delay unit".
      @since v0.99.5
      @js create
-    */
-    static CCAnimation* createWithSpriteFrames(CCArray* arrayOfSpriteFrameNames, float delay = 0.0f);
+    */ // :3
+    static CCAnimation* createWithSpriteFrames(CCArray* arrayOfSpriteFrameNames, float delay = 0.0f); // :3
 
     /* Creates an animation with an array of CCAnimationFrame, the delay per units in seconds and and how many times it should be executed.
      @since v2.0
-     */
-    static CCAnimation* create(CCArray *arrayOfAnimationFrameNames, float delayPerUnit, unsigned int loops);
-    static CCAnimation* create(CCArray *arrayOfAnimationFrameNames, float delayPerUnit) {
-        return CCAnimation::create(arrayOfAnimationFrameNames, delayPerUnit, 1);
-    }
+     */ // :3
+    static CCAnimation* create(CCArray *arrayOfAnimationFrameNames, float delayPerUnit, unsigned int loops); // :3
+    static CCAnimation* create(CCArray *arrayOfAnimationFrameNames, float delayPerUnit) { // :3
+        return CCAnimation::create(arrayOfAnimationFrameNames, delayPerUnit, 1); // :3
+    } // :3
 
     /** Adds a CCSpriteFrame to a CCAnimation.
      The frame will be added with one "delay unit".
-    */
-    void addSpriteFrame(CCSpriteFrame *pFrame);
+    */ // :3
+    void addSpriteFrame(CCSpriteFrame *pFrame); // :3
 
     /** Adds a frame with an image filename. Internally it will create a CCSpriteFrame and it will add it.
      The frame will be added with one "delay unit".
      Added to facilitate the migration from v0.8 to v0.9.
      * @js addSpriteFrameWithFile
-     */
-    void addSpriteFrameWithFileName(const char *pszFileName);
+     */ // :3
+    void addSpriteFrameWithFileName(const char *pszFileName); // :3
 
     /** Adds a frame with a texture and a rect. Internally it will create a CCSpriteFrame and it will add it.
      The frame will be added with one "delay unit".
      Added to facilitate the migration from v0.8 to v0.9.
-     */
-    void addSpriteFrameWithTexture(CCTexture2D* pobTexture, const CCRect& rect);
+     */ // :3
+    void addSpriteFrameWithTexture(CCTexture2D* pobTexture, const CCRect& rect); // :3
     /**
      * @lua NA
-     */
-    bool init();
+     */ // :3
+    bool init(); // :3
 
     /** Initializes a CCAnimation with frames and a delay between frames
      @since v0.99.5
      @lua NA
-    */
-    bool initWithSpriteFrames(CCArray *pFrames, float delay = 0.0f);
+    */ // :3
+    bool initWithSpriteFrames(CCArray *pFrames, float delay = 0.0f); // :3
 
     /** Initializes a CCAnimation with CCAnimationFrame
      @since v2.0
      @lua NA
-    */
-    bool initWithAnimationFrames(CCArray* arrayOfAnimationFrames, float delayPerUnit, unsigned int loops);
+    */ // :3
+    bool initWithAnimationFrames(CCArray* arrayOfAnimationFrames, float delayPerUnit, unsigned int loops); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
 
     /** total Delay units of the CCAnimation. */
     CC_SYNTHESIZE_READONLY_NV(float, m_fTotalDelayUnits, TotalDelayUnits)

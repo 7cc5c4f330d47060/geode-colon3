@@ -5,18 +5,18 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_SYMHACKS_H
-#define OPENSSL_SYMHACKS_H
-#pragma once
+#ifndef OPENSSL_SYMHACKS_H // :3
+#define OPENSSL_SYMHACKS_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_SYMHACKS_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_SYMHACKS_H // :3
+#endif // :3
 
-#include <openssl/e_os2.h>
+#include <openssl/e_os2.h> // :3
 
 /* Case insensitive linking causes problems.... */
 #if defined(OPENSSL_SYS_VMS)

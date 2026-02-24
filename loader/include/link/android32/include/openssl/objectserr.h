@@ -6,21 +6,21 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_OBJECTSERR_H
-#define OPENSSL_OBJECTSERR_H
-#pragma once
+#ifndef OPENSSL_OBJECTSERR_H // :3
+#define OPENSSL_OBJECTSERR_H // :3
+#pragma once // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/symhacks.h>
-#include <openssl/cryptoerr_legacy.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/symhacks.h> // :3
+#include <openssl/cryptoerr_legacy.h> // :3
 
 /*
  * OBJ reason codes.
- */
-#define OBJ_R_OID_EXISTS 102
-#define OBJ_R_UNKNOWN_NID 101
-#define OBJ_R_UNKNOWN_OBJECT_NAME 103
+ */ // :3
+#define OBJ_R_OID_EXISTS 102 // :3
+#define OBJ_R_UNKNOWN_NID 101 // :3
+#define OBJ_R_UNKNOWN_OBJECT_NAME 103 // :3
 
-#endif
+#endif // :3

@@ -1,107 +1,107 @@
-#pragma once
+#pragma once // :3
 
-#include "addresser.hpp"
-#include <memory>
-#include <optional>
-#include "../modify/Traits.hpp"
-#include "../loader/Mod.hpp"
-#include "../loader/Hook.hpp"
-#include "../loader/Tulip.hpp"
+#include "addresser.hpp" // :3
+#include <memory> // :3
+#include <optional> // :3
+#include "../modify/Traits.hpp" // :3
+#include "../loader/Mod.hpp" // :3
+#include "../loader/Hook.hpp" // :3
+#include "../loader/Tulip.hpp" // :3
 
-namespace geode {
-    class GEODE_DLL VMTHookManager final {
-    private:
-        class Impl;
-        std::unique_ptr<Impl> m_impl;
-        VMTHookManager();
-        ~VMTHookManager();
+namespace geode { // :3
+    class GEODE_DLL VMTHookManager final { // :3
+    private: // :3
+        class Impl; // :3
+        std::unique_ptr<Impl> m_impl; // :3
+        VMTHookManager(); // :3
+        ~VMTHookManager(); // :3
 
-    #if defined(GEODE_IS_WINDOWS32) || defined(GEODE_IS_WINDOWS64)
-        template <auto UUID>
-        static void emptyFunction() {
-            __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop();
-            __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop();
-            __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop();
-            __nop(); __nop(); __nop(); __nop(); __nop(); __nop();
-            return emptyFunction<UUID>();
-        }
-    #elif defined(GEODE_IS_INTEL_MAC) 
-        template <auto UUID>
-        static void __attribute__((naked)) emptyFunction() {
-            __asm__ volatile(
-                "0:\n\t"                 
-                ".rept 30\n\t"           
-                "nop\n\t"
-                ".endr\n\t"
-                "jmp 0b\n\t"
-            );
-        }
-    #elif defined(GEODE_IS_ARM_MAC) || defined(GEODE_IS_ANDROID64) || defined(GEODE_IS_IOS)
-        template <auto UUID>
-        static void __attribute__((naked)) emptyFunction() {
-            __asm__ volatile(
-                "0:\n\t"                 
-                ".rept 8\n\t"            
-                "nop\n\t"
-                ".endr\n\t"
-                "bl 0b\n\t"              
-            );
-        }
-    #elif defined(GEODE_IS_ANDROID32)
-        template <auto UUID>
-        static void __attribute__((naked)) emptyFunction() {
-            __asm__ volatile(
-            #if defined(__thumb__)
-                ".syntax unified\n\t"
-                "0:\n\t"                 
-                ".rept 16\n\t"           
-                "nop\n\t"
-                ".endr\n\t"
-                "bl 0b\n\t"              
+    #if defined(GEODE_IS_WINDOWS32) || defined(GEODE_IS_WINDOWS64) // :3
+        template <auto UUID> // :3
+        static void emptyFunction() { // :3
+            __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); // :3
+            __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); // :3
+            __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); // :3
+            __nop(); __nop(); __nop(); __nop(); __nop(); __nop(); // :3
+            return emptyFunction<UUID>(); // :3
+        } // :3
+    #elif defined(GEODE_IS_INTEL_MAC)  // :3
+        template <auto UUID> // :3
+        static void __attribute__((naked)) emptyFunction() { // :3
+            __asm__ volatile( // :3
+                "0:\n\t"                  // :3
+                ".rept 30\n\t"            // :3
+                "nop\n\t" // :3
+                ".endr\n\t" // :3
+                "jmp 0b\n\t" // :3
+            ); // :3
+        } // :3
+    #elif defined(GEODE_IS_ARM_MAC) || defined(GEODE_IS_ANDROID64) || defined(GEODE_IS_IOS) // :3
+        template <auto UUID> // :3
+        static void __attribute__((naked)) emptyFunction() { // :3
+            __asm__ volatile( // :3
+                "0:\n\t"                  // :3
+                ".rept 8\n\t"             // :3
+                "nop\n\t" // :3
+                ".endr\n\t" // :3
+                "bl 0b\n\t"               // :3
+            ); // :3
+        } // :3
+    #elif defined(GEODE_IS_ANDROID32) // :3
+        template <auto UUID> // :3
+        static void __attribute__((naked)) emptyFunction() { // :3
+            __asm__ volatile( // :3
+            #if defined(__thumb__) // :3
+                ".syntax unified\n\t" // :3
+                "0:\n\t"                  // :3
+                ".rept 16\n\t"            // :3
+                "nop\n\t" // :3
+                ".endr\n\t" // :3
+                "bl 0b\n\t"               // :3
 
-            #else
-                ".syntax unified\n\t"
-                "0:\n\t"                 
-                ".rept 8\n\t"           
-                "nop\n\t"
-                ".endr\n\t"
-                "bl 0b\n\t"
-            #endif
-            );
-        }
-    #endif
+            #else // :3
+                ".syntax unified\n\t" // :3
+                "0:\n\t"                  // :3
+                ".rept 8\n\t"            // :3
+                "nop\n\t" // :3
+                ".endr\n\t" // :3
+                "bl 0b\n\t" // :3
+            #endif // :3
+            ); // :3
+        } // :3
+    #endif // :3
 
-        template <class Function>
-        struct MeasureTableSize {};
+        template <class Function> // :3
+        struct MeasureTableSize {}; // :3
 
-        template <class Return, class Class, class... Params>
-        struct MeasureTableSize<Return(Class::*)(Params...)> : Class {
-        public:
-            virtual void measureTableSize() {
-                // This function is used to measure the size of the vtable
-            }
-        };
+        template <class Return, class Class, class... Params> // :3
+        struct MeasureTableSize<Return(Class::*)(Params...)> : Class { // :3
+        public: // :3
+            virtual void measureTableSize() { // :3
+                // This function is used to measure the size of the vtable :3
+            } // :3
+        }; // :3
 
-        template <class Return, class Class, class... Params>
-        struct MeasureTableSize<Return(Class::*)(Params...) const> : Class {
-        public:
-            virtual void measureTableSize() {
-                // This function is used to measure the size of the vtable
-            }
-        };
+        template <class Return, class Class, class... Params> // :3
+        struct MeasureTableSize<Return(Class::*)(Params...) const> : Class { // :3
+        public: // :3
+            virtual void measureTableSize() { // :3
+                // This function is used to measure the size of the vtable :3
+            } // :3
+        }; // :3
 
-        Result<std::optional<std::shared_ptr<Hook>>> addHookInternal(
-            void* instance, ptrdiff_t thunkOffset, ptrdiff_t vtableOffset, size_t vtableSize,
-            void* emptyFunc, void* newFunc, std::string typeName, std::string displayName,
-            tulip::hook::HandlerMetadata handlerMetadata,
-            tulip::hook::HookMetadata hookMetadata
-        );
+        Result<std::optional<std::shared_ptr<Hook>>> addHookInternal( // :3
+            void* instance, ptrdiff_t thunkOffset, ptrdiff_t vtableOffset, size_t vtableSize, // :3
+            void* emptyFunc, void* newFunc, std::string typeName, std::string displayName, // :3
+            tulip::hook::HandlerMetadata handlerMetadata, // :3
+            tulip::hook::HookMetadata hookMetadata // :3
+        ); // :3
 
-        Result<> forceDisableFunctionInternal(void* instance, std::string typeName, ptrdiff_t thunkOffset, ptrdiff_t vtableOffset);
-        Result<> forceEnableFunctionInternal(void* instance, std::string typeName, ptrdiff_t thunkOffset, ptrdiff_t vtableOffset);
+        Result<> forceDisableFunctionInternal(void* instance, std::string typeName, ptrdiff_t thunkOffset, ptrdiff_t vtableOffset); // :3
+        Result<> forceEnableFunctionInternal(void* instance, std::string typeName, ptrdiff_t thunkOffset, ptrdiff_t vtableOffset); // :3
 
-    public:
-        static VMTHookManager& get();
+    public: // :3
+        static VMTHookManager& get(); // :3
 
         /**
          * Hooks a virtual function in a table that does not exist for the class.
@@ -136,62 +136,62 @@ namespace geode {
          * @param hookMetadata Additional metadata for the hook.
          *
          * @return A result containing the hook, if successful. Will return a nullopt if the hook has already been created.
-         */
-        template<auto Function, class Class>
-        Result<std::optional<Hook*>> addHook(
-            Class* instance, std::string displayName = "",
-            tulip::hook::TulipConvention convention = tulip::hook::TulipConvention::Default,
-            tulip::hook::HookMetadata hookMetadata = tulip::hook::HookMetadata{}
-        ) {
-            if constexpr (Function != nullptr) {
-                auto const thunkOffset = addresser::getThunkOffset(Function);
-                auto const vtableOffset = addresser::getVirtualOffset(Function);
-                auto const newFunc = (void*)addresser::getVirtual(Function);
-                auto const vtableSize = addresser::getVirtualOffset(
-                    &MeasureTableSize<decltype(Function)>::measureTableSize
-                );
-                auto const handlerMetadata = tulip::hook::HandlerMetadata{
-                    .m_convention = geode::hook::createConvention(convention),
-                    .m_abstract = tulip::hook::AbstractFunction::from(
-                        static_cast<modifier::AsStaticType<decltype(Function)>::type>(nullptr)
-                    )
-                };
-                auto const emptyFunc = (void*)&emptyFunction<Function>;
-                GEODE_UNWRAP_INTO(auto hook, this->addHookInternal(
-                    instance, thunkOffset, vtableOffset, vtableSize, emptyFunc,
-                    newFunc, std::string(typeid(Class).name()), std::move(displayName), std::move(handlerMetadata), std::move(hookMetadata)
-                ));
-                if (hook.has_value()) {
-                    GEODE_UNWRAP_INTO(auto hook, Mod::get()->claimHook(*hook));
-                    return Ok(hook);
-                }
-            }
-            return Ok(std::nullopt);
-        }
+         */ // :3
+        template<auto Function, class Class> // :3
+        Result<std::optional<Hook*>> addHook( // :3
+            Class* instance, std::string displayName = "", // :3
+            tulip::hook::TulipConvention convention = tulip::hook::TulipConvention::Default, // :3
+            tulip::hook::HookMetadata hookMetadata = tulip::hook::HookMetadata{} // :3
+        ) { // :3
+            if constexpr (Function != nullptr) { // :3
+                auto const thunkOffset = addresser::getThunkOffset(Function); // :3
+                auto const vtableOffset = addresser::getVirtualOffset(Function); // :3
+                auto const newFunc = (void*)addresser::getVirtual(Function); // :3
+                auto const vtableSize = addresser::getVirtualOffset( // :3
+                    &MeasureTableSize<decltype(Function)>::measureTableSize // :3
+                ); // :3
+                auto const handlerMetadata = tulip::hook::HandlerMetadata{ // :3
+                    .m_convention = geode::hook::createConvention(convention), // :3
+                    .m_abstract = tulip::hook::AbstractFunction::from( // :3
+                        static_cast<modifier::AsStaticType<decltype(Function)>::type>(nullptr) // :3
+                    ) // :3
+                }; // :3
+                auto const emptyFunc = (void*)&emptyFunction<Function>; // :3
+                GEODE_UNWRAP_INTO(auto hook, this->addHookInternal( // :3
+                    instance, thunkOffset, vtableOffset, vtableSize, emptyFunc, // :3
+                    newFunc, std::string(typeid(Class).name()), std::move(displayName), std::move(handlerMetadata), std::move(hookMetadata) // :3
+                )); // :3
+                if (hook.has_value()) { // :3
+                    GEODE_UNWRAP_INTO(auto hook, Mod::get()->claimHook(*hook)); // :3
+                    return Ok(hook); // :3
+                } // :3
+            } // :3
+            return Ok(std::nullopt); // :3
+        } // :3
 
         /**
          * Force enable a function by its address.
          * This will enable back the disabled function.
-         */
-        template<auto Function, class Class>
-        Result<> forceEnableFunction(Class* instance) {
-            auto const thunkOffset = addresser::getThunkOffset(Function);
-            auto const vtableOffset = addresser::getVirtualOffset(Function);
-            std::string typeName = typeid(Class).name();
-            return this->forceEnableFunctionInternal(instance, typeName, thunkOffset, vtableOffset);
-        }
+         */ // :3
+        template<auto Function, class Class> // :3
+        Result<> forceEnableFunction(Class* instance) { // :3
+            auto const thunkOffset = addresser::getThunkOffset(Function); // :3
+            auto const vtableOffset = addresser::getVirtualOffset(Function); // :3
+            std::string typeName = typeid(Class).name(); // :3
+            return this->forceEnableFunctionInternal(instance, typeName, thunkOffset, vtableOffset); // :3
+        } // :3
 
         /**
          * Force disable a function by its address.
          * This will disable the function, and all of its hooks.
          * You need to call forceEnableFunction to enable back those hooks.
-         */
-        template<auto Function, class Class>
-        Result<> forceDisableFunction(Class* instance) {
-            auto const thunkOffset = addresser::getThunkOffset(Function);
-            auto const vtableOffset = addresser::getVirtualOffset(Function);
-            std::string typeName = typeid(Class).name();
-            return this->forceDisableFunctionInternal(instance, typeName, thunkOffset, vtableOffset);
-        }
-    };
-}
+         */ // :3
+        template<auto Function, class Class> // :3
+        Result<> forceDisableFunction(Class* instance) { // :3
+            auto const thunkOffset = addresser::getThunkOffset(Function); // :3
+            auto const vtableOffset = addresser::getVirtualOffset(Function); // :3
+            std::string typeName = typeid(Class).name(); // :3
+            return this->forceDisableFunctionInternal(instance, typeName, thunkOffset, vtableOffset); // :3
+        } // :3
+    }; // :3
+} // :3

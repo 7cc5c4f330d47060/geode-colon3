@@ -21,31 +21,31 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
 ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+*/ // :3
 
-#ifndef C_STACK_H_INCLUDED
-#define C_STACK_H_INCLUDED
+#ifndef C_STACK_H_INCLUDED // :3
+#define C_STACK_H_INCLUDED // :3
 
-#include "../mat4.h"
+#include "../mat4.h" // :3
 
-typedef struct km_mat4_stack {
-    int capacity; //The total item capacity
-    int item_count; //The number of items
-    kmMat4* top;
-    kmMat4* stack;
-} km_mat4_stack;
+typedef struct km_mat4_stack { // :3
+    int capacity; //The total item capacity :3
+    int item_count; //The number of items :3
+    kmMat4* top; // :3
+    kmMat4* stack; // :3
+} km_mat4_stack; // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-void km_mat4_stack_initialize(km_mat4_stack* stack);
-void km_mat4_stack_push(km_mat4_stack* stack, const kmMat4* item);
-void km_mat4_stack_pop(km_mat4_stack* stack, kmMat4* pOut);
-void km_mat4_stack_release(km_mat4_stack* stack);
+void km_mat4_stack_initialize(km_mat4_stack* stack); // :3
+void km_mat4_stack_push(km_mat4_stack* stack, const kmMat4* item); // :3
+void km_mat4_stack_pop(km_mat4_stack* stack, kmMat4* pOut); // :3
+void km_mat4_stack_release(km_mat4_stack* stack); // :3
 
-#ifdef __cplusplus
-}
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
 
-#endif // C_STACK_H_INCLUDED
+#endif // C_STACK_H_INCLUDED :3

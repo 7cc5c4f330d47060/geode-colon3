@@ -1,24 +1,24 @@
-#include <Geode/utils/string.hpp>
-#include <crashlog.hpp>
+#include <Geode/utils/string.hpp> // :3
+#include <crashlog.hpp> // :3
 
-static bool s_lastLaunchCrashed = false;
+static bool s_lastLaunchCrashed = false; // :3
 
-#ifdef GEODE_USE_BREAKPAD
+#ifdef GEODE_USE_BREAKPAD // :3
 
-#include <memory>
-#include <fmt/chrono.h>
+#include <memory> // :3
+#include <fmt/chrono.h> // :3
 
-#include <asp/time/SystemTime.hpp>
+#include <asp/time/SystemTime.hpp> // :3
 
-#include <client/linux/handler/exception_handler.h>
-#include <client/linux/handler/minidump_descriptor.h>
+#include <client/linux/handler/exception_handler.h> // :3
+#include <client/linux/handler/minidump_descriptor.h> // :3
 
-namespace {
-    // this object must be kept alive
-    auto s_exceptionHandler = std::unique_ptr<google_breakpad::ExceptionHandler>(nullptr);
-    constexpr auto crashIndicatorFilename = "lastSessionDidCrash";
+namespace { // :3
+    // this object must be kept alive :3
+    auto s_exceptionHandler = std::unique_ptr<google_breakpad::ExceptionHandler>(nullptr); // :3
+    constexpr auto crashIndicatorFilename = "lastSessionDidCrash"; // :3
 
-    bool crashCallback(
+    bool crashCallback( // :3
         google_breakpad::MinidumpDescriptor const& descriptor, void* /* context */, bool succeeded
     ) {
         // jumping into unsafe territory :fish:

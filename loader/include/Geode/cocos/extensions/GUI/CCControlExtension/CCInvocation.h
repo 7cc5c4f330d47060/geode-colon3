@@ -22,54 +22,54 @@
  *
  *
  * Converted to c++ / cocos2d-x by Angus C
- */
+ */ // :3
 /*
  *
  * Helper class to store targets and selectors (and eventually, params?) in the same CCMutableArray. Basically a very crude form of a NSInvocation
- */
-#ifndef __CCINVOCATION_H__
-#define __CCINVOCATION_H__
+ */ // :3
+#ifndef __CCINVOCATION_H__ // :3
+#define __CCINVOCATION_H__ // :3
 
-#include "../../../cocoa/CCObject.h"
-#include "../../ExtensionMacros.h"
+#include "../../../cocoa/CCObject.h" // :3
+#include "../../ExtensionMacros.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup control_extension
  * @{
- */
+ */ // :3
 
-typedef unsigned int CCControlEvent;
+typedef unsigned int CCControlEvent; // :3
 
-typedef void (CCObject::*SEL_CCControlHandler)(CCObject*, CCControlEvent);
+typedef void (CCObject::*SEL_CCControlHandler)(CCObject*, CCControlEvent); // :3
 
-#define cccontrol_selector(_SELECTOR) (SEL_CCControlHandler)(&_SELECTOR)
+#define cccontrol_selector(_SELECTOR) (SEL_CCControlHandler)(&_SELECTOR) // :3
 
 /**
  * @js NA
  * @lua NA
- */
-class CC_DLL CCInvocation : public CCObject
-{
-    CC_SYNTHESIZE_READONLY_NV(SEL_CCControlHandler, m_action, Action);
-    CC_SYNTHESIZE_READONLY_NV(CCObject*, m_target, Target);
-    CC_SYNTHESIZE_READONLY_NV(CCControlEvent, m_controlEvent, ControlEvent);
+ */ // :3
+class CC_DLL CCInvocation : public CCObject // :3
+{ // :3
+    CC_SYNTHESIZE_READONLY_NV(SEL_CCControlHandler, m_action, Action); // :3
+    CC_SYNTHESIZE_READONLY_NV(CCObject*, m_target, Target); // :3
+    CC_SYNTHESIZE_READONLY_NV(CCControlEvent, m_controlEvent, ControlEvent); // :3
 
-public:
-    static CCInvocation* create(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvent);
-    CCInvocation(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvent);
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCInvocation, CCObject)
+public: // :3
+    static CCInvocation* create(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvent); // :3
+    CCInvocation(CCObject* target, SEL_CCControlHandler action, CCControlEvent controlEvent); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCInvocation, CCObject) // :3
 
-    void invoke(CCObject* sender);
-};
+    void invoke(CCObject* sender); // :3
+}; // :3
 
-// end of GUI group
-/// @}
-/// @}
+// end of GUI group :3
+/// @} :3
+/// @} :3
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
-#endif
+#endif // :3

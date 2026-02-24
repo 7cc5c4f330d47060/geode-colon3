@@ -21,47 +21,47 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __EFFECTS_CCGRABBER_H__
-#define __EFFECTS_CCGRABBER_H__
+****************************************************************************/ // :3
+#ifndef __EFFECTS_CCGRABBER_H__ // :3
+#define __EFFECTS_CCGRABBER_H__ // :3
 
-#include "../CCConfiguration.h"
-#include "../cocoa/CCObject.h"
-#include "../platform/CCGL.h"
+#include "../CCConfiguration.h" // :3
+#include "../cocoa/CCObject.h" // :3
+#include "../platform/CCGL.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCTexture2D;
+class CCTexture2D; // :3
 
 /**
  * @addtogroup effects
  * @{
- */
+ */ // :3
 
 /** FBO class that grabs the the contents of the screen
  * @js NA
  * @lua NA
- */
-class CCGrabber : public CCObject
-{
-public:
-    CCGrabber(void);
-    ~CCGrabber(void);
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCGrabber, CCObject)
+ */ // :3
+class CCGrabber : public CCObject // :3
+{ // :3
+public: // :3
+    CCGrabber(void); // :3
+    ~CCGrabber(void); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCGrabber, CCObject) // :3
 
-    void grab(CCTexture2D *pTexture);
-    void beforeRender(CCTexture2D *pTexture);
-    void afterRender(CCTexture2D *pTexture);
+    void grab(CCTexture2D *pTexture); // :3
+    void beforeRender(CCTexture2D *pTexture); // :3
+    void afterRender(CCTexture2D *pTexture); // :3
 
-public:
-    GLuint m_FBO;
-    GLint m_oldFBO;
-    GLfloat    m_oldClearColor[4];
-};
+public: // :3
+    GLuint m_FBO; // :3
+    GLint m_oldFBO; // :3
+    GLfloat    m_oldClearColor[4]; // :3
+}; // :3
 
-// end of effects group
-/// @}
+// end of effects group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __EFFECTS_CCGRABBER_H__
+#endif // __EFFECTS_CCGRABBER_H__ :3

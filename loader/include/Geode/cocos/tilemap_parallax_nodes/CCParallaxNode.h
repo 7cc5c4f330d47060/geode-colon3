@@ -22,11 +22,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCPARALLAX_NODE_H__
-#define __CCPARALLAX_NODE_H__
+****************************************************************************/ // :3
+#ifndef __CCPARALLAX_NODE_H__ // :3
+#define __CCPARALLAX_NODE_H__ // :3
 
-#include "../base_nodes/CCNode.h"
+#include "../base_nodes/CCNode.h" // :3
 /*#include "../support/data_support/ccCArray.h"*/
 
 NS_CC_BEGIN
@@ -36,16 +36,16 @@ struct _ccArray;
 /**
  * @addtogroup tilemap_parallax_nodes
  * @{
- */
+ */ // :3
 
 /** @brief CCParallaxNode: A node that simulates a parallax scroller
 
 The children will be moved faster / slower than the parent according the the parallax ratio.
 
-*/
-class CC_DLL CCParallaxNode : public CCNode
-{
-    GEODE_FRIEND_MODIFY
+*/ // :3
+class CC_DLL CCParallaxNode : public CCNode // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
     /** array that holds the offset / ratio of the children */
     CC_SYNTHESIZE_NV(struct _ccArray *, m_pParallaxArray, ParallaxArray)
 
@@ -55,32 +55,32 @@ public:
     It returns self, so you can chain several addChilds.
     @since v0.8
     @js ctor
-    */
-    CCParallaxNode();
+    */ // :3
+    CCParallaxNode(); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCParallaxNode();
+     */ // :3
+    virtual ~CCParallaxNode(); // :3
 
-    static CCParallaxNode * create();
-    virtual void addChild(CCNode * child, unsigned int z, const CCPoint& parallaxRatio, const CCPoint& positionOffset);
-    // super methods
-    virtual void addChild(CCNode * child, unsigned int zOrder, int tag);
-    virtual void removeChild(CCNode* child, bool cleanup);
-    virtual void removeAllChildrenWithCleanup(bool cleanup);
-    virtual void visit(void);
-private:
-    CCPoint absolutePosition();
-public:
-    CCPoint    m_tLastPosition;
-};
+    static CCParallaxNode * create(); // :3
+    virtual void addChild(CCNode * child, unsigned int z, const CCPoint& parallaxRatio, const CCPoint& positionOffset); // :3
+    // super methods :3
+    virtual void addChild(CCNode * child, unsigned int zOrder, int tag); // :3
+    virtual void removeChild(CCNode* child, bool cleanup); // :3
+    virtual void removeAllChildrenWithCleanup(bool cleanup); // :3
+    virtual void visit(void); // :3
+private: // :3
+    CCPoint absolutePosition(); // :3
+public: // :3
+    CCPoint    m_tLastPosition; // :3
+}; // :3
 
-// end of tilemap_parallax_nodes group
-/// @}
+// end of tilemap_parallax_nodes group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif //__CCPARALLAX_NODE_H__
+#endif //__CCPARALLAX_NODE_H__ :3
 
 

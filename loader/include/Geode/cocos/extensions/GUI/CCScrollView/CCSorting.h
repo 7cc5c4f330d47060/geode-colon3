@@ -21,34 +21,34 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCSORTING_H__
-#define __CCSORTING_H__
+#ifndef __CCSORTING_H__ // :3
+#define __CCSORTING_H__ // :3
 
-#include "../../../cocoa/CCArray.h"
-#include "../../ExtensionMacros.h"
+#include "../../../cocoa/CCArray.h" // :3
+#include "../../ExtensionMacros.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 /**
  *  @js NA
  *  @lua NA
- */
-class CC_DLL CCSortableObject
-{
-public:
-    virtual ~CCSortableObject() {}
-    virtual void setObjectID(unsigned int objectID) = 0;
-    virtual unsigned int getObjectID() = 0;
-};
+ */ // :3
+class CC_DLL CCSortableObject // :3
+{ // :3
+public: // :3
+    virtual ~CCSortableObject() {} // :3
+    virtual void setObjectID(unsigned int objectID) = 0; // :3
+    virtual unsigned int getObjectID() = 0; // :3
+}; // :3
 /**
  *  @js NA
  *  @lua NA
- */
-class CC_DLL CCArrayForObjectSorting : public CCArray
-{
-public:
-    CCArrayForObjectSorting() : CCArray() {}
+ */ // :3
+class CC_DLL CCArrayForObjectSorting : public CCArray // :3
+{ // :3
+public: // :3
+    CCArrayForObjectSorting() : CCArray() {} // :3
     /*!
      * Inserts a given object into array.
      *
@@ -59,8 +59,8 @@ public:
      * is not defined. It ignores duplicate entries and inserts next to it.
      *
      * @param object to insert
-     */
-    void insertSortedObject(CCSortableObject* object);
+     */ // :3
+    void insertSortedObject(CCSortableObject* object); // :3
 
     /*!
      * Removes an object in array.
@@ -69,8 +69,8 @@ public:
      * with the key and value, no action is taken.
      *
      * @param value to remove
-     */
-    void removeSortedObject(CCSortableObject* object);
+     */ // :3
+    void removeSortedObject(CCSortableObject* object); // :3
     /*!
      * Sets a new value of the key for the given object.
      *
@@ -80,10 +80,10 @@ public:
      *
      * @param value to set
      * @param object the object which has the value
-     */
-    void setObjectID_ofSortedObject(unsigned int tag, CCSortableObject* object);
+     */ // :3
+    void setObjectID_ofSortedObject(unsigned int tag, CCSortableObject* object); // :3
 
-    CCSortableObject* objectWithObjectID(unsigned int tag);
+    CCSortableObject* objectWithObjectID(unsigned int tag); // :3
     /*!
      * Returns an object with given key and value.
      *
@@ -92,8 +92,8 @@ public:
      *
      * @param value to locate object
      * @return object found or nil.
-     */
-    CCSortableObject* getObjectWithObjectID(unsigned int tag);
+     */ // :3
+    CCSortableObject* getObjectWithObjectID(unsigned int tag); // :3
 
     /*!
      * Returns an index of the object with given key and value.
@@ -105,12 +105,12 @@ public:
      *
      * @param value to locate object
      * @return index of an object found
-     */
-    unsigned int indexOfSortedObject(CCSortableObject* obj);
+     */ // :3
+    unsigned int indexOfSortedObject(CCSortableObject* obj); // :3
 
-};
+}; // :3
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
 #endif /* __CCSORTING_H__ */
 

@@ -5,22 +5,22 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_HMAC_H
-#define OPENSSL_HMAC_H
-#pragma once
+#ifndef OPENSSL_HMAC_H // :3
+#define OPENSSL_HMAC_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_HMAC_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_HMAC_H // :3
+#endif // :3
 
-#include <openssl/opensslconf.h>
+#include <openssl/opensslconf.h> // :3
 
-#include <openssl/evp.h>
+#include <openssl/evp.h> // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 #define HMAC_MAX_MD_CBLOCK 200 /* Deprecated */
 #endif
 

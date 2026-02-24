@@ -1,10 +1,10 @@
-#pragma once
+#pragma once // :3
 
-class ConfirmInstall final {
-protected:
+class ConfirmInstall final { // :3
+protected: // :3
 
-public:
-    static void startConfirming();
-};
-void askConfirmModInstalls();
+public: // :3
+    static void startConfirming(); // :3
+}; // :3
+void askConfirmModInstalls(); // :3
 

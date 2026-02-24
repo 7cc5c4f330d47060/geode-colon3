@@ -22,74 +22,74 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCMENU_ITEM_H__
-#define __CCMENU_ITEM_H__
+#ifndef __CCMENU_ITEM_H__ // :3
+#define __CCMENU_ITEM_H__ // :3
 
-#include "../base_nodes/CCNode.h"
-#include "../include/CCProtocols.h"
-#include "../cocoa/CCArray.h"
+#include "../base_nodes/CCNode.h" // :3
+#include "../include/CCProtocols.h" // :3
+#include "../cocoa/CCArray.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCLabelTTF;
-class CCLabelAtlas;
-class CCSprite;
-class CCSpriteFrame;
-#define kCCItemSize 32
+class CCLabelTTF; // :3
+class CCLabelAtlas; // :3
+class CCSprite; // :3
+class CCSpriteFrame; // :3
+#define kCCItemSize 32 // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup menu
  * @{
- */
+ */ // :3
 
 /** @brief CCMenuItem base class
  *
  *  Subclass CCMenuItem (or any subclass) to create your custom CCMenuItem objects.
- */
-class CC_DLL CCMenuItem : public CCNodeRGBA
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCMenuItem : public CCNodeRGBA // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /** whether or not the item is selected
      @since v0.8.2
-     */
-    bool m_bSelected;
-    bool m_bEnabled;
+     */ // :3
+    bool m_bSelected; // :3
+    bool m_bEnabled; // :3
 
-public:
+public: // :3
     /**
      *  @js ctor
-     */
-    CCMenuItem()
-    : m_bSelected(false)
-    , m_bEnabled(false)
-    , m_pListener(NULL)
-    , m_pfnSelector(NULL)
-    , m_nScriptTapHandler(0)
-    , m_fSizeMult(0.f)
-    {}
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMenuItem, CCNodeRGBA)
+     */ // :3
+    CCMenuItem() // :3
+    : m_bSelected(false) // :3
+    , m_bEnabled(false) // :3
+    , m_pListener(NULL) // :3
+    , m_pfnSelector(NULL) // :3
+    , m_nScriptTapHandler(0) // :3
+    , m_fSizeMult(0.f) // :3
+    {} // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMenuItem, CCNodeRGBA) // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCMenuItem();
+     */ // :3
+    virtual ~CCMenuItem(); // :3
 
     /** Creates a CCMenuItem with no target/selector
      * @js NA
      * @lua NA
-     */
-    static CCMenuItem* create();
+     */ // :3
+    static CCMenuItem* create(); // :3
     /** Creates a CCMenuItem with a target/selector */
     static CCMenuItem* create(CCObject *rec, SEL_MenuHandler selector);
     /** Initializes a CCMenuItem with a target/selector
      * @lua NA
-     */
-    bool initWithTarget(CCObject *rec, SEL_MenuHandler selector);
+     */ // :3
+    bool initWithTarget(CCObject *rec, SEL_MenuHandler selector); // :3
     /** Returns the outside box */
     CCRect rect();
     /** Activate the item */
@@ -128,10 +128,10 @@ public:
  - CCBitmapFontAtlas
  - CCLabelAtlas
  - CCLabelTTF
- */
-class CC_DLL CCMenuItemLabel : public CCMenuItem
-{
-    GEODE_FRIEND_MODIFY
+ */ // :3
+class CC_DLL CCMenuItemLabel : public CCMenuItem // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
     /** the color that will be used to disable the item */
     CC_PROPERTY_PASS_BY_REF(ccColor3B, m_tDisabledColor, DisabledColor);
     /** Label that is rendered. It can be any CCNode that implements the CCLabelProtocol */
@@ -139,22 +139,22 @@ class CC_DLL CCMenuItemLabel : public CCMenuItem
 public:
     /**
      *  @js ctor
-     */
-    CCMenuItemLabel()
-    : m_pLabel(NULL)
-    , m_fOriginalScale(0.0)
-    {}
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMenuItemLabel, CCMenuItem)
+     */ // :3
+    CCMenuItemLabel() // :3
+    : m_pLabel(NULL) // :3
+    , m_fOriginalScale(0.0) // :3
+    {} // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMenuItemLabel, CCMenuItem) // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCMenuItemLabel();
+     */ // :3
+    virtual ~CCMenuItemLabel(); // :3
 
     /** creates a CCMenuItemLabel with a Label, target and selector
      * @lua NA
-     */
-    static CCMenuItemLabel * create(CCNode*label, CCObject* target, SEL_MenuHandler selector);
+     */ // :3
+    static CCMenuItemLabel * create(CCNode*label, CCObject* target, SEL_MenuHandler selector); // :3
     /** creates a CCMenuItemLabel with a Label. Target and selector will be nil */
     static CCMenuItemLabel* create(CCNode *label);
 
@@ -168,38 +168,38 @@ public:
     virtual void unselected();
     /** Enable or disabled the CCMenuItemFont
      @warning setEnabled changes the RGB color of the font
-     */
-    virtual void setEnabled(bool enabled);
+     */ // :3
+    virtual void setEnabled(bool enabled); // :3
 
-public:
-    ccColor3B    m_tColorBackup;
-    float        m_fOriginalScale;
-};
+public: // :3
+    ccColor3B    m_tColorBackup; // :3
+    float        m_fOriginalScale; // :3
+}; // :3
 
 
 /** @brief A CCMenuItemAtlasFont
  Helper class that creates a MenuItemLabel class with a LabelAtlas
- */
-class CC_DLL CCMenuItemAtlasFont : public CCMenuItemLabel
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCMenuItemAtlasFont : public CCMenuItemLabel // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
-     */
-    CCMenuItemAtlasFont(){}
+     */ // :3
+    CCMenuItemAtlasFont(){} // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCMenuItemAtlasFont(){}
+     */ // :3
+    virtual ~CCMenuItemAtlasFont(){} // :3
 
     /** creates a menu item from a string and atlas with a target/selector */
     static CCMenuItemAtlasFont* create(const char *value, const char *charMapFile, int itemWidth, int itemHeight, char startCharMap);
     /** creates a menu item from a string and atlas. Use it with MenuItemToggle
      * @lua NA
-     */
-    static CCMenuItemAtlasFont* create(const char *value, const char *charMapFile, int itemWidth, int itemHeight, char startCharMap, CCObject* target, SEL_MenuHandler selector);
+     */ // :3
+    static CCMenuItemAtlasFont* create(const char *value, const char *charMapFile, int itemWidth, int itemHeight, char startCharMap, CCObject* target, SEL_MenuHandler selector); // :3
     /** initializes a menu item from a string and atlas with a target/selector */
     bool initWithString(const char *value, const char *charMapFile, int itemWidth, int itemHeight, char startCharMap, CCObject* target, SEL_MenuHandler selector);
 };
@@ -207,20 +207,20 @@ public:
 
 /** @brief A CCMenuItemFont
  Helper class that creates a CCMenuItemLabel class with a Label
- */
-class CC_DLL CCMenuItemFont : public CCMenuItemLabel
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCMenuItemFont : public CCMenuItemLabel // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
-     */
-    CCMenuItemFont() : m_uFontSize(0), m_strFontName(""){}
+     */ // :3
+    CCMenuItemFont() : m_uFontSize(0), m_strFontName(""){} // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCMenuItemFont(){}
+     */ // :3
+    virtual ~CCMenuItemFont(){} // :3
     /** set default font size */
     static void setFontSize(unsigned int s);
     /** get default font size */
@@ -234,8 +234,8 @@ public:
     static CCMenuItemFont * create(const char *value);
     /** creates a menu item from a string with a target/selector
      * @lua NA
-     */
-    static CCMenuItemFont * create(const char *value, CCObject* target, SEL_MenuHandler selector);
+     */ // :3
+    static CCMenuItemFont * create(const char *value, CCObject* target, SEL_MenuHandler selector); // :3
 
     /** initializes a menu item from a string with a target/selector */
     bool initWithString(const char *value, CCObject* target, SEL_MenuHandler selector);
@@ -244,31 +244,31 @@ public:
      * c++ can not overload static and non-static member functions with the same parameter types
      * so change the name to setFontSizeObj
      * @js setFontSize
-     */
-    void setFontSizeObj(unsigned int s);
+     */ // :3
+    void setFontSizeObj(unsigned int s); // :3
 
     /** get font size
      *  @js fontSize
-     */
-    unsigned int fontSizeObj();
+     */ // :3
+    unsigned int fontSizeObj(); // :3
 
     /** set the font name
      * c++ can not overload static and non-static member functions with the same parameter types
      * so change the name to setFontNameObj
      * @js setFontName
-     */
-    void setFontNameObj(const char* name);
+     */ // :3
+    void setFontNameObj(const char* name); // :3
     /**
      *  @js fontName
-     */
-    const char* fontNameObj();
+     */ // :3
+    const char* fontNameObj(); // :3
 
-protected:
-    void recreateLabel();
-public:
-    unsigned int m_uFontSize;
-    gd::string m_strFontName;
-};
+protected: // :3
+    void recreateLabel(); // :3
+public: // :3
+    unsigned int m_uFontSize; // :3
+    gd::string m_strFontName; // :3
+}; // :3
 
 
 /** @brief CCMenuItemSprite accepts CCNode<CCRGBAProtocol> objects as items.
@@ -278,10 +278,10 @@ public:
  - disabled image
 
  @since v0.8.0
- */
-class CC_DLL CCMenuItemSprite : public CCMenuItem
-{
-    GEODE_FRIEND_MODIFY
+ */ // :3
+class CC_DLL CCMenuItemSprite : public CCMenuItem // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
     /** the image used when the item is not selected */
     CC_PROPERTY(CCNode*, m_pNormalImage, NormalImage);
     /** the image used when the item is selected */
@@ -291,38 +291,38 @@ class CC_DLL CCMenuItemSprite : public CCMenuItem
 public:
     /**
      *  @js ctor
-     */
-    CCMenuItemSprite()
-    :m_pNormalImage(NULL)
-    ,m_pSelectedImage(NULL)
-    ,m_pDisabledImage(NULL)
-    {}
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMenuItemSprite, CCMenuItem)
+     */ // :3
+    CCMenuItemSprite() // :3
+    :m_pNormalImage(NULL) // :3
+    ,m_pSelectedImage(NULL) // :3
+    ,m_pDisabledImage(NULL) // :3
+    {} // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMenuItemSprite, CCMenuItem) // :3
 
     /** creates a menu item with a normal, selected and disabled image*/
     static CCMenuItemSprite * create(CCNode* normalSprite, CCNode* selectedSprite, CCNode* disabledSprite = NULL);
     /** creates a menu item with a normal and selected image with target/selector
      * @lua NA
-     */
-    static CCMenuItemSprite * create(CCNode* normalSprite, CCNode* selectedSprite, CCObject* target, SEL_MenuHandler selector);
+     */ // :3
+    static CCMenuItemSprite * create(CCNode* normalSprite, CCNode* selectedSprite, CCObject* target, SEL_MenuHandler selector); // :3
     /** creates a menu item with a normal,selected  and disabled image with target/selector
      * @lua NA
-     */
-    static CCMenuItemSprite * create(CCNode* normalSprite, CCNode* selectedSprite, CCNode* disabledSprite, CCObject* target, SEL_MenuHandler selector);
+     */ // :3
+    static CCMenuItemSprite * create(CCNode* normalSprite, CCNode* selectedSprite, CCNode* disabledSprite, CCObject* target, SEL_MenuHandler selector); // :3
 
     /** initializes a menu item with a normal, selected  and disabled image with target/selector */
     bool initWithNormalSprite(CCNode* normalSprite, CCNode* selectedSprite, CCNode* disabledSprite, CCObject* target, SEL_MenuHandler selector);
 
     /**
      @since v0.99.5
-     */
-    virtual void selected();
-    virtual void unselected();
-    virtual void setEnabled(bool bEnabled);
+     */ // :3
+    virtual void selected(); // :3
+    virtual void unselected(); // :3
+    virtual void setEnabled(bool bEnabled); // :3
 
-protected:
-    virtual void updateImagesVisibility();
-};
+protected: // :3
+    virtual void updateImagesVisibility(); // :3
+}; // :3
 
 
 /** @brief CCMenuItemImage accepts images as items.
@@ -332,22 +332,22 @@ protected:
  - disabled image
 
  For best results try that all images are of the same size
- */
-class CC_DLL CCMenuItemImage : public CCMenuItemSprite
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCMenuItemImage : public CCMenuItemSprite // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      * @js ctor
      * @lua NA
-     */
-    CCMenuItemImage(){}
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMenuItemImage, CCMenuItemSprite)
+     */ // :3
+    CCMenuItemImage(){} // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMenuItemImage, CCMenuItemSprite) // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCMenuItemImage(){}
+     */ // :3
+    virtual ~CCMenuItemImage(){} // :3
 
     /** creates a menu item with a normal and selected image*/
     static CCMenuItemImage* create(const char *normalImage, const char *selectedImage);
@@ -355,14 +355,14 @@ public:
     static CCMenuItemImage* create(const char *normalImage, const char *selectedImage, const char *disabledImage);
     /** creates a menu item with a normal and selected image with target/selector
      * @lua NA
-     */
-    static CCMenuItemImage* create(const char *normalImage, const char *selectedImage, CCObject* target, SEL_MenuHandler selector);
+     */ // :3
+    static CCMenuItemImage* create(const char *normalImage, const char *selectedImage, CCObject* target, SEL_MenuHandler selector); // :3
     /** creates a menu item with a normal,selected  and disabled image with target/selector
      * @lua NA
-     */
-    static CCMenuItemImage* create(const char *normalImage, const char *selectedImage, const char *disabledImage, CCObject* target, SEL_MenuHandler selector);
+     */ // :3
+    static CCMenuItemImage* create(const char *normalImage, const char *selectedImage, const char *disabledImage, CCObject* target, SEL_MenuHandler selector); // :3
 
-    bool init();
+    bool init(); // :3
     /** initializes a menu item with a normal, selected  and disabled image with target/selector */
     bool initWithNormalImage(const char *normalImage, const char *selectedImage, const char *disabledImage, CCObject* target, SEL_MenuHandler selector);
     /** sets the sprite frame for the normal image */
@@ -374,38 +374,38 @@ public:
 
     /** Creates an CCMenuItemImage.
      * @js NA
-     */
-    static CCMenuItemImage* create();
-};
+     */ // :3
+    static CCMenuItemImage* create(); // :3
+}; // :3
 
 
 /** @brief A CCMenuItemToggle
  A simple container class that "toggles" it's inner items
  The inner items can be any MenuItem
- */
-class CC_DLL CCMenuItemToggle : public CCMenuItem
-{
-    GEODE_FRIEND_MODIFY
+ */ // :3
+class CC_DLL CCMenuItemToggle : public CCMenuItem // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
     /** returns the selected item */
     CC_PROPERTY(unsigned int, m_uSelectedIndex, SelectedIndex);
     /** CCMutableArray that contains the subitems. You can add/remove items in runtime, and you can replace the array with a new one.
      @since v0.7.2
-     */
-    CC_PROPERTY(CCArray*, m_pSubItems, SubItems);
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMenuItemToggle, CCMenuItem)
+     */ // :3
+    CC_PROPERTY(CCArray*, m_pSubItems, SubItems); // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCMenuItemToggle, CCMenuItem) // :3
     /**
      * @js ctor
-     */
-    CCMenuItemToggle()
-    : m_uSelectedIndex(0)
-    , m_pSubItems(NULL)
-    {}
+     */ // :3
+    CCMenuItemToggle() // :3
+    : m_uSelectedIndex(0) // :3
+    , m_pSubItems(NULL) // :3
+    {} // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCMenuItemToggle();
+     */ // :3
+    virtual ~CCMenuItemToggle(); // :3
 
     /** creates a menu item from a CCArray with a target selector */
     static CCMenuItemToggle * createWithTarget(CCObject* target, SEL_MenuHandler selector, CCArray* menuItems);
@@ -416,8 +416,8 @@ public:
     /** creates a menu item with no target/selector and no items
      * @js NA
      * @lua NA
-     */
-    static CCMenuItemToggle* create();
+     */ // :3
+    static CCMenuItemToggle* create(); // :3
 
     /** initializes a menu item from a list of items with a target selector */
     bool initWithTarget(CCObject* target, SEL_MenuHandler selector, CCMenuItem* item, va_list args);

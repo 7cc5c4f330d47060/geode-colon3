@@ -18,22 +18,22 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- */
-#ifndef __PHYSICSNODES_CCPHYSICSSPRITE_H__
-#define __PHYSICSNODES_CCPHYSICSSPRITE_H__
+ */ // :3
+#ifndef __PHYSICSNODES_CCPHYSICSSPRITE_H__ // :3
+#define __PHYSICSNODES_CCPHYSICSSPRITE_H__ // :3
 
-#include "../../include/cocos2d.h"
-#include "../ExtensionMacros.h"
+#include "../../include/cocos2d.h" // :3
+#include "../ExtensionMacros.h" // :3
 
-#if CC_ENABLE_CHIPMUNK_INTEGRATION
-#include "chipmunk.h"
-#elif CC_ENABLE_BOX2D_INTEGRATION
-class b2Body;
-#else // CC_ENABLE_BOX2D_INTEGRATION
-#error "You must define either CC_ENABLE_CHIPMUNK_INTEGRATION or CC_ENABLE_BOX2D_INTEGRATION to use CCPhysicsSprite.h"
-#endif
+#if CC_ENABLE_CHIPMUNK_INTEGRATION // :3
+#include "chipmunk.h" // :3
+#elif CC_ENABLE_BOX2D_INTEGRATION // :3
+class b2Body; // :3
+#else // CC_ENABLE_BOX2D_INTEGRATION :3
+#error "You must define either CC_ENABLE_CHIPMUNK_INTEGRATION or CC_ENABLE_BOX2D_INTEGRATION to use CCPhysicsSprite.h" // :3
+#endif // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 /** A CCSprite subclass that is bound to a physics body.
  It works with:
  - Chipmunk: Preprocessor macro CC_ENABLE_CHIPMUNK_INTEGRATION should be defined
@@ -47,34 +47,34 @@ NS_CC_EXT_BEGIN
  - You can't enble both Chipmunk support and Box2d support at the same time. Only one can be enabled at compile time
  * @js NA
  * @lua NA
- */
-class CC_DLL CCPhysicsSprite : public CCSprite
-{
-public:
-    bool    m_bIgnoreBodyRotation;
-#if CC_ENABLE_CHIPMUNK_INTEGRATION
-    cpBody  *m_pCPBody;
+ */ // :3
+class CC_DLL CCPhysicsSprite : public CCSprite // :3
+{ // :3
+public: // :3
+    bool    m_bIgnoreBodyRotation; // :3
+#if CC_ENABLE_CHIPMUNK_INTEGRATION // :3
+    cpBody  *m_pCPBody; // :3
 
-#elif CC_ENABLE_BOX2D_INTEGRATION
-    b2Body  *m_pB2Body;
+#elif CC_ENABLE_BOX2D_INTEGRATION // :3
+    b2Body  *m_pB2Body; // :3
 
-    // Pixels to Meters ratio
-    float   m_fPTMRatio;
-#endif // CC_ENABLE_CHIPMUNK_INTEGRATION
-public:
-    CCPhysicsSprite();
+    // Pixels to Meters ratio :3
+    float   m_fPTMRatio; // :3
+#endif // CC_ENABLE_CHIPMUNK_INTEGRATION :3
+public: // :3
+    CCPhysicsSprite(); // :3
 
-    static CCPhysicsSprite* create();
+    static CCPhysicsSprite* create(); // :3
     /** Creates an sprite with a texture.
      The rect used will be the size of the texture.
      The offset will be (0,0).
-     */
-    static CCPhysicsSprite* createWithTexture(CCTexture2D *pTexture);
+     */ // :3
+    static CCPhysicsSprite* createWithTexture(CCTexture2D *pTexture); // :3
 
     /** Creates an sprite with a texture and a rect.
      The offset will be (0,0).
-     */
-    static CCPhysicsSprite* createWithTexture(CCTexture2D *pTexture, const CCRect& rect);
+     */ // :3
+    static CCPhysicsSprite* createWithTexture(CCTexture2D *pTexture, const CCRect& rect); // :3
 
     /** Creates an sprite with an sprite frame. */
     static CCPhysicsSprite* createWithSpriteFrame(CCSpriteFrame *pSpriteFrame);
@@ -83,21 +83,21 @@ public:
      An CCSpriteFrame will be fetched from the CCSpriteFrameCache by name.
      If the CCSpriteFrame doesn't exist it will raise an exception.
      @since v0.9
-     */
-    static CCPhysicsSprite* createWithSpriteFrameName(const char *pszSpriteFrameName);
+     */ // :3
+    static CCPhysicsSprite* createWithSpriteFrameName(const char *pszSpriteFrameName); // :3
 
     /** Creates an sprite with an image filename.
      The rect used will be the size of the image.
      The offset will be (0,0).
-     */
-    static CCPhysicsSprite* create(const char *pszFileName);
+     */ // :3
+    static CCPhysicsSprite* create(const char *pszFileName); // :3
 
     /** Creates an sprite with an image filename and a rect.
      The offset will be (0,0).
-     */
-    static CCPhysicsSprite* create(const char *pszFileName, const CCRect& rect);
+     */ // :3
+    static CCPhysicsSprite* create(const char *pszFileName, const CCRect& rect); // :3
 
-    virtual bool isDirty();
+    virtual bool isDirty(); // :3
 
     /** Keep the sprite's rotation separate from the body. */
     bool isIgnoreBodyRotation() const;

@@ -22,25 +22,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCTMX_TILE_MAP_H__
-#define __CCTMX_TILE_MAP_H__
+****************************************************************************/ // :3
+#ifndef __CCTMX_TILE_MAP_H__ // :3
+#define __CCTMX_TILE_MAP_H__ // :3
 
-#include "../base_nodes/CCNode.h"
-#include "CCTMXObjectGroup.h"
+#include "../base_nodes/CCNode.h" // :3
+#include "CCTMXObjectGroup.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCTMXObjectGroup;
-class CCTMXLayer;
-class CCTMXLayerInfo;
-class CCTMXTilesetInfo;
-class CCTMXMapInfo;
+class CCTMXObjectGroup; // :3
+class CCTMXLayer; // :3
+class CCTMXLayerInfo; // :3
+class CCTMXTilesetInfo; // :3
+class CCTMXMapInfo; // :3
 
 /**
  * @addtogroup tilemap_parallax_nodes
  * @{
- */
+ */ // :3
 
 /** Possible orientations of the TMX map */
 enum
@@ -105,10 +105,10 @@ objectGroup->propertyNamed(name_of_the_property);
 object->propertyNamed(name_of_the_property);
 
 @since v0.8.1
-*/
-class CC_DLL CCTMXTiledMap : public CCNode
-{
-    GEODE_FRIEND_MODIFY
+*/ // :3
+class CC_DLL CCTMXTiledMap : public CCNode // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
     /** the map's size property measured in tiles */
     CC_SYNTHESIZE_NV_PASS_BY_REF(CCSize, m_tMapSize, MapSize);
     /** the tiles's size property measured in pixels */
@@ -123,13 +123,13 @@ public:
     GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTMXTiledMap, CCNode)
     /**
      * @js ctor
-     */
-    CCTMXTiledMap();
+     */ // :3
+    CCTMXTiledMap(); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCTMXTiledMap();
+     */ // :3
+    virtual ~CCTMXTiledMap(); // :3
 
     /** creates a TMX Tiled Map with a TMX file.*/
     static CCTMXTiledMap* create(const char *tmxFile);
@@ -145,18 +145,18 @@ public:
 
     /** return the TMXLayer for the specific layer
      *  @js getLayer
-     */
-    CCTMXLayer* layerNamed(const char *layerName);
+     */ // :3
+    CCTMXLayer* layerNamed(const char *layerName); // :3
 
     /** return the TMXObjectGroup for the specific group
      *  @js getObjectGroup
-     */
-    CCTMXObjectGroup* objectGroupNamed(const char *groupName);
+     */ // :3
+    CCTMXObjectGroup* objectGroupNamed(const char *groupName); // :3
 
     /** return the value for the specific property name
      *  @js getProperty
-     */
-    CCString *propertyNamed(const char *propertyName);
+     */ // :3
+    CCString *propertyNamed(const char *propertyName); // :3
 
     /** return properties dictionary for tile GID */
     CCDictionary* propertiesForGID(int GID);

@@ -21,195 +21,195 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCEDITTEXT_H__
-#define __CCEDITTEXT_H__
+#ifndef __CCEDITTEXT_H__ // :3
+#define __CCEDITTEXT_H__ // :3
 
-#include "../../../include/cocos2d.h"
-#include "../../ExtensionMacros.h"
-#include "../CCControlExtension/CCControlExtensions.h"
+#include "../../../include/cocos2d.h" // :3
+#include "../../ExtensionMacros.h" // :3
+#include "../CCControlExtension/CCControlExtensions.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 
-enum KeyboardReturnType {
-    kKeyboardReturnTypeDefault = 0,
-    kKeyboardReturnTypeDone,
-    kKeyboardReturnTypeSend,
-    kKeyboardReturnTypeSearch,
-    kKeyboardReturnTypeGo
-};
+enum KeyboardReturnType { // :3
+    kKeyboardReturnTypeDefault = 0, // :3
+    kKeyboardReturnTypeDone, // :3
+    kKeyboardReturnTypeSend, // :3
+    kKeyboardReturnTypeSearch, // :3
+    kKeyboardReturnTypeGo // :3
+}; // :3
 
 
 /**
  * \brief The EditBoxInputMode defines the type of text that the user is allowed
  * to enter.
- */
-enum EditBoxInputMode
-{
+ */ // :3
+enum EditBoxInputMode // :3
+{ // :3
     /**
      * The user is allowed to enter any text, including line breaks.
-     */
-    kEditBoxInputModeAny = 0,
+     */ // :3
+    kEditBoxInputModeAny = 0, // :3
 
     /**
      * The user is allowed to enter an e-mail address.
-     */
-    kEditBoxInputModeEmailAddr,
+     */ // :3
+    kEditBoxInputModeEmailAddr, // :3
 
     /**
      * The user is allowed to enter an integer value.
-     */
-    kEditBoxInputModeNumeric,
+     */ // :3
+    kEditBoxInputModeNumeric, // :3
 
     /**
      * The user is allowed to enter a phone number.
-     */
-    kEditBoxInputModePhoneNumber,
+     */ // :3
+    kEditBoxInputModePhoneNumber, // :3
 
     /**
      * The user is allowed to enter a URL.
-     */
-    kEditBoxInputModeUrl,
+     */ // :3
+    kEditBoxInputModeUrl, // :3
 
     /**
      * The user is allowed to enter a real number value.
      * This extends kEditBoxInputModeNumeric by allowing a decimal point.
-     */
-    kEditBoxInputModeDecimal,
+     */ // :3
+    kEditBoxInputModeDecimal, // :3
 
     /**
      * The user is allowed to enter any text, except for line breaks.
-     */
-    kEditBoxInputModeSingleLine
-};
+     */ // :3
+    kEditBoxInputModeSingleLine // :3
+}; // :3
 
 /**
  * \brief The EditBoxInputFlag defines how the input text is displayed/formatted.
- */
-enum EditBoxInputFlag
-{
+ */ // :3
+enum EditBoxInputFlag // :3
+{ // :3
     /**
      * Indicates that the text entered is confidential data that should be
      * obscured whenever possible. This implies EDIT_BOX_INPUT_FLAG_SENSITIVE.
-     */
-    kEditBoxInputFlagPassword = 0,
+     */ // :3
+    kEditBoxInputFlagPassword = 0, // :3
 
     /**
      * Indicates that the text entered is sensitive data that the
      * implementation must never store into a dictionary or table for use
      * in predictive, auto-completing, or other accelerated input schemes.
      * A credit card number is an example of sensitive data.
-     */
-    kEditBoxInputFlagSensitive,
+     */ // :3
+    kEditBoxInputFlagSensitive, // :3
 
     /**
      * This flag is a hint to the implementation that during text editing,
      * the initial letter of each word should be capitalized.
-     */
-    kEditBoxInputFlagInitialCapsWord,
+     */ // :3
+    kEditBoxInputFlagInitialCapsWord, // :3
 
     /**
      * This flag is a hint to the implementation that during text editing,
      * the initial letter of each sentence should be capitalized.
-     */
-    kEditBoxInputFlagInitialCapsSentence,
+     */ // :3
+    kEditBoxInputFlagInitialCapsSentence, // :3
 
     /**
      * Capitalize all characters automatically.
-     */
-    kEditBoxInputFlagInitialCapsAllCharacters
+     */ // :3
+    kEditBoxInputFlagInitialCapsAllCharacters // :3
 
-};
+}; // :3
 
 
-class CC_DLL CCEditBox;
-class CC_DLL CCEditBoxImpl;
+class CC_DLL CCEditBox; // :3
+class CC_DLL CCEditBoxImpl; // :3
 
 /**
  *  @js NA
  *  @lua NA
- */
-class CC_DLL CCEditBoxDelegate
-{
-public:
-    virtual ~CCEditBoxDelegate() {};
+ */ // :3
+class CC_DLL CCEditBoxDelegate // :3
+{ // :3
+public: // :3
+    virtual ~CCEditBoxDelegate() {}; // :3
 
     /**
      * This method is called when an edit box gains focus after keyboard is shown.
      * @param editBox The edit box object that generated the event.
-     */
-    virtual void editBoxEditingDidBegin(CCEditBox* editBox) {};
+     */ // :3
+    virtual void editBoxEditingDidBegin(CCEditBox* editBox) {}; // :3
 
 
     /**
      * This method is called when an edit box loses focus after keyboard is hidden.
      * @param editBox The edit box object that generated the event.
-     */
-    virtual void editBoxEditingDidEnd(CCEditBox* editBox) {};
+     */ // :3
+    virtual void editBoxEditingDidEnd(CCEditBox* editBox) {}; // :3
 
     /**
      * This method is called when the edit box text was changed.
      * @param editBox The edit box object that generated the event.
      * @param text The new text.
-     */
-    virtual void editBoxTextChanged(CCEditBox* editBox, const gd::string& text) {};
+     */ // :3
+    virtual void editBoxTextChanged(CCEditBox* editBox, const gd::string& text) {}; // :3
 
     /**
      * This method is called when the return button was pressed or the outside area of keyboard was touched.
      * @param editBox The edit box object that generated the event.
-     */
-    virtual void editBoxReturn(CCEditBox* editBox) = 0;
+     */ // :3
+    virtual void editBoxReturn(CCEditBox* editBox) = 0; // :3
 
-};
+}; // :3
 
 /**
  * \brief Class for edit box.
  *
  * You can use this widget to gather small amounts of text from the user.
  *
- */
+ */ // :3
 
-class CC_DLL CCEditBox
-: public CCControlButton
-, public CCIMEDelegate
-{
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEditBox, CCControlButton)
+class CC_DLL CCEditBox // :3
+: public CCControlButton // :3
+, public CCIMEDelegate // :3
+{ // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEditBox, CCControlButton) // :3
 
     /**
      * Constructor.
-     */
-    CCEditBox(void);
+     */ // :3
+    CCEditBox(void); // :3
 
     /**
      * Destructor.
-     */
-    virtual ~CCEditBox(void);
+     */ // :3
+    virtual ~CCEditBox(void); // :3
 
     /**
      * create a edit box with size.
      * @return An autorelease pointer of CCEditBox, you don't need to release it only if you retain it again.
-     */
-    static CCEditBox* create(const CCSize& size, CCScale9Sprite* pNormal9SpriteBg, CCScale9Sprite* pPressed9SpriteBg = NULL, CCScale9Sprite* pDisabled9SpriteBg = NULL);
+     */ // :3
+    static CCEditBox* create(const CCSize& size, CCScale9Sprite* pNormal9SpriteBg, CCScale9Sprite* pPressed9SpriteBg = NULL, CCScale9Sprite* pDisabled9SpriteBg = NULL); // :3
 
     /**
      * Init edit box with specified size. This method should be invoked right after constructor.
      * @param size The size of edit box.
-     */
-    bool initWithSizeAndBackgroundSprite(const CCSize& size, CCScale9Sprite* pNormal9SpriteBg);
+     */ // :3
+    bool initWithSizeAndBackgroundSprite(const CCSize& size, CCScale9Sprite* pNormal9SpriteBg); // :3
 
     /**
      * Gets/Sets the delegate for edit box.
      *  @lua NA
-     */
-    void setDelegate(CCEditBoxDelegate* pDelegate);
+     */ // :3
+    void setDelegate(CCEditBoxDelegate* pDelegate); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    CCEditBoxDelegate* getDelegate();
+     */ // :3
+    CCEditBoxDelegate* getDelegate(); // :3
     /**
      * Registers a script function that will be called for EditBox events.
      *
@@ -234,98 +234,98 @@ public:
      *
      * @param handler A number that indicates a lua function.
      * @js NA
-     */
-    void registerScriptEditBoxHandler(int handler);
+     */ // :3
+    void registerScriptEditBoxHandler(int handler); // :3
 
     /**
      * Unregisters a script function that will be called for EditBox events.
      * @js NA
-     */
-    void unregisterScriptEditBoxHandler(void);
+     */ // :3
+    void unregisterScriptEditBoxHandler(void); // :3
     /**
      * get a script Handler
      * @js NA
-     */
-    int  getScriptEditBoxHandler(void){ return m_nScriptEditBoxHandler ;}
+     */ // :3
+    int  getScriptEditBoxHandler(void){ return m_nScriptEditBoxHandler ;} // :3
     /**
      * Set the text entered in the edit box.
      * @param pText The given text.
-     */
-    void setText(const char* pText);
+     */ // :3
+    void setText(const char* pText); // :3
 
     /**
      * Get the text entered in the edit box.
      * @return The text entered in the edit box.
-     */
-    const char* getText(void);
+     */ // :3
+    const char* getText(void); // :3
 
 	/**
 	 * Set the font.
 	 * @param pFontName The font name.
 	 * @param fontSize The font size.
-	 */
-	void setFont(const char* pFontName, int fontSize);
+	 */ // :3
+	void setFont(const char* pFontName, int fontSize); // :3
 
 	/**
 	 * Set the font name.
 	 * @param pFontName The font name.
-	 */
-	void setFontName(const char* pFontName);
+	 */ // :3
+	void setFontName(const char* pFontName); // :3
 
     /**
 	 * Set the font size.
 	 * @param fontSize The font size.
-	 */
-	void setFontSize(int fontSize);
+	 */ // :3
+	void setFontSize(int fontSize); // :3
 
     /**
      * Set the font color of the widget's text.
-     */
-    void setFontColor(const ccColor3B& color);
+     */ // :3
+    void setFontColor(const ccColor3B& color); // :3
 
 	/**
 	 * Set the placeholder's font.
 	 * @param pFontName The font name.
 	 * @param fontSize The font size.
-	 */
-	void setPlaceholderFont(const char* pFontName, int fontSize);
+	 */ // :3
+	void setPlaceholderFont(const char* pFontName, int fontSize); // :3
 
     /**
 	 * Set the placeholder's font name.
 	 * @param pFontName The font name.
-	 */
-	void setPlaceholderFontName(const char* pFontName);
+	 */ // :3
+	void setPlaceholderFontName(const char* pFontName); // :3
 
     /**
 	 * Set the placeholder's font size.
 	 * @param fontSize The font size.
-	 */
-	void setPlaceholderFontSize(int fontSize);
+	 */ // :3
+	void setPlaceholderFontSize(int fontSize); // :3
 
     /**
      * Set the font color of the placeholder text when the edit box is empty.
      * Not supported on IOS.
-     */
-    void setPlaceholderFontColor(const ccColor3B& color);
+     */ // :3
+    void setPlaceholderFontColor(const ccColor3B& color); // :3
 
     /**
      * Set a text in the edit box that acts as a placeholder when an
      * edit box is empty.
      * @param pText The given text.
-     */
-    void setPlaceHolder(const char* pText);
+     */ // :3
+    void setPlaceHolder(const char* pText); // :3
 
     /**
      * Get a text in the edit box that acts as a placeholder when an
      * edit box is empty.
-     */
-    const char* getPlaceHolder(void);
+     */ // :3
+    const char* getPlaceHolder(void); // :3
 
     /**
      * Set the input mode of the edit box.
      * @param inputMode One of the EditBoxInputMode constants.
-     */
-    void setInputMode(EditBoxInputMode inputMode);
+     */ // :3
+    void setInputMode(EditBoxInputMode inputMode); // :3
 
     /**
      * Sets the maximum input length of the edit box.
@@ -333,27 +333,27 @@ public:
      * Available on Android, iOS and Windows Phone.
      *
      * @param maxLength The maximum length.
-     */
-    void setMaxLength(int maxLength);
+     */ // :3
+    void setMaxLength(int maxLength); // :3
 
     /**
      * Gets the maximum input length of the edit box.
      *
      * @return Maximum input length.
-     */
-    int getMaxLength();
+     */ // :3
+    int getMaxLength(); // :3
 
     /**
      * Set the input flags that are to be applied to the edit box.
      * @param inputFlag One of the EditBoxInputFlag constants.
-     */
-    void setInputFlag(EditBoxInputFlag inputFlag);
+     */ // :3
+    void setInputFlag(EditBoxInputFlag inputFlag); // :3
 
     /**
      * Set the return type that are to be applied to the edit box.
      * @param returnType One of the CCKeyboardReturnType constants.
-     */
-    void setReturnType(KeyboardReturnType returnType);
+     */ // :3
+    void setReturnType(KeyboardReturnType returnType); // :3
 
     /* override functions */
     virtual void setPosition(const CCPoint& pos);
@@ -362,70 +362,70 @@ public:
 	virtual void setAnchorPoint(const CCPoint& anchorPoint);
     /**
      *  @js NA
-     */
-    virtual void visit(void);
+     */ // :3
+    virtual void visit(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-	virtual void onEnter(void);
+     */ // :3
+	virtual void onEnter(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onExit(void);
+     */ // :3
+    virtual void onExit(void); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void keyboardWillShow(CCIMEKeyboardNotificationInfo& info);
+     */ // :3
+    virtual void keyboardWillShow(CCIMEKeyboardNotificationInfo& info); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void keyboardDidShow(CCIMEKeyboardNotificationInfo& info);
+     */ // :3
+    virtual void keyboardDidShow(CCIMEKeyboardNotificationInfo& info); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void keyboardWillHide(CCIMEKeyboardNotificationInfo& info);
+     */ // :3
+    virtual void keyboardWillHide(CCIMEKeyboardNotificationInfo& info); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void keyboardDidHide(CCIMEKeyboardNotificationInfo& info);
+     */ // :3
+    virtual void keyboardDidHide(CCIMEKeyboardNotificationInfo& info); // :3
 
     /** callback funtions
      *  @js NA
-     */
-    void touchDownAction(CCObject *sender, CCControlEvent controlEvent);
+     */ // :3
+    void touchDownAction(CCObject *sender, CCControlEvent controlEvent); // :3
 
-public:
-    CCEditBoxImpl*      m_pEditBoxImpl;
-    CCEditBoxDelegate*  m_pDelegate;
+public: // :3
+    CCEditBoxImpl*      m_pEditBoxImpl; // :3
+    CCEditBoxDelegate*  m_pDelegate; // :3
 
-    EditBoxInputMode    m_eEditBoxInputMode;
-    EditBoxInputFlag    m_eEditBoxInputFlag;
-    KeyboardReturnType  m_eKeyboardReturnType;
+    EditBoxInputMode    m_eEditBoxInputMode; // :3
+    EditBoxInputFlag    m_eEditBoxInputFlag; // :3
+    KeyboardReturnType  m_eKeyboardReturnType; // :3
 
-    gd::string m_strText;
-    gd::string m_strPlaceHolder;
+    gd::string m_strText; // :3
+    gd::string m_strPlaceHolder; // :3
 
-    gd::string m_strFontName;
-    gd::string m_strPlaceholderFontName;
+    gd::string m_strFontName; // :3
+    gd::string m_strPlaceholderFontName; // :3
 
-    int m_nFontSize;
-    int m_nPlaceholderFontSize;
+    int m_nFontSize; // :3
+    int m_nPlaceholderFontSize; // :3
 
-    ccColor3B m_colText;
-    ccColor3B m_colPlaceHolder;
+    ccColor3B m_colText; // :3
+    ccColor3B m_colPlaceHolder; // :3
 
-    int   m_nMaxLength;
-    float m_fAdjustHeight;
-    int   m_nScriptEditBoxHandler;
-};
+    int   m_nMaxLength; // :3
+    float m_fAdjustHeight; // :3
+    int   m_nScriptEditBoxHandler; // :3
+}; // :3
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
 #endif /* __CCEDITTEXT_H__ */
 

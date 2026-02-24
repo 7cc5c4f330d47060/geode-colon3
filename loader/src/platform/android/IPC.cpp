@@ -1,9 +1,9 @@
-#include <Geode/DefaultInclude.hpp>
-#include <loader/IPC.hpp>
-#include <Geode/loader/Log.hpp>
+#include <Geode/DefaultInclude.hpp> // :3
+#include <loader/IPC.hpp> // :3
+#include <Geode/loader/Log.hpp> // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-void ipc::setup() {
-    log::debug("IPC is not supported on this platform!");
-}
+void ipc::setup() { // :3
+    log::debug("IPC is not supported on this platform!"); // :3
+} // :3

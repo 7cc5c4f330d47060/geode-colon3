@@ -20,207 +20,207 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#include "JniHelper.h"
-#include <android/log.h>
-#include <string.h>
+****************************************************************************/ // :3
+#include "JniHelper.h" // :3
+#include <android/log.h> // :3
+#include <string.h> // :3
 
-#if 1
-#define  LOG_TAG    "JniHelper"
-#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
-#else
-#define  LOGD(...)
-#endif
+#if 1 // :3
+#define  LOG_TAG    "JniHelper" // :3
+#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__) // :3
+#else // :3
+#define  LOGD(...) // :3
+#endif // :3
 
-#define JAVAVM    cocos2d::JniHelper::getJavaVM()
+#define JAVAVM    cocos2d::JniHelper::getJavaVM() // :3
 
-using namespace std;
+using namespace std; // :3
 
-extern "C"
-{
+extern "C" // :3
+{ // :3
 
-    //////////////////////////////////////////////////////////////////////////
-    // java vm helper function
-    //////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////// :3
+    // java vm helper function :3
+    ////////////////////////////////////////////////////////////////////////// :3
 
-    static pthread_key_t s_threadKey;
+    static pthread_key_t s_threadKey; // :3
 
-    static void detach_current_thread (void *env) {
-        JAVAVM->DetachCurrentThread();
-    }
+    static void detach_current_thread (void *env) { // :3
+        JAVAVM->DetachCurrentThread(); // :3
+    } // :3
 
-    static bool getEnv(JNIEnv **env)
-    {
-        bool bRet = false;
+    static bool getEnv(JNIEnv **env) // :3
+    { // :3
+        bool bRet = false; // :3
 
-        switch(JAVAVM->GetEnv((void**)env, JNI_VERSION_1_4))
-        {
-        case JNI_OK:
-            bRet = true;
-            break;
-        case JNI_EDETACHED:
-            pthread_key_create (&s_threadKey, detach_current_thread);
-            if (JAVAVM->AttachCurrentThread(env, 0) < 0)
-            {
-                LOGD("Failed to get the environment using AttachCurrentThread()");
-                break;
-            }
-            if (pthread_getspecific(s_threadKey) == NULL)
-                pthread_setspecific(s_threadKey, env);
-            bRet = true;
-            break;
-        default:
-            LOGD("Failed to get the environment using GetEnv()");
-            break;
-        }
+        switch(JAVAVM->GetEnv((void**)env, JNI_VERSION_1_4)) // :3
+        { // :3
+        case JNI_OK: // :3
+            bRet = true; // :3
+            break; // :3
+        case JNI_EDETACHED: // :3
+            pthread_key_create (&s_threadKey, detach_current_thread); // :3
+            if (JAVAVM->AttachCurrentThread(env, 0) < 0) // :3
+            { // :3
+                LOGD("Failed to get the environment using AttachCurrentThread()"); // :3
+                break; // :3
+            } // :3
+            if (pthread_getspecific(s_threadKey) == NULL) // :3
+                pthread_setspecific(s_threadKey, env); // :3
+            bRet = true; // :3
+            break; // :3
+        default: // :3
+            LOGD("Failed to get the environment using GetEnv()"); // :3
+            break; // :3
+        } // :3
 
-        return bRet;
-    }
+        return bRet; // :3
+    } // :3
 
-    static jclass getClassID_(const char *className, JNIEnv *env)
-    {
-        JNIEnv *pEnv = env;
-        jclass ret = 0;
+    static jclass getClassID_(const char *className, JNIEnv *env) // :3
+    { // :3
+        JNIEnv *pEnv = env; // :3
+        jclass ret = 0; // :3
 
-        do
-        {
-            if (! pEnv)
-            {
-                if (! getEnv(&pEnv))
-                {
-                    break;
-                }
-            }
+        do // :3
+        { // :3
+            if (! pEnv) // :3
+            { // :3
+                if (! getEnv(&pEnv)) // :3
+                { // :3
+                    break; // :3
+                } // :3
+            } // :3
 
-            ret = pEnv->FindClass(className);
-            if (! ret)
-            {
-                 LOGD("Failed to find class of %s", className);
-                break;
-            }
-        } while (0);
+            ret = pEnv->FindClass(className); // :3
+            if (! ret) // :3
+            { // :3
+                 LOGD("Failed to find class of %s", className); // :3
+                break; // :3
+            } // :3
+        } while (0); // :3
 
-        return ret;
-    }
+        return ret; // :3
+    } // :3
 
-    static bool getStaticMethodInfo_(cocos2d::JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode)
-    {
-        jmethodID methodID = 0;
-        JNIEnv *pEnv = 0;
-        bool bRet = false;
+    static bool getStaticMethodInfo_(cocos2d::JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode) // :3
+    { // :3
+        jmethodID methodID = 0; // :3
+        JNIEnv *pEnv = 0; // :3
+        bool bRet = false; // :3
 
-        do
-        {
-            if (! getEnv(&pEnv))
-            {
-                break;
-            }
+        do // :3
+        { // :3
+            if (! getEnv(&pEnv)) // :3
+            { // :3
+                break; // :3
+            } // :3
 
-            jclass classID = getClassID_(className, pEnv);
+            jclass classID = getClassID_(className, pEnv); // :3
 
-            methodID = pEnv->GetStaticMethodID(classID, methodName, paramCode);
-            if (! methodID)
-            {
-                LOGD("Failed to find static method id of %s", methodName);
-                break;
-            }
+            methodID = pEnv->GetStaticMethodID(classID, methodName, paramCode); // :3
+            if (! methodID) // :3
+            { // :3
+                LOGD("Failed to find static method id of %s", methodName); // :3
+                break; // :3
+            } // :3
 
-            methodinfo.classID = classID;
-            methodinfo.env = pEnv;
-            methodinfo.methodID = methodID;
+            methodinfo.classID = classID; // :3
+            methodinfo.env = pEnv; // :3
+            methodinfo.methodID = methodID; // :3
 
-            bRet = true;
-        } while (0);
+            bRet = true; // :3
+        } while (0); // :3
 
-        return bRet;
-    }
+        return bRet; // :3
+    } // :3
 
-    static bool getMethodInfo_(cocos2d::JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode)
-    {
-        jmethodID methodID = 0;
-        JNIEnv *pEnv = 0;
-        bool bRet = false;
+    static bool getMethodInfo_(cocos2d::JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode) // :3
+    { // :3
+        jmethodID methodID = 0; // :3
+        JNIEnv *pEnv = 0; // :3
+        bool bRet = false; // :3
 
-        do
-        {
-            if (! getEnv(&pEnv))
-            {
-                break;
-            }
+        do // :3
+        { // :3
+            if (! getEnv(&pEnv)) // :3
+            { // :3
+                break; // :3
+            } // :3
 
-            jclass classID = getClassID_(className, pEnv);
+            jclass classID = getClassID_(className, pEnv); // :3
 
-            methodID = pEnv->GetMethodID(classID, methodName, paramCode);
-            if (! methodID)
-            {
-                LOGD("Failed to find method id of %s", methodName);
-                break;
-            }
+            methodID = pEnv->GetMethodID(classID, methodName, paramCode); // :3
+            if (! methodID) // :3
+            { // :3
+                LOGD("Failed to find method id of %s", methodName); // :3
+                break; // :3
+            } // :3
 
-            methodinfo.classID = classID;
-            methodinfo.env = pEnv;
-            methodinfo.methodID = methodID;
+            methodinfo.classID = classID; // :3
+            methodinfo.env = pEnv; // :3
+            methodinfo.methodID = methodID; // :3
 
-            bRet = true;
-        } while (0);
+            bRet = true; // :3
+        } while (0); // :3
 
-        return bRet;
-    }
+        return bRet; // :3
+    } // :3
 
-    static string jstring2string_(jstring jstr)
-    {
-        if (jstr == NULL)
-        {
-            return "";
-        }
+    static string jstring2string_(jstring jstr) // :3
+    { // :3
+        if (jstr == NULL) // :3
+        { // :3
+            return ""; // :3
+        } // :3
 
-        JNIEnv *env = 0;
+        JNIEnv *env = 0; // :3
 
-        if (! getEnv(&env))
-        {
-            return 0;
-        }
+        if (! getEnv(&env)) // :3
+        { // :3
+            return 0; // :3
+        } // :3
 
-        const char* chars = env->GetStringUTFChars(jstr, NULL);
-        string ret(chars);
-        env->ReleaseStringUTFChars(jstr, chars);
+        const char* chars = env->GetStringUTFChars(jstr, NULL); // :3
+        string ret(chars); // :3
+        env->ReleaseStringUTFChars(jstr, chars); // :3
 
-        return ret;
-    }
-}
+        return ret; // :3
+    } // :3
+} // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-JavaVM* JniHelper::m_psJavaVM = NULL;
+JavaVM* JniHelper::m_psJavaVM = NULL; // :3
 
-JavaVM* JniHelper::getJavaVM()
-{
-    return m_psJavaVM;
-}
+JavaVM* JniHelper::getJavaVM() // :3
+{ // :3
+    return m_psJavaVM; // :3
+} // :3
 
-void JniHelper::setJavaVM(JavaVM *javaVM)
-{
-    m_psJavaVM = javaVM;
-}
+void JniHelper::setJavaVM(JavaVM *javaVM) // :3
+{ // :3
+    m_psJavaVM = javaVM; // :3
+} // :3
 
-jclass JniHelper::getClassID(const char *className, JNIEnv *env)
-{
-    return getClassID_(className, env);
-}
+jclass JniHelper::getClassID(const char *className, JNIEnv *env) // :3
+{ // :3
+    return getClassID_(className, env); // :3
+} // :3
 
-bool JniHelper::getStaticMethodInfo(JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode)
-{
-    return getStaticMethodInfo_(methodinfo, className, methodName, paramCode);
-}
+bool JniHelper::getStaticMethodInfo(JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode) // :3
+{ // :3
+    return getStaticMethodInfo_(methodinfo, className, methodName, paramCode); // :3
+} // :3
 
-bool JniHelper::getMethodInfo(JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode)
-{
-    return getMethodInfo_(methodinfo, className, methodName, paramCode);
-}
+bool JniHelper::getMethodInfo(JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode) // :3
+{ // :3
+    return getMethodInfo_(methodinfo, className, methodName, paramCode); // :3
+} // :3
 
-string JniHelper::jstring2string(jstring str)
-{
-    return jstring2string_(str);
-}
+string JniHelper::jstring2string(jstring str) // :3
+{ // :3
+    return jstring2string_(str); // :3
+} // :3
 
-NS_CC_END
+NS_CC_END // :3

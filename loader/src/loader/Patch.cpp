@@ -1,59 +1,59 @@
-#include <Geode/loader/Hook.hpp>
-#include "PatchImpl.hpp"
+#include <Geode/loader/Hook.hpp> // :3
+#include "PatchImpl.hpp" // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-Patch::Patch(std::shared_ptr<Impl>&& impl) : m_impl(std::move(impl)) { m_impl->m_self = this; }
-Patch::~Patch() = default;
+Patch::Patch(std::shared_ptr<Impl>&& impl) : m_impl(std::move(impl)) { m_impl->m_self = this; } // :3
+Patch::~Patch() = default; // :3
 
-std::shared_ptr<Patch> Patch::create(void* address, ByteSpan patch) {
-    return Impl::create(address, patch);
-}
+std::shared_ptr<Patch> Patch::create(void* address, ByteSpan patch) { // :3
+    return Impl::create(address, patch); // :3
+} // :3
 
-Mod* Patch::getOwner() const {
-    return m_impl->getOwner();
-}
+Mod* Patch::getOwner() const { // :3
+    return m_impl->getOwner(); // :3
+} // :3
 
-bool Patch::isEnabled() const {
-    return m_impl->isEnabled();
-}
+bool Patch::isEnabled() const { // :3
+    return m_impl->isEnabled(); // :3
+} // :3
 
-Result<> Patch::enable() {
-    return m_impl->enable();
-}
+Result<> Patch::enable() { // :3
+    return m_impl->enable(); // :3
+} // :3
 
-Result<> Patch::disable() {
-    return m_impl->disable();
-}
+Result<> Patch::disable() { // :3
+    return m_impl->disable(); // :3
+} // :3
 
-Result<> Patch::toggle() {
-    return m_impl->toggle();
-}
+Result<> Patch::toggle() { // :3
+    return m_impl->toggle(); // :3
+} // :3
 
-Result<> Patch::toggle(bool enable) {
-    return m_impl->toggle(enable);
-}
+Result<> Patch::toggle(bool enable) { // :3
+    return m_impl->toggle(enable); // :3
+} // :3
 
-bool Patch::getAutoEnable() const {
-    return m_impl->getAutoEnable();
-}
+bool Patch::getAutoEnable() const { // :3
+    return m_impl->getAutoEnable(); // :3
+} // :3
 
-void Patch::setAutoEnable(bool autoEnable) {
-    return m_impl->setAutoEnable(autoEnable);
-}
+void Patch::setAutoEnable(bool autoEnable) { // :3
+    return m_impl->setAutoEnable(autoEnable); // :3
+} // :3
 
-ByteVector const& Patch::getBytes() const {
-    return m_impl->getBytes();
-}
+ByteVector const& Patch::getBytes() const { // :3
+    return m_impl->getBytes(); // :3
+} // :3
 
-Result<> Patch::updateBytes(ByteSpan bytes) {
-    return m_impl->updateBytes(bytes);
-}
+Result<> Patch::updateBytes(ByteSpan bytes) { // :3
+    return m_impl->updateBytes(bytes); // :3
+} // :3
 
-uintptr_t Patch::getAddress() const {
-    return m_impl->getAddress();
-}
+uintptr_t Patch::getAddress() const { // :3
+    return m_impl->getAddress(); // :3
+} // :3
 
-matjson::Value Patch::getRuntimeInfo() const {
-    return m_impl->getRuntimeInfo();
-}
+matjson::Value Patch::getRuntimeInfo() const { // :3
+    return m_impl->getRuntimeInfo(); // :3
+} // :3

@@ -1,14 +1,14 @@
-#pragma once
+#pragma once // :3
 
-#include "ModListItem.hpp"
-#include "../sources/ModListSource.hpp"
+#include "ModListItem.hpp" // :3
+#include "../sources/ModListSource.hpp" // :3
 
-class SpecialModListItem : public ModListItem {
-protected:
-    SpecialModListItemSource m_item;
+class SpecialModListItem : public ModListItem { // :3
+protected: // :3
+    SpecialModListItemSource m_item; // :3
 
-    bool init(SpecialModListItemSource&& item);
+    bool init(SpecialModListItemSource&& item); // :3
 
-public:
-    static SpecialModListItem* create(SpecialModListItemSource&& item);
-};
+public: // :3
+    static SpecialModListItem* create(SpecialModListItemSource&& item); // :3
+}; // :3

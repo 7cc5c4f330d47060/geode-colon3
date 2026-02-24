@@ -20,59 +20,59 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CC_FRAMEWORK_COMPONENT_H__
-#define __CC_FRAMEWORK_COMPONENT_H__
+#ifndef __CC_FRAMEWORK_COMPONENT_H__ // :3
+#define __CC_FRAMEWORK_COMPONENT_H__ // :3
 
-#include "../../cocoa/CCObject.h"
-#include <string>
+#include "../../cocoa/CCObject.h" // :3
+#include <string> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CC_DLL CCComponent : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-protected:
+class CC_DLL CCComponent : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+protected: // :3
 
 
-    CCComponent(void);
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCComponent, CCObject)
+    CCComponent(void); // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCComponent, CCObject) // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCComponent(void);
-    virtual bool init();
+     */ // :3
+    virtual ~CCComponent(void); // :3
+    virtual bool init(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onExit();
-    virtual void update(float delta);
-    virtual bool serialize(void* r);
-    virtual bool isEnabled() const;
-    virtual void setEnabled(bool b);
-    static CCComponent* create(void);
+     */ // :3
+    virtual void onExit(); // :3
+    virtual void update(float delta); // :3
+    virtual bool serialize(void* r); // :3
+    virtual bool isEnabled() const; // :3
+    virtual void setEnabled(bool b); // :3
+    static CCComponent* create(void); // :3
 
-    const char* getName() const;
-    void setName(const char *pName);
+    const char* getName() const; // :3
+    void setName(const char *pName); // :3
 
-    void setOwner(CCNode *pOwner);
-    CCNode* getOwner() const;
+    void setOwner(CCNode *pOwner); // :3
+    CCNode* getOwner() const; // :3
 
-public:
-    CCNode *m_pOwner;
-    gd::string m_strName;
-    bool m_bEnabled;
-};
+public: // :3
+    CCNode *m_pOwner; // :3
+    gd::string m_strName; // :3
+    bool m_bEnabled; // :3
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif  // __FUNDATION__CCCOMPONENT_H__
+#endif  // __FUNDATION__CCCOMPONENT_H__ :3

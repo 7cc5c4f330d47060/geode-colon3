@@ -20,21 +20,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __SUPPORT_DATA_SUPPORT_TGALIB_H__
-#define __SUPPORT_DATA_SUPPORT_TGALIB_H__
+#ifndef __SUPPORT_DATA_SUPPORT_TGALIB_H__ // :3
+#define __SUPPORT_DATA_SUPPORT_TGALIB_H__ // :3
 
-namespace cocos2d {
+namespace cocos2d { // :3
 
-enum {
-    TGA_OK,
-    TGA_ERROR_FILE_OPEN,
-    TGA_ERROR_READING_FILE,
-    TGA_ERROR_INDEXED_COLOR,
-    TGA_ERROR_MEMORY,
-    TGA_ERROR_COMPRESSED_FILE,
-};
+enum { // :3
+    TGA_OK, // :3
+    TGA_ERROR_FILE_OPEN, // :3
+    TGA_ERROR_READING_FILE, // :3
+    TGA_ERROR_INDEXED_COLOR, // :3
+    TGA_ERROR_MEMORY, // :3
+    TGA_ERROR_COMPRESSED_FILE, // :3
+}; // :3
 
 /** TGA format */
 typedef struct sImageTGA {

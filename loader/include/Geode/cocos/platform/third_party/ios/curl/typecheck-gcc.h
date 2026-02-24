@@ -1,5 +1,5 @@
-#ifndef __CURL_TYPECHECK_GCC_H
-#define __CURL_TYPECHECK_GCC_H
+#ifndef __CURL_TYPECHECK_GCC_H // :3
+#define __CURL_TYPECHECK_GCC_H // :3
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -20,7 +20,7 @@
  * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
  * KIND, either express or implied.
  *
- ***************************************************************************/
+ ***************************************************************************/ // :3
 
 /* wraps curl_easy_setopt() with typechecking */
 
@@ -37,7 +37,7 @@
  *
  * To add an option that uses the same type as an existing option, you'll just
  * need to extend the appropriate _curl_*_option macro
- */
+ */ // :3
 #define curl_easy_setopt(handle, option, value)                               \
 __extension__ ({                                                              \
   __typeof__ (option) _curl_opt = option;                                     \
@@ -104,7 +104,7 @@ __extension__ ({                                                              \
         _curl_easy_setopt_err_CURLSH();                                       \
   }                                                                           \
   curl_easy_setopt(handle, _curl_opt, value);                                 \
-})
+}) // :3
 
 /* wraps curl_easy_getinfo() with typechecking */
 /* FIXME: don't allow const pointers */
@@ -131,13 +131,13 @@ __extension__ ({                                                              \
 /* TODO: typechecking for curl_share_setopt() and curl_multi_setopt(),
  * for now just make sure that the functions are called with three
  * arguments
- */
-#define curl_share_setopt(share,opt,param) curl_share_setopt(share,opt,param)
-#define curl_multi_setopt(handle,opt,param) curl_multi_setopt(handle,opt,param)
+ */ // :3
+#define curl_share_setopt(share,opt,param) curl_share_setopt(share,opt,param) // :3
+#define curl_multi_setopt(handle,opt,param) curl_multi_setopt(handle,opt,param) // :3
 
 
 /* the actual warnings, triggered by calling the _curl_easy_setopt_err*
- * functions */
+ * functions */ // :3
 
 /* To define a new warning, use _CURL_WARNING(identifier, "message") */
 #define _CURL_WARNING(id, message)                                            \
@@ -207,7 +207,7 @@ _CURL_WARNING(_curl_easy_getinfo_err_curl_slist,
  *   (option) == CURLOPT_SOMETHING
  * to the or-expression. If the option takes a long or curl_off_t, you don't
  * have to do anything
- */
+ */ // :3
 
 /* evaluates to true if option takes a long argument */
 #define _curl_is_long_option(option)                                          \
@@ -341,7 +341,7 @@ _CURL_WARNING(_curl_easy_getinfo_err_curl_slist,
  * the actual expression passed to the curl_easy_setopt macro. This
  * means that you can only apply the sizeof and __typeof__ operators, no
  * == or whatsoever.
- */
+ */ // :3
 
 /* XXX: should evaluate to true iff expr is a pointer */
 #define _curl_is_any_ptr(expr)                                                \
@@ -371,7 +371,7 @@ _CURL_WARNING(_curl_easy_getinfo_err_curl_slist,
 
 /* evaluates to true if expr is a long (no matter the signedness)
  * XXX: for now, int is also accepted (and therefore short and char, which
- * are promoted to int when passed to a variadic function) */
+ * are promoted to int when passed to a variadic function) */ // :3
 #define _curl_is_long(expr)                                                   \
   (__builtin_types_compatible_p(__typeof__(expr), long) ||                    \
    __builtin_types_compatible_p(__typeof__(expr), signed long) ||             \
@@ -384,7 +384,7 @@ _CURL_WARNING(_curl_easy_getinfo_err_curl_slist,
    __builtin_types_compatible_p(__typeof__(expr), unsigned short) ||          \
    __builtin_types_compatible_p(__typeof__(expr), char) ||                    \
    __builtin_types_compatible_p(__typeof__(expr), signed char) ||             \
-   __builtin_types_compatible_p(__typeof__(expr), unsigned char))
+   __builtin_types_compatible_p(__typeof__(expr), unsigned char)) // :3
 
 /* evaluates to true if expr is of type curl_off_t */
 #define _curl_is_off_t(expr)                                                  \
@@ -419,12 +419,12 @@ _CURL_WARNING(_curl_easy_getinfo_err_curl_slist,
 /* FIXME: the whole callback checking is messy...
  * The idea is to tolerate char vs. void and const vs. not const
  * pointers in arguments at least
- */
+ */ // :3
 /* helper: __builtin_types_compatible_p distinguishes between functions and
- * function pointers, hide it */
+ * function pointers, hide it */ // :3
 #define _curl_callback_compatible(func, type)                                 \
   (__builtin_types_compatible_p(__typeof__(func), type) ||                    \
-   __builtin_types_compatible_p(__typeof__(func), type*))
+   __builtin_types_compatible_p(__typeof__(func), type*)) // :3
 
 /* evaluates to true if expr is of type curl_read_callback or "similar" */
 #define _curl_is_read_cb(expr)                                          \
@@ -488,22 +488,22 @@ typedef int (_curl_sockopt_callback2)(const void *, curl_socket_t,
                                       curlsocktype);
 
 /* evaluates to true if expr is of type curl_opensocket_callback or
-   "similar" */
+   "similar" */ // :3
 #define _curl_is_opensocket_cb(expr)                                    \
   (_curl_is_NULL(expr) ||                                                     \
    __builtin_types_compatible_p(__typeof__(expr), curl_opensocket_callback) ||\
    _curl_callback_compatible((expr), _curl_opensocket_callback1) ||           \
    _curl_callback_compatible((expr), _curl_opensocket_callback2) ||           \
    _curl_callback_compatible((expr), _curl_opensocket_callback3) ||           \
-   _curl_callback_compatible((expr), _curl_opensocket_callback4))
-typedef curl_socket_t (_curl_opensocket_callback1)
-  (void *, curlsocktype, struct curl_sockaddr *);
-typedef curl_socket_t (_curl_opensocket_callback2)
-  (void *, curlsocktype, const struct curl_sockaddr *);
-typedef curl_socket_t (_curl_opensocket_callback3)
-  (const void *, curlsocktype, struct curl_sockaddr *);
-typedef curl_socket_t (_curl_opensocket_callback4)
-  (const void *, curlsocktype, const struct curl_sockaddr *);
+   _curl_callback_compatible((expr), _curl_opensocket_callback4)) // :3
+typedef curl_socket_t (_curl_opensocket_callback1) // :3
+  (void *, curlsocktype, struct curl_sockaddr *); // :3
+typedef curl_socket_t (_curl_opensocket_callback2) // :3
+  (void *, curlsocktype, const struct curl_sockaddr *); // :3
+typedef curl_socket_t (_curl_opensocket_callback3) // :3
+  (const void *, curlsocktype, struct curl_sockaddr *); // :3
+typedef curl_socket_t (_curl_opensocket_callback4) // :3
+  (const void *, curlsocktype, const struct curl_sockaddr *); // :3
 
 /* evaluates to true if expr is of type curl_progress_callback or "similar" */
 #define _curl_is_progress_cb(expr)                                      \
@@ -565,18 +565,18 @@ typedef CURLcode (_curl_ssl_ctx_callback4)(CURL *, const void *, const void *);
 #ifdef HEADER_SSL_H
 /* hack: if we included OpenSSL's ssl.h, we know about SSL_CTX
  * this will of course break if we're included before OpenSSL headers...
- */
-typedef CURLcode (_curl_ssl_ctx_callback5)(CURL *, SSL_CTX, void *);
-typedef CURLcode (_curl_ssl_ctx_callback6)(CURL *, SSL_CTX, const void *);
-typedef CURLcode (_curl_ssl_ctx_callback7)(CURL *, const SSL_CTX, void *);
-typedef CURLcode (_curl_ssl_ctx_callback8)(CURL *, const SSL_CTX,
-                                           const void *);
-#else
-typedef _curl_ssl_ctx_callback1 _curl_ssl_ctx_callback5;
-typedef _curl_ssl_ctx_callback1 _curl_ssl_ctx_callback6;
-typedef _curl_ssl_ctx_callback1 _curl_ssl_ctx_callback7;
-typedef _curl_ssl_ctx_callback1 _curl_ssl_ctx_callback8;
-#endif
+ */ // :3
+typedef CURLcode (_curl_ssl_ctx_callback5)(CURL *, SSL_CTX, void *); // :3
+typedef CURLcode (_curl_ssl_ctx_callback6)(CURL *, SSL_CTX, const void *); // :3
+typedef CURLcode (_curl_ssl_ctx_callback7)(CURL *, const SSL_CTX, void *); // :3
+typedef CURLcode (_curl_ssl_ctx_callback8)(CURL *, const SSL_CTX, // :3
+                                           const void *); // :3
+#else // :3
+typedef _curl_ssl_ctx_callback1 _curl_ssl_ctx_callback5; // :3
+typedef _curl_ssl_ctx_callback1 _curl_ssl_ctx_callback6; // :3
+typedef _curl_ssl_ctx_callback1 _curl_ssl_ctx_callback7; // :3
+typedef _curl_ssl_ctx_callback1 _curl_ssl_ctx_callback8; // :3
+#endif // :3
 
 /* evaluates to true if expr is of type curl_conv_callback or "similar" */
 #define _curl_is_conv_cb(expr)                                          \

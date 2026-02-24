@@ -22,27 +22,27 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCSCENE_H__
-#define __CCSCENE_H__
+#ifndef __CCSCENE_H__ // :3
+#define __CCSCENE_H__ // :3
 
-#include "../base_nodes/CCNode.h"
+#include "../base_nodes/CCNode.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup scene
  * @{
- */
+ */ // :3
 
-// geode should use the cocos2d-x-gd imo
-class CCScene;
+// geode should use the cocos2d-x-gd imo :3
+class CCScene; // :3
 
-class CC_DLL CCSceneDelegate {
-public:
-    virtual void willSwitchToScene(CCScene* scene) {}
-};
+class CC_DLL CCSceneDelegate { // :3
+public: // :3
+    virtual void willSwitchToScene(CCScene* scene) {} // :3
+}; // :3
 
 
 /** @brief CCScene is a subclass of CCNode that is used only as an abstract concept.
@@ -54,41 +54,41 @@ For the moment CCScene has no other logic than that, but in future releases it m
 additional logic.
 
 It is a good practice to use and CCScene as the parent of all your nodes.
-*/
-class CC_DLL CCScene : public CCNode
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCScene : public CCNode // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
-     */
-    CCScene();
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCScene, CCNode)
+     */ // :3
+    CCScene(); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCScene, CCNode) // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCScene();
-    bool init();
+     */ // :3
+    virtual ~CCScene(); // :3
+    bool init(); // :3
 
-    static CCScene* create(void);
+    static CCScene* create(void); // :3
     /**
      * Get the running scene
      * @note Geode addition
-     */
-    static GEODE_DLL CCScene* get();
+     */ // :3
+    static GEODE_DLL CCScene* get(); // :3
 
-    CCScene(const CCScene&);
-    CCScene& operator=(const CCScene&);
+    CCScene(const CCScene&); // :3
+    CCScene& operator=(const CCScene&); // :3
 
-    int getHighestChildZ(void);
+    int getHighestChildZ(void); // :3
 
-    CCSceneDelegate* m_pDelegate;
-};
+    CCSceneDelegate* m_pDelegate; // :3
+}; // :3
 
-// end of scene group
-/// @}
+// end of scene group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __CCSCENE_H__
+#endif // __CCSCENE_H__ :3

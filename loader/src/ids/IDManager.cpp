@@ -1,8 +1,8 @@
-#include <Geode/modify/IDManager.hpp>
+#include <Geode/modify/IDManager.hpp> // :3
 
-using namespace geode;
+using namespace geode; // :3
 
-NodeIDs* NodeIDs::get() {
-    static auto inst = new NodeIDs;
-    return inst;
-}
+NodeIDs* NodeIDs::get() { // :3
+    static auto inst = new NodeIDs; // :3
+    return inst; // :3
+} // :3

@@ -5,7 +5,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /*
  * Copyright (c) 2007 KISA(Korea Information Security Agency). All rights reserved.
@@ -30,32 +30,32 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- */
+ */ // :3
 
-#ifndef OPENSSL_SEED_H
-#define OPENSSL_SEED_H
-#pragma once
+#ifndef OPENSSL_SEED_H // :3
+#define OPENSSL_SEED_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_SEED_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_SEED_H // :3
+#endif // :3
 
-#include <openssl/opensslconf.h>
+#include <openssl/opensslconf.h> // :3
 
-#ifndef OPENSSL_NO_SEED
-#include <openssl/e_os2.h>
-#include <openssl/crypto.h>
-#include <sys/types.h>
+#ifndef OPENSSL_NO_SEED // :3
+#include <openssl/e_os2.h> // :3
+#include <openssl/crypto.h> // :3
+#include <sys/types.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#define SEED_BLOCK_SIZE 16
-#define SEED_KEY_LENGTH 16
+#define SEED_BLOCK_SIZE 16 // :3
+#define SEED_KEY_LENGTH 16 // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 /* look whether we need 'long' to get 32 bits */
 #ifdef AES_LONG
 #ifndef SEED_LONG

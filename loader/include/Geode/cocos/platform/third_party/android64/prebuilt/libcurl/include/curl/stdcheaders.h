@@ -1,5 +1,5 @@
-#ifndef __STDC_HEADERS_H
-#define __STDC_HEADERS_H
+#ifndef __STDC_HEADERS_H // :3
+#define __STDC_HEADERS_H // :3
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -20,14 +20,14 @@
  * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
  * KIND, either express or implied.
  *
- ***************************************************************************/
+ ***************************************************************************/ // :3
 
-#include <sys/types.h>
+#include <sys/types.h> // :3
 
-size_t fread (void *, size_t, size_t, FILE *);
-size_t fwrite (const void *, size_t, size_t, FILE *);
+size_t fread (void *, size_t, size_t, FILE *); // :3
+size_t fwrite (const void *, size_t, size_t, FILE *); // :3
 
-int strcasecmp(const char *, const char *);
-int strncasecmp(const char *, const char *, size_t);
+int strcasecmp(const char *, const char *); // :3
+int strncasecmp(const char *, const char *, size_t); // :3
 
 #endif /* __STDC_HEADERS_H */

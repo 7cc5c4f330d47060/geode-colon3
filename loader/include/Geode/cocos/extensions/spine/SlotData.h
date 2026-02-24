@@ -21,24 +21,24 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_SLOTDATA_H_
-#define SPINE_SLOTDATA_H_
+#ifndef SPINE_SLOTDATA_H_ // :3
+#define SPINE_SLOTDATA_H_ // :3
 
-#include "BoneData.h"
+#include "BoneData.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-typedef struct {
-	const char* const name;
-	const BoneData* const boneData;
-	const char* const attachmentName;
-	float r, g, b, a;
-} SlotData;
+typedef struct { // :3
+	const char* const name; // :3
+	const BoneData* const boneData; // :3
+	const char* const attachmentName; // :3
+	float r, g, b, a; // :3
+} SlotData; // :3
 
-SlotData* SlotData_create (const char* name, BoneData* boneData);
-void SlotData_dispose (SlotData* self);
+SlotData* SlotData_create (const char* name, BoneData* boneData); // :3
+void SlotData_dispose (SlotData* self); // :3
 
 /* @param attachmentName May be 0 for no setup pose attachment. */
 void SlotData_setAttachmentName (SlotData* self, const char* attachmentName);

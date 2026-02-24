@@ -5,26 +5,26 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_CMAC_H
-#define OPENSSL_CMAC_H
-#pragma once
+#ifndef OPENSSL_CMAC_H // :3
+#define OPENSSL_CMAC_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_CMAC_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_CMAC_H // :3
+#endif // :3
 
-#ifndef OPENSSL_NO_CMAC
+#ifndef OPENSSL_NO_CMAC // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#include <openssl/evp.h>
+#include <openssl/evp.h> // :3
 
-#ifndef OPENSSL_NO_DEPRECATED_3_0
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
 /* Opaque */
 typedef struct CMAC_CTX_st CMAC_CTX;
 #endif

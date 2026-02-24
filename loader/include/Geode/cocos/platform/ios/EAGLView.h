@@ -59,57 +59,57 @@ APPLE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Copyright (C) 2008 Apple Inc. All Rights Reserved.
 
-*/
+*/ // :3
 
-#import <UIKit/UIKit.h>
-#import <OpenGLES/EAGL.h>
-#import <OpenGLES/EAGLDrawable.h>
-#import <OpenGLES/ES2/gl.h>
-#import <OpenGLES/ES2/glext.h>
-#import <CoreFoundation/CoreFoundation.h>
+#import <UIKit/UIKit.h> // :3
+#import <OpenGLES/EAGL.h> // :3
+#import <OpenGLES/EAGLDrawable.h> // :3
+#import <OpenGLES/ES2/gl.h> // :3
+#import <OpenGLES/ES2/glext.h> // :3
+#import <CoreFoundation/CoreFoundation.h> // :3
 
-#import "CCESRenderer.h"
+#import "CCESRenderer.h" // :3
 
-//CLASS INTERFACE:
+//CLASS INTERFACE: :3
 
 /** EAGLView Class.
  * This class wraps the CAEAGLLayer from CoreAnimation into a convenient UIView subclass.
  * The view content is basically an EAGL surface you render your OpenGL scene into.
  * Note that setting the view non-opaque will only work if the EAGL surface has an alpha channel.
- */
-@interface EAGLView : UIView <UIKeyInput, UITextInput>
-{
-    id                        <CCESRenderer> renderer_;
-    EAGLContext                *context_; // weak ref
+ */ // :3
+@interface EAGLView : UIView <UIKeyInput, UITextInput> // :3
+{ // :3
+    id                        <CCESRenderer> renderer_; // :3
+    EAGLContext                *context_; // weak ref :3
 
-    NSString                *pixelformat_;
-    GLuint                    depthFormat_;
-    BOOL                    preserveBackbuffer_;
+    NSString                *pixelformat_; // :3
+    GLuint                    depthFormat_; // :3
+    BOOL                    preserveBackbuffer_; // :3
 
-    CGSize                    size_;
-    BOOL                    discardFramebufferSupported_;
+    CGSize                    size_; // :3
+    BOOL                    discardFramebufferSupported_; // :3
 
-    //fsaa addition
-    BOOL                    multisampling_;
-    unsigned int               requestedSamples_;
-    BOOL                    isUseUITextField;
-@private
-    NSString *              markedText_;
-    CGRect                  caretRect_;
-    CGRect                  originalRect_;
-    NSNotification*         keyboardShowNotification_;
-    BOOL                    isKeyboardShown_;
-}
+    //fsaa addition :3
+    BOOL                    multisampling_; // :3
+    unsigned int               requestedSamples_; // :3
+    BOOL                    isUseUITextField; // :3
+@private // :3
+    NSString *              markedText_; // :3
+    CGRect                  caretRect_; // :3
+    CGRect                  originalRect_; // :3
+    NSNotification*         keyboardShowNotification_; // :3
+    BOOL                    isKeyboardShown_; // :3
+} // :3
 
-@property(nonatomic, readonly) UITextPosition *beginningOfDocument;
-@property(nonatomic, readonly) UITextPosition *endOfDocument;
-@property(nonatomic, assign) id<UITextInputDelegate> inputDelegate;
-@property(nonatomic, readonly) UITextRange *markedTextRange;
-@property (nonatomic, copy) NSDictionary *markedTextStyle;
-@property(readwrite, copy) UITextRange *selectedTextRange;
-@property(nonatomic, readonly) id<UITextInputTokenizer> tokenizer;
-@property(nonatomic, readonly, getter = isKeyboardShown) BOOL isKeyboardShown;
-@property(nonatomic, copy) NSNotification* keyboardShowNotification;
+@property(nonatomic, readonly) UITextPosition *beginningOfDocument; // :3
+@property(nonatomic, readonly) UITextPosition *endOfDocument; // :3
+@property(nonatomic, assign) id<UITextInputDelegate> inputDelegate; // :3
+@property(nonatomic, readonly) UITextRange *markedTextRange; // :3
+@property (nonatomic, copy) NSDictionary *markedTextStyle; // :3
+@property(readwrite, copy) UITextRange *selectedTextRange; // :3
+@property(nonatomic, readonly) id<UITextInputTokenizer> tokenizer; // :3
+@property(nonatomic, readonly, getter = isKeyboardShown) BOOL isKeyboardShown; // :3
+@property(nonatomic, copy) NSNotification* keyboardShowNotification; // :3
 /** creates an initializes an EAGLView with a frame and 0-bit depth buffer, and a RGB565 color buffer */
 + (id) viewWithFrame:(CGRect)frame;
 /** creates an initializes an EAGLView with a frame, a color buffer format, and 0-bit depth buffer */

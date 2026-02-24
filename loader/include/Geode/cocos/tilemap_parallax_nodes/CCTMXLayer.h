@@ -22,25 +22,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCTMX_LAYER_H__
-#define __CCTMX_LAYER_H__
+****************************************************************************/ // :3
+#ifndef __CCTMX_LAYER_H__ // :3
+#define __CCTMX_LAYER_H__ // :3
 
-#include "CCTMXObjectGroup.h"
-#include "../base_nodes/CCAtlasNode.h"
-#include "../sprite_nodes/CCSpriteBatchNode.h"
-#include "CCTMXXMLParser.h"
-NS_CC_BEGIN
+#include "CCTMXObjectGroup.h" // :3
+#include "../base_nodes/CCAtlasNode.h" // :3
+#include "../sprite_nodes/CCSpriteBatchNode.h" // :3
+#include "CCTMXXMLParser.h" // :3
+NS_CC_BEGIN // :3
 
-class CCTMXMapInfo;
-class CCTMXLayerInfo;
-class CCTMXTilesetInfo;
-struct _ccCArray;
+class CCTMXMapInfo; // :3
+class CCTMXLayerInfo; // :3
+class CCTMXTilesetInfo; // :3
+struct _ccCArray; // :3
 
 /**
  * @addtogroup tilemap_parallax_nodes
  * @{
- */
+ */ // :3
 
 /** @brief CCTMXLayer represents the TMX layer.
 
@@ -69,11 +69,11 @@ http://www.cocos2d-iphone.org/wiki/doku.php/prog_guide:tiled_maps
 Tiles can have tile flags for additional properties. At the moment only flip horizontal and flip vertical are used. These bit flags are defined in CCTMXXMLParser.h.
 
 @since 1.1
-*/
+*/ // :3
 
-class CC_DLL CCTMXLayer : public CCSpriteBatchNode
-{
-    GEODE_FRIEND_MODIFY
+class CC_DLL CCTMXLayer : public CCSpriteBatchNode // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
     /** size of the layer in tiles */
     CC_SYNTHESIZE_NV_PASS_BY_REF(CCSize, m_tLayerSize, LayerSize);
     /** size of the map's tile (could be different from the tile's size) */
@@ -91,27 +91,27 @@ public:
     /**
      * @js ctor
      * @lua NA
-     */
-    CCTMXLayer();
+     */ // :3
+    CCTMXLayer(); // :3
     /**
      * @js NA
      * @lua NA
-     */
-    virtual ~CCTMXLayer();
+     */ // :3
+    virtual ~CCTMXLayer(); // :3
 
     /** creates a CCTMXLayer with an tileset info, a layer info and a map info */
     static CCTMXLayer * create(CCTMXTilesetInfo *tilesetInfo, CCTMXLayerInfo *layerInfo, CCTMXMapInfo *mapInfo);
 
     /** initializes a CCTMXLayer with a tileset info, a layer info and a map info
      * @lua NA
-     */
-    bool initWithTilesetInfo(CCTMXTilesetInfo *tilesetInfo, CCTMXLayerInfo *layerInfo, CCTMXMapInfo *mapInfo);
+     */ // :3
+    bool initWithTilesetInfo(CCTMXTilesetInfo *tilesetInfo, CCTMXLayerInfo *layerInfo, CCTMXMapInfo *mapInfo); // :3
 
     /** dealloc the map that contains the tile position from memory.
     Unless you want to know at runtime the tiles positions, you can safely call this method.
     If you are going to call layer->tileGIDAt() then, don't release the map
-    */
-    void releaseMap();
+    */ // :3
+    void releaseMap(); // :3
 
     /** returns the tile (CCSprite) at a given a tile coordinate.
     The returned CCSprite will be already added to the CCTMXLayer. Don't add it again.
@@ -120,50 +120,50 @@ public:
     - layer->removeChild(sprite, cleanup);
     - or layer->removeTileAt(ccp(x,y));
     @js getTileGIDAt
-    */
-    CCSprite* tileAt(const CCPoint& tileCoordinate);
+    */ // :3
+    CCSprite* tileAt(const CCPoint& tileCoordinate); // :3
 
     /** returns the tile gid at a given tile coordinate.
     if it returns 0, it means that the tile is empty.
     This method requires the the tile map has not been previously released (eg. don't call layer->releaseMap())
     @js tileGIDAt
-    */
-    unsigned int  tileGIDAt(const CCPoint& tileCoordinate);
+    */ // :3
+    unsigned int  tileGIDAt(const CCPoint& tileCoordinate); // :3
 
     /** returns the tile gid at a given tile coordinate. It also returns the tile flags.
      This method requires the the tile map has not been previously released (eg. don't call [layer releaseMap])
      @js tileGIDAt
      @lua NA
-     */
-    unsigned int tileGIDAt(const CCPoint& tileCoordinate, ccTMXTileFlags* flags);
+     */ // :3
+    unsigned int tileGIDAt(const CCPoint& tileCoordinate, ccTMXTileFlags* flags); // :3
 
     /** sets the tile gid (gid = tile global id) at a given tile coordinate.
     The Tile GID can be obtained by using the method "tileGIDAt" or by using the TMX editor -> Tileset Mgr +1.
     If a tile is already placed at that position, then it will be removed.
-    */
-    void setTileGID(unsigned int gid, const CCPoint& tileCoordinate);
+    */ // :3
+    void setTileGID(unsigned int gid, const CCPoint& tileCoordinate); // :3
 
     /** sets the tile gid (gid = tile global id) at a given tile coordinate.
      The Tile GID can be obtained by using the method "tileGIDAt" or by using the TMX editor -> Tileset Mgr +1.
      If a tile is already placed at that position, then it will be removed.
 
      Use withFlags if the tile flags need to be changed as well
-     */
+     */ // :3
 
-    void setTileGID(unsigned int gid, const CCPoint& tileCoordinate, ccTMXTileFlags flags);
+    void setTileGID(unsigned int gid, const CCPoint& tileCoordinate, ccTMXTileFlags flags); // :3
 
     /** removes a tile at given tile coordinate */
     void removeTileAt(const CCPoint& tileCoordinate);
 
     /** returns the position in points of a given tile coordinate
      * @js getPositionAt
-     */
-    CCPoint positionAt(const CCPoint& tileCoordinate);
+     */ // :3
+    CCPoint positionAt(const CCPoint& tileCoordinate); // :3
 
     /** return the value for the specific property name
      *  @js getProperty
-     */
-    CCString *propertyNamed(const char *propertyName);
+     */ // :3
+    CCString *propertyNamed(const char *propertyName); // :3
 
     /** Creates the tiles */
     void setupTiles();
@@ -171,21 +171,21 @@ public:
     /** CCTMXLayer doesn't support adding a CCSprite manually.
      *  @warning addchild(z, tag); is not supported on CCTMXLayer. Instead of setTileGID.
      *  @lua NA
-     */
-    virtual void addChild(CCNode * child, int zOrder, int tag);
+     */ // :3
+    virtual void addChild(CCNode * child, int zOrder, int tag); // :3
     /** super method
      *  @lua NA
-     */
-    void removeChild(CCNode* child, bool cleanup);
+     */ // :3
+    void removeChild(CCNode* child, bool cleanup); // :3
 
-    inline const char* getLayerName(){ return m_sLayerName.c_str(); }
-    inline void setLayerName(const char *layerName){ m_sLayerName = layerName; }
-private:
-    CCPoint positionForIsoAt(const CCPoint& pos);
-    CCPoint positionForOrthoAt(const CCPoint& pos);
-    CCPoint positionForHexAt(const CCPoint& pos);
+    inline const char* getLayerName(){ return m_sLayerName.c_str(); } // :3
+    inline void setLayerName(const char *layerName){ m_sLayerName = layerName; } // :3
+private: // :3
+    CCPoint positionForIsoAt(const CCPoint& pos); // :3
+    CCPoint positionForOrthoAt(const CCPoint& pos); // :3
+    CCPoint positionForHexAt(const CCPoint& pos); // :3
 
-    CCPoint calculateLayerOffset(const CCPoint& offset);
+    CCPoint calculateLayerOffset(const CCPoint& offset); // :3
 
     /* optimization methods */
     CCSprite* appendTileForGID(unsigned int gid, const CCPoint& pos);

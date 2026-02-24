@@ -1,144 +1,144 @@
-// Predefined symbols and macros -*- C++ -*-
+// Predefined symbols and macros -*- C++ -*- :3
 
-// Copyright (C) 1997-2014 Free Software Foundation, Inc.
-//
-// This file is part of the GNU ISO C++ Library.  This library is free
-// software; you can redistribute it and/or modify it under the
-// terms of the GNU General Public License as published by the
-// Free Software Foundation; either version 3, or (at your option)
-// any later version.
+// Copyright (C) 1997-2014 Free Software Foundation, Inc. :3
+// :3
+// This file is part of the GNU ISO C++ Library.  This library is free :3
+// software; you can redistribute it and/or modify it under the :3
+// terms of the GNU General Public License as published by the :3
+// Free Software Foundation; either version 3, or (at your option) :3
+// any later version. :3
 
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// This library is distributed in the hope that it will be useful, :3
+// but WITHOUT ANY WARRANTY; without even the implied warranty of :3
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the :3
+// GNU General Public License for more details. :3
 
-// Under Section 7 of GPL version 3, you are granted additional
-// permissions described in the GCC Runtime Library Exception, version
-// 3.1, as published by the Free Software Foundation.
+// Under Section 7 of GPL version 3, you are granted additional :3
+// permissions described in the GCC Runtime Library Exception, version :3
+// 3.1, as published by the Free Software Foundation. :3
 
-// You should have received a copy of the GNU General Public License and
-// a copy of the GCC Runtime Library Exception along with this program;
-// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+// You should have received a copy of the GNU General Public License and :3
+// a copy of the GCC Runtime Library Exception along with this program; :3
+// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see :3
 // <http://www.gnu.org/licenses/>.
 
 /** @file bits/c++config.h
  *  This is an internal header file, included by other library headers.
  *  Do not attempt to use it directly. @headername{iosfwd}
- */
+ */ // :3
 
-#ifndef _GLIBCXX_CXX_CONFIG_H
-#define _GLIBCXX_CXX_CONFIG_H 1
+#ifndef _GLIBCXX_CXX_CONFIG_H // :3
+#define _GLIBCXX_CXX_CONFIG_H 1 // :3
 
-// The current version of the C++ library in compressed ISO date format.
-#define __GLIBCXX__ 20150123
+// The current version of the C++ library in compressed ISO date format. :3
+#define __GLIBCXX__ 20150123 // :3
 
-// Macros for various attributes.
-//   _GLIBCXX_PURE
-//   _GLIBCXX_CONST
-//   _GLIBCXX_NORETURN
-//   _GLIBCXX_NOTHROW
-//   _GLIBCXX_VISIBILITY
-#ifndef _GLIBCXX_PURE
-# define _GLIBCXX_PURE __attribute__ ((__pure__))
-#endif
+// Macros for various attributes. :3
+//   _GLIBCXX_PURE :3
+//   _GLIBCXX_CONST :3
+//   _GLIBCXX_NORETURN :3
+//   _GLIBCXX_NOTHROW :3
+//   _GLIBCXX_VISIBILITY :3
+#ifndef _GLIBCXX_PURE // :3
+# define _GLIBCXX_PURE __attribute__ ((__pure__)) // :3
+#endif // :3
 
-#ifndef _GLIBCXX_CONST
-# define _GLIBCXX_CONST __attribute__ ((__const__))
-#endif
+#ifndef _GLIBCXX_CONST // :3
+# define _GLIBCXX_CONST __attribute__ ((__const__)) // :3
+#endif // :3
 
-#ifndef _GLIBCXX_NORETURN
-# define _GLIBCXX_NORETURN __attribute__ ((__noreturn__))
-#endif
+#ifndef _GLIBCXX_NORETURN // :3
+# define _GLIBCXX_NORETURN __attribute__ ((__noreturn__)) // :3
+#endif // :3
 
-// See below for C++
-#ifndef _GLIBCXX_NOTHROW
-# ifndef __cplusplus
-#  define _GLIBCXX_NOTHROW __attribute__((__nothrow__))
-# endif
-#endif
+// See below for C++ :3
+#ifndef _GLIBCXX_NOTHROW // :3
+# ifndef __cplusplus // :3
+#  define _GLIBCXX_NOTHROW __attribute__((__nothrow__)) // :3
+# endif // :3
+#endif // :3
 
-// Macros for visibility attributes.
-//   _GLIBCXX_HAVE_ATTRIBUTE_VISIBILITY
-//   _GLIBCXX_VISIBILITY
-# define _GLIBCXX_HAVE_ATTRIBUTE_VISIBILITY 1
+// Macros for visibility attributes. :3
+//   _GLIBCXX_HAVE_ATTRIBUTE_VISIBILITY :3
+//   _GLIBCXX_VISIBILITY :3
+# define _GLIBCXX_HAVE_ATTRIBUTE_VISIBILITY 1 // :3
 
-#if _GLIBCXX_HAVE_ATTRIBUTE_VISIBILITY
-# define _GLIBCXX_VISIBILITY(V) __attribute__ ((__visibility__ (#V)))
-#else
-// If this is not supplied by the OS-specific or CPU-specific
-// headers included below, it will be defined to an empty default.
-# define _GLIBCXX_VISIBILITY(V) _GLIBCXX_PSEUDO_VISIBILITY(V)
-#endif
+#if _GLIBCXX_HAVE_ATTRIBUTE_VISIBILITY // :3
+# define _GLIBCXX_VISIBILITY(V) __attribute__ ((__visibility__ (#V))) // :3
+#else // :3
+// If this is not supplied by the OS-specific or CPU-specific :3
+// headers included below, it will be defined to an empty default. :3
+# define _GLIBCXX_VISIBILITY(V) _GLIBCXX_PSEUDO_VISIBILITY(V) // :3
+#endif // :3
 
-// Macros for deprecated attributes.
-//   _GLIBCXX_USE_DEPRECATED
-//   _GLIBCXX_DEPRECATED
-#ifndef _GLIBCXX_USE_DEPRECATED
-# define _GLIBCXX_USE_DEPRECATED 1
-#endif
+// Macros for deprecated attributes. :3
+//   _GLIBCXX_USE_DEPRECATED :3
+//   _GLIBCXX_DEPRECATED :3
+#ifndef _GLIBCXX_USE_DEPRECATED // :3
+# define _GLIBCXX_USE_DEPRECATED 1 // :3
+#endif // :3
 
-#if defined(__DEPRECATED) && (__cplusplus >= 201103L)
-# define _GLIBCXX_DEPRECATED __attribute__ ((__deprecated__))
-#else
-# define _GLIBCXX_DEPRECATED
-#endif
+#if defined(__DEPRECATED) && (__cplusplus >= 201103L) // :3
+# define _GLIBCXX_DEPRECATED __attribute__ ((__deprecated__)) // :3
+#else // :3
+# define _GLIBCXX_DEPRECATED // :3
+#endif // :3
 
-// Macros for ABI tag attributes.
-#ifndef _GLIBCXX_ABI_TAG_CXX11
-# define _GLIBCXX_ABI_TAG_CXX11 __attribute ((__abi_tag__ ("cxx11")))
-#endif
+// Macros for ABI tag attributes. :3
+#ifndef _GLIBCXX_ABI_TAG_CXX11 // :3
+# define _GLIBCXX_ABI_TAG_CXX11 __attribute ((__abi_tag__ ("cxx11"))) // :3
+#endif // :3
 
 
-#if __cplusplus
+#if __cplusplus // :3
 
-// Macro for constexpr, to support in mixed 03/0x mode.
-#ifndef _GLIBCXX_CONSTEXPR
-# if __cplusplus >= 201103L
-#  define _GLIBCXX_CONSTEXPR constexpr
-#  define _GLIBCXX_USE_CONSTEXPR constexpr
-# else
-#  define _GLIBCXX_CONSTEXPR
-#  define _GLIBCXX_USE_CONSTEXPR const
-# endif
-#endif
+// Macro for constexpr, to support in mixed 03/0x mode. :3
+#ifndef _GLIBCXX_CONSTEXPR // :3
+# if __cplusplus >= 201103L // :3
+#  define _GLIBCXX_CONSTEXPR constexpr // :3
+#  define _GLIBCXX_USE_CONSTEXPR constexpr // :3
+# else // :3
+#  define _GLIBCXX_CONSTEXPR // :3
+#  define _GLIBCXX_USE_CONSTEXPR const // :3
+# endif // :3
+#endif // :3
 
-// Macro for noexcept, to support in mixed 03/0x mode.
-#ifndef _GLIBCXX_NOEXCEPT
-# if __cplusplus >= 201103L
-#  define _GLIBCXX_NOEXCEPT noexcept
-#  define _GLIBCXX_USE_NOEXCEPT noexcept
-#  define _GLIBCXX_THROW(_EXC)
-# else
-#  define _GLIBCXX_NOEXCEPT
-#  define _GLIBCXX_USE_NOEXCEPT throw()
-#  define _GLIBCXX_THROW(_EXC) throw(_EXC)
-# endif
-#endif
+// Macro for noexcept, to support in mixed 03/0x mode. :3
+#ifndef _GLIBCXX_NOEXCEPT // :3
+# if __cplusplus >= 201103L // :3
+#  define _GLIBCXX_NOEXCEPT noexcept // :3
+#  define _GLIBCXX_USE_NOEXCEPT noexcept // :3
+#  define _GLIBCXX_THROW(_EXC) // :3
+# else // :3
+#  define _GLIBCXX_NOEXCEPT // :3
+#  define _GLIBCXX_USE_NOEXCEPT throw() // :3
+#  define _GLIBCXX_THROW(_EXC) throw(_EXC) // :3
+# endif // :3
+#endif // :3
 
-#ifndef _GLIBCXX_NOTHROW
-# define _GLIBCXX_NOTHROW _GLIBCXX_USE_NOEXCEPT
-#endif
+#ifndef _GLIBCXX_NOTHROW // :3
+# define _GLIBCXX_NOTHROW _GLIBCXX_USE_NOEXCEPT // :3
+#endif // :3
 
-#ifndef _GLIBCXX_THROW_OR_ABORT
-# if __EXCEPTIONS
-#  define _GLIBCXX_THROW_OR_ABORT(_EXC) (throw (_EXC))
-# else
-#  define _GLIBCXX_THROW_OR_ABORT(_EXC) (__builtin_abort())
-# endif
-#endif
+#ifndef _GLIBCXX_THROW_OR_ABORT // :3
+# if __EXCEPTIONS // :3
+#  define _GLIBCXX_THROW_OR_ABORT(_EXC) (throw (_EXC)) // :3
+# else // :3
+#  define _GLIBCXX_THROW_OR_ABORT(_EXC) (__builtin_abort()) // :3
+# endif // :3
+#endif // :3
 
-// Macro for extern template, ie controling template linkage via use
-// of extern keyword on template declaration. As documented in the g++
-// manual, it inhibits all implicit instantiations and is used
-// throughout the library to avoid multiple weak definitions for
-// required types that are already explicitly instantiated in the
-// library binary. This substantially reduces the binary size of
-// resulting executables.
-// Special case: _GLIBCXX_EXTERN_TEMPLATE == -1 disallows extern
-// templates only in basic_string, thus activating its debug-mode
-// checks even at -O0.
-# define _GLIBCXX_EXTERN_TEMPLATE 1
+// Macro for extern template, ie controling template linkage via use :3
+// of extern keyword on template declaration. As documented in the g++ :3
+// manual, it inhibits all implicit instantiations and is used :3
+// throughout the library to avoid multiple weak definitions for :3
+// required types that are already explicitly instantiated in the :3
+// library binary. This substantially reduces the binary size of :3
+// resulting executables. :3
+// Special case: _GLIBCXX_EXTERN_TEMPLATE == -1 disallows extern :3
+// templates only in basic_string, thus activating its debug-mode :3
+// checks even at -O0. :3
+# define _GLIBCXX_EXTERN_TEMPLATE 1 // :3
 
 /*
   Outline of libstdc++ namespaces.
@@ -182,291 +182,291 @@
 
   For full details see:
   http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/namespaces.html
-*/
-namespace geode::stl
-{
-  typedef __SIZE_TYPE__ 	size_t;
-  typedef __PTRDIFF_TYPE__	ptrdiff_t;
+*/ // :3
+namespace geode::stl // :3
+{ // :3
+  typedef __SIZE_TYPE__ 	size_t; // :3
+  typedef __PTRDIFF_TYPE__	ptrdiff_t; // :3
 
-#if __cplusplus >= 201103L
-  typedef decltype(nullptr)	nullptr_t;
-#endif
-}
-
-
-// Defined if inline namespaces are used for versioning.
-# define _GLIBCXX_INLINE_VERSION 0
-
-// Inline namespace for symbol versioning.
-#if _GLIBCXX_INLINE_VERSION
-
-namespace geode::stl
-{
-  inline namespace __7 { }
-
-  namespace rel_ops { inline namespace __7 { } }
-
-  namespace tr1
-  {
-    inline namespace __7 { }
-    namespace placeholders { inline namespace __7 { } }
-    namespace regex_constants { inline namespace __7 { } }
-    namespace __detail { inline namespace __7 { } }
-  }
-
-  namespace tr2
-  { inline namespace __7 { } }
-
-  namespace decimal { inline namespace __7 { } }
-
-  namespace chrono { inline namespace __7 { } }
-  namespace placeholders { inline namespace __7 { } }
-  namespace regex_constants { inline namespace __7 { } }
-  namespace this_thread { inline namespace __7 { } }
-
-  namespace experimental { inline namespace __7 { } }
-
-  namespace __detail { inline namespace __7 { } }
-}
-
-namespace __gnu_cxx
-{
-  inline namespace __7 { }
-  namespace __detail { inline namespace __7 { } }
-}
-# define _GLIBCXX_BEGIN_NAMESPACE_VERSION namespace __7 {
-# define _GLIBCXX_END_NAMESPACE_VERSION }
-#else
-# define _GLIBCXX_BEGIN_NAMESPACE_VERSION
-# define _GLIBCXX_END_NAMESPACE_VERSION
-#endif
+#if __cplusplus >= 201103L // :3
+  typedef decltype(nullptr)	nullptr_t; // :3
+#endif // :3
+} // :3
 
 
-// Inline namespaces for special modes: debug, parallel, profile.
+// Defined if inline namespaces are used for versioning. :3
+# define _GLIBCXX_INLINE_VERSION 0 // :3
+
+// Inline namespace for symbol versioning. :3
+#if _GLIBCXX_INLINE_VERSION // :3
+
+namespace geode::stl // :3
+{ // :3
+  inline namespace __7 { } // :3
+
+  namespace rel_ops { inline namespace __7 { } } // :3
+
+  namespace tr1 // :3
+  { // :3
+    inline namespace __7 { } // :3
+    namespace placeholders { inline namespace __7 { } } // :3
+    namespace regex_constants { inline namespace __7 { } } // :3
+    namespace __detail { inline namespace __7 { } } // :3
+  } // :3
+
+  namespace tr2 // :3
+  { inline namespace __7 { } } // :3
+
+  namespace decimal { inline namespace __7 { } } // :3
+
+  namespace chrono { inline namespace __7 { } } // :3
+  namespace placeholders { inline namespace __7 { } } // :3
+  namespace regex_constants { inline namespace __7 { } } // :3
+  namespace this_thread { inline namespace __7 { } } // :3
+
+  namespace experimental { inline namespace __7 { } } // :3
+
+  namespace __detail { inline namespace __7 { } } // :3
+} // :3
+
+namespace __gnu_cxx // :3
+{ // :3
+  inline namespace __7 { } // :3
+  namespace __detail { inline namespace __7 { } } // :3
+} // :3
+# define _GLIBCXX_BEGIN_NAMESPACE_VERSION namespace __7 { // :3
+# define _GLIBCXX_END_NAMESPACE_VERSION } // :3
+#else // :3
+# define _GLIBCXX_BEGIN_NAMESPACE_VERSION // :3
+# define _GLIBCXX_END_NAMESPACE_VERSION // :3
+#endif // :3
+
+
+// Inline namespaces for special modes: debug, parallel, profile. :3
 #if defined(_GLIBCXX_DEBUG) || defined(_GLIBCXX_PARALLEL) \
-    || defined(_GLIBCXX_PROFILE)
-namespace geode::stl
-{
-  // Non-inline namespace for components replaced by alternates in active mode.
-  namespace __cxx1998
-  {
-#if _GLIBCXX_INLINE_VERSION
- inline namespace __7 { }
-#endif
-  }
+    || defined(_GLIBCXX_PROFILE) // :3
+namespace geode::stl // :3
+{ // :3
+  // Non-inline namespace for components replaced by alternates in active mode. :3
+  namespace __cxx1998 // :3
+  { // :3
+#if _GLIBCXX_INLINE_VERSION // :3
+ inline namespace __7 { } // :3
+#endif // :3
+  } // :3
 
-  // Inline namespace for debug mode.
-# ifdef _GLIBCXX_DEBUG
-  inline namespace __debug { }
-# endif
+  // Inline namespace for debug mode. :3
+# ifdef _GLIBCXX_DEBUG // :3
+  inline namespace __debug { } // :3
+# endif // :3
 
-  // Inline namespaces for parallel mode.
-# ifdef _GLIBCXX_PARALLEL
-  inline namespace __parallel { }
-# endif
+  // Inline namespaces for parallel mode. :3
+# ifdef _GLIBCXX_PARALLEL // :3
+  inline namespace __parallel { } // :3
+# endif // :3
 
-  // Inline namespaces for profile mode
-# ifdef _GLIBCXX_PROFILE
-  inline namespace __profile { }
-# endif
-}
+  // Inline namespaces for profile mode :3
+# ifdef _GLIBCXX_PROFILE // :3
+  inline namespace __profile { } // :3
+# endif // :3
+} // :3
 
-// Check for invalid usage and unsupported mixed-mode use.
-# if defined(_GLIBCXX_DEBUG) && defined(_GLIBCXX_PARALLEL)
-#  error illegal use of multiple inlined namespaces
-# endif
-# if defined(_GLIBCXX_PROFILE) && defined(_GLIBCXX_DEBUG)
-#  error illegal use of multiple inlined namespaces
-# endif
-# if defined(_GLIBCXX_PROFILE) && defined(_GLIBCXX_PARALLEL)
-#  error illegal use of multiple inlined namespaces
-# endif
+// Check for invalid usage and unsupported mixed-mode use. :3
+# if defined(_GLIBCXX_DEBUG) && defined(_GLIBCXX_PARALLEL) // :3
+#  error illegal use of multiple inlined namespaces // :3
+# endif // :3
+# if defined(_GLIBCXX_PROFILE) && defined(_GLIBCXX_DEBUG) // :3
+#  error illegal use of multiple inlined namespaces // :3
+# endif // :3
+# if defined(_GLIBCXX_PROFILE) && defined(_GLIBCXX_PARALLEL) // :3
+#  error illegal use of multiple inlined namespaces // :3
+# endif // :3
 
-// Check for invalid use due to lack for weak symbols.
-# if __NO_INLINE__ && !__GXX_WEAK__
+// Check for invalid use due to lack for weak symbols. :3
+# if __NO_INLINE__ && !__GXX_WEAK__ // :3
 #  warning currently using inlined namespace mode which may fail \
-   without inlining due to lack of weak symbols
-# endif
-#endif
+   without inlining due to lack of weak symbols // :3
+# endif // :3
+#endif // :3
 
-// Macros for namespace scope. Either namespace std:: or the name
-// of some nested namespace within it corresponding to the active mode.
-// _GLIBCXX_STD_A
-// _GLIBCXX_STD_C
-//
-// Macros for opening/closing conditional namespaces.
-// _GLIBCXX_BEGIN_NAMESPACE_ALGO
-// _GLIBCXX_END_NAMESPACE_ALGO
-// _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
-// _GLIBCXX_END_NAMESPACE_CONTAINER
-#if defined(_GLIBCXX_DEBUG) || defined(_GLIBCXX_PROFILE)
-# define _GLIBCXX_STD_C __cxx1998
+// Macros for namespace scope. Either namespace std:: or the name :3
+// of some nested namespace within it corresponding to the active mode. :3
+// _GLIBCXX_STD_A :3
+// _GLIBCXX_STD_C :3
+// :3
+// Macros for opening/closing conditional namespaces. :3
+// _GLIBCXX_BEGIN_NAMESPACE_ALGO :3
+// _GLIBCXX_END_NAMESPACE_ALGO :3
+// _GLIBCXX_BEGIN_NAMESPACE_CONTAINER :3
+// _GLIBCXX_END_NAMESPACE_CONTAINER :3
+#if defined(_GLIBCXX_DEBUG) || defined(_GLIBCXX_PROFILE) // :3
+# define _GLIBCXX_STD_C __cxx1998 // :3
 # define _GLIBCXX_BEGIN_NAMESPACE_CONTAINER \
-	 namespace _GLIBCXX_STD_C { _GLIBCXX_BEGIN_NAMESPACE_VERSION
+	 namespace _GLIBCXX_STD_C { _GLIBCXX_BEGIN_NAMESPACE_VERSION // :3
 # define _GLIBCXX_END_NAMESPACE_CONTAINER \
-	 _GLIBCXX_END_NAMESPACE_VERSION }
-# undef _GLIBCXX_EXTERN_TEMPLATE
-# define _GLIBCXX_EXTERN_TEMPLATE -1
-#endif
+	 _GLIBCXX_END_NAMESPACE_VERSION } // :3
+# undef _GLIBCXX_EXTERN_TEMPLATE // :3
+# define _GLIBCXX_EXTERN_TEMPLATE -1 // :3
+#endif // :3
 
-#ifdef _GLIBCXX_PARALLEL
-# define _GLIBCXX_STD_A __cxx1998
+#ifdef _GLIBCXX_PARALLEL // :3
+# define _GLIBCXX_STD_A __cxx1998 // :3
 # define _GLIBCXX_BEGIN_NAMESPACE_ALGO \
-	 namespace _GLIBCXX_STD_A { _GLIBCXX_BEGIN_NAMESPACE_VERSION
+	 namespace _GLIBCXX_STD_A { _GLIBCXX_BEGIN_NAMESPACE_VERSION // :3
 # define _GLIBCXX_END_NAMESPACE_ALGO \
-	 _GLIBCXX_END_NAMESPACE_VERSION }
-#endif
+	 _GLIBCXX_END_NAMESPACE_VERSION } // :3
+#endif // :3
 
-#ifndef _GLIBCXX_STD_A
-# define _GLIBCXX_STD_A std
-#endif
+#ifndef _GLIBCXX_STD_A // :3
+# define _GLIBCXX_STD_A std // :3
+#endif // :3
 
-#ifndef _GLIBCXX_STD_C
-# define _GLIBCXX_STD_C std
-#endif
+#ifndef _GLIBCXX_STD_C // :3
+# define _GLIBCXX_STD_C std // :3
+#endif // :3
 
-#ifndef _GLIBCXX_BEGIN_NAMESPACE_ALGO
-# define _GLIBCXX_BEGIN_NAMESPACE_ALGO
-#endif
+#ifndef _GLIBCXX_BEGIN_NAMESPACE_ALGO // :3
+# define _GLIBCXX_BEGIN_NAMESPACE_ALGO // :3
+#endif // :3
 
-#ifndef _GLIBCXX_END_NAMESPACE_ALGO
-# define _GLIBCXX_END_NAMESPACE_ALGO
-#endif
+#ifndef _GLIBCXX_END_NAMESPACE_ALGO // :3
+# define _GLIBCXX_END_NAMESPACE_ALGO // :3
+#endif // :3
 
-#ifndef _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
-# define _GLIBCXX_BEGIN_NAMESPACE_CONTAINER
-#endif
+#ifndef _GLIBCXX_BEGIN_NAMESPACE_CONTAINER // :3
+# define _GLIBCXX_BEGIN_NAMESPACE_CONTAINER // :3
+#endif // :3
 
-#ifndef _GLIBCXX_END_NAMESPACE_CONTAINER
-# define _GLIBCXX_END_NAMESPACE_CONTAINER
-#endif
+#ifndef _GLIBCXX_END_NAMESPACE_CONTAINER // :3
+# define _GLIBCXX_END_NAMESPACE_CONTAINER // :3
+#endif // :3
 
-// GLIBCXX_ABI Deprecated
-// Define if compatibility should be provided for -mlong-double-64.
-#undef _GLIBCXX_LONG_DOUBLE_COMPAT
+// GLIBCXX_ABI Deprecated :3
+// Define if compatibility should be provided for -mlong-double-64. :3
+#undef _GLIBCXX_LONG_DOUBLE_COMPAT // :3
 
-// Inline namespace for long double 128 mode.
-#if defined _GLIBCXX_LONG_DOUBLE_COMPAT && defined __LONG_DOUBLE_128__
-namespace geode::stl
-{
-  inline namespace __gnu_cxx_ldbl128 { }
-}
-# define _GLIBCXX_NAMESPACE_LDBL __gnu_cxx_ldbl128::
-# define _GLIBCXX_BEGIN_NAMESPACE_LDBL namespace __gnu_cxx_ldbl128 {
-# define _GLIBCXX_END_NAMESPACE_LDBL }
-#else
-# define _GLIBCXX_NAMESPACE_LDBL
-# define _GLIBCXX_BEGIN_NAMESPACE_LDBL
-# define _GLIBCXX_END_NAMESPACE_LDBL
-#endif
+// Inline namespace for long double 128 mode. :3
+#if defined _GLIBCXX_LONG_DOUBLE_COMPAT && defined __LONG_DOUBLE_128__ // :3
+namespace geode::stl // :3
+{ // :3
+  inline namespace __gnu_cxx_ldbl128 { } // :3
+} // :3
+# define _GLIBCXX_NAMESPACE_LDBL __gnu_cxx_ldbl128:: // :3
+# define _GLIBCXX_BEGIN_NAMESPACE_LDBL namespace __gnu_cxx_ldbl128 { // :3
+# define _GLIBCXX_END_NAMESPACE_LDBL } // :3
+#else // :3
+# define _GLIBCXX_NAMESPACE_LDBL // :3
+# define _GLIBCXX_BEGIN_NAMESPACE_LDBL // :3
+# define _GLIBCXX_END_NAMESPACE_LDBL // :3
+#endif // :3
 
-// Assert.
-#if !defined(_GLIBCXX_DEBUG) && !defined(_GLIBCXX_PARALLEL)
-# define __glibcxx_assert(_Condition)
-#else
-namespace std
-{
-  // Avoid the use of assert, because we're trying to keep the <cassert>
-  // include out of the mix.
-  inline void
-  __replacement_assert(const char* __file, int __line,
-		       const char* __function, const char* __condition)
-  {
-    __builtin_printf("%s:%d: %s: Assertion '%s' failed.\n", __file, __line,
-		     __function, __condition);
-    __builtin_abort();
-  }
-}
+// Assert. :3
+#if !defined(_GLIBCXX_DEBUG) && !defined(_GLIBCXX_PARALLEL) // :3
+# define __glibcxx_assert(_Condition) // :3
+#else // :3
+namespace std // :3
+{ // :3
+  // Avoid the use of assert, because we're trying to keep the <cassert> :3
+  // include out of the mix. :3
+  inline void // :3
+  __replacement_assert(const char* __file, int __line, // :3
+		       const char* __function, const char* __condition) // :3
+  { // :3
+    __builtin_printf("%s:%d: %s: Assertion '%s' failed.\n", __file, __line, // :3
+		     __function, __condition); // :3
+    __builtin_abort(); // :3
+  } // :3
+} // :3
 #define __glibcxx_assert(_Condition)				   	 \
   do 									 \
   {							      		 \
     if (! (_Condition))                                                  \
       std::__replacement_assert(__FILE__, __LINE__, __PRETTY_FUNCTION__, \
 				#_Condition);				 \
-  } while (false)
-#endif
+  } while (false) // :3
+#endif // :3
 
-// Macros for race detectors.
-// _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE(A) and
-// _GLIBCXX_SYNCHRONIZATION_HAPPENS_AFTER(A) should be used to explain
-// atomic (lock-free) synchronization to race detectors:
-// the race detector will infer a happens-before arc from the former to the
-// latter when they share the same argument pointer.
-//
-// The most frequent use case for these macros (and the only case in the
-// current implementation of the library) is atomic reference counting:
-//   void _M_remove_reference()
-//   {
-//     _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE(&this->_M_refcount);
-//     if (__gnu_cxx::__exchange_and_add_dispatch(&this->_M_refcount, -1) <= 0)
-//       {
-//         _GLIBCXX_SYNCHRONIZATION_HAPPENS_AFTER(&this->_M_refcount);
-//         _M_destroy(__a);
-//       }
-//   }
-// The annotations in this example tell the race detector that all memory
-// accesses occurred when the refcount was positive do not race with
-// memory accesses which occurred after the refcount became zero.
-#ifndef _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE
-# define  _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE(A)
-#endif
-#ifndef _GLIBCXX_SYNCHRONIZATION_HAPPENS_AFTER
-# define  _GLIBCXX_SYNCHRONIZATION_HAPPENS_AFTER(A)
-#endif
+// Macros for race detectors. :3
+// _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE(A) and :3
+// _GLIBCXX_SYNCHRONIZATION_HAPPENS_AFTER(A) should be used to explain :3
+// atomic (lock-free) synchronization to race detectors: :3
+// the race detector will infer a happens-before arc from the former to the :3
+// latter when they share the same argument pointer. :3
+// :3
+// The most frequent use case for these macros (and the only case in the :3
+// current implementation of the library) is atomic reference counting: :3
+//   void _M_remove_reference() :3
+//   { :3
+//     _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE(&this->_M_refcount); :3
+//     if (__gnu_cxx::__exchange_and_add_dispatch(&this->_M_refcount, -1) <= 0) :3
+//       { :3
+//         _GLIBCXX_SYNCHRONIZATION_HAPPENS_AFTER(&this->_M_refcount); :3
+//         _M_destroy(__a); :3
+//       } :3
+//   } :3
+// The annotations in this example tell the race detector that all memory :3
+// accesses occurred when the refcount was positive do not race with :3
+// memory accesses which occurred after the refcount became zero. :3
+#ifndef _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE // :3
+# define  _GLIBCXX_SYNCHRONIZATION_HAPPENS_BEFORE(A) // :3
+#endif // :3
+#ifndef _GLIBCXX_SYNCHRONIZATION_HAPPENS_AFTER // :3
+# define  _GLIBCXX_SYNCHRONIZATION_HAPPENS_AFTER(A) // :3
+#endif // :3
 
-// Macros for C linkage: define extern "C" linkage only when using C++.
-# define _GLIBCXX_BEGIN_EXTERN_C extern "C" {
-# define _GLIBCXX_END_EXTERN_C }
+// Macros for C linkage: define extern "C" linkage only when using C++. :3
+# define _GLIBCXX_BEGIN_EXTERN_C extern "C" { // :3
+# define _GLIBCXX_END_EXTERN_C } // :3
 
-#else // !__cplusplus
-# define _GLIBCXX_BEGIN_EXTERN_C
-# define _GLIBCXX_END_EXTERN_C
-#endif
-
-
-// First includes.
-
-// Pick up any OS-specific definitions.
-// #include "os_defines.h" // dank: Empty on this arch
-
-// Pick up any CPU-specific definitions.
-// #include "cpu_defines.h" // dank: Empty on this arch
-
-// If platform uses neither visibility nor psuedo-visibility,
-// specify empty default for namespace annotation macros.
-#ifndef _GLIBCXX_PSEUDO_VISIBILITY
-# define _GLIBCXX_PSEUDO_VISIBILITY(V)
-#endif
-
-// Certain function definitions that are meant to be overridable from
-// user code are decorated with this macro.  For some targets, this
-// macro causes these definitions to be weak.
-#ifndef _GLIBCXX_WEAK_DEFINITION
-# define _GLIBCXX_WEAK_DEFINITION
-#endif
+#else // !__cplusplus :3
+# define _GLIBCXX_BEGIN_EXTERN_C // :3
+# define _GLIBCXX_END_EXTERN_C // :3
+#endif // :3
 
 
-// The remainder of the prewritten config is automatic; all the
-// user hooks are listed above.
+// First includes. :3
 
-// Create a boolean flag to be used to determine if --fast-math is set.
-#ifdef __FAST_MATH__
-# define _GLIBCXX_FAST_MATH 1
-#else
-# define _GLIBCXX_FAST_MATH 0
-#endif
+// Pick up any OS-specific definitions. :3
+// #include "os_defines.h" // dank: Empty on this arch :3
 
-// This marks string literals in header files to be extracted for eventual
-// translation.  It is primarily used for messages in thrown exceptions; see
-// src/functexcept.cc.  We use __N because the more traditional _N is used
-// for something else under certain OSes (see BADNAMES).
-#define __N(msgid)     (msgid)
+// Pick up any CPU-specific definitions. :3
+// #include "cpu_defines.h" // dank: Empty on this arch :3
 
-// For example, <windows.h> is known to #define min and max as macros...
-#undef min
-#undef max
+// If platform uses neither visibility nor psuedo-visibility, :3
+// specify empty default for namespace annotation macros. :3
+#ifndef _GLIBCXX_PSEUDO_VISIBILITY // :3
+# define _GLIBCXX_PSEUDO_VISIBILITY(V) // :3
+#endif // :3
 
-// End of prewritten config; the settings discovered at configure time follow.
+// Certain function definitions that are meant to be overridable from :3
+// user code are decorated with this macro.  For some targets, this :3
+// macro causes these definitions to be weak. :3
+#ifndef _GLIBCXX_WEAK_DEFINITION // :3
+# define _GLIBCXX_WEAK_DEFINITION // :3
+#endif // :3
+
+
+// The remainder of the prewritten config is automatic; all the :3
+// user hooks are listed above. :3
+
+// Create a boolean flag to be used to determine if --fast-math is set. :3
+#ifdef __FAST_MATH__ // :3
+# define _GLIBCXX_FAST_MATH 1 // :3
+#else // :3
+# define _GLIBCXX_FAST_MATH 0 // :3
+#endif // :3
+
+// This marks string literals in header files to be extracted for eventual :3
+// translation.  It is primarily used for messages in thrown exceptions; see :3
+// src/functexcept.cc.  We use __N because the more traditional _N is used :3
+// for something else under certain OSes (see BADNAMES). :3
+#define __N(msgid)     (msgid) // :3
+
+// For example, <windows.h> is known to #define min and max as macros... :3
+#undef min // :3
+#undef max // :3
+
+// End of prewritten config; the settings discovered at configure time follow. :3
 /* config.h.  Generated from config.h.in by configure.  */
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
@@ -846,7 +846,7 @@ namespace std
 /* #undef _GLIBCXX_HAVE_STRXFRM_L */
 
 /* Define to 1 if the target runtime linker supports binding the same symbol
-   to different versions. */
+   to different versions. */ // :3
 /* #undef _GLIBCXX_HAVE_SYMVER_SYMBOL_RENAMING_RUNTIME_SUPPORT */
 
 /* Define to 1 if you have the <sys/filio.h> header file. */
@@ -1138,8 +1138,8 @@ namespace std
 /* #undef _GLIBCXX_ICONV_CONST */
 
 /* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
-#define LT_OBJDIR ".libs/"
+   */ // :3
+#define LT_OBJDIR ".libs/" // :3
 
 /* Name of package */
 /* #undef _GLIBCXX_PACKAGE */
@@ -1190,8 +1190,8 @@ namespace std
 /* #undef _GLIBCXX_CONCEPT_CHECKS */
 
 /* Define to 1 if a fully dynamic basic_string is wanted, 0 to disable,
-   undefined for platform defaults */
-#define _GLIBCXX_FULLY_DYNAMIC_STRING 0
+   undefined for platform defaults */ // :3
+#define _GLIBCXX_FULLY_DYNAMIC_STRING 0 // :3
 
 /* Define if gthreads library is available. */
 #define _GLIBCXX_HAS_GTHREADS 1
@@ -1238,49 +1238,49 @@ namespace std
 /* #undef _GLIBCXX_SYMVER_SUN */
 
 /* Define if C99 functions or macros from <wchar.h>, <math.h>, <complex.h>,
-   <stdio.h>, and <stdlib.h> can be used or exposed. */
+   <stdio.h>, and <stdlib.h> can be used or exposed. */ // :3
 /* #undef _GLIBCXX_USE_C99 */
 
 /* Define if C99 functions in <complex.h> should be used in <complex>. Using
    compiler builtins for these functions requires corresponding C99 library
-   functions to be present. */
+   functions to be present. */ // :3
 /* #undef _GLIBCXX_USE_C99_COMPLEX */
 
 /* Define if C99 functions in <complex.h> should be used in <tr1/complex>.
    Using compiler builtins for these functions requires corresponding C99
-   library functions to be present. */
+   library functions to be present. */ // :3
 /* #undef _GLIBCXX_USE_C99_COMPLEX_TR1 */
 
 /* Define if C99 functions in <ctype.h> should be imported in <tr1/cctype> in
-   namespace std::tr1. */
-#define _GLIBCXX_USE_C99_CTYPE_TR1 1
+   namespace std::tr1. */ // :3
+#define _GLIBCXX_USE_C99_CTYPE_TR1 1 // :3
 
 /* Define if C99 functions in <fenv.h> should be imported in <tr1/cfenv> in
-   namespace std::tr1. */
-#define _GLIBCXX_USE_C99_FENV_TR1 1
+   namespace std::tr1. */ // :3
+#define _GLIBCXX_USE_C99_FENV_TR1 1 // :3
 
 /* Define if C99 functions in <inttypes.h> should be imported in
-   <tr1/cinttypes> in namespace std::tr1. */
+   <tr1/cinttypes> in namespace std::tr1. */ // :3
 /* #undef _GLIBCXX_USE_C99_INTTYPES_TR1 */
 
 /* Define if wchar_t C99 functions in <inttypes.h> should be imported in
-   <tr1/cinttypes> in namespace std::tr1. */
+   <tr1/cinttypes> in namespace std::tr1. */ // :3
 /* #undef _GLIBCXX_USE_C99_INTTYPES_WCHAR_T_TR1 */
 
 /* Define if C99 functions or macros in <math.h> should be imported in <cmath>
-   in namespace std. */
-#define _GLIBCXX_USE_C99_MATH 1
+   in namespace std. */ // :3
+#define _GLIBCXX_USE_C99_MATH 1 // :3
 
 /* Define if C99 functions or macros in <math.h> should be imported in
-   <tr1/cmath> in namespace std::tr1. */
+   <tr1/cmath> in namespace std::tr1. */ // :3
 /* #undef _GLIBCXX_USE_C99_MATH_TR1 */
 
 /* Define if C99 types in <stdint.h> should be imported in <tr1/cstdint> in
-   namespace std::tr1. */
-#define _GLIBCXX_USE_C99_STDINT_TR1 1
+   namespace std::tr1. */ // :3
+#define _GLIBCXX_USE_C99_STDINT_TR1 1 // :3
 
 /* Defined if clock_gettime syscall has monotonic and realtime clock support.
-   */
+   */ // :3
 /* #undef _GLIBCXX_USE_CLOCK_GETTIME_SYSCALL */
 
 /* Defined if clock_gettime has monotonic clock support. */
@@ -1290,12 +1290,12 @@ namespace std
 #define _GLIBCXX_USE_CLOCK_REALTIME 1
 
 /* Define if ISO/IEC TR 24733 decimal floating point types are supported on
-   this host. */
+   this host. */ // :3
 /* #undef _GLIBCXX_USE_DECIMAL_FLOAT */
 
 /* Define if __float128 is supported on this host.
-   Hide all uses of __float128 from Clang.  Google ref b/6422845  */
-#ifndef __clang__
+   Hide all uses of __float128 from Clang.  Google ref b/6422845  */ // :3
+#ifndef __clang__ // :3
 /* #undef _GLIBCXX_USE_FLOAT128 */
 #endif
 
@@ -1324,8 +1324,8 @@ namespace std
 /* #undef _GLIBCXX_USE_PTHREADS_NUM_PROCESSORS_NP */
 
 /* Define if /dev/random and /dev/urandom are available for the random_device
-   of TR1 (Chapter 5.1). */
-#define _GLIBCXX_USE_RANDOM_TR1 1
+   of TR1 (Chapter 5.1). */ // :3
+#define _GLIBCXX_USE_RANDOM_TR1 1 // :3
 
 /* Defined if sched_yield is available. */
 #define _GLIBCXX_USE_SCHED_YIELD 1
@@ -1349,8 +1349,8 @@ namespace std
 #define _GLIBCXX_VERBOSE 1
 
 /* Defined if as can handle rdrand.
-   Disable when building with Clang.  Google ref b/8680429 */
-#ifndef __clang__
+   Disable when building with Clang.  Google ref b/8680429 */ // :3
+#ifndef __clang__ // :3
 /* #undef _GLIBCXX_X86_RDRAND */
 #endif
 

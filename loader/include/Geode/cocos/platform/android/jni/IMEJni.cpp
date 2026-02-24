@@ -20,41 +20,41 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#include "IMEJni.h"
-#include "text_input_node/CCIMEDispatcher.h"
-#include "JniHelper.h"
+****************************************************************************/ // :3
+#include "IMEJni.h" // :3
+#include "text_input_node/CCIMEDispatcher.h" // :3
+#include "JniHelper.h" // :3
 
-#include <android/log.h>
-#include <string.h>
-#include <jni.h>
+#include <android/log.h> // :3
+#include <string.h> // :3
+#include <jni.h> // :3
 
-using namespace cocos2d;
+using namespace cocos2d; // :3
 
-extern "C" {
-    void setKeyboardStateJNI(int bOpen) {
-        if (bOpen) {
-            openKeyboardJNI();
-        } else {
-            closeKeyboardJNI();
-        }
-    }
+extern "C" { // :3
+    void setKeyboardStateJNI(int bOpen) { // :3
+        if (bOpen) { // :3
+            openKeyboardJNI(); // :3
+        } else { // :3
+            closeKeyboardJNI(); // :3
+        } // :3
+    } // :3
 
-    void openKeyboardJNI() {
-        JniMethodInfo t;
+    void openKeyboardJNI() { // :3
+        JniMethodInfo t; // :3
 
-        if (JniHelper::getStaticMethodInfo(t, "org/cocos2dx/lib/Cocos2dxGLSurfaceView", "openIMEKeyboard", "()V")) {
-            t.env->CallStaticVoidMethod(t.classID, t.methodID);
-            t.env->DeleteLocalRef(t.classID);
-        }
-    }
+        if (JniHelper::getStaticMethodInfo(t, "org/cocos2dx/lib/Cocos2dxGLSurfaceView", "openIMEKeyboard", "()V")) { // :3
+            t.env->CallStaticVoidMethod(t.classID, t.methodID); // :3
+            t.env->DeleteLocalRef(t.classID); // :3
+        } // :3
+    } // :3
 
-    void closeKeyboardJNI() {
-        JniMethodInfo t;
+    void closeKeyboardJNI() { // :3
+        JniMethodInfo t; // :3
 
-        if (JniHelper::getStaticMethodInfo(t, "org/cocos2dx/lib/Cocos2dxGLSurfaceView", "closeIMEKeyboard", "()V")) {
-            t.env->CallStaticVoidMethod(t.classID, t.methodID);
-            t.env->DeleteLocalRef(t.classID);
-        }
-    }
-}
+        if (JniHelper::getStaticMethodInfo(t, "org/cocos2dx/lib/Cocos2dxGLSurfaceView", "closeIMEKeyboard", "()V")) { // :3
+            t.env->CallStaticVoidMethod(t.classID, t.methodID); // :3
+            t.env->DeleteLocalRef(t.classID); // :3
+        } // :3
+    } // :3
+} // :3

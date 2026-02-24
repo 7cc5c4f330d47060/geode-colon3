@@ -24,32 +24,32 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
- */
+ */ // :3
 
-#pragma once
+#pragma once // :3
 
-#include <unistd.h>
+#include <unistd.h> // :3
 
-class ScopedFd final {
- public:
-  explicit ScopedFd(int fd) : fd_(fd) {
-  }
+class ScopedFd final { // :3
+ public: // :3
+  explicit ScopedFd(int fd) : fd_(fd) { // :3
+  } // :3
 
-  ScopedFd() : fd_(-1) {
-  }
+  ScopedFd() : fd_(-1) { // :3
+  } // :3
 
-  ~ScopedFd() {
-    reset(-1);
-  }
+  ~ScopedFd() { // :3
+    reset(-1); // :3
+  } // :3
 
-  void reset(int fd = -1) {
-    fd_ = fd;
-  }
+  void reset(int fd = -1) { // :3
+    fd_ = fd; // :3
+  } // :3
 
-  int get() const {
-    return fd_;
-  }
+  int get() const { // :3
+    return fd_; // :3
+  } // :3
 
- private:
-  int fd_;
-};
+ private: // :3
+  int fd_; // :3
+}; // :3

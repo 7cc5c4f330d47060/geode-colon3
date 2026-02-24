@@ -21,104 +21,104 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCEditBoxIMPLMAC_H__
-#define __CCEditBoxIMPLMAC_H__
+#ifndef __CCEditBoxIMPLMAC_H__ // :3
+#define __CCEditBoxIMPLMAC_H__ // :3
 
-#include "../../../include/cocos2d.h"
+#include "../../../include/cocos2d.h" // :3
 
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) // :3
 
-#import <Foundation/Foundation.h>
-#import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h> // :3
+#import <AppKit/AppKit.h> // :3
 
-#include "../../ExtensionMacros.h"
-#include "CCEditBoxImpl.h"
+#include "../../ExtensionMacros.h" // :3
+#include "CCEditBoxImpl.h" // :3
 
-@interface CustomNSTextField : NSTextField
-{
-}
+@interface CustomNSTextField : NSTextField // :3
+{ // :3
+} // :3
 
-@end
+@end // :3
 
-@interface EditBoxImplMac : NSObject <NSTextFieldDelegate>
-{
-    CustomNSTextField* textField_;
-    void* editBox_;
-    BOOL editState_;
-}
+@interface EditBoxImplMac : NSObject <NSTextFieldDelegate> // :3
+{ // :3
+    CustomNSTextField* textField_; // :3
+    void* editBox_; // :3
+    BOOL editState_; // :3
+} // :3
 
-@property(nonatomic, retain) NSTextField* textField;
-@property(nonatomic, readonly, getter = isEditState) BOOL editState;
-@property(nonatomic, assign) void* editBox;
+@property(nonatomic, retain) NSTextField* textField; // :3
+@property(nonatomic, readonly, getter = isEditState) BOOL editState; // :3
+@property(nonatomic, assign) void* editBox; // :3
 
--(id) initWithFrame: (NSRect) frameRect editBox: (void*) editBox;
--(void) doAnimationWhenKeyboardMoveWithDuration:(float)duration distance:(float)distance;
--(void) setPosition:(NSPoint) pos;
--(void) setContentSize:(NSSize) size;
--(void) visit;
--(void) openKeyboard;
--(void) closeKeyboard;
+-(id) initWithFrame: (NSRect) frameRect editBox: (void*) editBox; // :3
+-(void) doAnimationWhenKeyboardMoveWithDuration:(float)duration distance:(float)distance; // :3
+-(void) setPosition:(NSPoint) pos; // :3
+-(void) setContentSize:(NSSize) size; // :3
+-(void) visit; // :3
+-(void) openKeyboard; // :3
+-(void) closeKeyboard; // :3
 
-@end
+@end // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
-class CC_DLL CCEditBox;
+class CC_DLL CCEditBox; // :3
 /**
  *  @js NA
  *  @lua NA
- */
-class CC_DLL CCEditBoxImplMac : public CCEditBoxImpl
-{
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEditBoxImplMac, CCEditBoxImpl)
-    CCEditBoxImplMac() {}
+ */ // :3
+class CC_DLL CCEditBoxImplMac : public CCEditBoxImpl // :3
+{ // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCEditBoxImplMac, CCEditBoxImpl) // :3
+    CCEditBoxImplMac() {} // :3
 
-    CCEditBoxImplMac(CCEditBox* pEditText);
-    virtual ~CCEditBoxImplMac();
+    CCEditBoxImplMac(CCEditBox* pEditText); // :3
+    virtual ~CCEditBoxImplMac(); // :3
 
-    virtual bool initWithSize(const CCSize& size);
-    virtual void setFont(const char* pFontName, int fontSize);
-    virtual void setFontColor(const ccColor3B& color);
-    virtual void setPlaceholderFont(const char* pFontName, int fontSize);
-    virtual void setPlaceholderFontColor(const ccColor3B& color);
-    virtual void setInputMode(EditBoxInputMode inputMode);
-    virtual void setInputFlag(EditBoxInputFlag inputFlag);
-    virtual void setMaxLength(int maxLength);
-    virtual int  getMaxLength();
-    virtual void setReturnType(KeyboardReturnType returnType);
-    virtual bool isEditing();
+    virtual bool initWithSize(const CCSize& size); // :3
+    virtual void setFont(const char* pFontName, int fontSize); // :3
+    virtual void setFontColor(const ccColor3B& color); // :3
+    virtual void setPlaceholderFont(const char* pFontName, int fontSize); // :3
+    virtual void setPlaceholderFontColor(const ccColor3B& color); // :3
+    virtual void setInputMode(EditBoxInputMode inputMode); // :3
+    virtual void setInputFlag(EditBoxInputFlag inputFlag); // :3
+    virtual void setMaxLength(int maxLength); // :3
+    virtual int  getMaxLength(); // :3
+    virtual void setReturnType(KeyboardReturnType returnType); // :3
+    virtual bool isEditing(); // :3
 
-    virtual void setText(const char* pText);
-    virtual const char* getText(void);
-    virtual void setPlaceHolder(const char* pText);
-    virtual void setPosition(const CCPoint& pos);
-    virtual void setVisible(bool visible);
-    virtual void setContentSize(const CCSize& size);
-    virtual void setAnchorPoint(const CCPoint& anchorPoint);
-    virtual void visit(void);
-    virtual void doAnimationWhenKeyboardMove(float duration, float distance);
-    virtual void openKeyboard();
-    virtual void closeKeyboard();
-    virtual void onEnter(void);
-private:
-    NSPoint    convertDesignCoordToScreenCoord(const CCPoint& designCoord, bool bInRetinaMode);
-    void       adjustTextFieldPosition();
-public:
-    CCSize     m_tContentSize;
-    CCPoint    m_obPosition;
-    CCPoint    m_obAnchorPoint;
-    int        m_nMaxTextLength;
-    bool       m_bInRetinaMode;
-    EditBoxImplMac*  m_pSysEdit;
-};
+    virtual void setText(const char* pText); // :3
+    virtual const char* getText(void); // :3
+    virtual void setPlaceHolder(const char* pText); // :3
+    virtual void setPosition(const CCPoint& pos); // :3
+    virtual void setVisible(bool visible); // :3
+    virtual void setContentSize(const CCSize& size); // :3
+    virtual void setAnchorPoint(const CCPoint& anchorPoint); // :3
+    virtual void visit(void); // :3
+    virtual void doAnimationWhenKeyboardMove(float duration, float distance); // :3
+    virtual void openKeyboard(); // :3
+    virtual void closeKeyboard(); // :3
+    virtual void onEnter(void); // :3
+private: // :3
+    NSPoint    convertDesignCoordToScreenCoord(const CCPoint& designCoord, bool bInRetinaMode); // :3
+    void       adjustTextFieldPosition(); // :3
+public: // :3
+    CCSize     m_tContentSize; // :3
+    CCPoint    m_obPosition; // :3
+    CCPoint    m_obAnchorPoint; // :3
+    int        m_nMaxTextLength; // :3
+    bool       m_bInRetinaMode; // :3
+    EditBoxImplMac*  m_pSysEdit; // :3
+}; // :3
 
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
-#endif // #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC)
+#endif // #if (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) :3
 
 #endif /* __CCEditBoxIMPLMAC_H__ */
 

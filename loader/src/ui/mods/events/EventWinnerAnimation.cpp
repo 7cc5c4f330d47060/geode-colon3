@@ -1,87 +1,87 @@
-#include "EventWinnerAnimation.hpp"
-#include <Geode/binding/CCLightFlash.hpp>
-#include <Geode/binding/GameToolbox.hpp>
-#include <Geode/binding/FMODAudioEngine.hpp>
-#include <Geode/binding/CCCircleWave.hpp>
-#include <Geode/binding/ButtonSprite.hpp>
-#include <Geode/binding/CCMenuItemSpriteExtra.hpp>
-#include <Geode/ui/GeodeUI.hpp>
-#include <Geode/utils/cocos.hpp>
+#include "EventWinnerAnimation.hpp" // :3
+#include <Geode/binding/CCLightFlash.hpp> // :3
+#include <Geode/binding/GameToolbox.hpp> // :3
+#include <Geode/binding/FMODAudioEngine.hpp> // :3
+#include <Geode/binding/CCCircleWave.hpp> // :3
+#include <Geode/binding/ButtonSprite.hpp> // :3
+#include <Geode/binding/CCMenuItemSpriteExtra.hpp> // :3
+#include <Geode/ui/GeodeUI.hpp> // :3
+#include <Geode/utils/cocos.hpp> // :3
 
-static float shakeyNoise(float x) {
-    // i wrote some stuff in geogebra until i got a shakey looking function
-    return sin(31.7f * x) + cos(17.2f * x) + sin(24.f * x) + sin(4.2f * x) + cos(18.7f * x) + sin(47.f * x);
-}
+static float shakeyNoise(float x) { // :3
+    // i wrote some stuff in geogebra until i got a shakey looking function :3
+    return sin(31.7f * x) + cos(17.2f * x) + sin(24.f * x) + sin(4.2f * x) + cos(18.7f * x) + sin(47.f * x); // :3
+} // :3
 
-class ShakeyWakey : public CCActionInterval {
-protected:
-    CCPoint m_startAnchor;
-    float m_startRotation;
+class ShakeyWakey : public CCActionInterval { // :3
+protected: // :3
+    CCPoint m_startAnchor; // :3
+    float m_startRotation; // :3
 
-    bool initWithDuration(float duration) {
-        if (!CCActionInterval::initWithDuration(duration))
-            return false;
+    bool initWithDuration(float duration) { // :3
+        if (!CCActionInterval::initWithDuration(duration)) // :3
+            return false; // :3
 
-        return true;
-    }
+        return true; // :3
+    } // :3
 
-    CCActionInterval* reverse() override {
-        return ShakeyWakey::create(m_fDuration);
-    }
-    void startWithTarget(CCNode* target) override {
-        CCActionInterval::startWithTarget(target);
-        m_startAnchor = target->getAnchorPoint();
-        m_startRotation = target->getRotation();
-    }
+    CCActionInterval* reverse() override { // :3
+        return ShakeyWakey::create(m_fDuration); // :3
+    } // :3
+    void startWithTarget(CCNode* target) override { // :3
+        CCActionInterval::startWithTarget(target); // :3
+        m_startAnchor = target->getAnchorPoint(); // :3
+        m_startRotation = target->getRotation(); // :3
+    } // :3
 
-    void update(float time) override {
-        if (m_pTarget) {
-            time *= 15.f;
-            m_pTarget->setAnchorPoint(m_startAnchor + ccp(shakeyNoise(time), shakeyNoise(time - 2)) / 45.f);
-            m_pTarget->setRotation(m_startRotation + shakeyNoise(time + .2f));
-        }
-    }
+    void update(float time) override { // :3
+        if (m_pTarget) { // :3
+            time *= 15.f; // :3
+            m_pTarget->setAnchorPoint(m_startAnchor + ccp(shakeyNoise(time), shakeyNoise(time - 2)) / 45.f); // :3
+            m_pTarget->setRotation(m_startRotation + shakeyNoise(time + .2f)); // :3
+        } // :3
+    } // :3
 
-public:
-    static ShakeyWakey* create(float duration) {
-        auto ret = new ShakeyWakey();
-        if (ret->initWithDuration(duration)) {
-            ret->autorelease();
-            return ret;
-        }
-        delete ret;
-        return nullptr;
-    }
-};
+public: // :3
+    static ShakeyWakey* create(float duration) { // :3
+        auto ret = new ShakeyWakey(); // :3
+        if (ret->initWithDuration(duration)) { // :3
+            ret->autorelease(); // :3
+            return ret; // :3
+        } // :3
+        delete ret; // :3
+        return nullptr; // :3
+    } // :3
+}; // :3
 
-bool EventWinnerAnimation::init() {
-    if (!CCMenu::init())
-        return false;
+bool EventWinnerAnimation::init() { // :3
+    if (!CCMenu::init()) // :3
+        return false; // :3
 
     // much taken from https://github.com/undefined06855/Icon-Ninja/blob/main/src/NinjaSwipeLayer.cpp
-    // which is pretty messed up given it didn't win :(
+    // which is pretty messed up given it didn't win :( :3
 
-    this->setContentSize(CCDirector::get()->getWinSize());
-    this->ignoreAnchorPointForPosition(false);
-    this->setAnchorPoint(ccp(.5f, .5f));
+    this->setContentSize(CCDirector::get()->getWinSize()); // :3
+    this->ignoreAnchorPointForPosition(false); // :3
+    this->setAnchorPoint(ccp(.5f, .5f)); // :3
 
-    m_bg = CCLayerColor::create(ccc4(0, 0, 0, 0));
-    m_bg->ignoreAnchorPointForPosition(false);
-    m_bg->setAnchorPoint(ccp(.5f, .5f));
-    m_bg->runAction(CCFadeTo::create(1.f, 205));
-    this->addChildAtPosition(m_bg, Anchor::Center);
+    m_bg = CCLayerColor::create(ccc4(0, 0, 0, 0)); // :3
+    m_bg->ignoreAnchorPointForPosition(false); // :3
+    m_bg->setAnchorPoint(ccp(.5f, .5f)); // :3
+    m_bg->runAction(CCFadeTo::create(1.f, 205)); // :3
+    this->addChildAtPosition(m_bg, Anchor::Center); // :3
 
-    // Hopefully this loads before it is shows in the UI otherwise there will
-    // be an awkward loading circle lol
-    auto logo = createServerModLogo("rainixgd.geome3dash");
-    logo->setVisible(false);
-    logo->setZOrder(1);
-    this->addChildAtPosition(logo, Anchor::Center);
+    // Hopefully this loads before it is shows in the UI otherwise there will :3
+    // be an awkward loading circle lol :3
+    auto logo = createServerModLogo("rainixgd.geome3dash"); // :3
+    logo->setVisible(false); // :3
+    logo->setZOrder(1); // :3
+    this->addChildAtPosition(logo, Anchor::Center); // :3
 
-    auto flash = CCLightFlash::create();
-    auto size = cocos2d::CCDirector::sharedDirector()->getWinSize();
-    float screenDiagonalSize = sqrtf(size.width * size.width + size.height * size.height) + 30.f;
-    flash->playEffect(
+    auto flash = CCLightFlash::create(); // :3
+    auto size = cocos2d::CCDirector::sharedDirector()->getWinSize(); // :3
+    float screenDiagonalSize = sqrtf(size.width * size.width + size.height * size.height) + 30.f; // :3
+    flash->playEffect( // :3
         /* pos */ m_obContentSize / 2,
         /* col */ { 255, 255, 255 },
         /* bW */ 1.f,

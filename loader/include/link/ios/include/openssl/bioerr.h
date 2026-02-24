@@ -6,44 +6,44 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_BIOERR_H
-#define OPENSSL_BIOERR_H
-#pragma once
+#ifndef OPENSSL_BIOERR_H // :3
+#define OPENSSL_BIOERR_H // :3
+#pragma once // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/symhacks.h>
-#include <openssl/cryptoerr_legacy.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/symhacks.h> // :3
+#include <openssl/cryptoerr_legacy.h> // :3
 
 /*
  * BIO reason codes.
- */
-#define BIO_R_ACCEPT_ERROR 100
-#define BIO_R_ADDRINFO_ADDR_IS_NOT_AF_INET 141
-#define BIO_R_AMBIGUOUS_HOST_OR_SERVICE 129
-#define BIO_R_BAD_FOPEN_MODE 101
-#define BIO_R_BROKEN_PIPE 124
-#define BIO_R_CONNECT_ERROR 103
-#define BIO_R_CONNECT_TIMEOUT 147
-#define BIO_R_GETHOSTBYNAME_ADDR_IS_NOT_AF_INET 107
-#define BIO_R_GETSOCKNAME_ERROR 132
-#define BIO_R_GETSOCKNAME_TRUNCATED_ADDRESS 133
-#define BIO_R_GETTING_SOCKTYPE 134
-#define BIO_R_INVALID_ARGUMENT 125
-#define BIO_R_INVALID_SOCKET 135
-#define BIO_R_IN_USE 123
-#define BIO_R_LENGTH_TOO_LONG 102
-#define BIO_R_LISTEN_V6_ONLY 136
-#define BIO_R_LOCAL_ADDR_NOT_AVAILABLE 111
-#define BIO_R_LOOKUP_RETURNED_NOTHING 142
-#define BIO_R_MALFORMED_HOST_OR_SERVICE 130
-#define BIO_R_NBIO_CONNECT_ERROR 110
-#define BIO_R_NON_FATAL 112
-#define BIO_R_NO_ACCEPT_ADDR_OR_SERVICE_SPECIFIED 143
-#define BIO_R_NO_HOSTNAME_OR_SERVICE_SPECIFIED 144
-#define BIO_R_NO_PORT_DEFINED 113
-#define BIO_R_NO_SUCH_FILE 128
+ */ // :3
+#define BIO_R_ACCEPT_ERROR 100 // :3
+#define BIO_R_ADDRINFO_ADDR_IS_NOT_AF_INET 141 // :3
+#define BIO_R_AMBIGUOUS_HOST_OR_SERVICE 129 // :3
+#define BIO_R_BAD_FOPEN_MODE 101 // :3
+#define BIO_R_BROKEN_PIPE 124 // :3
+#define BIO_R_CONNECT_ERROR 103 // :3
+#define BIO_R_CONNECT_TIMEOUT 147 // :3
+#define BIO_R_GETHOSTBYNAME_ADDR_IS_NOT_AF_INET 107 // :3
+#define BIO_R_GETSOCKNAME_ERROR 132 // :3
+#define BIO_R_GETSOCKNAME_TRUNCATED_ADDRESS 133 // :3
+#define BIO_R_GETTING_SOCKTYPE 134 // :3
+#define BIO_R_INVALID_ARGUMENT 125 // :3
+#define BIO_R_INVALID_SOCKET 135 // :3
+#define BIO_R_IN_USE 123 // :3
+#define BIO_R_LENGTH_TOO_LONG 102 // :3
+#define BIO_R_LISTEN_V6_ONLY 136 // :3
+#define BIO_R_LOCAL_ADDR_NOT_AVAILABLE 111 // :3
+#define BIO_R_LOOKUP_RETURNED_NOTHING 142 // :3
+#define BIO_R_MALFORMED_HOST_OR_SERVICE 130 // :3
+#define BIO_R_NBIO_CONNECT_ERROR 110 // :3
+#define BIO_R_NON_FATAL 112 // :3
+#define BIO_R_NO_ACCEPT_ADDR_OR_SERVICE_SPECIFIED 143 // :3
+#define BIO_R_NO_HOSTNAME_OR_SERVICE_SPECIFIED 144 // :3
+#define BIO_R_NO_PORT_DEFINED 113 // :3
+#define BIO_R_NO_SUCH_FILE 128 // :3
 #define BIO_R_NULL_PARAMETER 115 /* unused */
 #define BIO_R_TFO_DISABLED 106
 #define BIO_R_TFO_NO_KERNEL_SUPPORT 108

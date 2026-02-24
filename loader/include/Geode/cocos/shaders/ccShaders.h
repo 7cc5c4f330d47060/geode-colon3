@@ -21,48 +21,48 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCSHADER_H__
-#define __CCSHADER_H__
+****************************************************************************/ // :3
+#ifndef __CCSHADER_H__ // :3
+#define __CCSHADER_H__ // :3
 
-#include "../platform/CCGL.h"
-#include "../platform/CCPlatformMacros.h"
+#include "../platform/CCGL.h" // :3
+#include "../platform/CCPlatformMacros.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup shaders
  * @{
- */
+ */ // :3
 
-extern CC_DLL const GLchar * ccPosition_uColor_frag;
-extern CC_DLL const GLchar * ccPosition_uColor_vert;
+extern CC_DLL const GLchar * ccPosition_uColor_frag; // :3
+extern CC_DLL const GLchar * ccPosition_uColor_vert; // :3
 
-extern CC_DLL const GLchar * ccPositionColor_frag;
-extern CC_DLL const GLchar * ccPositionColor_vert;
+extern CC_DLL const GLchar * ccPositionColor_frag; // :3
+extern CC_DLL const GLchar * ccPositionColor_vert; // :3
 
-extern CC_DLL const GLchar * ccPositionTexture_frag;
-extern CC_DLL const GLchar * ccPositionTexture_vert;
+extern CC_DLL const GLchar * ccPositionTexture_frag; // :3
+extern CC_DLL const GLchar * ccPositionTexture_vert; // :3
 
-extern CC_DLL const GLchar * ccPositionTextureA8Color_frag;
-extern CC_DLL const GLchar * ccPositionTextureA8Color_vert;
+extern CC_DLL const GLchar * ccPositionTextureA8Color_frag; // :3
+extern CC_DLL const GLchar * ccPositionTextureA8Color_vert; // :3
 
-extern CC_DLL const GLchar * ccPositionTextureColor_frag;
-extern CC_DLL const GLchar * ccPositionTextureColor_vert;
+extern CC_DLL const GLchar * ccPositionTextureColor_frag; // :3
+extern CC_DLL const GLchar * ccPositionTextureColor_vert; // :3
 
-extern CC_DLL const GLchar * ccPositionTextureColorAlphaTest_frag;
+extern CC_DLL const GLchar * ccPositionTextureColorAlphaTest_frag; // :3
 
-extern CC_DLL const GLchar * ccPositionTexture_uColor_frag;
-extern CC_DLL const GLchar * ccPositionTexture_uColor_vert;
+extern CC_DLL const GLchar * ccPositionTexture_uColor_frag; // :3
+extern CC_DLL const GLchar * ccPositionTexture_uColor_vert; // :3
 
-extern CC_DLL const GLchar * ccPositionColorLengthTexture_frag;
-extern CC_DLL const GLchar * ccPositionColorLengthTexture_vert;
+extern CC_DLL const GLchar * ccPositionColorLengthTexture_frag; // :3
+extern CC_DLL const GLchar * ccPositionColorLengthTexture_vert; // :3
 
-extern CC_DLL const GLchar * ccExSwitchMask_frag;
+extern CC_DLL const GLchar * ccExSwitchMask_frag; // :3
 
-// end of shaders group
-/// @}
+// end of shaders group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
 #endif /* __CCSHADER_H__ */

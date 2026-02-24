@@ -21,7 +21,7 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
 /*
  Implementation notes:
@@ -49,10 +49,10 @@
  classes to be extended. Internal functions begin with underscore (_).
 
  - OOP in C tends to lose type safety. Macros are provided in extension.h to give context for why a cast is being done.
- */
+ */ // :3
 
-#ifndef SPINE_EXTENSION_H_
-#define SPINE_EXTENSION_H_
+#ifndef SPINE_EXTENSION_H_ // :3
+#define SPINE_EXTENSION_H_ // :3
 
 /* All allocation uses these. */
 #define MALLOC(TYPE,COUNT) ((TYPE*)_malloc(sizeof(TYPE) * COUNT))
@@ -92,24 +92,24 @@ namespace cocos2d { namespace extension {
 
 /*
  * Functions that must be implemented:
- */
+ */ // :3
 
-void _AtlasPage_createTexture (AtlasPage* self, const char* path);
-void _AtlasPage_disposeTexture (AtlasPage* self);
-char* _Util_readFile (const char* path, int* length);
+void _AtlasPage_createTexture (AtlasPage* self, const char* path); // :3
+void _AtlasPage_disposeTexture (AtlasPage* self); // :3
+char* _Util_readFile (const char* path, int* length); // :3
 
 /*
  * Internal API available for extension:
- */
+ */ // :3
 
-void* _malloc (size_t size);
-void* _calloc (size_t num, size_t size);
-void _free (void* ptr);
+void* _malloc (size_t size); // :3
+void* _calloc (size_t num, size_t size); // :3
+void _free (void* ptr); // :3
 
-void _setMalloc (void* (*_malloc) (size_t size));
-void _setFree (void (*_free) (void* ptr));
+void _setMalloc (void* (*_malloc) (size_t size)); // :3
+void _setFree (void (*_free) (void* ptr)); // :3
 
-char* _readFile (const char* path, int* length);
+char* _readFile (const char* path, int* length); // :3
 
 /**/
 

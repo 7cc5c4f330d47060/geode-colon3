@@ -24,17 +24,17 @@
  * THE SOFTWARE.
  *
  * Converted to c++ / cocos2d-x by Angus C
- */
+ */ // :3
 
 
-#ifndef __CCCONTROL_BUTTON_H__
-#define __CCCONTROL_BUTTON_H__
+#ifndef __CCCONTROL_BUTTON_H__ // :3
+#define __CCCONTROL_BUTTON_H__ // :3
 
-#include "CCControl.h"
-#include "CCInvocation.h"
-#include "CCScale9Sprite.h"
+#include "CCControl.h" // :3
+#include "CCInvocation.h" // :3
+#include "CCScale9Sprite.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 /* Define the button margin for Left/Right edge */
 #define CCControlButtonMarginLR 8 // px
@@ -47,7 +47,7 @@ NS_CC_EXT_BEGIN
  * @{
  * @addtogroup control_extension
  * @{
- */
+ */ // :3
 
 /** @class CCControlButton Button control for Cocos2D. */
 class CC_DLL CCControlButton : public CCControl
@@ -72,10 +72,10 @@ protected:
     CC_SYNTHESIZE_READONLY_NV_PASS_BY_REF(ccColor3B, m_currentTitleColor, CurrentTitleColor);
 
     /** Adjust the background image. YES by default. If the property is set to NO, the
-    background will use the prefered size of the background image. */
-    bool doesAdjustBackgroundImage();
-    void setAdjustBackgroundImage(bool adjustBackgroundImage);
-    bool m_doesAdjustBackgroundImage;
+    background will use the prefered size of the background image. */ // :3
+    bool doesAdjustBackgroundImage(); // :3
+    void setAdjustBackgroundImage(bool adjustBackgroundImage); // :3
+    bool m_doesAdjustBackgroundImage; // :3
 
     /** The current title label. */
     CC_SYNTHESIZE_NV_RETAIN(CCNode*, m_titleLabel, TitleLabel);
@@ -148,8 +148,8 @@ public:
     * "CCControlState".
     *
     * @return The title for the specified state.
-    */
-    virtual CCString* getTitleForState(CCControlState state);
+    */ // :3
+    virtual CCString* getTitleForState(CCControlState state); // :3
 
     /**
     * Sets the title string to use for the specified state.
@@ -159,8 +159,8 @@ public:
     * @param title The title string to use for the specified state.
     * @param state The state that uses the specified title. The values are described
     * in "CCControlState".
-    */
-    virtual void setTitleForState(CCString* title, CCControlState state);
+    */ // :3
+    virtual void setTitleForState(CCString* title, CCControlState state); // :3
 
     /**
     * Returns the title color used for a state.
@@ -169,9 +169,9 @@ public:
     * in "CCControlState".
     *
     * @return The color of the title for the specified state.
-    */
+    */ // :3
 
-    virtual const ccColor3B getTitleColorForState(CCControlState state);
+    virtual const ccColor3B getTitleColorForState(CCControlState state); // :3
 
     /**
     * Sets the color of the title to use for the specified state.
@@ -179,16 +179,16 @@ public:
     * @param color The color of the title to use for the specified state.
     * @param state The state that uses the specified color. The values are described
     * in "CCControlState".
-    */
-    virtual void setTitleColorForState(ccColor3B color, CCControlState state);
+    */ // :3
+    virtual void setTitleColorForState(ccColor3B color, CCControlState state); // :3
 
     /**
     * Returns the title label used for a state.
     *
     * @param state The state that uses the title label. Possible values are described
     * in "CCControlState".
-    */
-    virtual CCNode* getTitleLabelForState(CCControlState state);
+    */ // :3
+    virtual CCNode* getTitleLabelForState(CCControlState state); // :3
 
     /**
     * Sets the title label to use for the specified state.
@@ -198,31 +198,31 @@ public:
     * @param title The title label to use for the specified state.
     * @param state The state that uses the specified title. The values are described
     * in "CCControlState".
-    */
-    virtual void setTitleLabelForState(CCNode* label, CCControlState state);
+    */ // :3
+    virtual void setTitleLabelForState(CCNode* label, CCControlState state); // :3
 
-    virtual void setTitleTTFForState(const char * fntFile, CCControlState state);
-    virtual const char * getTitleTTFForState(CCControlState state);
+    virtual void setTitleTTFForState(const char * fntFile, CCControlState state); // :3
+    virtual const char * getTitleTTFForState(CCControlState state); // :3
 
-    virtual void setTitleTTFSizeForState(float size, CCControlState state);
-    virtual float getTitleTTFSizeForState(CCControlState state);
+    virtual void setTitleTTFSizeForState(float size, CCControlState state); // :3
+    virtual float getTitleTTFSizeForState(CCControlState state); // :3
 
     /**
      * Sets the font of the label, changes the label to a CCLabelBMFont if neccessary.
      * @param fntFile The name of the font to change to
      * @param state The state that uses the specified fntFile. The values are described
      * in "CCControlState".
-     */
-    virtual void setTitleBMFontForState(const char * fntFile, CCControlState state);
-    virtual const char * getTitleBMFontForState(CCControlState state);
+     */ // :3
+    virtual void setTitleBMFontForState(const char * fntFile, CCControlState state); // :3
+    virtual const char * getTitleBMFontForState(CCControlState state); // :3
 
     /**
     * Returns the background sprite used for a state.
     *
     * @param state The state that uses the background sprite. Possible values are
     * described in "CCControlState".
-    */
-    virtual CCScale9Sprite* getBackgroundSpriteForState(CCControlState state);
+    */ // :3
+    virtual CCScale9Sprite* getBackgroundSpriteForState(CCControlState state); // :3
 
     /**
     * Sets the background sprite to use for the specified button state.
@@ -230,8 +230,8 @@ public:
     * @param sprite The background sprite to use for the specified state.
     * @param state The state that uses the specified image. The values are described
     * in "CCControlState".
-    */
-    virtual void setBackgroundSpriteForState(CCScale9Sprite* sprite, CCControlState state);
+    */ // :3
+    virtual void setBackgroundSpriteForState(CCScale9Sprite* sprite, CCControlState state); // :3
 
     /**
      * Sets the background spriteFrame to use for the specified button state.
@@ -239,16 +239,16 @@ public:
      * @param spriteFrame The background spriteFrame to use for the specified state.
      * @param state The state that uses the specified image. The values are described
      * in "CCControlState".
-     */
-    virtual void setBackgroundSpriteFrameForState(CCSpriteFrame * spriteFrame, CCControlState state);
+     */ // :3
+    virtual void setBackgroundSpriteFrameForState(CCSpriteFrame * spriteFrame, CCControlState state); // :3
 
-    static CCControlButton* create();
-};
+    static CCControlButton* create(); // :3
+}; // :3
 
-// end of GUI group
-/// @}
-/// @}
+// end of GUI group :3
+/// @} :3
+/// @} :3
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
-#endif
+#endif // :3

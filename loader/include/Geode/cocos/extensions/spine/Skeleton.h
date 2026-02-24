@@ -21,32 +21,32 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_SKELETON_H_
-#define SPINE_SKELETON_H_
+#ifndef SPINE_SKELETON_H_ // :3
+#define SPINE_SKELETON_H_ // :3
 
-#include "SkeletonData.h"
-#include "Slot.h"
-#include "Skin.h"
+#include "SkeletonData.h" // :3
+#include "Slot.h" // :3
+#include "Skin.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-typedef struct Skeleton Skeleton;
-struct Skeleton {
-	SkeletonData* const data;
+typedef struct Skeleton Skeleton; // :3
+struct Skeleton { // :3
+	SkeletonData* const data; // :3
 
-	int boneCount;
-	Bone** bones;
-	Bone* const root;
+	int boneCount; // :3
+	Bone** bones; // :3
+	Bone* const root; // :3
 
-	int slotCount;
-	Slot** slots;
-	Slot** drawOrder;
+	int slotCount; // :3
+	Slot** slots; // :3
+	Slot** drawOrder; // :3
 
-	Skin* const skin;
-	float r, g, b, a;
-	float time;
+	Skin* const skin; // :3
+	float r, g, b, a; // :3
+	float time; // :3
 	int/*bool*/flipX, flipY;
 	float x, y;
 };
@@ -72,11 +72,11 @@ int Skeleton_findSlotIndex (const Skeleton* self, const char* slotName);
 
 /* Sets the skin used to look up attachments not found in the SkeletonData defaultSkin. Attachments from the new skin are
  * attached if the corresponding attachment from the old skin was attached.
- * @param skin May be 0.*/
-void Skeleton_setSkin (Skeleton* self, Skin* skin);
+ * @param skin May be 0.*/ // :3
+void Skeleton_setSkin (Skeleton* self, Skin* skin); // :3
 /* Returns 0 if the skin was not found. See Skeleton_setSkin.
- * @param skinName May be 0. */
-int Skeleton_setSkinByName (Skeleton* self, const char* skinName);
+ * @param skinName May be 0. */ // :3
+int Skeleton_setSkinByName (Skeleton* self, const char* skinName); // :3
 
 /* Returns 0 if the slot or attachment was not found. */
 Attachment* Skeleton_getAttachmentForSlotName (const Skeleton* self, const char* slotName, const char* attachmentName);

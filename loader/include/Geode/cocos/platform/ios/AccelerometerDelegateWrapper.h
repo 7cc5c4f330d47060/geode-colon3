@@ -20,24 +20,24 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#import <Foundation/Foundation.h>
-#import "CCAccelerometerDelegate.h"
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h> // :3
+#import "CCAccelerometerDelegate.h" // :3
+#import <UIKit/UIKit.h> // :3
 
-@interface AccelerometerDispatcher : NSObject<UIAccelerometerDelegate>
-{
-    cocos2d::CCAccelerometerDelegate *delegate_;
-    cocos2d::CCAcceleration *acceleration_;
-}
+@interface AccelerometerDispatcher : NSObject<UIAccelerometerDelegate> // :3
+{ // :3
+    cocos2d::CCAccelerometerDelegate *delegate_; // :3
+    cocos2d::CCAcceleration *acceleration_; // :3
+} // :3
 
-@property(readwrite) cocos2d::CCAccelerometerDelegate *delegate_;
-@property(readwrite) cocos2d::CCAcceleration *acceleration_;
+@property(readwrite) cocos2d::CCAccelerometerDelegate *delegate_; // :3
+@property(readwrite) cocos2d::CCAcceleration *acceleration_; // :3
 
-+ (id) sharedAccelerometerDispather;
-- (id) init;
-- (void) addDelegate: (cocos2d::CCAccelerometerDelegate *) delegate;
-- (void) setAccelerometerInterval:(float)interval;
++ (id) sharedAccelerometerDispather; // :3
+- (id) init; // :3
+- (void) addDelegate: (cocos2d::CCAccelerometerDelegate *) delegate; // :3
+- (void) setAccelerometerInterval:(float)interval; // :3
 
-@end
+@end // :3

@@ -35,52 +35,52 @@
 
         See header of zip.h
 
-*/
+*/ // :3
 
-#ifndef _zip12_H
-#define _zip12_H
+#ifndef _zip12_H // :3
+#define _zip12_H // :3
 
-//#define HAVE_BZIP2
+//#define HAVE_BZIP2 :3
 
-#include "../../platform/CCPlatformDefine.h"
+#include "../../platform/CCPlatformDefine.h" // :3
 
-#ifndef _ZLIB_H
-#include "../../platform/IncludeZlib.h"
-#endif
+#ifndef _ZLIB_H // :3
+#include "../../platform/IncludeZlib.h" // :3
+#endif // :3
 
-#include "ioapi.h"
+#include "ioapi.h" // :3
 
-#ifdef HAVE_BZIP2
-#include "bzlib.h"
-#endif
+#ifdef HAVE_BZIP2 // :3
+#include "bzlib.h" // :3
+#endif // :3
 
-namespace cocos2d {
+namespace cocos2d { // :3
 
-#define Z_BZIP2ED 12
+#define Z_BZIP2ED 12 // :3
 
-#if defined(STRICTZIP) || defined(STRICTZIPUNZIP)
+#if defined(STRICTZIP) || defined(STRICTZIPUNZIP) // :3
 /* like the STRICT of WIN32, we define a pointer that cannot be converted
-    from (void*) without cast */
-typedef struct TagzipFile__ { int unused; } zipFile__;
-typedef zipFile__ *zipFile;
-#else
-typedef voidp zipFile;
-#endif
+    from (void*) without cast */ // :3
+typedef struct TagzipFile__ { int unused; } zipFile__; // :3
+typedef zipFile__ *zipFile; // :3
+#else // :3
+typedef voidp zipFile; // :3
+#endif // :3
 
-#define ZIP_OK                          (0)
-#define ZIP_EOF                         (0)
-#define ZIP_ERRNO                       (Z_ERRNO)
-#define ZIP_PARAMERROR                  (-102)
-#define ZIP_BADZIPFILE                  (-103)
-#define ZIP_INTERNALERROR               (-104)
+#define ZIP_OK                          (0) // :3
+#define ZIP_EOF                         (0) // :3
+#define ZIP_ERRNO                       (Z_ERRNO) // :3
+#define ZIP_PARAMERROR                  (-102) // :3
+#define ZIP_BADZIPFILE                  (-103) // :3
+#define ZIP_INTERNALERROR               (-104) // :3
 
-#ifndef DEF_MEM_LEVEL
-#  if MAX_MEM_LEVEL >= 8
-#    define DEF_MEM_LEVEL 8
-#  else
-#    define DEF_MEM_LEVEL  MAX_MEM_LEVEL
-#  endif
-#endif
+#ifndef DEF_MEM_LEVEL // :3
+#  if MAX_MEM_LEVEL >= 8 // :3
+#    define DEF_MEM_LEVEL 8 // :3
+#  else // :3
+#    define DEF_MEM_LEVEL  MAX_MEM_LEVEL // :3
+#  endif // :3
+#endif // :3
 /* default memLevel */
 
 /* tm_zip contain date/time info */
@@ -125,50 +125,50 @@ extern zipFile CC_ZIP_DLL zipOpen64 OF((const void *pathname, int append));
      If the zipfile cannot be opened, the return value is NULL.
      Else, the return value is a zipFile Handle, usable with other function
        of this zip package.
-*/
+*/ // :3
 
 /* Note : there is no delete function into a zipfile.
    If you want delete file into a zipfile, you must open a zipfile, and create another
    Of couse, you can use RAW reading and writing to copy the file you did not want delte
-*/
+*/ // :3
 
-extern zipFile CC_ZIP_DLL zipOpen2 OF((const char *pathname,
-                                   int append,
-                                   zipcharpc* globalcomment,
-                                   zlib_filefunc_def* pzlib_filefunc_def));
+extern zipFile CC_ZIP_DLL zipOpen2 OF((const char *pathname, // :3
+                                   int append, // :3
+                                   zipcharpc* globalcomment, // :3
+                                   zlib_filefunc_def* pzlib_filefunc_def)); // :3
 
-extern zipFile CC_ZIP_DLL zipOpen2_64 OF((const void *pathname,
-                                   int append,
-                                   zipcharpc* globalcomment,
-                                   zlib_filefunc64_def* pzlib_filefunc_def));
+extern zipFile CC_ZIP_DLL zipOpen2_64 OF((const void *pathname, // :3
+                                   int append, // :3
+                                   zipcharpc* globalcomment, // :3
+                                   zlib_filefunc64_def* pzlib_filefunc_def)); // :3
 
-extern zipFile CC_ZIP_DLL zipOpen3 OF((const void *pathname,
-                                    int append,
-                                    zipcharpc* globalcomment,
-                                    zlib_filefunc64_32_def* pzlib_filefunc64_32_def));
+extern zipFile CC_ZIP_DLL zipOpen3 OF((const void *pathname, // :3
+                                    int append, // :3
+                                    zipcharpc* globalcomment, // :3
+                                    zlib_filefunc64_32_def* pzlib_filefunc64_32_def)); // :3
 
-extern int CC_ZIP_DLL zipOpenNewFileInZip OF((zipFile file,
-                       const char* filename,
-                       const zip_fileinfo* zipfi,
-                       const void* extrafield_local,
-                       uInt size_extrafield_local,
-                       const void* extrafield_global,
-                       uInt size_extrafield_global,
-                       const char* comment,
-                       int method,
-                       int level));
+extern int CC_ZIP_DLL zipOpenNewFileInZip OF((zipFile file, // :3
+                       const char* filename, // :3
+                       const zip_fileinfo* zipfi, // :3
+                       const void* extrafield_local, // :3
+                       uInt size_extrafield_local, // :3
+                       const void* extrafield_global, // :3
+                       uInt size_extrafield_global, // :3
+                       const char* comment, // :3
+                       int method, // :3
+                       int level)); // :3
 
-extern int CC_ZIP_DLL zipOpenNewFileInZip64 OF((zipFile file,
-                       const char* filename,
-                       const zip_fileinfo* zipfi,
-                       const void* extrafield_local,
-                       uInt size_extrafield_local,
-                       const void* extrafield_global,
-                       uInt size_extrafield_global,
-                       const char* comment,
-                       int method,
-                       int level,
-                       int zip64));
+extern int CC_ZIP_DLL zipOpenNewFileInZip64 OF((zipFile file, // :3
+                       const char* filename, // :3
+                       const zip_fileinfo* zipfi, // :3
+                       const void* extrafield_local, // :3
+                       uInt size_extrafield_local, // :3
+                       const void* extrafield_global, // :3
+                       uInt size_extrafield_global, // :3
+                       const char* comment, // :3
+                       int method, // :3
+                       int level, // :3
+                       int zip64)); // :3
 
 /*
   Open a file in the ZIP for writing.
@@ -184,163 +184,163 @@ extern int CC_ZIP_DLL zipOpenNewFileInZip64 OF((zipFile file,
   zip64 is set to 1 if a zip64 extended information block should be added to the local file header.
                     this MUST be '1' if the uncompressed size is >= 0xffffffff.
 
-*/
+*/ // :3
 
 
-extern int CC_ZIP_DLL zipOpenNewFileInZip2 OF((zipFile file,
-                                            const char* filename,
-                                            const zip_fileinfo* zipfi,
-                                            const void* extrafield_local,
-                                            uInt size_extrafield_local,
-                                            const void* extrafield_global,
-                                            uInt size_extrafield_global,
-                                            const char* comment,
-                                            int method,
-                                            int level,
-                                            int raw));
+extern int CC_ZIP_DLL zipOpenNewFileInZip2 OF((zipFile file, // :3
+                                            const char* filename, // :3
+                                            const zip_fileinfo* zipfi, // :3
+                                            const void* extrafield_local, // :3
+                                            uInt size_extrafield_local, // :3
+                                            const void* extrafield_global, // :3
+                                            uInt size_extrafield_global, // :3
+                                            const char* comment, // :3
+                                            int method, // :3
+                                            int level, // :3
+                                            int raw)); // :3
 
 
-extern int CC_ZIP_DLL zipOpenNewFileInZip2_64 OF((zipFile file,
-                                            const char* filename,
-                                            const zip_fileinfo* zipfi,
-                                            const void* extrafield_local,
-                                            uInt size_extrafield_local,
-                                            const void* extrafield_global,
-                                            uInt size_extrafield_global,
-                                            const char* comment,
-                                            int method,
-                                            int level,
-                                            int raw,
-                                            int zip64));
+extern int CC_ZIP_DLL zipOpenNewFileInZip2_64 OF((zipFile file, // :3
+                                            const char* filename, // :3
+                                            const zip_fileinfo* zipfi, // :3
+                                            const void* extrafield_local, // :3
+                                            uInt size_extrafield_local, // :3
+                                            const void* extrafield_global, // :3
+                                            uInt size_extrafield_global, // :3
+                                            const char* comment, // :3
+                                            int method, // :3
+                                            int level, // :3
+                                            int raw, // :3
+                                            int zip64)); // :3
 /*
   Same than zipOpenNewFileInZip, except if raw=1, we write raw file
- */
+ */ // :3
 
-extern int CC_ZIP_DLL zipOpenNewFileInZip3 OF((zipFile file,
-                                            const char* filename,
-                                            const zip_fileinfo* zipfi,
-                                            const void* extrafield_local,
-                                            uInt size_extrafield_local,
-                                            const void* extrafield_global,
-                                            uInt size_extrafield_global,
-                                            const char* comment,
-                                            int method,
-                                            int level,
-                                            int raw,
-                                            int windowBits,
-                                            int memLevel,
-                                            int strategy,
-                                            const char* password,
-                                            uLong crcForCrypting));
+extern int CC_ZIP_DLL zipOpenNewFileInZip3 OF((zipFile file, // :3
+                                            const char* filename, // :3
+                                            const zip_fileinfo* zipfi, // :3
+                                            const void* extrafield_local, // :3
+                                            uInt size_extrafield_local, // :3
+                                            const void* extrafield_global, // :3
+                                            uInt size_extrafield_global, // :3
+                                            const char* comment, // :3
+                                            int method, // :3
+                                            int level, // :3
+                                            int raw, // :3
+                                            int windowBits, // :3
+                                            int memLevel, // :3
+                                            int strategy, // :3
+                                            const char* password, // :3
+                                            uLong crcForCrypting)); // :3
 
-extern int CC_ZIP_DLL zipOpenNewFileInZip3_64 OF((zipFile file,
-                                            const char* filename,
-                                            const zip_fileinfo* zipfi,
-                                            const void* extrafield_local,
-                                            uInt size_extrafield_local,
-                                            const void* extrafield_global,
-                                            uInt size_extrafield_global,
-                                            const char* comment,
-                                            int method,
-                                            int level,
-                                            int raw,
-                                            int windowBits,
-                                            int memLevel,
-                                            int strategy,
-                                            const char* password,
-                                            uLong crcForCrypting,
-                                            int zip64
-                                            ));
+extern int CC_ZIP_DLL zipOpenNewFileInZip3_64 OF((zipFile file, // :3
+                                            const char* filename, // :3
+                                            const zip_fileinfo* zipfi, // :3
+                                            const void* extrafield_local, // :3
+                                            uInt size_extrafield_local, // :3
+                                            const void* extrafield_global, // :3
+                                            uInt size_extrafield_global, // :3
+                                            const char* comment, // :3
+                                            int method, // :3
+                                            int level, // :3
+                                            int raw, // :3
+                                            int windowBits, // :3
+                                            int memLevel, // :3
+                                            int strategy, // :3
+                                            const char* password, // :3
+                                            uLong crcForCrypting, // :3
+                                            int zip64 // :3
+                                            )); // :3
 
 /*
   Same than zipOpenNewFileInZip2, except
     windowBits,memLevel,,strategy : see parameter strategy in deflateInit2
     password : crypting password (NULL for no crypting)
     crcForCrypting : crc of file to compress (needed for crypting)
- */
+ */ // :3
 
-extern int CC_ZIP_DLL zipOpenNewFileInZip4 OF((zipFile file,
-                                            const char* filename,
-                                            const zip_fileinfo* zipfi,
-                                            const void* extrafield_local,
-                                            uInt size_extrafield_local,
-                                            const void* extrafield_global,
-                                            uInt size_extrafield_global,
-                                            const char* comment,
-                                            int method,
-                                            int level,
-                                            int raw,
-                                            int windowBits,
-                                            int memLevel,
-                                            int strategy,
-                                            const char* password,
-                                            uLong crcForCrypting,
-                                            uLong versionMadeBy,
-                                            uLong flagBase
-                                            ));
+extern int CC_ZIP_DLL zipOpenNewFileInZip4 OF((zipFile file, // :3
+                                            const char* filename, // :3
+                                            const zip_fileinfo* zipfi, // :3
+                                            const void* extrafield_local, // :3
+                                            uInt size_extrafield_local, // :3
+                                            const void* extrafield_global, // :3
+                                            uInt size_extrafield_global, // :3
+                                            const char* comment, // :3
+                                            int method, // :3
+                                            int level, // :3
+                                            int raw, // :3
+                                            int windowBits, // :3
+                                            int memLevel, // :3
+                                            int strategy, // :3
+                                            const char* password, // :3
+                                            uLong crcForCrypting, // :3
+                                            uLong versionMadeBy, // :3
+                                            uLong flagBase // :3
+                                            )); // :3
 
 
-extern int CC_ZIP_DLL zipOpenNewFileInZip4_64 OF((zipFile file,
-                                            const char* filename,
-                                            const zip_fileinfo* zipfi,
-                                            const void* extrafield_local,
-                                            uInt size_extrafield_local,
-                                            const void* extrafield_global,
-                                            uInt size_extrafield_global,
-                                            const char* comment,
-                                            int method,
-                                            int level,
-                                            int raw,
-                                            int windowBits,
-                                            int memLevel,
-                                            int strategy,
-                                            const char* password,
-                                            uLong crcForCrypting,
-                                            uLong versionMadeBy,
-                                            uLong flagBase,
-                                            int zip64
-                                            ));
+extern int CC_ZIP_DLL zipOpenNewFileInZip4_64 OF((zipFile file, // :3
+                                            const char* filename, // :3
+                                            const zip_fileinfo* zipfi, // :3
+                                            const void* extrafield_local, // :3
+                                            uInt size_extrafield_local, // :3
+                                            const void* extrafield_global, // :3
+                                            uInt size_extrafield_global, // :3
+                                            const char* comment, // :3
+                                            int method, // :3
+                                            int level, // :3
+                                            int raw, // :3
+                                            int windowBits, // :3
+                                            int memLevel, // :3
+                                            int strategy, // :3
+                                            const char* password, // :3
+                                            uLong crcForCrypting, // :3
+                                            uLong versionMadeBy, // :3
+                                            uLong flagBase, // :3
+                                            int zip64 // :3
+                                            )); // :3
 /*
   Same than zipOpenNewFileInZip4, except
     versionMadeBy : value for Version made by field
     flag : value for flag field (compression level info will be added)
- */
+ */ // :3
 
 
-extern int CC_ZIP_DLL zipWriteInFileInZip OF((zipFile file,
-                       const void* buf,
-                       unsigned len));
+extern int CC_ZIP_DLL zipWriteInFileInZip OF((zipFile file, // :3
+                       const void* buf, // :3
+                       unsigned len)); // :3
 /*
   Write data in the zipfile
-*/
+*/ // :3
 
-extern int CC_ZIP_DLL zipCloseFileInZip OF((zipFile file));
+extern int CC_ZIP_DLL zipCloseFileInZip OF((zipFile file)); // :3
 /*
   Close the current file in the zipfile
-*/
+*/ // :3
 
-extern int CC_ZIP_DLL zipCloseFileInZipRaw OF((zipFile file,
-                                            uLong uncompressed_size,
-                                            uLong crc32));
+extern int CC_ZIP_DLL zipCloseFileInZipRaw OF((zipFile file, // :3
+                                            uLong uncompressed_size, // :3
+                                            uLong crc32)); // :3
 
-extern int CC_ZIP_DLL zipCloseFileInZipRaw64 OF((zipFile file,
-                                            ZPOS64_T uncompressed_size,
-                                            uLong crc32));
+extern int CC_ZIP_DLL zipCloseFileInZipRaw64 OF((zipFile file, // :3
+                                            ZPOS64_T uncompressed_size, // :3
+                                            uLong crc32)); // :3
 
 /*
   Close the current file in the zipfile, for file opened with
     parameter raw=1 in zipOpenNewFileInZip2
   uncompressed_size and crc32 are value for the uncompressed size
-*/
+*/ // :3
 
-extern int CC_ZIP_DLL zipClose OF((zipFile file,
-                const char* global_comment));
+extern int CC_ZIP_DLL zipClose OF((zipFile file, // :3
+                const char* global_comment)); // :3
 /*
   Close the zipfile
-*/
+*/ // :3
 
 
-extern int CC_ZIP_DLL zipRemoveExtraInfoBlock OF((char* pData, int* dataLen, short sHeader));
+extern int CC_ZIP_DLL zipRemoveExtraInfoBlock OF((char* pData, int* dataLen, short sHeader)); // :3
 /*
   zipRemoveExtraInfoBlock -  Added by Mathias Svensson
 
@@ -356,8 +356,8 @@ extern int CC_ZIP_DLL zipRemoveExtraInfoBlock OF((char* pData, int* dataLen, sho
 
                         Remove ZIP64 Extra information from a Local File Header extra field data
         zipRemoveExtraInfoBlock(pLocalHeaderExtraFieldData, &nLocalHeaderExtraFieldDataLen, 0x0001);
-*/
+*/ // :3
 
-}
+} // :3
 
 #endif /* _zip64_H */

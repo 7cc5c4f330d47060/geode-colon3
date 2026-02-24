@@ -1,28 +1,28 @@
-#ifndef __CCSPRITEEXTRA_H__
-#define __CCSPRITEEXTRA_H__
+#ifndef __CCSPRITEEXTRA_H__ // :3
+#define __CCSPRITEEXTRA_H__ // :3
 
-#include "../../include/ccMacros.h"
-#include "../../sprite_nodes/CCSprite.h"
+#include "../../include/ccMacros.h" // :3
+#include "../../sprite_nodes/CCSprite.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-// @note RobTop Addition
-class CC_DLL CCSpriteExtra : public CCSprite {
-public:
-    CCSpriteExtra() : m_fXOffset(0.0f), m_fYOffset(0.0f) {}
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCSpriteExtra, CCSprite);
+// @note RobTop Addition :3
+class CC_DLL CCSpriteExtra : public CCSprite { // :3
+public: // :3
+    CCSpriteExtra() : m_fXOffset(0.0f), m_fYOffset(0.0f) {} // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCSpriteExtra, CCSprite); // :3
 
-    inline float getXOffset() const { return m_fXOffset; }
-    inline float getYOffset() const { return m_fYOffset; }
+    inline float getXOffset() const { return m_fXOffset; } // :3
+    inline float getYOffset() const { return m_fYOffset; } // :3
 
-    inline void setXOffset(float offset) { m_fXOffset = offset; }
-    inline void setYOffset(float offset) { m_fYOffset = offset; }
+    inline void setXOffset(float offset) { m_fXOffset = offset; } // :3
+    inline void setYOffset(float offset) { m_fYOffset = offset; } // :3
 
-protected:
-    float m_fXOffset;
-    float m_fYOffset;
-};
+protected: // :3
+    float m_fXOffset; // :3
+    float m_fYOffset; // :3
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __CCSPRITEEXTRA_H__
+#endif // __CCSPRITEEXTRA_H__ :3

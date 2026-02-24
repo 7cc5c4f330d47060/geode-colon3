@@ -5,20 +5,20 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_FIPS_NAMES_H
-#define OPENSSL_FIPS_NAMES_H
-#pragma once
+#ifndef OPENSSL_FIPS_NAMES_H // :3
+#define OPENSSL_FIPS_NAMES_H // :3
+#pragma once // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /*
  * Parameter names that the FIPS Provider defines
  * All parameters are of type: OSSL_PARAM_UTF8_STRING
- */
+ */ // :3
 
 /* The following 4 Parameters are used for FIPS Self Testing */
 
@@ -35,8 +35,8 @@ extern "C" {
  * A boolean that determines if the FIPS conditional test errors result in
  * the module entering an error state.
  * Type: OSSL_PARAM_UTF8_STRING
- */
-#define OSSL_PROV_FIPS_PARAM_CONDITIONAL_ERRORS "conditional-errors"
+ */ // :3
+#define OSSL_PROV_FIPS_PARAM_CONDITIONAL_ERRORS "conditional-errors" // :3
 
 /* The following are provided for backwards compatibility */
 #define OSSL_PROV_FIPS_PARAM_SECURITY_CHECKS OSSL_PROV_PARAM_SECURITY_CHECKS

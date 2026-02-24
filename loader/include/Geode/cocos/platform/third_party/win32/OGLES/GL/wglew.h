@@ -27,7 +27,7 @@
 ** CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 ** THE POSSIBILITY OF SUCH DAMAGE.
-*/
+*/ // :3
 
 /*
 ** Copyright (c) 2007 The Khronos Group Inc.
@@ -50,43 +50,43 @@
 ** CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 ** TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 ** MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.
-*/
+*/ // :3
 
-#ifndef __wglew_h__
-#define __wglew_h__
-#define __WGLEW_H__
+#ifndef __wglew_h__ // :3
+#define __wglew_h__ // :3
+#define __WGLEW_H__ // :3
 
-#ifdef __wglext_h_
-#error wglext.h included before wglew.h
-#endif
+#ifdef __wglext_h_ // :3
+#error wglext.h included before wglew.h // :3
+#endif // :3
 
-#define __wglext_h_
+#define __wglext_h_ // :3
 
-#if !defined(WINAPI)
-#  ifndef WIN32_LEAN_AND_MEAN
-#    define WIN32_LEAN_AND_MEAN 1
-#  endif
-#include <windows.h>
-#  undef WIN32_LEAN_AND_MEAN
-#endif
+#if !defined(WINAPI) // :3
+#  ifndef WIN32_LEAN_AND_MEAN // :3
+#    define WIN32_LEAN_AND_MEAN 1 // :3
+#  endif // :3
+#include <windows.h> // :3
+#  undef WIN32_LEAN_AND_MEAN // :3
+#endif // :3
 
 /*
  * GLEW_STATIC needs to be set when using the static version.
  * GLEW_BUILD is set when building the DLL version.
- */
-#ifdef GLEW_STATIC
-#  define GLEWAPI extern
-#else
-#  ifdef GLEW_BUILD
-#    define GLEWAPI extern __declspec(dllexport)
-#  else
-#    define GLEWAPI extern __declspec(dllimport)
-#  endif
-#endif
+ */ // :3
+#ifdef GLEW_STATIC // :3
+#  define GLEWAPI extern // :3
+#else // :3
+#  ifdef GLEW_BUILD // :3
+#    define GLEWAPI extern __declspec(dllexport) // :3
+#  else // :3
+#    define GLEWAPI extern __declspec(dllimport) // :3
+#  endif // :3
+#endif // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /* -------------------------- WGL_3DFX_multisample ------------------------- */
 

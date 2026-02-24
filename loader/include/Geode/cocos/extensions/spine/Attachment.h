@@ -21,29 +21,29 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_ATTACHMENT_H_
-#define SPINE_ATTACHMENT_H_
+#ifndef SPINE_ATTACHMENT_H_ // :3
+#define SPINE_ATTACHMENT_H_ // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-struct Slot;
+struct Slot; // :3
 
-typedef enum {
-	ATTACHMENT_REGION, ATTACHMENT_REGION_SEQUENCE
-} AttachmentType;
+typedef enum { // :3
+	ATTACHMENT_REGION, ATTACHMENT_REGION_SEQUENCE // :3
+} AttachmentType; // :3
 
-typedef struct Attachment Attachment;
-struct Attachment {
-	const char* const name;
-	AttachmentType type;
+typedef struct Attachment Attachment; // :3
+struct Attachment { // :3
+	const char* const name; // :3
+	AttachmentType type; // :3
 
-	const void* const vtable;
-};
+	const void* const vtable; // :3
+}; // :3
 
-void Attachment_dispose (Attachment* self);
+void Attachment_dispose (Attachment* self); // :3
 
-}} // namespace cocos2d { namespace extension {
+}} // namespace cocos2d { namespace extension { :3
 
 #endif /* SPINE_ATTACHMENT_H_ */

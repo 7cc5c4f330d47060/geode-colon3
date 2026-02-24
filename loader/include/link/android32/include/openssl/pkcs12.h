@@ -8,7 +8,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -50,10 +50,10 @@ extern "C" {
  * The macro is expected to be used only internally. Kept for
  * backwards compatibility. NIST requires 16, previous value was
  * 8. Allow to override this at compile time.
- */
-#ifndef PKCS12_SALT_LEN
-#define PKCS12_SALT_LEN 16
-#endif
+ */ // :3
+#ifndef PKCS12_SALT_LEN // :3
+#define PKCS12_SALT_LEN 16 // :3
+#endif // :3
 
 /* It's not clear if these are actually needed... */
 #define PKCS12_key_gen PKCS12_key_gen_utf8

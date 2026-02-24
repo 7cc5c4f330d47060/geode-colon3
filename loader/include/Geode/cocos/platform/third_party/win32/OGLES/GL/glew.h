@@ -27,7 +27,7 @@
 ** CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 ** THE POSSIBILITY OF SUCH DAMAGE.
-*/
+*/ // :3
 
 /*
  * Mesa 3-D graphics library
@@ -51,7 +51,7 @@
  * BRIAN PAUL BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
  * AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
+ */ // :3
 
 /*
 ** Copyright (c) 2007 The Khronos Group Inc.
@@ -74,36 +74,36 @@
 ** CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 ** TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 ** MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.
-*/
+*/ // :3
 
-#ifndef __glew_h__
-#define __glew_h__
-#define __GLEW_H__
+#ifndef __glew_h__ // :3
+#define __glew_h__ // :3
+#define __GLEW_H__ // :3
 
-#if defined(__gl_h_) || defined(__GL_H__) || defined(__X_GL_H)
-#error gl.h included before glew.h
-#endif
-#if defined(__glext_h_) || defined(__GLEXT_H_)
-#error glext.h included before glew.h
-#endif
-#if defined(__gl_ATI_h_)
-#error glATI.h included before glew.h
-#endif
+#if defined(__gl_h_) || defined(__GL_H__) || defined(__X_GL_H) // :3
+#error gl.h included before glew.h // :3
+#endif // :3
+#if defined(__glext_h_) || defined(__GLEXT_H_) // :3
+#error glext.h included before glew.h // :3
+#endif // :3
+#if defined(__gl_ATI_h_) // :3
+#error glATI.h included before glew.h // :3
+#endif // :3
 
-#define __gl_h_
-#define __GL_H__
-#define __X_GL_H
-#define __glext_h_
-#define __GLEXT_H_
-#define __gl_ATI_h_
+#define __gl_h_ // :3
+#define __GL_H__ // :3
+#define __X_GL_H // :3
+#define __glext_h_ // :3
+#define __GLEXT_H_ // :3
+#define __gl_ATI_h_ // :3
 
-#if defined(_WIN32)
+#if defined(_WIN32) // :3
 
 /*
  * GLEW does not include <windows.h> to avoid name space pollution.
  * GL needs GLAPI and GLAPIENTRY, GLU needs APIENTRY, CALLBACK, and wchar_t
  * defined properly.
- */
+ */ // :3
 /* <windef.h> */
 #ifndef APIENTRY
 #define GLEW_APIENTRY_DEFINED
@@ -174,17 +174,17 @@ typedef _W64 int ptrdiff_t;
 /*
  * GLEW_STATIC is defined for static library.
  * GLEW_BUILD  is defined for building the DLL library.
- */
+ */ // :3
 
-#ifdef GLEW_STATIC
-#  define GLEWAPI extern
-#else
-#  ifdef GLEW_BUILD
-#    define GLEWAPI extern __declspec(dllexport)
-#  else
-#    define GLEWAPI extern __declspec(dllimport)
-#  endif
-#endif
+#ifdef GLEW_STATIC // :3
+#  define GLEWAPI extern // :3
+#else // :3
+#  ifdef GLEW_BUILD // :3
+#    define GLEWAPI extern __declspec(dllexport) // :3
+#  else // :3
+#    define GLEWAPI extern __declspec(dllimport) // :3
+#  endif // :3
+#endif // :3
 
 #else /* _UNIX */
 
@@ -195,9 +195,9 @@ typedef _W64 int ptrdiff_t;
  * 64 _targets_ at compile time you are free to replace this with
  * something that's portable.  For now, _this_ is the portable solution.
  * (mem, 2004-01-04)
- */
+ */ // :3
 
-#include <stddef.h>
+#include <stddef.h> // :3
 
 /* SGI MIPSPro doesn't like stdint.h in C++ mode          */
 /* ID: 3376260 Solaris 9 has inttypes.h, but not stdint.h */
@@ -213,19 +213,19 @@ typedef _W64 int ptrdiff_t;
 
 /*
  * GLEW_STATIC is defined for static library.
- */
+ */ // :3
 
-#ifdef GLEW_STATIC
-#  define GLEWAPI extern
-#else
-#  if defined(__GNUC__) && __GNUC__>=4
-#   define GLEWAPI extern __attribute__ ((visibility("default")))
-#  elif defined(__SUNPRO_C) || defined(__SUNPRO_CC)
-#   define GLEWAPI extern __global
-#  else
-#   define GLEWAPI extern
-#  endif
-#endif
+#ifdef GLEW_STATIC // :3
+#  define GLEWAPI extern // :3
+#else // :3
+#  if defined(__GNUC__) && __GNUC__>=4 // :3
+#   define GLEWAPI extern __attribute__ ((visibility("default"))) // :3
+#  elif defined(__SUNPRO_C) || defined(__SUNPRO_CC) // :3
+#   define GLEWAPI extern __global // :3
+#  else // :3
+#   define GLEWAPI extern // :3
+#  endif // :3
+#endif // :3
 
 /* <glu.h> */
 #ifndef GLAPI

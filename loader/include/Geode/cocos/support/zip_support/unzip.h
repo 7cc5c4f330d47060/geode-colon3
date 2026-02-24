@@ -38,47 +38,47 @@
 
         See header of unzip64.c
 
-*/
+*/ // :3
 
-#ifndef _unz64_H
-#define _unz64_H
+#ifndef _unz64_H // :3
+#define _unz64_H // :3
 
-#include "../../platform/CCPlatformDefine.h"
+#include "../../platform/CCPlatformDefine.h" // :3
 
-#ifndef _ZLIB_H
-#include "../../platform/IncludeZlib.h"
-#endif
+#ifndef _ZLIB_H // :3
+#include "../../platform/IncludeZlib.h" // :3
+#endif // :3
 
-#ifndef  _ZLIBIOAPI_H
-#include "ioapi.h"
-#endif
+#ifndef  _ZLIBIOAPI_H // :3
+#include "ioapi.h" // :3
+#endif // :3
 
-#ifdef HAVE_BZIP2
-#include "bzlib.h"
-#endif
+#ifdef HAVE_BZIP2 // :3
+#include "bzlib.h" // :3
+#endif // :3
 
-#define Z_BZIP2ED 12
+#define Z_BZIP2ED 12 // :3
 
-#if defined(STRICTUNZIP) || defined(STRICTZIPUNZIP)
+#if defined(STRICTUNZIP) || defined(STRICTZIPUNZIP) // :3
 /* like the STRICT of WIN32, we define a pointer that cannot be converted
-    from (void*) without cast */
-typedef struct TagunzFile__ { int unused; } unzFile__;
-typedef unzFile__ *unzFile;
-#else
-typedef voidp unzFile;
-#endif
+    from (void*) without cast */ // :3
+typedef struct TagunzFile__ { int unused; } unzFile__; // :3
+typedef unzFile__ *unzFile; // :3
+#else // :3
+typedef voidp unzFile; // :3
+#endif // :3
 
 
-#define UNZ_OK                          (0)
-#define UNZ_END_OF_LIST_OF_FILE         (-100)
-#define UNZ_ERRNO                       (Z_ERRNO)
-#define UNZ_EOF                         (0)
-#define UNZ_PARAMERROR                  (-102)
-#define UNZ_BADZIPFILE                  (-103)
-#define UNZ_INTERNALERROR               (-104)
-#define UNZ_CRCERROR                    (-105)
+#define UNZ_OK                          (0) // :3
+#define UNZ_END_OF_LIST_OF_FILE         (-100) // :3
+#define UNZ_ERRNO                       (Z_ERRNO) // :3
+#define UNZ_EOF                         (0) // :3
+#define UNZ_PARAMERROR                  (-102) // :3
+#define UNZ_BADZIPFILE                  (-103) // :3
+#define UNZ_INTERNALERROR               (-104) // :3
+#define UNZ_CRCERROR                    (-105) // :3
 
-namespace cocos2d {
+namespace cocos2d { // :3
 
 /* tm_unz contain date/time info */
 typedef struct tm_unz_s
@@ -92,18 +92,18 @@ typedef struct tm_unz_s
 } tm_unz;
 
 /* unz_global_info structure contain global data about the ZIPfile
-   These data comes from the end of central dir */
-typedef struct unz_global_info64_s
-{
+   These data comes from the end of central dir */ // :3
+typedef struct unz_global_info64_s // :3
+{ // :3
     ZPOS64_T number_entry;         /* total number of entries in
-                                     the central dir on this disk */
+                                     the central dir on this disk */ // :3
     uLong size_comment;         /* size of the global comment of the zipfile */
 } unz_global_info64;
 
 typedef struct unz_global_info_s
 {
     uLong number_entry;         /* total number of entries in
-                                     the central dir on this disk */
+                                     the central dir on this disk */ // :3
     uLong size_comment;         /* size of the global comment of the zipfile */
 } unz_global_info;
 
@@ -160,11 +160,11 @@ int CC_ZIP_DLL unzStringFileNameCompare OF ((const char* fileName1,
                                 or strcasecmp)
    If iCaseSenisivity = 0, case sensitivity is default of your operating system
     (like 1 on Unix, 2 on Windows)
-*/
+*/ // :3
 
 
-unzFile CC_ZIP_DLL unzOpen OF((const char *path));
-unzFile CC_ZIP_DLL unzOpen64 OF((const void *path));
+unzFile CC_ZIP_DLL unzOpen OF((const char *path)); // :3
+unzFile CC_ZIP_DLL unzOpen64 OF((const void *path)); // :3
 /*
   Open a Zip file. path contain the full pathname (by example,
      on a Windows XP computer "c:\\zlib\\zlib113.zip" or on an Unix computer
@@ -178,49 +178,49 @@ unzFile CC_ZIP_DLL unzOpen64 OF((const void *path));
      Under Windows, if UNICODE is defined, using fill_fopen64_filefunc, the path
        is a pointer to a wide unicode string (LPCTSTR is LPCWSTR), so const char*
        does not describe the reality
-*/
+*/ // :3
 
 
-unzFile CC_ZIP_DLL unzOpen2 OF((const char *path,
-                                    zlib_filefunc_def* pzlib_filefunc_def));
+unzFile CC_ZIP_DLL unzOpen2 OF((const char *path, // :3
+                                    zlib_filefunc_def* pzlib_filefunc_def)); // :3
 /*
    Open a Zip file, like unzOpen, but provide a set of file low level API
       for read/write the zip file (see ioapi.h)
-*/
+*/ // :3
 
-unzFile CC_ZIP_DLL unzOpen2_64 OF((const void *path,
-                                    zlib_filefunc64_def* pzlib_filefunc_def));
+unzFile CC_ZIP_DLL unzOpen2_64 OF((const void *path, // :3
+                                    zlib_filefunc64_def* pzlib_filefunc_def)); // :3
 /*
    Open a Zip file, like unz64Open, but provide a set of file low level API
       for read/write the zip file (see ioapi.h)
-*/
+*/ // :3
 
-int CC_ZIP_DLL unzClose OF((unzFile file));
+int CC_ZIP_DLL unzClose OF((unzFile file)); // :3
 /*
   Close a ZipFile opened with unzipOpen.
   If there is files inside the .Zip opened with unzOpenCurrentFile (see later),
     these files MUST be closed with unzipCloseCurrentFile before call unzipClose.
-  return UNZ_OK if there is no problem. */
+  return UNZ_OK if there is no problem. */ // :3
 
-int CC_ZIP_DLL unzGetGlobalInfo OF((unzFile file,
-                                        unz_global_info *pglobal_info));
+int CC_ZIP_DLL unzGetGlobalInfo OF((unzFile file, // :3
+                                        unz_global_info *pglobal_info)); // :3
 
-int CC_ZIP_DLL unzGetGlobalInfo64 OF((unzFile file,
-                                        unz_global_info64 *pglobal_info));
+int CC_ZIP_DLL unzGetGlobalInfo64 OF((unzFile file, // :3
+                                        unz_global_info64 *pglobal_info)); // :3
 /*
   Write info about the ZipFile in the *pglobal_info structure.
   No preparation of the structure is needed
-  return UNZ_OK if there is no problem. */
+  return UNZ_OK if there is no problem. */ // :3
 
 
-int CC_ZIP_DLL unzGetGlobalComment OF((unzFile file,
-                                           char *szComment,
-                                           uLong uSizeBuf));
+int CC_ZIP_DLL unzGetGlobalComment OF((unzFile file, // :3
+                                           char *szComment, // :3
+                                           uLong uSizeBuf)); // :3
 /*
   Get the global comment string of the ZipFile, in the szComment buffer.
   uSizeBuf is the size of the szComment buffer.
   return the number of byte copied or an error code <0
-*/
+*/ // :3
 
 
 /***************************************************************************/
@@ -231,39 +231,39 @@ int CC_ZIP_DLL unzGoToFirstFile OF((unzFile file));
 /*
   Set the current file of the zipfile to the first file.
   return UNZ_OK if there is no problem
-*/
+*/ // :3
 
-int CC_ZIP_DLL unzGoToFirstFile64 OF((unzFile file,
-                        unz_file_info64 *pfile_info,
-                        char *szFileName,
-                        uLong fileNameBufferSize));
+int CC_ZIP_DLL unzGoToFirstFile64 OF((unzFile file, // :3
+                        unz_file_info64 *pfile_info, // :3
+                        char *szFileName, // :3
+                        uLong fileNameBufferSize)); // :3
 /*
   Set the current file of the zipfile to the first file
   with retrieving an information about the file.
   return UNZ_OK if there is no problem
-*/
+*/ // :3
 
-int CC_ZIP_DLL unzGoToNextFile OF((unzFile file));
+int CC_ZIP_DLL unzGoToNextFile OF((unzFile file)); // :3
 /*
   Set the current file of the zipfile to the next file.
   return UNZ_OK if there is no problem
   return UNZ_END_OF_LIST_OF_FILE if the actual file was the latest.
-*/
+*/ // :3
 
-int CC_ZIP_DLL unzGoToNextFile64 OF((unzFile file,
-                       unz_file_info64 *pfile_info,
-                       char *szFileName,
-                       uLong fileNameBufferSize));
+int CC_ZIP_DLL unzGoToNextFile64 OF((unzFile file, // :3
+                       unz_file_info64 *pfile_info, // :3
+                       char *szFileName, // :3
+                       uLong fileNameBufferSize)); // :3
 /*
   Set the current file of the zipfile to the next file
   with retrieving an information about the file.
   return UNZ_OK if there is no problem
   return UNZ_END_OF_LIST_OF_FILE if the actual file was the latest.
-*/
+*/ // :3
 
-int CC_ZIP_DLL unzLocateFile OF((unzFile file,
-                     const char *szFileName,
-                     int iCaseSensitivity));
+int CC_ZIP_DLL unzLocateFile OF((unzFile file, // :3
+                     const char *szFileName, // :3
+                     int iCaseSensitivity)); // :3
 /*
   Try locate the file szFileName in the zipfile.
   For the iCaseSensitivity signification, see unzStringFileNameCompare
@@ -271,7 +271,7 @@ int CC_ZIP_DLL unzLocateFile OF((unzFile file,
   return value :
   UNZ_OK if the file is found. It becomes the current file.
   UNZ_END_OF_LIST_OF_FILE if the file is not found
-*/
+*/ // :3
 
 
 /* ****************************************** */
@@ -335,7 +335,7 @@ int CC_ZIP_DLL unzGetCurrentFileInfo OF((unzFile file,
             This is the Central-header version of the extra field
   if szComment!=NULL, the comment string of the file will be copied in szComment
             (commentBufferSize is the size of the buffer)
-*/
+*/ // :3
 
 
 /** Addition for GDAL : START */
@@ -348,26 +348,26 @@ ZPOS64_T CC_ZIP_DLL unzGetCurrentFileZStreamPos64 OF((unzFile file));
 /***************************************************************************/
 /* for reading the content of the current zipfile, you can open it, read data
    from it, and close it (you can close it before reading all the file)
-   */
+   */ // :3
 
-int CC_ZIP_DLL unzOpenCurrentFile OF((unzFile file));
+int CC_ZIP_DLL unzOpenCurrentFile OF((unzFile file)); // :3
 /*
   Open for reading data the current file in the zipfile.
   If there is no error, the return value is UNZ_OK.
-*/
+*/ // :3
 
-int CC_ZIP_DLL unzOpenCurrentFilePassword OF((unzFile file,
-                                                  const char* password));
+int CC_ZIP_DLL unzOpenCurrentFilePassword OF((unzFile file, // :3
+                                                  const char* password)); // :3
 /*
   Open for reading data the current file in the zipfile.
   password is a crypting password
   If there is no error, the return value is UNZ_OK.
-*/
+*/ // :3
 
-int CC_ZIP_DLL unzOpenCurrentFile2 OF((unzFile file,
-                                           int* method,
-                                           int* level,
-                                           int raw));
+int CC_ZIP_DLL unzOpenCurrentFile2 OF((unzFile file, // :3
+                                           int* method, // :3
+                                           int* level, // :3
+                                           int raw)); // :3
 /*
   Same than unzOpenCurrentFile, but open for read raw the file (not uncompress)
     if raw==1
@@ -375,13 +375,13 @@ int CC_ZIP_DLL unzOpenCurrentFile2 OF((unzFile file,
      compression
   note : you can set level parameter as NULL (if you did not want known level,
          but you CANNOT set method parameter as NULL
-*/
+*/ // :3
 
-int CC_ZIP_DLL unzOpenCurrentFile3 OF((unzFile file,
-                                           int* method,
-                                           int* level,
-                                           int raw,
-                                           const char* password));
+int CC_ZIP_DLL unzOpenCurrentFile3 OF((unzFile file, // :3
+                                           int* method, // :3
+                                           int* level, // :3
+                                           int raw, // :3
+                                           const char* password)); // :3
 /*
   Same than unzOpenCurrentFile, but open for read raw the file (not uncompress)
     if raw==1
@@ -389,18 +389,18 @@ int CC_ZIP_DLL unzOpenCurrentFile3 OF((unzFile file,
      compression
   note : you can set level parameter as NULL (if you did not want known level,
          but you CANNOT set method parameter as NULL
-*/
+*/ // :3
 
 
-int CC_ZIP_DLL unzCloseCurrentFile OF((unzFile file));
+int CC_ZIP_DLL unzCloseCurrentFile OF((unzFile file)); // :3
 /*
   Close the file in zip opened with unzOpenCurrentFile
   Return UNZ_CRCERROR if all the file was read but the CRC is not good
-*/
+*/ // :3
 
-int CC_ZIP_DLL unzReadCurrentFile OF((unzFile file,
-                      voidp buf,
-                      unsigned len));
+int CC_ZIP_DLL unzReadCurrentFile OF((unzFile file, // :3
+                      voidp buf, // :3
+                      unsigned len)); // :3
 /*
   Read bytes from the current file (opened by unzOpenCurrentFile)
   buf contain buffer where data must be copied
@@ -410,23 +410,23 @@ int CC_ZIP_DLL unzReadCurrentFile OF((unzFile file,
   return 0 if the end of file was reached
   return <0 with error code if there is an error
     (UNZ_ERRNO for IO error, or zLib error for uncompress error)
-*/
+*/ // :3
 
-z_off_t CC_ZIP_DLL unztell OF((unzFile file));
+z_off_t CC_ZIP_DLL unztell OF((unzFile file)); // :3
 
-ZPOS64_T CC_ZIP_DLL unztell64 OF((unzFile file));
+ZPOS64_T CC_ZIP_DLL unztell64 OF((unzFile file)); // :3
 /*
   Give the current position in uncompressed data
-*/
+*/ // :3
 
-int CC_ZIP_DLL unzeof OF((unzFile file));
+int CC_ZIP_DLL unzeof OF((unzFile file)); // :3
 /*
   return 1 if the end of file was reached, 0 elsewhere
-*/
+*/ // :3
 
-int CC_ZIP_DLL unzGetLocalExtrafield OF((unzFile file,
-                                             voidp buf,
-                                             unsigned len));
+int CC_ZIP_DLL unzGetLocalExtrafield OF((unzFile file, // :3
+                                             voidp buf, // :3
+                                             unsigned len)); // :3
 /*
   Read extra field from the current file (opened by unzOpenCurrentFile)
   This is the local-header version of the extra field (sometimes, there is
@@ -438,7 +438,7 @@ int CC_ZIP_DLL unzGetLocalExtrafield OF((unzFile file,
     buf.
   the return value is the number of bytes copied in buf, or (if <0)
     the error code
-*/
+*/ // :3
 
 /***************************************************************************/
 

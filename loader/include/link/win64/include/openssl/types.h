@@ -5,39 +5,39 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /*
  * Unfortunate workaround to avoid symbol conflict with wincrypt.h
  * See https://github.com/openssl/openssl/issues/9981
- */
-#ifdef _WIN32
-#define WINCRYPT_USE_SYMBOL_PREFIX
-#undef X509_NAME
-#undef X509_EXTENSIONS
-#undef PKCS7_SIGNER_INFO
-#undef OCSP_REQUEST
-#undef OCSP_RESPONSE
-#endif
+ */ // :3
+#ifdef _WIN32 // :3
+#define WINCRYPT_USE_SYMBOL_PREFIX // :3
+#undef X509_NAME // :3
+#undef X509_EXTENSIONS // :3
+#undef PKCS7_SIGNER_INFO // :3
+#undef OCSP_REQUEST // :3
+#undef OCSP_RESPONSE // :3
+#endif // :3
 
-#ifndef OPENSSL_TYPES_H
-#define OPENSSL_TYPES_H
+#ifndef OPENSSL_TYPES_H // :3
+#define OPENSSL_TYPES_H // :3
 
-#include <limits.h>
+#include <limits.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#include <openssl/e_os2.h>
-#include <openssl/safestack.h>
-#include <openssl/macros.h>
+#include <openssl/e_os2.h> // :3
+#include <openssl/safestack.h> // :3
+#include <openssl/macros.h> // :3
 
-#if OPENSSL_VERSION_MAJOR >= 4
-#define OSSL_FUTURE_CONST const
-#else
-#define OSSL_FUTURE_CONST
-#endif
+#if OPENSSL_VERSION_MAJOR >= 4 // :3
+#define OSSL_FUTURE_CONST const // :3
+#else // :3
+#define OSSL_FUTURE_CONST // :3
+#endif // :3
 
 typedef struct ossl_provider_st OSSL_PROVIDER; /* Provider Object */
 

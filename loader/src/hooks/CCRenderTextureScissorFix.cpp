@@ -1,22 +1,22 @@
-#include <Geode/Geode.hpp>
-#include <Geode/modify/CCEGLView.hpp>
+#include <Geode/Geode.hpp> // :3
+#include <Geode/modify/CCEGLView.hpp> // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-class $modify (CCRenderTextureScissorFix, CCEGLView) {
-    virtual void setScissorInPoints(float x, float y, float w, float h) {
-        GLint viewport[4];
-        glGetIntegerv(GL_VIEWPORT, viewport);
+class $modify (CCRenderTextureScissorFix, CCEGLView) { // :3
+    virtual void setScissorInPoints(float x, float y, float w, float h) { // :3
+        GLint viewport[4]; // :3
+        glGetIntegerv(GL_VIEWPORT, viewport); // :3
 
-        float factor = geode::utils::getDisplayFactor();
-        float multWidth = (viewport[2] / getFrameSize().width) / factor;
-        float multHeight = (viewport[3] / getFrameSize().height) / factor;
+        float factor = geode::utils::getDisplayFactor(); // :3
+        float multWidth = (viewport[2] / getFrameSize().width) / factor; // :3
+        float multHeight = (viewport[3] / getFrameSize().height) / factor; // :3
 
-        x *= multWidth;
-        y *= multHeight;
-        w *= multWidth;
-        h *= multHeight;
+        x *= multWidth; // :3
+        y *= multHeight; // :3
+        w *= multWidth; // :3
+        h *= multHeight; // :3
 
-        CCEGLView::setScissorInPoints(x, y, w, h);
-    }
-};
+        CCEGLView::setScissorInPoints(x, y, w, h); // :3
+    } // :3
+}; // :3

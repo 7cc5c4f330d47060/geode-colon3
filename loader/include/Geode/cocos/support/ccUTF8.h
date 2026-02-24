@@ -1,21 +1,21 @@
-//
-//  ccUTF8.h
-//  cocos2dx
-//
-//  Created by James Chen on 2/27/13.
-//
+// :3
+//  ccUTF8.h :3
+//  cocos2dx :3
+// :3
+//  Created by James Chen on 2/27/13. :3
+// :3
 
-#ifndef __cocos2dx__ccUTF8__
-#define __cocos2dx__ccUTF8__
+#ifndef __cocos2dx__ccUTF8__ // :3
+#define __cocos2dx__ccUTF8__ // :3
 
-#include "../platform/CCPlatformMacros.h"
-#include <vector>
+#include "../platform/CCPlatformMacros.h" // :3
+#include <vector> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-CC_DLL int cc_wcslen(const unsigned short* str);
+CC_DLL int cc_wcslen(const unsigned short* str); // :3
 
-CC_DLL void cc_utf8_trim_ws(gd::vector<unsigned short>* str);
+CC_DLL void cc_utf8_trim_ws(gd::vector<unsigned short>* str); // :3
 
 /*
  * @ch is the unicode character whitespace?
@@ -23,8 +23,8 @@ CC_DLL void cc_utf8_trim_ws(gd::vector<unsigned short>* str);
  * Reference: http://en.wikipedia.org/wiki/Whitespace_character#Unicode
  *
  * Return value: weather the character is a whitespace character.
- * */
-CC_DLL bool isspace_unicode(unsigned short ch);
+ * */ // :3
+CC_DLL bool isspace_unicode(unsigned short ch); // :3
 
 /*
  * cc_utf8_strlen:
@@ -37,19 +37,19 @@ CC_DLL bool isspace_unicode(unsigned short ch);
  * Returns the length of the string in characters.
  *
  * Return value: the length of the string in characters
- **/
-CC_DLL long
-cc_utf8_strlen (const char * p, int max);
+ **/ // :3
+CC_DLL long // :3
+cc_utf8_strlen (const char * p, int max); // :3
 
 /*
  * @str:    the string to search through.
  * @c:        the character to not look for.
  *
  * Return value: the index of the last character that is not c.
- * */
-CC_DLL unsigned int cc_utf8_find_last_not_char(gd::vector<unsigned short> str, unsigned short c);
+ * */ // :3
+CC_DLL unsigned int cc_utf8_find_last_not_char(gd::vector<unsigned short> str, unsigned short c); // :3
 
-CC_DLL gd::vector<unsigned short> cc_utf16_vec_from_utf16_str(const unsigned short* str);
+CC_DLL gd::vector<unsigned short> cc_utf16_vec_from_utf16_str(const unsigned short* str); // :3
 
 /*
  * cc_utf8_to_utf16:
@@ -59,8 +59,8 @@ CC_DLL gd::vector<unsigned short> cc_utf16_vec_from_utf16_str(const unsigned sho
  *
  * Return value: the newly created utf8 string.
  * @note: Rob modification: length arg is removed
- * */
-CC_DLL unsigned short* cc_utf8_to_utf16(const char* str_old, int* rUtf16Size = NULL);
+ * */ // :3
+CC_DLL unsigned short* cc_utf8_to_utf16(const char* str_old, int* rUtf16Size = NULL); // :3
 
 /**
  * cc_utf16_to_utf8:
@@ -86,13 +86,13 @@ CC_DLL unsigned short* cc_utf8_to_utf16(const char* str_old, int* rUtf16Size = N
  *               This value must be freed with free(). If an
  *               error occurs, %NULL will be returned and
  *               @error set.
- **/
-CC_DLL char *
-cc_utf16_to_utf8 (const unsigned short  *str,
-                  long             len,
-                  long            *items_read,
-                  long            *items_written);
+ **/ // :3
+CC_DLL char * // :3
+cc_utf16_to_utf8 (const unsigned short  *str, // :3
+                  long             len, // :3
+                  long            *items_read, // :3
+                  long            *items_written); // :3
 
-NS_CC_END
+NS_CC_END // :3
 
 #endif /* defined(__cocos2dx__ccUTF8__) */

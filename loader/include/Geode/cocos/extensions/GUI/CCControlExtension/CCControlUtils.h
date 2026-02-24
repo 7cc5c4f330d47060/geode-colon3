@@ -29,62 +29,62 @@
  *
  *
  * Converted to c++ / cocos2d-x by Angus C
- */
+ */ // :3
 
-#ifndef __CCCONTROL_UTILS_H__
-#define __CCCONTROL_UTILS_H__
+#ifndef __CCCONTROL_UTILS_H__ // :3
+#define __CCCONTROL_UTILS_H__ // :3
 
-#include "../../../sprite_nodes/CCSprite.h"
-#include "../../ExtensionMacros.h"
+#include "../../../sprite_nodes/CCSprite.h" // :3
+#include "../../ExtensionMacros.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
-typedef struct
-{
-    double r;       // percent
-    double g;       // percent
-    double b;       // percent
-    double a;       // percent
-} RGBA;
+typedef struct // :3
+{ // :3
+    double r;       // percent :3
+    double g;       // percent :3
+    double b;       // percent :3
+    double a;       // percent :3
+} RGBA; // :3
 
-typedef struct
-{
-    double h;       // angle in degrees
-    double s;       // percent
-    double v;       // percent
-} HSV;
+typedef struct // :3
+{ // :3
+    double h;       // angle in degrees :3
+    double s;       // percent :3
+    double v;       // percent :3
+} HSV; // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup control_extension
  * @{
- */
+ */ // :3
 
 /**helper class to store ccColor3B's in mutable arrays
  * @js NA
  * @lua NA
- **/
-class CC_DLL CCColor3bObject : public CCObject
-{
-public:
-    ccColor3B value;
-    CCColor3bObject(ccColor3B s_value):value(s_value){}
-};
+ **/ // :3
+class CC_DLL CCColor3bObject : public CCObject // :3
+{ // :3
+public: // :3
+    ccColor3B value; // :3
+    CCColor3bObject(ccColor3B s_value):value(s_value){} // :3
+}; // :3
 
-class CC_DLL CCControlUtils
-{
-public:
-    static CCSprite* addSpriteToTargetWithPosAndAnchor(const char* spriteName, CCNode * target, CCPoint pos, CCPoint anchor);
-    static HSV HSVfromRGB(RGBA value);
-    static RGBA RGBfromHSV(HSV value);
-    static CCRect CCRectUnion(const CCRect& src1, const CCRect& src2);
-};
+class CC_DLL CCControlUtils // :3
+{ // :3
+public: // :3
+    static CCSprite* addSpriteToTargetWithPosAndAnchor(const char* spriteName, CCNode * target, CCPoint pos, CCPoint anchor); // :3
+    static HSV HSVfromRGB(RGBA value); // :3
+    static RGBA RGBfromHSV(HSV value); // :3
+    static CCRect CCRectUnion(const CCRect& src1, const CCRect& src2); // :3
+}; // :3
 
-// end of GUI group
-/// @}
-/// @}
+// end of GUI group :3
+/// @} :3
+/// @} :3
 
-NS_CC_EXT_END
+NS_CC_EXT_END // :3
 
-#endif
+#endif // :3

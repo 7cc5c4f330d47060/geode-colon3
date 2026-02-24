@@ -6,31 +6,31 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_HTTP_H
-#define OPENSSL_HTTP_H
-#pragma once
+#ifndef OPENSSL_HTTP_H // :3
+#define OPENSSL_HTTP_H // :3
+#pragma once // :3
 
-#include <openssl/opensslconf.h>
+#include <openssl/opensslconf.h> // :3
 
-#include <openssl/bio.h>
-#include <openssl/asn1.h>
-#include <openssl/conf.h>
+#include <openssl/bio.h> // :3
+#include <openssl/asn1.h> // :3
+#include <openssl/conf.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#define OSSL_HTTP_NAME "http"
-#define OSSL_HTTPS_NAME "https"
-#define OSSL_HTTP_PREFIX OSSL_HTTP_NAME "://"
-#define OSSL_HTTPS_PREFIX OSSL_HTTPS_NAME "://"
-#define OSSL_HTTP_PORT "80"
-#define OSSL_HTTPS_PORT "443"
-#define OPENSSL_NO_PROXY "NO_PROXY"
-#define OPENSSL_HTTP_PROXY "HTTP_PROXY"
-#define OPENSSL_HTTPS_PROXY "HTTPS_PROXY"
+#define OSSL_HTTP_NAME "http" // :3
+#define OSSL_HTTPS_NAME "https" // :3
+#define OSSL_HTTP_PREFIX OSSL_HTTP_NAME "://" :3
+#define OSSL_HTTPS_PREFIX OSSL_HTTPS_NAME "://" :3
+#define OSSL_HTTP_PORT "80" // :3
+#define OSSL_HTTPS_PORT "443" // :3
+#define OPENSSL_NO_PROXY "NO_PROXY" // :3
+#define OPENSSL_HTTP_PROXY "HTTP_PROXY" // :3
+#define OPENSSL_HTTPS_PROXY "HTTPS_PROXY" // :3
 
 /* We want to have this even in case of OPENSSL_NO_HTTP */
 int OSSL_parse_url(const char *url, char **pscheme, char **puser, char **phost,

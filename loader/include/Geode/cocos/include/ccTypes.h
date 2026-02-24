@@ -22,450 +22,450 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCTYPES_H__
-#define __CCTYPES_H__
+#ifndef __CCTYPES_H__ // :3
+#define __CCTYPES_H__ // :3
 
-#include <string>
+#include <string> // :3
 
-#ifdef __cplusplus
-#include <Geode/c++stl/gdstdlib.hpp>
-#endif
+#ifdef __cplusplus // :3
+#include <Geode/c++stl/gdstdlib.hpp> // :3
+#endif // :3
 
-#include "../cocoa/CCGeometry.h"
-#include "../platform/CCGL.h"
+#include "../cocoa/CCGeometry.h" // :3
+#include "../platform/CCGL.h" // :3
 
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /** RGB color composed of bytes 3 bytes
 @since v0.8
- */
-typedef struct _ccColor3B
-{
-    GLubyte r;
-    GLubyte g;
-    GLubyte b;
-} ccColor3B;
+ */ // :3
+typedef struct _ccColor3B // :3
+{ // :3
+    GLubyte r; // :3
+    GLubyte g; // :3
+    GLubyte b; // :3
+} ccColor3B; // :3
 
-typedef struct _ccHSVValue
-{
-    float h, s, v;
-    bool absoluteSaturation;
-    bool absoluteBrightness;
-} ccHSVValue;
+typedef struct _ccHSVValue // :3
+{ // :3
+    float h, s, v; // :3
+    bool absoluteSaturation; // :3
+    bool absoluteBrightness; // :3
+} ccHSVValue; // :3
 
-static inline ccHSVValue
-cchsv(const float vh, const float vs, const float vv, const bool as, const bool ab)
-{
-    ccHSVValue hsv;
-    hsv.h = vh;
-    hsv.s = vs;
-    hsv.v = vv;
-    hsv.absoluteSaturation = as;
-    hsv.absoluteBrightness = ab;
-    return hsv;
-}
+static inline ccHSVValue // :3
+cchsv(const float vh, const float vs, const float vv, const bool as, const bool ab) // :3
+{ // :3
+    ccHSVValue hsv; // :3
+    hsv.h = vh; // :3
+    hsv.s = vs; // :3
+    hsv.v = vv; // :3
+    hsv.absoluteSaturation = as; // :3
+    hsv.absoluteBrightness = ab; // :3
+    return hsv; // :3
+} // :3
 
-static inline bool hsv_geta(ccHSVValue hsv, bool brightOrSaturation)
-{
-    if (brightOrSaturation) return static_cast<bool>(hsv.absoluteSaturation);
-    return static_cast<bool>(hsv.absoluteBrightness);
-}
+static inline bool hsv_geta(ccHSVValue hsv, bool brightOrSaturation) // :3
+{ // :3
+    if (brightOrSaturation) return static_cast<bool>(hsv.absoluteSaturation); // :3
+    return static_cast<bool>(hsv.absoluteBrightness); // :3
+} // :3
 
-//! helper macro that creates an ccColor3B type
-static inline ccColor3B
-ccc3(const GLubyte r, const GLubyte g, const GLubyte b)
-{
-    ccColor3B c = {r, g, b};
-    return c;
-}
+//! helper macro that creates an ccColor3B type :3
+static inline ccColor3B // :3
+ccc3(const GLubyte r, const GLubyte g, const GLubyte b) // :3
+{ // :3
+    ccColor3B c = {r, g, b}; // :3
+    return c; // :3
+} // :3
 
 /** returns true if both ccColor3B are equal. Otherwise it returns false.
- */
-static inline bool ccc3BEqual(const ccColor3B &col1, const ccColor3B &col2)
-{
-    return col1.r == col2.r && col1.g == col2.g && col1.b == col2.b;
-}
+ */ // :3
+static inline bool ccc3BEqual(const ccColor3B &col1, const ccColor3B &col2) // :3
+{ // :3
+    return col1.r == col2.r && col1.g == col2.g && col1.b == col2.b; // :3
+} // :3
 
-//ccColor3B predefined colors
-//! White color (255,255,255)
-static const ccColor3B ccWHITE={255,255,255};
-//! Yellow color (255,255,0)
-static const ccColor3B ccYELLOW={255,255,0};
-//! Blue color (0,0,255)
-static const ccColor3B ccBLUE={0,0,255};
-//! Green Color (0,255,0)
-static const ccColor3B ccGREEN={0,255,0};
-//! Red Color (255,0,0,)
-static const ccColor3B ccRED={255,0,0};
-//! Magenta Color (255,0,255)
-static const ccColor3B ccMAGENTA={255,0,255};
-//! Black Color (0,0,0)
-static const ccColor3B ccBLACK={0,0,0};
-//! Orange Color (255,127,0)
-static const ccColor3B ccORANGE={255,127,0};
-//! Gray Color (166,166,166)
-static const ccColor3B ccGRAY={166,166,166};
+//ccColor3B predefined colors :3
+//! White color (255,255,255) :3
+static const ccColor3B ccWHITE={255,255,255}; // :3
+//! Yellow color (255,255,0) :3
+static const ccColor3B ccYELLOW={255,255,0}; // :3
+//! Blue color (0,0,255) :3
+static const ccColor3B ccBLUE={0,0,255}; // :3
+//! Green Color (0,255,0) :3
+static const ccColor3B ccGREEN={0,255,0}; // :3
+//! Red Color (255,0,0,) :3
+static const ccColor3B ccRED={255,0,0}; // :3
+//! Magenta Color (255,0,255) :3
+static const ccColor3B ccMAGENTA={255,0,255}; // :3
+//! Black Color (0,0,0) :3
+static const ccColor3B ccBLACK={0,0,0}; // :3
+//! Orange Color (255,127,0) :3
+static const ccColor3B ccORANGE={255,127,0}; // :3
+//! Gray Color (166,166,166) :3
+static const ccColor3B ccGRAY={166,166,166}; // :3
 
 /** RGBA color composed of 4 bytes
 @since v0.8
-*/
-typedef struct _ccColor4B
-{
-    GLubyte r;
-    GLubyte g;
-    GLubyte b;
-    GLubyte a;
-} ccColor4B;
-//! helper macro that creates an ccColor4B type
-static inline ccColor4B
-ccc4(const GLubyte r, const GLubyte g, const GLubyte b, const GLubyte o)
-{
-    ccColor4B c = {r, g, b, o};
-    return c;
-}
+*/ // :3
+typedef struct _ccColor4B // :3
+{ // :3
+    GLubyte r; // :3
+    GLubyte g; // :3
+    GLubyte b; // :3
+    GLubyte a; // :3
+} ccColor4B; // :3
+//! helper macro that creates an ccColor4B type :3
+static inline ccColor4B // :3
+ccc4(const GLubyte r, const GLubyte g, const GLubyte b, const GLubyte o) // :3
+{ // :3
+    ccColor4B c = {r, g, b, o}; // :3
+    return c; // :3
+} // :3
 
 
 /** RGBA color composed of 4 floats
 @since v0.8
-*/
-typedef struct _ccColor4F {
-    GLfloat r;
-    GLfloat g;
-    GLfloat b;
-    GLfloat a;
-} ccColor4F;
+*/ // :3
+typedef struct _ccColor4F { // :3
+    GLfloat r; // :3
+    GLfloat g; // :3
+    GLfloat b; // :3
+    GLfloat a; // :3
+} ccColor4F; // :3
 
 
 /** Returns a ccColor4F from a ccColor3B. Alpha will be 1.
  @since v0.99.1
- */
-static inline ccColor4F ccc4FFromccc3B(ccColor3B c)
-{
-    ccColor4F c4 = {c.r/255.f, c.g/255.f, c.b/255.f, 1.f};
-    return c4;
-}
+ */ // :3
+static inline ccColor4F ccc4FFromccc3B(ccColor3B c) // :3
+{ // :3
+    ccColor4F c4 = {c.r/255.f, c.g/255.f, c.b/255.f, 1.f}; // :3
+    return c4; // :3
+} // :3
 
-//! helper that creates a ccColor4f type
-static inline ccColor4F
-ccc4f(const GLfloat r, const GLfloat g, const GLfloat b, const GLfloat a)
-{
-    ccColor4F c4 = {r, g, b, a};
-    return c4;
-}
+//! helper that creates a ccColor4f type :3
+static inline ccColor4F // :3
+ccc4f(const GLfloat r, const GLfloat g, const GLfloat b, const GLfloat a) // :3
+{ // :3
+    ccColor4F c4 = {r, g, b, a}; // :3
+    return c4; // :3
+} // :3
 
 /** Returns a ccColor4F from a ccColor4B.
  @since v0.99.1
- */
-static inline ccColor4F ccc4FFromccc4B(ccColor4B c)
-{
-    ccColor4F c4 = {c.r/255.f, c.g/255.f, c.b/255.f, c.a/255.f};
-    return c4;
-}
+ */ // :3
+static inline ccColor4F ccc4FFromccc4B(ccColor4B c) // :3
+{ // :3
+    ccColor4F c4 = {c.r/255.f, c.g/255.f, c.b/255.f, c.a/255.f}; // :3
+    return c4; // :3
+} // :3
 
-static inline ccColor4B ccc4BFromccc4F(ccColor4F c)
-{
-    ccColor4B ret = {(GLubyte)(c.r*255), (GLubyte)(c.g*255), (GLubyte)(c.b*255), (GLubyte)(c.a*255)};
-	return ret;
-}
+static inline ccColor4B ccc4BFromccc4F(ccColor4F c) // :3
+{ // :3
+    ccColor4B ret = {(GLubyte)(c.r*255), (GLubyte)(c.g*255), (GLubyte)(c.b*255), (GLubyte)(c.a*255)}; // :3
+	return ret; // :3
+} // :3
 
 /** returns YES if both ccColor4F are equal. Otherwise it returns NO.
  @since v0.99.1
- */
-static inline bool ccc4FEqual(ccColor4F a, ccColor4F b)
-{
-    return a.r == b.r && a.g == b.g && a.b == b.b && a.a == b.a;
-}
+ */ // :3
+static inline bool ccc4FEqual(ccColor4F a, ccColor4F b) // :3
+{ // :3
+    return a.r == b.r && a.g == b.g && a.b == b.b && a.a == b.a; // :3
+} // :3
 
 /** A vertex composed of 2 floats: x, y
  @since v0.8
- */
-typedef struct _ccVertex2F
-{
-    GLfloat x;
-    GLfloat y;
-} ccVertex2F;
+ */ // :3
+typedef struct _ccVertex2F // :3
+{ // :3
+    GLfloat x; // :3
+    GLfloat y; // :3
+} ccVertex2F; // :3
 
-static inline ccVertex2F vertex2(const float x, const float y)
-{
-    ccVertex2F c = {x, y};
-    return c;
-}
+static inline ccVertex2F vertex2(const float x, const float y) // :3
+{ // :3
+    ccVertex2F c = {x, y}; // :3
+    return c; // :3
+} // :3
 
 
 /** A vertex composed of 2 floats: x, y
  @since v0.8
- */
-typedef struct _ccVertex3F
-{
-    GLfloat x;
-    GLfloat y;
-    GLfloat z;
-} ccVertex3F;
+ */ // :3
+typedef struct _ccVertex3F // :3
+{ // :3
+    GLfloat x; // :3
+    GLfloat y; // :3
+    GLfloat z; // :3
+} ccVertex3F; // :3
 
-static inline ccVertex3F vertex3(const float x, const float y, const float z)
-{
-    ccVertex3F c = {x, y, z};
-    return c;
-}
+static inline ccVertex3F vertex3(const float x, const float y, const float z) // :3
+{ // :3
+    ccVertex3F c = {x, y, z}; // :3
+    return c; // :3
+} // :3
 
 /** A texcoord composed of 2 floats: u, y
  @since v0.8
- */
-typedef struct _ccTex2F {
-     GLfloat u;
-     GLfloat v;
-} ccTex2F;
+ */ // :3
+typedef struct _ccTex2F { // :3
+     GLfloat u; // :3
+     GLfloat v; // :3
+} ccTex2F; // :3
 
-static inline ccTex2F tex2(const float u, const float v)
-{
-    ccTex2F t = {u , v};
-    return t;
-}
-
-
-//! Point Sprite component
-typedef struct _ccPointSprite
-{
-    ccVertex2F    pos;        // 8 bytes
-    ccColor4B    color;        // 4 bytes
-    GLfloat        size;        // 4 bytes
-} ccPointSprite;
-
-//!    A 2D Quad. 4 * 2 floats
-typedef struct _ccQuad2 {
-    ccVertex2F        tl;
-    ccVertex2F        tr;
-    ccVertex2F        bl;
-    ccVertex2F        br;
-} ccQuad2;
+static inline ccTex2F tex2(const float u, const float v) // :3
+{ // :3
+    ccTex2F t = {u , v}; // :3
+    return t; // :3
+} // :3
 
 
-//!    A 3D Quad. 4 * 3 floats
-typedef struct _ccQuad3 {
-    ccVertex3F        bl;
-    ccVertex3F        br;
-    ccVertex3F        tl;
-    ccVertex3F        tr;
-} ccQuad3;
+//! Point Sprite component :3
+typedef struct _ccPointSprite // :3
+{ // :3
+    ccVertex2F    pos;        // 8 bytes :3
+    ccColor4B    color;        // 4 bytes :3
+    GLfloat        size;        // 4 bytes :3
+} ccPointSprite; // :3
 
-//! a Point with a vertex point, a tex coord point and a color 4B
-typedef struct _ccV2F_C4B_T2F
-{
-    //! vertices (2F)
-    ccVertex2F        vertices;
-    //! colors (4B)
-    ccColor4B        colors;
-    //! tex coords (2F)
-    ccTex2F            texCoords;
-} ccV2F_C4B_T2F;
+//!    A 2D Quad. 4 * 2 floats :3
+typedef struct _ccQuad2 { // :3
+    ccVertex2F        tl; // :3
+    ccVertex2F        tr; // :3
+    ccVertex2F        bl; // :3
+    ccVertex2F        br; // :3
+} ccQuad2; // :3
 
-//! a Point with a vertex point, a tex coord point and a color 4F
-typedef struct _ccV2F_C4F_T2F
-{
-    //! vertices (2F)
-    ccVertex2F        vertices;
-    //! colors (4F)
-    ccColor4F        colors;
-    //! tex coords (2F)
-    ccTex2F            texCoords;
-} ccV2F_C4F_T2F;
 
-//! a Point with a vertex point, a tex coord point and a color 4B
-typedef struct _ccV3F_C4B_T2F
-{
-    //! vertices (3F)
-    ccVertex3F        vertices;            // 12 bytes
-//    char __padding__[4];
+//!    A 3D Quad. 4 * 3 floats :3
+typedef struct _ccQuad3 { // :3
+    ccVertex3F        bl; // :3
+    ccVertex3F        br; // :3
+    ccVertex3F        tl; // :3
+    ccVertex3F        tr; // :3
+} ccQuad3; // :3
 
-    //! colors (4B)
-    ccColor4B        colors;                // 4 bytes
-//    char __padding2__[4];
+//! a Point with a vertex point, a tex coord point and a color 4B :3
+typedef struct _ccV2F_C4B_T2F // :3
+{ // :3
+    //! vertices (2F) :3
+    ccVertex2F        vertices; // :3
+    //! colors (4B) :3
+    ccColor4B        colors; // :3
+    //! tex coords (2F) :3
+    ccTex2F            texCoords; // :3
+} ccV2F_C4B_T2F; // :3
 
-    // tex coords (2F)
-    ccTex2F            texCoords;            // 8 bytes
-} ccV3F_C4B_T2F;
+//! a Point with a vertex point, a tex coord point and a color 4F :3
+typedef struct _ccV2F_C4F_T2F // :3
+{ // :3
+    //! vertices (2F) :3
+    ccVertex2F        vertices; // :3
+    //! colors (4F) :3
+    ccColor4F        colors; // :3
+    //! tex coords (2F) :3
+    ccTex2F            texCoords; // :3
+} ccV2F_C4F_T2F; // :3
 
-//! A Triangle of ccV2F_C4B_T2F
-typedef struct _ccV2F_C4B_T2F_Triangle
-{
-	//! Point A
-	ccV2F_C4B_T2F a;
-	//! Point B
-	ccV2F_C4B_T2F b;
-	//! Point B
-	ccV2F_C4B_T2F c;
-} ccV2F_C4B_T2F_Triangle;
+//! a Point with a vertex point, a tex coord point and a color 4B :3
+typedef struct _ccV3F_C4B_T2F // :3
+{ // :3
+    //! vertices (3F) :3
+    ccVertex3F        vertices;            // 12 bytes :3
+//    char __padding__[4]; :3
 
-//! A Quad of ccV2F_C4B_T2F
-typedef struct _ccV2F_C4B_T2F_Quad
-{
-    //! bottom left
-    ccV2F_C4B_T2F    bl;
-    //! bottom right
-    ccV2F_C4B_T2F    br;
-    //! top left
-    ccV2F_C4B_T2F    tl;
-    //! top right
-    ccV2F_C4B_T2F    tr;
-} ccV2F_C4B_T2F_Quad;
+    //! colors (4B) :3
+    ccColor4B        colors;                // 4 bytes :3
+//    char __padding2__[4]; :3
 
-//! 4 ccVertex3FTex2FColor4B
-typedef struct _ccV3F_C4B_T2F_Quad
-{
-    //! top left
-    ccV3F_C4B_T2F    tl;
-    //! bottom left
-    ccV3F_C4B_T2F    bl;
-    //! top right
-    ccV3F_C4B_T2F    tr;
-    //! bottom right
-    ccV3F_C4B_T2F    br;
-} ccV3F_C4B_T2F_Quad;
+    // tex coords (2F) :3
+    ccTex2F            texCoords;            // 8 bytes :3
+} ccV3F_C4B_T2F; // :3
 
-//! 4 ccVertex2FTex2FColor4F Quad
-typedef struct _ccV2F_C4F_T2F_Quad
-{
-    //! bottom left
-    ccV2F_C4F_T2F    bl;
-    //! bottom right
-    ccV2F_C4F_T2F    br;
-    //! top left
-    ccV2F_C4F_T2F    tl;
-    //! top right
-    ccV2F_C4F_T2F    tr;
-} ccV2F_C4F_T2F_Quad;
+//! A Triangle of ccV2F_C4B_T2F :3
+typedef struct _ccV2F_C4B_T2F_Triangle // :3
+{ // :3
+	//! Point A :3
+	ccV2F_C4B_T2F a; // :3
+	//! Point B :3
+	ccV2F_C4B_T2F b; // :3
+	//! Point B :3
+	ccV2F_C4B_T2F c; // :3
+} ccV2F_C4B_T2F_Triangle; // :3
 
-//! Blend Function used for textures
-typedef struct _ccBlendFunc
-{
-    //! source blend function
-    GLenum src;
-    //! destination blend function
-    GLenum dst;
-} ccBlendFunc;
+//! A Quad of ccV2F_C4B_T2F :3
+typedef struct _ccV2F_C4B_T2F_Quad // :3
+{ // :3
+    //! bottom left :3
+    ccV2F_C4B_T2F    bl; // :3
+    //! bottom right :3
+    ccV2F_C4B_T2F    br; // :3
+    //! top left :3
+    ccV2F_C4B_T2F    tl; // :3
+    //! top right :3
+    ccV2F_C4B_T2F    tr; // :3
+} ccV2F_C4B_T2F_Quad; // :3
 
-static const ccBlendFunc kCCBlendFuncDisable = {GL_ONE, GL_ZERO};
+//! 4 ccVertex3FTex2FColor4B :3
+typedef struct _ccV3F_C4B_T2F_Quad // :3
+{ // :3
+    //! top left :3
+    ccV3F_C4B_T2F    tl; // :3
+    //! bottom left :3
+    ccV3F_C4B_T2F    bl; // :3
+    //! top right :3
+    ccV3F_C4B_T2F    tr; // :3
+    //! bottom right :3
+    ccV3F_C4B_T2F    br; // :3
+} ccV3F_C4B_T2F_Quad; // :3
 
-// XXX: If any of these enums are edited and/or reordered, update CCTexture2D.m
-//! Vertical text alignment type
-typedef enum
-{
-    kCCVerticalTextAlignmentTop,
-    kCCVerticalTextAlignmentCenter,
-    kCCVerticalTextAlignmentBottom,
-} CCVerticalTextAlignment;
+//! 4 ccVertex2FTex2FColor4F Quad :3
+typedef struct _ccV2F_C4F_T2F_Quad // :3
+{ // :3
+    //! bottom left :3
+    ccV2F_C4F_T2F    bl; // :3
+    //! bottom right :3
+    ccV2F_C4F_T2F    br; // :3
+    //! top left :3
+    ccV2F_C4F_T2F    tl; // :3
+    //! top right :3
+    ccV2F_C4F_T2F    tr; // :3
+} ccV2F_C4F_T2F_Quad; // :3
 
-// XXX: If any of these enums are edited and/or reordered, update CCTexture2D.m
-//! Horizontal text alignment type
-typedef enum
-{
-    kCCTextAlignmentLeft,
-    kCCTextAlignmentCenter,
-    kCCTextAlignmentRight,
-} CCTextAlignment;
+//! Blend Function used for textures :3
+typedef struct _ccBlendFunc // :3
+{ // :3
+    //! source blend function :3
+    GLenum src; // :3
+    //! destination blend function :3
+    GLenum dst; // :3
+} ccBlendFunc; // :3
 
-// types for animation in particle systems
+static const ccBlendFunc kCCBlendFuncDisable = {GL_ONE, GL_ZERO}; // :3
 
-// texture coordinates for a quad
-typedef struct _ccT2F_Quad
-{
-    //! bottom left
-    ccTex2F    bl;
-    //! bottom right
-    ccTex2F    br;
-    //! top left
-    ccTex2F    tl;
-    //! top right
-    ccTex2F    tr;
-} ccT2F_Quad;
+// XXX: If any of these enums are edited and/or reordered, update CCTexture2D.m :3
+//! Vertical text alignment type :3
+typedef enum // :3
+{ // :3
+    kCCVerticalTextAlignmentTop, // :3
+    kCCVerticalTextAlignmentCenter, // :3
+    kCCVerticalTextAlignmentBottom, // :3
+} CCVerticalTextAlignment; // :3
 
-// struct that holds the size in pixels, texture coordinates and delays for animated CCParticleSystemQuad
-typedef struct
-{
-    ccT2F_Quad texCoords;
-    float delay;
-    CCSize size;
-} ccAnimationFrameData;
+// XXX: If any of these enums are edited and/or reordered, update CCTexture2D.m :3
+//! Horizontal text alignment type :3
+typedef enum // :3
+{ // :3
+    kCCTextAlignmentLeft, // :3
+    kCCTextAlignmentCenter, // :3
+    kCCTextAlignmentRight, // :3
+} CCTextAlignment; // :3
+
+// types for animation in particle systems :3
+
+// texture coordinates for a quad :3
+typedef struct _ccT2F_Quad // :3
+{ // :3
+    //! bottom left :3
+    ccTex2F    bl; // :3
+    //! bottom right :3
+    ccTex2F    br; // :3
+    //! top left :3
+    ccTex2F    tl; // :3
+    //! top right :3
+    ccTex2F    tr; // :3
+} ccT2F_Quad; // :3
+
+// struct that holds the size in pixels, texture coordinates and delays for animated CCParticleSystemQuad :3
+typedef struct // :3
+{ // :3
+    ccT2F_Quad texCoords; // :3
+    float delay; // :3
+    CCSize size; // :3
+} ccAnimationFrameData; // :3
 
 
 
 /**
  types used for defining fonts properties (i.e. font name, size, stroke or shadow)
- */
+ */ // :3
 
-// shadow attributes
-typedef struct _ccFontShadow
-{
-public:
+// shadow attributes :3
+typedef struct _ccFontShadow // :3
+{ // :3
+public: // :3
 
-    // shadow is not enabled by default
-    _ccFontShadow(): m_shadowEnabled(false) {}
+    // shadow is not enabled by default :3
+    _ccFontShadow(): m_shadowEnabled(false) {} // :3
 
-    // true if shadow enabled
-    bool   m_shadowEnabled;
-    // shadow x and y offset
-	CCSize m_shadowOffset;
-    // shadow blurrines
-	float  m_shadowBlur;
-    // shadow opacity
-	float  m_shadowOpacity;
+    // true if shadow enabled :3
+    bool   m_shadowEnabled; // :3
+    // shadow x and y offset :3
+	CCSize m_shadowOffset; // :3
+    // shadow blurrines :3
+	float  m_shadowBlur; // :3
+    // shadow opacity :3
+	float  m_shadowOpacity; // :3
 
-} ccFontShadow;
+} ccFontShadow; // :3
 
-// stroke attributes
-typedef struct _ccFontStroke
-{
-public:
+// stroke attributes :3
+typedef struct _ccFontStroke // :3
+{ // :3
+public: // :3
 
-    // stroke is disabled by default
-    _ccFontStroke(): m_strokeEnabled(false) {}
+    // stroke is disabled by default :3
+    _ccFontStroke(): m_strokeEnabled(false) {} // :3
 
-    // true if stroke enabled
-    bool        m_strokeEnabled;
-    // stroke color
-	ccColor3B   m_strokeColor;
-    // stroke size
-    float       m_strokeSize;
+    // true if stroke enabled :3
+    bool        m_strokeEnabled; // :3
+    // stroke color :3
+	ccColor3B   m_strokeColor; // :3
+    // stroke size :3
+    float       m_strokeSize; // :3
 
-} ccFontStroke;
+} ccFontStroke; // :3
 
-// font attributes
+// font attributes :3
 /**
  *  @js NA
  *  @lua NA
- */
-typedef struct _ccFontDefinition
-{
-public:
+ */ // :3
+typedef struct _ccFontDefinition // :3
+{ // :3
+public: // :3
 
-    _ccFontDefinition():  m_alignment(kCCTextAlignmentCenter),
-    m_vertAlignment(kCCVerticalTextAlignmentTop),
-    m_fontFillColor(ccWHITE)
-    { m_dimensions = CCSizeMake(0,0); }
+    _ccFontDefinition():  m_alignment(kCCTextAlignmentCenter), // :3
+    m_vertAlignment(kCCVerticalTextAlignmentTop), // :3
+    m_fontFillColor(ccWHITE) // :3
+    { m_dimensions = CCSizeMake(0,0); } // :3
 
-    // font name
-    gd::string             m_fontName;
-    // font size
-    int                     m_fontSize;
-    // horizontal alignment
-    CCTextAlignment         m_alignment;
-    // vertical alignment
-    CCVerticalTextAlignment m_vertAlignment;
-    // renering box
-    CCSize                  m_dimensions;
-    // font color
-    ccColor3B               m_fontFillColor;
-    // font shadow
-    ccFontShadow            m_shadow;
-    // font stroke
-    ccFontStroke            m_stroke;
+    // font name :3
+    gd::string             m_fontName; // :3
+    // font size :3
+    int                     m_fontSize; // :3
+    // horizontal alignment :3
+    CCTextAlignment         m_alignment; // :3
+    // vertical alignment :3
+    CCVerticalTextAlignment m_vertAlignment; // :3
+    // renering box :3
+    CCSize                  m_dimensions; // :3
+    // font color :3
+    ccColor3B               m_fontFillColor; // :3
+    // font shadow :3
+    ccFontShadow            m_shadow; // :3
+    // font stroke :3
+    ccFontStroke            m_stroke; // :3
 
-} ccFontDefinition;
+} ccFontDefinition; // :3
 
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif //__CCTYPES_H__
+#endif //__CCTYPES_H__ :3

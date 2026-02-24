@@ -5,15 +5,15 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_PEM2_H
-#define OPENSSL_PEM2_H
-#pragma once
+#ifndef OPENSSL_PEM2_H // :3
+#define OPENSSL_PEM2_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_PEM2_H
-#endif
-#include <openssl/pemerr.h>
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_PEM2_H // :3
+#endif // :3
+#include <openssl/pemerr.h> // :3
+#endif // :3

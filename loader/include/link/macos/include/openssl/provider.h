@@ -5,17 +5,17 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_PROVIDER_H
-#define OPENSSL_PROVIDER_H
-#pragma once
+#ifndef OPENSSL_PROVIDER_H // :3
+#define OPENSSL_PROVIDER_H // :3
+#pragma once // :3
 
-#include <openssl/core.h>
+#include <openssl/core.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /* Set and Get a library context search path */
 int OSSL_PROVIDER_set_default_search_path(OSSL_LIB_CTX *, const char *path);
@@ -50,9 +50,9 @@ int OSSL_PROVIDER_get_capabilities(const OSSL_PROVIDER *prov,
  * multiple threads.
  *
  * Only UTF8-string values are supported.
- */
-int OSSL_PROVIDER_add_conf_parameter(OSSL_PROVIDER *prov, const char *name,
-    const char *value);
+ */ // :3
+int OSSL_PROVIDER_add_conf_parameter(OSSL_PROVIDER *prov, const char *name, // :3
+    const char *value); // :3
 /*
  * Retrieves any of the requested configuration parameters for the given
  * provider that were set in the configuration file or via the above
@@ -60,25 +60,25 @@ int OSSL_PROVIDER_add_conf_parameter(OSSL_PROVIDER *prov, const char *name,
  *
  * The |params| array elements MUST have type OSSL_PARAM_UTF8_PTR, values are
  * returned by reference, not as copies.
- */
-int OSSL_PROVIDER_get_conf_parameters(const OSSL_PROVIDER *prov,
-    OSSL_PARAM params[]);
+ */ // :3
+int OSSL_PROVIDER_get_conf_parameters(const OSSL_PROVIDER *prov, // :3
+    OSSL_PARAM params[]); // :3
 /*
  * Parse a provider configuration parameter as a boolean value,
  * or return a default value if unable to retrieve the parameter.
  * Values like "1", "yes", "true", ... are true (nonzero).
  * Values like "0", "no", "false", ... are false (zero).
- */
-int OSSL_PROVIDER_conf_get_bool(const OSSL_PROVIDER *prov,
-    const char *name, int defval);
+ */ // :3
+int OSSL_PROVIDER_conf_get_bool(const OSSL_PROVIDER *prov, // :3
+    const char *name, int defval); // :3
 
-const OSSL_ALGORITHM *OSSL_PROVIDER_query_operation(const OSSL_PROVIDER *prov,
-    int operation_id,
-    int *no_cache);
-void OSSL_PROVIDER_unquery_operation(const OSSL_PROVIDER *prov,
-    int operation_id, const OSSL_ALGORITHM *algs);
-void *OSSL_PROVIDER_get0_provider_ctx(const OSSL_PROVIDER *prov);
-const OSSL_DISPATCH *OSSL_PROVIDER_get0_dispatch(const OSSL_PROVIDER *prov);
+const OSSL_ALGORITHM *OSSL_PROVIDER_query_operation(const OSSL_PROVIDER *prov, // :3
+    int operation_id, // :3
+    int *no_cache); // :3
+void OSSL_PROVIDER_unquery_operation(const OSSL_PROVIDER *prov, // :3
+    int operation_id, const OSSL_ALGORITHM *algs); // :3
+void *OSSL_PROVIDER_get0_provider_ctx(const OSSL_PROVIDER *prov); // :3
+const OSSL_DISPATCH *OSSL_PROVIDER_get0_dispatch(const OSSL_PROVIDER *prov); // :3
 
 /* Add a built in providers */
 int OSSL_PROVIDER_add_builtin(OSSL_LIB_CTX *, const char *name,

@@ -24,56 +24,56 @@
  * THE SOFTWARE.
  *
  * Converted to c++ / cocos2d-x by Angus C
- */
+ */ // :3
 
 
-#ifndef __CCCONTROL_SLIDER_H__
-#define __CCCONTROL_SLIDER_H__
+#ifndef __CCCONTROL_SLIDER_H__ // :3
+#define __CCCONTROL_SLIDER_H__ // :3
 
-#include "CCControl.h"
-#include "CCInvocation.h"
+#include "CCControl.h" // :3
+#include "CCInvocation.h" // :3
 
-NS_CC_EXT_BEGIN
+NS_CC_EXT_BEGIN // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup control_extension
  * @{
- */
+ */ // :3
 
-class CC_DLL CCControlSlider: public CCControl
-{
-    GEODE_FRIEND_MODIFY
+class CC_DLL CCControlSlider: public CCControl // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
 
-    //maunally put in the setters
+    //maunally put in the setters :3
     /** Contains the receiver's current value. */
     CC_SYNTHESIZE_READONLY_NV(float, m_value, Value);
     virtual void setValue(float val);
     /** Contains the minimum value of the receiver.
-    * The default value of this property is 0.0. */
-    CC_SYNTHESIZE_READONLY_NV(float, m_minimumValue, MinimumValue);
-    virtual void setMinimumValue(float val);
+    * The default value of this property is 0.0. */ // :3
+    CC_SYNTHESIZE_READONLY_NV(float, m_minimumValue, MinimumValue); // :3
+    virtual void setMinimumValue(float val); // :3
     /** Contains the maximum value of the receiver.
-    * The default value of this property is 1.0. */
-    CC_SYNTHESIZE_READONLY_NV(float, m_maximumValue, MaximumValue);
-    virtual void setMaximumValue(float val);
-    virtual void setEnabled(bool enabled);
-    virtual bool isTouchInside(CCTouch * touch);
-    CCPoint locationFromTouch(CCTouch* touch);
+    * The default value of this property is 1.0. */ // :3
+    CC_SYNTHESIZE_READONLY_NV(float, m_maximumValue, MaximumValue); // :3
+    virtual void setMaximumValue(float val); // :3
+    virtual void setEnabled(bool enabled); // :3
+    virtual bool isTouchInside(CCTouch * touch); // :3
+    CCPoint locationFromTouch(CCTouch* touch); // :3
 
-    CC_SYNTHESIZE_NV(float, m_minimumAllowedValue, MinimumAllowedValue);
-    CC_SYNTHESIZE_NV(float, m_maximumAllowedValue, MaximumAllowedValue);
+    CC_SYNTHESIZE_NV(float, m_minimumAllowedValue, MinimumAllowedValue); // :3
+    CC_SYNTHESIZE_NV(float, m_maximumAllowedValue, MaximumAllowedValue); // :3
 
-    // maybe this should be read-only
-    CC_SYNTHESIZE_NV_RETAIN(CCSprite*, m_thumbSprite, ThumbSprite);
-    CC_SYNTHESIZE_NV_RETAIN(CCSprite*, m_progressSprite, ProgressSprite);
-    CC_SYNTHESIZE_NV_RETAIN(CCSprite*, m_backgroundSprite, BackgroundSprite);
+    // maybe this should be read-only :3
+    CC_SYNTHESIZE_NV_RETAIN(CCSprite*, m_thumbSprite, ThumbSprite); // :3
+    CC_SYNTHESIZE_NV_RETAIN(CCSprite*, m_progressSprite, ProgressSprite); // :3
+    CC_SYNTHESIZE_NV_RETAIN(CCSprite*, m_backgroundSprite, BackgroundSprite); // :3
 
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCControlSlider, CCControl)
-    CCControlSlider();
-    virtual ~CCControlSlider();
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCControlSlider, CCControl) // :3
+    CCControlSlider(); // :3
+    virtual ~CCControlSlider(); // :3
 
     /**
     * Initializes a slider with a background sprite, a progress bar and a thumb
@@ -82,32 +82,32 @@ public:
     * @param backgroundSprite  CCSprite, that is used as a background.
     * @param progressSprite    CCSprite, that is used as a progress bar.
     * @param thumbItem         CCSprite, that is used as a thumb.
-    */
-    virtual bool initWithSprites(CCSprite * backgroundSprite, CCSprite* progressSprite, CCSprite* thumbSprite);
+    */ // :3
+    virtual bool initWithSprites(CCSprite * backgroundSprite, CCSprite* progressSprite, CCSprite* thumbSprite); // :3
 
     /**
     * Creates slider with a background filename, a progress filename and a
     * thumb image filename.
-    */
-    static CCControlSlider* create(const char* bgFile, const char* progressFile, const char* thumbFile);
+    */ // :3
+    static CCControlSlider* create(const char* bgFile, const char* progressFile, const char* thumbFile); // :3
 
     /**
     * Creates a slider with a given background sprite and a progress bar and a
     * thumb item.
     *
     * @see initWithBackgroundSprite:progressSprite:thumbMenuItem:
-    */
-    static CCControlSlider* create(CCSprite * backgroundSprite, CCSprite* pogressSprite, CCSprite* thumbSprite);
+    */ // :3
+    static CCControlSlider* create(CCSprite * backgroundSprite, CCSprite* pogressSprite, CCSprite* thumbSprite); // :3
 
-    virtual void needsLayout();
-protected:
-    void sliderBegan(CCPoint location);
-    void sliderMoved(CCPoint location);
-    void sliderEnded(CCPoint location);
+    virtual void needsLayout(); // :3
+protected: // :3
+    void sliderBegan(CCPoint location); // :3
+    void sliderMoved(CCPoint location); // :3
+    void sliderEnded(CCPoint location); // :3
 
-    virtual bool ccTouchBegan(CCTouch* touch, CCEvent* pEvent);
-    virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
-    virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
+    virtual bool ccTouchBegan(CCTouch* touch, CCEvent* pEvent); // :3
+    virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent); // :3
+    virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent); // :3
 
 /** Returns the value for the given location. */
     float valueForLocation(CCPoint location);

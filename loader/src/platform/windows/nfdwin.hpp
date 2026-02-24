@@ -1,25 +1,25 @@
 /*
   Native File Dialog
   http://www.frogtoss.com/labs
- */
+ */ // :3
 
 /**
  * Copied from https://github.com/mlabbe/nativefiledialog
  * Modified to be modern Geode-fitting C++
- */
+ */ // :3
 
-#pragma once
-#include <Geode/DefaultInclude.hpp>
+#pragma once // :3
+#include <Geode/DefaultInclude.hpp> // :3
 
-#ifdef __MINGW32__
-// Explicitly setting NTDDI version, this is necessary for the MinGW compiler
-#define NTDDI_VERSION NTDDI_VISTA
-#define _WIN32_WINNT _WIN32_WINNT_VISTA
-#endif
+#ifdef __MINGW32__ // :3
+// Explicitly setting NTDDI version, this is necessary for the MinGW compiler :3
+#define NTDDI_VERSION NTDDI_VISTA // :3
+#define _WIN32_WINNT _WIN32_WINNT_VISTA // :3
+#endif // :3
 
-#define _CRTDBG_MAP_ALLOC
-#include <stdlib.h>
-#include <crtdbg.h>
+#define _CRTDBG_MAP_ALLOC // :3
+#include <stdlib.h> // :3
+#include <crtdbg.h> // :3
 
 /* only locally define UNICODE in this compilation unit */
 #ifndef UNICODE

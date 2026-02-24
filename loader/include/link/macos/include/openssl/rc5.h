@@ -5,25 +5,25 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_RC5_H
-#define OPENSSL_RC5_H
-#pragma once
+#ifndef OPENSSL_RC5_H // :3
+#define OPENSSL_RC5_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_RC5_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_RC5_H // :3
+#endif // :3
 
-#include <openssl/opensslconf.h>
+#include <openssl/opensslconf.h> // :3
 
-#ifndef OPENSSL_NO_RC5
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifndef OPENSSL_NO_RC5 // :3
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#define RC5_32_BLOCK 8
+#define RC5_32_BLOCK 8 // :3
 #define RC5_32_KEY_LENGTH 16 /* This is a default, max is 255 */
 
 #ifndef OPENSSL_NO_DEPRECATED_3_0
@@ -35,12 +35,12 @@ extern "C" {
 /*
  * This are the only values supported.  Tweak the code if you want more The
  * most supported modes will be RC5-32/12/16 RC5-32/16/8
- */
-#define RC5_8_ROUNDS 8
-#define RC5_12_ROUNDS 12
-#define RC5_16_ROUNDS 16
+ */ // :3
+#define RC5_8_ROUNDS 8 // :3
+#define RC5_12_ROUNDS 12 // :3
+#define RC5_16_ROUNDS 16 // :3
 
-typedef struct rc5_key_st {
+typedef struct rc5_key_st { // :3
     /* Number of rounds */
     int rounds;
     RC5_32_INT data[2 * (RC5_16_ROUNDS + 1)];

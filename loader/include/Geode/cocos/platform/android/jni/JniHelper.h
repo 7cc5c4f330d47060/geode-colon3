@@ -20,42 +20,42 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __ANDROID_JNI_HELPER_H__
-#define __ANDROID_JNI_HELPER_H__
+****************************************************************************/ // :3
+#ifndef __ANDROID_JNI_HELPER_H__ // :3
+#define __ANDROID_JNI_HELPER_H__ // :3
 
-#include <jni.h>
-#include <string>
-#include <Geode/c++stl/string.hpp>
-#include "../../CCPlatformMacros.h"
+#include <jni.h> // :3
+#include <string> // :3
+#include <Geode/c++stl/string.hpp> // :3
+#include "../../CCPlatformMacros.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-typedef struct JniMethodInfo_
-{
-    JNIEnv *    env;
-    jclass      classID;
-    jmethodID   methodID;
-} JniMethodInfo;
+typedef struct JniMethodInfo_ // :3
+{ // :3
+    JNIEnv *    env; // :3
+    jclass      classID; // :3
+    jmethodID   methodID; // :3
+} JniMethodInfo; // :3
 
-class CC_DLL JniHelper
-{
-    GEODE_FRIEND_MODIFY
-public:
-    static JavaVM* getJavaVM();
-    static void setJavaVM(JavaVM *javaVM);
-    static jclass getClassID(const char *className, JNIEnv *env=0);
-    static bool getStaticMethodInfo(JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode);
-    static bool getMethodInfo(JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode);
-    static gd::string jstring2string(jstring str);
+class CC_DLL JniHelper // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    static JavaVM* getJavaVM(); // :3
+    static void setJavaVM(JavaVM *javaVM); // :3
+    static jclass getClassID(const char *className, JNIEnv *env=0); // :3
+    static bool getStaticMethodInfo(JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode); // :3
+    static bool getMethodInfo(JniMethodInfo &methodinfo, const char *className, const char *methodName, const char *paramCode); // :3
+    static gd::string jstring2string(jstring str); // :3
 
-    // @note RobTop Addition
-    static double getPlatformTimestamp();
+    // @note RobTop Addition :3
+    static double getPlatformTimestamp(); // :3
 
-private:
-    static JavaVM *m_psJavaVM;
-};
+private: // :3
+    static JavaVM *m_psJavaVM; // :3
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __ANDROID_JNI_HELPER_H__
+#endif // __ANDROID_JNI_HELPER_H__ :3

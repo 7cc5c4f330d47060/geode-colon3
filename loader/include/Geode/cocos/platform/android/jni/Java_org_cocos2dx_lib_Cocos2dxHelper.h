@@ -20,34 +20,34 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __Java_org_cocos2dx_lib_Cocos2dxHelper_H__
-#define __Java_org_cocos2dx_lib_Cocos2dxHelper_H__
+****************************************************************************/ // :3
+#ifndef __Java_org_cocos2dx_lib_Cocos2dxHelper_H__ // :3
+#define __Java_org_cocos2dx_lib_Cocos2dxHelper_H__ // :3
 
-#include <string>
+#include <string> // :3
 
-typedef void (*EditTextCallback)(const char* pText, void* ctx);
+typedef void (*EditTextCallback)(const char* pText, void* ctx); // :3
 
-extern const char * getApkPath();
-extern void showDialogJNI(const char * pszMsg, const char * pszTitle);
-extern void showEditTextDialogJNI(const char* pszTitle, const char* pszContent, int nInputMode, int nInputFlag, int nReturnType, int nMaxLength, EditTextCallback pfEditTextCallback, void* ctx);
-extern void terminateProcessJNI();
-extern gd::string getCurrentLanguageJNI();
-extern gd::string getPackageNameJNI();
-extern gd::string getFileDirectoryJNI();
-extern void enableAccelerometerJNI();
-extern void disableAccelerometerJNI();
-extern void setAccelerometerIntervalJNI(float interval);
-// functions for CCUserDefault
-extern bool getBoolForKeyJNI(const char* pKey, bool defaultValue);
-extern int getIntegerForKeyJNI(const char* pKey, int defaultValue);
-extern float getFloatForKeyJNI(const char* pKey, float defaultValue);
-extern double getDoubleForKeyJNI(const char* pKey, double defaultValue);
-extern gd::string getStringForKeyJNI(const char* pKey, const char* defaultValue);
-extern void setBoolForKeyJNI(const char* pKey, bool value);
-extern void setIntegerForKeyJNI(const char* pKey, int value);
-extern void setFloatForKeyJNI(const char* pKey, float value);
-extern void setDoubleForKeyJNI(const char* pKey, double value);
-extern void setStringForKeyJNI(const char* pKey, const char* value);
+extern const char * getApkPath(); // :3
+extern void showDialogJNI(const char * pszMsg, const char * pszTitle); // :3
+extern void showEditTextDialogJNI(const char* pszTitle, const char* pszContent, int nInputMode, int nInputFlag, int nReturnType, int nMaxLength, EditTextCallback pfEditTextCallback, void* ctx); // :3
+extern void terminateProcessJNI(); // :3
+extern gd::string getCurrentLanguageJNI(); // :3
+extern gd::string getPackageNameJNI(); // :3
+extern gd::string getFileDirectoryJNI(); // :3
+extern void enableAccelerometerJNI(); // :3
+extern void disableAccelerometerJNI(); // :3
+extern void setAccelerometerIntervalJNI(float interval); // :3
+// functions for CCUserDefault :3
+extern bool getBoolForKeyJNI(const char* pKey, bool defaultValue); // :3
+extern int getIntegerForKeyJNI(const char* pKey, int defaultValue); // :3
+extern float getFloatForKeyJNI(const char* pKey, float defaultValue); // :3
+extern double getDoubleForKeyJNI(const char* pKey, double defaultValue); // :3
+extern gd::string getStringForKeyJNI(const char* pKey, const char* defaultValue); // :3
+extern void setBoolForKeyJNI(const char* pKey, bool value); // :3
+extern void setIntegerForKeyJNI(const char* pKey, int value); // :3
+extern void setFloatForKeyJNI(const char* pKey, float value); // :3
+extern void setDoubleForKeyJNI(const char* pKey, double value); // :3
+extern void setStringForKeyJNI(const char* pKey, const char* value); // :3
 
 #endif /* __Java_org_cocos2dx_lib_Cocos2dxHelper_H__ */

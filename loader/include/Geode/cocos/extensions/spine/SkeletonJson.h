@@ -21,32 +21,32 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_SKELETONJSON_H_
-#define SPINE_SKELETONJSON_H_
+#ifndef SPINE_SKELETONJSON_H_ // :3
+#define SPINE_SKELETONJSON_H_ // :3
 
-#include "Attachment.h"
-#include "AttachmentLoader.h"
-#include "SkeletonData.h"
-#include "Atlas.h"
-#include "Animation.h"
+#include "Attachment.h" // :3
+#include "AttachmentLoader.h" // :3
+#include "SkeletonData.h" // :3
+#include "Atlas.h" // :3
+#include "Animation.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-typedef struct {
-	float scale;
-	AttachmentLoader* attachmentLoader;
-	const char* const error;
-} SkeletonJson;
+typedef struct { // :3
+	float scale; // :3
+	AttachmentLoader* attachmentLoader; // :3
+	const char* const error; // :3
+} SkeletonJson; // :3
 
-SkeletonJson* SkeletonJson_createWithLoader (AttachmentLoader* attachmentLoader);
-SkeletonJson* SkeletonJson_create (Atlas* atlas);
-void SkeletonJson_dispose (SkeletonJson* self);
+SkeletonJson* SkeletonJson_createWithLoader (AttachmentLoader* attachmentLoader); // :3
+SkeletonJson* SkeletonJson_create (Atlas* atlas); // :3
+void SkeletonJson_dispose (SkeletonJson* self); // :3
 
-SkeletonData* SkeletonJson_readSkeletonData (SkeletonJson* self, const char* json);
-SkeletonData* SkeletonJson_readSkeletonDataFile (SkeletonJson* self, const char* path);
+SkeletonData* SkeletonJson_readSkeletonData (SkeletonJson* self, const char* json); // :3
+SkeletonData* SkeletonJson_readSkeletonDataFile (SkeletonJson* self, const char* path); // :3
 
-}} // namespace cocos2d { namespace extension {
+}} // namespace cocos2d { namespace extension { :3
 
 #endif /* SPINE_SKELETONJSON_H_ */

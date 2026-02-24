@@ -21,18 +21,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __ACTION_CCPAGETURN3D_ACTION_H__
-#define __ACTION_CCPAGETURN3D_ACTION_H__
+****************************************************************************/ // :3
+#ifndef __ACTION_CCPAGETURN3D_ACTION_H__ // :3
+#define __ACTION_CCPAGETURN3D_ACTION_H__ // :3
 
-#include "CCActionGrid3D.h"
+#include "CCActionGrid3D.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup actions
  * @{
- */
+ */ // :3
 
 /**
  @brief This action simulates a page turn from the bottom right hand corner of the screen.
@@ -42,14 +42,14 @@ NS_CC_BEGIN
  http://www.parc.com/publication/1638/turning-pages-of-3d-electronic-books.html
 
  @since v0.8.2
- */
-class CC_DLL CCPageTurn3D : public CCGrid3DAction
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void update(float time);
+ */ // :3
+class CC_DLL CCPageTurn3D : public CCGrid3DAction // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void update(float time); // :3
 
-public:
+public: // :3
 
     /** create the action */
     static CCPageTurn3D* create(float duration, const CCSize& gridSize);

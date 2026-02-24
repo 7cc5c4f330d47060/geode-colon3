@@ -21,96 +21,96 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCCAMERA_ACTION_H__
-#define __CCCAMERA_ACTION_H__
+#ifndef __CCCAMERA_ACTION_H__ // :3
+#define __CCCAMERA_ACTION_H__ // :3
 
-#include "CCActionInterval.h"
+#include "CCActionInterval.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCCamera;
+class CCCamera; // :3
 
 /**
  * @addtogroup actions
  * @{
- */
+ */ // :3
 
 /**
 @brief Base class for CCCamera actions
 @ingroup Actions
-*/
-class CC_DLL CCActionCamera : public CCActionInterval //<NSCopying>
-{
-    GEODE_FRIEND_MODIFY
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCActionCamera, CCActionInterval)
+*/ // :3
+class CC_DLL CCActionCamera : public CCActionInterval //<NSCopying> :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCActionCamera, CCActionInterval) // :3
     /**
      *  @js ctor
-     */
-    CCActionCamera()
-        :m_fCenterXOrig(0)
-        ,m_fCenterYOrig(0)
-        ,m_fCenterZOrig(0)
-        ,m_fEyeXOrig(0)
-        ,m_fEyeYOrig(0)
-        ,m_fEyeZOrig(0)
-        ,m_fUpXOrig(0)
-        ,m_fUpYOrig(0)
-        ,m_fUpZOrig(0)
-    {}
+     */ // :3
+    CCActionCamera() // :3
+        :m_fCenterXOrig(0) // :3
+        ,m_fCenterYOrig(0) // :3
+        ,m_fCenterZOrig(0) // :3
+        ,m_fEyeXOrig(0) // :3
+        ,m_fEyeYOrig(0) // :3
+        ,m_fEyeZOrig(0) // :3
+        ,m_fUpXOrig(0) // :3
+        ,m_fUpYOrig(0) // :3
+        ,m_fUpZOrig(0) // :3
+    {} // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCActionCamera(){}
-    // super methods
-    virtual void startWithTarget(CCNode *pTarget);
-    virtual CCActionInterval * reverse();
-public:
-    float m_fCenterXOrig;
-    float m_fCenterYOrig;
-    float m_fCenterZOrig;
+     */ // :3
+    virtual ~CCActionCamera(){} // :3
+    // super methods :3
+    virtual void startWithTarget(CCNode *pTarget); // :3
+    virtual CCActionInterval * reverse(); // :3
+public: // :3
+    float m_fCenterXOrig; // :3
+    float m_fCenterYOrig; // :3
+    float m_fCenterZOrig; // :3
 
-    float m_fEyeXOrig;
-    float m_fEyeYOrig;
-    float m_fEyeZOrig;
+    float m_fEyeXOrig; // :3
+    float m_fEyeYOrig; // :3
+    float m_fEyeZOrig; // :3
 
-    float m_fUpXOrig;
-    float m_fUpYOrig;
-    float m_fUpZOrig;
-};
+    float m_fUpXOrig; // :3
+    float m_fUpYOrig; // :3
+    float m_fUpZOrig; // :3
+}; // :3
 
 /**
 @brief CCOrbitCamera action
 Orbits the camera around the center of the screen using spherical coordinates
 @ingroup Actions
-*/
-class CC_DLL CCOrbitCamera : public CCActionCamera //<NSCopying>
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCOrbitCamera : public CCActionCamera //<NSCopying> :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
-     */
-    CCOrbitCamera()
-        : m_fRadius(0.0)
-        , m_fDeltaRadius(0.0)
-        , m_fAngleZ(0.0)
-        , m_fDeltaAngleZ(0.0)
-        , m_fAngleX(0.0)
-        , m_fDeltaAngleX(0.0)
-        , m_fRadZ(0.0)
-        , m_fRadDeltaZ(0.0)
-        , m_fRadX(0.0)
-        , m_fRadDeltaX(0.0)
-    {}
+     */ // :3
+    CCOrbitCamera() // :3
+        : m_fRadius(0.0) // :3
+        , m_fDeltaRadius(0.0) // :3
+        , m_fAngleZ(0.0) // :3
+        , m_fDeltaAngleZ(0.0) // :3
+        , m_fAngleX(0.0) // :3
+        , m_fDeltaAngleX(0.0) // :3
+        , m_fRadZ(0.0) // :3
+        , m_fRadDeltaZ(0.0) // :3
+        , m_fRadX(0.0) // :3
+        , m_fRadDeltaX(0.0) // :3
+    {} // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    ~CCOrbitCamera(){}
+     */ // :3
+    ~CCOrbitCamera(){} // :3
 
     /** creates a CCOrbitCamera action with radius, delta-radius,  z, deltaZ, x, deltaX */
     static CCOrbitCamera* create(float t, float radius, float deltaRadius, float angleZ, float deltaAngleZ, float angleX, float deltaAngleX);
@@ -123,28 +123,28 @@ public:
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual CCObject* copyWithZone(CCZone* pZone);
-    virtual void startWithTarget(CCNode *pTarget);
-    virtual void update(float time);
+     */ // :3
+    virtual CCObject* copyWithZone(CCZone* pZone); // :3
+    virtual void startWithTarget(CCNode *pTarget); // :3
+    virtual void update(float time); // :3
 
-public:
-    float m_fRadius;
-    float m_fDeltaRadius;
-    float m_fAngleZ;
-    float m_fDeltaAngleZ;
-    float m_fAngleX;
-    float m_fDeltaAngleX;
+public: // :3
+    float m_fRadius; // :3
+    float m_fDeltaRadius; // :3
+    float m_fAngleZ; // :3
+    float m_fDeltaAngleZ; // :3
+    float m_fAngleX; // :3
+    float m_fDeltaAngleX; // :3
 
-    float m_fRadZ;
-    float m_fRadDeltaZ;
-    float m_fRadX;
-    float m_fRadDeltaX;
-};
+    float m_fRadZ; // :3
+    float m_fRadDeltaZ; // :3
+    float m_fRadX; // :3
+    float m_fRadDeltaX; // :3
+}; // :3
 
-// end of actions group
-/// @}
+// end of actions group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif //__CCCAMERA_ACTION_H__
+#endif //__CCCAMERA_ACTION_H__ :3

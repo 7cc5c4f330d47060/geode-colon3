@@ -21,73 +21,73 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCPROTOCOLS_H__
-#define __CCPROTOCOLS_H__
+#ifndef __CCPROTOCOLS_H__ // :3
+#define __CCPROTOCOLS_H__ // :3
 
-#include "../include/ccTypes.h"
-#include "../textures/CCTexture2D.h"
-#include <string>
+#include "../include/ccTypes.h" // :3
+#include "../textures/CCTexture2D.h" // :3
+#include <string> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * RGBA protocol that affects CCNode's color and opacity
  * @js NA
- */
-class CC_DLL CCRGBAProtocol
-{
-    // GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCRGBAProtocol // :3
+{ // :3
+    // GEODE_FRIEND_MODIFY :3
+public: // :3
     /**
      * Changes the color with R,G,B bytes
      *
      * @param color Example: ccc3(255,100,0) means R=255, G=100, B=0
-     */
-    virtual void setColor(const ccColor3B& color) = 0;
+     */ // :3
+    virtual void setColor(const ccColor3B& color) = 0; // :3
 
     /**
      * Changes the color with R,G,B,A bytes
      *
      * @param color Example: ccc4(255,100,0,255) means R=255, G=100, B=0, A=255
      * @note Geode addition
-    */
-    inline void setColor(const ccColor4B& color) {
-        this->setColor(ccColor3B{color.r, color.g, color.b});
-        this->setOpacity(color.a);
-    }
+    */ // :3
+    inline void setColor(const ccColor4B& color) { // :3
+        this->setColor(ccColor3B{color.r, color.g, color.b}); // :3
+        this->setOpacity(color.a); // :3
+    } // :3
 
     /**
      * Changes the color with R,G,B,A floats
      *
      * @param color Example: ccc4f(1.0, 0.5, 0.25, 1.0) means R=255, G=127, B=63, A=255
      * @note Geode addition
-    */
-    inline void setColor(const ccColor4F& color) {
-        this->setColor(ccc4BFromccc4F(color));
-    }
+    */ // :3
+    inline void setColor(const ccColor4F& color) { // :3
+        this->setColor(ccc4BFromccc4F(color)); // :3
+    } // :3
 
     /**
      * Returns color that is currently used.
      *
      * @return The ccColor3B contains R,G,B bytes.
-     */
-    virtual const ccColor3B& getColor(void) = 0;
+     */ // :3
+    virtual const ccColor3B& getColor(void) = 0; // :3
 
     /**
      * Returns the displayed color.
      *
      * @return The ccColor3B contains R,G,B bytes.
-     */
-    virtual const ccColor3B& getDisplayedColor(void) = 0;
+     */ // :3
+    virtual const ccColor3B& getDisplayedColor(void) = 0; // :3
 
     /**
      * Returns the displayed opacity.
      *
      * @return  The opacity of sprite, from 0 ~ 255
-     */
-    virtual GLubyte getDisplayedOpacity(void) = 0;
+     */ // :3
+    virtual GLubyte getDisplayedOpacity(void) = 0; // :3
     /**
      * Returns the opacity.
      *
@@ -95,17 +95,17 @@ public:
      * 0 indicates fully transparent and 255 is fully opaque.
      *
      * @return  The opacity of sprite, from 0 ~ 255
-     */
-    virtual GLubyte getOpacity(void) = 0;
+     */ // :3
+    virtual GLubyte getOpacity(void) = 0; // :3
 
     /**
      * Changes the opacity.
      *
      * @param   value   Goes from 0 to 255, where 255 means fully opaque and 0 means fully transparent.
-     */
-    virtual void setOpacity(GLubyte opacity) = 0;
+     */ // :3
+    virtual void setOpacity(GLubyte opacity) = 0; // :3
 
-    // optional
+    // optional :3
 
     /**
      * Changes the OpacityModifyRGB property.
@@ -114,39 +114,39 @@ public:
      *
      * @param   bValue  true then the opacity will be applied as: glColor(R,G,B,opacity);
      *                  false then the opacity will be applied as: glColor(opacity, opacity, opacity, opacity);
-     */
-    virtual void setOpacityModifyRGB(bool bValue) = 0;
+     */ // :3
+    virtual void setOpacityModifyRGB(bool bValue) = 0; // :3
 
     /**
      * Returns whether or not the opacity will be applied using glColor(R,G,B,opacity)
      * or glColor(opacity, opacity, opacity, opacity)
      *
      * @return  Returns opacity modify flag.
-     */
-    virtual bool isOpacityModifyRGB(void) = 0;
+     */ // :3
+    virtual bool isOpacityModifyRGB(void) = 0; // :3
 
     /**
      *  whether or not color should be propagated to its children.
-     */
-    virtual bool isCascadeColorEnabled(void) = 0;
-    virtual void setCascadeColorEnabled(bool cascadeColorEnabled) = 0;
+     */ // :3
+    virtual bool isCascadeColorEnabled(void) = 0; // :3
+    virtual void setCascadeColorEnabled(bool cascadeColorEnabled) = 0; // :3
 
     /**
      *  recursive method that updates display color
-     */
-    virtual void updateDisplayedColor(const ccColor3B& color) = 0;
+     */ // :3
+    virtual void updateDisplayedColor(const ccColor3B& color) = 0; // :3
 
     /**
      *  whether or not opacity should be propagated to its children.
-     */
-    virtual bool isCascadeOpacityEnabled(void) = 0;
-    virtual void setCascadeOpacityEnabled(bool cascadeOpacityEnabled) = 0;
+     */ // :3
+    virtual bool isCascadeOpacityEnabled(void) = 0; // :3
+    virtual void setCascadeOpacityEnabled(bool cascadeOpacityEnabled) = 0; // :3
 
     /**
      *  recursive method that updates the displayed opacity.
-     */
-    virtual void updateDisplayedOpacity(GLubyte opacity) = 0;
-};
+     */ // :3
+    virtual void updateDisplayedOpacity(GLubyte opacity) = 0; // :3
+}; // :3
 
 /**
  * Specify the blending function according glBlendFunc
@@ -154,27 +154,27 @@ public:
  * http://www.khronos.org/opengles/sdk/docs/man/xhtml/glBlendFunc.xml for more details.
  * @js NA
  * @lua NA
- */
-class CC_DLL CCBlendProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCBlendProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      * Sets the source blending function.
      *
      * @param blendFunc A structure with source and destination factor to specify pixel arithmetic,
      *                  e.g. {GL_ONE, GL_ONE}, {GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA}.
      *
-     */
-    virtual void setBlendFunc(ccBlendFunc blendFunc) = 0;
+     */ // :3
+    virtual void setBlendFunc(ccBlendFunc blendFunc) = 0; // :3
 
     /**
      * Returns the blending function that is currently being used.
      *
      * @return A ccBlendFunc structure with source and destination factor which specified pixel arithmetic.
-     */
-    virtual ccBlendFunc getBlendFunc(void) = 0;
-};
+     */ // :3
+    virtual ccBlendFunc getBlendFunc(void) = 0; // :3
+}; // :3
 
 /**
  * CCNode objects that uses a CCTexture2D to render the images.
@@ -185,67 +185,67 @@ public:
  *   src=GL_SRC_ALPHA dst= GL_ONE_MINUS_SRC_ALPHA
  * But you can change the blending function at any time.
  * @js NA
- */
-class CC_DLL CCTextureProtocol : public CCBlendProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCTextureProtocol : public CCBlendProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      * Returns the currently used texture
      *
      * @return  The texture that is currenlty being used.
      * @lua NA
-     */
-    virtual CCTexture2D* getTexture(void) = 0;
+     */ // :3
+    virtual CCTexture2D* getTexture(void) = 0; // :3
 
     /**
      * Sets a new texuture. It will be retained.
      *
      * @param   texture A valid CCTexture2D object, which will be applied to this sprite object.
      * @lua NA
-     */
-    virtual void setTexture(CCTexture2D *texture) = 0;
-};
+     */ // :3
+    virtual void setTexture(CCTexture2D *texture) = 0; // :3
+}; // :3
 
 /**
  * Common interface for Labels
  * @js NA
  * @lua NA
- */
-class CC_DLL CCLabelProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCLabelProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      * Sets a new label using an string
      *
      * @param A null terminated string
-     */
-    virtual void setString(const char *label) = 0;
+     */ // :3
+    virtual void setString(const char *label) = 0; // :3
 
     /**
      * Returns the string that is currently being used in this label
      *
      * @return The string that is currently being used in this label
-     */
-    virtual const char* getString(void) = 0;
-};
+     */ // :3
+    virtual const char* getString(void) = 0; // :3
+}; // :3
 
 /**
  * OpenGL projection protocol
  * @js NA
  * @lua NA
- */
-class CC_DLL CCDirectorDelegate
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCDirectorDelegate // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      * Will be called by CCDirector when the projection is updated, and "custom" projection is used
-     */
-    virtual void updateProjection(void) = 0;
-};
+     */ // :3
+    virtual void updateProjection(void) = 0; // :3
+}; // :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __CCPROTOCOLS_H__
+#endif // __CCPROTOCOLS_H__ :3

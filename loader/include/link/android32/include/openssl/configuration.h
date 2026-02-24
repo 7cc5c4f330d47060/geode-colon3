@@ -9,23 +9,23 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_CONFIGURATION_H
-#define OPENSSL_CONFIGURATION_H
-#pragma once
+#ifndef OPENSSL_CONFIGURATION_H // :3
+#define OPENSSL_CONFIGURATION_H // :3
+#pragma once // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-#ifdef OPENSSL_ALGORITHM_DEFINES
-#error OPENSSL_ALGORITHM_DEFINES no longer supported
-#endif
+#ifdef OPENSSL_ALGORITHM_DEFINES // :3
+#error OPENSSL_ALGORITHM_DEFINES no longer supported // :3
+#endif // :3
 
 /*
  * OpenSSL was configured with the following options:
- */
+ */ // :3
 
 /* clang-format off */
 # define OPENSSL_CONFIGURED_API 30600
@@ -198,8 +198,8 @@ extern "C" {
 
 /*
  * The following are cipher-specific, but are part of the public API.
- */
-#if !defined(OPENSSL_SYS_UEFI)
+ */ // :3
+#if !defined(OPENSSL_SYS_UEFI) // :3
     /* clang-format off */
 #  define BN_LLONG
     /* clang-format on */

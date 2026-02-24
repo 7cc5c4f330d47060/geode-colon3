@@ -20,19 +20,19 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCGL_H__
-#define __CCGL_H__
+#ifndef __CCGL_H__ // :3
+#define __CCGL_H__ // :3
 
-#include "../third_party/win32/OGLES/GL/glew.h"
+#include "../third_party/win32/OGLES/GL/glew.h" // :3
 
-#define CC_GL_DEPTH24_STENCIL8		GL_DEPTH24_STENCIL8
+#define CC_GL_DEPTH24_STENCIL8		GL_DEPTH24_STENCIL8 // :3
 
-// These macros are only for making CCTexturePVR.cpp complied without errors since they are not included in GLEW.
-#define GL_COMPRESSED_RGB_PVRTC_4BPPV1_IMG                      0x8C00
-#define GL_COMPRESSED_RGB_PVRTC_2BPPV1_IMG                      0x8C01
-#define GL_COMPRESSED_RGBA_PVRTC_4BPPV1_IMG                     0x8C02
-#define GL_COMPRESSED_RGBA_PVRTC_2BPPV1_IMG                     0x8C03
+// These macros are only for making CCTexturePVR.cpp complied without errors since they are not included in GLEW. :3
+#define GL_COMPRESSED_RGB_PVRTC_4BPPV1_IMG                      0x8C00 // :3
+#define GL_COMPRESSED_RGB_PVRTC_2BPPV1_IMG                      0x8C01 // :3
+#define GL_COMPRESSED_RGBA_PVRTC_4BPPV1_IMG                     0x8C02 // :3
+#define GL_COMPRESSED_RGBA_PVRTC_2BPPV1_IMG                     0x8C03 // :3
 
-#endif // __CCGL_H__
+#endif // __CCGL_H__ :3

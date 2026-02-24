@@ -1,5 +1,5 @@
-#ifndef CURLINC_MPRINTF_H
-#define CURLINC_MPRINTF_H
+#ifndef CURLINC_MPRINTF_H // :3
+#define CURLINC_MPRINTF_H // :3
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -22,9 +22,9 @@
  *
  * SPDX-License-Identifier: curl
  *
- ***************************************************************************/
+ ***************************************************************************/ // :3
 
-#include <stdarg.h>
+#include <stdarg.h> // :3
 #include <stdio.h> /* needed for FILE */
 #include "curl.h"  /* for CURL_EXTERN */
 

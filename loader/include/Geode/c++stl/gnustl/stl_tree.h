@@ -1,25 +1,25 @@
-// RB tree implementation -*- C++ -*-
+// RB tree implementation -*- C++ -*- :3
 
-// Copyright (C) 2001-2014 Free Software Foundation, Inc.
-//
-// This file is part of the GNU ISO C++ Library.  This library is free
-// software; you can redistribute it and/or modify it under the
-// terms of the GNU General Public License as published by the
-// Free Software Foundation; either version 3, or (at your option)
-// any later version.
+// Copyright (C) 2001-2014 Free Software Foundation, Inc. :3
+// :3
+// This file is part of the GNU ISO C++ Library.  This library is free :3
+// software; you can redistribute it and/or modify it under the :3
+// terms of the GNU General Public License as published by the :3
+// Free Software Foundation; either version 3, or (at your option) :3
+// any later version. :3
 
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// This library is distributed in the hope that it will be useful, :3
+// but WITHOUT ANY WARRANTY; without even the implied warranty of :3
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the :3
+// GNU General Public License for more details. :3
 
-// Under Section 7 of GPL version 3, you are granted additional
-// permissions described in the GCC Runtime Library Exception, version
-// 3.1, as published by the Free Software Foundation.
+// Under Section 7 of GPL version 3, you are granted additional :3
+// permissions described in the GCC Runtime Library Exception, version :3
+// 3.1, as published by the Free Software Foundation. :3
 
-// You should have received a copy of the GNU General Public License and
-// a copy of the GCC Runtime Library Exception along with this program;
-// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see
+// You should have received a copy of the GNU General Public License and :3
+// a copy of the GCC Runtime Library Exception along with this program; :3
+// see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see :3
 // <http://www.gnu.org/licenses/>.
 
 /*
@@ -48,809 +48,809 @@
  * purpose.  It is provided "as is" without express or implied warranty.
  *
  *
- */
+ */ // :3
 
 /** @file bits/stl_tree.h
  *  This is an internal header file, included by other library headers.
  *  Do not attempt to use it directly. @headername{map,set}
- */
-
-#pragma once
-
-#include "stl_algobase.h"
-#include "allocator.h"
-#include "stl_function.h"
-#include "cpp_type_traits.h"
-#include "ext/alloc_traits.h"
-#include "ext/aligned_buffer.h"
-#include "exception_defines.h"
-#include "type_traits.h"
-
-namespace geode::stl {
-_GLIBCXX_BEGIN_NAMESPACE_CONTAINER
-
-  // Red-black tree class, designed for use in implementing STL
-  // associative containers (set, multiset, map, and multimap). The
-  // insertion and deletion algorithms are based on those in Cormen,
-  // Leiserson, and Rivest, Introduction to Algorithms (MIT Press,
-  // 1990), except that
-  //
-  // (1) the header cell is maintained with links not only to the root
-  // but also to the leftmost node of the tree, to enable constant
-  // time begin(), and to the rightmost node of the tree, to enable
-  // linear time performance when used with the generic set algorithms
-  // (set_union, etc.)
-  //
-  // (2) when a node being deleted has two children its successor node
-  // is relinked into its place, rather than copied, so that the only
-  // iterators invalidated are those referring to the deleted node.
-
-  enum _Rb_tree_color { _S_red = false, _S_black = true };
-
-  struct _Rb_tree_node_base
-  {
-    typedef _Rb_tree_node_base* _Base_ptr;
-    typedef const _Rb_tree_node_base* _Const_Base_ptr;
-
-    _Rb_tree_color	_M_color;
-    _Base_ptr		_M_parent;
-    _Base_ptr		_M_left;
-    _Base_ptr		_M_right;
-
-    static _Base_ptr
-    _S_minimum(_Base_ptr __x) _GLIBCXX_NOEXCEPT
-    {
-      while (__x->_M_left != 0) __x = __x->_M_left;
-      return __x;
-    }
-
-    static _Const_Base_ptr
-    _S_minimum(_Const_Base_ptr __x) _GLIBCXX_NOEXCEPT
-    {
-      while (__x->_M_left != 0) __x = __x->_M_left;
-      return __x;
-    }
-
-    static _Base_ptr
-    _S_maximum(_Base_ptr __x) _GLIBCXX_NOEXCEPT
-    {
-      while (__x->_M_right != 0) __x = __x->_M_right;
-      return __x;
-    }
-
-    static _Const_Base_ptr
-    _S_maximum(_Const_Base_ptr __x) _GLIBCXX_NOEXCEPT
-    {
-      while (__x->_M_right != 0) __x = __x->_M_right;
-      return __x;
-    }
-  };
-
-  template<typename _Val>
-    struct _Rb_tree_node : public _Rb_tree_node_base
-    {
-      typedef _Rb_tree_node<_Val>* _Link_type;
-
-      __gnu_cxx::__aligned_buffer<_Val> _M_storage;
-
-      _Val*
-      _M_valptr()
-      { return _M_storage._M_ptr(); }
-
-      const _Val*
-      _M_valptr() const
-      { return _M_storage._M_ptr(); }
-    };
-
-  inline _GLIBCXX_PURE _Rb_tree_node_base*
-  _Rb_tree_increment(_Rb_tree_node_base* __x) throw ()
-  {
-    if (__x->_M_right != 0)
-      {
-        __x = __x->_M_right;
-        while (__x->_M_left != 0)
-          __x = __x->_M_left;
-      }
-    else
-      {
-        _Rb_tree_node_base* __y = __x->_M_parent;
-        while (__x == __y->_M_right)
-          {
-            __x = __y;
-            __y = __y->_M_parent;
-          }
-        if (__x->_M_right != __y)
-          __x = __y;
-      }
-    return __x;
-  }
-
-  inline _GLIBCXX_PURE const _Rb_tree_node_base*
-  _Rb_tree_increment(const _Rb_tree_node_base* __x) throw ()
-  {
-    return _Rb_tree_increment(const_cast<_Rb_tree_node_base*>(__x));
-  }
-
-  inline _GLIBCXX_PURE _Rb_tree_node_base*
-  _Rb_tree_decrement(_Rb_tree_node_base* __x) throw ()
-  {
-    if (__x->_M_color == _S_red
-        && __x->_M_parent->_M_parent == __x)
-      __x = __x->_M_right;
-    else if (__x->_M_left != 0)
-      {
-        _Rb_tree_node_base* __y = __x->_M_left;
-        while (__y->_M_right != 0)
-          __y = __y->_M_right;
-        __x = __y;
-      }
-    else
-      {
-        _Rb_tree_node_base* __y = __x->_M_parent;
-        while (__x == __y->_M_left)
-          {
-            __x = __y;
-            __y = __y->_M_parent;
-          }
-        __x = __y;
-      }
-    return __x;
-  }
-
-  inline _GLIBCXX_PURE const _Rb_tree_node_base*
-  _Rb_tree_decrement(const _Rb_tree_node_base* __x) throw ()
-  {
-    return _Rb_tree_decrement(const_cast<_Rb_tree_node_base*>(__x));
-  }
-
-  template<typename _Tp>
-    struct _Rb_tree_iterator
-    {
-      typedef _Tp  value_type;
-      typedef _Tp& reference;
-      typedef _Tp* pointer;
-
-      typedef bidirectional_iterator_tag iterator_category;
-      typedef ptrdiff_t                  difference_type;
-
-      typedef _Rb_tree_iterator<_Tp>        _Self;
-      typedef _Rb_tree_node_base::_Base_ptr _Base_ptr;
-      typedef _Rb_tree_node<_Tp>*           _Link_type;
-
-      _Rb_tree_iterator() _GLIBCXX_NOEXCEPT
-      : _M_node() { }
-
-      explicit
-      _Rb_tree_iterator(_Link_type __x) _GLIBCXX_NOEXCEPT
-      : _M_node(__x) { }
-
-      reference
-      operator*() const _GLIBCXX_NOEXCEPT
-      { return *static_cast<_Link_type>(_M_node)->_M_valptr(); }
-
-      pointer
-      operator->() const _GLIBCXX_NOEXCEPT
-      { return static_cast<_Link_type> (_M_node)->_M_valptr(); }
-
-      _Self&
-      operator++() _GLIBCXX_NOEXCEPT
-      {
-	_M_node = _Rb_tree_increment(_M_node);
-	return *this;
-      }
-
-      _Self
-      operator++(int) _GLIBCXX_NOEXCEPT
-      {
-	_Self __tmp = *this;
-	_M_node = _Rb_tree_increment(_M_node);
-	return __tmp;
-      }
-
-      _Self&
-      operator--() _GLIBCXX_NOEXCEPT
-      {
-	_M_node = _Rb_tree_decrement(_M_node);
-	return *this;
-      }
-
-      _Self
-      operator--(int) _GLIBCXX_NOEXCEPT
-      {
-	_Self __tmp = *this;
-	_M_node = _Rb_tree_decrement(_M_node);
-	return __tmp;
-      }
-
-      bool
-      operator==(const _Self& __x) const _GLIBCXX_NOEXCEPT
-      { return _M_node == __x._M_node; }
-
-      bool
-      operator!=(const _Self& __x) const _GLIBCXX_NOEXCEPT
-      { return _M_node != __x._M_node; }
-
-      _Base_ptr _M_node;
-  };
-
-  template<typename _Tp>
-    struct _Rb_tree_const_iterator
-    {
-      typedef _Tp        value_type;
-      typedef const _Tp& reference;
-      typedef const _Tp* pointer;
-
-      typedef _Rb_tree_iterator<_Tp> iterator;
-
-      typedef bidirectional_iterator_tag iterator_category;
-      typedef ptrdiff_t                  difference_type;
-
-      typedef _Rb_tree_const_iterator<_Tp>        _Self;
-      typedef _Rb_tree_node_base::_Const_Base_ptr _Base_ptr;
-      typedef const _Rb_tree_node<_Tp>*           _Link_type;
-
-      _Rb_tree_const_iterator() _GLIBCXX_NOEXCEPT
-      : _M_node() { }
-
-      explicit
-      _Rb_tree_const_iterator(_Link_type __x) _GLIBCXX_NOEXCEPT
-      : _M_node(__x) { }
-
-      _Rb_tree_const_iterator(const iterator& __it) _GLIBCXX_NOEXCEPT
-      : _M_node(__it._M_node) { }
-
-      iterator
-      _M_const_cast() const _GLIBCXX_NOEXCEPT
-      { return iterator(static_cast<typename iterator::_Link_type>
-			(const_cast<typename iterator::_Base_ptr>(_M_node))); }
-
-      reference
-      operator*() const _GLIBCXX_NOEXCEPT
-      { return *static_cast<_Link_type>(_M_node)->_M_valptr(); }
-
-      pointer
-      operator->() const _GLIBCXX_NOEXCEPT
-      { return static_cast<_Link_type>(_M_node)->_M_valptr(); }
-
-      _Self&
-      operator++() _GLIBCXX_NOEXCEPT
-      {
-	_M_node = _Rb_tree_increment(_M_node);
-	return *this;
-      }
-
-      _Self
-      operator++(int) _GLIBCXX_NOEXCEPT
-      {
-	_Self __tmp = *this;
-	_M_node = _Rb_tree_increment(_M_node);
-	return __tmp;
-      }
-
-      _Self&
-      operator--() _GLIBCXX_NOEXCEPT
-      {
-	_M_node = _Rb_tree_decrement(_M_node);
-	return *this;
-      }
-
-      _Self
-      operator--(int) _GLIBCXX_NOEXCEPT
-      {
-	_Self __tmp = *this;
-	_M_node = _Rb_tree_decrement(_M_node);
-	return __tmp;
-      }
-
-      bool
-      operator==(const _Self& __x) const _GLIBCXX_NOEXCEPT
-      { return _M_node == __x._M_node; }
-
-      bool
-      operator!=(const _Self& __x) const _GLIBCXX_NOEXCEPT
-      { return _M_node != __x._M_node; }
-
-      _Base_ptr _M_node;
-    };
-
-  template<typename _Val>
-    inline bool
-    operator==(const _Rb_tree_iterator<_Val>& __x,
-               const _Rb_tree_const_iterator<_Val>& __y) _GLIBCXX_NOEXCEPT
-    { return __x._M_node == __y._M_node; }
-
-  template<typename _Val>
-    inline bool
-    operator!=(const _Rb_tree_iterator<_Val>& __x,
-               const _Rb_tree_const_iterator<_Val>& __y) _GLIBCXX_NOEXCEPT
-    { return __x._M_node != __y._M_node; }
-
-  inline void
-  _Rb_tree_rotate_left(_Rb_tree_node_base* const __x,
-		                   _Rb_tree_node_base*& __root)
-  {
-    _Rb_tree_node_base* const __y = __x->_M_right;
-
-    __x->_M_right = __y->_M_left;
-    if (__y->_M_left !=0)
-      __y->_M_left->_M_parent = __x;
-    __y->_M_parent = __x->_M_parent;
-
-    if (__x == __root)
-      __root = __y;
-    else if (__x == __x->_M_parent->_M_left)
-      __x->_M_parent->_M_left = __y;
-    else
-      __x->_M_parent->_M_right = __y;
-    __y->_M_left = __x;
-    __x->_M_parent = __y;
-  }
-
-  inline void
-  _Rb_tree_rotate_right(_Rb_tree_node_base* const __x,
-			                  _Rb_tree_node_base*& __root)
-  {
-    _Rb_tree_node_base* const __y = __x->_M_left;
-
-    __x->_M_left = __y->_M_right;
-    if (__y->_M_right != 0)
-      __y->_M_right->_M_parent = __x;
-    __y->_M_parent = __x->_M_parent;
-
-    if (__x == __root)
-      __root = __y;
-    else if (__x == __x->_M_parent->_M_right)
-      __x->_M_parent->_M_right = __y;
-    else
-      __x->_M_parent->_M_left = __y;
-    __y->_M_right = __x;
-    __x->_M_parent = __y;
-  }
-
-  inline void
-  _Rb_tree_insert_and_rebalance(const bool __insert_left,
-                                _Rb_tree_node_base* __x,
-                                _Rb_tree_node_base* __p,
-                                _Rb_tree_node_base& __header) throw ()
-  {
-    _Rb_tree_node_base *& __root = __header._M_parent;
-
-    // Initialize fields in new node to insert.
-    __x->_M_parent = __p;
-    __x->_M_left = 0;
-    __x->_M_right = 0;
-    __x->_M_color = _S_red;
-
-    // Insert.
-    // Make new node child of parent and maintain root, leftmost and
-    // rightmost nodes.
-    // N.B. First node is always inserted left.
-    if (__insert_left)
-      {
-        __p->_M_left = __x; // also makes leftmost = __x when __p == &__header
-
-        if (__p == &__header)
-        {
-            __header._M_parent = __x;
-            __header._M_right = __x;
-        }
-        else if (__p == __header._M_left)
-          __header._M_left = __x; // maintain leftmost pointing to min node
-      }
-    else
-      {
-        __p->_M_right = __x;
-
-        if (__p == __header._M_right)
-          __header._M_right = __x; // maintain rightmost pointing to max node
-      }
-    // Rebalance.
-    while (__x != __root
-	   && __x->_M_parent->_M_color == _S_red)
-      {
-	_Rb_tree_node_base* const __xpp = __x->_M_parent->_M_parent;
-
-	if (__x->_M_parent == __xpp->_M_left)
-	  {
-	    _Rb_tree_node_base* const __y = __xpp->_M_right;
-	    if (__y && __y->_M_color == _S_red)
-	      {
-		__x->_M_parent->_M_color = _S_black;
-		__y->_M_color = _S_black;
-		__xpp->_M_color = _S_red;
-		__x = __xpp;
-	      }
-	    else
-	      {
-		if (__x == __x->_M_parent->_M_right)
-		  {
-		    __x = __x->_M_parent;
-		    _Rb_tree_rotate_left(__x, __root);
-		  }
-		__x->_M_parent->_M_color = _S_black;
-		__xpp->_M_color = _S_red;
-		_Rb_tree_rotate_right(__xpp, __root);
-	      }
-	  }
-	else
-	  {
-	    _Rb_tree_node_base* const __y = __xpp->_M_left;
-	    if (__y && __y->_M_color == _S_red)
-	      {
-		__x->_M_parent->_M_color = _S_black;
-		__y->_M_color = _S_black;
-		__xpp->_M_color = _S_red;
-		__x = __xpp;
-	      }
-	    else
-	      {
-		if (__x == __x->_M_parent->_M_left)
-		  {
-		    __x = __x->_M_parent;
-		    _Rb_tree_rotate_right(__x, __root);
-		  }
-		__x->_M_parent->_M_color = _S_black;
-		__xpp->_M_color = _S_red;
-		_Rb_tree_rotate_left(__xpp, __root);
-	      }
-	  }
-      }
-    __root->_M_color = _S_black;
-  }
-
-  inline _Rb_tree_node_base*
-  _Rb_tree_rebalance_for_erase(_Rb_tree_node_base* const __z,
-			       _Rb_tree_node_base& __header) throw ()
-  {
-    _Rb_tree_node_base *& __root = __header._M_parent;
-    _Rb_tree_node_base *& __leftmost = __header._M_left;
-    _Rb_tree_node_base *& __rightmost = __header._M_right;
-    _Rb_tree_node_base* __y = __z;
-    _Rb_tree_node_base* __x = 0;
-    _Rb_tree_node_base* __x_parent = 0;
-
-    if (__y->_M_left == 0)     // __z has at most one non-null child. y == z.
-      __x = __y->_M_right;     // __x might be null.
-    else
-      if (__y->_M_right == 0)  // __z has exactly one non-null child. y == z.
-	__x = __y->_M_left;    // __x is not null.
-      else
-	{
-	  // __z has two non-null children.  Set __y to
-	  __y = __y->_M_right;   //   __z's successor.  __x might be null.
-	  while (__y->_M_left != 0)
-	    __y = __y->_M_left;
-	  __x = __y->_M_right;
-	}
-    if (__y != __z)
-      {
-	// relink y in place of z.  y is z's successor
-	__z->_M_left->_M_parent = __y;
-	__y->_M_left = __z->_M_left;
-	if (__y != __z->_M_right)
-	  {
-	    __x_parent = __y->_M_parent;
-	    if (__x) __x->_M_parent = __y->_M_parent;
-	    __y->_M_parent->_M_left = __x;   // __y must be a child of _M_left
-	    __y->_M_right = __z->_M_right;
-	    __z->_M_right->_M_parent = __y;
-	  }
-	else
-	  __x_parent = __y;
-	if (__root == __z)
-	  __root = __y;
-	else if (__z->_M_parent->_M_left == __z)
-	  __z->_M_parent->_M_left = __y;
-	else
-	  __z->_M_parent->_M_right = __y;
-	__y->_M_parent = __z->_M_parent;
-	swap(__y->_M_color, __z->_M_color);
-	__y = __z;
-	// __y now points to node to be actually deleted
-      }
-    else
-      {                        // __y == __z
-	__x_parent = __y->_M_parent;
-	if (__x)
-	  __x->_M_parent = __y->_M_parent;
-	if (__root == __z)
-	  __root = __x;
-	else
-	  if (__z->_M_parent->_M_left == __z)
-	    __z->_M_parent->_M_left = __x;
-	  else
-	    __z->_M_parent->_M_right = __x;
-	if (__leftmost == __z)
-	  {
-	    if (__z->_M_right == 0)        // __z->_M_left must be null also
-	      __leftmost = __z->_M_parent;
-	    // makes __leftmost == _M_header if __z == __root
-	    else
-	      __leftmost = _Rb_tree_node_base::_S_minimum(__x);
-	  }
-	if (__rightmost == __z)
-	  {
-	    if (__z->_M_left == 0)         // __z->_M_right must be null also
-	      __rightmost = __z->_M_parent;
-	    // makes __rightmost == _M_header if __z == __root
-	    else                      // __x == __z->_M_left
-	      __rightmost = _Rb_tree_node_base::_S_maximum(__x);
-	  }
-      }
-    if (__y->_M_color != _S_red)
-      {
-	while (__x != __root && (__x == 0 || __x->_M_color == _S_black))
-	  if (__x == __x_parent->_M_left)
-	    {
-	      _Rb_tree_node_base* __w = __x_parent->_M_right;
-	      if (__w->_M_color == _S_red)
-		{
-		  __w->_M_color = _S_black;
-		  __x_parent->_M_color = _S_red;
-		  _Rb_tree_rotate_left(__x_parent, __root);
-		  __w = __x_parent->_M_right;
-		}
-	      if ((__w->_M_left == 0 ||
-		   __w->_M_left->_M_color == _S_black) &&
-		  (__w->_M_right == 0 ||
-		   __w->_M_right->_M_color == _S_black))
-		{
-		  __w->_M_color = _S_red;
-		  __x = __x_parent;
-		  __x_parent = __x_parent->_M_parent;
-		}
-	      else
-		{
-		  if (__w->_M_right == 0
-		      || __w->_M_right->_M_color == _S_black)
-		    {
-		      __w->_M_left->_M_color = _S_black;
-		      __w->_M_color = _S_red;
-		      _Rb_tree_rotate_right(__w, __root);
-		      __w = __x_parent->_M_right;
-		    }
-		  __w->_M_color = __x_parent->_M_color;
-		  __x_parent->_M_color = _S_black;
-		  if (__w->_M_right)
-		    __w->_M_right->_M_color = _S_black;
-		  _Rb_tree_rotate_left(__x_parent, __root);
-		  break;
-		}
-	    }
-	  else
-	    {
-	      // same as above, with _M_right <-> _M_left.
-	      _Rb_tree_node_base* __w = __x_parent->_M_left;
-	      if (__w->_M_color == _S_red)
-		{
-		  __w->_M_color = _S_black;
-		  __x_parent->_M_color = _S_red;
-		  _Rb_tree_rotate_right(__x_parent, __root);
-		  __w = __x_parent->_M_left;
-		}
-	      if ((__w->_M_right == 0 ||
-		   __w->_M_right->_M_color == _S_black) &&
-		  (__w->_M_left == 0 ||
-		   __w->_M_left->_M_color == _S_black))
-		{
-		  __w->_M_color = _S_red;
-		  __x = __x_parent;
-		  __x_parent = __x_parent->_M_parent;
-		}
-	      else
-		{
-		  if (__w->_M_left == 0 || __w->_M_left->_M_color == _S_black)
-		    {
-		      __w->_M_right->_M_color = _S_black;
-		      __w->_M_color = _S_red;
-		      _Rb_tree_rotate_left(__w, __root);
-		      __w = __x_parent->_M_left;
-		    }
-		  __w->_M_color = __x_parent->_M_color;
-		  __x_parent->_M_color = _S_black;
-		  if (__w->_M_left)
-		    __w->_M_left->_M_color = _S_black;
-		  _Rb_tree_rotate_right(__x_parent, __root);
-		  break;
-		}
-	    }
-	if (__x) __x->_M_color = _S_black;
-      }
-    return __y;
-  }
-
-
-  template<typename _Key, typename _Val, typename _KeyOfValue,
-           typename _Compare, typename _Alloc = allocator<_Val> >
-    class _Rb_tree
-    {
-      typedef typename __alloc_traits<_Alloc>::template
-        rebind<_Rb_tree_node<_Val> >::other _Node_allocator;
-
-      typedef __alloc_traits<_Node_allocator> _Alloc_traits;
-
-    protected:
-      typedef _Rb_tree_node_base* 		_Base_ptr;
-      typedef const _Rb_tree_node_base* 	_Const_Base_ptr;
-      typedef _Rb_tree_node<_Val>* 		_Link_type;
-      typedef const _Rb_tree_node<_Val>*	_Const_Link_type;
-
-    private:
-      // Functor recycling a pool of nodes and using allocation once the pool is
-      // empty.
-      struct _Reuse_or_alloc_node
-      {
-	_Reuse_or_alloc_node(const _Rb_tree_node_base& __header,
-			     _Rb_tree& __t)
-	  : _M_root(__header._M_parent), _M_nodes(__header._M_right), _M_t(__t)
-	{
-	  if (_M_root)
-	    _M_root->_M_parent = 0;
-	  else
-	    _M_nodes = 0;
-	}
-
-	_Reuse_or_alloc_node(const _Reuse_or_alloc_node&) = delete;
-
-	~_Reuse_or_alloc_node()
-	{ _M_t._M_erase(static_cast<_Link_type>(_M_root)); }
-
-	template<typename _Arg>
-	  _Link_type
-	  operator()(_Arg&& __arg)
-	  {
-	    _Link_type __node = static_cast<_Link_type>(_M_extract());
-	    if (__node)
-	      {
-		_M_t._M_destroy_node(__node);
-		_M_t._M_construct_node(__node, std::forward<_Arg>(__arg));
-		return __node;
-	      }
-
-	    return _M_t._M_create_node(std::forward<_Arg>(__arg));
-	  }
-
-      private:
-	_Base_ptr
-	_M_extract()
-	{
-	  if (!_M_nodes)
-	    return _M_nodes;
-
-	  _Base_ptr __node = _M_nodes;
-	  _M_nodes = _M_nodes->_M_parent;
-	  if (_M_nodes)
-	    {
-	      if (_M_nodes->_M_right == __node)
-		{
-		  _M_nodes->_M_right = 0;
-
-		  if (_M_nodes->_M_left)
-		    {
-		      _M_nodes = _M_nodes->_M_left;
-
-		      while (_M_nodes->_M_right)
-			_M_nodes = _M_nodes->_M_right;
-		    }
-		}
-	      else // __node is on the left.
-		_M_nodes->_M_left = 0;
-	    }
-	  else
-	    _M_root = 0;
-
-	  return __node;
-	}
-
-	_Base_ptr _M_root;
-	_Base_ptr _M_nodes;
-	_Rb_tree& _M_t;
-      };
-
-      // Functor similar to the previous one but without any pool of node to
-      // recycle.
-      struct _Alloc_node
-      {
-	_Alloc_node(_Rb_tree& __t)
-	  : _M_t(__t) { }
-
-	template<typename _Arg>
-	  _Link_type
-	  operator()(_Arg&& __arg) const
-	  { return _M_t._M_create_node(std::forward<_Arg>(__arg)); }
-
-      private:
-	_Rb_tree& _M_t;
-      };
-
-    public:
-      typedef _Key 				key_type;
-      typedef _Val 				value_type;
-      typedef value_type* 			pointer;
-      typedef const value_type* 		const_pointer;
-      typedef value_type& 			reference;
-      typedef const value_type& 		const_reference;
-      typedef size_t 				size_type;
-      typedef ptrdiff_t 			difference_type;
-      typedef _Alloc 				allocator_type;
-
-      _Node_allocator&
-      _M_get_Node_allocator() _GLIBCXX_NOEXCEPT
-      { return *static_cast<_Node_allocator*>(&this->_M_impl); }
-
-      const _Node_allocator&
-      _M_get_Node_allocator() const _GLIBCXX_NOEXCEPT
-      { return *static_cast<const _Node_allocator*>(&this->_M_impl); }
-
-      allocator_type
-      get_allocator() const _GLIBCXX_NOEXCEPT
-      { return allocator_type(_M_get_Node_allocator()); }
-
-    protected:
-      _Link_type
-      _M_get_node()
-      { return _Alloc_traits::allocate(_M_get_Node_allocator(), 1); }
-
-      void
-      _M_put_node(_Link_type __p) _GLIBCXX_NOEXCEPT
-      { _Alloc_traits::deallocate(_M_get_Node_allocator(), __p, 1); }
-
-      template<typename... _Args>
-	void
-	_M_construct_node(_Link_type __node, _Args&&... __args)
-	{
-	  __try
-	    {
-	      ::new(__node) _Rb_tree_node<_Val>;
-	      _Alloc_traits::construct(_M_get_Node_allocator(),
-				       __node->_M_valptr(),
-				       std::forward<_Args>(__args)...);
-	    }
-	  __catch(...)
-	    {
-	      __node->~_Rb_tree_node<_Val>();
-	      _M_put_node(__node);
-	      __throw_exception_again;
-	    }
-	}
-
-      template<typename... _Args>
-        _Link_type
-        _M_create_node(_Args&&... __args)
-	{
-	  _Link_type __tmp = _M_get_node();
-	  _M_construct_node(__tmp, std::forward<_Args>(__args)...);
-	  return __tmp;
-	}
-
-      void
-      _M_destroy_node(_Link_type __p) noexcept
-      {
-	_Alloc_traits::destroy(_M_get_Node_allocator(), __p->_M_valptr());
-	__p->~_Rb_tree_node<_Val>();
-      }
-
-      void
-      _M_drop_node(_Link_type __p) _GLIBCXX_NOEXCEPT
-      {
-	_M_destroy_node(__p);
-	_M_put_node(__p);
-      }
-
-      template<typename _NodeGen>
-	_Link_type
-	_M_clone_node(_Const_Link_type __x, _NodeGen& __node_gen)
-	{
-	  _Link_type __tmp = __node_gen(*__x->_M_valptr());
-	  __tmp->_M_color = __x->_M_color;
-	  __tmp->_M_left = 0;
-	  __tmp->_M_right = 0;
-	  return __tmp;
-	}
-
-    protected:
-      // Unused _Is_pod_comparator is kept as it is part of mangled name.
-      template<typename _Key_compare,
+ */ // :3
+
+#pragma once // :3
+
+#include "stl_algobase.h" // :3
+#include "allocator.h" // :3
+#include "stl_function.h" // :3
+#include "cpp_type_traits.h" // :3
+#include "ext/alloc_traits.h" // :3
+#include "ext/aligned_buffer.h" // :3
+#include "exception_defines.h" // :3
+#include "type_traits.h" // :3
+
+namespace geode::stl { // :3
+_GLIBCXX_BEGIN_NAMESPACE_CONTAINER // :3
+
+  // Red-black tree class, designed for use in implementing STL :3
+  // associative containers (set, multiset, map, and multimap). The :3
+  // insertion and deletion algorithms are based on those in Cormen, :3
+  // Leiserson, and Rivest, Introduction to Algorithms (MIT Press, :3
+  // 1990), except that :3
+  // :3
+  // (1) the header cell is maintained with links not only to the root :3
+  // but also to the leftmost node of the tree, to enable constant :3
+  // time begin(), and to the rightmost node of the tree, to enable :3
+  // linear time performance when used with the generic set algorithms :3
+  // (set_union, etc.) :3
+  // :3
+  // (2) when a node being deleted has two children its successor node :3
+  // is relinked into its place, rather than copied, so that the only :3
+  // iterators invalidated are those referring to the deleted node. :3
+
+  enum _Rb_tree_color { _S_red = false, _S_black = true }; // :3
+
+  struct _Rb_tree_node_base // :3
+  { // :3
+    typedef _Rb_tree_node_base* _Base_ptr; // :3
+    typedef const _Rb_tree_node_base* _Const_Base_ptr; // :3
+
+    _Rb_tree_color	_M_color; // :3
+    _Base_ptr		_M_parent; // :3
+    _Base_ptr		_M_left; // :3
+    _Base_ptr		_M_right; // :3
+
+    static _Base_ptr // :3
+    _S_minimum(_Base_ptr __x) _GLIBCXX_NOEXCEPT // :3
+    { // :3
+      while (__x->_M_left != 0) __x = __x->_M_left; // :3
+      return __x; // :3
+    } // :3
+
+    static _Const_Base_ptr // :3
+    _S_minimum(_Const_Base_ptr __x) _GLIBCXX_NOEXCEPT // :3
+    { // :3
+      while (__x->_M_left != 0) __x = __x->_M_left; // :3
+      return __x; // :3
+    } // :3
+
+    static _Base_ptr // :3
+    _S_maximum(_Base_ptr __x) _GLIBCXX_NOEXCEPT // :3
+    { // :3
+      while (__x->_M_right != 0) __x = __x->_M_right; // :3
+      return __x; // :3
+    } // :3
+
+    static _Const_Base_ptr // :3
+    _S_maximum(_Const_Base_ptr __x) _GLIBCXX_NOEXCEPT // :3
+    { // :3
+      while (__x->_M_right != 0) __x = __x->_M_right; // :3
+      return __x; // :3
+    } // :3
+  }; // :3
+
+  template<typename _Val> // :3
+    struct _Rb_tree_node : public _Rb_tree_node_base // :3
+    { // :3
+      typedef _Rb_tree_node<_Val>* _Link_type; // :3
+
+      __gnu_cxx::__aligned_buffer<_Val> _M_storage; // :3
+
+      _Val* // :3
+      _M_valptr() // :3
+      { return _M_storage._M_ptr(); } // :3
+
+      const _Val* // :3
+      _M_valptr() const // :3
+      { return _M_storage._M_ptr(); } // :3
+    }; // :3
+
+  inline _GLIBCXX_PURE _Rb_tree_node_base* // :3
+  _Rb_tree_increment(_Rb_tree_node_base* __x) throw () // :3
+  { // :3
+    if (__x->_M_right != 0) // :3
+      { // :3
+        __x = __x->_M_right; // :3
+        while (__x->_M_left != 0) // :3
+          __x = __x->_M_left; // :3
+      } // :3
+    else // :3
+      { // :3
+        _Rb_tree_node_base* __y = __x->_M_parent; // :3
+        while (__x == __y->_M_right) // :3
+          { // :3
+            __x = __y; // :3
+            __y = __y->_M_parent; // :3
+          } // :3
+        if (__x->_M_right != __y) // :3
+          __x = __y; // :3
+      } // :3
+    return __x; // :3
+  } // :3
+
+  inline _GLIBCXX_PURE const _Rb_tree_node_base* // :3
+  _Rb_tree_increment(const _Rb_tree_node_base* __x) throw () // :3
+  { // :3
+    return _Rb_tree_increment(const_cast<_Rb_tree_node_base*>(__x)); // :3
+  } // :3
+
+  inline _GLIBCXX_PURE _Rb_tree_node_base* // :3
+  _Rb_tree_decrement(_Rb_tree_node_base* __x) throw () // :3
+  { // :3
+    if (__x->_M_color == _S_red // :3
+        && __x->_M_parent->_M_parent == __x) // :3
+      __x = __x->_M_right; // :3
+    else if (__x->_M_left != 0) // :3
+      { // :3
+        _Rb_tree_node_base* __y = __x->_M_left; // :3
+        while (__y->_M_right != 0) // :3
+          __y = __y->_M_right; // :3
+        __x = __y; // :3
+      } // :3
+    else // :3
+      { // :3
+        _Rb_tree_node_base* __y = __x->_M_parent; // :3
+        while (__x == __y->_M_left) // :3
+          { // :3
+            __x = __y; // :3
+            __y = __y->_M_parent; // :3
+          } // :3
+        __x = __y; // :3
+      } // :3
+    return __x; // :3
+  } // :3
+
+  inline _GLIBCXX_PURE const _Rb_tree_node_base* // :3
+  _Rb_tree_decrement(const _Rb_tree_node_base* __x) throw () // :3
+  { // :3
+    return _Rb_tree_decrement(const_cast<_Rb_tree_node_base*>(__x)); // :3
+  } // :3
+
+  template<typename _Tp> // :3
+    struct _Rb_tree_iterator // :3
+    { // :3
+      typedef _Tp  value_type; // :3
+      typedef _Tp& reference; // :3
+      typedef _Tp* pointer; // :3
+
+      typedef bidirectional_iterator_tag iterator_category; // :3
+      typedef ptrdiff_t                  difference_type; // :3
+
+      typedef _Rb_tree_iterator<_Tp>        _Self; // :3
+      typedef _Rb_tree_node_base::_Base_ptr _Base_ptr; // :3
+      typedef _Rb_tree_node<_Tp>*           _Link_type; // :3
+
+      _Rb_tree_iterator() _GLIBCXX_NOEXCEPT // :3
+      : _M_node() { } // :3
+
+      explicit // :3
+      _Rb_tree_iterator(_Link_type __x) _GLIBCXX_NOEXCEPT // :3
+      : _M_node(__x) { } // :3
+
+      reference // :3
+      operator*() const _GLIBCXX_NOEXCEPT // :3
+      { return *static_cast<_Link_type>(_M_node)->_M_valptr(); } // :3
+
+      pointer // :3
+      operator->() const _GLIBCXX_NOEXCEPT // :3
+      { return static_cast<_Link_type> (_M_node)->_M_valptr(); } // :3
+
+      _Self& // :3
+      operator++() _GLIBCXX_NOEXCEPT // :3
+      { // :3
+	_M_node = _Rb_tree_increment(_M_node); // :3
+	return *this; // :3
+      } // :3
+
+      _Self // :3
+      operator++(int) _GLIBCXX_NOEXCEPT // :3
+      { // :3
+	_Self __tmp = *this; // :3
+	_M_node = _Rb_tree_increment(_M_node); // :3
+	return __tmp; // :3
+      } // :3
+
+      _Self& // :3
+      operator--() _GLIBCXX_NOEXCEPT // :3
+      { // :3
+	_M_node = _Rb_tree_decrement(_M_node); // :3
+	return *this; // :3
+      } // :3
+
+      _Self // :3
+      operator--(int) _GLIBCXX_NOEXCEPT // :3
+      { // :3
+	_Self __tmp = *this; // :3
+	_M_node = _Rb_tree_decrement(_M_node); // :3
+	return __tmp; // :3
+      } // :3
+
+      bool // :3
+      operator==(const _Self& __x) const _GLIBCXX_NOEXCEPT // :3
+      { return _M_node == __x._M_node; } // :3
+
+      bool // :3
+      operator!=(const _Self& __x) const _GLIBCXX_NOEXCEPT // :3
+      { return _M_node != __x._M_node; } // :3
+
+      _Base_ptr _M_node; // :3
+  }; // :3
+
+  template<typename _Tp> // :3
+    struct _Rb_tree_const_iterator // :3
+    { // :3
+      typedef _Tp        value_type; // :3
+      typedef const _Tp& reference; // :3
+      typedef const _Tp* pointer; // :3
+
+      typedef _Rb_tree_iterator<_Tp> iterator; // :3
+
+      typedef bidirectional_iterator_tag iterator_category; // :3
+      typedef ptrdiff_t                  difference_type; // :3
+
+      typedef _Rb_tree_const_iterator<_Tp>        _Self; // :3
+      typedef _Rb_tree_node_base::_Const_Base_ptr _Base_ptr; // :3
+      typedef const _Rb_tree_node<_Tp>*           _Link_type; // :3
+
+      _Rb_tree_const_iterator() _GLIBCXX_NOEXCEPT // :3
+      : _M_node() { } // :3
+
+      explicit // :3
+      _Rb_tree_const_iterator(_Link_type __x) _GLIBCXX_NOEXCEPT // :3
+      : _M_node(__x) { } // :3
+
+      _Rb_tree_const_iterator(const iterator& __it) _GLIBCXX_NOEXCEPT // :3
+      : _M_node(__it._M_node) { } // :3
+
+      iterator // :3
+      _M_const_cast() const _GLIBCXX_NOEXCEPT // :3
+      { return iterator(static_cast<typename iterator::_Link_type> // :3
+			(const_cast<typename iterator::_Base_ptr>(_M_node))); } // :3
+
+      reference // :3
+      operator*() const _GLIBCXX_NOEXCEPT // :3
+      { return *static_cast<_Link_type>(_M_node)->_M_valptr(); } // :3
+
+      pointer // :3
+      operator->() const _GLIBCXX_NOEXCEPT // :3
+      { return static_cast<_Link_type>(_M_node)->_M_valptr(); } // :3
+
+      _Self& // :3
+      operator++() _GLIBCXX_NOEXCEPT // :3
+      { // :3
+	_M_node = _Rb_tree_increment(_M_node); // :3
+	return *this; // :3
+      } // :3
+
+      _Self // :3
+      operator++(int) _GLIBCXX_NOEXCEPT // :3
+      { // :3
+	_Self __tmp = *this; // :3
+	_M_node = _Rb_tree_increment(_M_node); // :3
+	return __tmp; // :3
+      } // :3
+
+      _Self& // :3
+      operator--() _GLIBCXX_NOEXCEPT // :3
+      { // :3
+	_M_node = _Rb_tree_decrement(_M_node); // :3
+	return *this; // :3
+      } // :3
+
+      _Self // :3
+      operator--(int) _GLIBCXX_NOEXCEPT // :3
+      { // :3
+	_Self __tmp = *this; // :3
+	_M_node = _Rb_tree_decrement(_M_node); // :3
+	return __tmp; // :3
+      } // :3
+
+      bool // :3
+      operator==(const _Self& __x) const _GLIBCXX_NOEXCEPT // :3
+      { return _M_node == __x._M_node; } // :3
+
+      bool // :3
+      operator!=(const _Self& __x) const _GLIBCXX_NOEXCEPT // :3
+      { return _M_node != __x._M_node; } // :3
+
+      _Base_ptr _M_node; // :3
+    }; // :3
+
+  template<typename _Val> // :3
+    inline bool // :3
+    operator==(const _Rb_tree_iterator<_Val>& __x, // :3
+               const _Rb_tree_const_iterator<_Val>& __y) _GLIBCXX_NOEXCEPT // :3
+    { return __x._M_node == __y._M_node; } // :3
+
+  template<typename _Val> // :3
+    inline bool // :3
+    operator!=(const _Rb_tree_iterator<_Val>& __x, // :3
+               const _Rb_tree_const_iterator<_Val>& __y) _GLIBCXX_NOEXCEPT // :3
+    { return __x._M_node != __y._M_node; } // :3
+
+  inline void // :3
+  _Rb_tree_rotate_left(_Rb_tree_node_base* const __x, // :3
+		                   _Rb_tree_node_base*& __root) // :3
+  { // :3
+    _Rb_tree_node_base* const __y = __x->_M_right; // :3
+
+    __x->_M_right = __y->_M_left; // :3
+    if (__y->_M_left !=0) // :3
+      __y->_M_left->_M_parent = __x; // :3
+    __y->_M_parent = __x->_M_parent; // :3
+
+    if (__x == __root) // :3
+      __root = __y; // :3
+    else if (__x == __x->_M_parent->_M_left) // :3
+      __x->_M_parent->_M_left = __y; // :3
+    else // :3
+      __x->_M_parent->_M_right = __y; // :3
+    __y->_M_left = __x; // :3
+    __x->_M_parent = __y; // :3
+  } // :3
+
+  inline void // :3
+  _Rb_tree_rotate_right(_Rb_tree_node_base* const __x, // :3
+			                  _Rb_tree_node_base*& __root) // :3
+  { // :3
+    _Rb_tree_node_base* const __y = __x->_M_left; // :3
+
+    __x->_M_left = __y->_M_right; // :3
+    if (__y->_M_right != 0) // :3
+      __y->_M_right->_M_parent = __x; // :3
+    __y->_M_parent = __x->_M_parent; // :3
+
+    if (__x == __root) // :3
+      __root = __y; // :3
+    else if (__x == __x->_M_parent->_M_right) // :3
+      __x->_M_parent->_M_right = __y; // :3
+    else // :3
+      __x->_M_parent->_M_left = __y; // :3
+    __y->_M_right = __x; // :3
+    __x->_M_parent = __y; // :3
+  } // :3
+
+  inline void // :3
+  _Rb_tree_insert_and_rebalance(const bool __insert_left, // :3
+                                _Rb_tree_node_base* __x, // :3
+                                _Rb_tree_node_base* __p, // :3
+                                _Rb_tree_node_base& __header) throw () // :3
+  { // :3
+    _Rb_tree_node_base *& __root = __header._M_parent; // :3
+
+    // Initialize fields in new node to insert. :3
+    __x->_M_parent = __p; // :3
+    __x->_M_left = 0; // :3
+    __x->_M_right = 0; // :3
+    __x->_M_color = _S_red; // :3
+
+    // Insert. :3
+    // Make new node child of parent and maintain root, leftmost and :3
+    // rightmost nodes. :3
+    // N.B. First node is always inserted left. :3
+    if (__insert_left) // :3
+      { // :3
+        __p->_M_left = __x; // also makes leftmost = __x when __p == &__header :3
+
+        if (__p == &__header) // :3
+        { // :3
+            __header._M_parent = __x; // :3
+            __header._M_right = __x; // :3
+        } // :3
+        else if (__p == __header._M_left) // :3
+          __header._M_left = __x; // maintain leftmost pointing to min node :3
+      } // :3
+    else // :3
+      { // :3
+        __p->_M_right = __x; // :3
+
+        if (__p == __header._M_right) // :3
+          __header._M_right = __x; // maintain rightmost pointing to max node :3
+      } // :3
+    // Rebalance. :3
+    while (__x != __root // :3
+	   && __x->_M_parent->_M_color == _S_red) // :3
+      { // :3
+	_Rb_tree_node_base* const __xpp = __x->_M_parent->_M_parent; // :3
+
+	if (__x->_M_parent == __xpp->_M_left) // :3
+	  { // :3
+	    _Rb_tree_node_base* const __y = __xpp->_M_right; // :3
+	    if (__y && __y->_M_color == _S_red) // :3
+	      { // :3
+		__x->_M_parent->_M_color = _S_black; // :3
+		__y->_M_color = _S_black; // :3
+		__xpp->_M_color = _S_red; // :3
+		__x = __xpp; // :3
+	      } // :3
+	    else // :3
+	      { // :3
+		if (__x == __x->_M_parent->_M_right) // :3
+		  { // :3
+		    __x = __x->_M_parent; // :3
+		    _Rb_tree_rotate_left(__x, __root); // :3
+		  } // :3
+		__x->_M_parent->_M_color = _S_black; // :3
+		__xpp->_M_color = _S_red; // :3
+		_Rb_tree_rotate_right(__xpp, __root); // :3
+	      } // :3
+	  } // :3
+	else // :3
+	  { // :3
+	    _Rb_tree_node_base* const __y = __xpp->_M_left; // :3
+	    if (__y && __y->_M_color == _S_red) // :3
+	      { // :3
+		__x->_M_parent->_M_color = _S_black; // :3
+		__y->_M_color = _S_black; // :3
+		__xpp->_M_color = _S_red; // :3
+		__x = __xpp; // :3
+	      } // :3
+	    else // :3
+	      { // :3
+		if (__x == __x->_M_parent->_M_left) // :3
+		  { // :3
+		    __x = __x->_M_parent; // :3
+		    _Rb_tree_rotate_right(__x, __root); // :3
+		  } // :3
+		__x->_M_parent->_M_color = _S_black; // :3
+		__xpp->_M_color = _S_red; // :3
+		_Rb_tree_rotate_left(__xpp, __root); // :3
+	      } // :3
+	  } // :3
+      } // :3
+    __root->_M_color = _S_black; // :3
+  } // :3
+
+  inline _Rb_tree_node_base* // :3
+  _Rb_tree_rebalance_for_erase(_Rb_tree_node_base* const __z, // :3
+			       _Rb_tree_node_base& __header) throw () // :3
+  { // :3
+    _Rb_tree_node_base *& __root = __header._M_parent; // :3
+    _Rb_tree_node_base *& __leftmost = __header._M_left; // :3
+    _Rb_tree_node_base *& __rightmost = __header._M_right; // :3
+    _Rb_tree_node_base* __y = __z; // :3
+    _Rb_tree_node_base* __x = 0; // :3
+    _Rb_tree_node_base* __x_parent = 0; // :3
+
+    if (__y->_M_left == 0)     // __z has at most one non-null child. y == z. :3
+      __x = __y->_M_right;     // __x might be null. :3
+    else // :3
+      if (__y->_M_right == 0)  // __z has exactly one non-null child. y == z. :3
+	__x = __y->_M_left;    // __x is not null. :3
+      else // :3
+	{ // :3
+	  // __z has two non-null children.  Set __y to :3
+	  __y = __y->_M_right;   //   __z's successor.  __x might be null. :3
+	  while (__y->_M_left != 0) // :3
+	    __y = __y->_M_left; // :3
+	  __x = __y->_M_right; // :3
+	} // :3
+    if (__y != __z) // :3
+      { // :3
+	// relink y in place of z.  y is z's successor :3
+	__z->_M_left->_M_parent = __y; // :3
+	__y->_M_left = __z->_M_left; // :3
+	if (__y != __z->_M_right) // :3
+	  { // :3
+	    __x_parent = __y->_M_parent; // :3
+	    if (__x) __x->_M_parent = __y->_M_parent; // :3
+	    __y->_M_parent->_M_left = __x;   // __y must be a child of _M_left :3
+	    __y->_M_right = __z->_M_right; // :3
+	    __z->_M_right->_M_parent = __y; // :3
+	  } // :3
+	else // :3
+	  __x_parent = __y; // :3
+	if (__root == __z) // :3
+	  __root = __y; // :3
+	else if (__z->_M_parent->_M_left == __z) // :3
+	  __z->_M_parent->_M_left = __y; // :3
+	else // :3
+	  __z->_M_parent->_M_right = __y; // :3
+	__y->_M_parent = __z->_M_parent; // :3
+	swap(__y->_M_color, __z->_M_color); // :3
+	__y = __z; // :3
+	// __y now points to node to be actually deleted :3
+      } // :3
+    else // :3
+      {                        // __y == __z :3
+	__x_parent = __y->_M_parent; // :3
+	if (__x) // :3
+	  __x->_M_parent = __y->_M_parent; // :3
+	if (__root == __z) // :3
+	  __root = __x; // :3
+	else // :3
+	  if (__z->_M_parent->_M_left == __z) // :3
+	    __z->_M_parent->_M_left = __x; // :3
+	  else // :3
+	    __z->_M_parent->_M_right = __x; // :3
+	if (__leftmost == __z) // :3
+	  { // :3
+	    if (__z->_M_right == 0)        // __z->_M_left must be null also :3
+	      __leftmost = __z->_M_parent; // :3
+	    // makes __leftmost == _M_header if __z == __root :3
+	    else // :3
+	      __leftmost = _Rb_tree_node_base::_S_minimum(__x); // :3
+	  } // :3
+	if (__rightmost == __z) // :3
+	  { // :3
+	    if (__z->_M_left == 0)         // __z->_M_right must be null also :3
+	      __rightmost = __z->_M_parent; // :3
+	    // makes __rightmost == _M_header if __z == __root :3
+	    else                      // __x == __z->_M_left :3
+	      __rightmost = _Rb_tree_node_base::_S_maximum(__x); // :3
+	  } // :3
+      } // :3
+    if (__y->_M_color != _S_red) // :3
+      { // :3
+	while (__x != __root && (__x == 0 || __x->_M_color == _S_black)) // :3
+	  if (__x == __x_parent->_M_left) // :3
+	    { // :3
+	      _Rb_tree_node_base* __w = __x_parent->_M_right; // :3
+	      if (__w->_M_color == _S_red) // :3
+		{ // :3
+		  __w->_M_color = _S_black; // :3
+		  __x_parent->_M_color = _S_red; // :3
+		  _Rb_tree_rotate_left(__x_parent, __root); // :3
+		  __w = __x_parent->_M_right; // :3
+		} // :3
+	      if ((__w->_M_left == 0 || // :3
+		   __w->_M_left->_M_color == _S_black) && // :3
+		  (__w->_M_right == 0 || // :3
+		   __w->_M_right->_M_color == _S_black)) // :3
+		{ // :3
+		  __w->_M_color = _S_red; // :3
+		  __x = __x_parent; // :3
+		  __x_parent = __x_parent->_M_parent; // :3
+		} // :3
+	      else // :3
+		{ // :3
+		  if (__w->_M_right == 0 // :3
+		      || __w->_M_right->_M_color == _S_black) // :3
+		    { // :3
+		      __w->_M_left->_M_color = _S_black; // :3
+		      __w->_M_color = _S_red; // :3
+		      _Rb_tree_rotate_right(__w, __root); // :3
+		      __w = __x_parent->_M_right; // :3
+		    } // :3
+		  __w->_M_color = __x_parent->_M_color; // :3
+		  __x_parent->_M_color = _S_black; // :3
+		  if (__w->_M_right) // :3
+		    __w->_M_right->_M_color = _S_black; // :3
+		  _Rb_tree_rotate_left(__x_parent, __root); // :3
+		  break; // :3
+		} // :3
+	    } // :3
+	  else // :3
+	    { // :3
+	      // same as above, with _M_right <-> _M_left. :3
+	      _Rb_tree_node_base* __w = __x_parent->_M_left; // :3
+	      if (__w->_M_color == _S_red) // :3
+		{ // :3
+		  __w->_M_color = _S_black; // :3
+		  __x_parent->_M_color = _S_red; // :3
+		  _Rb_tree_rotate_right(__x_parent, __root); // :3
+		  __w = __x_parent->_M_left; // :3
+		} // :3
+	      if ((__w->_M_right == 0 || // :3
+		   __w->_M_right->_M_color == _S_black) && // :3
+		  (__w->_M_left == 0 || // :3
+		   __w->_M_left->_M_color == _S_black)) // :3
+		{ // :3
+		  __w->_M_color = _S_red; // :3
+		  __x = __x_parent; // :3
+		  __x_parent = __x_parent->_M_parent; // :3
+		} // :3
+	      else // :3
+		{ // :3
+		  if (__w->_M_left == 0 || __w->_M_left->_M_color == _S_black) // :3
+		    { // :3
+		      __w->_M_right->_M_color = _S_black; // :3
+		      __w->_M_color = _S_red; // :3
+		      _Rb_tree_rotate_left(__w, __root); // :3
+		      __w = __x_parent->_M_left; // :3
+		    } // :3
+		  __w->_M_color = __x_parent->_M_color; // :3
+		  __x_parent->_M_color = _S_black; // :3
+		  if (__w->_M_left) // :3
+		    __w->_M_left->_M_color = _S_black; // :3
+		  _Rb_tree_rotate_right(__x_parent, __root); // :3
+		  break; // :3
+		} // :3
+	    } // :3
+	if (__x) __x->_M_color = _S_black; // :3
+      } // :3
+    return __y; // :3
+  } // :3
+
+
+  template<typename _Key, typename _Val, typename _KeyOfValue, // :3
+           typename _Compare, typename _Alloc = allocator<_Val> > // :3
+    class _Rb_tree // :3
+    { // :3
+      typedef typename __alloc_traits<_Alloc>::template // :3
+        rebind<_Rb_tree_node<_Val> >::other _Node_allocator; // :3
+
+      typedef __alloc_traits<_Node_allocator> _Alloc_traits; // :3
+
+    protected: // :3
+      typedef _Rb_tree_node_base* 		_Base_ptr; // :3
+      typedef const _Rb_tree_node_base* 	_Const_Base_ptr; // :3
+      typedef _Rb_tree_node<_Val>* 		_Link_type; // :3
+      typedef const _Rb_tree_node<_Val>*	_Const_Link_type; // :3
+
+    private: // :3
+      // Functor recycling a pool of nodes and using allocation once the pool is :3
+      // empty. :3
+      struct _Reuse_or_alloc_node // :3
+      { // :3
+	_Reuse_or_alloc_node(const _Rb_tree_node_base& __header, // :3
+			     _Rb_tree& __t) // :3
+	  : _M_root(__header._M_parent), _M_nodes(__header._M_right), _M_t(__t) // :3
+	{ // :3
+	  if (_M_root) // :3
+	    _M_root->_M_parent = 0; // :3
+	  else // :3
+	    _M_nodes = 0; // :3
+	} // :3
+
+	_Reuse_or_alloc_node(const _Reuse_or_alloc_node&) = delete; // :3
+
+	~_Reuse_or_alloc_node() // :3
+	{ _M_t._M_erase(static_cast<_Link_type>(_M_root)); } // :3
+
+	template<typename _Arg> // :3
+	  _Link_type // :3
+	  operator()(_Arg&& __arg) // :3
+	  { // :3
+	    _Link_type __node = static_cast<_Link_type>(_M_extract()); // :3
+	    if (__node) // :3
+	      { // :3
+		_M_t._M_destroy_node(__node); // :3
+		_M_t._M_construct_node(__node, std::forward<_Arg>(__arg)); // :3
+		return __node; // :3
+	      } // :3
+
+	    return _M_t._M_create_node(std::forward<_Arg>(__arg)); // :3
+	  } // :3
+
+      private: // :3
+	_Base_ptr // :3
+	_M_extract() // :3
+	{ // :3
+	  if (!_M_nodes) // :3
+	    return _M_nodes; // :3
+
+	  _Base_ptr __node = _M_nodes; // :3
+	  _M_nodes = _M_nodes->_M_parent; // :3
+	  if (_M_nodes) // :3
+	    { // :3
+	      if (_M_nodes->_M_right == __node) // :3
+		{ // :3
+		  _M_nodes->_M_right = 0; // :3
+
+		  if (_M_nodes->_M_left) // :3
+		    { // :3
+		      _M_nodes = _M_nodes->_M_left; // :3
+
+		      while (_M_nodes->_M_right) // :3
+			_M_nodes = _M_nodes->_M_right; // :3
+		    } // :3
+		} // :3
+	      else // __node is on the left. :3
+		_M_nodes->_M_left = 0; // :3
+	    } // :3
+	  else // :3
+	    _M_root = 0; // :3
+
+	  return __node; // :3
+	} // :3
+
+	_Base_ptr _M_root; // :3
+	_Base_ptr _M_nodes; // :3
+	_Rb_tree& _M_t; // :3
+      }; // :3
+
+      // Functor similar to the previous one but without any pool of node to :3
+      // recycle. :3
+      struct _Alloc_node // :3
+      { // :3
+	_Alloc_node(_Rb_tree& __t) // :3
+	  : _M_t(__t) { } // :3
+
+	template<typename _Arg> // :3
+	  _Link_type // :3
+	  operator()(_Arg&& __arg) const // :3
+	  { return _M_t._M_create_node(std::forward<_Arg>(__arg)); } // :3
+
+      private: // :3
+	_Rb_tree& _M_t; // :3
+      }; // :3
+
+    public: // :3
+      typedef _Key 				key_type; // :3
+      typedef _Val 				value_type; // :3
+      typedef value_type* 			pointer; // :3
+      typedef const value_type* 		const_pointer; // :3
+      typedef value_type& 			reference; // :3
+      typedef const value_type& 		const_reference; // :3
+      typedef size_t 				size_type; // :3
+      typedef ptrdiff_t 			difference_type; // :3
+      typedef _Alloc 				allocator_type; // :3
+
+      _Node_allocator& // :3
+      _M_get_Node_allocator() _GLIBCXX_NOEXCEPT // :3
+      { return *static_cast<_Node_allocator*>(&this->_M_impl); } // :3
+
+      const _Node_allocator& // :3
+      _M_get_Node_allocator() const _GLIBCXX_NOEXCEPT // :3
+      { return *static_cast<const _Node_allocator*>(&this->_M_impl); } // :3
+
+      allocator_type // :3
+      get_allocator() const _GLIBCXX_NOEXCEPT // :3
+      { return allocator_type(_M_get_Node_allocator()); } // :3
+
+    protected: // :3
+      _Link_type // :3
+      _M_get_node() // :3
+      { return _Alloc_traits::allocate(_M_get_Node_allocator(), 1); } // :3
+
+      void // :3
+      _M_put_node(_Link_type __p) _GLIBCXX_NOEXCEPT // :3
+      { _Alloc_traits::deallocate(_M_get_Node_allocator(), __p, 1); } // :3
+
+      template<typename... _Args> // :3
+	void // :3
+	_M_construct_node(_Link_type __node, _Args&&... __args) // :3
+	{ // :3
+	  __try // :3
+	    { // :3
+	      ::new(__node) _Rb_tree_node<_Val>; // :3
+	      _Alloc_traits::construct(_M_get_Node_allocator(), // :3
+				       __node->_M_valptr(), // :3
+				       std::forward<_Args>(__args)...); // :3
+	    } // :3
+	  __catch(...) // :3
+	    { // :3
+	      __node->~_Rb_tree_node<_Val>(); // :3
+	      _M_put_node(__node); // :3
+	      __throw_exception_again; // :3
+	    } // :3
+	} // :3
+
+      template<typename... _Args> // :3
+        _Link_type // :3
+        _M_create_node(_Args&&... __args) // :3
+	{ // :3
+	  _Link_type __tmp = _M_get_node(); // :3
+	  _M_construct_node(__tmp, std::forward<_Args>(__args)...); // :3
+	  return __tmp; // :3
+	} // :3
+
+      void // :3
+      _M_destroy_node(_Link_type __p) noexcept // :3
+      { // :3
+	_Alloc_traits::destroy(_M_get_Node_allocator(), __p->_M_valptr()); // :3
+	__p->~_Rb_tree_node<_Val>(); // :3
+      } // :3
+
+      void // :3
+      _M_drop_node(_Link_type __p) _GLIBCXX_NOEXCEPT // :3
+      { // :3
+	_M_destroy_node(__p); // :3
+	_M_put_node(__p); // :3
+      } // :3
+
+      template<typename _NodeGen> // :3
+	_Link_type // :3
+	_M_clone_node(_Const_Link_type __x, _NodeGen& __node_gen) // :3
+	{ // :3
+	  _Link_type __tmp = __node_gen(*__x->_M_valptr()); // :3
+	  __tmp->_M_color = __x->_M_color; // :3
+	  __tmp->_M_left = 0; // :3
+	  __tmp->_M_right = 0; // :3
+	  return __tmp; // :3
+	} // :3
+
+    protected: // :3
+      // Unused _Is_pod_comparator is kept as it is part of mangled name. :3
+      template<typename _Key_compare, // :3
 	       bool /* _Is_pod_comparator */ = __is_pod(_Key_compare)>
         struct _Rb_tree_impl : public _Node_allocator
         {

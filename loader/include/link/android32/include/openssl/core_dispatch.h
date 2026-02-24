@@ -5,26 +5,26 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_CORE_NUMBERS_H
-#define OPENSSL_CORE_NUMBERS_H
-#pragma once
+#ifndef OPENSSL_CORE_NUMBERS_H // :3
+#define OPENSSL_CORE_NUMBERS_H // :3
+#pragma once // :3
 
-#include <stdarg.h>
-#include <openssl/core.h>
-#include <openssl/indicator.h>
+#include <stdarg.h> // :3
+#include <openssl/core.h> // :3
+#include <openssl/indicator.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /*
  * Generic function pointer for provider method arrays, or other contexts where
  * functions of various signatures must occupy a common slot in an array of
  * structures.
- */
-typedef void (*OSSL_FUNC)(void);
+ */ // :3
+typedef void (*OSSL_FUNC)(void); // :3
 
 /*-
  * Identities
@@ -42,7 +42,7 @@ typedef void (*OSSL_FUNC)(void);
  *   thereof (to be specified further down)
  * - a function signature typedef with the name OSSL_FUNC_'foo'_fn
  * - a function pointer extractor function with the name OSSL_FUNC_'foo'
- */
+ */ // :3
 
 /*
  * Helper macro to create the function signature typedef and the extractor
@@ -51,7 +51,7 @@ typedef void (*OSSL_FUNC)(void);
  * for the function (that is, it is |name|'s function signature).
  * Note: This is considered a "reserved" internal macro. Applications should
  * not use this or assume its existence.
- */
+ */ // :3
 #define OSSL_CORE_MAKE_FUNC(type, name, args)          \
     typedef type(OSSL_FUNC_##name##_fn) args;          \
     static ossl_unused ossl_inline                     \
@@ -59,7 +59,7 @@ typedef void (*OSSL_FUNC)(void);
         OSSL_FUNC_##name(const OSSL_DISPATCH *opf)     \
     {                                                  \
         return (OSSL_FUNC_##name##_fn *)opf->function; \
-    }
+    } // :3
 
 /*
  * Core function identities, for the two OSSL_DISPATCH tables being passed
@@ -67,7 +67,7 @@ typedef void (*OSSL_FUNC)(void);
  *
  * 0 serves as a marker for the end of the OSSL_DISPATCH array, and must
  * therefore NEVER be used as a function identity.
- */
+ */ // :3
 /* Functions provided by the Core to the provider, reserved numbers 1-1023 */
 #define OSSL_FUNC_CORE_GETTABLE_PARAMS 1
 OSSL_CORE_MAKE_FUNC(const OSSL_PARAM *,
@@ -465,7 +465,7 @@ OSSL_CORE_MAKE_FUNC(int, mac_init_skey, (void *mctx, void *key, const OSSL_PARAM
  * dedicated memory allocation function), exported with
  * OSSL_FUNC_skeymgmt_export() and destroyed with OSSL_FUNC_keymgmt_free().
  *
- */
+ */ // :3
 
 /* Key data subset selection - individual bits */
 #define OSSL_SKEYMGMT_SELECT_PARAMETERS 0x01
@@ -634,7 +634,7 @@ OSSL_CORE_MAKE_FUNC(void, rand_clear_seed,
  * Three functions are made available to check what selection of data is
  * present in a key object: OSSL_FUNC_keymgmt_has_parameters(),
  * OSSL_FUNC_keymgmt_has_public_key(), and OSSL_FUNC_keymgmt_has_private_key(),
- */
+ */ // :3
 
 /* Key data subset selection - individual bits */
 #define OSSL_KEYMGMT_SELECT_PRIVATE_KEY 0x01
@@ -838,53 +838,53 @@ OSSL_CORE_MAKE_FUNC(int, signature_verify_message_update,
 /*
  * signature_verify_final requires that the signature to be verified against
  * is specified via an OSSL_PARAM.
- */
-OSSL_CORE_MAKE_FUNC(int, signature_verify_message_final, (void *ctx))
-OSSL_CORE_MAKE_FUNC(int, signature_verify_recover_init,
-    (void *ctx, void *provkey, const OSSL_PARAM params[]))
-OSSL_CORE_MAKE_FUNC(int, signature_verify_recover,
-    (void *ctx, unsigned char *rout, size_t *routlen,
-        size_t routsize, const unsigned char *sig, size_t siglen))
-OSSL_CORE_MAKE_FUNC(int, signature_digest_sign_init,
-    (void *ctx, const char *mdname, void *provkey,
-        const OSSL_PARAM params[]))
-OSSL_CORE_MAKE_FUNC(int, signature_digest_sign_update,
-    (void *ctx, const unsigned char *data, size_t datalen))
-OSSL_CORE_MAKE_FUNC(int, signature_digest_sign_final,
-    (void *ctx, unsigned char *sig, size_t *siglen,
-        size_t sigsize))
-OSSL_CORE_MAKE_FUNC(int, signature_digest_sign,
-    (void *ctx, unsigned char *sigret, size_t *siglen,
-        size_t sigsize, const unsigned char *tbs, size_t tbslen))
-OSSL_CORE_MAKE_FUNC(int, signature_digest_verify_init,
-    (void *ctx, const char *mdname, void *provkey,
-        const OSSL_PARAM params[]))
-OSSL_CORE_MAKE_FUNC(int, signature_digest_verify_update,
-    (void *ctx, const unsigned char *data, size_t datalen))
-OSSL_CORE_MAKE_FUNC(int, signature_digest_verify_final,
-    (void *ctx, const unsigned char *sig, size_t siglen))
-OSSL_CORE_MAKE_FUNC(int, signature_digest_verify,
-    (void *ctx, const unsigned char *sig, size_t siglen,
-        const unsigned char *tbs, size_t tbslen))
-OSSL_CORE_MAKE_FUNC(void, signature_freectx, (void *ctx))
-OSSL_CORE_MAKE_FUNC(void *, signature_dupctx, (void *ctx))
-OSSL_CORE_MAKE_FUNC(int, signature_get_ctx_params,
-    (void *ctx, OSSL_PARAM params[]))
-OSSL_CORE_MAKE_FUNC(const OSSL_PARAM *, signature_gettable_ctx_params,
-    (void *ctx, void *provctx))
-OSSL_CORE_MAKE_FUNC(int, signature_set_ctx_params,
-    (void *ctx, const OSSL_PARAM params[]))
-OSSL_CORE_MAKE_FUNC(const OSSL_PARAM *, signature_settable_ctx_params,
-    (void *ctx, void *provctx))
-OSSL_CORE_MAKE_FUNC(int, signature_get_ctx_md_params,
-    (void *ctx, OSSL_PARAM params[]))
-OSSL_CORE_MAKE_FUNC(const OSSL_PARAM *, signature_gettable_ctx_md_params,
-    (void *ctx))
-OSSL_CORE_MAKE_FUNC(int, signature_set_ctx_md_params,
-    (void *ctx, const OSSL_PARAM params[]))
-OSSL_CORE_MAKE_FUNC(const OSSL_PARAM *, signature_settable_ctx_md_params,
-    (void *ctx))
-OSSL_CORE_MAKE_FUNC(const char **, signature_query_key_types, (void))
+ */ // :3
+OSSL_CORE_MAKE_FUNC(int, signature_verify_message_final, (void *ctx)) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_verify_recover_init, // :3
+    (void *ctx, void *provkey, const OSSL_PARAM params[])) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_verify_recover, // :3
+    (void *ctx, unsigned char *rout, size_t *routlen, // :3
+        size_t routsize, const unsigned char *sig, size_t siglen)) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_digest_sign_init, // :3
+    (void *ctx, const char *mdname, void *provkey, // :3
+        const OSSL_PARAM params[])) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_digest_sign_update, // :3
+    (void *ctx, const unsigned char *data, size_t datalen)) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_digest_sign_final, // :3
+    (void *ctx, unsigned char *sig, size_t *siglen, // :3
+        size_t sigsize)) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_digest_sign, // :3
+    (void *ctx, unsigned char *sigret, size_t *siglen, // :3
+        size_t sigsize, const unsigned char *tbs, size_t tbslen)) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_digest_verify_init, // :3
+    (void *ctx, const char *mdname, void *provkey, // :3
+        const OSSL_PARAM params[])) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_digest_verify_update, // :3
+    (void *ctx, const unsigned char *data, size_t datalen)) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_digest_verify_final, // :3
+    (void *ctx, const unsigned char *sig, size_t siglen)) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_digest_verify, // :3
+    (void *ctx, const unsigned char *sig, size_t siglen, // :3
+        const unsigned char *tbs, size_t tbslen)) // :3
+OSSL_CORE_MAKE_FUNC(void, signature_freectx, (void *ctx)) // :3
+OSSL_CORE_MAKE_FUNC(void *, signature_dupctx, (void *ctx)) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_get_ctx_params, // :3
+    (void *ctx, OSSL_PARAM params[])) // :3
+OSSL_CORE_MAKE_FUNC(const OSSL_PARAM *, signature_gettable_ctx_params, // :3
+    (void *ctx, void *provctx)) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_set_ctx_params, // :3
+    (void *ctx, const OSSL_PARAM params[])) // :3
+OSSL_CORE_MAKE_FUNC(const OSSL_PARAM *, signature_settable_ctx_params, // :3
+    (void *ctx, void *provctx)) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_get_ctx_md_params, // :3
+    (void *ctx, OSSL_PARAM params[])) // :3
+OSSL_CORE_MAKE_FUNC(const OSSL_PARAM *, signature_gettable_ctx_md_params, // :3
+    (void *ctx)) // :3
+OSSL_CORE_MAKE_FUNC(int, signature_set_ctx_md_params, // :3
+    (void *ctx, const OSSL_PARAM params[])) // :3
+OSSL_CORE_MAKE_FUNC(const OSSL_PARAM *, signature_settable_ctx_md_params, // :3
+    (void *ctx)) // :3
+OSSL_CORE_MAKE_FUNC(const char **, signature_query_key_types, (void)) // :3
 
 /* Asymmetric Ciphers */
 
@@ -1020,42 +1020,42 @@ OSSL_CORE_MAKE_FUNC(int, decoder_export_object,
  * that they pass an abstract object through a callback, either as a DER
  * octet string or as an object reference, which libcrypto will have to
  * deal with.
- */
+ */ // :3
 
-#define OSSL_FUNC_STORE_OPEN 1
-#define OSSL_FUNC_STORE_ATTACH 2
-#define OSSL_FUNC_STORE_SETTABLE_CTX_PARAMS 3
-#define OSSL_FUNC_STORE_SET_CTX_PARAMS 4
-#define OSSL_FUNC_STORE_LOAD 5
-#define OSSL_FUNC_STORE_EOF 6
-#define OSSL_FUNC_STORE_CLOSE 7
-#define OSSL_FUNC_STORE_EXPORT_OBJECT 8
-#define OSSL_FUNC_STORE_DELETE 9
-#define OSSL_FUNC_STORE_OPEN_EX 10
-OSSL_CORE_MAKE_FUNC(void *, store_open, (void *provctx, const char *uri))
-OSSL_CORE_MAKE_FUNC(void *, store_attach, (void *provctx, OSSL_CORE_BIO *in))
-OSSL_CORE_MAKE_FUNC(const OSSL_PARAM *, store_settable_ctx_params,
-    (void *provctx))
-OSSL_CORE_MAKE_FUNC(int, store_set_ctx_params,
-    (void *loaderctx, const OSSL_PARAM params[]))
-OSSL_CORE_MAKE_FUNC(int, store_load,
-    (void *loaderctx,
-        OSSL_CALLBACK *object_cb, void *object_cbarg,
-        OSSL_PASSPHRASE_CALLBACK *pw_cb, void *pw_cbarg))
-OSSL_CORE_MAKE_FUNC(int, store_eof, (void *loaderctx))
-OSSL_CORE_MAKE_FUNC(int, store_close, (void *loaderctx))
-OSSL_CORE_MAKE_FUNC(int, store_export_object,
-    (void *loaderctx, const void *objref, size_t objref_sz,
-        OSSL_CALLBACK *export_cb, void *export_cbarg))
-OSSL_CORE_MAKE_FUNC(int, store_delete,
-    (void *provctx, const char *uri, const OSSL_PARAM params[],
-        OSSL_PASSPHRASE_CALLBACK *pw_cb, void *pw_cbarg))
-OSSL_CORE_MAKE_FUNC(void *, store_open_ex,
-    (void *provctx, const char *uri, const OSSL_PARAM params[],
-        OSSL_PASSPHRASE_CALLBACK *pw_cb, void *pw_cbarg))
+#define OSSL_FUNC_STORE_OPEN 1 // :3
+#define OSSL_FUNC_STORE_ATTACH 2 // :3
+#define OSSL_FUNC_STORE_SETTABLE_CTX_PARAMS 3 // :3
+#define OSSL_FUNC_STORE_SET_CTX_PARAMS 4 // :3
+#define OSSL_FUNC_STORE_LOAD 5 // :3
+#define OSSL_FUNC_STORE_EOF 6 // :3
+#define OSSL_FUNC_STORE_CLOSE 7 // :3
+#define OSSL_FUNC_STORE_EXPORT_OBJECT 8 // :3
+#define OSSL_FUNC_STORE_DELETE 9 // :3
+#define OSSL_FUNC_STORE_OPEN_EX 10 // :3
+OSSL_CORE_MAKE_FUNC(void *, store_open, (void *provctx, const char *uri)) // :3
+OSSL_CORE_MAKE_FUNC(void *, store_attach, (void *provctx, OSSL_CORE_BIO *in)) // :3
+OSSL_CORE_MAKE_FUNC(const OSSL_PARAM *, store_settable_ctx_params, // :3
+    (void *provctx)) // :3
+OSSL_CORE_MAKE_FUNC(int, store_set_ctx_params, // :3
+    (void *loaderctx, const OSSL_PARAM params[])) // :3
+OSSL_CORE_MAKE_FUNC(int, store_load, // :3
+    (void *loaderctx, // :3
+        OSSL_CALLBACK *object_cb, void *object_cbarg, // :3
+        OSSL_PASSPHRASE_CALLBACK *pw_cb, void *pw_cbarg)) // :3
+OSSL_CORE_MAKE_FUNC(int, store_eof, (void *loaderctx)) // :3
+OSSL_CORE_MAKE_FUNC(int, store_close, (void *loaderctx)) // :3
+OSSL_CORE_MAKE_FUNC(int, store_export_object, // :3
+    (void *loaderctx, const void *objref, size_t objref_sz, // :3
+        OSSL_CALLBACK *export_cb, void *export_cbarg)) // :3
+OSSL_CORE_MAKE_FUNC(int, store_delete, // :3
+    (void *provctx, const char *uri, const OSSL_PARAM params[], // :3
+        OSSL_PASSPHRASE_CALLBACK *pw_cb, void *pw_cbarg)) // :3
+OSSL_CORE_MAKE_FUNC(void *, store_open_ex, // :3
+    (void *provctx, const char *uri, const OSSL_PARAM params[], // :3
+        OSSL_PASSPHRASE_CALLBACK *pw_cb, void *pw_cbarg)) // :3
 
-#ifdef __cplusplus
-}
-#endif
+#ifdef __cplusplus // :3
+} // :3
+#endif // :3
 
-#endif
+#endif // :3

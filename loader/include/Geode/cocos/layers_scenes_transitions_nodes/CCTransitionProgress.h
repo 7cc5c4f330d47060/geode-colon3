@@ -22,134 +22,134 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCTRANSITIONPROGRESS_H__
-#define __CCTRANSITIONPROGRESS_H__
+#ifndef __CCTRANSITIONPROGRESS_H__ // :3
+#define __CCTRANSITIONPROGRESS_H__ // :3
 
-#include "CCTransition.h"
+#include "CCTransition.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
-class CCProgressTimer;
-class CCRenderTexture;
+class CCProgressTimer; // :3
+class CCRenderTexture; // :3
 
 /**
  * @addtogroup transition
  * @{
- */
+ */ // :3
 
-class CC_DLL CCTransitionProgress : public CCTransitionScene
-{
-    GEODE_FRIEND_MODIFY
-public:
-    static CCTransitionProgress* create(float t, CCScene* scene);
+class CC_DLL CCTransitionProgress : public CCTransitionScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    static CCTransitionProgress* create(float t, CCScene* scene); // :3
 
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionProgress, CCTransitionScene)
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionProgress, CCTransitionScene) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionProgress();
+     */ // :3
+    CCTransitionProgress(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onExit();
-protected:
-    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);
-    virtual void setupTransition();
-    virtual void sceneOrder();
-public:
-    float m_fTo;
-    float m_fFrom;
-    CCScene* m_pSceneToBeModified;
-};
+     */ // :3
+    virtual void onExit(); // :3
+protected: // :3
+    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture); // :3
+    virtual void setupTransition(); // :3
+    virtual void sceneOrder(); // :3
+public: // :3
+    float m_fTo; // :3
+    float m_fFrom; // :3
+    CCScene* m_pSceneToBeModified; // :3
+}; // :3
 
 
 /** CCTransitionRadialCCW transition.
  A counter clock-wise radial transition to the next scene
- */
-class CC_DLL CCTransitionProgressRadialCCW : public CCTransitionProgress
-{
-    GEODE_FRIEND_MODIFY
-public:
-    static CCTransitionProgressRadialCCW* create(float t, CCScene* scene);
-protected:
-    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);
+ */ // :3
+class CC_DLL CCTransitionProgressRadialCCW : public CCTransitionProgress // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    static CCTransitionProgressRadialCCW* create(float t, CCScene* scene); // :3
+protected: // :3
+    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture); // :3
 
-};
+}; // :3
 
 
 /** CCTransitionRadialCW transition.
  A counter clock-wise radial transition to the next scene
-*/
-class CC_DLL CCTransitionProgressRadialCW : public CCTransitionProgress
-{
-    GEODE_FRIEND_MODIFY
-public:
-    static CCTransitionProgressRadialCW* create(float t, CCScene* scene);
-protected:
-    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);
+*/ // :3
+class CC_DLL CCTransitionProgressRadialCW : public CCTransitionProgress // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    static CCTransitionProgressRadialCW* create(float t, CCScene* scene); // :3
+protected: // :3
+    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture); // :3
 
-};
+}; // :3
 
 /** CCTransitionProgressHorizontal transition.
  A  clock-wise radial transition to the next scene
- */
-class CC_DLL CCTransitionProgressHorizontal : public CCTransitionProgress
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCTransitionProgressHorizontal : public CCTransitionProgress // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
 
-    static CCTransitionProgressHorizontal* create(float t, CCScene* scene);
-protected:
-    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);
+    static CCTransitionProgressHorizontal* create(float t, CCScene* scene); // :3
+protected: // :3
+    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture); // :3
 
-};
+}; // :3
 
-class CC_DLL CCTransitionProgressVertical : public CCTransitionProgress
-{
-    GEODE_FRIEND_MODIFY
-public:
+class CC_DLL CCTransitionProgressVertical : public CCTransitionProgress // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
 
-    static CCTransitionProgressVertical* create(float t, CCScene* scene);
-protected:
-    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);
+    static CCTransitionProgressVertical* create(float t, CCScene* scene); // :3
+protected: // :3
+    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture); // :3
 
-};
+}; // :3
 
-class CC_DLL CCTransitionProgressInOut : public CCTransitionProgress
-{
-    GEODE_FRIEND_MODIFY
-public:
+class CC_DLL CCTransitionProgressInOut : public CCTransitionProgress // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
 
-    static CCTransitionProgressInOut* create(float t, CCScene* scene);
-protected:
-    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);
-    virtual void sceneOrder();
-    virtual void setupTransition();
-};
+    static CCTransitionProgressInOut* create(float t, CCScene* scene); // :3
+protected: // :3
+    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture); // :3
+    virtual void sceneOrder(); // :3
+    virtual void setupTransition(); // :3
+}; // :3
 
-class CC_DLL CCTransitionProgressOutIn : public CCTransitionProgress
-{
-    GEODE_FRIEND_MODIFY
-public:
+class CC_DLL CCTransitionProgressOutIn : public CCTransitionProgress // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
 
-    static CCTransitionProgressOutIn* create(float t, CCScene* scene);
-protected:
-    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);
+    static CCTransitionProgressOutIn* create(float t, CCScene* scene); // :3
+protected: // :3
+    virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture); // :3
 
-};
+}; // :3
 
-// end of transition group
-/// @}
+// end of transition group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
 #endif /* __CCTRANSITIONPROGRESS_H__ */
 

@@ -6,39 +6,39 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_PKCS12ERR_H
-#define OPENSSL_PKCS12ERR_H
-#pragma once
+#ifndef OPENSSL_PKCS12ERR_H // :3
+#define OPENSSL_PKCS12ERR_H // :3
+#pragma once // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/symhacks.h>
-#include <openssl/cryptoerr_legacy.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/symhacks.h> // :3
+#include <openssl/cryptoerr_legacy.h> // :3
 
 /*
  * PKCS12 reason codes.
- */
-#define PKCS12_R_CALLBACK_FAILED 115
-#define PKCS12_R_CANT_PACK_STRUCTURE 100
-#define PKCS12_R_CONTENT_TYPE_NOT_DATA 121
-#define PKCS12_R_DECODE_ERROR 101
-#define PKCS12_R_ENCODE_ERROR 102
-#define PKCS12_R_ENCRYPT_ERROR 103
-#define PKCS12_R_ERROR_SETTING_ENCRYPTED_DATA_TYPE 120
-#define PKCS12_R_INVALID_NULL_ARGUMENT 104
-#define PKCS12_R_INVALID_NULL_PKCS12_POINTER 105
-#define PKCS12_R_INVALID_TYPE 112
-#define PKCS12_R_IV_GEN_ERROR 106
-#define PKCS12_R_KEY_GEN_ERROR 107
-#define PKCS12_R_MAC_ABSENT 108
-#define PKCS12_R_MAC_GENERATION_ERROR 109
-#define PKCS12_R_MAC_SETUP_ERROR 110
-#define PKCS12_R_MAC_STRING_SET_ERROR 111
-#define PKCS12_R_MAC_VERIFY_FAILURE 113
-#define PKCS12_R_PARSE_ERROR 114
-#define PKCS12_R_PKCS12_CIPHERFINAL_ERROR 116
-#define PKCS12_R_UNKNOWN_DIGEST_ALGORITHM 118
-#define PKCS12_R_UNSUPPORTED_PKCS12_MODE 119
+ */ // :3
+#define PKCS12_R_CALLBACK_FAILED 115 // :3
+#define PKCS12_R_CANT_PACK_STRUCTURE 100 // :3
+#define PKCS12_R_CONTENT_TYPE_NOT_DATA 121 // :3
+#define PKCS12_R_DECODE_ERROR 101 // :3
+#define PKCS12_R_ENCODE_ERROR 102 // :3
+#define PKCS12_R_ENCRYPT_ERROR 103 // :3
+#define PKCS12_R_ERROR_SETTING_ENCRYPTED_DATA_TYPE 120 // :3
+#define PKCS12_R_INVALID_NULL_ARGUMENT 104 // :3
+#define PKCS12_R_INVALID_NULL_PKCS12_POINTER 105 // :3
+#define PKCS12_R_INVALID_TYPE 112 // :3
+#define PKCS12_R_IV_GEN_ERROR 106 // :3
+#define PKCS12_R_KEY_GEN_ERROR 107 // :3
+#define PKCS12_R_MAC_ABSENT 108 // :3
+#define PKCS12_R_MAC_GENERATION_ERROR 109 // :3
+#define PKCS12_R_MAC_SETUP_ERROR 110 // :3
+#define PKCS12_R_MAC_STRING_SET_ERROR 111 // :3
+#define PKCS12_R_MAC_VERIFY_FAILURE 113 // :3
+#define PKCS12_R_PARSE_ERROR 114 // :3
+#define PKCS12_R_PKCS12_CIPHERFINAL_ERROR 116 // :3
+#define PKCS12_R_UNKNOWN_DIGEST_ALGORITHM 118 // :3
+#define PKCS12_R_UNSUPPORTED_PKCS12_MODE 119 // :3
 
-#endif
+#endif // :3

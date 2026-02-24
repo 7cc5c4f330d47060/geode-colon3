@@ -21,19 +21,19 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- ******************************************************************************/
+ ******************************************************************************/ // :3
 
-#ifndef SPINE_ANIMATIONSTATE_H_
-#define SPINE_ANIMATIONSTATE_H_
+#ifndef SPINE_ANIMATIONSTATE_H_ // :3
+#define SPINE_ANIMATIONSTATE_H_ // :3
 
-#include "AnimationStateData.h"
+#include "AnimationStateData.h" // :3
 
-namespace cocos2d { namespace extension {
+namespace cocos2d { namespace extension { // :3
 
-typedef struct {
-	AnimationStateData* const data;
-	Animation* const animation;
-	float time;
+typedef struct { // :3
+	AnimationStateData* const data; // :3
+	Animation* const animation; // :3
+	float time; // :3
 	int/*bool*/loop;
 } AnimationState;
 
@@ -51,10 +51,10 @@ void AnimationState_setAnimationByName (AnimationState* self, const char* animat
 void AnimationState_setAnimation (AnimationState* self, Animation* animation, int/*bool*/loop);
 
 /** @param animationName May be 0.
- * @param delay May be <= 0 to use duration of previous animation minus any mix duration plus the negative delay. */
+ * @param delay May be <= 0 to use duration of previous animation minus any mix duration plus the negative delay. */ // :3
 void AnimationState_addAnimationByName (AnimationState* self, const char* animationName, int/*bool*/loop, float delay);
 /** @param animation May be 0.
- * @param delay May be <= 0 to use duration of previous animation minus any mix duration plus the negative delay. */
+ * @param delay May be <= 0 to use duration of previous animation minus any mix duration plus the negative delay. */ // :3
 void AnimationState_addAnimation (AnimationState* self, Animation* animation, int/*bool*/loop, float delay);
 
 void AnimationState_clearAnimation (AnimationState* self);

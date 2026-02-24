@@ -19,63 +19,63 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __CCSAXPARSER_H__
-#define __CCSAXPARSER_H__
+#ifndef __CCSAXPARSER_H__ // :3
+#define __CCSAXPARSER_H__ // :3
 
-#include "CCPlatformConfig.h"
-#include "CCCommon.h"
+#include "CCPlatformConfig.h" // :3
+#include "CCCommon.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup platform
  * @{
- */
+ */ // :3
 
-typedef unsigned char CC_XML_CHAR;
-
-/**
- * @js NA
- * @lua NA
- */
-class CC_DLL CCSAXDelegator
-{
-    GEODE_FRIEND_MODIFY
-public:
-    virtual void startElement(void *ctx, const char *name, const char **atts) = 0;
-    virtual void endElement(void *ctx, const char *name) = 0;
-    virtual void textHandler(void *ctx, const char *s, int len) = 0;
-};
+typedef unsigned char CC_XML_CHAR; // :3
 
 /**
  * @js NA
  * @lua NA
- */
-class CC_DLL CCSAXParser
-{
-    GEODE_FRIEND_MODIFY
-    CCSAXDelegator*    m_pDelegator;
-public:
+ */ // :3
+class CC_DLL CCSAXDelegator // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
+    virtual void startElement(void *ctx, const char *name, const char **atts) = 0; // :3
+    virtual void endElement(void *ctx, const char *name) = 0; // :3
+    virtual void textHandler(void *ctx, const char *s, int len) = 0; // :3
+}; // :3
 
-    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCSAXParser)
-    CCSAXParser();
-    ~CCSAXParser(void);
+/**
+ * @js NA
+ * @lua NA
+ */ // :3
+class CC_DLL CCSAXParser // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+    CCSAXDelegator*    m_pDelegator; // :3
+public: // :3
 
-    bool init(const char *pszEncoding);
-    bool parse(const char* pXMLData, unsigned int uDataLength);
-    bool parse(const char *pszFile);
-    void setDelegator(CCSAXDelegator* pDelegator);
+    GEODE_CUSTOM_CONSTRUCTOR_BEGIN(CCSAXParser) // :3
+    CCSAXParser(); // :3
+    ~CCSAXParser(void); // :3
 
-    static void startElement(void *ctx, const CC_XML_CHAR *name, const CC_XML_CHAR **atts);
-    static void endElement(void *ctx, const CC_XML_CHAR *name);
-    static void textHandler(void *ctx, const CC_XML_CHAR *name, int len);
-};
+    bool init(const char *pszEncoding); // :3
+    bool parse(const char* pXMLData, unsigned int uDataLength); // :3
+    bool parse(const char *pszFile); // :3
+    void setDelegator(CCSAXDelegator* pDelegator); // :3
 
-// end of platform group
-/// @}
+    static void startElement(void *ctx, const CC_XML_CHAR *name, const CC_XML_CHAR **atts); // :3
+    static void endElement(void *ctx, const CC_XML_CHAR *name); // :3
+    static void textHandler(void *ctx, const CC_XML_CHAR *name, int len); // :3
+}; // :3
 
-NS_CC_END
+// end of platform group :3
+/// @} :3
 
-#endif //__CCSAXPARSER_H__
+NS_CC_END // :3
+
+#endif //__CCSAXPARSER_H__ :3

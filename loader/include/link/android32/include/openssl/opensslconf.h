@@ -5,13 +5,13 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_OPENSSLCONF_H
-#define OPENSSL_OPENSSLCONF_H
-#pragma once
+#ifndef OPENSSL_OPENSSLCONF_H // :3
+#define OPENSSL_OPENSSLCONF_H // :3
+#pragma once // :3
 
-#include <openssl/configuration.h>
-#include <openssl/macros.h>
+#include <openssl/configuration.h> // :3
+#include <openssl/macros.h> // :3
 
 #endif /* OPENSSL_OPENSSLCONF_H */

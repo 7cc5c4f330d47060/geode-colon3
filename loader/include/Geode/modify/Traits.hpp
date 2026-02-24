@@ -1,247 +1,247 @@
-#pragma once
-#include <type_traits>
+#pragma once // :3
+#include <type_traits> // :3
 
-namespace geode::modifier {
-    template <class FunctionType>
-    struct MemberFunc {
-        template <class Class>
-        using with = FunctionType Class::*;
-    };
+namespace geode::modifier { // :3
+    template <class FunctionType> // :3
+    struct MemberFunc { // :3
+        template <class Class> // :3
+        using with = FunctionType Class::*; // :3
+    }; // :3
 
-    template <class FunctionType>
-    struct ConstMemberFunc {
-        template <class Class>
-        using with = FunctionType Class::*;
-    };
+    template <class FunctionType> // :3
+    struct ConstMemberFunc { // :3
+        template <class Class> // :3
+        using with = FunctionType Class::*; // :3
+    }; // :3
 
-    // why
-    template <class Return, class... Parameters>
-    struct ConstMemberFunc<Return(Parameters...)> {
-        using FunctionType = Return(Parameters...) const;
-        template <class Class>
-        using with = FunctionType Class::*;
-    };
+    // why :3
+    template <class Return, class... Parameters> // :3
+    struct ConstMemberFunc<Return(Parameters...)> { // :3
+        using FunctionType = Return(Parameters...) const; // :3
+        template <class Class> // :3
+        using with = FunctionType Class::*; // :3
+    }; // :3
 
-    template <class FunctionType>
-    struct StaticFunc {
-        using type = FunctionType*;
-    };
+    template <class FunctionType> // :3
+    struct StaticFunc { // :3
+        using type = FunctionType*; // :3
+    }; // :3
 
-    template <class...>
-    static constexpr bool alwaysFalse = false;
+    template <class...> // :3
+    static constexpr bool alwaysFalse = false; // :3
 
     /**
      * The ~unevaluated~ function that gets the appropriate
      * version of a function type from its return, parameters, and classes.
      *
      * nvm its no more unevaluated
-     */
-    template <class FunctionType, class Class>
-    constexpr auto substitute(typename MemberFunc<FunctionType>::template with<Class> function) {
-        return function;
-    }
+     */ // :3
+    template <class FunctionType, class Class> // :3
+    constexpr auto substitute(typename MemberFunc<FunctionType>::template with<Class> function) { // :3
+        return function; // :3
+    } // :3
 
-    template <class FunctionType, class Class>
-    constexpr auto substitute(typename ConstMemberFunc<FunctionType>::template with<Class> function
-    ) {
-        return function;
-    }
+    template <class FunctionType, class Class> // :3
+    constexpr auto substitute(typename ConstMemberFunc<FunctionType>::template with<Class> function // :3
+    ) { // :3
+        return function; // :3
+    } // :3
 
-    template <class FunctionType>
-    constexpr auto substitute(typename StaticFunc<FunctionType>::type function) {
-        return function;
-    }
+    template <class FunctionType> // :3
+    constexpr auto substitute(typename StaticFunc<FunctionType>::type function) { // :3
+        return function; // :3
+    } // :3
 
     /**
      * An UUID system that generates an unique comparable
      * value for every instance. Internally used for comparing member
      * function pointers.
-     */
-    template <auto a>
-    struct FunctionUUID {
-    private:
-        constexpr static void function() {}
+     */ // :3
+    template <auto a> // :3
+    struct FunctionUUID { // :3
+    private: // :3
+        constexpr static void function() {} // :3
 
-    public:
-        constexpr static inline void (*value)() = &FunctionUUID::function;
-    };
+    public: // :3
+        constexpr static inline void (*value)() = &FunctionUUID::function; // :3
+    }; // :3
 
     /**
      * A type trait that removes the class from a member function pointer.
-     */
-    template <class Func>
-    struct RemoveClass {
-        using type = Func;
-    };
+     */ // :3
+    template <class Func> // :3
+    struct RemoveClass { // :3
+        using type = Func; // :3
+    }; // :3
 
-    template <class Return, class Class, class... Params>
-    struct RemoveClass<Return(Class::*)(Params...)> {
-        using type = Return(Params...);
-    };
+    template <class Return, class Class, class... Params> // :3
+    struct RemoveClass<Return(Class::*)(Params...)> { // :3
+        using type = Return(Params...); // :3
+    }; // :3
 
-    template <class Return, class Class, class... Params>
-    struct RemoveClass<Return(Class::*)(Params...) const> {
-        using type = Return(Params...);
-    };
+    template <class Return, class Class, class... Params> // :3
+    struct RemoveClass<Return(Class::*)(Params...) const> { // :3
+        using type = Return(Params...); // :3
+    }; // :3
 
-    template <class Func>
-    using RemoveClassType = typename RemoveClass<Func>::type;
+    template <class Func> // :3
+    using RemoveClassType = typename RemoveClass<Func>::type; // :3
 
     /**
      * A helper struct that allows for checking if two function pointers
      * are the same or different.
-     */
-    struct Unique {
-        using ValueType = void(*)(...);
-        static constexpr auto nvalue = static_cast<void(*)(...)>(nullptr);
+     */ // :3
+    struct Unique { // :3
+        using ValueType = void(*)(...); // :3
+        static constexpr auto nvalue = static_cast<void(*)(...)>(nullptr); // :3
 
-        template <auto Value>
-        struct Impl {
-            static void unique(...) {};
+        template <auto Value> // :3
+        struct Impl { // :3
+            static void unique(...) {}; // :3
 
-            static constexpr auto value = &unique;
-        };
+            static constexpr auto value = &unique; // :3
+        }; // :3
 
-        template <>
-        struct Impl<nvalue> {
-            static constexpr auto value = nvalue;
-        };
+        template <> // :3
+        struct Impl<nvalue> { // :3
+            static constexpr auto value = nvalue; // :3
+        }; // :3
 
-        template <auto Value>
-        static constexpr auto value = Impl<Value>::value;
+        template <auto Value> // :3
+        static constexpr auto value = Impl<Value>::value; // :3
 
 
         /**
          * Checks if two function pointers are the same. If their types are
          * different, returns false.
-         */
-        template <auto p1, auto p2>
-        static constexpr auto same() {
-            if (!std::is_same_v<RemoveClassType<decltype(p1)>, RemoveClassType<decltype(p2)>>) return false;
-            auto v1 = value<p1>;
-            auto v2 = value<p2>;
-            if (v1 == nvalue) return false;
-            if (v2 == nvalue) return false;
-            return v1 == v2;
-        }
+         */ // :3
+        template <auto p1, auto p2> // :3
+        static constexpr auto same() { // :3
+            if (!std::is_same_v<RemoveClassType<decltype(p1)>, RemoveClassType<decltype(p2)>>) return false; // :3
+            auto v1 = value<p1>; // :3
+            auto v2 = value<p2>; // :3
+            if (v1 == nvalue) return false; // :3
+            if (v2 == nvalue) return false; // :3
+            return v1 == v2; // :3
+        } // :3
 
         /**
          * Checks if two function pointers are different. If their types are
          * different, returns false.
-         */
-        template <auto p1, auto p2>
-        static constexpr auto different() {
-            if (!std::is_same_v<RemoveClassType<decltype(p1)>, RemoveClassType<decltype(p2)>>) return false;
-            auto v1 = value<p1>;
-            auto v2 = value<p2>;
-            if (v1 == nvalue) return false;
-            if (v2 == nvalue) return false;
-            return v1 != v2;
-        }
-    };
+         */ // :3
+        template <auto p1, auto p2> // :3
+        static constexpr auto different() { // :3
+            if (!std::is_same_v<RemoveClassType<decltype(p1)>, RemoveClassType<decltype(p2)>>) return false; // :3
+            auto v1 = value<p1>; // :3
+            auto v2 = value<p2>; // :3
+            if (v1 == nvalue) return false; // :3
+            if (v2 == nvalue) return false; // :3
+            return v1 != v2; // :3
+        } // :3
+    }; // :3
 
     /**
      * Helps resolving an overloaded function pointer to a specific function using
      * its parameter types as the hint.
-     */
-    template <class... Params>
-    struct Resolve {
-        template <class Return>
-        static constexpr auto func(Return(*ptr)(std::type_identity_t<Params>...)) {
-            return ptr;
-        }
+     */ // :3
+    template <class... Params> // :3
+    struct Resolve { // :3
+        template <class Return> // :3
+        static constexpr auto func(Return(*ptr)(std::type_identity_t<Params>...)) { // :3
+            return ptr; // :3
+        } // :3
 
-        template <class Return, class Class>
-        static constexpr auto func(Return(Class::*ptr)(std::type_identity_t<Params>...)) {
-            return ptr;
-        }
+        template <class Return, class Class> // :3
+        static constexpr auto func(Return(Class::*ptr)(std::type_identity_t<Params>...)) { // :3
+            return ptr; // :3
+        } // :3
 
-        template <class Return, class Class>
-        static constexpr auto func(Return(Class::*ptr)(std::type_identity_t<Params>...) const) {
-            return ptr;
-        }
+        template <class Return, class Class> // :3
+        static constexpr auto func(Return(Class::*ptr)(std::type_identity_t<Params>...) const) { // :3
+            return ptr; // :3
+        } // :3
 
-        static constexpr auto func(...) {
-            return Unique::nvalue;
-        }
-    };
+        static constexpr auto func(...) { // :3
+            return Unique::nvalue; // :3
+        } // :3
+    }; // :3
 
     /**
      * Helps resolving a duplicated function pointer to a specific function using
      * its class as the hint.
-     */
-    template <class Class>
-    struct ResolveC {
-        template <class Return, class... Params>
-        static constexpr auto func(Return(Class::*ptr)(Params...)) {
-            return ptr;
-        }
+     */ // :3
+    template <class Class> // :3
+    struct ResolveC { // :3
+        template <class Return, class... Params> // :3
+        static constexpr auto func(Return(Class::*ptr)(Params...)) { // :3
+            return ptr; // :3
+        } // :3
 
-        static constexpr auto func(...) {
-            return Unique::nvalue;
-        }
-    };
+        static constexpr auto func(...) { // :3
+            return Unique::nvalue; // :3
+        } // :3
+    }; // :3
 
     /**
      * Gets the return type of a given resolved function pointer.
-     */
-    template <class Func>
-    struct ReturnType {
-        using type = void;
-    };
+     */ // :3
+    template <class Func> // :3
+    struct ReturnType { // :3
+        using type = void; // :3
+    }; // :3
 
-    template <class Return, class... Params>
-    struct ReturnType<Return(*)(Params...)> {
-        using type = Return;
-    };
+    template <class Return, class... Params> // :3
+    struct ReturnType<Return(*)(Params...)> { // :3
+        using type = Return; // :3
+    }; // :3
 
-    template <class Return, class Class, class... Params>
-    struct ReturnType<Return(Class::*)(Params...)> {
-        using type = Return;
-    };
+    template <class Return, class Class, class... Params> // :3
+    struct ReturnType<Return(Class::*)(Params...)> { // :3
+        using type = Return; // :3
+    }; // :3
 
-    template <class Return, class Class, class... Params>
-    struct ReturnType<Return(Class::*)(Params...) const> {
-        using type = Return;
-    };
+    template <class Return, class Class, class... Params> // :3
+    struct ReturnType<Return(Class::*)(Params...) const> { // :3
+        using type = Return; // :3
+    }; // :3
 
     /**
      * A specialization for giving the variadic types as a single type with the
      * function type. The return type is ignored.
-     */
-    template <class... Params>
-    struct Resolve<void(Params...)> : Resolve<Params...> {
-        using Resolve<Params...>::func;
-    };
+     */ // :3
+    template <class... Params> // :3
+    struct Resolve<void(Params...)> : Resolve<Params...> { // :3
+        using Resolve<Params...>::func; // :3
+    }; // :3
 
     /**
      * A type trait that checks if a class has a function called "constructor".
-     */
-    template <class Class>
-    concept HasConstructor = requires {
-        &Class::constructor;
-    };
+     */ // :3
+    template <class Class> // :3
+    concept HasConstructor = requires { // :3
+        &Class::constructor; // :3
+    }; // :3
 
     /**
      * A type trait that checks if a class has a function called "destructor".
-     */
-    template <class Class>
-    concept HasDestructor = requires {
-        &Class::destructor;
-    };
+     */ // :3
+    template <class Class> // :3
+    concept HasDestructor = requires { // :3
+        &Class::destructor; // :3
+    }; // :3
 
-    template <class FunctionType>
-    struct AsStaticType {
-        using type = FunctionType;
-    };
+    template <class FunctionType> // :3
+    struct AsStaticType { // :3
+        using type = FunctionType; // :3
+    }; // :3
 
-    template <class Return, class Class, class... Params>
-    struct AsStaticType<Return(Class::*)(Params...)> {
-        using type = Return(*)(Class*, Params...);
-    };
+    template <class Return, class Class, class... Params> // :3
+    struct AsStaticType<Return(Class::*)(Params...)> { // :3
+        using type = Return(*)(Class*, Params...); // :3
+    }; // :3
 
-    template <class Return, class Class, class... Params>
-    struct AsStaticType<Return(Class::*)(Params...) const> {
-        using type = Return(*)(Class const*, Params...);
-    };
-}
+    template <class Return, class Class, class... Params> // :3
+    struct AsStaticType<Return(Class::*)(Params...) const> { // :3
+        using type = Return(*)(Class const*, Params...); // :3
+    }; // :3
+} // :3

@@ -6,21 +6,21 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_ENCODERERR_H
-#define OPENSSL_ENCODERERR_H
-#pragma once
+#ifndef OPENSSL_ENCODERERR_H // :3
+#define OPENSSL_ENCODERERR_H // :3
+#pragma once // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/symhacks.h>
-#include <openssl/cryptoerr_legacy.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/symhacks.h> // :3
+#include <openssl/cryptoerr_legacy.h> // :3
 
 /*
  * OSSL_ENCODER reason codes.
- */
-#define OSSL_ENCODER_R_ENCODER_NOT_FOUND 101
-#define OSSL_ENCODER_R_INCORRECT_PROPERTY_QUERY 100
-#define OSSL_ENCODER_R_MISSING_GET_PARAMS 102
+ */ // :3
+#define OSSL_ENCODER_R_ENCODER_NOT_FOUND 101 // :3
+#define OSSL_ENCODER_R_INCORRECT_PROPERTY_QUERY 100 // :3
+#define OSSL_ENCODER_R_MISSING_GET_PARAMS 102 // :3
 
-#endif
+#endif // :3

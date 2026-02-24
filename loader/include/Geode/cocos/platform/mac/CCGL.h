@@ -20,21 +20,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCGL_H__
-#define __CCGL_H__
+#ifndef __CCGL_H__ // :3
+#define __CCGL_H__ // :3
 
-#include <OpenGL/gl.h>
-#include <OpenGL/glu.h>
-#include <OpenGL/glext.h>
+#include <OpenGL/gl.h> // :3
+#include <OpenGL/glu.h> // :3
+#include <OpenGL/glext.h> // :3
 
-#define CC_GL_DEPTH24_STENCIL8      -1
-
-
-#define glDeleteVertexArrays            glDeleteVertexArraysAPPLE
-#define glGenVertexArrays               glGenVertexArraysAPPLE
-#define glBindVertexArray               glBindVertexArrayAPPLE
+#define CC_GL_DEPTH24_STENCIL8      -1 // :3
 
 
-#endif // __CCGL_H__
+#define glDeleteVertexArrays            glDeleteVertexArraysAPPLE // :3
+#define glGenVertexArrays               glGenVertexArraysAPPLE // :3
+#define glBindVertexArray               glBindVertexArrayAPPLE // :3
+
+
+#endif // __CCGL_H__ :3

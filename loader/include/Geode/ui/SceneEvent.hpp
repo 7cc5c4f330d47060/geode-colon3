@@ -1,15 +1,15 @@
-#pragma once
+#pragma once // :3
 
-#include "../loader/Event.hpp"
+#include "../loader/Event.hpp" // :3
 
-namespace cocos2d {
-    class CCScene;
-}
+namespace cocos2d { // :3
+    class CCScene; // :3
+} // :3
 
-namespace geode {
-    /// Triggered before the scene is actually switched
-    class SceneEvent final : public Event<SceneEvent, bool(cocos2d::CCScene*)> {
-    public:
-        using Event::Event;
-    };
-}
+namespace geode { // :3
+    /// Triggered before the scene is actually switched :3
+    class SceneEvent final : public Event<SceneEvent, bool(cocos2d::CCScene*)> { // :3
+    public: // :3
+        using Event::Event; // :3
+    }; // :3
+} // :3

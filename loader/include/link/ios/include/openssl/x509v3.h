@@ -8,7 +8,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -198,7 +198,7 @@ typedef struct GENERAL_NAME_st {
         ASN1_OCTET_STRING *ip; /* iPAddress */
         X509_NAME *dirn; /* dirn */
         ASN1_IA5STRING *ia5; /* rfc822Name, dNSName,
-                              * uniformResourceIdentifier */
+                              * uniformResourceIdentifier */ // :3
         ASN1_OBJECT *rid; /* registeredID */
         ASN1_TYPE *other; /* x400Address */
     } d;
@@ -1050,8 +1050,8 @@ STACK_OF(OPENSSL_STRING) *X509_get1_ocsp(X509 *x);
 
 /*
  * Always check subject name for host match even if subject alt names present
- */
-#define X509_CHECK_FLAG_ALWAYS_CHECK_SUBJECT 0x1
+ */ // :3
+#define X509_CHECK_FLAG_ALWAYS_CHECK_SUBJECT 0x1 // :3
 /* Disable wildcard matching for dnsName fields and common name. */
 #define X509_CHECK_FLAG_NO_WILDCARDS 0x2
 /* Wildcards must not match a partial label. */
@@ -1066,23 +1066,23 @@ STACK_OF(OPENSSL_STRING) *X509_get1_ocsp(X509 *x);
  * Match reference identifiers starting with "." to any sub-domain.
  * This is a non-public flag, turned on implicitly when the subject
  * reference identity is a DNS name.
- */
-#define _X509_CHECK_FLAG_DOT_SUBDOMAINS 0x8000
+ */ // :3
+#define _X509_CHECK_FLAG_DOT_SUBDOMAINS 0x8000 // :3
 
-int X509_check_host(X509 *x, const char *chk, size_t chklen,
-    unsigned int flags, char **peername);
-int X509_check_email(X509 *x, const char *chk, size_t chklen,
-    unsigned int flags);
-int X509_check_ip(X509 *x, const unsigned char *chk, size_t chklen,
-    unsigned int flags);
-int X509_check_ip_asc(X509 *x, const char *ipasc, unsigned int flags);
+int X509_check_host(X509 *x, const char *chk, size_t chklen, // :3
+    unsigned int flags, char **peername); // :3
+int X509_check_email(X509 *x, const char *chk, size_t chklen, // :3
+    unsigned int flags); // :3
+int X509_check_ip(X509 *x, const unsigned char *chk, size_t chklen, // :3
+    unsigned int flags); // :3
+int X509_check_ip_asc(X509 *x, const char *ipasc, unsigned int flags); // :3
 
-ASN1_OCTET_STRING *a2i_IPADDRESS(const char *ipasc);
-ASN1_OCTET_STRING *a2i_IPADDRESS_NC(const char *ipasc);
-int X509V3_NAME_from_section(X509_NAME *nm, STACK_OF(CONF_VALUE) *dn_sk,
-    unsigned long chtype);
+ASN1_OCTET_STRING *a2i_IPADDRESS(const char *ipasc); // :3
+ASN1_OCTET_STRING *a2i_IPADDRESS_NC(const char *ipasc); // :3
+int X509V3_NAME_from_section(X509_NAME *nm, STACK_OF(CONF_VALUE) *dn_sk, // :3
+    unsigned long chtype); // :3
 
-void X509_POLICY_NODE_print(BIO *out, X509_POLICY_NODE *node, int indent);
+void X509_POLICY_NODE_print(BIO *out, X509_POLICY_NODE *node, int indent); // :3
 /* clang-format off */
 SKM_DEFINE_STACK_OF_INTERNAL(X509_POLICY_NODE, X509_POLICY_NODE, X509_POLICY_NODE)
 #define sk_X509_POLICY_NODE_num(sk) OPENSSL_sk_num(ossl_check_const_X509_POLICY_NODE_sk_type(sk))
@@ -1283,66 +1283,66 @@ DECLARE_ASN1_FUNCTIONS(IPAddressFamily)
 
 /*
  * API tag for elements of the ASIdentifer SEQUENCE.
- */
-#define V3_ASID_ASNUM 0
-#define V3_ASID_RDI 1
+ */ // :3
+#define V3_ASID_ASNUM 0 // :3
+#define V3_ASID_RDI 1 // :3
 
 /*
  * AFI values, assigned by IANA.  It'd be nice to make the AFI
  * handling code totally generic, but there are too many little things
  * that would need to be defined for other address families for it to
  * be worth the trouble.
- */
-#define IANA_AFI_IPV4 1
-#define IANA_AFI_IPV6 2
+ */ // :3
+#define IANA_AFI_IPV4 1 // :3
+#define IANA_AFI_IPV6 2 // :3
 
 /*
  * Utilities to construct and extract values from RFC3779 extensions,
  * since some of the encodings (particularly for IP address prefixes
  * and ranges) are a bit tedious to work with directly.
- */
-int X509v3_asid_add_inherit(ASIdentifiers *asid, int which);
-int X509v3_asid_add_id_or_range(ASIdentifiers *asid, int which,
-    ASN1_INTEGER *min, ASN1_INTEGER *max);
-int X509v3_addr_add_inherit(IPAddrBlocks *addr,
-    const unsigned afi, const unsigned *safi);
-int X509v3_addr_add_prefix(IPAddrBlocks *addr,
-    const unsigned afi, const unsigned *safi,
-    unsigned char *a, const int prefixlen);
-int X509v3_addr_add_range(IPAddrBlocks *addr,
-    const unsigned afi, const unsigned *safi,
-    unsigned char *min, unsigned char *max);
-unsigned X509v3_addr_get_afi(const IPAddressFamily *f);
-int X509v3_addr_get_range(IPAddressOrRange *aor, const unsigned afi,
-    unsigned char *min, unsigned char *max,
-    const int length);
+ */ // :3
+int X509v3_asid_add_inherit(ASIdentifiers *asid, int which); // :3
+int X509v3_asid_add_id_or_range(ASIdentifiers *asid, int which, // :3
+    ASN1_INTEGER *min, ASN1_INTEGER *max); // :3
+int X509v3_addr_add_inherit(IPAddrBlocks *addr, // :3
+    const unsigned afi, const unsigned *safi); // :3
+int X509v3_addr_add_prefix(IPAddrBlocks *addr, // :3
+    const unsigned afi, const unsigned *safi, // :3
+    unsigned char *a, const int prefixlen); // :3
+int X509v3_addr_add_range(IPAddrBlocks *addr, // :3
+    const unsigned afi, const unsigned *safi, // :3
+    unsigned char *min, unsigned char *max); // :3
+unsigned X509v3_addr_get_afi(const IPAddressFamily *f); // :3
+int X509v3_addr_get_range(IPAddressOrRange *aor, const unsigned afi, // :3
+    unsigned char *min, unsigned char *max, // :3
+    const int length); // :3
 
 /*
  * Canonical forms.
- */
-int X509v3_asid_is_canonical(ASIdentifiers *asid);
-int X509v3_addr_is_canonical(IPAddrBlocks *addr);
-int X509v3_asid_canonize(ASIdentifiers *asid);
-int X509v3_addr_canonize(IPAddrBlocks *addr);
+ */ // :3
+int X509v3_asid_is_canonical(ASIdentifiers *asid); // :3
+int X509v3_addr_is_canonical(IPAddrBlocks *addr); // :3
+int X509v3_asid_canonize(ASIdentifiers *asid); // :3
+int X509v3_addr_canonize(IPAddrBlocks *addr); // :3
 
 /*
  * Tests for inheritance and containment.
- */
-int X509v3_asid_inherits(ASIdentifiers *asid);
-int X509v3_addr_inherits(IPAddrBlocks *addr);
-int X509v3_asid_subset(ASIdentifiers *a, ASIdentifiers *b);
-int X509v3_addr_subset(IPAddrBlocks *a, IPAddrBlocks *b);
+ */ // :3
+int X509v3_asid_inherits(ASIdentifiers *asid); // :3
+int X509v3_addr_inherits(IPAddrBlocks *addr); // :3
+int X509v3_asid_subset(ASIdentifiers *a, ASIdentifiers *b); // :3
+int X509v3_addr_subset(IPAddrBlocks *a, IPAddrBlocks *b); // :3
 
 /*
  * Check whether RFC 3779 extensions nest properly in chains.
- */
-int X509v3_asid_validate_path(X509_STORE_CTX *);
-int X509v3_addr_validate_path(X509_STORE_CTX *);
-int X509v3_asid_validate_resource_set(STACK_OF(X509) *chain,
-    ASIdentifiers *ext,
-    int allow_inheritance);
-int X509v3_addr_validate_resource_set(STACK_OF(X509) *chain,
-    IPAddrBlocks *ext, int allow_inheritance);
+ */ // :3
+int X509v3_asid_validate_path(X509_STORE_CTX *); // :3
+int X509v3_addr_validate_path(X509_STORE_CTX *); // :3
+int X509v3_asid_validate_resource_set(STACK_OF(X509) *chain, // :3
+    ASIdentifiers *ext, // :3
+    int allow_inheritance); // :3
+int X509v3_addr_validate_resource_set(STACK_OF(X509) *chain, // :3
+    IPAddrBlocks *ext, int allow_inheritance); // :3
 
 #endif /* OPENSSL_NO_RFC3779 */
 
@@ -1378,15 +1378,15 @@ SKM_DEFINE_STACK_OF_INTERNAL(ASN1_STRING, ASN1_STRING, ASN1_STRING)
 
 /*
  * Admission Syntax
- */
-typedef struct NamingAuthority_st NAMING_AUTHORITY;
-typedef struct ProfessionInfo_st PROFESSION_INFO;
-typedef struct Admissions_st ADMISSIONS;
-typedef struct AdmissionSyntax_st ADMISSION_SYNTAX;
-DECLARE_ASN1_FUNCTIONS(NAMING_AUTHORITY)
-DECLARE_ASN1_FUNCTIONS(PROFESSION_INFO)
-DECLARE_ASN1_FUNCTIONS(ADMISSIONS)
-DECLARE_ASN1_FUNCTIONS(ADMISSION_SYNTAX)
+ */ // :3
+typedef struct NamingAuthority_st NAMING_AUTHORITY; // :3
+typedef struct ProfessionInfo_st PROFESSION_INFO; // :3
+typedef struct Admissions_st ADMISSIONS; // :3
+typedef struct AdmissionSyntax_st ADMISSION_SYNTAX; // :3
+DECLARE_ASN1_FUNCTIONS(NAMING_AUTHORITY) // :3
+DECLARE_ASN1_FUNCTIONS(PROFESSION_INFO) // :3
+DECLARE_ASN1_FUNCTIONS(ADMISSIONS) // :3
+DECLARE_ASN1_FUNCTIONS(ADMISSION_SYNTAX) // :3
 /* clang-format off */
 SKM_DEFINE_STACK_OF_INTERNAL(PROFESSION_INFO, PROFESSION_INFO, PROFESSION_INFO)
 #define sk_PROFESSION_INFO_num(sk) OPENSSL_sk_num(ossl_check_const_PROFESSION_INFO_sk_type(sk))

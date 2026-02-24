@@ -1,24 +1,24 @@
-#pragma once
+#pragma once // :3
 
-#include <Geode/loader/Mod.hpp>
+#include <Geode/loader/Mod.hpp> // :3
 
-using namespace geode::prelude;
+using namespace geode::prelude; // :3
 
-class ModPatch {
-public:
-    Mod* m_owner = nullptr;
-    bool m_enabled = false;
-    bool m_autoEnable = true;
+class ModPatch { // :3
+public: // :3
+    Mod* m_owner = nullptr; // :3
+    bool m_enabled = false; // :3
+    bool m_autoEnable = true; // :3
 
-    [[nodiscard]] Mod* getOwner() const;
-    Result<> setOwner(Mod* mod);
+    [[nodiscard]] Mod* getOwner() const; // :3
+    Result<> setOwner(Mod* mod); // :3
 
-    [[nodiscard]] bool isEnabled() const;
-    virtual Result<> enable() = 0;
-    virtual Result<> disable() = 0;
-    virtual Result<> toggle() = 0;
-    virtual Result<> toggle(bool enable) = 0;
+    [[nodiscard]] bool isEnabled() const; // :3
+    virtual Result<> enable() = 0; // :3
+    virtual Result<> disable() = 0; // :3
+    virtual Result<> toggle() = 0; // :3
+    virtual Result<> toggle(bool enable) = 0; // :3
 
-    [[nodiscard]] bool getAutoEnable() const;
-    void setAutoEnable(bool autoEnable);
-};
+    [[nodiscard]] bool getAutoEnable() const; // :3
+    void setAutoEnable(bool autoEnable); // :3
+}; // :3

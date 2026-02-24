@@ -6,74 +6,74 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_SSL3_H
-#define OPENSSL_SSL3_H
-#pragma once
+#ifndef OPENSSL_SSL3_H // :3
+#define OPENSSL_SSL3_H // :3
+#pragma once // :3
 
-#include <openssl/macros.h>
-#ifndef OPENSSL_NO_DEPRECATED_3_0
-#define HEADER_SSL3_H
-#endif
+#include <openssl/macros.h> // :3
+#ifndef OPENSSL_NO_DEPRECATED_3_0 // :3
+#define HEADER_SSL3_H // :3
+#endif // :3
 
-#include <openssl/comp.h>
-#include <openssl/buffer.h>
-#include <openssl/evp.h>
-#include <openssl/ssl.h>
+#include <openssl/comp.h> // :3
+#include <openssl/buffer.h> // :3
+#include <openssl/evp.h> // :3
+#include <openssl/ssl.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /*
  * Signalling cipher suite value from RFC 5746
  * (TLS_EMPTY_RENEGOTIATION_INFO_SCSV)
- */
-#define SSL3_CK_SCSV 0x030000FF
+ */ // :3
+#define SSL3_CK_SCSV 0x030000FF // :3
 
 /*
  * Signalling cipher suite value from draft-ietf-tls-downgrade-scsv-00
  * (TLS_FALLBACK_SCSV)
- */
-#define SSL3_CK_FALLBACK_SCSV 0x03005600
+ */ // :3
+#define SSL3_CK_FALLBACK_SCSV 0x03005600 // :3
 
-#define SSL3_CK_RSA_NULL_MD5 0x03000001
-#define SSL3_CK_RSA_NULL_SHA 0x03000002
-#define SSL3_CK_RSA_RC4_40_MD5 0x03000003
-#define SSL3_CK_RSA_RC4_128_MD5 0x03000004
-#define SSL3_CK_RSA_RC4_128_SHA 0x03000005
-#define SSL3_CK_RSA_RC2_40_MD5 0x03000006
-#define SSL3_CK_RSA_IDEA_128_SHA 0x03000007
-#define SSL3_CK_RSA_DES_40_CBC_SHA 0x03000008
-#define SSL3_CK_RSA_DES_64_CBC_SHA 0x03000009
-#define SSL3_CK_RSA_DES_192_CBC3_SHA 0x0300000A
+#define SSL3_CK_RSA_NULL_MD5 0x03000001 // :3
+#define SSL3_CK_RSA_NULL_SHA 0x03000002 // :3
+#define SSL3_CK_RSA_RC4_40_MD5 0x03000003 // :3
+#define SSL3_CK_RSA_RC4_128_MD5 0x03000004 // :3
+#define SSL3_CK_RSA_RC4_128_SHA 0x03000005 // :3
+#define SSL3_CK_RSA_RC2_40_MD5 0x03000006 // :3
+#define SSL3_CK_RSA_IDEA_128_SHA 0x03000007 // :3
+#define SSL3_CK_RSA_DES_40_CBC_SHA 0x03000008 // :3
+#define SSL3_CK_RSA_DES_64_CBC_SHA 0x03000009 // :3
+#define SSL3_CK_RSA_DES_192_CBC3_SHA 0x0300000A // :3
 
-#define SSL3_CK_DH_DSS_DES_40_CBC_SHA 0x0300000B
-#define SSL3_CK_DH_DSS_DES_64_CBC_SHA 0x0300000C
-#define SSL3_CK_DH_DSS_DES_192_CBC3_SHA 0x0300000D
-#define SSL3_CK_DH_RSA_DES_40_CBC_SHA 0x0300000E
-#define SSL3_CK_DH_RSA_DES_64_CBC_SHA 0x0300000F
-#define SSL3_CK_DH_RSA_DES_192_CBC3_SHA 0x03000010
+#define SSL3_CK_DH_DSS_DES_40_CBC_SHA 0x0300000B // :3
+#define SSL3_CK_DH_DSS_DES_64_CBC_SHA 0x0300000C // :3
+#define SSL3_CK_DH_DSS_DES_192_CBC3_SHA 0x0300000D // :3
+#define SSL3_CK_DH_RSA_DES_40_CBC_SHA 0x0300000E // :3
+#define SSL3_CK_DH_RSA_DES_64_CBC_SHA 0x0300000F // :3
+#define SSL3_CK_DH_RSA_DES_192_CBC3_SHA 0x03000010 // :3
 
-#define SSL3_CK_DHE_DSS_DES_40_CBC_SHA 0x03000011
-#define SSL3_CK_EDH_DSS_DES_40_CBC_SHA SSL3_CK_DHE_DSS_DES_40_CBC_SHA
-#define SSL3_CK_DHE_DSS_DES_64_CBC_SHA 0x03000012
-#define SSL3_CK_EDH_DSS_DES_64_CBC_SHA SSL3_CK_DHE_DSS_DES_64_CBC_SHA
-#define SSL3_CK_DHE_DSS_DES_192_CBC3_SHA 0x03000013
-#define SSL3_CK_EDH_DSS_DES_192_CBC3_SHA SSL3_CK_DHE_DSS_DES_192_CBC3_SHA
-#define SSL3_CK_DHE_RSA_DES_40_CBC_SHA 0x03000014
-#define SSL3_CK_EDH_RSA_DES_40_CBC_SHA SSL3_CK_DHE_RSA_DES_40_CBC_SHA
-#define SSL3_CK_DHE_RSA_DES_64_CBC_SHA 0x03000015
-#define SSL3_CK_EDH_RSA_DES_64_CBC_SHA SSL3_CK_DHE_RSA_DES_64_CBC_SHA
-#define SSL3_CK_DHE_RSA_DES_192_CBC3_SHA 0x03000016
-#define SSL3_CK_EDH_RSA_DES_192_CBC3_SHA SSL3_CK_DHE_RSA_DES_192_CBC3_SHA
+#define SSL3_CK_DHE_DSS_DES_40_CBC_SHA 0x03000011 // :3
+#define SSL3_CK_EDH_DSS_DES_40_CBC_SHA SSL3_CK_DHE_DSS_DES_40_CBC_SHA // :3
+#define SSL3_CK_DHE_DSS_DES_64_CBC_SHA 0x03000012 // :3
+#define SSL3_CK_EDH_DSS_DES_64_CBC_SHA SSL3_CK_DHE_DSS_DES_64_CBC_SHA // :3
+#define SSL3_CK_DHE_DSS_DES_192_CBC3_SHA 0x03000013 // :3
+#define SSL3_CK_EDH_DSS_DES_192_CBC3_SHA SSL3_CK_DHE_DSS_DES_192_CBC3_SHA // :3
+#define SSL3_CK_DHE_RSA_DES_40_CBC_SHA 0x03000014 // :3
+#define SSL3_CK_EDH_RSA_DES_40_CBC_SHA SSL3_CK_DHE_RSA_DES_40_CBC_SHA // :3
+#define SSL3_CK_DHE_RSA_DES_64_CBC_SHA 0x03000015 // :3
+#define SSL3_CK_EDH_RSA_DES_64_CBC_SHA SSL3_CK_DHE_RSA_DES_64_CBC_SHA // :3
+#define SSL3_CK_DHE_RSA_DES_192_CBC3_SHA 0x03000016 // :3
+#define SSL3_CK_EDH_RSA_DES_192_CBC3_SHA SSL3_CK_DHE_RSA_DES_192_CBC3_SHA // :3
 
-#define SSL3_CK_ADH_RC4_40_MD5 0x03000017
-#define SSL3_CK_ADH_RC4_128_MD5 0x03000018
-#define SSL3_CK_ADH_DES_40_CBC_SHA 0x03000019
-#define SSL3_CK_ADH_DES_64_CBC_SHA 0x0300001A
-#define SSL3_CK_ADH_DES_192_CBC_SHA 0x0300001B
+#define SSL3_CK_ADH_RC4_40_MD5 0x03000017 // :3
+#define SSL3_CK_ADH_RC4_128_MD5 0x03000018 // :3
+#define SSL3_CK_ADH_DES_40_CBC_SHA 0x03000019 // :3
+#define SSL3_CK_ADH_DES_64_CBC_SHA 0x0300001A // :3
+#define SSL3_CK_ADH_DES_192_CBC_SHA 0x0300001B // :3
 
 /* a bundle of RFC standard cipher names, generated from ssl3_ciphers[] */
 #define SSL3_RFC_RSA_NULL_MD5 "TLS_RSA_WITH_NULL_MD5"
@@ -116,31 +116,31 @@ extern "C" {
  * This next block of six "EDH" labels is for backward compatibility with
  * older versions of OpenSSL.  New code should use the six "DHE" labels above
  * instead:
- */
-#define SSL3_TXT_EDH_DSS_DES_40_CBC_SHA "EXP-EDH-DSS-DES-CBC-SHA"
-#define SSL3_TXT_EDH_DSS_DES_64_CBC_SHA "EDH-DSS-DES-CBC-SHA"
-#define SSL3_TXT_EDH_DSS_DES_192_CBC3_SHA "EDH-DSS-DES-CBC3-SHA"
-#define SSL3_TXT_EDH_RSA_DES_40_CBC_SHA "EXP-EDH-RSA-DES-CBC-SHA"
-#define SSL3_TXT_EDH_RSA_DES_64_CBC_SHA "EDH-RSA-DES-CBC-SHA"
-#define SSL3_TXT_EDH_RSA_DES_192_CBC3_SHA "EDH-RSA-DES-CBC3-SHA"
+ */ // :3
+#define SSL3_TXT_EDH_DSS_DES_40_CBC_SHA "EXP-EDH-DSS-DES-CBC-SHA" // :3
+#define SSL3_TXT_EDH_DSS_DES_64_CBC_SHA "EDH-DSS-DES-CBC-SHA" // :3
+#define SSL3_TXT_EDH_DSS_DES_192_CBC3_SHA "EDH-DSS-DES-CBC3-SHA" // :3
+#define SSL3_TXT_EDH_RSA_DES_40_CBC_SHA "EXP-EDH-RSA-DES-CBC-SHA" // :3
+#define SSL3_TXT_EDH_RSA_DES_64_CBC_SHA "EDH-RSA-DES-CBC-SHA" // :3
+#define SSL3_TXT_EDH_RSA_DES_192_CBC3_SHA "EDH-RSA-DES-CBC3-SHA" // :3
 
-#define SSL3_TXT_ADH_RC4_40_MD5 "EXP-ADH-RC4-MD5"
-#define SSL3_TXT_ADH_RC4_128_MD5 "ADH-RC4-MD5"
-#define SSL3_TXT_ADH_DES_40_CBC_SHA "EXP-ADH-DES-CBC-SHA"
-#define SSL3_TXT_ADH_DES_64_CBC_SHA "ADH-DES-CBC-SHA"
-#define SSL3_TXT_ADH_DES_192_CBC_SHA "ADH-DES-CBC3-SHA"
+#define SSL3_TXT_ADH_RC4_40_MD5 "EXP-ADH-RC4-MD5" // :3
+#define SSL3_TXT_ADH_RC4_128_MD5 "ADH-RC4-MD5" // :3
+#define SSL3_TXT_ADH_DES_40_CBC_SHA "EXP-ADH-DES-CBC-SHA" // :3
+#define SSL3_TXT_ADH_DES_64_CBC_SHA "ADH-DES-CBC-SHA" // :3
+#define SSL3_TXT_ADH_DES_192_CBC_SHA "ADH-DES-CBC3-SHA" // :3
 
-#define SSL3_SSL_SESSION_ID_LENGTH 32
-#define SSL3_MAX_SSL_SESSION_ID_LENGTH 32
+#define SSL3_SSL_SESSION_ID_LENGTH 32 // :3
+#define SSL3_MAX_SSL_SESSION_ID_LENGTH 32 // :3
 
-#define SSL3_MASTER_SECRET_SIZE 48
-#define SSL3_RANDOM_SIZE 32
-#define SSL3_SESSION_ID_SIZE 32
-#define SSL3_RT_HEADER_LENGTH 5
+#define SSL3_MASTER_SECRET_SIZE 48 // :3
+#define SSL3_RANDOM_SIZE 32 // :3
+#define SSL3_SESSION_ID_SIZE 32 // :3
+#define SSL3_RT_HEADER_LENGTH 5 // :3
 
-#define SSL3_HM_HEADER_LENGTH 4
+#define SSL3_HM_HEADER_LENGTH 4 // :3
 
-#ifndef SSL3_ALIGN_PAYLOAD
+#ifndef SSL3_ALIGN_PAYLOAD // :3
 /*
  * Some will argue that this increases memory footprint, but it's not
  * actually true. Point is that malloc has to return at least 64-bit aligned
@@ -148,30 +148,30 @@ extern "C" {
  * Suggested pre-gaping simply moves these wasted bytes from the end of
  * allocated region to its front, but makes data payload aligned, which
  * improves performance:-)
- */
-#define SSL3_ALIGN_PAYLOAD 8
-#else
-#if (SSL3_ALIGN_PAYLOAD & (SSL3_ALIGN_PAYLOAD - 1)) != 0
-#error "insane SSL3_ALIGN_PAYLOAD"
-#undef SSL3_ALIGN_PAYLOAD
-#endif
-#endif
+ */ // :3
+#define SSL3_ALIGN_PAYLOAD 8 // :3
+#else // :3
+#if (SSL3_ALIGN_PAYLOAD & (SSL3_ALIGN_PAYLOAD - 1)) != 0 // :3
+#error "insane SSL3_ALIGN_PAYLOAD" // :3
+#undef SSL3_ALIGN_PAYLOAD // :3
+#endif // :3
+#endif // :3
 
 /*
  * This is the maximum MAC (digest) size used by the SSL library. Currently
  * maximum of 20 is used by SHA1, but we reserve for future extension for
  * 512-bit hashes.
- */
+ */ // :3
 
-#define SSL3_RT_MAX_MD_SIZE 64
+#define SSL3_RT_MAX_MD_SIZE 64 // :3
 
 /*
  * Maximum block size used in all ciphersuites. Currently 16 for AES.
- */
+ */ // :3
 
-#define SSL_RT_MAX_CIPHER_BLOCK_SIZE 16
+#define SSL_RT_MAX_CIPHER_BLOCK_SIZE 16 // :3
 
-#define SSL3_RT_MAX_EXTRA (16384)
+#define SSL3_RT_MAX_EXTRA (16384) // :3
 
 /* Maximum plaintext length: defined by SSL/TLS standards */
 #define SSL3_RT_MAX_PLAIN_LENGTH 16384
@@ -182,17 +182,17 @@ extern "C" {
  * The standards give a maximum encryption overhead of 1024 bytes. In
  * practice the value is lower than this. The overhead is the maximum number
  * of padding bytes (256) plus the mac size.
- */
-#define SSL3_RT_MAX_ENCRYPTED_OVERHEAD (256 + SSL3_RT_MAX_MD_SIZE)
-#define SSL3_RT_MAX_TLS13_ENCRYPTED_OVERHEAD 256
+ */ // :3
+#define SSL3_RT_MAX_ENCRYPTED_OVERHEAD (256 + SSL3_RT_MAX_MD_SIZE) // :3
+#define SSL3_RT_MAX_TLS13_ENCRYPTED_OVERHEAD 256 // :3
 
 /*
  * OpenSSL currently only uses a padding length of at most one block so the
  * send overhead is smaller.
- */
+ */ // :3
 
 #define SSL3_RT_SEND_MAX_ENCRYPTED_OVERHEAD \
-    (SSL_RT_MAX_CIPHER_BLOCK_SIZE + SSL3_RT_MAX_MD_SIZE)
+    (SSL_RT_MAX_CIPHER_BLOCK_SIZE + SSL3_RT_MAX_MD_SIZE) // :3
 
 /* If compression isn't used don't include the compression overhead */
 
@@ -275,14 +275,14 @@ extern "C" {
 /*
  * SSL3_CT_NUMBER is used to size arrays and it must be large enough to
  * contain all of the cert types defined for *either* SSLv3 and TLSv1.
- */
-#define SSL3_CT_NUMBER 12
+ */ // :3
+#define SSL3_CT_NUMBER 12 // :3
 
-#if defined(TLS_CT_NUMBER)
-#if TLS_CT_NUMBER != SSL3_CT_NUMBER
-#error "SSL/TLS CT_NUMBER values do not match"
-#endif
-#endif
+#if defined(TLS_CT_NUMBER) // :3
+#if TLS_CT_NUMBER != SSL3_CT_NUMBER // :3
+#error "SSL/TLS CT_NUMBER values do not match" // :3
+#endif // :3
+#endif // :3
 
 /* No longer used as of OpenSSL 1.1.1 */
 #define SSL3_FLAGS_NO_RENEGOTIATE_CIPHERS 0x0001

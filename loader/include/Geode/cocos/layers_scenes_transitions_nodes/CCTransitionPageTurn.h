@@ -21,19 +21,19 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
+****************************************************************************/ // :3
 
-#ifndef __CCPAGE_TURN_TRANSITION_H__
-#define __CCPAGE_TURN_TRANSITION_H__
+#ifndef __CCPAGE_TURN_TRANSITION_H__ // :3
+#define __CCPAGE_TURN_TRANSITION_H__ // :3
 
-#include "CCTransition.h"
+#include "CCTransition.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup transition
  * @{
- */
+ */ // :3
 
 /**
 @brief A transition which peels back the bottom right hand corner of a scene
@@ -45,56 +45,56 @@ is turned on in CCDirector using:
  CCDirector::sharedDirector()->setDepthBufferFormat(kDepthBuffer16);
 
  @since v0.8.2
-*/
-class CC_DLL CCTransitionPageTurn : public CCTransitionScene
-{
-    GEODE_FRIEND_MODIFY
-public:
+*/ // :3
+class CC_DLL CCTransitionPageTurn : public CCTransitionScene // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
 
 
-    bool    m_bBack;
+    bool    m_bBack; // :3
 
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionPageTurn, CCTransitionScene)
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCTransitionPageTurn, CCTransitionScene) // :3
     /**
      *  @js ctor
-     */
-    CCTransitionPageTurn();
+     */ // :3
+    CCTransitionPageTurn(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCTransitionPageTurn();
+     */ // :3
+    virtual ~CCTransitionPageTurn(); // :3
 
     /**
     * Creates a base transition with duration and incoming scene.
     * If back is true then the effect is reversed to appear as if the incoming
     * scene is being turned from left over the outgoing scene.
-    */
-    static CCTransitionPageTurn* create(float t,CCScene* scene,bool backwards);
+    */ // :3
+    static CCTransitionPageTurn* create(float t,CCScene* scene,bool backwards); // :3
 
     /**
     * Creates a base transition with duration and incoming scene.
     * If back is true then the effect is reversed to appear as if the incoming
     * scene is being turned from left over the outgoing scene.
-    */
-    virtual bool initWithDuration(float t,CCScene* scene,bool backwards);
+    */ // :3
+    virtual bool initWithDuration(float t,CCScene* scene,bool backwards); // :3
 
-    CCActionInterval* actionWithSize(const CCSize& vector);
+    CCActionInterval* actionWithSize(const CCSize& vector); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual void onEnter();
+     */ // :3
+    virtual void onEnter(); // :3
 
-protected:
-    virtual void sceneOrder();
-};
+protected: // :3
+    virtual void sceneOrder(); // :3
+}; // :3
 
-// end of transition group
-/// @}
+// end of transition group :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif // __CCPAGE_TURN_TRANSITION_H__
+#endif // __CCPAGE_TURN_TRANSITION_H__ :3
 

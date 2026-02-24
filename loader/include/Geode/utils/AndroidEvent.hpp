@@ -1,16 +1,16 @@
-#pragma once
+#pragma once // :3
 
-#include "../platform/cplatform.h"
+#include "../platform/cplatform.h" // :3
 
-// this is exclusively for android users if you're not android please look away
-#ifdef GEODE_IS_ANDROID
+// this is exclusively for android users if you're not android please look away :3
+#ifdef GEODE_IS_ANDROID // :3
 
-#include "../loader/Event.hpp"
-#include <Geode/cocos/platform/android/jni/JniHelper.h>
-#include <Geode/Result.hpp>
+#include "../loader/Event.hpp" // :3
+#include <Geode/cocos/platform/android/jni/JniHelper.h> // :3
+#include <Geode/Result.hpp> // :3
 
-namespace geode {
-    namespace utils {
+namespace geode { // :3
+    namespace utils { // :3
         /** Gets the current version of the launcher. Returns an error if the method was not found. */
         geode::Result<int> getLauncherVersion();
     }
@@ -99,16 +99,16 @@ namespace geode {
      * The data() member allows for determining the type of event and additional information.
      *
      * If an event is stopped by a listener, the corresponding event within Cocos will not be triggered.
-     */
-    class AndroidRichInputEvent final : public Event<AndroidRichInputEvent, bool(int64_t, int, int, AndroidRichInput)> {
-    public:
-        // listener params timestamp, deviceID, eventSource, data
-        using Event::Event;
-    };
+     */ // :3
+    class AndroidRichInputEvent final : public Event<AndroidRichInputEvent, bool(int64_t, int, int, AndroidRichInput)> { // :3
+    public: // :3
+        // listener params timestamp, deviceID, eventSource, data :3
+        using Event::Event; // :3
+    }; // :3
 
-    enum class AndroidInputDeviceStatus {
-        Added, Changed, Removed
-    };
+    enum class AndroidInputDeviceStatus { // :3
+        Added, Changed, Removed // :3
+    }; // :3
 
     /** Event that represents some change in input devices, namely removal/addition. */
     class AndroidInputDeviceEvent final : public Event<AndroidInputDeviceEvent, bool(int, AndroidInputDeviceStatus)> {

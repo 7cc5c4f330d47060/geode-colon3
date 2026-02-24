@@ -21,18 +21,18 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
 ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+*/ // :3
 
-#ifndef VEC2_H_INCLUDED
-#define VEC2_H_INCLUDED
+#ifndef VEC2_H_INCLUDED // :3
+#define VEC2_H_INCLUDED // :3
 
-#include "../../../platform/CCPlatformMacros.h"
+#include "../../../platform/CCPlatformMacros.h" // :3
 
-struct kmMat3;
+struct kmMat3; // :3
 
-#ifndef kmScalar
-#define kmScalar float
-#endif
+#ifndef kmScalar // :3
+#define kmScalar float // :3
+#endif // :3
 
 #pragma pack(push)  /* push current alignment to stack */
 #pragma pack(1)     /* set alignment to 1 byte boundary */

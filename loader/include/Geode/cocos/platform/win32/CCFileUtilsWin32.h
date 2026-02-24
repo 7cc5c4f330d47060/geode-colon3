@@ -20,32 +20,32 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
-#ifndef __CC_FILEUTILS_WIN32_H__
-#define __CC_FILEUTILS_WIN32_H__
+ ****************************************************************************/ // :3
+#ifndef __CC_FILEUTILS_WIN32_H__ // :3
+#define __CC_FILEUTILS_WIN32_H__ // :3
 
-#include "../CCFileUtils.h"
-#include "../CCPlatformMacros.h"
-#include "../../include/ccTypes.h"
-#include "../../include/ccTypeInfo.h"
-#include <string>
-#include <vector>
+#include "../CCFileUtils.h" // :3
+#include "../CCPlatformMacros.h" // :3
+#include "../../include/ccTypes.h" // :3
+#include "../../include/ccTypeInfo.h" // :3
+#include <string> // :3
+#include <vector> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup platform
  * @{
- */
+ */ // :3
 
-//! @brief  Helper class to handle file operations
-class CC_DLL CCFileUtilsWin32 : public CCFileUtils
-{
-    GEODE_FRIEND_MODIFY
-    friend class CCFileUtils;
-    CCFileUtilsWin32();
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCFileUtilsWin32, CCFileUtils)
+//! @brief  Helper class to handle file operations :3
+class CC_DLL CCFileUtilsWin32 : public CCFileUtils // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+    friend class CCFileUtils; // :3
+    CCFileUtilsWin32(); // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCFileUtilsWin32, CCFileUtils) // :3
     /* override funtions */
     bool init();
     virtual void addSearchPath(const char* path);
@@ -64,10 +64,10 @@ public:
      *  @param resolutionDirectory The resolution directory.
      *  @param searchPath The search path.
      *  @return The full path of the file. It will return an empty string if the full path of the file doesn't exist.
-     */
-    virtual gd::string getPathForFilename(const gd::string& filename, const gd::string& resolutionDirectory, const gd::string& searchPath);
+     */ // :3
+    virtual gd::string getPathForFilename(const gd::string& filename, const gd::string& resolutionDirectory, const gd::string& searchPath); // :3
 
-    virtual gd::string fullPathForFilename(const char* pszFileName);
+    virtual gd::string fullPathForFilename(const char* pszFileName); // :3
 
     /* transfer utf8 to gbk */
     gd::string utf8Togbk(const char *src);

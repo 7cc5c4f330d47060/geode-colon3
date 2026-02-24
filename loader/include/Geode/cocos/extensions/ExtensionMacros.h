@@ -20,14 +20,14 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
- ****************************************************************************/
+ ****************************************************************************/ // :3
 
-#ifndef __EXTENSIONMARCROS_H__
-#define __EXTENSIONMARCROS_H__
+#ifndef __EXTENSIONMARCROS_H__ // :3
+#define __EXTENSIONMARCROS_H__ // :3
 
-#define NS_CC_EXT_BEGIN                     namespace cocos2d { namespace extension {
-#define NS_CC_EXT_END                       }}
-#define USING_NS_CC_EXT                     using namespace cocos2d::extension
+#define NS_CC_EXT_BEGIN                     namespace cocos2d { namespace extension { // :3
+#define NS_CC_EXT_END                       }} // :3
+#define USING_NS_CC_EXT                     using namespace cocos2d::extension // :3
 
 
 #endif /* __EXTENSIONMARCROS_H__ */

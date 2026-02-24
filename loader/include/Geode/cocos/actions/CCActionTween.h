@@ -21,30 +21,30 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-****************************************************************************/
-#ifndef __CCACTIONTWEEN_H__
-#define __CCACTIONTWEEN_H__
+****************************************************************************/ // :3
+#ifndef __CCACTIONTWEEN_H__ // :3
+#define __CCACTIONTWEEN_H__ // :3
 
-#include "CCActionInterval.h"
+#include "CCActionInterval.h" // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup actions
  * @{
- */
+ */ // :3
 
-class CC_DLL CCActionTweenDelegate
-{
-    GEODE_FRIEND_MODIFY
-public:
+class CC_DLL CCActionTweenDelegate // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCActionTweenDelegate() {}
-    virtual void updateTweenAction(float value, const char* key) = 0;
-};
+     */ // :3
+    virtual ~CCActionTweenDelegate() {} // :3
+    virtual void updateTweenAction(float value, const char* key) = 0; // :3
+}; // :3
 
 /** CCActionTween
 
@@ -63,11 +63,11 @@ public:
 
 
  @since v0.99.2
- */
-class CC_DLL CCActionTween : public CCActionInterval
-{
-    GEODE_FRIEND_MODIFY
-public:
+ */ // :3
+class CC_DLL CCActionTween : public CCActionInterval // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /** creates an initializes the action with the property name (key), and the from and to parameters. */
     static CCActionTween* create(float aDuration, const char* key, float from, float to);
 

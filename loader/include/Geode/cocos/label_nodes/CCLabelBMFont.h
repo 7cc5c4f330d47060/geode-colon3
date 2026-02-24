@@ -29,116 +29,116 @@ Use any of these editors to generate BMFonts:
   http://slick.cokeandcode.com/demos/hiero.jnlp (Free, Java)
   http://www.angelcode.com/products/bmfont/ (Free, Windows only)
 
-****************************************************************************/
-#ifndef __CCBITMAP_FONT_ATLAS_H__
-#define __CCBITMAP_FONT_ATLAS_H__
+****************************************************************************/ // :3
+#ifndef __CCBITMAP_FONT_ATLAS_H__ // :3
+#define __CCBITMAP_FONT_ATLAS_H__ // :3
 
-#include "../sprite_nodes/CCSpriteBatchNode.h"
-#include "../support/data_support/uthash.h"
-#include <map>
-#include <sstream>
-#include <iostream>
-#include <vector>
+#include "../sprite_nodes/CCSpriteBatchNode.h" // :3
+#include "../support/data_support/uthash.h" // :3
+#include <map> // :3
+#include <sstream> // :3
+#include <iostream> // :3
+#include <vector> // :3
 
-NS_CC_BEGIN
+NS_CC_BEGIN // :3
 
 /**
  * @addtogroup GUI
  * @{
  * @addtogroup label
  * @{
- */
+ */ // :3
 
-enum {
-    kCCLabelAutomaticWidth = -1,
-};
+enum { // :3
+    kCCLabelAutomaticWidth = -1, // :3
+}; // :3
 
-struct _FontDefHashElement;
+struct _FontDefHashElement; // :3
 
 /**
 @struct ccBMFontDef
 BMFont definition
-*/
-typedef struct _BMFontDef {
-    //! ID of the character
-    unsigned int charID;
-    //! origin and size of the font
-    CCRect rect;
-    //! The X amount the image should be offset when drawing the image (in pixels)
-    short xOffset;
-    //! The Y amount the image should be offset when drawing the image (in pixels)
-    short yOffset;
-    //! The amount to move the current position after drawing the character (in pixels)
-    short xAdvance;
-} ccBMFontDef;
+*/ // :3
+typedef struct _BMFontDef { // :3
+    //! ID of the character :3
+    unsigned int charID; // :3
+    //! origin and size of the font :3
+    CCRect rect; // :3
+    //! The X amount the image should be offset when drawing the image (in pixels) :3
+    short xOffset; // :3
+    //! The Y amount the image should be offset when drawing the image (in pixels) :3
+    short yOffset; // :3
+    //! The amount to move the current position after drawing the character (in pixels) :3
+    short xAdvance; // :3
+} ccBMFontDef; // :3
 
 /** @struct ccBMFontPadding
 BMFont padding
 @since v0.8.2
-*/
-typedef struct _BMFontPadding {
-    /// padding left
-    int    left;
-    /// padding top
-    int top;
-    /// padding right
-    int right;
-    /// padding bottom
-    int bottom;
-} ccBMFontPadding;
+*/ // :3
+typedef struct _BMFontPadding { // :3
+    /// padding left :3
+    int    left; // :3
+    /// padding top :3
+    int top; // :3
+    /// padding right :3
+    int right; // :3
+    /// padding bottom :3
+    int bottom; // :3
+} ccBMFontPadding; // :3
 
-typedef struct _FontDefHashElement
-{
-	unsigned int	key;		// key. Font Unicode value
-	ccBMFontDef		fontDef;	// font definition
-	UT_hash_handle	hh;
-} tCCFontDefHashElement;
+typedef struct _FontDefHashElement // :3
+{ // :3
+	unsigned int	key;		// key. Font Unicode value :3
+	ccBMFontDef		fontDef;	// font definition :3
+	UT_hash_handle	hh; // :3
+} tCCFontDefHashElement; // :3
 
-// Equal function for targetSet.
-typedef struct _KerningHashElement
-{
-	int				key;		// key for the hash. 16-bit for 1st element, 16-bit for 2nd element
-	int				amount;
-	UT_hash_handle	hh;
-} tCCKerningHashElement;
+// Equal function for targetSet. :3
+typedef struct _KerningHashElement // :3
+{ // :3
+	int				key;		// key for the hash. 16-bit for 1st element, 16-bit for 2nd element :3
+	int				amount; // :3
+	UT_hash_handle	hh; // :3
+} tCCKerningHashElement; // :3
 
 /** @brief CCBMFontConfiguration has parsed configuration of the the .fnt file
 @since v0.8
 @js NA
 @lua NA
-*/
-class CC_DLL CCBMFontConfiguration : public CCObject
-{
-    GEODE_FRIEND_MODIFY
-    // XXX: Creating a public interface so that the bitmapFontArray[] is accessible
-public://@public
-    // BMFont definitions
-    tCCFontDefHashElement *m_pFontDefDictionary;
+*/ // :3
+class CC_DLL CCBMFontConfiguration : public CCObject // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+    // XXX: Creating a public interface so that the bitmapFontArray[] is accessible :3
+public://@public :3
+    // BMFont definitions :3
+    tCCFontDefHashElement *m_pFontDefDictionary; // :3
 
-    //! FNTConfig: Common Height Should be signed (issue #1343)
-    int m_nCommonHeight;
-    //! Padding
-    ccBMFontPadding    m_tPadding;
-    //! atlas name
-    gd::string m_sAtlasName;
-    //! values for kerning
-    tCCKerningHashElement *m_pKerningDictionary;
+    //! FNTConfig: Common Height Should be signed (issue #1343) :3
+    int m_nCommonHeight; // :3
+    //! Padding :3
+    ccBMFontPadding    m_tPadding; // :3
+    //! atlas name :3
+    gd::string m_sAtlasName; // :3
+    //! values for kerning :3
+    tCCKerningHashElement *m_pKerningDictionary; // :3
 
-    // Character Set defines the letters that actually exist in the font
-    gd::set<unsigned int> *m_pCharacterSet;
-public:
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCBMFontConfiguration, CCObject)
-    CCBMFontConfiguration();
+    // Character Set defines the letters that actually exist in the font :3
+    gd::set<unsigned int> *m_pCharacterSet; // :3
+public: // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCBMFontConfiguration, CCObject) // :3
+    CCBMFontConfiguration(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCBMFontConfiguration();
+     */ // :3
+    virtual ~CCBMFontConfiguration(); // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    const char * description();
+     */ // :3
+    const char * description(); // :3
 
     /** allocates a CCBMFontConfiguration with a FNT file */
     static CCBMFontConfiguration * create(const char *FNTfile);
@@ -189,27 +189,27 @@ http://slick.cokeandcode.com/demos/hiero.jnlp (Free, Java)
 http://www.angelcode.com/products/bmfont/ (Free, Windows only)
 
 @since v0.8
-*/
+*/ // :3
 
-class CC_DLL CCLabelBMFont : public CCSpriteBatchNode, public CCLabelProtocol, public CCRGBAProtocol
-{
-    GEODE_FRIEND_MODIFY
-public:
+class CC_DLL CCLabelBMFont : public CCSpriteBatchNode, public CCLabelProtocol, public CCRGBAProtocol // :3
+{ // :3
+    GEODE_FRIEND_MODIFY // :3
+public: // :3
     /**
      *  @js ctor
-     */
-    CCLabelBMFont();
-    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCLabelBMFont, CCSpriteBatchNode)
+     */ // :3
+    CCLabelBMFont(); // :3
+    GEODE_CUSTOM_CONSTRUCTOR_COCOS(CCLabelBMFont, CCSpriteBatchNode) // :3
     /**
      *  @js NA
      *  @lua NA
-     */
-    virtual ~CCLabelBMFont();
+     */ // :3
+    virtual ~CCLabelBMFont(); // :3
     /** Purges the cached data.
     Removes from memory the cached configurations and the atlas name dictionary.
     @since v0.99.3
-    */
-    static void purgeCachedData();
+    */ // :3
+    static void purgeCachedData(); // :3
 
     /** creates a bitmap font atlas with an initial string and the FNT file */
     static CCLabelBMFont * create(const char *str, const char *fntFile, float width, CCTextAlignment alignment, CCPoint imageOffset);
@@ -221,10 +221,10 @@ public:
 	static CCLabelBMFont * create(const char *str, const char *fntFile);
 
     /** Creates an label.
-     */
-    static CCLabelBMFont * create();
+     */ // :3
+    static CCLabelBMFont * create(); // :3
 
-    bool init();
+    bool init(); // :3
     /** init a bitmap font atlas with an initial string and the FNT file */
     bool initWithString(const char *str, const char *fntFile, float width = kCCLabelAutomaticWidth, CCTextAlignment alignment = kCCTextAlignmentLeft, CCPoint imageOffset = CCPointZero);
 
@@ -329,16 +329,16 @@ public:
 };
 
 /** Free function that parses a FNT file a place it on the cache
-*/
-CC_DLL CCBMFontConfiguration * FNTConfigLoadFile( const char *file );
+*/ // :3
+CC_DLL CCBMFontConfiguration * FNTConfigLoadFile( const char *file ); // :3
 /** Purges the FNT config cache
-*/
-CC_DLL void FNTConfigRemoveCache( void );
+*/ // :3
+CC_DLL void FNTConfigRemoveCache( void ); // :3
 
-// end of GUI group
-/// @}
-/// @}
+// end of GUI group :3
+/// @} :3
+/// @} :3
 
-NS_CC_END
+NS_CC_END // :3
 
-#endif //__CCBITMAP_FONT_ATLAS_H__
+#endif //__CCBITMAP_FONT_ATLAS_H__ :3

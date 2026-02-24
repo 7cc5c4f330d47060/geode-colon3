@@ -1,15 +1,15 @@
-#ifndef __CCPLATFORMDEFINE_H__
-#define __CCPLATFORMDEFINE_H__
+#ifndef __CCPLATFORMDEFINE_H__ // :3
+#define __CCPLATFORMDEFINE_H__ // :3
 
-#include <assert.h>
+#include <assert.h> // :3
 
-#define CC_DLL //__attribute__((visibility("hidden")))
-#define ACTUAL_CC_DLL
+#define CC_DLL //__attribute__((visibility("hidden"))) :3
+#define ACTUAL_CC_DLL // :3
 
-#define CC_ASSERT(cond) assert(cond)
+#define CC_ASSERT(cond) assert(cond) // :3
 
 
-#define CC_UNUSED_PARAM(unusedparam) (void)unusedparam
+#define CC_UNUSED_PARAM(unusedparam) (void)unusedparam // :3
 
 /* Define NULL pointer value */
 #ifndef NULL

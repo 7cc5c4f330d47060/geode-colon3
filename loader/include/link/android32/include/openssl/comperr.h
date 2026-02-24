@@ -6,31 +6,31 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
-#ifndef OPENSSL_COMPERR_H
-#define OPENSSL_COMPERR_H
-#pragma once
+#ifndef OPENSSL_COMPERR_H // :3
+#define OPENSSL_COMPERR_H // :3
+#pragma once // :3
 
-#include <openssl/opensslconf.h>
-#include <openssl/symhacks.h>
-#include <openssl/cryptoerr_legacy.h>
+#include <openssl/opensslconf.h> // :3
+#include <openssl/symhacks.h> // :3
+#include <openssl/cryptoerr_legacy.h> // :3
 
-#ifndef OPENSSL_NO_COMP
+#ifndef OPENSSL_NO_COMP // :3
 
 /*
  * COMP reason codes.
- */
-#define COMP_R_BROTLI_DECODE_ERROR 102
-#define COMP_R_BROTLI_ENCODE_ERROR 103
-#define COMP_R_BROTLI_NOT_SUPPORTED 104
-#define COMP_R_ZLIB_DEFLATE_ERROR 99
-#define COMP_R_ZLIB_INFLATE_ERROR 100
-#define COMP_R_ZLIB_NOT_SUPPORTED 101
-#define COMP_R_ZSTD_COMPRESS_ERROR 105
-#define COMP_R_ZSTD_DECODE_ERROR 106
-#define COMP_R_ZSTD_DECOMPRESS_ERROR 107
-#define COMP_R_ZSTD_NOT_SUPPORTED 108
+ */ // :3
+#define COMP_R_BROTLI_DECODE_ERROR 102 // :3
+#define COMP_R_BROTLI_ENCODE_ERROR 103 // :3
+#define COMP_R_BROTLI_NOT_SUPPORTED 104 // :3
+#define COMP_R_ZLIB_DEFLATE_ERROR 99 // :3
+#define COMP_R_ZLIB_INFLATE_ERROR 100 // :3
+#define COMP_R_ZLIB_NOT_SUPPORTED 101 // :3
+#define COMP_R_ZSTD_COMPRESS_ERROR 105 // :3
+#define COMP_R_ZSTD_DECODE_ERROR 106 // :3
+#define COMP_R_ZSTD_DECOMPRESS_ERROR 107 // :3
+#define COMP_R_ZSTD_NOT_SUPPORTED 108 // :3
 
-#endif
-#endif
+#endif // :3
+#endif // :3

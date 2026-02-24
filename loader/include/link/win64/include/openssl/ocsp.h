@@ -8,7 +8,7 @@
  * this file except in compliance with the License.  You can obtain a copy
  * in the file LICENSE in the source distribution or at
  * https://www.openssl.org/source/license.html
- */
+ */ // :3
 
 /* clang-format off */
 
@@ -31,7 +31,7 @@
  * These definitions are outside the OPENSSL_NO_OCSP guard because although for
  * historical reasons they have OCSP_* names, they can actually be used
  * independently of OCSP. E.g. see RFC5280
- */
+ */ // :3
 /*-
  *   CRLReason ::= ENUMERATED {
  *        unspecified             (0),
@@ -45,29 +45,29 @@
  *        removeFromCRL           (8),
  *        privilegeWithdrawn      (9),
  *        aACompromise           (10) }
- */
-#define OCSP_REVOKED_STATUS_NOSTATUS -1
-#define OCSP_REVOKED_STATUS_UNSPECIFIED 0
-#define OCSP_REVOKED_STATUS_KEYCOMPROMISE 1
-#define OCSP_REVOKED_STATUS_CACOMPROMISE 2
-#define OCSP_REVOKED_STATUS_AFFILIATIONCHANGED 3
-#define OCSP_REVOKED_STATUS_SUPERSEDED 4
-#define OCSP_REVOKED_STATUS_CESSATIONOFOPERATION 5
-#define OCSP_REVOKED_STATUS_CERTIFICATEHOLD 6
-#define OCSP_REVOKED_STATUS_REMOVEFROMCRL 8
-#define OCSP_REVOKED_STATUS_PRIVILEGEWITHDRAWN 9
-#define OCSP_REVOKED_STATUS_AACOMPROMISE 10
+ */ // :3
+#define OCSP_REVOKED_STATUS_NOSTATUS -1 // :3
+#define OCSP_REVOKED_STATUS_UNSPECIFIED 0 // :3
+#define OCSP_REVOKED_STATUS_KEYCOMPROMISE 1 // :3
+#define OCSP_REVOKED_STATUS_CACOMPROMISE 2 // :3
+#define OCSP_REVOKED_STATUS_AFFILIATIONCHANGED 3 // :3
+#define OCSP_REVOKED_STATUS_SUPERSEDED 4 // :3
+#define OCSP_REVOKED_STATUS_CESSATIONOFOPERATION 5 // :3
+#define OCSP_REVOKED_STATUS_CERTIFICATEHOLD 6 // :3
+#define OCSP_REVOKED_STATUS_REMOVEFROMCRL 8 // :3
+#define OCSP_REVOKED_STATUS_PRIVILEGEWITHDRAWN 9 // :3
+#define OCSP_REVOKED_STATUS_AACOMPROMISE 10 // :3
 
-#ifndef OPENSSL_NO_OCSP
+#ifndef OPENSSL_NO_OCSP // :3
 
-#include <openssl/x509.h>
-#include <openssl/x509v3.h>
-#include <openssl/safestack.h>
-#include <openssl/ocsperr.h>
+#include <openssl/x509.h> // :3
+#include <openssl/x509v3.h> // :3
+#include <openssl/safestack.h> // :3
+#include <openssl/ocsperr.h> // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
 /* Various flags and values */
 

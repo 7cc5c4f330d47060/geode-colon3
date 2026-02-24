@@ -1,5 +1,5 @@
-#ifndef CURLINC_HEADER_H
-#define CURLINC_HEADER_H
+#ifndef CURLINC_HEADER_H // :3
+#define CURLINC_HEADER_H // :3
 /***************************************************************************
  *                                  _   _ ____  _
  *  Project                     ___| | | |  _ \| |
@@ -22,13 +22,13 @@
  *
  * SPDX-License-Identifier: curl
  *
- ***************************************************************************/
+ ***************************************************************************/ // :3
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#ifdef __cplusplus // :3
+extern "C" { // :3
+#endif // :3
 
-struct curl_header {
+struct curl_header { // :3
   char *name;    /* this might not use the same case */
   char *value;
   size_t amount; /* number of headers using this name  */
